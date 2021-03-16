@@ -16,19 +16,19 @@ This is a play project that you can easily improve:
 __Let's start with a simple skeleton (no GUI), beginning with the `Contact` class__
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">class Contact {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;constructor(name, email) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; this.name = name;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; this.email = email;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;}</li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1">class Contact {</li>
+<li>&nbsp; &nbsp;constructor(name, email) {</li>
+<li>&nbsp; &nbsp; &nbsp; this.name = name;</li>
+<li>&nbsp; &nbsp; &nbsp; this.email = email;</li>
+<li>&nbsp; &nbsp;}</li>
+<li>}</li>
 </ol></div>
 
 As you can see, a contact is just a name and an email. We will use the above class like this:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var c1 = new Contact("Jimi Hendrix", "jimi@rip.com");</li>
-<li style="margin-bottom: 0px;">var c2 = new Contact("Robert Fripp", "robert.fripp@kingcrimson.com");</li>
+<li value="1">var c1 = new Contact("Jimi Hendrix", "jimi@rip.com");</li>
+<li>var c2 = new Contact("Robert Fripp", "robert.fripp@kingcrimson.com");</li>
 </ol></div>
 
 Then you can print the properties of contact `c1` or `c2` using for example `console.log(c1.name)`, `console.log(c2.email)`, etc.
@@ -37,38 +37,38 @@ Then you can print the properties of contact `c1` or `c2` using for example `con
 #### A minimal ContactManager class
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">class ContactManager {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; constructor() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // when we build the contact manager, it</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // has an empty list of contacts</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts = [];</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; add(contact) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts.push(contact);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; remove(contact) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // we iterate on the list of contacts until we find the contact</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // passed as a parameter (we say that they are equal if emails match)</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; for(let i = 0; i &lt; this.listOfContacts.length; i++) { </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var c = this.listOfContacts[i];</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(c.email === contact.email) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // remove the contact at index i</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts.splice(i, i);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // stop/exit the loop</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;};</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; printContactsToConsole() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts.forEach(function(c) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log(c.name);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; });</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; };</li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1">class ContactManager {</li>
+<li>&nbsp; &nbsp; constructor() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // when we build the contact manager, it</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // has an empty list of contacts</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts = [];</li>
+<li>&nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp; add(contact) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts.push(contact);</li>
+<li>&nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp; remove(contact) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // we iterate on the list of contacts until we find the contact</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // passed as a parameter (we say that they are equal if emails match)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; for(let i = 0; i &lt; this.listOfContacts.length; i++) { </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var c = this.listOfContacts[i];</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(c.email === contact.email) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // remove the contact at index i</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts.splice(i, i);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // stop/exit the loop</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;};</li>
+<li>&nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp; printContactsToConsole() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts.forEach(function(c) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log(c.name);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; });</li>
+<li>&nbsp; &nbsp; };</li>
+<li>}</li>
 </ol></div>
 
 
@@ -80,19 +80,19 @@ __Explanations:__
 We can use the contact manager like this:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var cm = new ContactManager();</li>
-<li style="margin-bottom: 0px;">var c1 = new Contact("Jimi Hendrix", "jimi@rip.com");</li>
-<li style="margin-bottom: 0px;">var c2 = new Contact("Robert Fripp", "robert.fripp@kingcrimson.com");</li>
-<li style="margin-bottom: 0px;">var c3 = new Contact("Angus Young", "angus@acdc.com");</li>
-<li style="margin-bottom: 0px;">var c4 = new Contact("Arnold Schwarzenneger", "T2@terminator.com");</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">console.log("--- Adding 4 contacts ---")</li>
-<li style="margin-bottom: 0px;">cm.add(c1);</li>
-<li style="margin-bottom: 0px;">cm.add(c2);</li>
-<li style="margin-bottom: 0px;">cm.add(c3);</li>
-<li style="margin-bottom: 0px;">cm.add(c4);</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">cm.printContactsToConsole();</li>
+<li value="1">var cm = new ContactManager();</li>
+<li>var c1 = new Contact("Jimi Hendrix", "jimi@rip.com");</li>
+<li>var c2 = new Contact("Robert Fripp", "robert.fripp@kingcrimson.com");</li>
+<li>var c3 = new Contact("Angus Young", "angus@acdc.com");</li>
+<li>var c4 = new Contact("Arnold Schwarzenneger", "T2@terminator.com");</li>
+<li>&nbsp;</li>
+<li>console.log("--- Adding 4 contacts ---")</li>
+<li>cm.add(c1);</li>
+<li>cm.add(c2);</li>
+<li>cm.add(c3);</li>
+<li>cm.add(c4);</li>
+<li>&nbsp;</li>
+<li>cm.printContactsToConsole();</li>
 </ol></div>
 
 As you can see, this is a very minimal version. It's always a good idea to start with very simple structures/classes, and a few methods. Then type the code on CodePen or JSBin and use the devtool console. Check that there are no syntax errors, that everything runs smoothly.
@@ -109,29 +109,29 @@ Here is the CodePen of this minimal version. Click on the CodePen label on the t
 Do you remember the `sort()` method you can use on arrays? We saw it in modules 2 or 3. Since our array contains objects, we must provide a callback for comparing two elements by name. Here is the code for the new sort() method we added to the ContactManager class:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">sort() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // As our array contains objects, we need to pass as argument</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // a method that can compare two contacts.</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // we use a class method, which is similar to the distance(p1, p2)</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // method we saw in the ES6 Point class in module 4</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // We always call such methods using the name of the class followed</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // by the dot operator</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong> this</strong><strong>.listOfContacts.sort(ContactManager.compareByName);</strong></li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;"> <strong>// class method for comparing two contacts by name</strong></li>
-<li style="margin-bottom: 0px;"> <strong>static compareByName</strong>(c1, c2) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // JavaScript has built in capabilities for comparing strings</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // in alphabetical order</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; if (c1.name &lt; c2.name)</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; return -1;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; if (c1.name &gt; c2.name)</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; return 1;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; return 0; // c1.name = c2.name</li>
-<li style="margin-bottom: 0px;"> }</li>
-<li style="margin-bottom: 0px;"> </li>
+<li value="1">sort() {</li>
+<li>&nbsp; &nbsp; // As our array contains objects, we need to pass as argument</li>
+<li>&nbsp; &nbsp; // a method that can compare two contacts.</li>
+<li>&nbsp; &nbsp; // we use a class method, which is similar to the distance(p1, p2)</li>
+<li>&nbsp; &nbsp; // method we saw in the ES6 Point class in module 4</li>
+<li>&nbsp; &nbsp; // We always call such methods using the name of the class followed</li>
+<li>&nbsp; &nbsp; // by the dot operator</li>
+<li>&nbsp; &nbsp;<strong> this</strong><strong>.listOfContacts.sort(ContactManager.compareByName);</strong></li>
+<li>}</li>
+<li> </li>
+<li> <strong>// class method for comparing two contacts by name</strong></li>
+<li> <strong>static compareByName</strong>(c1, c2) {</li>
+<li>&nbsp; &nbsp; // JavaScript has built in capabilities for comparing strings</li>
+<li>&nbsp; &nbsp; // in alphabetical order</li>
+<li>&nbsp; &nbsp; if (c1.name &lt; c2.name)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; return -1;</li>
+<li> </li>
+<li>&nbsp; &nbsp; if (c1.name &gt; c2.name)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; return 1;</li>
+<li> </li>
+<li>&nbsp; &nbsp; return 0; // c1.name = c2.name</li>
+<li> }</li>
+<li> </li>
 </ol></div>
 
 The important thing here is to notice that we declared the `compareByName` method as a class method (using the `static` keyword). This is similar to what we did in the `Point` class example from module 4, when we explained the "class properties and methods". This method compareByName does not depend on any instance of the contact manager, consequently: it's a class method.
@@ -229,21 +229,21 @@ __Saving the list of contacts in JSON, checking the saved value using the devtoo
 Here is the code we added to the ES6 class for saving the list of contacts in JSON:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> class ContactManager {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; constructor() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // when we build the contact manager, it</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // has an empty list of contacts</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts = [];</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>save</strong><strong>() {</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; // We can only save strings in local storage. So, let's convert</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; // our array of contacts to JSON</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; localStorage.contacts = JSON.stringify(this.listOfContacts);</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp;}</strong></li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1"> class ContactManager {</li>
+<li>&nbsp; &nbsp; constructor() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // when we build the contact manager, it</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // has an empty list of contacts</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts = [];</li>
+<li>&nbsp; &nbsp; }</li>
+<li></li>
+<li>&nbsp; &nbsp; ...</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; <strong>save</strong><strong>() {</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; // We can only save strings in local storage. So, let's convert</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; // our array of contacts to JSON</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; localStorage.contacts = JSON.stringify(this.listOfContacts);</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp;}</strong></li>
+<li>}</li>
 </ol></div>
 
 
@@ -303,43 +303,43 @@ You will see the list of contacts when you click on the newly appeared "Storage"
 This time, we've added a `load()` method that will check if a list of contacts has been saved. If this is the case, it will read it from LocalStorage, convert it back from JSON into a JavaScript object. In order to test this, in the following CodePen, we first save the list, then we empty the list in memory (setting the array to an empty array), print the list of contacts (that displays a message "LIST EMPTY!"), then we load the contacts from LocalStorage and print the list again: it has been restored to its previous value.
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> class ContactManager {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; constructor() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // when we build the contact manager, it</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // has an empty list of contacts</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts = [];</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // Will erase all contacts</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; empty() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts = [];</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; ...</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; load() {</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; if(localStorage.contacts !== undefined) {</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // the array of contacts is saved in JSON, let's convert</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // it back to a reak JavaScript object.</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts = JSON.parse(localStorage.contacts);</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; }</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; }</strong></li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">...</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">console.log("--- Saving contacts to local storage ---");</li>
-<li style="margin-bottom: 0px;">cm.save();</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">console.log("--- Emptying the list of contacts ---");</li>
-<li style="margin-bottom: 0px;">cm.empty();</li>
-<li style="margin-bottom: 0px;">cm.printContactsToConsole();</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">console.log("--- Loading contacts from local storage ---");</li>
-<li style="margin-bottom: 0px;">cm.load();</li>
-<li style="margin-bottom: 0px;">cm.printContactsToConsole();</li>
-<li style="margin-bottom: 0px;">console.log("Do you notice: contacts have all been restored!");</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
+<li value="1"> class ContactManager {</li>
+<li>&nbsp; &nbsp; constructor() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // when we build the contact manager, it</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // has an empty list of contacts</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts = [];</li>
+<li>&nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp; // Will erase all contacts</li>
+<li>&nbsp; &nbsp; empty() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts = [];</li>
+<li>&nbsp; &nbsp; }</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; ...</li>
+<li>&nbsp;</li>
+<li><strong>&nbsp; &nbsp; load() {</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; if(localStorage.contacts !== undefined) {</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // the array of contacts is saved in JSON, let's convert</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // it back to a reak JavaScript object.</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts = JSON.parse(localStorage.contacts);</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; }</strong></li>
+<li><strong>&nbsp; &nbsp; }</strong></li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>...</li>
+<li>&nbsp;</li>
+<li>console.log("--- Saving contacts to local storage ---");</li>
+<li>cm.save();</li>
+<li>&nbsp;</li>
+<li>console.log("--- Emptying the list of contacts ---");</li>
+<li>cm.empty();</li>
+<li>cm.printContactsToConsole();</li>
+<li>&nbsp;</li>
+<li>console.log("--- Loading contacts from local storage ---");</li>
+<li>cm.load();</li>
+<li>cm.printContactsToConsole();</li>
+<li>console.log("Do you notice: contacts have all been restored!");</li>
+<li>&nbsp;</li>
 </ol></div>
 
 __Explanations:__
@@ -379,64 +379,64 @@ We're going to reuse the code from this CodePen (example taken from a previous s
 This time, we will first add some HTML to the contact manager example (same as in the previous CodePen except that we've renamed "users" as "contacts"):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;!DOCTYPE html&gt;</li>
-<li style="margin-bottom: 0px;">&lt;html lang="en"&gt;</li>
-<li style="margin-bottom: 0px;">&lt;head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;title&gt;A contact manager, v3&lt;/title&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;meta charset="utf-8"/&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/head&gt;</li>
-<li style="margin-bottom: 0px;">&lt;body&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;p&gt;List of contacts&lt;/p&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>&lt;div</strong><strong> id="contacts"&gt;&lt;/div&gt;</strong></li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/html&gt;</li>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li>&nbsp; &nbsp; &lt;title&gt;A contact manager, v3&lt;/title&gt;</li>
+<li>&nbsp; &nbsp; &lt;meta charset="utf-8"/&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt; </li>
+<li>&nbsp; &nbsp; &lt;p&gt;List of contacts&lt;/p&gt; </li>
+<li>&nbsp; &nbsp; <strong>&lt;div</strong><strong> id="contacts"&gt;&lt;/div&gt;</strong></li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 The div at _line 9_ is where we're going to dynamically insert an HTML table with one row for each contact. We will keep the same minimal CSS for displaying table, row and cell borders (we encourage you to improve this):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">table {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;margin-top: 20px;</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">table, tr, td {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;border: 1px solid;</li>
-<li style="margin-bottom: 0px;">} </li>
+<li value="1">table {</li>
+<li>&nbsp; &nbsp;margin-top: 20px;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>table, tr, td {</li>
+<li>&nbsp; &nbsp;border: 1px solid;</li>
+<li>} </li>
 </ol></div>
 
 And here is the method we add in our ContactManager class; an adaptation of the function `displayUsersAsATable(users)` from the previous CodePen:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">class ContactManager {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; .....</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; displayContactsAsATable(idOfContainer) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // to empty the container that contains the results</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; let container = document.querySelector("#" + idOfContainer);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; container.innerHTML = "";</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; if(this.listOfContacts.length === 0) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; container.innerHTML = "&lt;p&gt;No contacts to display!&lt;/p&gt;";</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // stops the execution of this method</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; } </li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // creates and populates the table with users</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; let&nbsp;table = document.createElement("table");</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // iterates on the array of users</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts.forEach(function(currentContact) {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // creates a row</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; let&nbsp;row = table.insertRow();</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; row.innerHTML = "&lt;td&gt;" + currentContact.name + "&lt;/td&gt;"</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; + "&lt;td&gt;" + currentContact.email + "&lt;/td&gt;"</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; });</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; // adds the table to the div</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; container.appendChild(table);</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1">class ContactManager {</li>
+<li>&nbsp; &nbsp; .....</li>
+<li>&nbsp; &nbsp; displayContactsAsATable(idOfContainer) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // to empty the container that contains the results</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; let container = document.querySelector("#" + idOfContainer);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; container.innerHTML = "";</li>
+<li>&nbsp;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; if(this.listOfContacts.length === 0) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; container.innerHTML = "&lt;p&gt;No contacts to display!&lt;/p&gt;";</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // stops the execution of this method</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; } </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // creates and populates the table with users</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; let&nbsp;table = document.createElement("table");</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // iterates on the array of users</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; this.listOfContacts.forEach(function(currentContact) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // creates a row</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; let&nbsp;row = table.insertRow();</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; row.innerHTML = "&lt;td&gt;" + currentContact.name + "&lt;/td&gt;"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; + "&lt;td&gt;" + currentContact.email + "&lt;/td&gt;"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; });</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // adds the table to the div</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; container.appendChild(table);</li>
+<li>&nbsp; &nbsp; }</li>
+<li>}</li>
 </ol></div>
 
 
@@ -492,21 +492,21 @@ In the previous example, we added a form for entering a new contact, and an "add
 Here is the HTML code of the form:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;form <strong>onsubmit="return formSubmitted();"</strong>&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;fieldset&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;legend&gt;Personal informations&lt;/legend&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;label&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Name : </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="text" id="name" required&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/label&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;label&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Email : </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="email" id="email" required&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/label&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;br&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; <strong>&lt;button&gt;</strong><strong>Add new Contact&lt;/button&gt;</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;/fieldset&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/form&gt;</li>
+<li value="1">&lt;form <strong>onsubmit="return formSubmitted();"</strong>&gt;</li>
+<li>&nbsp; &nbsp; &lt;fieldset&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;legend&gt;Personal informations&lt;/legend&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Name : </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="text" id="name" required&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/label&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;label&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Email : </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type="email" id="email" required&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/label&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;br&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>&lt;button&gt;</strong><strong>Add new Contact&lt;/button&gt;</strong></li>
+<li>&nbsp; &nbsp; &lt;/fieldset&gt;</li>
+<li> &lt;/form&gt;</li>
 </ol></div>
 
 The button at line 13 will submit the form by default (it's equivalent to an `<input type="submit">`).
@@ -525,24 +525,24 @@ The event listener at line 1:
 Here is the code of the `formSubmitted` function:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function formSubmitted() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // Get the values from input fields</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; let name = document.querySelector("#name");</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; let email = document.querySelector("#email");</li>
-<li style="margin-bottom: 0px;"></li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>let</strong><strong> newContact = new Contact(name.value, email.value);</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; cm.add(newContact);</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // Empty the input fields</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; name.value = "";</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; email.value = "";</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>// refresh&nbsp;the table</strong></li>
-<li style="margin-bottom: 0px;"><strong>&nbsp; &nbsp; cm.displayContactsAsATable("contacts");</strong></li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // do not let your browser submit the form using HTTP</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; <strong>return</strong><strong> false;</strong></li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1">function formSubmitted() {</li>
+<li>&nbsp; &nbsp; // Get the values from input fields</li>
+<li>&nbsp; &nbsp; let name = document.querySelector("#name");</li>
+<li>&nbsp; &nbsp; let email = document.querySelector("#email");</li>
+<li></li>
+<li>&nbsp; &nbsp; <strong>let</strong><strong> newContact = new Contact(name.value, email.value);</strong></li>
+<li><strong>&nbsp; &nbsp; cm.add(newContact);</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp; // Empty the input fields</li>
+<li>&nbsp; &nbsp; name.value = "";</li>
+<li>&nbsp; &nbsp; email.value = "";</li>
+<li> </li>
+<li>&nbsp; &nbsp; <strong>// refresh&nbsp;the table</strong></li>
+<li><strong>&nbsp; &nbsp; cm.displayContactsAsATable("contacts");</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp; // do not let your browser submit the form using HTTP</li>
+<li>&nbsp; &nbsp; <strong>return</strong><strong> false;</strong></li>
+<li>}</li>
 </ol></div>
 
 __Explanations:__
