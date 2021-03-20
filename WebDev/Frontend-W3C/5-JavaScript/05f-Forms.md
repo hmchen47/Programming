@@ -146,7 +146,7 @@ let obj2 = {
   Explanation: `toString()` in JavaScript is rather similar to the `Object.toString()` method we find in the Java programming language: when we try to "display" an object, it is transformed into a string by calling `toString()` implicitly. In `console.log("t = " + t);`, the expression `"t = " + t` forces the t after the `+` to be converted to a string, as the left part of the `+` is a string.
 
 
-## 5.6.2 Exercises (7-14)
+### 5.6.2 Exercises (7-14)
 
 7. Why do you want me to become bigger?
 
@@ -291,7 +291,7 @@ let obj2 = {
     + Correct answers are `s += " I miss you";` and `s = s.slice(11, 16);`
 
 
-## 5.6.3 Exercise (15-22)
+### 5.6.3 Exercise (15-22)
 
 15. Give me some maths now!
 
@@ -304,10 +304,10 @@ let obj2 = {
   What will the above code do?
 
   a. It does nothing - the Math class cannot be used to create instances with "new"<br>
-  a. It displays a random number between 0 and 100<br>
-  a. It displays a random number between 0 and 1<br>
+  b. It displays a random number between 0 and 100<br>
+  c. It displays a random number between 0 and 1<br>
 
-  Ans: <br>
+  Ans: <span style="color: brown;">a</span>, c<br>
   Explanation: 
 
 
@@ -325,8 +325,9 @@ let obj2 = {
   b. Display a random number equal to 0 or equal to 5<br>
   c. Display a random number between 0 and 5<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: Indeed, `Math.random()` returns a random value between 0 and 1. If `Math.random()` returns a value above 0.5, `Math.round` of this value will return 1. If the returned value is below 0.5, `Math.round` will return 0. As we multiply this result by 5 before putting it into the variable x, then the above code will give either a value of 0 or a value of 5.
+
 
 
 17. What day are we?
@@ -340,8 +341,8 @@ let obj2 = {
   a. The current date as an object<br>
   b. The current date as a string<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: The returned value is actually an object, that has multiple methods such as `getMonth()`, `getDay()`, `getFullYear()`, etc.
 
 
 18. Add a new row
@@ -356,11 +357,11 @@ let obj2 = {
   Instead of XXX in the above code, what method would you call for adding a row at the end of the table object myTable?
 
   a. `addRow()`<br>
-  a. `insertRow()`<br>
-  a. `createElement("tr");`<br>
+  b. `insertRow()`<br>
+  c. `createElement("tr");`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: The HTML5 table JavaScript API has an `insertRow` method that can be used on Table objects such as the one returned by a call to `document.createElement("table");`. Without arguments, it adds a row at the end of the table.
 
 
 19. Submission going down, down, dragging me down...
@@ -389,8 +390,10 @@ let obj2 = {
   b. `submit`<br>
   c. `click`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: <span style="color: brown;">b</span>, xc<br>
+  Explanation:
+    + As shown in the contact manager example, we can call a callback function when an HTML form is submitted using the '`submit`' event.
+    + We should have `onsubmit="return submitted();"` at the first line of this code.
 
 
 20. Local Storage does not like objects...
@@ -413,8 +416,8 @@ let obj2 = {
   b. `JSON.parse(p1);`<br>
   c. `p1;`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: In Local Storage, only pairs of key/values, where values are strings, can be stored. As `p1` is an object, not a string, we must transform `p1` into a string using the JSON format. To do this we need to call `JSON.stringify(p1);`
 
 
 21. In and out
@@ -422,11 +425,11 @@ let obj2 = {
   Let's suppose that the object `p1` from the previous question has been saved in JSON in the local storage of your browser, with the key "michel". How do you restore it as a JavaScript object?
 
   a. `p1 = JSON.stringify(localStorage.michel);`<br>
-  a. `p1 = JSON.parse(localStorage.michel);`<br>
-  a. `p1 = localStorage.michel`<br>
+  b. `p1 = JSON.parse(localStorage.michel);`<br>
+  c. `p1 = localStorage.michel`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: `localStorage.michel` is an object in the JSON notation. To turn it back into an object, you must use `JSON.parse`. The correct answer is: `p1 = JSON.parse(localStorage.michel);`
 
 
 22. Xhr2 and fetch
@@ -437,8 +440,8 @@ let obj2 = {
   b. They allow you to control a remote HTTP server<br>
   c. They allow to manipulate data saved locally by the browser<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: They can send asynchronous HTTP requests to retrieve remote data, often in JSON format. Asynchronous means that a request may take some time to complete, and that the answer will arrive after a given amount of time. This is why, with Xhr2, we need an `xhr.onload = function(evt) {...}` callback that will be called by the browser when the response arrives. With fetch, we do `fetch(url) ... then....` and while we're waiting for the response to arrive, the browser can do other things. When the response comes in, we execute the `then(...)` method.
 
 
 
