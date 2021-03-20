@@ -1442,7 +1442,7 @@ A useful function that restricts a value between  min and  max bounds:
 
 <div><ol>
 <li value="1"><strong>function restrictValue(value, min, max) {</strong></li>
-<li><strong>&nbsp; &nbsp; return Math.min(Math.max(1, value), max);</strong></li>
+<li><strong>&nbsp; &nbsp; return Math.min(Math.max(min, value), max);</strong></li>
 <li><strong>}</strong></li>
 <li>&nbsp;</li>
 <li>&gt; restrictValue(40, 1, 20);</li>
@@ -1516,7 +1516,7 @@ Here is a typical example of the use of `Math.atan2` in a video game, in order t
   + examples
     + min of two values: `Math.min(12, 4); // 4`
     + max of two values: `Math.max(14, 4); // 14`
-    + function to set restrict values: `function restrictValue(value, min, max) { return Math.min(Math.max(1, value), max) }`
+    + function to set restrict values: `function restrictValue(value, min, max) { return Math.min(Math.max(min, value), max) }`
     + apply restrict function: `restrictValue(40, 1, 20); // 20`, `restrictValue(-10, 1, 20); // 1`, and `restrictValue(10, 1, 20); // 10`
 
 + Some arithmetical methods
