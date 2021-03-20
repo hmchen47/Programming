@@ -160,8 +160,8 @@ let obj2 = {
   b. Add two extra elements to the array, with an undefined value.<br>
   c. Add two extra elements to the array, with a value of zero (the number 0).<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: If you give to the length property a value bigger than the number of elements in an array, it adds `undefined` elements to it.
 
 
 8. Hybrid arrays are awful, believe me!
@@ -181,8 +181,8 @@ let obj2 = {
   b. Description of the array:days of the week, its length is equal to 5<br>
   c. Description of the array:days of the week, its length is equal to 6<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: An array is an object, you can add a property to it. But the `length` property takes into account only elements that have a numerical index. Correct answer is "Description of the array:days of the week, its length is equal to 5".
 
 
 9. I'll take another slice, please!
@@ -192,8 +192,9 @@ let obj2 = {
   a. The `splice` method<br>
   b. The `slice` method<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: `slice`: returns a sub-array without modifying the original array. While `splice`: modifies the array, it removes “a slice” and it also adds new elements.
+
 
 
 10. Give me a week-end!
@@ -211,8 +212,8 @@ let obj2 = {
   c. `let weekEnd = days.slice(5, 6);`<br>
   d. `let weekEnd = days.slice(7, 8);`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: `slice(begin, end)` returns the elements at index begin, begin + 1, begin+2 etc. until end __NOT INCLUDED__. The array `days` has 7 elements in it, `days.length` is equal to 7. So, in order to get the last two elements (at indexes 5 and 6), we should call `days.slice(5, 7)`. This corresponds to the answer: `days.slice(days.length-2, days.length);`
 
 
 11. I don't want to work these days anymore!
@@ -223,15 +224,15 @@ let obj2 = {
   let weekEnd =  days.splice(1, 3);
   ```
 
-  What will be the content of the array days after the execution of the above code?
+  What will be the content of the array `days` after the execution of the above code?
 
   a. `days` is not modified.
   b. `['Monday', 'Friday', 'Saturday', 'Sunday']`<br>
   c. `['Thursday', 'Friday', 'Saturday', 'Sunday']`<br>
   d. `['Monday', 'Thursday', 'Friday', 'Saturday', 'Sunday']`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: c<br>
+  Explanation: The `splice(begin, nb)` method will remove `nb` elements starting from index equal to `begin`.
 
 
 12. Two decimals only
@@ -244,8 +245,11 @@ let obj2 = {
 
   What method and parameter value would you use to display the value of x with only 2 decimals? We want "x = 1.57" to be displayed in the devtool console. Type exactly what you would write instead of XXX in the code above.
 
-  Ans: <br>
-  Explanation: 
+  Ans: `toFixed(2)`<br>
+  Explanation:
+    + `toFixed`: sets the number of digits for the decimal part of a number. The correct answer is "`toFixed(2)`" where 2 is the number of decimals.
+    + There is also another method, named `toPrecision`, that has a very similar behavior, and can also return numbers in scientific notation. However, this one would round the result to 1.6 if called with `toPrecision(2)`, as the argument is the total number of numbers in the result, we should call it with `toPrecision(3)` in order to get 2 decimals.
+    + A correct answer to this exercise is `toPrecision(3)` or `toFixed(2)`.
 
 
 13. Do I like my students?
@@ -263,8 +267,8 @@ let obj2 = {
   a. Hello my dear students!<br>
   b. Hello my terrible students!<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: In JavaScript, like in any programming language, strings are not directly modifiable. In this example, s remains unchanged, it's not possible to change the content of a string using the bracket notation.
 
 
 14. Change me this string!
@@ -273,7 +277,7 @@ let obj2 = {
   let s = "Hello my friends!";
   ```
 
-  Which of these will modify the string referenced by s after their execution? (2 correct answers!)
+  Which of these will modify the string referenced by `s` after their execution? (2 correct answers!)
 
   a. `s.slice(11, 16);`<br>
   b. `s.substring(11, 16);`<br>
@@ -281,8 +285,12 @@ let obj2 = {
   d. `s.split(' ').join('---');`<br>
   e. `s = s.slice(11, 16);`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: ce<br>
+  Explanation:
+    + `s.slice` alone does not change the string, as well as split and join. The only answers that change `s` are the ones that start with "`s = s + ...`" or "`s +=...`".
+    + Correct answers are `s += " I miss you";` and `s = s.slice(11, 16);`
+
+
 
 
 
