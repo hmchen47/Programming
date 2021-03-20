@@ -444,7 +444,88 @@ let obj2 = {
   Explanation: They can send asynchronous HTTP requests to retrieve remote data, often in JSON format. Asynchronous means that a request may take some time to complete, and that the answer will arrive after a given amount of time. This is why, with Xhr2, we need an `xhr.onload = function(evt) {...}` callback that will be called by the browser when the response arrives. With fetch, we do `fetch(url) ... then....` and while we're waiting for the response to arrive, the browser can do other things. When the response comes in, we execute the `then(...)` method.
 
 
+### 5.6.4 Exercises (23-28)
 
+23. Strings or numbers?
+
+  ```js
+  let x = "10";
+  let y = 2;
+
+  let z = x * y;
+  ```
+
+The value of `z` is:
+
+  a. `"20"` (as a string)
+  b. `20`
+  c. `NaN`
+
+  Ans: <br>
+  Explanation: 
+
+
+24. Are we the same?
+
+In JavaScript, are classes and types the same thing? (Yes/No)
+
+  Ans: <br>
+  Explanation: 
+
+
+25. Which scope for me?
+
+  Which variables have a function scope?
+
+  a. The ones declared in a function, with the keyword var<br>
+  b. The ones declared in a function, with the keyword let<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+26. Parameters and arguments
+
+  Can we pass a variable number of arguments to a function? (Yes/No)
+
+  Ans: <br>
+  Explanation: 
+
+
+27. Let's play with indexes!
+
+  ```js
+  let a = [ 'michel', 'buffa', [5+6, 'buffa'] ];
+  ```
+
+  How is this expression evaluated: `(a[1] === a[2, 1])`?
+
+  a. It is evaluated to `true`<br>
+  b. It is evaluated to `false`<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+28. Not old yet
+
+  ```js
+  var myAge = 52;
+
+  if ((myAge >= 0 && myAge < 3) ||  (myAge > 90)) {
+    console.log("WOW!");
+  } else {
+    console.log("Ah...");
+  }
+  ```
+
+  What will be printed by the above code?
+
+  a. Ah...<br>
+  b. WOW!<br>
+
+  Ans: <br>
+  Explanation: 
 
 
 
