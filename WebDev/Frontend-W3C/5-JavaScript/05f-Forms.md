@@ -291,6 +291,156 @@ let obj2 = {
     + Correct answers are `s += " I miss you";` and `s = s.slice(11, 16);`
 
 
+## 5.6.3 Exercise (15-22)
+
+15. Give me some maths now!
+
+  ```js
+  var x = new Math();
+
+  console.log("Random number: " + x.random());
+  ```
+
+  What will the above code do?
+
+  a. It does nothing - the Math class cannot be used to create instances with "new"<br>
+  a. It displays a random number between 0 and 100<br>
+  a. It displays a random number between 0 and 1<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+16. Please stop, I have a headache!
+
+  ```js
+  var x = 5*Math.round(Math.random());
+
+  console.log("Random number: " + x);
+  ```
+
+  What will the above code do?
+
+  a. Display a random number equal to 0, 1, 2, 3, 4 or 5<br>
+  b. Display a random number equal to 0 or equal to 5<br>
+  c. Display a random number between 0 and 5<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+17. What day are we?
+
+  ```js
+  var date = new Date();
+  ```
+
+  A call to new Date() returns...
+
+  a. The current date as an object<br>
+  b. The current date as a string<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+18. Add a new row
+
+  ```js
+  let myTable = document.createElement("table");
+
+  let row = myTable.XXX;
+  row.innerHTML = "<td>Michel</td><td>Buffa</td>";
+  ```
+
+  Instead of XXX in the above code, what method would you call for adding a row at the end of the table object myTable?
+
+  a. `addRow()`<br>
+  a. `insertRow()`<br>
+  a. `createElement("tr");`<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+19. Submission going down, down, dragging me down...
+
+  ```html
+  <form onXXX=" return submitted();">
+    // here labels, input fields, etc.
+    
+    <button>Submit</button>
+  </form>
+
+  <script>
+      function submitted(evt) {
+        // get input fields values, etc
+        
+        // return false = do not submit the form
+        // return true = let the browser submit the form and reload the page
+        return false;
+    }
+  </script>
+  ```
+
+  What event name would you put instead of XXX at the line 1 of this code, in order to make the callback function `submitted` called when the form is submitted (by clicking on the HTML button at the end of the form)?
+
+  a. `keydown`<br>
+  b. `submit`<br>
+  c. `click`<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+20. Local Storage does not like objects...
+
+  ```js
+  let p1 = {
+    name:'Michel',
+    email: 'michel@w3cxgreatmoocmakers.com'
+  }
+
+  // Save to Local Storage in JSON
+
+  let a = XXX;
+  localStorage.michel = a;
+  ```
+
+  What would you put instead of XXX in the above code?
+
+  a. `JSON.stringify(p1);`<br>
+  b. `JSON.parse(p1);`<br>
+  c. `p1;`<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+21. In and out
+
+  Let's suppose that the object `p1` from the previous question has been saved in JSON in the local storage of your browser, with the key "michel". How do you restore it as a JavaScript object?
+
+  a. `p1 = JSON.stringify(localStorage.michel);`<br>
+  a. `p1 = JSON.parse(localStorage.michel);`<br>
+  a. `p1 = localStorage.michel`<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+22. Xhr2 and fetch
+
+  `Xhr2` and fetch are standard JavaScript APIs. What are they useful for?
+
+  a. They can send asynchronous HTTP requests to retrieve remote data, often in JSON format<br>
+  b. They allow you to control a remote HTTP server<br>
+  c. They allow to manipulate data saved locally by the browser<br>
+
+  Ans: <br>
+  Explanation: 
+
+
 
 
 
