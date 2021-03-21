@@ -550,7 +550,7 @@ The value of `z` is:
   const MY_ANIMAL = 'My cat named Fifeti!';
 
   if (MY_ANIMAL) {
-    const MY_ANIMAL = 'My white rabbit named Pinpin';
+      const MY_ANIMAL = 'My white rabbit named Pinpin';
   }
   console.log(MY_ANIMAL);
   ```
@@ -560,8 +560,9 @@ The value of `z` is:
   a. My cat named Fifeti!<br>
   b. My white rabbit named Pinpin<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: As my rabbit died two years ago, it sadly cannot be my favorite animal anymore. In addition, MY_ANIMAL is a constant that cannot be modified. Normally, JavaScript does display an error when we try to set another value to MY_ANIMAL, but there is a trick here, and I bet that many of you did not see it! We defined again another constant named MY_ANIMAL in the block of instruction of the if. And variables declared by let and const have a block scope!!! So the MY_ANIMAL const in the if does not exist outside of the if. Outside of the if, it's the "global" MY_ANIMAL const that is the only one visible.<br>
+  The correct answer is "My cat named Fifeti!"
 
 
 30. Let's do it again!
@@ -569,7 +570,7 @@ The value of `z` is:
   ```js
   let x = 52;
   if (true) {
-    let x = 94;
+      let x = 94;
   }
   console.log(x);
   ```
@@ -579,8 +580,8 @@ The value of `z` is:
   a. 52<br>
   b. 94<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: This is the same thing as in the previous question. Variables defined with `let` have a block scope, so the x in the if and the x defined outside are not the same variable. The x that will be printed is the only one in the global scope, the one with a value equal to 52.
 
 
 31. Who is the unauthorized guest?
@@ -591,8 +592,8 @@ The value of `z` is:
   b. `static`<br>
   c. `constructor`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: Functions are not allowed in ES6 class definitions.
 
 
 32. Count my divs!
@@ -600,13 +601,13 @@ The value of `z` is:
   ```html
   <div id="container"> 
     <div id="a"> 
-        <div id="b"></div> 
+      <div id="b"></div> 
     </div> 
     <div id="c"></div> 
   </div> 
   <script> 
-  var container = document.querySelector("#container"); 
-  console.log(container.querySelectorAll("div div").length); 
+      var container = document.querySelector("#container"); 
+      console.log(container.querySelectorAll("div div").length); 
   </script>
   ```
 
@@ -616,8 +617,8 @@ The value of `z` is:
   a. 2<br>
   a. 1<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: There are 3 divs inside the div with `id=container`
 
 
 33. Create new elements
@@ -628,7 +629,7 @@ The value of `z` is:
   b. any string based name<br>
   c. an id<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: `document.createElement` takes the name of an html element/tag as a unique parameter and returns the DOM node that corresponds to this element.
 
 
