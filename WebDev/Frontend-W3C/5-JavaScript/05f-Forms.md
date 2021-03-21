@@ -457,39 +457,53 @@ let obj2 = {
 
 The value of `z` is:
 
-  a. `"20"` (as a string)
-  b. `20`
-  c. `NaN`
+  a. `"20"` (as a string)<br>
+  b. `20`<br>
+  c. `NaN`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: The string `x` is turned into a number as it is used in an expression with the `*` operator and with a number `y` as the second operand.
 
 
 24. Are we the same?
 
-In JavaScript, are classes and types the same thing? (Yes/No)
+  In JavaScript, are classes and types the same thing? (Yes/No)
 
-  Ans: <br>
-  Explanation: 
+  Ans: No<br>
+  Explanation: Classes are not types!<br> Numerous predefined classes exist such as Date, Array, String, Math, etc. But they are not types. Types are string, number, object, etc. Types are returned by the `typeof` operator and describe the type of value. Variables do not have types, values have types.
 
 
 25. Which scope for me?
 
   Which variables have a function scope?
 
-  a. The ones declared in a function, with the keyword var<br>
-  b. The ones declared in a function, with the keyword let<br>
+  a. The ones declared in a function, with the keyword `var`<br>
+  b. The ones declared in a function, with the keyword `let`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: Variables defined with the `var` keyword have a function scope, whereas variables defined with `let` have a block scope.
 
 
 26. Parameters and arguments
 
   Can we pass a variable number of arguments to a function? (Yes/No)
 
-  Ans: <br>
-  Explanation: 
+  Ans: Yes<br>
+  Explanation:
+    + Arity is not checked at invocation.
+    + Missing arguments become undefined.
+    + Superfluous arguments are ignored
+    + However all arguments (even superfluous) can be obtained through the pseudo-array arguments in the body of the function.
+    + [JavaScript variable number of arguments to function](https://stackoverflow.com/questions/2141520/javascript-variable-number-of-arguments-to-function)
+
+      ```js
+      function foo() {
+        for (var i = 0; i < arguments.length; i++) {
+          console.log(arguments[i]);
+        }
+      }
+      ```
+
 
 
 27. Let's play with indexes!
@@ -503,8 +517,8 @@ In JavaScript, are classes and types the same thing? (Yes/No)
   a. It is evaluated to `true`<br>
   b. It is evaluated to `false`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: The array `a` has 3 elements at indexes 0, 1 and 2. The element at index 2 is an array in the array and has two element at indexes 0 and 1 of the sub-array. So: element at index 1 of the array `a = 'buffa'` and element at the index=1 of the sub array at index 2; is also equal to 'buffa'. The correct answer is `true`.
 
 
 28. Not old yet
@@ -513,9 +527,9 @@ In JavaScript, are classes and types the same thing? (Yes/No)
   var myAge = 52;
 
   if ((myAge >= 0 && myAge < 3) ||  (myAge > 90)) {
-    console.log("WOW!");
+      console.log("WOW!");
   } else {
-    console.log("Ah...");
+      console.log("Ah...");
   }
   ```
 
@@ -524,8 +538,9 @@ In JavaScript, are classes and types the same thing? (Yes/No)
   a. Ah...<br>
   b. WOW!<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: `myAge = 52`, the first expression `(myAge >= 0 && myAge < 3)` will be evaluated to `false`. As we use the `OR` operator, we need to evaluate the right side of the operator: it's the expression `(myAge > 90)` that is also `false`. The else statement will be executed, and `"A..."` displayed in the devtool console. I'm no more a baby, and not yet an old man :-)
+
 
 
 
