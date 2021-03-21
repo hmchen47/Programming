@@ -542,6 +542,93 @@ The value of `z` is:
   Explanation: `myAge = 52`, the first expression `(myAge >= 0 && myAge < 3)` will be evaluated to `false`. As we use the `OR` operator, we need to evaluate the right side of the operator: it's the expression `(myAge > 90)` that is also `false`. The else statement will be executed, and `"A..."` displayed in the devtool console. I'm no more a baby, and not yet an old man :-)
 
 
+### 5.6.5 Exercises (29-33)
 
+29. Change me!
+
+  ```js
+  const MY_ANIMAL = 'My cat named Fifeti!';
+
+  if (MY_ANIMAL) {
+    const MY_ANIMAL = 'My white rabbit named Pinpin';
+  }
+  console.log(MY_ANIMAL);
+  ```
+
+  What will be printed by the above code?
+
+  a. My cat named Fifeti!<br>
+  b. My white rabbit named Pinpin<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+30. Let's do it again!
+
+  ```js
+  let x = 52;
+  if (true) {
+    let x = 94;
+  }
+  console.log(x);
+  ```
+
+  What will be printed by the above code?
+
+  a. 52<br>
+  b. 94<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+31. Who is the unauthorized guest?
+
+  Which keyword is not allowed in ES6 Class definition?
+
+  a. `function`<br>
+  b. `static`<br>
+  c. `constructor`<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+32. Count my divs!
+
+  ```html
+  <div id="container"> 
+    <div id="a"> 
+        <div id="b"></div> 
+    </div> 
+    <div id="c"></div> 
+  </div> 
+  <script> 
+  var container = document.querySelector("#container"); 
+  console.log(container.querySelectorAll("div div").length); 
+  </script>
+  ```
+
+  What will be printed in the devtool console?
+
+  a. 3<br>
+  a. 2<br>
+  a. 1<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+33. Create new elements
+
+  The method `document.createElement(...)` is useful for creating new DOM elements. What sort of argument does it take?
+
+  a. the name of an html tag<br>
+  b. any string based name<br>
+  c. an id<br>
+
+  Ans: <br>
+  Explanation: 
 
 
