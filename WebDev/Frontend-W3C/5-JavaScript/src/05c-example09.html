@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Example of HTML5 form</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/05c-example09.css">
+        <script src="js/05c-example09.js"></script>
+    </head>
+    <body>
+        <form action="forum.cfm" method="post">
+            <fieldset>
+                <legend>The bits I need to make you join my forum</legend>
+                <label for="givenName">Given name</label>
+                <input required type="text" name="givenName" id="givenName" autocomplete="off" autofocus />
+                <br/>
+                <label for="familyName">family name</label>
+                <input required type="text" name="familyName" id="familyName" autocomplete="off" />
+                <br/>
+                <label for="passwordA">Password</label>
+                <input required type="password" name="passwordA" id="passwordA" oninput="checkpasswords()" />
+                <meter id="passwordStrength" min="0" max="10" value="0" low="5"></meter>
+                <br/>
+                <label for="passwordB">Make sure it's right</label>
+                <input required type="password" name="passwordB" id="passwordB" oninput="checkpasswords()" />
+                <br/>
+            </fieldset>
+            <fieldset>
+                <legend>Random bits I don't need, I'm just curious</legend>
+                <label for="dob">Birthday</label>
+                <input type="date" name="dob" id="dob">
+                <br/>
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" autocomplete="off"/>
+                <br/>
+                <label for="whereami">Hide and seek location</label>
+                <textarea name="whereami" id="whereami"></textarea>
+                <button id="findme" type="button">Locate me</button>
+                <br/>					
+            </fieldset>
+            <fieldset>
+                <legend>Answer me these questions three</legend>
+                <label for="quest">What is your quest?</label>
+                <input name="quest" id="quest" type="search" placeholder="I seek..." autocomplete="off" />
+                <br/>
+                <label for="colour">What is you favourite colour?</label>
+                <input type="color" id="colour" name="colour" oninput="this.style.backgroundColor = this.value);" />
+                <br/>
+                <label for="swallow">What is the wind speed velocity of an unladen swallow?</label>
+                <input list="swallows" id="swallow" name="swallow" />
+                <datalist id="swallows">
+                    <option value="African or European?"></option>
+                </datalist>
+                <br />
+            </fieldset>
+            <fieldset>
+                <legend>Sanity checks</legend>
+                <label for="chuck">How much wood would a woodchuck chuck if a woodchuck could chuck wood?</label>
+                <input type="number" name="chuck" id="chuck" min="1" max="15" step="1" value="1" />
+                <br/>
+                <label for="santa">How possessed by Santa are you right now?</label>
+                <input name="santa" id="santa" type="range" min="1" max="12" step="1" value="1" />
+                <output name="so" id="santaoutput">1</output>
+                <br/>
+                <label for="call">Who you gonna call?</label>
+                <input list="callingoptions" id="call" name="call" pattern="Ghostbusters|[0-9]*" oninput="validateCallingOptions();" />
+                <datalist id="callingoptions">
+                    <option value="Ghostbusters"></option>
+                </datalist>			
+            </fieldset>
+            <input type="submit" value="Register!" />
+        </form>
+
+    </body>
+</html>
+
