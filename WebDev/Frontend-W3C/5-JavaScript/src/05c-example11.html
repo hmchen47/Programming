@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Example of using the validation API</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/05c-example11.css">
+    <script src="js/05c-example11.js"></script>
+  </head>
+  <body>
+<form class="myForm" onsubmit="return submitForm();">
+  <fieldset>
+    <legend>Example use of the validation API: try to submit with different passwords, and with same passwords</legend>
+ <label for="password1" >Password:</label> <input type="password" id="password1" oninput="checkPasswords()" required>
+ <p>
+ <label for="password2">Repeat password:</label> <input type="password" id="password2" oninput="checkPasswords()" required>
+ <p>
+   <button>Submit</button>
+  </fieldset>
+</form>
+</body>
+</html>
+

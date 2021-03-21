@@ -192,7 +192,7 @@ Note that to remove an event listener, you should have added it with its named f
     + one possible syntax for registering as function to be called when a given type of event occurs
     + syntax: `addEventListener(typeOfEvent, callbackFunction)`
     + able to register more than one event listener
-    + procedure
+    + scope
       + listening to event on the whole document: `addEventListener` = `window.addEventListener`
       + listening to specific DOM elements
         + get a reference of the HTML to detect the event; e.g., `var b = document.querySelector("#myButton");`

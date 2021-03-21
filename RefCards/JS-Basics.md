@@ -614,32 +614,6 @@
 
 
 
-## Objects
-
-+ [JavaScript object](../WebDev/Frontend-W3C/5-JavaScript/01c-JSIntro.md#notes-for-131-the-best-way-to-learn-javascript)
-  + defined by two braces `{...}` w/ a set of properties/values inside, separated by a comma
-  + more structured values
-
-+ [Embedded objects](../WebDev/Frontend-W3C/5-JavaScript/01c-JSIntro.md#notes-for-131-the-best-way-to-learn-javascript)
-  + arrays: using brackets to create arrays of things
-  + different elements within an arrays seperated by commas `,`
-
-+ [Objects](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-159-objects-part-1)
-  + declaration
-    + using "{" and "}"
-    + properties & values
-  + accessing properties or method
-    + using `.` operator
-    + pre-defined objects: `window`, `document`, `navigator`, `console`, etc.
-
-+ [Common objects & properties](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-159-objects-part-1)
-  + auto-completion w/ `.` to display options in devtools console tab
-  + the size of current browser window: `window.innerWidth` & `window.innerHeight`
-  + current URL w/ the page: `window.location`
-  + vendor of browser: `navigator.vender`
-
-
-
 ## Arrays
 
 + [Arrays](../WebDev/Frontend-W3C/5-JavaScript/01e-JSIntro.md#notes-for-1510-arrays-part-1)
@@ -787,6 +761,36 @@
       + `array` (optional): The array `forEach()` was called upon.
     + `thisArg` (optional): Value to use as `this` when executing `callback`.
   + return: `undefined`
+
++ `Array` class
+  + used for creating arrays
+  + recommendation: used '[' and ']' to create arrays
+  + a global object that is used in the construction of arrays
+  + constructor
+    + list of elements: `new Array(element0, element1[, ...[, elementN]])`
+    + empty array w/ reserved space: `new Array(arrayLength)`
+  + arrays as "special" objects
+    + property names: numerical indexes starting from 0
+    + `length` property: representing the length/number of elements
+    + other built-in properties besides the inherited ones from `Object`, including, `sort()`, `join()`, `slice()`, `splice()`,`push()` and `pop()`
+  + array length and elements:
+    + length of array bigger than the number of elements: add undefined elements to it
+    + length of array less than the number of elements: truncate the array to comply the length
+
++ Example: constructing array and size
+  + constructor w/ elements: `var a = new Array(); // same as a = [];` and `var b = new Array(1, 2, 3); // [1, 2, 3]`
+  + constructor w/ size: `var myArray = new Array(3); // [undefined x 3]`
+  + `length` property: `var a = []; o = {};`, `a.length;  // 0 - an array` and `o.length; // undefined - a simple object literal`
+
++ Example: bad practices
+  + declaration and some info: `var a = [1, 2];`, `typeof a; // "object"`, `a.push(3); // 3`, `a; // [1, 2, 3]` and `a.length; //3`
+  + add a name property into array: `a.name = "I'm an array named a!";`, `a.length; // 3` and `a; // [1, 2, 3, name: "I'm an array named a!"]`
+
++ Example: reducing and increasing the size of an array
+  + declare array and assign length: `var a = [1, 2]; a.length = 5;`
+  + increased array: `a; // [1, 2, undefined x 3]`
+  + declare array and assign length: `var a = [1, 2, 3, 4]; a.length = 2;`
+  + reduced array: `a; // [1, 2]`
 
 
 

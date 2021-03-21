@@ -108,6 +108,21 @@
 </table>
 
 
++ [The `<table>` and related elements](../WebDev/Frontend-W3C/5-JavaScript/05c-Forms.md#531-the-html-table-basics)
+  + `<table>` element: rendering tables in an HTML document
+  + `<tr>` element: table row
+  + `<th>` element: table header, defaults as bold and centered
+  + `<td>` element: a table data/cell
+  + best practice for accessibility
+    + always add a `<caption>` tag inside the `<table>` tag
+    + use a `scope` attribute w/ all `<th scope="row or column">` for identifying whether a table header is a column header or a row header
+
++ [Common styles for `<table>` element](../WebDev/Frontend-W3C/5-JavaScript/05c-Forms.md#531-the-html-table-basics)
+  + rendering cell/row/table border, e.g., `tr, th, td { border: 1px solid; }`
+  + adjusting spacing btw text in cells and the cell borders, e.g., `td { padding: 10px; }`
+
+
+
 ## Attributes of the 'table' tag
 
 

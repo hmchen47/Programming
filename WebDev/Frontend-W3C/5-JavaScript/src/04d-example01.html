@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Small game with sound</title>
+  <link rel="stylesheet" href="css/04d-example01.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.28/howler.min.js"></script>
+  <script src="js/04d-example01.js"></script>
+</head>
+<body>
+  <audio src = "https://mainline.i3s.unice.fr/mooc/SkywardBound/assets/sounds/humbug.mp3" 
+        id="audioPlayer">
+</audio>
+<div id="controls">
+    <label for="nbBalls">Number of balls: </label>
+    <input type="number" min=1 max=30 
+           value=10 id="nbBalls"
+           oninput="changeNbBalls(this.value);">
+    <p></p>
+   <label for="colorChooser">Player color: </label>
+    <input type="color" value='#FF0000'
+           oninput="changePlayerColor(this.value);" id="colorChooser">
+    <p></p>
+      <label for="selectColorOfBallToEat">Color of ball to eat: </label>
+      <select onchange="changeColorToEat(this.value);" id="selectColorOfBallToEat">
+        <option value='red'>red</option>
+        <option value='blue'>blue</option>
+        <option value='green'>green</option>
+    </select>
+    <p></p>
+
+   <label for="ballSpeed">Change ball speed: </label>
+    - <input type="range" value='1'
+             min=0.1 max=3 step=0.1
+           oninput="changeBallSpeed(this.value);"
+             id="ballSpeed"> + 
+    <p></p>
+    
+  </div>
+  <canvas id="myCanvas"  width="400" height="400"></canvas>
+</body>
+</html>
+

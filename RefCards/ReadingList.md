@@ -15,6 +15,15 @@
 + [Introduction to Mathematical Programming - MIT](https://tinyurl.com/y5kyx76y)
 + [Fundamentals of Program Analysis - MIT](https://tinyurl.com/y632qdmx)
 + [Theory of Computation - MIT](https://tinyurl.com/y64s55ox)
++ Algorithms Specialization - Stanford, Coursera
+  + [Divide and Conquer, Sorting and Searching, and Randomized Algorithms](https://www.coursera.org/learn/algorithms-divide-conquer)
+  + [Graph Search, Shortest Paths, and Data Structures](https://www.coursera.org/learn/algorithms-graphs-data-structures)
+  + [Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming](https://www.coursera.org/learn/algorithms-greedy)
+  + [Shortest Paths Revisited, NP-Complete Problems and What To Do About Them](https://www.coursera.org/learn/algorithms-npcomplete)
++ Algorithm - Princeton, Coursera
+  + [Algorithms, Part I](https://www.coursera.org/learn/algorithms-part1)
+  + [Algorithms, Part II](https://www.coursera.org/learn/algorithms-part2)
+  + [Analysis of Algorithms](https://www.coursera.org/learn/analysis-of-algorithms)
 + Elasticsearch
   + [Elasticsearch](https://en.wikipedia.org/wiki/Elasticsearch)
   + [Using elasticsearch, logstash and kibana to create realtime dashboards - slides](https://tinyurl.com/yajg7zs6)
@@ -32,6 +41,17 @@
 + [How to structure a web form](https://developer.mozilla.org/en-US/docs/Learn/Forms/How_to_structure_a_web_form)
 + [Forms tutorial - WAI](https://www.w3.org/WAI/tutorials/forms/)
 + [Building HTML5 Form Validation Bubble Replacements](https://tinyurl.com/yy85v45z)
++ [RESTful API with HTTP and JavaScript, Coursera](https://tinyurl.com/dxnmcpz7)
++ Web Applications for Everybody Specialization, University of Michigan @ Coursera
+  + [Building Web Applications in PHP](https://www.coursera.org/learn/web-applications-php)
+  + [Introduction to Structured Query Language (SQL)](https://www.coursera.org/learn/intro-sql)
+  + [Building Database Applications in PHP](https://www.coursera.org/learn/database-applications-php)
+  + [JavaScript, jQuery, and JSON](https://www.coursera.org/learn/javascript-jquery-json)
++ Django for Everybody Specialization, University of Michigan @ Coursera
+  + [Web Application Technologies and Django](https://www.coursera.org/learn/django-database-web-apps)
+  + [Building Web Applications in Django](https://www.coursera.org/learn/django-build-web-apps)
+  + [Django Features and Libraries](https://www.coursera.org/learn/django-features-libraries)
+  + [Using JavaScript, JQuery, and JSON in Django](https://www.coursera.org/learn/django-javascript-jquery-json)
 
 
 ## Python
@@ -57,6 +77,8 @@
   + [Date and Time](https://pythonpedia.com/en/tutorial/484/date-and-time)
   + P. Yip, [Python and NumPy: Time and Date (datetime and timedelta64)](https://dellwindowsreinstallationguide.com/python-and-numpy-time-and-date-datetime-and-timedelta64/)
 
++ Web scraping
+  + [Web Scraping with Python + BeautifulSoup, Coursera](https://www.coursera.org/projects/web-scraping)
 
 ## C/C++ Programming
 
