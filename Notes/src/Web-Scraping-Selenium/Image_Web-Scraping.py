@@ -82,9 +82,9 @@ def getImageUrls(name,totalImgs,driver):
 def downloadImages(folder_path,file_name,url):
     try:
         image_content = requests.get(url).content
-except Exception as e:
+    except Exception as e:
         print(f"ERROR - COULD NOT DOWNLOAD {url} - {e}")
-try:
+    try:
         image_file = io.BytesIO(image_content)
         image = Image.open(image_file).convert('RGB')
        
@@ -108,7 +108,7 @@ def saveInDestFolder(searchNames,destDir,totalImgs,driver):
         totalLinks=getImageUrls(name,totalImgs,driver)
         print('totalLinks',totalLinks)
 
-if totalLinks is None:
+        if totalLinks is None:
             print('images not found for :',name)
             continue
         else:
@@ -117,7 +117,8 @@ if totalLinks is None:
                 downloadImages(path,file_name,link)
             
 searchNames=['Car','horses'] 
-destDir=f'./Dataset2/'
+destDir=f'./Dataset/'
 totalImgs=5
 
 saveInDestFolder(searchNames,destDir,totalImgs,driver)
+
