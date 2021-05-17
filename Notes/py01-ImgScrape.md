@@ -11,7 +11,7 @@ Date: 2020-08-30
 ## Introduction
 
 + Data Science
-  + Machine learning: requiring a large volume of data to build a robust & reliable machine learning model for such business problems
+  + Machine learning: requiring a large volume of data to build a robust & reliable machine learning model for problems
   + Data mining or gathering data
     + primitive step in the data science life cycle
     + business requirements: gathering data from sources like SAP servers, logs, Databases, APIs, online repositories, or web
@@ -21,7 +21,7 @@ Date: 2020-08-30
 + Overview of Web Scrapping
   + a.k.a. “Crawling” or “Spidering”
   + the technique to gather data automatically from an online source usually from a website
-  + an easy way to get a large volume of data in a relatively short time frame, it adds stress to the server where the source is hosted
+  + an easy way to get a large volume of data in a relatively short time frame $\to$ adding stress to the server where the source is hosted
   + a large volume of data such as text and images in a relatively short time
     + many website not allowing scrping at all
     + disrupting the primary function of the online source
@@ -41,10 +41,10 @@ Date: 2020-08-30
   + also used for web scraping
 
 + Selenium Setup & methods
-  + Installation:
-    + Install selenium using `pip`: `pip install selenium`
-    + Install selenium using `conda`: `conda install -c conda-forge selenium`
-  + Download Chrome Driver:
+  + installation:
+    + `pip install selenium`
+    + `conda install -c conda-forge selenium`
+  + download Chrome Driver:
     + directly download [chrome driver](https://chromedriver.chromium.org/downloads)
     + directly using the line of code: `driver = webdriver.Chrome(ChromeDriverManager().install())`
   + [documentation](https://selenium-python.readthedocs.io/)
@@ -60,7 +60,7 @@ Date: 2020-08-30
 ## Implementation of Image Web Scrapping using Selenium Python
 
 + Procedure to implement image web scraping
-  + Step1: – Import libraries
+  + step1: – import libraries
 
     ```python
     import os
@@ -74,47 +74,47 @@ Date: 2020-08-30
     from selenium.common.exceptions import ElementClickInterceptedException
     ```
 
-  + Step 2: – Install Driver
+  + step 2: – install driver
 
     ```python
-    #Install Driver
+    # Install Driver
     driver = webdriver.Chrome(ChromeDriverManager().install())
     ```
 
-  + Step 3: –  Specify search URL
+  + step 3: –  specify search URL
 
     ```python
-    #Specify Search URL 
+    # Specify Search URL 
     search_url=“https://www.google.com/..." 
 
     driver.get(search_url.format(q='Car'))
     ```
 
-  + Step 4: –  Scroll to the end of the page
+  + step 4: –  scroll to the end of the page
 
     ```python
     #Scroll to the end of the page
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)#sleep_between_interactions
+    time.sleep(5) # sleep_between_interactions
     ```
 
-  + Step 5: –  Locate the images to be scraped from the page
+  + step 5: –  locate the images to be scraped from the page
 
     ```python
-    #Locate the images to be scraped from the current page 
+    # Locate the images to be scraped from the current page 
     imgResults = driver.find_elements_by_xpath("//img[contains(@class,'Q4LuWd')]")
     totalResults=len(imgResults)
     ```
 
-  + Step 6: – Extract the corresponding link of each Image
-    + iterate through each thumbnail and then click it
+  + step 6: – extract the corresponding link of each Image
+    + iterating through each thumbnail and then click it
     + making browser sleep for 2 seconds
     + finding the unique HTML tag correpsonding to that image to locate it on page
     + more than one result for a particular image
     + iterating through each result for that image, extracting `src` attribute and checking `https` link
 
     ```python
-    #Click on each Image to extract its corresponding link to download
+    # Click on each Image to extract its corresponding link to download
 
     img_urls = set()
     for i in  range(0,len(imgResults)):
@@ -130,20 +130,21 @@ Date: 2020-08-30
             print(err)
     ```
 
-  + Step 7: – Download & save each image in the Destination directory
+  + step 7: – download & save each image in the Destination directory
 
     ```python
     os.chdir('C:/Qurantine/Blog/WebScrapping/Dataset1')
     baseDir=os.getcwd()
+
     for i, url in enumerate(img_urls):
         file_name = f"{i:150}.jpg"    
         try:
             image_content = requests.get(url).content
 
-    except Exception as e:
+        except Exception as e:
             print(f"ERROR - COULD NOT DOWNLOAD {url} - {e}")
 
-    try:
+        try:
             image_file = io.BytesIO(image_content)
             image = Image.open(image_file).convert('RGB')
             
