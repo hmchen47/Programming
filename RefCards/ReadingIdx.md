@@ -2,15 +2,15 @@
 
 ## Python
 
-## Basics
+### Basics
 
 
 
-## Webscraping
+### Webscraping
 
++ P. Anwla, [Web Scraping using Selenium with Python!](../Notes/py01-ImgScrap.md), 2020
 
-
-## Automation
+### Automation
 
 
 
