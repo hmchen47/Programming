@@ -35,9 +35,10 @@ Date: 2020-08-30
 
 ## What is Selenium
 
-Selenium is an open-source web-based automation tool. Selenium primarily used for testing in the industry but It can also be used for web scraping. We’ll use the Chrome browser but you can try on any browser, It’s almost the same.
-
-Now let us see how to use selenium for Web Scraping.
++ Selenium
+  + an open-source web-based automation tool
+  + primarily used for testing in the industry
+  + also used for web scraping
 
 ### Setup & tools
 
