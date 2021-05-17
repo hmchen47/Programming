@@ -12,7 +12,7 @@ This repository tracks my learning on different programming languages.
 
 + Python for Everybody - UoM, Coursera
   1. Programming for Everybody (Python)
-  2. Learn to Program and Analyse Daat with Python
+  2. Learn to Program and Analyse Data with Python
   3. [Using Python to Access Web Data](./Python/UoM/3-UsingPythonToAccessWebData/README.md)
   4. [Using Database with Python](./Python/UoM/4.Database/README.md)
   5. [Capstone: Retrieving, Processing, and Visualization Data with Python](./Python/MoU/5.Capstone/README.md)
@@ -754,7 +754,8 @@ This repository tracks my learning on different programming languages.
     <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://tinyurl.com/y443as9e">Semantic Commit Messages</a></caption>
     <thead>
     <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-      <th colspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Format: <code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</code><br/>
+      <th colspan="2" style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Format: <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</code><br/>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;type&gt;</code>: chore, docs, feat, fix, refactor, style, or test<br/>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;subject&gt;</code>: summary in present tense <br/>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;scope&gt;</code>: (optional) anything specifying place of the commit change </th>
