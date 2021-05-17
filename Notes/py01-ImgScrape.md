@@ -26,21 +26,12 @@ Date: 2020-08-30
     + many website not allowing scrping at all
     + disrupting the primary function of the online source
 
-## Why Web Scraping?
-
-There’s a large volume of data lying on the web that people can utilize to serve the business needs.  So, one needs some tool or technique to gather this information from the web. And that’s where the concept of Web-Scrapping comes in to play.
-
-
 ## How Web Scraping is useful?
 
-Web scraping can help us extract an enormous amount of data about customers, products, people, stock markets, etc.
-
-One can utilize the data collected from a website such as e-commerce portal, Job portals, social media channels to understand customer’s buying patterns, employee attrition behavior, and customer’s sentiments and the list goes on.
-
-Most popular libraries or frameworks that are used in Python for Web – Scrapping are BeautifulSoup, Scrappy & Selenium.
-
-In this article, we’ll talk about Web-scrapping using Selenium in Python. And the cherry on top we’ll see how can we gather images from the web that you can use to build train data for your deep learning project.
-
++ Popular tools for web scraping
+  + BeautifulSoup
+  + Scrappy
+  + Selenium
 
 ## What is Selenium
 
