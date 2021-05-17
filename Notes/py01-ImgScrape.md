@@ -18,14 +18,13 @@ Date: 2020-08-30
 
 ## What is Web Scraping?
 
-+ Web Scrapping
-  + scraping a large volume of data such as text and images in a relatively short time
++ Overview of Web Scrapping
   + a.k.a. “Crawling” or “Spidering”
   + the technique to gather data automatically from an online source usually from a website
-  + an easy way to get a large volume of data in a relatively short time frame, it adds stress to the server where the source is hosted.
-
-This is also one of the main reasons why many websites don’t allow scraping all on their website. However, as long as it does not disrupt the primary function of the online source, it is fairly acceptable.
-
+  + an easy way to get a large volume of data in a relatively short time frame, it adds stress to the server where the source is hosted
+  + a large volume of data such as text and images in a relatively short time
+    + many website not allowing scrping at all
+    + disrupting the primary function of the online source
 
 ## Why Web Scraping?
 
