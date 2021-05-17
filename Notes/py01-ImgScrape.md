@@ -48,7 +48,7 @@ Date: 2020-08-30
     + directly download [chrome driver](https://chromedriver.chromium.org/downloads)
     + directly using the line of code: `driver = webdriver.Chrome(ChromeDriverManager().install())`
   + [documentation](https://selenium-python.readthedocs.io/)
-  + methods to find elements in a Web-page (these methods will return a list):
+  + [methods to find elements](https://selenium-python.readthedocs.io/locating-elements.html) in a Web-page (these methods will return a list):
     + `find_elements_by_name`
     + `find_elements_by_xpath`
     + `find_elements_by_link_text`
@@ -59,131 +59,102 @@ Date: 2020-08-30
 
 ## Implementation of Image Web Scrapping using Selenium Python
 
-### Step1: – Import libraries
++ Procedure to implement image web scraping
+  + Step1: – Import libraries
 
-```python
-import os
-import selenium
-from selenium import webdriver
-import time
-from PIL import Image
-import io
-import requests
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.common.exceptions import ElementClickInterceptedException
-```
+    ```python
+    import os
+    import selenium
+    from selenium import webdriver
+    import time
+    from PIL import Image
+    import io
+    import requests
+    from webdriver_manager.chrome import ChromeDriverManager
+    from selenium.common.exceptions import ElementClickInterceptedException
+    ```
 
-### Step 2: – Install Driver
+  + Step 2: – Install Driver
 
-```python
-#Install Driver
-driver = webdriver.Chrome(ChromeDriverManager().install())
-```
+    ```python
+    #Install Driver
+    driver = webdriver.Chrome(ChromeDriverManager().install())
+    ```
 
-### Step 3: –  Specify search URL
+  + Step 3: –  Specify search URL
 
-```python
-#Specify Search URL 
-search_url=“https://www.google.com/search?q={q}&tbm=isch&tbs=sur%3Afc&hl=en&ved=0CAIQpwVqFwoTCKCa1c6s4-oCFQAAAAAdAAAAABAC&biw=1251&bih=568" 
+    ```python
+    #Specify Search URL 
+    search_url=“https://www.google.com/..." 
 
-driver.get(search_url.format(q='Car'))
-```
+    driver.get(search_url.format(q='Car'))
+    ```
 
-I’ve used this specific URL so you don’t get in trouble for using licensed or images with copyrights. Otherwise, you can use https://google.com also as a search URL.
+  + Step 4: –  Scroll to the end of the page
 
-Then we’re searching for Car in our Search URL Paste the link into to driver.get(“ Your Link Here ”) function and run the cell. This will open a new browser window for that link.
+    ```python
+    #Scroll to the end of the page
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    time.sleep(5)#sleep_between_interactions
+    ```
 
-![Fig](https://lh6.googleusercontent.com/HkLm9hcLVYPc8lbsZAnMfyJzWkA7at5t4cLCEaObslMGQnHKByGiTQP9sHCvNeYTa2g31mVEoS-whOgAek3tKtagk4dEABcSxOF9jdGFSUeZTYkk3-mnefZNGI0RifpwVs9XK0cSzvwmr-cqSw)
+  + Step 5: –  Locate the images to be scraped from the page
 
+    ```python
+    #Locate the images to be scraped from the current page 
+    imgResults = driver.find_elements_by_xpath("//img[contains(@class,'Q4LuWd')]")
+    totalResults=len(imgResults)
+    ```
 
-### Step 4: –  Scroll to the end of the page
+  + Step 6: – Extract the corresponding link of each Image
+    + iterate through each thumbnail and then click it
+    + making browser sleep for 2 seconds
+    + finding the unique HTML tag correpsonding to that image to locate it on page
+    + more than one result for a particular image
+    + iterating through each result for that image, extracting `src` attribute and checking `https` link
 
-```python
-#Scroll to the end of the page
-driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-time.sleep(5)#sleep_between_interactions
-```
+    ```python
+    #Click on each Image to extract its corresponding link to download
 
-This line of code would help us to reach the end of the page. And then we’re giving sleep time of 5 seconds so we don’t run in problem, where we’re trying to read elements from the page, which is not yet loaded.
+    img_urls = set()
+    for i in  range(0,len(imgResults)):
+        img=imgResults[i]
+        try:
+            img.click()
+            time.sleep(2)
+            actual_images = driver.find_elements_by_css_selector('img.n3VNCb')
+            for actual_image in actual_images:
+                if actual_image.get_attribute('src') and 'https' in actual_image.get_attribute('src'):
+                    img_urls.add(actual_image.get_attribute('src'))
+        except ElementClickInterceptedException or ElementNotInteractableException as err:
+            print(err)
+    ```
 
+  + Step 7: – Download & save each image in the Destination directory
 
-### Step 5: –  Locate the images to be scraped from the page
+    ```python
+    os.chdir('C:/Qurantine/Blog/WebScrapping/Dataset1')
+    baseDir=os.getcwd()
+    for i, url in enumerate(img_urls):
+        file_name = f"{i:150}.jpg"    
+        try:
+            image_content = requests.get(url).content
 
-```python
-#Locate the images to be scraped from the current page 
-imgResults = driver.find_elements_by_xpath("//img[contains(@class,'Q4LuWd')]")
- totalResults=len(imgResults)
-```
-
-![Fig](https://lh4.googleusercontent.com/FeqY9oncfL1BEUJm1gV4GJl_tumk1TvPOvMvXBpAF6J6RbReWmsplDM6uLF-jqvWvBjVVBw4Es-UZ4X5FHn-MMq_8S41QxeiZgQd2uClNiRnDASat2E18tBu8f7ihLy1a5Q53k3tU88iRrEs2Q)
-
-Now we’ll fetch all the image links present on that particular page. We will create a “list” to store those links. So, to do that go to the browser window, right-click on the page, and select ‘inspect element’ or enable the dev tools using Ctrl+Shift+I.
-
-Now identify any attributes such as class, id, etc. Which is common across all these images.
-
-In our case class =”‘Q4LuWd” is common across all these images.
-
-
-### Step 6: – Extract the corresponding link of each Image
-
-As we can the images are shown on the page are still the thumbnails not the original image. So to download each image, we need to click each thumbnail and extract relevant information corresponding to that image.
-
-```python
-#Click on each Image to extract its corresponding link to download
-
-img_urls = set()
-for i in  range(0,len(imgResults)):
-    img=imgResults[i]
-    try:
-        img.click()
-        time.sleep(2)
-        actual_images = driver.find_elements_by_css_selector('img.n3VNCb')
-        for actual_image in actual_images:
-            if actual_image.get_attribute('src') and 'https' in actual_image.get_attribute('src'):
-                img_urls.add(actual_image.get_attribute('src'))
-    except ElementClickInterceptedException or ElementNotInteractableException as err:
-        print(err)
-```
-
-So, in the above snippet of code, we’re performing the following tasks-
-
-+ Iterate through each thumbnail and then click it.
-+ Make our browser sleep for 2 seconds (:P).
-+ Find the unique HTML tag corresponding to that image to locate it on page
-+ We still get more than one result for a particular image.  But all we’re interested in the link for that image to download.
-+ So, we iterate through each result for that image and extract ‘src’ attribute of it and then see whether “https” is present in the ‘src’ or not. Since typically weblink starts with ‘https’.
-
-
-### Step 7: – Download & save each image in the Destination directory
-
-```python
-os.chdir('C:/Qurantine/Blog/WebScrapping/Dataset1')
-baseDir=os.getcwd()
-for i, url in enumerate(img_urls):
-    file_name = f"{i:150}.jpg"    
-    try:
-        image_content = requests.get(url).content
-
-except Exception as e:
-        print(f"ERROR - COULD NOT DOWNLOAD {url} - {e}")
-
-try:
-        image_file = io.BytesIO(image_content)
-        image = Image.open(image_file).convert('RGB')
-        
-        file_path = os.path.join(baseDir, file_name)
-        
-        with open(file_path, 'wb') as f:
-            image.save(f, "JPEG", quality=85)
-        print(f"SAVED - {url} - AT: {file_path}")
     except Exception as e:
-        print(f"ERROR - COULD NOT SAVE {url} - {e}")
-```
+            print(f"ERROR - COULD NOT DOWNLOAD {url} - {e}")
 
-Now finally you have extracted the image for your project
-
-Note: – Once you have written proper code then the browser is not important you can collect data without browser, which is called headless browser window, hence replace the following code with the previous one.
-
+    try:
+            image_file = io.BytesIO(image_content)
+            image = Image.open(image_file).convert('RGB')
+            
+            file_path = os.path.join(baseDir, file_name)
+            
+            with open(file_path, 'wb') as f:
+                image.save(f, "JPEG", quality=85)
+            print(f"SAVED - {url} - AT: {file_path}")
+        except Exception as e:
+            print(f"ERROR - COULD NOT SAVE {url} - {e}")
+    ```
 
 ## Headless Chrome browser
 
