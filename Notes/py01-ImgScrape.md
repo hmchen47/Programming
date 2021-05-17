@@ -40,32 +40,15 @@ Date: 2020-08-30
   + primarily used for testing in the industry
   + also used for web scraping
 
-### Setup & tools
-
-1. Installation:
-  + Install selenium using pip
-
-    ```shell
-    pip install selenium
-    ```
-    
-  + Install selenium using conda
-
-    ```shell
-    conda install -c conda-forge selenium
-    ```
-
-2. Download Chrome Driver:
-  
-  To download web drivers, you can choose any of below methods
-
-    + You can either directly download chrome driver from the [link](https://chromedriver.chromium.org/downloads)
-    + Or, you can download it directly using below line of code - `driver = webdriver.Chrome(ChromeDriverManager().install())`
-
-  You can find complete documentation on selenium [here](https://selenium-python.readthedocs.io/). Documentation is very much self-explanatory so make sure to read it to leverage selenium with Python.
-
-  Following methods will help us to find elements in a Web-page (these methods will return a list):
-
++ Selenium Setup & methods
+  + Installation:
+    + Install selenium using `pip`: `pip install selenium`
+    + Install selenium using `conda`: `conda install -c conda-forge selenium`
+  + Download Chrome Driver:
+    + directly download [chrome driver](https://chromedriver.chromium.org/downloads)
+    + directly using the line of code: `driver = webdriver.Chrome(ChromeDriverManager().install())`
+  + [documentation](https://selenium-python.readthedocs.io/)
+  + methods to find elements in a Web-page (these methods will return a list):
     + `find_elements_by_name`
     + `find_elements_by_xpath`
     + `find_elements_by_link_text`
@@ -73,9 +56,6 @@ Date: 2020-08-30
     + `find_elements_by_tag_name`
     + `find_elements_by_class_name`
     + `find_elements_by_css_selector`
-
-  Now let’s write one Python code to scrape images from web.
-
 
 ## Implementation of Image Web Scrapping using Selenium Python
 
