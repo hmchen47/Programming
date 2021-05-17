@@ -15,6 +15,7 @@
 + [Introduction to Mathematical Programming - MIT](https://tinyurl.com/y5kyx76y)
 + [Fundamentals of Program Analysis - MIT](https://tinyurl.com/y632qdmx)
 + [Theory of Computation - MIT](https://tinyurl.com/y64s55ox)
++ M. Sipser, [Introduction to the Theory of Computation](http://libgen.gs/get.php?md5=ffac7d9ee14649d6fdf8117ffc1d5a06&key=XLWFE5A70ETX1XSL), 2013
 + Algorithms Specialization - Stanford, Coursera
   + [Divide and Conquer, Sorting and Searching, and Randomized Algorithms](https://www.coursera.org/learn/algorithms-divide-conquer)
   + [Graph Search, Shortest Paths, and Data Structures](https://www.coursera.org/learn/algorithms-graphs-data-structures)
@@ -56,16 +57,20 @@
 
 ## Python
 
-+ Python 3 Programming Specialization - Coursera
++ Python 3 Programming Specialization @ Coursera
   + [Python Basics](https://www.coursera.org/learn/python-basics?specialization=python-3-programming)
   + [Python Functions, Files, and Dictionaries](https://www.coursera.org/learn/python-functions-files-dictionaries?specialization=python-3-programming)
   + [Data Collection and Processing with Python](https://www.coursera.org/learn/data-collection-processing-python?specialization=python-3-programming)
   + [Python Classes and Inheritance](https://www.coursera.org/learn/python-classes-inheritance?specialization=python-3-programming)
 
-+ Python Course
++ Python Courses
   + [Python Tutorial](https://www.python-course.eu/python3_course.php)
   + [Advanced Python Tutorial](https://www.python-course.eu/advanced_python.php)
   + [Numerical Programming with Python](https://www.python-course.eu/numerical_programming_with_python.php)
+
++ String Formating
+  + D. Bader, [Python String Formatting Best Practices](https://realpython.com/python-string-formatting/)
+  + J. Jablonski, [Python 3's f-Strings: An Improved String Formatting Syntax (Guide)](https://realpython.com/python-f-strings/)
 
 
 + Date & Time
@@ -79,13 +84,16 @@
 
 + Web scraping
   + [Web Scraping with Python + BeautifulSoup, Coursera](https://www.coursera.org/projects/web-scraping)
+  + D. Amos, [A Practical Introduction to Web Scraping in Python](https://realpython.com/python-web-scraping-practical-introduction/), RealPython, 2020-08-17
+  + M. Breuss, [Beautiful Soup: Build a Web Scraper With Python](https://realpython.com/beautiful-soup-web-scraper-python/), ReakPython
+
 
 ## C/C++ Programming
 
 + [Practical Programming in C - MIT](https://tinyurl.com/yyjb2aef)
 + [Introduction to C Memory Management and C++ Object-Oriented Programming - MIT](https://tinyurl.com/y4bn4t7q)
 + [Introduction to C++ - MIT](https://tinyurl.com/yakxhn54)
-+ Gain skills in computer engineering by learning C and Linux - edX
++ Gain skills in computer engineering by learning C and Linux @ edX
   + [C Programming: Getting Started](https://www.edx.org/course/c-programming-getting-started)
   + [C Programming: Language Foundations](https://www.edx.org/course/c-programming-language-foundations)
   + [C Programming: Modular Programming and Memory Management](https://www.edx.org/course/c-programming-modular-programming-and-memory-manag)
@@ -93,7 +101,7 @@
   + [C Programming: Advanced Data Types](https://www.edx.org/course/c-programming-advanced-data-types)
   + [Linux Basics: The Command Line Interface](https://www.edx.org/course/linux-basics-the-command-line-interface)
   + [C Programming: Using Linux Tools and Libraries](https://www.edx.org/course/c-programming-using-linux-tools-and-libraries)
-+ Introduction to Programming in C Specialization - CVoursera
++ Introduction to Programming in C Specialization @ Coursera
   + [Programming Fundamentals](https://www.coursera.org/learn/programming-fundamentals)
   + [Writing, Running, and Fixing Code in C](https://www.coursera.org/learn/writing-running-fixing-code)
   + [Pointers, Arrays, and Recursion](https://www.coursera.org/learn/pointers-arrays-recursion)
