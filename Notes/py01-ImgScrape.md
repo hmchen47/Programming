@@ -172,12 +172,10 @@ Date: 2020-08-30
 
 ## Putting it all together
 
++ Python code links
+  + [Original source code](https://github.com/Praveen76/Web-Scraping-using-Selenium-Python)
+  + [Local demo notebook - version 1](src/Web-Scraping-Selenium/Image_Web-Scraping_Part1.ipynb)
+  + [Local demo notebook - version 2](src/Web-Scraping-Selenium/Image_Web-Scraping_Part2.ipynb)
+  + [Local demo code](src/Web-Scraping-Selenium/image_Web-Scraping.py)
 
-This snippet of code will save each image in the destination directory.
-
-## End Notes
-
-I’ve tried my bit to explain Web Scraping using Selenium with Python as simple as possible. Please feel free to comment on your queries. I’ll be more than happy to answer them.
-
-You can clone my Github repository to download the whole code & data, click [here](https://github.com/Praveen76/WebScrapping-using-Selenium-Python!!
 
