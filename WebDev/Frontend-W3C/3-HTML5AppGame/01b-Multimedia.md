@@ -106,7 +106,72 @@ etc.
 
 #### Notes for 1.2.1 The Timed Text Track API
 
++ `<track>` element
+  + typically within `<video>` and `<audio>` elements
+  + attributes
+    + `label`
+    + `kind`: subtitle, captions, chapters, matadata, etc.
+    + `srclang`: language
+    + `src`: a source URL
+    + ...
+  + example
 
+    ```html
+    <video id="myVideo" preload="metadata" controls crossOrigin="anonymous">
+        <source src="https://...../elephants-dream-medium.mp4" type="video/mp4">
+        <source src="https://...../elephants-dream-medium.webm" type="video/webm">
+        <track label="English subtitles" kind="subtitles" srclang="en"
+              src="https://...../elephants-dream-subtitles-en.vtt">
+        <track label="Deutsch subtitles" kind="subtitles" srclang="de"
+              src="https://...../elephants-dream-subtitles-de.vtt" default>
+        <track label="English chapters" kind="chapters" srclang="en"
+              src="https://...../elephants-dream-chapters-en.vtt">
+    </video>
+    ```
+
++ Multiple tracks support
+  + supporting for multiple tracks probably different significantly btw browsers (May 2020)
+  + Safari
+    + providing a menu to choose which subtitle/track to display
+    + `default` attribute: loading the text track by default
+  + Chrome & Opera
+    + providing a subtitle menu
+    + loading the text track which matches the browser's language if existed
+    + none loaded if no matching
+  + Firefox
+    + providing a subtitle menu
+    + displaying the first defined text track only if the `default` set
+    + loading all tracks in memory as page loaded
+
++ WebVTT text racks
+  + [document](https://bit.ly/33RJsl8) in HTML5/HTML5.1 specification
+  + enabling to manipulate `<track>` contents from JavaScript
+  + cue:
+    + element w/ an `id`, a starTime, and an endTime
+    + text content: containing HTML tags for styling or associated w/ a "voice"
+    + voice element: `<v name_of_speaker> ... </v>`
+  + example
+
+    ```s
+    WEBVTT
+
+    1
+    00:00:15.000 --> 00:00:18.000 align:start
+    <v Proog>On the left we can see...</v>
+
+    2
+    00:00:18.167 --> 00:00:20.083 align:middle
+    <v Proog>On the right we can see the...</v>
+
+    3
+    00:00:20.083 --> 00:00:22.000
+    <v Proog>...the <c.highlight>head-snarlers</c></v>
+
+    4
+    00:00:22.000 --> 00:00:24.417 align:end
+    <v Proog>Everything is safe. Perfectly safe.</v>
+    remote controller with subtitles button
+    ```
 
 
 ### 1.2.2 The HTML track element
