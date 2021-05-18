@@ -4,12 +4,12 @@ Institution: W3Cx - HTML5.2x
 
 ## Module 1: Advanced HTML5 multimedia section
 
-+ 1.1 [Video introduction](01a-Multimedia1.md)
-+ 1.2 [The Timed Text Track API](01b-Multimedia1.md)
-+ 1.3 [Advanced features for audio and video players](01c-Multimedia1.md)
-+ 1.4 [Creating tracks on the fly, syncing HTML content with a video](01d-Multimedia1.md)
-+ 1.5 [The Web Audio API](01e-Multimedia1.md)
-+ 1.6 [Exercises - Module 1 (27 Questions)](01f-Multimedia1.md)
++ 1.1 [Video introduction](01a-Multimedia.md)
++ 1.2 [The Timed Text Track API](01b-Multimedia.md)
++ 1.3 [Advanced features for audio and video players](01c-Multimedia.md)
++ 1.4 [Creating tracks on the fly, syncing HTML content with a video](01d-Multimedia.md)
++ 1.5 [The Web Audio API](01e-Multimedia.md)
++ 1.6 [Exercises - Module 1 (27 Questions)](01f-Multimedia.md)
 
 
 ## Module 2: Game programming with HTML5 section
