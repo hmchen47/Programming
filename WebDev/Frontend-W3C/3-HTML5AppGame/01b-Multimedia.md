@@ -259,7 +259,7 @@ function displayTrackStatuses(htmlTracks) {
 
 The code is rather straightforward:
 
-+ We cannot access any HTML element before the page has been loaded. This is why we do all the work in the window.onload listener,
++ We cannot access any HTML element before the page has been loaded. This is why we do all the work in the `window.onload` listener,
 + _Line 7_: we get a pointer to the div with `id=trackStatusesDiv`, that will be used to display track statuses,
 + _Line 10_: we get all the track elements in the document. They are HTML track elements,
 + _Line 13_: we call a function that will build some HTML to display the track status in the div we got from _line 7_.
@@ -292,8 +292,23 @@ Now, it's time to look at the twin brother of an HTML track: the corresponding `
 
 #### Notes for 1.2.2 The HTML track element
 
++ Status of an HTML track
+  + JavaScript code to display `track` status
+  + global variables: `var video, htmlTracks; var trackStatusesDiv;`
+  + unable to access any HTML before page loaded: `window.onload = function() {...}`
+    + access `<video>` element: `video = document.querySelector("#myVideo");`
+    + access status of `<track>` element: `htmlStatusesDiv = document.querySelector("#trackStatusesDiv");`
+    + access `<track>` element: `htmlTracks = document.querySelectorAll("track");`
+    + display status: `displayTrackStatus(htmlTracks);`
+  + display track status: `function displayTrackStatuses(htmlTracks) {...}`
+    + iterate through tracks: `for (var i=0; i < htmlTracks.length; i++) {...}`
+    + display info: `trackStatusesDiv.innerHTML += "<li><b>Track:" + i + ":</b></li>" + "<url>" + label + kind + lang + readyState + "</ul>"`
 
-
++ Values of `readyState` attribute
+  + __0 = NONE__: the text track's cues not obtained
+  + __1 = LOADING__: the text track loaded w/o errors yet, further cues able to be added to the track by the parser
+  + __2 = LOADED__: the text track loaded w/o errors
+  + __3 = ERROR__: the text track enabled but accessing failed, likely missing
 
 
 ### 1.2.3 The TextTrack object
