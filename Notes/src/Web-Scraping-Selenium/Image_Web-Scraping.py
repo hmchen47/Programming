@@ -12,7 +12,7 @@ import io
 import requests
 from webdriver_manager.chrome import ChromeDriverManager
 
-os.chdir('C:/Qurantine/Blog/WebScrapping')
+os.chdir('./src')
 
 # Step 2 – Install Chrome Driver
 
@@ -82,12 +82,12 @@ def getImageUrls(name,totalImgs,driver):
 def downloadImages(folder_path,file_name,url):
     try:
         image_content = requests.get(url).content
-    except Exception as e:
+except Exception as e:
         print(f"ERROR - COULD NOT DOWNLOAD {url} - {e}")
-    try:
+try:
         image_file = io.BytesIO(image_content)
         image = Image.open(image_file).convert('RGB')
-       
+
         file_path = os.path.join(folder_path, file_name)
         
         with open(file_path, 'wb') as f:
@@ -108,7 +108,7 @@ def saveInDestFolder(searchNames,destDir,totalImgs,driver):
         totalLinks=getImageUrls(name,totalImgs,driver)
         print('totalLinks',totalLinks)
 
-        if totalLinks is None:
+if totalLinks is None:
             print('images not found for :',name)
             continue
         else:
