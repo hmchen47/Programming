@@ -16,12 +16,12 @@
 + [Fundamentals of Program Analysis - MIT](https://tinyurl.com/y632qdmx)
 + [Theory of Computation - MIT](https://tinyurl.com/y64s55ox)
 + M. Sipser, [Introduction to the Theory of Computation](http://libgen.gs/get.php?md5=ffac7d9ee14649d6fdf8117ffc1d5a06&key=XLWFE5A70ETX1XSL), 2013
-+ Algorithms Specialization - Stanford, Coursera
++ Algorithms Specialization - Stanford @ Coursera
   + [Divide and Conquer, Sorting and Searching, and Randomized Algorithms](https://www.coursera.org/learn/algorithms-divide-conquer)
   + [Graph Search, Shortest Paths, and Data Structures](https://www.coursera.org/learn/algorithms-graphs-data-structures)
   + [Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming](https://www.coursera.org/learn/algorithms-greedy)
   + [Shortest Paths Revisited, NP-Complete Problems and What To Do About Them](https://www.coursera.org/learn/algorithms-npcomplete)
-+ Algorithm - Princeton, Coursera
++ Algorithm - Princeton @ Coursera
   + [Algorithms, Part I](https://www.coursera.org/learn/algorithms-part1)
   + [Algorithms, Part II](https://www.coursera.org/learn/algorithms-part2)
   + [Analysis of Algorithms](https://www.coursera.org/learn/analysis-of-algorithms)
@@ -83,7 +83,7 @@
   + P. Yip, [Python and NumPy: Time and Date (datetime and timedelta64)](https://dellwindowsreinstallationguide.com/python-and-numpy-time-and-date-datetime-and-timedelta64/)
 
 + Web scraping
-  + [Web Scraping with Python + BeautifulSoup, Coursera](https://www.coursera.org/projects/web-scraping)
+  + [Web Scraping with Python + BeautifulSoup](https://www.coursera.org/projects/web-scraping) @ Coursera
   + D. Amos, [A Practical Introduction to Web Scraping in Python](https://realpython.com/python-web-scraping-practical-introduction/), RealPython, 2020-08-17
   + M. Breuss, [Beautiful Soup: Build a Web Scraper With Python](https://realpython.com/beautiful-soup-web-scraper-python/), ReakPython
 
