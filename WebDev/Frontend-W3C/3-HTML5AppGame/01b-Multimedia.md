@@ -286,9 +286,8 @@ Now, it's time to look at the twin brother of an HTML track: the corresponding `
   a. It depends on the browser<br>
   b. Yes<br>
 
-  Ans: <br>
-  Explanation: 
-
+  Ans: a<br>
+  Explanation: In the given example, only the first track with the `default` attribute has been loaded. Try the example on different browsers and you will notice that only the track with the `default` attribute is loaded by the major browsers, when the page is loaded. FireFox will load all tracks, but will display the one with the `default` attribute only if it's the first one.
 
 #### Notes for 1.2.2 The HTML track element
 
