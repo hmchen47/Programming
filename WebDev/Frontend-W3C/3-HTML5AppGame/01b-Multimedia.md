@@ -44,10 +44,14 @@ Here is a small example of a video with 3 different tracks ("......" masks the r
 
 And here is how it renders in your current browser (please play the video and try to show/hide the subtitles/captions):
 
-<video src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.mp4" preload="none" loop="loop" controls="controls" style="margin-left: 2em;" muted="" poster="https://bit.ly/2JtB40Q" width=300>
-  <track src="subtitle" kind="captions" srclang="en" label="English" default>
-  Your browser does not support the HTML5 video element.
-</video><br/>
+<video id="myVideo" preload="metadata" controls="controls" crossorigin="anonymous"> 
+  <source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.mp4" type="video/mp4"> 
+  <source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.webm" type="video/webm"> 
+  
+  <track kind="subtitles" src="https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-en.vtt" srclang="en" label="English subtitles"> 
+  <track kind="subtitles" src="https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-de.vtt" srclang="de" label="Deutsch subtitles" default=""> 
+  <track kind="chapters" src="https://mainline.i3s.unice.fr/mooc/elephants-dream-chapters-en.vtt" srclang="en" label="English chapters"> 
+</video>
 
 Notice that the support for multiple tracks may differs significantly from one browser to another, in particular if you are using old versions. Here is a quick summary (as in May 2020).
 
@@ -60,7 +64,6 @@ Notice that the support for multiple tracks may differs significantly from one b
       alt    = "screenshot of safari menu fr choosing subtitle track"
       title  = "screenshot of safari menu fr choosing subtitle track"
     />
-    <figcaption> Fig. 1: ... </figcaption>
   </figure>
 
 + Chrome and Opera both provide a subtitle menu and load the text track set that matches the browser language. If none of the available text tracks match the browser’s language, then it loads the track with the default attribute, if there is one. Otherwise, it loads none. Let's say that support is very incomplete (!).
