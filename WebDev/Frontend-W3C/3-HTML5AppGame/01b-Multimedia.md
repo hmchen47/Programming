@@ -176,6 +176,117 @@ etc.
 
 ### 1.2.2 The HTML track element
 
+#### Live coding video: HTML Track element
+
+<a href="https://edx-video.net/W3CHTM52/W3CHTM52T415-V000600_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript Download](https://bit.ly/33TXcvF)
+
+
+#### Example: `<track>`
+
+Let's go back to our example. Below is the HTML code:
+
+```html
+<video id="myVideo" preload="metadata" controls crossOrigin="anonymous">
+    <source src="https://...../elephants-dream-medium.mp4" type="video/mp4">
+    <source src="https://...../elephants-dream-medium.webm" type="video/webm">
+    <track label="English subtitles" kind="subtitles" srclang="en"
+           src="https://...../elephants-dream-subtitles-en.vtt" >
+    <track label="Deutsch subtitles" kind="subtitles" srclang="de"
+           src="https://...../elephants-dream-subtitles-de.vtt" default>
+    <track label="English chapters" kind="chapters" srclang="en"
+           src="https://...../elephants-dream-chapters-en.vtt">
+ </video>
+<div id="trackStatusesDiv">
+    <h3>HTML track descriptions</h3>
+</div>
+```
+
+This example defines three `<track>` elements. From JavaScript, we can manipulate these elements as "HTML elements" - we will call them the "HTML views" of  tracks.
+
+
+#### Status of an HTML track
+
+
+Getting the status of an HTML track
+
+[Example at JSBin that displays the different elements we can get from an HTML track:](https://jsbin.com/kuqevegapi/2/edit?html,css,output)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open('https://bit.ly/3f00BPO')"
+    src    = "https://bit.ly/3yojK5G"
+    alt    = "An example of JSBin showing html track statuses"
+    title  = "An example of JSBin showing html track statuses"
+  />
+</figure>
+
+Here is the JavaScript source code:
+
+```js
+var video, htmlTracks;
+var trackStatusesDiv;
+ 
+window.onload = function() {
+   // called when the page has been loaded
+   video = document.querySelector("#myVideo");
+   trackStatusesDiv = document.querySelector("#trackStatusesDiv");
+   // Get the tracks as HTML elements
+   htmlTracks = document.querySelectorAll("track");
+   // displays their statuses in a div under the video
+   displayTrackStatuses(htmlTracks);
+};
+ 
+function displayTrackStatuses(htmlTracks) {
+   // displays track info
+   for(var i = 0; i < htmlTracks.length; i++) {
+     var currentHtmlTrack = htmlTracks[i];
+     var label = "<li>label = " + currentHtmlTrack.label + "</li>";
+     var kind = "<li>kind = "   + currentHtmlTrack.kind + "</li>";
+     var lang = "<li>lang = "   + currentHtmlTrack.srclang + "</li>";
+     var readyState = "<li>readyState = " 
+                             + currentHtmlTrack.readyState + "</li>"
+     trackStatusesDiv.innerHTML += "<li><b>Track:" + i + ":</b></li>"
+               + "<ul>" + label + kind + lang + readyState + "</ul>";
+  }
+}
+```
+
+The code is rather straightforward:
+
++ We cannot access any HTML element before the page has been loaded. This is why we do all the work in the window.onload listener,
++ _Line 7_: we get a pointer to the div with `id=trackStatusesDiv`, that will be used to display track statuses,
++ _Line 10_: we get all the track elements in the document. They are HTML track elements,
++ _Line 13_: we call a function that will build some HTML to display the track status in the div we got from _line 7_.
++ _Lines 16-29_: we iterate on the HTML tracks, and for each track we get the `label`, the `kind` and the `srclang` attribute values. Notice, at _line 24_, the use of the `readyState` attribute, only used from JavaScript, that will give the current HTML track state.<br>
+You can see on the screenshot (or [from the JSBin example](https://jsbin.com/higebo/1/edit?html,css,js,output)) that the German subtitle file has been loaded, and that none of the other tracks have been loaded.
+
+
+#### Possible values for thw `readyState` attribute
+
+Possible values for the `readyState` attribute of HTML tracks:
+
++ __0 = NONE__; the text track's cues have not been obtained
++ __1 = LOADING__; the text track is loading with no errors yet. Further cues can still be added to the track by the parser
++ __2 = LOADED__; the text track has been loaded with no errors
++ __3 = ERROR__; the text track was enabled, but when the user agent attempted to obtain it, something failed. Some or all of the cues are likely missing and will not be obtained
+
+Now, it's time to look at the twin brother of an HTML track: the corresponding `TextTrack` object!
+
+
+#### Knowledge check 1.2.2
+
+1. When playing a video, are all tracks loaded by default?
+
+  a. It depends on the browser<br>
+  b. Yes<br>
+
+  Ans: <br>
+  Explanation: 
+
 
 
 
