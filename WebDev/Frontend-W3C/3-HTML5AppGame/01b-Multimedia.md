@@ -6,23 +6,6 @@
 
 ### 1.2.1 The Timed Text Track API
 
-
-#### Live coding video: intro to the Timed Text Track API
-
-<a href="https://edx-video.net/W3CHTM52/W3CHTM52T415-V000500_DTH.mp4" target="_BLANK">
-  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
-</a><br/><br/>
-
-[Transcript Download](https://bit.ly/2S2MEIa)
-
-
-#### Knowledge check 1.2.1
-
-1. Do the most recent versions of all major browsers provide a menu for choosing the subtitle or the caption track? (Yes/No)
-
-  Ans: 
-
-
 #### Contents
 
 In the [W3Cx HTML5 Coding Essentials and Best Practices](https://bit.ly/3we2vSS) course, we saw that `<video>` and `<audio>` elements can have `<track>` elements. A `<track>` can have a `label`, a `kind` (subtitles, captions, chapters, metadata, etc.), a language (`srclang` attribute), a source URL (`src` attribute), etc.
@@ -102,6 +85,23 @@ It's now time to look at the JavaScript API for manipulating tracks, cues, and e
 + how to show chapters,
 + how to use JSON encoded cue contents (useful for showing external resources in the HTML document while a video is playing),
 etc.
+
+
+#### Live coding video: intro to the Timed Text Track API
+
+<a href="https://edx-video.net/W3CHTM52/W3CHTM52T415-V000500_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript Download](https://bit.ly/2S2MEIa)
+
+
+#### Knowledge check 1.2.1
+
+1. Do the most recent versions of all major browsers provide a menu for choosing the subtitle or the caption track? (Yes/No)
+
+  Ans: No<br>
+  Explanation: Unfortunately, support currently varies from one browser to another. Only Safari, IE and Microsoft Edge provide a menu to choose the subtitle or caption track. These missing features can be added, however, using the Timed Text Track API.
 
 
 #### Notes for 1.2.1 The Timed Text Track API
