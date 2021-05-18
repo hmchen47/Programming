@@ -215,6 +215,8 @@ Getting the status of an HTML track
 
 [Example at JSBin that displays the different elements we can get from an HTML track:](https://jsbin.com/kuqevegapi/2/edit?html,css,output)
 
+[Local Demo](src/01b-example01.html)
+
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick= "window.open('https://bit.ly/3f00BPO')"
@@ -286,6 +288,9 @@ Now, it's time to look at the twin brother of an HTML track: the corresponding `
 
   Ans: <br>
   Explanation: 
+
+
+#### Notes for 1.2.2 The HTML track element
 
 
 
