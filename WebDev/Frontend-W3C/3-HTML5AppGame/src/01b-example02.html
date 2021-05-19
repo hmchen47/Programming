@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Using HTML views of tracks</title>
+  <link rel="stylesheet" href="css/01b-example02.css">
+  <script src="js/01b-example02.js"></script>
+</head>
+<body>
+<video id="myVideo" preload="metadata" controls crossOrigin="anonymous">
+    <source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.mp4" type="video/mp4">
+    <source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.webm" type="video/webm">
+    <track label="English subtitles" kind="subtitles" srclang="en"
+           src="https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-en.vtt" >
+    <track label="Deutsch subtitles" kind="subtitles" srclang="de"
+           src="https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-de.vtt" default>
+    <track label="English chapters" kind="chapters" srclang="en"
+           src="https://mainline.i3s.unice.fr/mooc/elephants-dream-chapters-en.vtt">
+ </video>
+    <h3>HTML track descriptions</h3>
+    <button id="buttonLoadFirstTrack" onclick="forceLoadTrack(0);" disabled>Force load track 0</button> 
+  <button id="buttonLoadThirdTrack" onclick="forceLoadTrack(2);" disabled>Force load track 2</button><p>
+    <div id="trackStatusesDiv">
+
+  </div>
+</body>
+</html>
+
