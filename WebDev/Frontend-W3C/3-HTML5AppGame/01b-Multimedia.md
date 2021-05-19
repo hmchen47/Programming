@@ -328,11 +328,11 @@ The `TextTrack` JavaScript object has different methods and properties for manip
 
 #### The `TextTrack` object
 
-__Obtaining a TextTrack object that corresponds to an HTML track__
+__Obtaining a `TextTrack` object that corresponds to an HTML track__
 
-__First method: get a TextTrack from its associated HTML track__
+__First method: get a `TextTrack` from its associated HTML track__
 
-The HTML track element has a track property which returns the associated TextTrack object. Example source code:
+The HTML track element has a track property which returns the associated `TextTrack` object. Example source code:
 
 ```js
 // HTML tracks
@@ -346,10 +346,11 @@ var lang = textTrack.language;
 // etc.
 ```
 
-Note that once we get a TextTrack object, we can manipulate the kind, label, language attributes (be careful, it's not srclang, like the equivalent attribute name for HTML tracks). Other attributes and methods are described later in this lesson.
+Note that once we get a `TextTrack` object, we can manipulate the kind, label, language attributes (be careful, it's not srclang, like the equivalent attribute name for HTML tracks). Other attributes and methods are described later in this lesson.
 
-Second method: get TextTrack from the HTML video element
-The <video> element (and <audio> element too) has a TextTrack property accessible from JavaScript:
+__Second method: get TextTrack from the HTML video element__
+
+The `<video>` element (and `<audio>` element too) has a `TextTrack` property accessible from JavaScript:
 
 ```js
 var videoElement = document.querySelector("#myVideo");
@@ -455,7 +456,61 @@ __Explanations:__
   a. You should define a load event listener on the html track element, when the track is loaded, the load event will be fired. Do the rest of your work with the track in this listener (reading its content, etc).<br>
   b. Check the readyState property of its HTML track element. If it has a value=2, then the track is loaded.
 
-  Ans: 
+  Ans: <br>
+  Explanantion: 
+
+
+#### Notes for 1.2.3 The TextTrack object
+
++ `TextTrack` object
+  + containing the cue, not HTML object itself
+  + w/ different methods and properties for manipulating track content
+  + associated w/ different events
+
++ Accessing `TextTrack` object
+  + obtaining from associated HTML track
+    + access HTMl `track` element: `var htmlTracks = document.querySelectorAll("track");`
+    + `TextTrack` object associate w/ the 1st HTML track: `var textTrack = htmlTrack[0].track;`
+    + get 1st track attributes: `var kind = textTrack.kind; var label = textTrack.label; var lang = textTrack.language; ...`
+  + obtaining from the HTML video/audio element
+    + access video element: `var videoElement = document.querySelector("#myVideo");`
+    + all tracks w/ the video element: `var textTracks = videoElement.textTracks;`
+    + access 1st track element: `var textTrack = textTracks[0];`
+    + get 1st track attributes: `var kind = textTrack.kind; var mode = textTrack.mode; ...`
+  + content existed only if a track loaded
+
++ The `mode` property of `TextTrack` objects
+  + `showing`
+    + track already loaded or being loaded by the browser
+    + displayed in the video once completely loaded
+    + firing event while video played
+  + `hidden`
+    + track ready loaded or being loaded by the browser
+    + firing events while video played
+    + nothing visible in the standard video player GUI
+  + `disabled`
+    + track not loaded
+    + stop firing events
+  + setting `mode` property as `showing` and `hidden` to force a track to be loaded
+
++ Example: button to load tracks
+  + creating HTML button
+    + `<button id="buttonLoadFirstTrack" onclick="forceLoadTrack(0);" disabled> Force load track 0 </button>`
+    + callback function to get track (forcing load if necessary): `forceLoadTrack(trackNumber)`
+    + get TextTrack object w/ associated HTML `<track>` element: `function getTrack(htmlTrack, callback): {...}`
+      + track variable: `var TextTrack = htmlTrack.track;`
+      + check track loaded: `if (htmlTrack.readySyaye === 2) {...}`
+        + console log: `console.log("text track already loaded");`
+        + exec callback function: `callback(textTrack);`
+      + track not loaded yet:
+        + console log: `console.log("Forcing the text track to be loaded");`
+        + force to load track: `textTrack.mode = "hidden";`
+        + using an event listener while loading track: `htmlTrack.addEventListener('load', function(e) {callback(textTrack)});`
+  + JavaScript to download and display tracks
+    + force to load track: `function forceLoadTrack(n) (getTrack(htmlTracks[n], readContent);`
+    + read and display track status: `function readContent(track) {...}`
+      + console log: `console.log("reading content of loaded track ...");`
+      + update page w/ new track: `displayTrackStatuses(htmlTracks)`
 
 
 ### 1.2.4 Working with cues
