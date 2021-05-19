@@ -625,6 +625,7 @@ This technique will be used in one of the next lessons, and we will show you how
   Ans: c<br>
   Explanation: The `cues` property of a `TextTrack` returns the list of cues as a `TextTrackCueList` object. This is the complete content of the WebVTT file!
 
+
 #### Notes for 1.2.4 Working with cues
 
 + Properties & methods of `TextTrack` object
@@ -676,6 +677,163 @@ This technique will be used in one of the next lessons, and we will show you how
 
 
 ### 1.2.5 Listening to events
+
+#### Live coding video: track and cue events
+
+<a href="https://edx-video.net/W3CHTM52/W3CHTM52T415-V000900_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript Download](https://bit.ly/3f3jW2K)
+
+#### Events of Cue object
+
+Instead of reading the whole content of a track at once, like in the previous example, it might be interesting to process the track content cue by cue, while the video is being played. For example, you choose which track you want - say, German subtitles - and you want to display the subtitles in sync with the video, below the video, with your own style and animations... Or you display the entire set of subtitles to the side of the video and you want to highlight the current one... For this, you can listen for different sorts of events.
+
+The two types of cue event are:
+
+1. `enter` and `exit` events fired for cues.
+2. `cuechange` events fired for TextTrack objects (good support).
+
+
+#### Event for changing cue
+
+__Example of `cuechange` listener on `TextTrack`__
+
+<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com" style="color: #880000;">// track is a loaded TextTrack</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">track</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">addEventListener</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"cuechange"</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">e</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;cue&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">this</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">activeCues</span><span class="pun" style="color: #666600;">[</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #666600;">];</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;console</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">log</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"cue change"</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// do something with the current cue</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">});</span></li>
+</ol></div>
+<br>
+
+In the above example, let's assume that we have no overlapping cues for the current time segment. The above code listens for cue change events: when the video is being played, the time counter increases. And when this time counter value reaches time segments defined by one or more cues, the callback is called. The list of cues that are in the current time segments are in `this.activeCues;` where `this` represents the track that fired the event.
+
+In the following lessons, we show how to deal with overlapping cues (cases where we have more than one active cue).
+
+
+#### Events of enter and exist cues
+
+Example of enter and exit event listeners on a track's cues
+
+<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com" style="color: #880000;">&nbsp;// iterate on all cues of the current track</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;var cues = track.cues;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">for</span><span class="pun" style="color: #666600;">(</span><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;i</span><span class="pun" style="color: #666600;">=</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;len&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;cues</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">length</span><span class="pun" style="color: #666600;">;</span><span class="pln" style="color: #000000;">&nbsp;i&nbsp;</span><span class="pun" style="color: #666600;">&lt;</span><span class="pln" style="color: #000000;">&nbsp;len</span><span class="pun" style="color: #666600;">;</span><span class="pln" style="color: #000000;">&nbsp;i</span><span class="pun" style="color: #666600;">++)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// current cue, also add enter and exit listeners to it</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;cue&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;cues</span><span class="pun" style="color: #666600;">[</span><span class="pln" style="color: #000000;">i</span><span class="pun" style="color: #666600;">];</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;addCueListeners</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">cue</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="pun" style="color: #666600;">...</span></li>
+<li class="L7" style="margin-bottom: 0px;">&nbsp;}</li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;addCueListeners</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">cue</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; cue</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">onenter&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pun" style="color: #666600;">(){</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; console</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">log</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'enter cue id='</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">this</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">id</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; // do something</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;&nbsp;</span><span class="pun" style="color: #666600;">};</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; cue</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">onexit&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pun" style="color: #666600;">(){</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; console</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">log</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">'exit cue id='</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;cue</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">id</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp;// do something else</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;&nbsp;</span><span class="pun" style="color: #666600;">};</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="com" style="color: #880000;">// end of addCueListeners...</span></li>
+</ol></div><br>
+
+
+#### Example: Events of cues
+
+__Showing real examples of event listeners__
+
+Here is an [example at JSBin](https://bit.ly/3wesDwM) that shows how to listen for cuechange events:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3oIkFK9")"
+    src    = "https://bit.ly/3hEPQEo"
+    alt    = "example that displays cue contents with cuechange even listeners"
+    title  = "example that displays cue contents with cuechange even listeners"
+  />
+</figure>
+
+
+Source code extract:
+
+<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;readContent</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">track</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;console</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">log</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"adding cue change listener to loaded track..."</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;trackStatusesDiv</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">""</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;<strong>// add a cue change listener to the TextTrack</strong></span></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln" style="color: #000000;">&nbsp; &nbsp;track</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">addEventListener</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"cuechange"</span><span class="pun" style="color: #666600;">,</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">e</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;cue&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">this</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">activeCues</span><span class="pun" style="color: #666600;">[</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #666600;">];</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #000088;">if</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">cue&nbsp;</span><span class="pun" style="color: #666600;">!==</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">undefined</span><span class="pun" style="color: #666600;">)</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;trackStatusesDiv</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">+=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">"cue change: text = "</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;cue</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">text&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">"&lt;br&gt;"</span><span class="pun" style="color: #666600;">;</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="pun" style="color: #666600;">});</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;video</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">play</span><span class="pun" style="color: #666600;">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
+</ol></div><br>
+
+And [here](https://bit.ly/3f2oy9u) is another modified version of this example at JSBin, that shows how to use enter and exit events on cues:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3oIkFK9")"
+    src    = "https://bit.ly/3eZ0Cnc"
+    alt    = "Example that displays message in enter and exit cue listeners of the selected track"
+    title  = "Example that displays message in enter and exit cue listeners of the selected track"
+  />
+</figure>
+
+
+Source code extract:
+
+<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;readContent</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">track</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;console</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">log</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"adding enter and exit listeners to all cues of this track"</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;trackStatusesDiv</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">""</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// get the list of cues for that track</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;cues&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;track</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">cues</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// iterate on them</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="kwd" style="color: #000088;">for</span><span class="pun" style="color: #666600;">(</span><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;i</span><span class="pun" style="color: #666600;">=</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #666600;">;</span><span class="pln" style="color: #000000;">&nbsp;i&nbsp;</span><span class="pun" style="color: #666600;">&lt;</span><span class="pln" style="color: #000000;">&nbsp;cues</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">length</span><span class="pun" style="color: #666600;">;</span><span class="pln" style="color: #000000;">&nbsp;i</span><span class="pun" style="color: #666600;">++)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// current cue</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;cue&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;cues</span><span class="pun" style="color: #666600;">[</span><span class="pln" style="color: #000000;">i</span><span class="pun" style="color: #666600;">]; &nbsp;&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp;<strong>&nbsp;addCueListeners</strong></span><strong><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">cue</span><span class="pun" style="color: #666600;">);</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;"></span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">video</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">play</span><span class="pun" style="color: #666600;">();</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;addCueListeners</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">cue</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;cue</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">onenter&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pun" style="color: #666600;">(){</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; trackStatusesDiv</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">+=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">'entered cue id='</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">this</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">id&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">" "</span><span class="pln" style="color: #000000;"></span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+</span><span class="pln" style="color: #000000;">&nbsp;this</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">text&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">"&lt;br&gt;"</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="pun" style="color: #666600;">};</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;cue</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">onexit&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">function</span><span class="pun" style="color: #666600;">(){</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; trackStatusesDiv</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">+=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">'exited cue id='</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="kwd" style="color: #000088;">this</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">id&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">"&lt;br&gt;"</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="pun" style="color: #666600;">};</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="com" style="color: #880000;">// end of addCueListeners...</span></li>
+</ol></ol></div><br>
+
+#### Knowledge check 1.2.5
+
+1. What conditions are necessary for a video to fire events on a particular track?
+
+  a. The track must be loaded and the mode property of its TextTrack object must be "hidden" or "showing". Of course you have to define event listeners too in order to do something interesting.<br>
+  b. No particular conditions, just add event listeners and you'll be good.
+
+  Ans: <br>
+  Explanation: 
+
+
+
+
 
 
 
