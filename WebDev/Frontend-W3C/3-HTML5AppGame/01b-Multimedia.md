@@ -454,13 +454,13 @@ __Explanations:__
 1. When you force load a track, how can you be sure that it's loaded?
 
   a. You should define a load event listener on the html track element, when the track is loaded, the load event will be fired. Do the rest of your work with the track in this listener (reading its content, etc).<br>
-  b. Check the readyState property of its HTML track element. If it has a value=2, then the track is loaded.
+  b. Check the `readyState` property of its HTML track element. If it has a value=2, then the track is loaded.
 
-  Ans: <br>
-  Explanantion: 
+  Ans: a<br>
+  Explanantion: The `readyState` property will not load the track. To load a file, set the `mode` property of its TextTrack object to "hidden" or "showing" and then use a load listener on the html track element, like in the provided example.
 
 
-#### Notes for 1.2.3 The TextTrack object
+#### Notes for 1.2.3 The `TextTrack` object
 
 + `TextTrack` object
   + containing the cue, not HTML object itself
