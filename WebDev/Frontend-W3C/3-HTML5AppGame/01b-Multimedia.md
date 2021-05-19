@@ -637,58 +637,76 @@ A `TextTrack` object has different properties and methods
 
 + `kind`: equivalent to the kind attribute of HTML track elements. Its value is either "subtitles", "caption", "descriptions", "chapters", or "metadata". We will see examples of chapters, descriptions  and metadata tracks in subsequent lessons.
 + `label`: the label of the track, equivalent of the label attribute of HTML track elements.
-+ `language`: the language of the text track,  equivalent to the srclang attribute of HTML track elements (be careful: it's not the same spelling!)
++ `language`: the language of the text track,  equivalent to the `srclang` attribute of HTML track elements (be careful: it's not the same spelling!)
 + `mode`: explained earlier. Can have values equal to: "disabled"|"hidden"|"showing". Can force a track to be loaded (by setting the mode to "hidden" or "showing").
-+ `cues`: get a list of cues as a TextTrackCueList object. This is the complete content of the WebVTT file!
-+ `activeCues`: used in event listeners while the video is playing. Corresponds to the cues located in the current time segment. The start and end times of cues can overlap. In reality this may rarely happen, but this property exists in case it does, returning a  TextTrackCueList object that contains all active tracks at a given time.
++ `cues`: get a list of cues as a `TextTrackCueList` object. This is the complete content of the WebVTT file!
++ `activeCues`: used in event listeners while the video is playing. Corresponds to the cues located in the current time segment. The start and end times of cues can overlap. In reality this may rarely happen, but this property exists in case it does, returning a  `TextTrackCueList` object that contains all active tracks at a given time.
 + `addCue(cue)`: add a cue to the list of cues.
 + `removeCue(cue)`: remove a cue from the list of cues.
 + `getCueById(id)`: returns the cue with a given id (not implemented by all browsers - a polyfill is given in the examples from the next lessons).
 
 
-A `TextTrackCueList` is a collection of cues, each of which has different properties and methods
+#### Properties and methods of TextTrackCueList object
+
+__A `TextTrackCueList` is a collection of cues, each of which has different properties and methods__
 
 + `id`: the cue id as written in the line that starts cues in the WebVTT file.
 + `startTime` and `endTime`: define the time segment for the cue, in seconds, as a floating point value. It is not the formatted String we have in the WebVTT file (see screenshot below),
 + `text`: the cue content.
 + `getCueAsHTML()`: a method that returns an HTML version of the cue content, not as plain text.
-+ Others such as align, line, position, size, snapToLines, etc., that correspond to the position of the cue, as specified in the WebVTT file. See the HTML5 course Part 1 about cue positioning.
++ Others such as `align`, `line`, `position`, `size`, `snapToLines`, etc., that correspond to the position of the cue, as specified in the WebVTT file. See the HTML5 course Part 1 about cue positioning.
 
-a webVtt file extract with arrows showing id, startTime, endTime and text
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3u8AKda')"
+    src    = "https://bit.ly/3eYLZjM"
+    alt    = "a webVtt file extract with arrows showing id, startTime, endTime and text"
+    title  = "a webVtt file extract with arrows showing id, startTime, endTime and text"
+  />
+</figure>
+
 
 
 #### Example that displays the content of a track
 
-Here is an example at JSBin that displays the content of a track:
+Here is [an example at JSBin](https://jsbin.com/teruhay/1/edit?html,css,js,output) that displays the content of a track:
 
-Example that shows the list of cues under the video, for a gicen track
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3u8AKda)"
+    src    = "https://bit.ly/3f1jhiv"
+    alt    = "Example that shows the list of cues under the video, for a given track"
+    title  = "Example that shows the list of cues under the video, for a given track"
+  />
+</figure>
+
 
 We just changed the content of the readContent(track) method from the example from the previous lesson:
 
 <div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #000088;">function</span><span class="pln" style="color: #000000;">&nbsp;readContent</span><span class="pun" style="color: #666600;">(</span><span class="pln" style="color: #000000;">track</span><span class="pun" style="color: #666600;">)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;console</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">log</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"reading content of loaded track..."</span><span class="pun" style="color: #666600;">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">//displayTrackStatuses(htmlTracks);</span></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;readContent</span><span class="pun" style="color: #666600;">(</span><span class="pln">track</span><span class="pun" style="color: #666600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun" style="color: #666600;">.</span><span class="pln">log</span><span class="pun" style="color: #666600;">(</span><span class="str" style="color: #008800;">"reading content of loaded track..."</span><span class="pun" style="color: #666600;">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">//displayTrackStatuses(htmlTracks);</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">&nbsp; &nbsp;// instead of displaying the track statuses, we display</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">&nbsp; &nbsp;// in the same div, the track content//</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">&nbsp; &nbsp;// first, empty the div</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;trackStatusesDiv</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">""</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;trackStatusesDiv</span><span class="pun" style="color: #666600;">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">""</span><span class="pun" style="color: #666600;">;</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;// get the list of cues for that track &nbsp;&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd" style="color: #000088;">&nbsp; &nbsp;var</span><span class="pln" style="color: #000000;">&nbsp;cues&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;track</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">cues</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// get the list of cues for that track &nbsp;&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd" style="color: #008888;">&nbsp; &nbsp;var</span><span class="pln">&nbsp;cues&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;track</span><span class="pun" style="color: #666600;">.</span><span class="pln">cues</span><span class="pun" style="color: #666600;">;</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">&nbsp; &nbsp;// iterate on them</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="kwd" style="color: #000088;">for</span><span class="pun" style="color: #666600;">(</span><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;i</span><span class="pun" style="color: #666600;">=</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #666600;">;</span><span class="pln" style="color: #000000;">&nbsp;i&nbsp;</span><span class="pun" style="color: #666600;">&lt;</span><span class="pln" style="color: #000000;">&nbsp;cues</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">length</span><span class="pun" style="color: #666600;">;</span><span class="pln" style="color: #000000;">&nbsp;i</span><span class="pun" style="color: #666600;">++)</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">for</span><span class="pun" style="color: #666600;">(</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;i</span><span class="pun" style="color: #666600;">=</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #666600;">;</span><span class="pln">&nbsp;i&nbsp;</span><span class="pun" style="color: #666600;">&lt;</span><span class="pln">&nbsp;cues</span><span class="pun" style="color: #666600;">.</span><span class="pln">length</span><span class="pun" style="color: #666600;">;</span><span class="pln">&nbsp;i</span><span class="pun" style="color: #666600;">++)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">{</span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">&nbsp; &nbsp; &nbsp; // current cue</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;cue&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;cues</span><span class="pun" style="color: #666600;">[</span><span class="pln" style="color: #000000;">i</span><span class="pun" style="color: #666600;">];</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;id&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;cue</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">id&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">"&lt;br&gt;"</span><span class="pun" style="color: #666600;">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;timeSegment&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;cue</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">startTime&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">" =&gt; "</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;cue</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">endTime&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">"&lt;br&gt;"</span><span class="pun" style="color: #666600;">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #000088;">var</span><span class="pln" style="color: #000000;">&nbsp;text&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln" style="color: #000000;">&nbsp;cue</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">text&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;</span><span class="str" style="color: #008800;">"&lt;P&gt;"</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp; &nbsp; trackStatusesDiv</span><span class="pun" style="color: #666600;">.</span><span class="pln" style="color: #000000;">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">+=</span><span class="pln" style="color: #000000;">&nbsp;id&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;timeSegment&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln" style="color: #000000;">&nbsp;text</span><span class="pun" style="color: #666600;">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln" style="color: #000000;">&nbsp; &nbsp;</span><span class="pun" style="color: #666600;">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;cue&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;cues</span><span class="pun" style="color: #666600;">[</span><span class="pln">i</span><span class="pun" style="color: #666600;">];</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;id&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;cue</span><span class="pun" style="color: #666600;">.</span><span class="pln">id&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;br&gt;"</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;timeSegment&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;cue</span><span class="pun" style="color: #666600;">.</span><span class="pln">startTime&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">" =&gt; "</span><span class="pln">&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;cue</span><span class="pun" style="color: #666600;">.</span><span class="pln">endTime&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;br&gt;"</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;text&nbsp;</span><span class="pun" style="color: #666600;">=</span><span class="pln">&nbsp;cue</span><span class="pun" style="color: #666600;">.</span><span class="pln">text&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;P&gt;"</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; trackStatusesDiv</span><span class="pun" style="color: #666600;">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun" style="color: #666600;">+=</span><span class="pln">&nbsp;id&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;timeSegment&nbsp;</span><span class="pun" style="color: #666600;">+</span><span class="pln">&nbsp;text</span><span class="pun" style="color: #666600;">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #666600;">}</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #666600;">}</span></li>
 </ol></div><br>
 
-As you can see, the code is simple: you first get the cues for the given TextTrack (it must be loaded; this is the case since we took care of it earlier), then iterate on the list of cues, and use the id, startTime, endTime and text properties of each cue.
+As you can see, the code is simple: you first get the cues for the given TextTrack (it must be loaded; this is the case since we took care of it earlier), then iterate on the list of cues, and use the `id`, `startTime`, `endTime` and `text` properties of each cue.
 
 This technique will be used in one of the next lessons, and we will show you how to make a clickable transcript on the side of the video - something quite similar to what the edX video player does.
 
@@ -702,6 +720,11 @@ This technique will be used in one of the next lessons, and we will show you how
 
   Ans: <br>
   Explanation: 
+
+
+#### Notes for 1.2.4 Working with cues
+
+
 
 
 
