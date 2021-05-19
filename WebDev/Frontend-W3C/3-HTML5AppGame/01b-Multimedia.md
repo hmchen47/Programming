@@ -616,15 +616,14 @@ This technique will be used in one of the next lessons, and we will show you how
 
 #### Knowledge check 1.2.4
 
-1. What is the name of the TextTrack property that returns the list of all its cues?
+1. What is the name of the `TextTrack` property that returns the list of all its cues?
 
   a. `activeCues`<br>
   b. `cues`<br>
   c. `cueList`<br>
 
-  Ans: <br>
-  Explanation: 
-
+  Ans: c<br>
+  Explanation: The `cues` property of a `TextTrack` returns the list of cues as a `TextTrackCueList` object. This is the complete content of the WebVTT file!
 
 #### Notes for 1.2.4 Working with cues
 
