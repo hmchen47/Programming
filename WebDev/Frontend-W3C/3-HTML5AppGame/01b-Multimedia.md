@@ -828,6 +828,7 @@ Source code extract:
 <li class="L4" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">}</span><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// end of addCueListeners...</span></li>
 </ol></ol></div><br>
 
+
 #### Notes for 1.2.5 Listening to events
 
 + Cue events
@@ -839,8 +840,8 @@ Source code extract:
   + event listener: `track.addEventListener("cueChange", function(e) {...});`
     + access 1st active cue: `var cue = this.activeCues[i];`
     + console log: `console.log("cue change");`
-  + assumption: no overlaspped cues for the current time segment
-  + vidoe played $\to$ time counter increasing
+  + assumption: no overlapped cues for the current time segment
+  + video played $\to$ time counter increasing
   + `this.activeCue;`: the list of cues in the current time segments, `this` representing the track firing the event
 
 + cue enter and exit events
@@ -848,7 +849,7 @@ Source code extract:
   + iterate on all cues of the current track: `for (var i=0, len=cue.length; i < len; i++) {...}`
     + get current cue: `var cue = cues[i];`
     + exec function to add event listener: `addCueListeners(cue);`
-  + ecvent listener: `function addCueListeners(cue) {...}`
+  + event listener: `function addCueListeners(cue) {...}`
     + cue enter event: `cue.onenter = function(){ // do something };`
     + cue exit event: `cue.onexit = function(){ // do something else };`
 
@@ -880,11 +881,11 @@ Source code extract:
 
 1. What conditions are necessary for a video to fire events on a particular track?
 
-  a. The track must be loaded and the mode property of its TextTrack object must be "hidden" or "showing". Of course you have to define event listeners too in order to do something interesting.<br>
+  a. The track must be loaded and the `mode` property of its `TextTrack` object must be "hidden" or "showing". Of course you have to define event listeners too in order to do something interesting.<br>
   b. No particular conditions, just add event listeners and you'll be good.
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: In order to fire events, a track must have been loaded and its `mode` set to "showing" or "hidden".
 
 
 
