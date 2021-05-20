@@ -95,14 +95,6 @@ etc.
 [Transcript Download](https://bit.ly/2S2MEIa)
 
 
-#### Knowledge check 1.2.1
-
-1. Do the most recent versions of all major browsers provide a menu for choosing the subtitle or the caption track? (Yes/No)
-
-  Ans: No<br>
-  Explanation: Unfortunately, support currently varies from one browser to another. Only Safari, IE and Microsoft Edge provide a menu to choose the subtitle or caption track. These missing features can be added, however, using the Timed Text Track API.
-
-
 #### Notes for 1.2.1 The Timed Text Track API
 
 + `<track>` element
@@ -171,6 +163,15 @@ etc.
     <v Proog>Everything is safe. Perfectly safe.</v>
     remote controller with subtitles button
     ```
+
+
+#### Knowledge check 1.2.1
+
+1. Do the most recent versions of all major browsers provide a menu for choosing the subtitle or the caption track? (Yes/No)
+
+  Ans: No<br>
+  Explanation: Unfortunately, support currently varies from one browser to another. Only Safari, IE and Microsoft Edge provide a menu to choose the subtitle or caption track. These missing features can be added, however, using the Timed Text Track API.
+
 
 
 ### 1.2.2 The HTML track element
@@ -282,17 +283,6 @@ Possible values for the `readyState` attribute of HTML tracks:
 
 Now, it's time to look at the twin brother of an HTML track: the corresponding `TextTrack` object!
 
-
-#### Knowledge check 1.2.2
-
-1. When playing a video, are all tracks loaded by default?
-
-  a. It depends on the browser<br>
-  b. Yes<br>
-
-  Ans: a<br>
-  Explanation: In the given example, only the first track with the `default` attribute has been loaded. Try the example on different browsers and you will notice that only the track with the `default` attribute is loaded by the major browsers, when the page is loaded. FireFox will load all tracks, but will display the one with the `default` attribute only if it's the first one.
-
 #### Notes for 1.2.2 The HTML track element
 
 + Status of an HTML track
@@ -312,6 +302,17 @@ Now, it's time to look at the twin brother of an HTML track: the corresponding `
   + __1 = LOADING__: the text track loaded w/o errors yet, further cues able to be added to the track by the parser
   + __2 = LOADED__: the text track loaded w/o errors
   + __3 = ERROR__: the text track enabled but accessing failed, likely missing
+
+
+#### Knowledge check 1.2.2
+
+1. When playing a video, are all tracks loaded by default?
+
+  a. It depends on the browser<br>
+  b. Yes<br>
+
+  Ans: a<br>
+  Explanation: In the given example, only the first track with the `default` attribute has been loaded. Try the example on different browsers and you will notice that only the track with the `default` attribute is loaded by the major browsers, when the page is loaded. FireFox will load all tracks, but will display the one with the `default` attribute only if it's the first one.
 
 
 ### 1.2.3 The TextTrack object
@@ -456,18 +457,6 @@ __Explanations:__
 + _Line 6_: the `getTrack` function. It first checks if the HTML track is already loaded (_line 10_). If it is, it calls the callback function passed by the caller, with the loaded TextTrack as a parameter. If the TextTrack is not loaded, then it sets its mode to "hidden". This will instruct the browser to load the track. Because that may take some time, we must use a `load` event listener on the HTML track before calling the callback function. This allows us to be sure that the track is really completely loaded.
 + _Lines 1-4_: the readContent function is only called with a loaded TextTrack. Here we do nothing special for the moment except that we refresh the different track statuses in the HTML document.
 
-
-#### Knowledge check 1.2.3
-
-1. When you force load a track, how can you be sure that it's loaded?
-
-  a. You should define a load event listener on the html track element, when the track is loaded, the load event will be fired. Do the rest of your work with the track in this listener (reading its content, etc).<br>
-  b. Check the `readyState` property of its HTML track element. If it has a value=2, then the track is loaded.
-
-  Ans: a<br>
-  Explanantion: The `readyState` property will not load the track. To load a file, set the `mode` property of its TextTrack object to "hidden" or "showing" and then use a load listener on the html track element, like in the provided example.
-
-
 #### Notes for 1.2.3 The `TextTrack` object
 
 + `TextTrack` object
@@ -519,6 +508,18 @@ __Explanations:__
     + read and display track status: `function readContent(track) {...}`
       + console log: `console.log("reading content of loaded track ...");`
       + update page w/ new track: `displayTrackStatuses(htmlTracks)`
+
+
+#### Knowledge check 1.2.3
+
+1. When you force load a track, how can you be sure that it's loaded?
+
+  a. You should define a load event listener on the html track element, when the track is loaded, the load event will be fired. Do the rest of your work with the track in this listener (reading its content, etc).<br>
+  b. Check the `readyState` property of its HTML track element. If it has a value=2, then the track is loaded.
+
+  Ans: a<br>
+  Explanantion: The `readyState` property will not load the track. To load a file, set the `mode` property of its TextTrack object to "hidden" or "showing" and then use a load listener on the html track element, like in the provided example.
+
 
 
 ### 1.2.4 Working with cues
@@ -614,17 +615,6 @@ As you can see, the code is simple: you first get the cues for the given TextTra
 
 This technique will be used in one of the next lessons, and we will show you how to make a clickable transcript on the side of the video - something quite similar to what the edX video player does.
 
-#### Knowledge check 1.2.4
-
-1. What is the name of the `TextTrack` property that returns the list of all its cues?
-
-  a. `activeCues`<br>
-  b. `cues`<br>
-  c. `cueList`<br>
-
-  Ans: c<br>
-  Explanation: The `cues` property of a `TextTrack` returns the list of cues as a `TextTrackCueList` object. This is the complete content of the WebVTT file!
-
 
 #### Notes for 1.2.4 Working with cues
 
@@ -676,6 +666,19 @@ This technique will be used in one of the next lessons, and we will show you how
     + display the message: `trackStatusesDiv.innerHTML += id + timeSegment + text;`
 
 
+#### Knowledge check 1.2.4
+
+1. What is the name of the `TextTrack` property that returns the list of all its cues?
+
+  a. `activeCues`<br>
+  b. `cues`<br>
+  c. `cueList`<br>
+
+  Ans: c<br>
+  Explanation: The `cues` property of a `TextTrack` returns the list of cues as a `TextTrackCueList` object. This is the complete content of the WebVTT file!
+
+
+
 ### 1.2.5 Listening to events
 
 #### Live coding video: track and cue events
@@ -686,17 +689,17 @@ This technique will be used in one of the next lessons, and we will show you how
 
 [Transcript Download](https://bit.ly/3f3jW2K)
 
-#### Events of Cue object
+#### Cue events
 
 Instead of reading the whole content of a track at once, like in the previous example, it might be interesting to process the track content cue by cue, while the video is being played. For example, you choose which track you want - say, German subtitles - and you want to display the subtitles in sync with the video, below the video, with your own style and animations... Or you display the entire set of subtitles to the side of the video and you want to highlight the current one... For this, you can listen for different sorts of events.
 
 The two types of cue event are:
 
 1. `enter` and `exit` events fired for cues.
-2. `cuechange` events fired for TextTrack objects (good support).
+2. `cuechange` events fired for `TextTrack` objects (good support).
 
 
-#### Event for changing cue
+#### Changing cue event
 
 __Example of `cuechange` listener on `TextTrack`__
 
@@ -715,9 +718,9 @@ In the above example, let's assume that we have no overlapping cues for the curr
 In the following lessons, we show how to deal with overlapping cues (cases where we have more than one active cue).
 
 
-#### Events of enter and exist cues
+#### Enter and exit cue events
 
-Example of enter and exit event listeners on a track's cues
+Example of `enter` and `exit` event listeners on a track's cues
 
 <div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="com" style="color: #880000;">&nbsp;// iterate on all cues of the current track</span></li>
@@ -744,11 +747,13 @@ Example of enter and exit event listeners on a track's cues
 </ol></div><br>
 
 
-#### Example: Events of cues
+#### Example: Cue events
 
 __Showing real examples of event listeners__
 
 Here is an [example at JSBin](https://bit.ly/3wesDwM) that shows how to listen for cuechange events:
+
+[Local Demo](src/01b-example04.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -779,6 +784,8 @@ Source code extract:
 </ol></div><br>
 
 And [here](https://bit.ly/3f2oy9u) is another modified version of this example at JSBin, that shows how to use enter and exit events on cues:
+
+[Local Demo](src/01b-example05.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -821,6 +828,54 @@ Source code extract:
 <li class="L4" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">}</span><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// end of addCueListeners...</span></li>
 </ol></ol></div><br>
 
+#### Notes for 1.2.5 Listening to events
+
++ Cue events
+  + types of events
+    + `enter` and `exit` events fired for cues
+    + `cuechange` events fired for `TextTrack` objects
+
++ Cue change event
+  + event listener: `track.addEventListener("cueChange", function(e) {...});`
+    + access 1st active cue: `var cue = this.activeCues[i];`
+    + console log: `console.log("cue change");`
+  + assumption: no overlaspped cues for the current time segment
+  + vidoe played $\to$ time counter increasing
+  + `this.activeCue;`: the list of cues in the current time segments, `this` representing the track firing the event
+
++ cue enter and exit events
+  + set variable for cues: `var cues = track.cues;`
+  + iterate on all cues of the current track: `for (var i=0, len=cue.length; i < len; i++) {...}`
+    + get current cue: `var cue = cues[i];`
+    + exec function to add event listener: `addCueListeners(cue);`
+  + ecvent listener: `function addCueListeners(cue) {...}`
+    + cue enter event: `cue.onenter = function(){ // do something };`
+    + cue exit event: `cue.onexit = function(){ // do something else };`
+
++ Example: cue change events
+  + display cue contents: `function readContent(track) {...}`
+  + console log: `console.log("adding cue change listener to loaded track...");`
+  + empty msg: `trackStatusesDiv.innerHTML = "";`
+  + add cue change event listener: `track.addEventListener("cuechange", function(e){...})`
+    + access 1st active cues: `var cue = this.activeCues[0];`
+    + check the existence of cue: `if (cue !== undefined) {...}`
+    + append info if cue existed: `trackStatusesDiv.innerHTML += "cue change: text = " + cue.text + "<br>"";`
+  + play video: `video.play();`
+
++ Example: cue enter and exit events
+  + dispay msg: `function readContent(track) {...}`
+    + log msg: `console.log("adding enter and exit listeners to all cues of this track");`
+    + empty msg container: `trackStatusesDiv.innerHTML = "";`
+    + gte list of cues: `var cues = track.cues;`
+    + iterate through all cues: `for (var i=0; i<cues.length; i++) {...}`
+      + access 1st cue: `var cue = cues[i];`
+      + add event listener: `addCueListeners(cue);`
+    + play video: `play.video();`
+  + add event listeners: `function addCueListeners(cue) {...}`
+    + cue enter event: `cue.onenter = function() { trackStatusesDiv.innerHTML += 'entered cue id=' + this.id + " " + this.text + "<br>"; }`
+    + cue exit event: `cue.onexit = function() { trackStatusesDiv.innerHTML += 'existed cue id=' + this.id + "<br>"; }`
+
+
 #### Knowledge check 1.2.5
 
 1. What conditions are necessary for a video to fire events on a particular track?
@@ -830,10 +885,6 @@ Source code extract:
 
   Ans: <br>
   Explanation: 
-
-
-
-
 
 
 
