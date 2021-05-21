@@ -24,7 +24,7 @@ __Example #1: create an accessible player with a clickable transcript of the vid
 It might be interesting to read the content of a track before playing the video. This is what the edX video player does: it reads a single subtitle file and displays it as a transcript on the right. In the transcript, you can click on a sentence to make the video jump to the corresponding location. We will learn how to do this using the track API.
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick= "window.open("https://bit.ly/2QzbheZ")"
     src    = "https://bit.ly/3wnyEHw"
     alt    = "edX video player with clickable transcript on the right"
@@ -44,13 +44,15 @@ Some important things here:
 
 1. Browsers do not load all the tracks at the same time, and the way they decide when and which track to load differs from one browser to another. So, when we click on a button to choose the track to display, we need to _enforce the loading of the track, if it has not been loaded yet_.
 2. When a track file is loaded, then we iterate on the different cues and generate the transcript as a set of `<li>...</li>` elements. One `<li>` per cue/sentence.
-3. We define the id attribute of the `<li>` to be the same as the cue.id value. In this way, when we click on a <li> we can get its id and find the corresponding cue start time, and make the video jump to that time location.
+3. We define the `id` attribute of the `<li>` to be the same as the cue.id value. In this way, when we click on a `<li>` we can get its `id` and find the corresponding cue start time, and make the video jump to that time location.
 4. We add an `enter` and an `exit` listener to each cue. These will be useful for highlighting the current cue. Note that these listeners are not yet supported by FireFox (you can use a `cuechange` event listener on a TextTrack instead - the source code for FireFox is commented in the example).
 
 Try [this example at JSBin](https://jsbin.com/sodihux/1/edit?html,css,js,output):
 
+[Local Demo](src/01c-example01.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick= "window.open("https://bit.ly/2QzbheZ")"
     src    = "https://bit.ly/33Wezw5"
     alt    = "video player with clickable transcript"
@@ -75,7 +77,7 @@ HTML code:
 <li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="pln"> </span><span class="atn">preload</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">crossOrigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
 <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://...../elephants-dream-medium.mp4"</span><span class="pln"> </span></li>
 <li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px; background-color: #ffffff;">.....</span>/elephants-dream-medium.webm"</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-medium.webm"</span><span class="pln"> </span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English subtitles"</span><span class="pln"> </span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span></li>
@@ -84,7 +86,7 @@ HTML code:
 <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"Deutsch subtitles"</span><span class="pln"> </span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"de"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px; background-color: #ffffff;">.....</span>/elephants-dream-subtitles-de.vtt"</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-de.vtt"</span><span class="pln"> </span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>default</strong></span><span class="tag">&gt;</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English chapters"</span><span class="pln"> </span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"chapters"</span><span class="pln"> </span></li>
@@ -330,8 +332,10 @@ This is an old example written in 2012 at a time when the track API was not supp
 
 Here is an [example at JSBin](https://jsbin.com/vedelequso/edit?html,js,output) that displays the values of the cues in the different tracks:
 
+[Local Demo](src/01c-example02.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick= "window.open("https://bit.ly/2QzbheZ")"
     src    = "https://bit.ly/3bAOJBZ"
     alt    = "screenshot of JsBin example: video on top and two buttons 'english' and 'german' at bottom for extracting the track contents in english or german"
@@ -463,8 +467,142 @@ JavaScript code:
 <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; div</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> text</span><span class="pun">;</span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="kwd">return</span><span class="pln"> div</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">||</span><span class="pln"> div</span><span class="pun">.</span><span class="pln">innerText </span><span class="pun">||</span><span class="pln"> </span><span class="str">''</span><span class="pun">;</span></li>
 <li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-</ol></div><br>
+</ol></div>
 
+
+#### Notes for 1.3.1 With a clickable transcript on the side
+
++ Example: clickable transcript
+  + tasks:
+    + read a single subtitle file via buttons
+    + display the contents of the transcript file on the right container
+    + click on cue to force the video to jump to the corresponding location
+    + highlight the current text played
+  + implementing procedure
+    + not loading all tracks at the same time
+      + different browsers deciding when and which track to load
+      + click button to enforce the loading of the track if not loaded yet
+    + iterate through cues and generate the transcript as a set of `<li> ... </li>`
+    + define the `id` attribute of the `<li>` element
+      + get `id` when clicking on the cue
+      + find the corresponding cue start time
+      + make the video jump to the time location
+    + add `enter` and `exit` listeners
+      + use for highlighting the current cue
+      + Firefox no supported yet, using `cuechage` event listener instead
+  + HTML snippet
+    + button to load English transcript: `<button disabled id="buttonEnglish" onclick="loadTranscript('en')>Display English transcript</button>`
+    + button to load German transcript: `<button disabled id="buttonGerman" onclick="loadTranscript('de')>Display Deutsch transcript</button>`
+    + video container w/ various video sources and tracks
+  + CSS style snippet
+    + cues color: `.cues {color: blue; }`
+    + mouse hover cues: `.cues.hover{ text-decoration: underline; }`
+    + current cue: `.cues.current{ color: black; font-weight: bold; }`
+    + Video container: `#myVideo{ display: block; float: left; margin-right: 3%; width: 66%; background-color: black; position: relative; }`
+    + transcript container: `#transcript{ paddin: 10px; border: 1px solid; float: left; max-height: 225px; overflow: auto; width: 25%; margin: 0; font-size: 14px; list-style: none; }`
+  + Javascript snippet
+    + declare global variables: `var video, transcriptDiv; var tracks, trackElems, trackURLs = []; var buttonEnglish, buttonDeutsch;`
+    + actions after page loaded: `window.onload = function() {...}`
+      + console msg: `console.log("init");`
+      + video container: `video = document.querySelector("#myVideo");`
+      + transcript container: `transcriptDiv = document.querySelector("#transcript");`
+      + all tracks: `trackElems = document.querySelectorAll("track);`
+      + get all URLs of vtt files: `for (var i=0; i<trackElms.length; i++) {...}`
+        + current track: `var currentTrackElem = trackElems[i];
+        + URL of current track: `tracksURLs[i] = currentTrackElem.src;`
+      + English button: `buttonEnglish = document.querySelector("#buttonEnglish");`
+      + Deutsch button: `buttonDeutsch = document.querySelector("#buttonDeutsch");`
+      + disable buttons: `buttonEnglish.disabled = true; buttonDeutsch.disabled = true;`
+      + access tracks: `tracks = video.textTracks;`
+    + download transcript once button clicked: `function loadTranscript(lang) {...}`
+      + empty transcript container: `clearTranscriptDiv();`
+      + set all track mode disabled: `disableAllTracks();`
+      + iterate through all languages: `for (var i=0; i<tracks.length; i++) {...}`
+        + access current track and element: `var track = tracks[i]; var trackAsHtmlElem = trackElems[i];`
+        + existence of language and kind of track id ok: `if ((track.language === lang) && (track.kind !== "chapter")) {...}`
+        + change track mode: `track.mode = "showing";`
+        + display track: `displayCues(track);`
+        + checktrack status: `if (trackAsHtml.readyState ==== 2) {...}`
+        + call display function if ok: `displayCues(track);`
+        + call to download and display track: `displayCuesTrackLoaded(trackAsHtmlElem, track);`
+        + add event listener for FireFox (no enter/exit events): `track.addEventListener("cuechange", function(e) {...})`
+          + current cue: `var cue = this.activeCues[0];`
+          + log msg: `console.log("cue change");`
+          + get cue: `var transcriptText = document.getElementById(cue.id);`
+          + change display style: `transcriptText.classList.add("current");`
+    + download and display transcript: `function displayCuesAfterTrackLoaded(trackElem, track) {...}`
+      + add event listener: `trackElem.addEventListener('load', dunction(e) {...})`
+      + log msg: `console.log("track loaded");`
+      + call function to display cues: `displayCues(track);`
+    + disable all tracks: `function disableAllTracks() {...}`
+      + iterate through all tracks: `for (var i=0; i<tracks.length; i++) {...}`
+      + disable current track: `tracks[i].mode = "disabled";`
+    + display all cues of current track: `function displayCues(track) {...}`
+      + get all cues: `var cues = track.cues;`
+      + iterate on all cues: `for (var i=0; i<cues.length; i++) {...} (...)`
+        + get current cue andcall function to add event listener: `var cue = cues[i]; addCueListeners(cue);`
+        + call function to get all cues w/ voice `<v speaker>...</v>`: `var voices = getVoices(cue.text);`
+        + declare transcript text variable: `var transText = "";`
+        + voice existed: `if (voices.length >0) {...}`
+          + existed: `for (var j=0; j<voices.length;j++) {transText += voices[j].voice + ": " + removeHTML(voices[j].text) });`
+          + non-existed: `transText = cue.text;`
+        + declare clickable contents: `var clickableTransText = "<li class='cues' id=" + cue.id + "onclick="jumpTo(" + cue+startTime + ");" + ">" + transText + "</li>";`
+        + add to transcript container: `addToTranscriptDiv(clickableTransText);`
+    + extract info for speaker and text: `function getVoices(speech) {...}`
+      + declare variables: `var voices = []; var pos = speech.indexOf('<');`
+      + iterate until `pos` not existed: `while(pos ~= -1) {...}`
+        + get various info: `endVoice = speech.indexOf('>'); var voice = speech.substring(pos + 2, endVoice).trim(); var endSpeech = speech.indexOf('</v>'); var text = speech.substring(endVoice + 1, endSpeech);`
+        + append current voice: `voice.push({ 'voice': voice, 'text': text});`
+        + move the position: `speech = speech.substring(endSpeech + 4); pos = speech.indexOf('<'));`
+      + return all voices obtained: `return voices;`
+    + write HTML `div` element: `function removeHTML(text) {...}`
+      + access `div` element: `var div = document.createElement('div');`
+      + write given text: `div.innerHTML = text;`
+      + return required info: `return div.textContent || div.innerText || ";`
+    + jump to a given time  to play video: `function jumpTo(time) { video.currentTime = time; video.play(); }`
+    + clear transcript container: `function clearTranscriptDiv() { transcriptDiv.innerHTML = ""; }`
+    + add cue to transcript container: `function addToTranscriptDiv(htmlText) { transcriptDiv.innerHTML += htmlText; }`
+    + add listener to a cue: `function addCueListeners(cue) {...}`
+      + callback function for enter event: `cue.onenter = function() {...};`
+        + log msg: `console.log('enter id =' + this.id);`
+        + access transcript element: `vat transcriptText = document.getElementById(this.id);`
+        + add highlighted style: `transcriptText.classList.add("current");`
+      + callback function for exit event: `function cue.onexit = function() {...};`
+        + log msg: `console.log('exit id=' + cue.id);`
+        + access transcript element: `var transcriptText = document.getElementById(this.id);`
+        + remove highlighted style: `transcriptText.classList.remove("current");`
+
++ Example: download vtt file w/ Ajax/XHR2
+  + used prior to the track API available
+  + download WebVTT files using Ajax and parse manually
+  + HTML snippet
+    + video element: `<video preload="metadata" controls> ... </video>`
+    + button for English: `<button onclick="loadTranscript('en');>English</button>`
+    + button for Deutsch: `<button onclick="loadTranscript('de');>Deutsch</button>`
+  + JavaScript snippet:
+    + download transcript: `function loadTranscript(lang) {...}`
+      + parse URL: `var url = 'https://mainline.i3s.unice.fr/mooc/" + 'elephants-dream-subtitles-' + lang + '.vtt';`
+      + download transcript: `loadTranscriptFile(url);`
+    + download transcript w/ Ajax/XHR2: `function loadTranscriptFile(webvttFileUrl) {...}`
+      + using Ajax/XHR2: `var reqTrans = new XMLHttpRequest(); reqTrans.open('GET', webvttFileUrl);`
+      + callback once loaded: `reqTrans.onload = function (e) {...}`
+        + regexp patterns: `var pattern = /^([0-9]+)$/; var patternTimecode = /^([0-9]{2}:[0-9]{2}:[0-9]{2}[,.]{1}[0-9]{3}) --\> ([0-9]{2}:[0-9]{2}:[0-9]{2}[,.]{1}[0-9]{3})(.*)$/;`
+        + declare for conetnt of the webVTT: `var content = this.response;`
+        + get an array of text lines: `var lines = content.split(/\r?\n/);`
+        + declare transcript: `var transcript = "";`
+      + iterate all lines within callback: `for (var i=0; i<lines.length; i++) {...}`
+      + extract identifier from the line and check existence for each iteration: `var identifier = pattern.exec(lines[i]); if (identifier) {...}`
+      + extract start time of the next line: `i++; var timecode = patternTimecode.exec(line[i]);`
+      + check start time: `if (timecode && i > lines.length) {...}`
+        + get cue from the next line: `i++; var text = lines[i];`
+        + move to the next text line: `while (lines[i] !== " && i < lines.length) { text = text + '\n' + lines[i]; i++; }`
+        + extract the voice: `var transText = "; var voices = getVoices(text);`
+        + iterate for multiple voices and add to the transcript text: `if (voices.length > 0) { for (var j = 0; j<voices.length; j++) { transText += voices.length; j++) { transText += voices.voice + ':' + removeHTML(voices[i].text) + '<br>'} } }`
+        + not voice text: `else {transText = removeHTML(text) + '<br>'; }`
+      + append to transcript text: `transText += transText;`
+      + send the Ajax request: `reqTrans.send();`
+    + extract voice from cues (same as the previous example): `function getVoices(speech) {...}`
+    + remove HTML (same as the previous example): `function removeHTML(text) {...}`
 
 
 ### 1.3.2 Captions, descriptions, chapters, and metadata
