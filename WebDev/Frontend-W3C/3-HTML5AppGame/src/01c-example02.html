@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+	<meta charset=utf-8>
+	<title>HTML5 Video WebVTT Example</title>
+</head>
+<body>
+    <section id="all">
+ <h1>Using the track API to extract the content of webVTT files in <code>&lt;track&gt;</code> elements</h1>
+ <p>Click on the buttons under the video to extract the english or german
+    subtitles</p>
+ <p>Look at the HTML and JS code.</p>
+
+	<video preload="metadata" controls crossOrigin="anonymous" >
+    <source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.mp4" type="video/mp4">
+    <source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.webm" type="video/webm">
+    <track label="English subtitles" kind="subtitles" srclang="en"
+           src="https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-en.vtt" default>
+    <track label="Deutsch subtitles" kind="subtitles" srclang="de"
+           src="https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-de.vtt">
+    <track label="English chapters" kind="chapters" srclang="en"
+           src="https://mainline.i3s.unice.fr/mooc/elephants-dream-chapters-en.vtt">
+	</video>
+   <h3>Video Transcript</h3>
+   <button onclick="loadTranscript('en');">English</button>
+   <button onclick="loadTranscript('de');">Deutsch</button>
+    </div>
+    <div id="transcript"></div>
+  </section>
+</body>
+</html>
+
