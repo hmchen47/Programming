@@ -349,7 +349,7 @@ This example, adapted from an example from (now offline) dev.opera.com, uses som
 Extract from HTML code:
 
 <div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span style="color: #000088;" color="#000088">...</span></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span style="color: #008888;">...</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">preload</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="tag">&gt;</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://..../elephants-dream-medium.mp4"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://..../elephants-dream-medium.webm"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
@@ -491,10 +491,11 @@ JavaScript code:
       + use for highlighting the current cue
       + Firefox no supported yet, using `cuechage` event listener instead
   + HTML snippet
-    + button to load English transcript: `<button disabled id="buttonEnglish" onclick="loadTranscript('en')>Display English transcript</button>`
-    + button to load German transcript: `<button disabled id="buttonGerman" onclick="loadTranscript('de')>Display Deutsch transcript</button>`
+    + video element<a name="videoElmt"></a>: `<video preload="metadata" controls> ... </video>`
+    + button to load English transcript<a name="buttonEn"></a>: `<button disabled id="buttonEnglish" onclick="loadTranscript('en')>Display English transcript</button>`
+    + button to load German transcript<a name="buttonDe"></a>: `<button disabled id="buttonGerman" onclick="loadTranscript('de')>Display Deutsch transcript</button>`
     + video container w/ various video sources and tracks
-  + CSS style snippet
+  + CSS style snippet<a name="css"></a>
     + cues color: `.cues {color: blue; }`
     + mouse hover cues: `.cues.hover{ text-decoration: underline; }`
     + current cue: `.cues.current{ color: black; font-weight: bold; }`
@@ -502,7 +503,7 @@ JavaScript code:
     + transcript container: `#transcript{ paddin: 10px; border: 1px solid; float: left; max-height: 225px; overflow: auto; width: 25%; margin: 0; font-size: 14px; list-style: none; }`
   + Javascript snippet
     + declare global variables: `var video, transcriptDiv; var tracks, trackElems, trackURLs = []; var buttonEnglish, buttonDeutsch;`
-    + actions after page loaded: `window.onload = function() {...}`
+    + actions after page loaded<a name="pageLoad"></a>: `window.onload = function() {...}`
       + console msg: `console.log("init");`
       + video container: `video = document.querySelector("#myVideo");`
       + transcript container: `transcriptDiv = document.querySelector("#transcript");`
@@ -514,7 +515,7 @@ JavaScript code:
       + Deutsch button: `buttonDeutsch = document.querySelector("#buttonDeutsch");`
       + disable buttons: `buttonEnglish.disabled = true; buttonDeutsch.disabled = true;`
       + access tracks: `tracks = video.textTracks;`
-    + download transcript once button clicked: `function loadTranscript(lang) {...}`
+    + download transcript once button clicked<a name="buttonClick"></a>: `function loadTranscript(lang) {...}`
       + empty transcript container: `clearTranscriptDiv();`
       + set all track mode disabled: `disableAllTracks();`
       + iterate through all languages: `for (var i=0; i<tracks.length; i++) {...}`
@@ -530,7 +531,7 @@ JavaScript code:
           + log msg: `console.log("cue change");`
           + get cue: `var transcriptText = document.getElementById(cue.id);`
           + change display style: `transcriptText.classList.add("current");`
-    + download and display transcript: `function displayCuesAfterTrackLoaded(trackElem, track) {...}`
+    + download and display transcript<a name="downDisplay"></a>: `function displayCuesAfterTrackLoaded(trackElem, track) {...}`
       + add event listener: `trackElem.addEventListener('load', dunction(e) {...})`
       + log msg: `console.log("track loaded");`
       + call function to display cues: `displayCues(track);`
@@ -548,21 +549,21 @@ JavaScript code:
           + non-existed: `transText = cue.text;`
         + declare clickable contents: `var clickableTransText = "<li class='cues' id=" + cue.id + "onclick="jumpTo(" + cue+startTime + ");" + ">" + transText + "</li>";`
         + add to transcript container: `addToTranscriptDiv(clickableTransText);`
-    + extract info for speaker and text: `function getVoices(speech) {...}`
+    + extract info for speaker and text<a name="extractInfo"></a>: `function getVoices(speech) {...}`
       + declare variables: `var voices = []; var pos = speech.indexOf('<');`
       + iterate until `pos` not existed: `while(pos ~= -1) {...}`
         + get various info: `endVoice = speech.indexOf('>'); var voice = speech.substring(pos + 2, endVoice).trim(); var endSpeech = speech.indexOf('</v>'); var text = speech.substring(endVoice + 1, endSpeech);`
         + append current voice: `voice.push({ 'voice': voice, 'text': text});`
         + move the position: `speech = speech.substring(endSpeech + 4); pos = speech.indexOf('<'));`
       + return all voices obtained: `return voices;`
-    + write HTML `div` element: `function removeHTML(text) {...}`
+    + remove HTML `div` element<a name="removeHTML"></a>: `function removeHTML(text) {...}`
       + access `div` element: `var div = document.createElement('div');`
       + write given text: `div.innerHTML = text;`
       + return required info: `return div.textContent || div.innerText || ";`
-    + jump to a given time  to play video: `function jumpTo(time) { video.currentTime = time; video.play(); }`
+    + jump to a given time to play video<a name="jumpStart"></a>: `function jumpTo(time) { video.currentTime = time; video.play(); }`
     + clear transcript container: `function clearTranscriptDiv() { transcriptDiv.innerHTML = ""; }`
     + add cue to transcript container: `function addToTranscriptDiv(htmlText) { transcriptDiv.innerHTML += htmlText; }`
-    + add listener to a cue: `function addCueListeners(cue) {...}`
+    + add listener to a cue<a name="addCueListener"></a>: `function addCueListeners(cue) {...}`
       + callback function for enter event: `cue.onenter = function() {...};`
         + log msg: `console.log('enter id =' + this.id);`
         + access transcript element: `vat transcriptText = document.getElementById(this.id);`
@@ -576,9 +577,9 @@ JavaScript code:
   + used prior to the track API available
   + download WebVTT files using Ajax and parse manually
   + HTML snippet
-    + video element: `<video preload="metadata" controls> ... </video>`
-    + button for English: `<button onclick="loadTranscript('en');>English</button>`
-    + button for Deutsch: `<button onclick="loadTranscript('de');>Deutsch</button>`
+    + [video element](#videoElmt)
+    + [button for English](#buttonEn)
+    + [buttone for German](#buttonDe)
   + JavaScript snippet:
     + download transcript: `function loadTranscript(lang) {...}`
       + parse URL: `var url = 'https://mainline.i3s.unice.fr/mooc/" + 'elephants-dream-subtitles-' + lang + '.vtt';`
@@ -601,8 +602,8 @@ JavaScript code:
         + not voice text: `else {transText = removeHTML(text) + '<br>'; }`
       + append to transcript text: `transText += transText;`
       + send the Ajax request: `reqTrans.send();`
-    + extract voice from cues (same as the previous example): `function getVoices(speech) {...}`
-    + remove HTML (same as the previous example): `function removeHTML(text) {...}`
+    + [extract voice](#extractInfo) from cues
+    + [remove HTML](#removeHTML)
 
 
 ### 1.3.2 Captions, descriptions, chapters, and metadata
@@ -611,7 +612,9 @@ __Example #2: showing video description while playing, listening to events, chan
 
 Each track has a `mode` property (and a `mode` attribute) that can be: "_disabled_", "_hidden_" or "_showing_". More than one track at a time can be in any of these states.  The difference between "_hidden_" and "_disabled_" is that hidden tracks can fire events (more on that at the end of the first example) whereas disabled tracks do not fire events.
 
-[Here is an example at JSBin](https://jsbin.com/bixoru/1/edit?html,css,js,output) that shows the use of the mode property, and how to listen for cue events in order to capture the current subtitle/caption from JavaScript. You can change the mode of each track in the video element by clicking on its button. This will toggle the mode of that track. All tracks with mode="showing" or mode="hidden" will have the content of their cues displayed in real time in a small area below the video.
+[Here is an example at JSBin](https://jsbin.com/bixoru/1/edit?html,css,js,output) that shows the use of the `mode` property, and how to listen for cue events in order to capture the current subtitle/caption from JavaScript. You can change the mode of each track in the video element by clicking on its button. This will toggle the mode of that track. All tracks with `mode="showing"` or `mode="hidden"` will have the content of their cues displayed in real time in a small area below the video.
+
+[Local Demo](src/01c-example02.html)
 
 In the screen-capture below, we have a WebVTT file displaying a scene's captions and descriptions.
 
@@ -641,19 +644,19 @@ Extract from HTML code:
 <li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/sintel.mp4"</span><span class="pln"> </span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px; background-color: #ffffff;">.....</span>/sintel.webm"</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;>.....</span>/sintel.webm"</span><span class="pln"> </span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/sintel-captions.vtt"</span><span class="pln"> </span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span class="pun">=</span><span class="atv">"captions"</span><span class="pln"> </span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;label</span><span class="pun">=</span><span class="atv">"English Captions"</span><span class="pln"> </span></li>
 <li class="L2" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;default</span></strong><span class="tag">/&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px; background-color: #ffffff;">.....</span>/sintel-descriptions.vtt"</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;>.....</span>/sintel-descriptions.vtt"</span><span class="pln"> </span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span class="pun">=</span><span class="atv">"descriptions"</span><span class="pln"> </span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;label</span><span class="pun">=</span><span class="atv">"Audio Descriptions"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/sintel-chapters.vtt"</span><span class="pln"> </span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span class="pun">=</span><span class="atv">"chapters"</span><span class="pln"> </span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;label</span><span class="pun">=</span><span class="atv">"Chapter Markers"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px; background-color: #ffffff;">.....</span>/sintel-thumbs.vtt"</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;>.....</span>/sintel-thumbs.vtt"</span><span class="pln"> </span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln"> </span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;label</span><span class="pun">=</span><span class="atv">"Preview Thumbs"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;/video&gt;</span></li>
@@ -672,7 +675,7 @@ Extract from HTML code:
 <li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;/button&gt;</span></li>
 <li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/p&gt;</span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">Click one of these buttons to toggle the mode of each track:</span><span class="tag">&lt;/p&gt;<br><br></span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">Click one of these buttons to toggle the mode of each track:</span><span class="tag">&lt;/p&gt;<br></span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">toggleTrack</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span><span class="atv">"</span><span class="tag">&gt;</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;Toggle english caption track mode</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;/button&gt;</span></li>
@@ -791,8 +794,64 @@ JavaScript code:
 </ol></div><br>
 
 
+#### Notes for 1.3.2 Captions, descriptions, chapters, and metadata
 
-
++ Example: display video description
+  + `mode` property: `disable`, `hidden`, or `showing`
+    + multiple tracks able to be any state
+    + event difference: `hiddent` tracks able to fire events while `disable` track unable to fire events
+  + tasks
+    + showing the use of the `mode` property
+    + listening for cue event to capture the current subtitle/caption
+    + changing the mode of a track in video element by toggling on the button
+  + HTML snippet
+    + init page after loading: `<body onload="init();">`
+    + video element: `<video id="#myVideo" preload="metadata" poster="https://.../sintel.jpg" crossorigin="anonymous" width=640 height=272>...</video>`
+      + MP4 video source: `<source src="https://.../sintel.mp4" type="video/mp4">`
+      + Webm video source: `<source src="https://.../sintel.webm" type="video/webm">`
+      + English caption: `<track src="https://.../sintel-cpations.vtt" kind=captions label="English Captions" default/>`
+      + audio descriptions:" `<track src="https://.../" kind=descriptions label="Audio Descriptions">`
+      + chapter markers: `<track src="https://.../" kind=chapters label="Chapter Markers">`
+      + thumbnail preview: `<track src="https://.../" kind=metadata label="Preview Thumbs">`
+    + clear subtitles: `<button onclick="clearSubtitlesCaptions();">Clear subtitles/captions log</button>`
+    + button for English: `<button onclcik="toggleTracks(0);">Toggle english caption track mode</button>`
+    + button for audio: `<button onclcik="toggleTracks(1);">Toggle audio description track mode</button>`
+    + button for cpapter: `<button onclcik="toggleTracks(2);">Toggle chapter caption track mode</button>`
+    + button for preview: `<button onclcik="toggleTracks(3);">Toggle preview thumbnail track mode</button>`
+    + containers for trac status & subtitle captions: `<p><div id="currentTrackStatuses"></div></p> <p><div id="subtitlesCaptions"></div></p>`
+  + Javascript snippet
+    + declar global variables: `var reacks, video, statusDiv, subtitlesCaptionsDiv;`
+    + init page while page loaded: `function init() {...}`
+      + access video, status, subtitlem and tracks elements: `video = document.querySelector(:#myVideo"); statusDiv = document.querySelector("currentTrackStatuses"); subtitlesCaptionsDiv = document.querySelector("#subtitleCations"); tracks = document.querySelectorAll("track");`
+      + add event listerner: `video.addEventListener('loadedmetadata', fucntion() {...});`
+        + log msg: `console.log("metadata loaded");`
+        + iterate to add event listeners for all cues: `for (var i=0; i<tracks.length; i++) { var t = tracks[i].track; if (t.mode === "showing") { t.addEventListener("cuechange", logCue, false) } }`
+        + display the tracks and their status/mode value: `displayTrackStatus();`
+    + disply status of tracks: `function displayTrackStatus() {...}`
+      + display the status / mode value of each track w/ color red if disable and color green if showing
+      + iterate on all tracks: `for (var i=0; i<tracks.length; i++) {...}`
+        + declare variables: `vatr t = tracks[i].length; var mode = t.mode;`
+        + disable mode: `if (mode === "disable") { mode = "<span style='color: red'>" + t.mode + "</span>"; }`
+        + showing mode: `else if (mode === "showing") { mode = "<span style='color: green'>" + t.mode + "</span>" }`
+        + append to container: `appendToScrollableDiv(statusDiv, "track" + i + ": " + t.label + " " + t.kind + " in " + mode + " mode");`
+    + append to container: `function appendToScrollableDiv(div, text) {...}`
+      + two scrollable divs
+      + append text to the div passed as a parameter
+      + declare variables: `var inner = div.innerHTML; div.innerHTML = inner + text + "<br/>";`
+      + appedn to the text: `div.scrollTop = div.scrollHeight;`
+    + empty div container: `function clearDiv(div) { div.innerHTML; }`
+    + empty subtitle container: `function clearSubstitutesCaptions() { clearDiv(subtitlesCaptionsDiv; }`
+    + toggle track mode: `function toggleTrack(i) {...}`
+      + declare variable: `var t = tracks[i].track;`
+      + deal w/ different modes: `switch (t.mode) {...}`
+        + disable mode: `case "disabled": t.addEventListener('cuechange', logCue, false); t.mode='hidden'; break;`
+        + hidden mode: `case "hidden": t.addEventListener('cuechange', logCue, flase); t.mode="showing"; break;`
+        + showing mode: `case "showing"; t.removeEventListener('curchange', logCue, flase); t.mode="disabled"; break;`
+      + update status: `clearDiv(statusDiv); displayTrackStatus(); appendToScrollableDiv(statusDiv, "<br>" + t.label + " are now " + t.mode);`
+    + callback for current event: `function logCue() {...}`
+      + check active cue existed: `if (this.activeCues && this.activeCues.length) {...}`
+      + access current cue: `var t = this.activeCues[0].text;`
+      + append text to subtitles/captions: `appendToScrollableDiv(subtitlesCaptionsDiv, "Active" + this.kind + " changed to:" + t);`
 
 
 ### 1.3.3 With buttons for choosing the subtitle language
