@@ -865,7 +865,7 @@ JavaScript code:
 ### 1.3.3 With buttons for choosing the subtitle language
 
 
-#### Buutons for choosing the `subtitle` language
+#### Buttons for choosing the `subtitle` language
 
 __Example #3: adding buttons for choosing the subtitle/caption track__
 
@@ -873,7 +873,9 @@ You might have noticed that with some browsers, before 2018, the standard implem
 
 However, before it was available, it was easy to implement this feature using the Track API.
 
-Here is a [simple example at JSBin](https://jsbin.com/balowuq/1/edit?html,css,js,output): we added two buttons below the video to enable/disable subtitles/captions and let you choose which track you prefer. 
+Here is a [simple example at JSBin](https://jsbin.com/balowuq/1/edit?html,css,js,output): we added two buttons below the video to enable/disable subtitles/captions and let you choose which track you prefer.
+
+[Local Demo](src/01c-example03.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
@@ -1034,12 +1036,15 @@ JavaScript code:
 
 ### 1.3.4 With a simple chapter navigation menu
 
+
+#### Chapter Navigation Menu
+
 __Example #4: making a simple chapter navigation menu__
 
 We can use WebVTT files to define chapters. The syntax is exactly the same as for subtitles/caption .vtt files. The only difference is in the declaration of the track. Here is how we declared a chapter track in one of the previous examples (in bold in the example below):
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick= "window.open("https://bit.ly/3bMOhAL")"
     src    = "https://bit.ly/3bQO13s"
     alt    = "Simple chapter navigation"
@@ -1115,9 +1120,11 @@ There are 7 cues (one for each chapter). Each cue id is the word "chapter-" foll
 
 Hmm... let's try to open this chapter track with the [example](https://jsbin.com/zeqoleq/1/edit?html,css,js,output) we wrote in a previous lesson - the one that displayed the clickable transcript for subtitles/captions on the right of the video. We need to modify it a little bit:
 
+[Local Demo](src/01c-example04.html)
+
 1. We add a "show English chapters" button with a click event listener similar to this:
 
-  <div class="source-code"><ol class="linenums">
+  <div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
   <li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">disabled</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"buttonEnglishChapters"</span><span class="pln"> </span><strong><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">loadTranscript</span><span class="pun">(</span><span class="str">'en'</span><span class="pun">,</span><span class="pln"> </span><span class="str" style="color: #ff0000;">'chapters'</span><span class="pun">);</span><span class="atv">"</span></strong><span class="tag">&gt;</span></li>
   <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; Display English chapter markers</span></li>
   <li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/button&gt;<br></span></li>
@@ -1127,7 +1134,7 @@ Hmm... let's try to open this chapter track with the [example](https://jsbin.com
 
   Here is a new version: in bold are the source code lines we modified.
 
-  <div class="source-code"><ol class="linenums">
+  <div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
   <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> loadTranscript</span><span class="pun">(</span><span class="pln">lang</span><span class="pun">,</span><span class="pln" style="color: #ff0000;"> kind</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
   <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;...</span></li>
   <li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
@@ -1149,12 +1156,14 @@ Simple approach: chapters as clickable text on the right of the video
 
 [Try it on JSBin](https://jsbin.com/rifekik/edit?html,css,js): this version includes the modifications we presented earlier - nothing more. Notice that we kept the existing buttons to display a clickable transcript:
 
+[Local Demo](src/01c-example05.html)
+
 Look at the JavaScript and HTML tab of the JSBin example to see the source code. It's the same as in the clickable transcript example, except for the small changes we explained earlier.
 
 Chapter navigation, illustrated in the video player below, is fairly popular.
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open("https://bit.ly/3bMOhAL")"
     src    = "https://bit.ly/3fbqfkM"
     alt    = "Example of video player that uses text based chapter navigation"
@@ -1167,6 +1176,42 @@ In addition to the clickable chapter list, this one displays an enhanced progres
 However, we will see how we can do better by using JSON objects as cue contents. This will be the topic of the next two lessons!
 
 
+#### Notes for 1.3.4 With a simple chapter navigation menu
+
++ VebVTT file and chapters
+  + using WebVTT files to define chapters
+  + task: display subtitles/caption in `.vtt` files
+  + HTML snippet: [video element](#videoElmt)
+  + no browser taking chapter track in account
+  + example of `.vtt` file
+
+    ```vtt
+    WEBVTT
+
+    chapter-1
+    00:00:00.000 --> 00:00:26.000
+    Introduction
+
+    chapter-2
+    00:00:28.206 --> 00:01:02.000
+    Watch out!
+    ...
+    ```
+
+    + cue id: `chapter-` + chapter number
+    + start and edn time of the cue/chapter
+    + description of the chapter: `Introduction`, `Watch out!`, etc.
+
++ Example: display English chapters
+  + HTML snipper:
+    + display English chapter w/ button: `<button disabled id="buttonEnglishChapters" onclick="loadTranscript('en', , 'chapters');">Display English chapter markers</button>`
+  + JavaScript snippet:
+    + revise [`loadTranscript`](#buttonClick) w/ `kind` property: `function loadTranscript(lang, kind);`
+    + check to display text: `if ((track.language === lang) && (track.kind === kind)) {...}`
+
++ Example: clickable chapters
+  + task: chapters as clickable text
+  + same as `dispaly English chapters` example except for chapters
 
 
 ### 1.3.5 With thumbnails, using JSON cues
