@@ -613,6 +613,9 @@ JavaScript code:
 
 ### 1.3.2 Captions, descriptions, chapters, and metadata
 
+
+#### Display Video Description
+
 __Example #2: showing video description while playing, listening to events, changing the mode of a track__
 
 Each track has a `mode` property (and a `mode` attribute) that can be: "_disabled_", "_hidden_" or "_showing_". More than one track at a time can be in any of these states.  The difference between "_hidden_" and "_disabled_" is that hidden tracks can fire events (more on that at the end of the first example) whereas disabled tracks do not fire events.
@@ -861,6 +864,9 @@ JavaScript code:
 
 ### 1.3.3 With buttons for choosing the subtitle language
 
+
+#### Buutons for choosing the `subtitle` language
+
 __Example #3: adding buttons for choosing the subtitle/caption track__
 
 You might have noticed that with some browsers, before 2018, the standard implementation of the video element did not let the user choose the subtitle language. Now, recent browsers offers a menu to choose the track to display. 
@@ -982,12 +988,12 @@ JavaScript code:
 <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; langButtonDiv</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-</ol></div> <br>
+</ol></div>
 
 #### External resources
 
 + If you are interested in building a complete custom video player, MDN offers an online tutorial with further information about [styling and integrating a "CC" button](https://mzl.la/3bOFgab)
-+ The MDN documentation on [Web Video Text Tracks Format](https://developer.mozilla.org/fr/docs/Web/API/WebVTT_API) (WebVTT)
++ The MDN documentation on [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) (WebVTT)
 
 #### Notes for 1.3.3 With buttons for choosing the subtitle language
 
@@ -1028,7 +1034,137 @@ JavaScript code:
 
 ### 1.3.4 With a simple chapter navigation menu
 
+__Example #4: making a simple chapter navigation menu__
 
+We can use WebVTT files to define chapters. The syntax is exactly the same as for subtitles/caption .vtt files. The only difference is in the declaration of the track. Here is how we declared a chapter track in one of the previous examples (in bold in the example below):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open("https://bit.ly/3bMOhAL")"
+    src    = "https://bit.ly/3bQO13s"
+    alt    = "Simple chapter navigation"
+    title  = "Simple chapter navigation"
+  />
+</figure>
+
+HTML code:
+
+<div class="source-code" style="line-height: 25.6px;"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln">&nbsp;</span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="pln">&nbsp;</span><span class="atn">preload</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln">&nbsp;</span><span class="atn">controls</span><span class="pln">&nbsp;</span><span class="atn">crossOrigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln">&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://...../elephants-dream-medium.mp4"</span><span class="pln"></span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln">&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;>.....</span>/elephants-dream-medium.webm"</span><span class="pln"></span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;track</span><span class="pln">&nbsp;</span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English subtitles"</span><span class="pln"></span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"></span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"en"</span><span class="pln"></span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-en.vtt"</span><span class="pln">&nbsp;</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;track</span><span class="pln">&nbsp;</span><span class="atn">label</span><span class="pun">=</span><span class="atv">"Deutsch subtitles"</span><span class="pln"></span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"></span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"de"</span><span class="pln"></span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;>.....</span>/elephants-dream-subtitles-de.vtt"</span><span class="pln"></span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;default</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>&nbsp;</strong></span><strong><span class="tag">&lt;track</span><span class="pln">&nbsp;</span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English chapters"</span><span class="pln"></span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"<span style="color: #ff0000;">chapters</span>"</span><span class="pln"></span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"en"</span><span class="pln"></span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-chapters-en.vtt"</span><span class="tag">&gt;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span></li>
+</ol></div> <br>
+
+If we try this code in an HTML document, nothing special happens. No magic menu, no extra button!
+
+Currently, no browser takes chapter tracks into account. You could use one of the enhanced video players presented during the HTML5 Part 1 course, but as you will see in this lesson: making your own chapter navigation menu is not complicated.
+
+__Let's start by examining the sample `.vtt` file__
+
+`elephant-dream-chapters-en.vtt`:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">WEBVTT</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">chapter</span><span class="pun">-</span><span class="lit">1</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">26.000</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="typ">Introduction</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">chapter</span><span class="pun">-</span><span class="lit">2</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">28.206</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">02.000</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="typ">Watch</span><span class="pln"> </span><span class="kwd">out</span><span class="pun">!</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">chapter</span><span class="pun">-</span><span class="lit">3</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">02.034</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">03</span><span class="pun">:</span><span class="lit">10.000</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="typ">Let</span><span class="str">'s go</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="str">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">chapter-4</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="str">00:03:10.014 --&gt; 00:05:40.000 </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="str">The machine</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="str">chapter-5</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="str">00:05:41.208 --&gt; 00:07:26.000 </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="str">Close your eyes</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="str">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="str">chapter-6</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="str">00:07:27.125 --&gt; 00:08:12.000</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">There'</span><span class="pln">s nothing there</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">chapter</span><span class="pun">-</span><span class="lit">7</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">08</span><span class="pun">:</span><span class="lit">13.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">09</span><span class="pun">:</span><span class="lit">07.500</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="typ">The</span><span class="pln"> </span><span class="typ">Colossus</span><span class="pln"> of </span><span class="typ">Rhodes</span></li>
+</ol></div><br>
+
+There are 7 cues (one for each chapter). Each cue id is the word "chapter-" followed by the chapter number, then we have the start and end time of the cue/chapter, and the cue content. In this case: the description of the chapter ("Introduction", "Watch out!", "Let's go", etc...).
+
+Hmm... let's try to open this chapter track with the [example](https://jsbin.com/zeqoleq/1/edit?html,css,js,output) we wrote in a previous lesson - the one that displayed the clickable transcript for subtitles/captions on the right of the video. We need to modify it a little bit:
+
+1. We add a "show English chapters" button with a click event listener similar to this:
+
+  <div class="source-code"><ol class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">disabled</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"buttonEnglishChapters"</span><span class="pln"> </span><strong><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">loadTranscript</span><span class="pun">(</span><span class="str">'en'</span><span class="pun">,</span><span class="pln"> </span><span class="str" style="color: #ff0000;">'chapters'</span><span class="pun">);</span><span class="atv">"</span></strong><span class="tag">&gt;</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; Display English chapter markers</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/button&gt;<br></span></li>
+  </ol></div>
+
+2. We modify the `loadTranscript` function from the previous example, so that it matches both the `srclang` and the `kind` attribute of the track.
+
+  Here is a new version: in bold are the source code lines we modified.
+
+  <div class="source-code"><ol class="linenums">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> loadTranscript</span><span class="pun">(</span><span class="pln">lang</span><span class="pun">,</span><span class="pln" style="color: #ff0000;"> kind</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;...</span></li>
+  <li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+  <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Locate the track with&nbsp;lang and kind that match the parameters</span></li>
+  <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> tracks</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+  <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;...</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span class="kwd">if</span><span class="pun">((</span><span class="pln">track</span><span class="pun">.</span><span class="pln">language </span><span class="pun">===</span><span class="pln"> lang</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">track</span><span class="pun">.</span><span class="pln">kind </span><span class="pun">===</span><span class="pln" style="color: #ff0000;"> kind</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// display it contents...</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+  </ol></div>
+
+
+#### Clickable Chapters
+
+Simple approach: chapters as clickable text on the right of the video
+
+[Try it on JSBin](https://jsbin.com/rifekik/edit?html,css,js): this version includes the modifications we presented earlier - nothing more. Notice that we kept the existing buttons to display a clickable transcript:
+
+Look at the JavaScript and HTML tab of the JSBin example to see the source code. It's the same as in the clickable transcript example, except for the small changes we explained earlier.
+
+Chapter navigation, illustrated in the video player below, is fairly popular.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3bMOhAL")"
+    src    = "https://bit.ly/3fbqfkM"
+    alt    = "Example of video player that uses text based chapter navigation"
+    title  = "Example of video player that uses text based chapter navigation"
+  />
+</figure>
+
+In addition to the clickable chapter list, this one displays an enhanced progress bar created using a canvas. The small squares are drawn corresponding to the chapter cues' start and end times. You could modify the code provided, in order to add such an enhanced progress indicator.
+
+However, we will see how we can do better by using JSON objects as cue contents. This will be the topic of the next two lessons!
 
 
 
