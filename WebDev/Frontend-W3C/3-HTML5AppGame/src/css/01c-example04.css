@@ -1,0 +1,45 @@
+#all {
+  background-color: lightgrey;
+  border-radius:10px;
+  padding: 20px;
+  border:1px solid;
+  display:inline-block;
+  /*height:500px;*/
+  margin:30px;
+  width:90%;
+}
+
+.cues {
+  color:blue;
+}
+
+.cues:hover {
+  text-decoration: underline;
+}
+
+.cues.current {
+  color:black;
+  font-weight: bold;
+}
+
+#myVideo {
+    display: block;
+    float : left;
+    margin-right: 2.85714%;
+    width: 65.71429%;
+    background-color: black;
+    position: relative;
+}
+
+#transcript {
+  padding: 10px;
+  border:1px solid;
+  float: left;
+  max-height: 225px;
+  overflow: auto;
+  width: 25%;
+  margin: 0;
+  font-size: 14px;
+  list-style: none;
+}
+
