@@ -1,0 +1,32 @@
+<html lang="en">
+
+<head>
+  <meta charset=utf-8>
+  <title>Video player with clickable transcript</title>
+  <link rel="stylesheet" href="css/01c-example05.css">
+  <script src="js/01c-example05.js"></script>
+</head>
+
+<body>
+  <section id="all">
+    <h1>Using the track API to extract the content of webVTT files in <code>&lt;track&gt;</code> elements</h1>
+    <p>Click on the buttons under the video to extract the english or german subtitles, or to display the chapter markers (english).
+    </p>
+    <p>Look at the HTML and JS code.</p>
+    <p>
+      <button disabled id="buttonEnglish" onclick="loadTranscript('en', 'subtitles');">Display English transcript</button>
+      <button disabled id="buttonDeutsch" onclick="loadTranscript('de', 'subtitles');">Display Deutsch transcript</button>
+            <button disabled id="buttonEnglishChapters" onclick="loadTranscript('en', 'chapters');">Display English chapter markers</button>
+    </p>
+    <video id="myVideo" preload="metadata" controls crossOrigin="anonymous">
+      <source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.mp4" type="video/mp4">
+      <source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.webm" type="video/webm">
+      <track label="English subtitles" kind="subtitles" srclang="en" src="https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-en.vtt" >
+      <track label="Deutsch subtitles" kind="subtitles" srclang="de" src="https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-de.vtt" default>
+       <track label="English chapters" kind="chapters" srclang="en" src="https://mainline.i3s.unice.fr/mooc/elephants-dream-chapters-en.vtt">
+    </video>
+    <div id="transcript"></div>
+  </section>
+</body>
+
+eet" href=</html>
