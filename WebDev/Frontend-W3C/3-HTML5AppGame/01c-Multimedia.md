@@ -491,7 +491,12 @@ JavaScript code:
       + use for highlighting the current cue
       + Firefox no supported yet, using `cuechage` event listener instead
   + HTML snippet
-    + video element<a name="videoElmt"></a>: `<video preload="metadata" controls> ... </video>`
+    + video element<a name="videoElmt"></a>: `<video preload="metadata" controls crossOrigin="anonymous"> ... </video>`
+      + MP4 video source: `<source src="https://.../elephants-dream-medium.mp4" type="video/mp4">`
+      + Webm video source: `<source src="https://.../elephats-dream-medium.webm" type="video/webm">`
+      + English subtitle track: `<track label="Englisg subtitle" kind=subtitles srclang=en src="https://.../elephats-dream-subtitles-en.vtt">`
+      + Deutsch subtitle track: `<track label="Deutsch subtitle" kind=subtitles srclang=de src="https://.../elephats-dream-subtitles-de.vtt">`
+      + English capters track: `<track label="Englisg chapters" kind=chapters srclang=en src="https://.../elephats-dream-chapters-en.vtt">`
     + button to load English transcript<a name="buttonEn"></a>: `<button disabled id="buttonEnglish" onclick="loadTranscript('en')>Display English transcript</button>`
     + button to load German transcript<a name="buttonDe"></a>: `<button disabled id="buttonGerman" onclick="loadTranscript('de')>Display Deutsch transcript</button>`
     + video container w/ various video sources and tracks
@@ -883,12 +888,12 @@ HTML code:
 <li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="pln"> </span><span class="atn">preload</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">crossOrigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="pln"> </span><span class="tag">&gt;</span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://...../elephants-dream-medium.mp4"</span><span class="pln"> </span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px; background-color: #eeeeee;">.....</span>/elephants-dream-medium.webm"</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-medium.webm"</span><span class="pln"> </span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;track</span><span class="pln">&nbsp;&nbsp;</span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English subtitles"</span><span class="pln"> </span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;srclang</span><span class="pun">=</span><span class="atv">"en"</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px; background-color: #eeeeee;">.....</span>/elephants-dream-subtitles-en.vtt"</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-en.vtt"</span><span class="pln"> </span></li>
 <li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>default</strong></span><span class="tag">&gt;</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp;&lt;track</span><span class="pln">&nbsp;&nbsp;</span><span class="atn">label</span><span class="pun">=</span><span class="atv">"Deutsch subtitles"</span><span class="pln"> </span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span></li>
@@ -984,10 +989,41 @@ JavaScript code:
 + If you are interested in building a complete custom video player, MDN offers an online tutorial with further information about [styling and integrating a "CC" button](https://mzl.la/3bOFgab)
 + The MDN documentation on [Web Video Text Tracks Format](https://developer.mozilla.org/fr/docs/Web/API/WebVTT_API) (WebVTT)
 
+#### Notes for 1.3.3 With buttons for choosing the subtitle language
 
-
-
-
++ Example: subtitle language
+  + task: choose subtitle/caption track via button
+  + HTML snippet
+    + page full load: `<body onload="init()">`
+    + [video element](#videoElmt)
+    + toggle button to select subtitles: `<div id="langButtonDiv"></div>`
+  + JavaScript snippet
+    + declare variables: `var langButtonDiv, currentLangSpan, video;`
+    + init page after fully loaded: `function init() {...}`
+      + access elements: `langButtonDiv = document.querySelector("#langButtonDiv"); currentLangButton = document.querySelector("#currentLang"); video = document.querySelector("#myVideo");`
+      + log msg: `console.log("Number of tracks = " + video.textTracks.length);`
+      + display activeated track: `currentLangSpan.innerHTML = activeTrack();`
+      + build buttons: `buildButtons();`
+    + active track: `function activeTrack() {...}`
+      + iterate on tracks: `for (var i=0; i<video.textTracks.length; i++) {...}`
+      + showing mode: `if (video.textTrack[i].mode === 'showing') { return video.textTracks[i].label + " (" + video.textTracks[i].language + ")" }`
+      + other mode: `return "no substitle/caption selected";`
+    + builkd buttons: `function buildButtons() {...}`
+      + check the existence of track: `if (video.textTracks) {...}`
+      + create a button each track: `for (var i=0;i<video.textTracks; i++) {...}`
+        + access current track: `var track = video.textTracks[i];`
+        + skip mode not subtitles and captions: `if ((track.kind !== "subtitles") && (track.kind !== "captions")) continue;`
+        + create button: `createButton(video.textTracks[i]);`
+    + create button: `function createButton(track) {...}`
+      + access element: `var b = document.createElement("button"); b.value = track.label;`
+      + set `lang` attribute: `b.setAttribute("lang", track.language);`
+      + add event listener: `b.addEventListener('click', function(e)) {...}`
+        + get `lang` value: `var lang = this.getAttribute('lang');`
+        + iterate tracks: `for (var i=0; i<video.textTracks.length; i++) {...}`
+        + same language: `if (video.textTracks[i].language == lang) { video.textTracks[i].mode = 'showing'; }1
+        + other language: `else { video.textTracks[i].mode = 'hidden'; }`
+        + display the new active track: `currentLangSpan.innerHTML = activeTracl();`
+      + create button label and add button to container: `b.appendChild(document.createTextNode(track.label)); langButtonDiv.appendChild(b);`
 
 
 ### 1.3.4 With a simple chapter navigation menu
