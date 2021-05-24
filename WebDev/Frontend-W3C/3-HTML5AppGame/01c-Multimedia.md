@@ -529,8 +529,8 @@ JavaScript code:
         + change track mode: `track.mode = "showing";`
         + display track: `displayCues(track);`
         + checktrack status: `if (trackAsHtml.readyState ==== 2) {...}`
-        + call display function if ok: `displayCues(track);`
-        + call to download and display track: `displayCuesTrackLoaded(trackAsHtmlElem, track);`
+        + display function if ok: `displayCues(track);`
+        + download and display track: `displayCuesTrackLoaded(trackAsHtmlElem, track);`
         + add event listener for FireFox (no enter/exit events): `track.addEventListener("cuechange", function(e) {...})`
           + current cue: `var cue = this.activeCues[0];`
           + log msg: `console.log("cue change");`
@@ -1183,7 +1183,7 @@ However, we will see how we can do better by using JSON objects as cue contents.
   + task: display subtitles/caption in `.vtt` files
   + HTML snippet: [video element](#videoElmt)
   + no browser taking chapter track in account
-  + example of `.vtt` file
+  + example of `.vtt` file <a name="vtt"></a>
 
     ```vtt
     WEBVTT
@@ -1230,15 +1230,15 @@ Here is an example cue from a WebVTT file encoded as JSON instead of plain text.
 <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="typ">Wikipedia</span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">15.200</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">02</span><span class="pun">:</span><span class="lit">18.800</span></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pun">{</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="str">&nbsp; &nbsp;"title"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"State of Wikipedia"</span><span class="pun">,</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="str">&nbsp; &nbsp;"description"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Jimmy Wales talking ..."</span><span class="pun">,</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="str">&nbsp; &nbsp;"src"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://upload.wikimedia.org/...../120px-Wikipedia-logo-v2.svg.png"</span><span class="pun">,</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="str">&nbsp; &nbsp;"href"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://en.wikipedia.org/wiki/Wikipedia"</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pun">}</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong style="color: olive;">{</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong style="color: olive;">&nbsp; &nbsp;"title"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"State of Wikipedia"</span><span class="pun">,</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong style="color: olive;">&nbsp; &nbsp;"description"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Jimmy Wales talking ..."</span><span class="pun">,</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong style="color: olive;">&nbsp; &nbsp;"src"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://upload.wikimedia.org/...../120px-Wikipedia-logo-v2.svg.png"</span><span class="pun">,</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong style="color: olive;">&nbsp; &nbsp;"href"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://en.wikipedia.org/wiki/Wikipedia"</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong style="color: olive;">}</span></strong></li>
 </ol></div><br>
 
-This JSON object (in bold green) is a JavaScript object encoded as a text string. If we listen for cue events or if we read a WebVTT file as done in previous examples, we can extract this text content using the `cue.text` property. For example:
+This JSON object (in bold olive) is a JavaScript object encoded as a text string. If we listen for cue events or if we read a WebVTT file as done in previous examples, we can extract this text content using the `cue.text` property. For example:
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> videoElement </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myvideo"</span><span class="pun">);</span></li>
@@ -1265,6 +1265,8 @@ This is a powerful way of embedding metadata, especially when used in conjunctio
 __Improved approach: make a nicer chapter menu by embedding a richer description of chapter markers__
 
 Earlier we saw [an example](https://jsbin.com/jiyodit/edit?html,css,js,output) that could display chapter markers as clickable text on the right of a video.
+
+[Local Demo](src/01c-example06.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -1363,6 +1365,8 @@ To associate these images with its chapter description, we will use JSON objects
 
 Before explaining the code, we propose that you [try this example at JSBin](https://jsbin.com/pulefe/1/edit?html,css,js,output) that uses this new `.vtt` file:
 
+[Local Demo](src/01c-example07.html)
+
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick= "window.open("https://bit.ly/3bQuyA9")"
@@ -1380,14 +1384,14 @@ HTML code:
 <li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="pln"> </span><span class="atn">preload</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">crossOrigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://...../elephants-dream-medium.mp4"</span><span class="pln"> </span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px; background-color: #eeeeee;">.....</span>/elephants-dream-medium.webm"</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-medium.webm"</span><span class="pln"> </span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English subtitles"</span><span class="pln"> </span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"en"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-en.vtt"</span><span class="pln"> </span><span class="tag">&gt;</span></li>
 <li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"Deutsch subtitles"</span><span class="pln"> </span></li>
 <li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"de"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px; background-color: #eeeeee;">.....</span>/elephants-dream-subtitles-de.vtt"</span><span class="pln"> </span><span class="atn">default</span><span class="tag">&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"de"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-de.vtt"</span><span class="pln"> </span><span class="atn">default</span><span class="tag">&gt;</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English chapters"</span><span class="pln"> </span></strong></li>
 <li class="L7" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span class="pun">=</span><span class="atv">"chapters"</span><span class="pln"> </span></strong></li>
 <li class="L7" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"en"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-chapters-en-<span style="color: #ff0000;">JSON</span>.vtt"</span><span class="tag">&gt;</span></strong></li>
@@ -1496,9 +1500,9 @@ JavaScript code:
 __Explanations:__
 
 + _Lines  4-18_: when the page is loaded, we assemble all of the track HTML elements and their corresponding TextTrack objects.
-+ _Line 19: using that we can build the chapter navigation menu. All is done in the window.onload callback, so nothing happens until the DOM is ready.
-+ _Lines 24-43_: the buildChapterMenu function first locates the chapter track for the given language, then checks if this track has been loaded by the browser. Once it has been confirmed that the track is loaded, the function displayChapters is called. 
-+ _Lines 45-65_: the displayChapters(track) function will iterate over all of the cues within the chapter track passed as its parameter. For each cue, the JSON content is re-formatted back into a JavaScript object (line 55) and the image filename and description of the chapter/cue are extracted (_lines 56-57_). Then an HTML description for the chapter is built and added to the div element with id=chapterMenu. Here is the HTML code for one menu marker:
++ _Line 19_: using that we can build the chapter navigation menu. All is done in the `window.onload` callback, so nothing happens until the DOM is ready.
++ _Lines 24-43_: the `buildChapterMenu` function first locates the chapter track for the given language, then checks if this track has been loaded by the browser. Once it has been confirmed that the track is loaded, the function `displayChapters` is called.
++ _Lines 45-65_: the `displayChapters(track)` function will iterate over all of the cues within the chapter track passed as its parameter. For each cue, the JSON content is re-formatted back into a JavaScript object (_line 55_) and the image filename and description of the chapter/cue are extracted (_lines 56-57_). Then an HTML description for the chapter is built and added to the `div` element with `id=chapterMenu`. Here is the HTML code for one menu marker:
 
   <div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
   <li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;figure</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"<g class="gr_ gr_127 gr-alert gr_spell gr_run_anim ContextualSpelling ins-del multiReplace" id="127" data-gr-id="127">img</g>"</span><span class="tag">&gt;</span></li>
@@ -1581,8 +1585,102 @@ This example is the same as the previous one except that we have kept the featur
 </figure>
 
 
+#### Notes for 1.3.5 With thumbnails, using JSON cues
+
++ WebVTT file w/ JSON
+  + possible to use JSON as cue values
+  + absle to manipulate JSON from HavaScript
+  + able to be extracted JSON object w/ `cue.text`
+  + a powerful way of embedding metadata
+  + particularlly used in conjuntion w/ listening for cue and track events
 
 
++ Example: extracy JSON object from WebVTT file
+  + text withing curly brakets `{...}` as a JSON object
+
+    ```json
+    WEBVTT
+    Wikipedia
+    00:01:15.200 --> 00:02:18.800
+    {
+      "title": "State of Wikipedia",
+      "description": "Jimmy Wales talking ...",
+      "src": "https://upload.wikimedia.org/...../120px-Wikipedia-logo-v2.svg.png",
+      "href": "https://en.wikipedia.org/wiki/Wikipedia"
+    }
+    ```
+  
+  + JavaScript snippet:
+    + declare variables for various elements: `var videoElement = document.querySelector("#myVideo"); var textTracks = videoElement.textTracks; var textTrack = textTracks[0];`
+    + declare variables for cues: `var cues = textTrack.cues; var cue = cues[0];`
+    + convert JSON text into JSON object: `var obj = JSON.parse(cue.text);`
+    + access description: `var description = obj.description;`
+
++ Example: chapter menu w/ description of chapter markers
+  + procedure: manually capture the images from the video file
+    + click on each chapter link to pause video
+    + using a screen capture tool to grap each image corresponding to the beginning of chapter
+    + resizing the images approximately 200x400 pixels
+  + WebVTT w/ chapter
+
+    ```json
+    WEBVTT
+    
+    chapter-1
+    00:00:00.000 --> 00:00:26.000
+    {
+    "description": "Introduction",
+    "image": "introduction.jpg"
+    }
+    
+    chapter-2
+    00:00:28.206 --> 00:01:02.000
+    {
+    "description": "Watch out!",
+    "image": "watchOut.jpg"
+    }
+    ...
+    ```
+
+  + HTML snippet
+    + same as [video element](#videoElmt)
+    + resvised chapter track w/ JSON: `<track label="English chapters" kind=chapters srclang="https://.../elephants-dream-chapters-en-JSON.vtt">`
+    + create chapter container: `<div id="chapterMenu"></div>`
+    + no button left but thumbnails created by JavaScript snippet
+  + JavaScript snippet
+    + declare variables: `var video, chapterMenuDiv; var tracks, trackElems, tracksURLs = [];`
+    + init page after DOM ready: `window.onload = function() {...}`
+      + same snippe as [page load](#pageLoad)
+      + build chapter navigation menu: `buildChapterMenu('en', 'chapters');`
+    + create chapter menu: `function buildChapterMenu(lang, kind) {...}`
+      + iterate on all tracks: `for (var i=0; i<tracks.length; i++) {...}`
+      + declar variables: `var track = tracks[i]; var trackAsHtmlElem = trackElems[i];`
+      + check language and kinnd of the current track: `if ((track.language === lang) && (track.kind === kind)) {...}`
+        + almost same as [button click snippet](#buttonClick)
+        + display chapter menu: `displayChapterMarkers(track);`
+      + other than the same language and kind: `else { displayChapterMarkersAfterTrackLoaded(trackAsHtmlElem, track); }`
+    + display charter menu: `function displayChapterMarkers(track) {...}`
+      + declare variable: `var cues = track.cues;`
+      + assign invisible value: `track.mode = "hidden";`
+      + iterate on cues: `for (var i=0, len = cues.length; i<len; i++) {...}`
+        + declare variable for info: `var cue = cues[i];`
+        + assign variables related to JSON onbject: `var cueObject = JSON.parse(cue.text); var description = cueObject.description; var imageFileName = cueObject.image; var imageURL = "https://.../mooc" + imageFileName;`
+        + add figure: `var figure = document.createElement('figure'); figure.classList.add('img');`
+        + add img element: `figure.innerHTML = "<img onclick='jumpTo(" + cue.startTime + ");' class='thumb' src='" + imageURL + "><figcaption class='desc'>" + description + "</figcaption></figure>";`
+        + add figure to chapter menu: `chapterMenuDiv.insertBefore(figure, null);`
+    + display chapter markers after track loaded: `function displayChapterMarkersAfterTrackLoaded(trackElem, track) {...}`
+      + add listener after track loaded: `trackElem.addEventListener('load', function(e){...});`
+      + log msg: `console.log('chapter track loaded');`
+      + display chapter menu: `displayChapterMarkers(track);`
+    + play video from given started time: `function jumpTo(time) {...}`
+      + set start time: `video.currentTime = time;`
+      + play video: `play.video();`
+  + CSS style
+    + chapter menu: `#chapterMenuSection { background-color: lightgrey; border-radius: 10px; padding: 20px; border: 1px solid; display: inline-block; margin: 0px 30px 30px 30px; width: 90% }`
+    + image: `fiure.img{ margin: 2px; floadt: left; }`
+    + descrition: `figcaption.desc { yexy-align: center; fong-weight: normal; margin: 2px; }`
+    + thumbnail img: `.thumb { height: 75px; border: 1px solid #000; margin: 10px 5px 0 0; box-shadow: 5px 5px 5px grey; transition: all 0.5s; }`
+    + thumbnail hover: `.thumb.hover { box-shadow: 5px 5px 5px black; }`
 
 
 ### 1.3.6 Discussion and project
