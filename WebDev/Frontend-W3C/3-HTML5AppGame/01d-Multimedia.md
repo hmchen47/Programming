@@ -21,12 +21,14 @@ __Let's create on the fly a WebVTT file with many cues, in order to cut a big so
 
 [This JsBin demonstration](https://jsbin.com/lodiju/edit?html,js,output), adapted from an original demo by Sam Dutton, uses [a single mp3 file](https://mainline.i3s.unice.fr/mooc/animalSounds.mp3) that contains recorded animal sounds.
 
+[Local Demo](src/01d-example01.html)
+
 Below is the sound file. You can try to play it:
 
 <p class="exampleHTML"><audio src="https://mainline.i3s.unice.fr/mooc/animalSounds.mp3" controls="controls" gt="" audio=""></audio></p>
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open("https://bit.ly/3ywzkfL")"
     src    = "https://bit.ly/3ws8Z0z"
     alt    = "Click a button to play an animal sound"
@@ -93,7 +95,7 @@ __Polyfill for `getCueById`__: Note that this method is not available on all bro
 #### Techniques
 
 
-To add a TextTrack to a track element, use the [`addTextTrack` method](https://www.w3.org/TR/html5/embedded-content-0.html#text-track-api) (of the audio or video element). The function's signature is `addTextTrack(kind[,label[,language]])` where kind is our familiar choice between `subtitles`, `captions`, `chapters`, etc. The optional label is any text you'd like to use describing the track; and the optional language is from our usual list of BCP-47 abbreviations, eg 'de', 'en', 'es', 'fr' (etc).
+To add a `TextTrack` to a track element, use the [`addTextTrack` method](https://www.w3.org/TR/html5/embedded-content-0.html#text-track-api) (of the audio or video element). The function's signature is `addTextTrack(kind[,label[,language]])` where kind is our familiar choice between `subtitles`, `captions`, `chapters`, etc. The optional label is any text you'd like to use describing the track; and the optional language is from our usual list of BCP-47 abbreviations, eg 'de', 'en', 'es', 'fr' (etc).
 
 The VTTCue constructor enables us to create our own cue class-instances programmatically. We create a cue instance by using the new keyword. The constructor function expects three familiar arguments, thus: new `VTTCue(startTime, endTime, id)` - more detail is available from [the MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Video_Text_Tracks_Format) and [the W3C's two applicable groups](https://w3c.github.io/webvtt/#the-vttcue-interface).
 
@@ -194,10 +196,77 @@ HTML source code extract:
 
 #### Notes for 1.4.1 Creating tracks on the fly
 
++ Segmenting sound file
+  + sound sprites
+    + small sounds as parts of a mp3 file
+    + able to be played separately
+  + each sound defined as a cue in a track associated w/ the `<audio>` element
+  + tasks:
+    + create a WebVTT file w/ many cues on the fly
+    + cut a big sound file into segments
+    + play segments on demand
+  + defining the different animal sounds in the audio file <a name="sounds"></a>
 
+    ```js
+    var sounds = [
+        { id: "purr", startTime: 0.200, endTime: 1.800 },
+        { id: "meow", startTime: 2.300, endTime: 3.300 },
+        { id: "bark", startTime: 3.900, endTime: 4.300 },
+        { id: "baa", startTime: 5.000, endTime: 5.800 }
+        ...
+    ];
+    ```
 
+  + ideas
+    + create a track on the fly
+    + add cues within the track
+    + cue created w/ the id, the start and end time taken from the above JavaScript object
+    + results: a track w/ individual cues located at the time location of the animal sound file
+  + implementation
+    + generate buttons in the HTML document
+    + excute `getCueById` method when clicked on a button
+    + access the start and end time properties of the cue
+    + play the sound
+  + polyfill for `getCueById`:
+    + no available on all browsers yet
+    + JavaScript snippet to implement `getCueById`<a name="getCueById"></a>
+      + check the type of track: `if (typeof track.getCueById !== "function") {...}`
+      + callback function: `track.getCueById = function(d) {...};`
+      + access cues: `var cues = track.track,cues;`
+      + iterate on cues: `for (var i=0; i<track.cues.length; i++) { if (cues[i].id === id) { return cues[i]; } }`
 
-
++ Example: add cues to a track on the fly
+  + `addTextTrack` method
+    + syntax: `addTextTrack(kind[, label[, language]])`
+    + docstring: add a TextTrack to a track element
+    + parameters
+      + `kind`: str; possible values - `subtitles`, `captions`, `chapters`, etc.
+      + `label`: str, optional; description of the track
+      + `language`: str, optional; usually used abbreviation from BCP-47, like, 'en', 'fr', 'de', etc.
+  + VTTCue constructor
+    + enable to create cue class-instances programmatically
+    + create a cue instance by using `new` keyword
+  + HTML snippet: `<div id="soundButtons" class="isSupported"></div>`
+  + JavaScript snippet
+    + init page w/ DOM ready: `window.onload = funct() {...}`
+      + create audio element: `var audio = newAudio("https://.../nimalSounds.mp3");`
+      + add event listener after metadata loaded: `audio.addEventListener("loadedmetadata", function() {...});`
+        + add track info: `var track = audio.adTextTrack("metadata", "sprite track", "en");`
+        + assign track mode: `track.mode = "hidden";`
+      + implement w/ browser w/o [getCueById](#getCueById)
+    + declare [sound array](#sounds)
+    + iterate on each sound: `for (var i=0; i !== sounds.length; i++) {...}`
+      + create new cue and addign value: `var cue = new VTTCue(sound.startTime, sound.endTime, sound.id); cue.id = sound.id;`
+      + add cue to track: `track.addCue(cue);`
+      + create button adn add to HTML document: `document.querySelector("#soundButtons").innerHTML += "<button class='playSound' id=" + sound.id + ">" + sound.id + "</button>";`
+    + declar end time: `var endTime;`
+    + add listener for end time: `audio.addEventListener("timeupdate", function(evt) { if (evt.target.currentTime > endTime) evt.target.pause(); })`
+    + play sound: `function playSound(id) {...}`
+      + declare cue: `var cue = track.getCueById(id);`
+      + add start and end times: `audi.currentTime = cue.startTime; endTime = cue.endTime;`
+      + play audio: `play.audio();`
+    + create all listeners for all buttons: `var buttons = document.querySelectorAll("button.playSound");`
+    + iterate on adding click events: `for (var i=0; i<button.length; i++) { buttons[i].addEventListener("click", function(e) { playSound(this.id); }); }`
 
 
 ### 1.4.2 Update the document in sync with a media playing
