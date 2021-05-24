@@ -1,0 +1,81 @@
+#all {
+  background-color: lightgrey;
+  border-radius:10px;
+  padding: 20px;
+  border:1px solid;
+  display:inline-block;
+  /*height:500px;*/
+  margin:30px;
+  width:90%;
+}
+
+#chapterMenuSection {
+  background-color: lightgrey;
+  border-radius:10px;
+  padding: 20px;
+  border:1px solid;
+  display:inline-block;
+  /*height:500px;*/
+  margin:0px 30px 30px 30px;
+  width:90%;
+}
+
+.cues {
+  color:blue;
+}
+
+.cues:hover {
+  text-decoration: underline;
+}
+
+.cues.current {
+  color:black;
+  font-weight: bold;
+}
+
+#myVideo {
+    display: block;
+    float : left;
+    margin-right: 2.85714%;
+    width: 65.71429%;
+    background-color: black;
+    position: relative;
+}
+
+#transcript {
+  padding: 10px;
+  border:1px solid;
+  float: left;
+  max-height: 225px;
+  overflow: auto;
+  width: 25%;
+  margin: 0;
+  font-size: 14px;
+  list-style: none;
+}
+
+        figure.img {
+            margin: 2px;
+          float: left;
+        }
+
+
+
+        figcaption.desc {
+            text-align: center;
+            font-weight: normal;
+            margin: 2px;
+        }
+
+  .thumb {
+    height: 75px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+    box-shadow: 5px 5px 5px grey;
+    transition: all 0.5s;
+  }
+
+.thumb:hover {
+    box-shadow: 5px 5px 5px black;
+}
+
