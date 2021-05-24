@@ -1,0 +1,28 @@
+<html lang="en">
+
+<head>
+  <meta charset=utf-8>
+  <title>Video player with chapter menu</title>
+  <link rel="stylesheet" href="css/01c-example07.html">
+  <script src="js/01c-example07.js"></script>
+</head>
+
+<body>
+  <section id="all">
+    <h1>Using JSON to describe chapter markers</h1>
+    This example uses a WebVTT file with kind=chapters, that contains JSON cues for associating images and chapter marker descriptions.
+    <p>
+    <video id="myVideo" preload="metadata" controls crossOrigin="anonymous">
+      <source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.mp4" type="video/mp4">
+      <source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.webm" type="video/webm">
+      <track label="English subtitles" kind="subtitles" srclang="en" src="https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-en.vtt" >
+        <track label="Deutsch subtitles" kind="subtitles" srclang="de" src="https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-de.vtt" default>
+          <track label="English chapters" kind="chapters" srclang="en" src="https://mainline.i3s.unice.fr/mooc/elephants-dream-chapters-en-JSON.vtt">
+    </video>    
+    <h2>Chapter menu</h2>
+    <div id="chapterMenu"></div>
+  </section>
+</body>
+
+</html>
+

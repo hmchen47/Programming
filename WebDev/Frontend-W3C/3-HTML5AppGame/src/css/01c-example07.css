@@ -1,0 +1,54 @@
+#all {
+  background-color: lightgrey;
+  border-radius:10px;
+  padding: 20px;
+  border:1px solid;
+  display:inline-block;
+  /*height:500px;*/
+  margin:30px;
+  width:90%;
+}
+
+#myVideo {
+  border-radius:10px;
+  border:1px solid;
+    display: block;
+    margin-right: 2.85714%;
+    width: 100%;
+    background-color: black;
+    position: relative;
+  box-shadow: 5px 5px 5px grey;
+}
+
+#chapterMenuSection {
+  background-color: lightgrey;
+  border-radius:10px;
+  padding: 20px;
+  border:1px solid;
+  display:inline-block;
+  margin:0px 30px 30px 30px;
+  width:90%;
+}
+
+figure.img {
+  margin: 2px;
+  float: left;
+}
+
+figcaption.desc {
+  text-align: center;
+  font-weight: normal;
+  margin: 2px;
+}
+
+.thumb {
+  height: 75px;
+  border: 1px solid #000;
+  margin: 10px 5px 0 0;
+  box-shadow: 5px 5px 5px grey;
+  transition: all 0.5s;
+}
+
+.thumb:hover {
+    box-shadow: 5px 5px 5px black;
+}
