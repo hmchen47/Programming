@@ -1685,7 +1685,17 @@ This example is the same as the previous one except that we have kept the featur
 
 ### 1.3.6 Discussion and project
 
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
 
+__Suggested topics of discussion:__
+
++ We presented improved video players in the examples, with clickable transcripts, buttons for choosing the subtitles, chapter menus, etc. Which example is your favorite?
++ What other functionalities would you like us to cover in a future course? Small images in the progress bar? Bookmarks? Loop A/B for repeating a given part of a video/audio? Others?
+
+
+__Optional project:__
+
++ Make an impressive video player with an attractive menu for choosing between different subtitle files and a nice chapter menu. Be creative! You may use the provided examples as a starting point or build something on your own. Some suggestions: animated menu markers (CSS3 or animated GIFs, or even small video clips), a nice popup menu for choosing the subtitles, a button for hiding/showing a transcript, etc.
 
 
 
