@@ -15,7 +15,7 @@ These methods will allow us to create TextTrack objects and cues on the fly, pro
 
 The presented example shows how we can create "__sound sprites__": small sounds that are parts of a mp3 file, and that can be played separately. Each sound will be defined as a cue in a track associated with the `<audio>` element.
 
-#### 
+#### Segmenting Sound File
 
 __Let's create on the fly a WebVTT file with many cues, in order to cut a big sound file into segments and play them on demand__
 
@@ -89,7 +89,9 @@ __Polyfill for `getCueById`__: Note that this method is not available on all bro
 <li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp;}</span></li>
 </ol></div><br>
 
-__Techniques__
+
+#### Techniques
+
 
 To add a TextTrack to a track element, use the [`addTextTrack` method](https://www.w3.org/TR/html5/embedded-content-0.html#text-track-api) (of the audio or video element). The function's signature is `addTextTrack(kind[,label[,language]])` where kind is our familiar choice between `subtitles`, `captions`, `chapters`, etc. The optional label is any text you'd like to use describing the track; and the optional language is from our usual list of BCP-47 abbreviations, eg 'de', 'en', 'es', 'fr' (etc).
 
