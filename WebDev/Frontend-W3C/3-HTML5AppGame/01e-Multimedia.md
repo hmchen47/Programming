@@ -1,13 +1,221 @@
 # Module 1: Advanced HTML5 multimedia section
 
-
 ## 1.5 The Web Audio API
 
 ### 1.5.1 Introduction
 
+#### Live coding video: introduction to Web audio
+
+<a href="https://edx-video.net/W3CHTM52/W3CHTM52T415-V001200_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript Download](https://bit.ly/3ww9mY6)
 
 
+#### Disadvantages of the Standard APIs
 
+__Shortcomings of the standard APIs that we have discussed so far...__
+
+In Module 2 of the HTML5 Coding Essentials course, you learned how to add an audio or video player to an HTML document, using the `<audio>` and `<video>` elements. 
+
+For example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;audio</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/LaSueur.mp3"</span><span class="pln"> </span><span class="atn">controls</span><span class="tag">&gt;</span></li>
+</ol></div><br>
+
+... render like this in your document:
+
+<p class="exampleHTML"><audio id="player" src="https://mainline.i3s.unice.fr/mooc/LaSueur.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio></p>
+
+Under the hood, this HTML code:
+
+1. initiates a network request to stream the content,
+1. deals with decoding/streaming/buffering the incoming data,
+1. renders audio controls,
+1. updates the progress indicator, time, etc.
+
+You also learned that it's possible to write a custom player: to make your own controls and use the JavaScript API of the `<audio>` and `<video>` elements; to call `play()` and `pause()`; to read/write properties such as `currentTime;` to listen to events (`ended`, `error`, `timeupdate`, etc.); and to manage a playlist, etc.
+
+However, there are many things we still cannot do, including:
+
++ Play multiple sounds or music in perfect sync,
++ Play non-streamed sounds (this is a requirement for games: sounds must be loaded in memory),
++ Output directly to the speakers; adding special effects, equalizer, stereo balancing, reverb, etc.
++ Any fancy visualizations that dance with the music (e.g. waveforms and frequencies).
+
+The Web Audio API fulfills such missing parts, and much more.
+
+In this course, we do not cover the whole [Web Audio API specification](https://webaudio.github.io/web-audio-api/). Instead, we focus on the parts of the API that can be useful for writing enhanced multimedia players (that work with streamed audio or video), and on parts that are useful for games (i.e. parts that work with small sound samples loaded in memory). There is the API that specializes in music synthesis and scheduling notes, that we will not study oin this course.
+
+Here's a screenshot from one example we will study: an audio player with animated waveform and volume meters that 'dance' with the music:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/34cszld")"
+    src    = "https://bit.ly/2St4DY8"
+    alt    = "A fancy audio player with multiple visualizations"
+    title  = "A fancy audio player with multiple visualizations"
+  />
+</figure>
+
+
+#### Web Audio concepts
+
+__The audio context__
+
+The canvas used a graphic context for drawing shapes and handling properties such as colors and line widths.
+
+The Web Audio API takes a similar approach, using an AudioContext for all its operations. 
+
+Using this context, the first thing we do when using this API is to build an "audio routing graph" made of "audio nodes" which are linked together (most of the time in the course, we are going to call it the "audio graph"). Some node types are for "audio sources", another built-in node is for the speakers, and many other types exist, that correspond to audio effects (delay, reverb, filter, stereo panner, etc.), audio analysis (useful for creating fancy visualizations of the real time signal). Others, which are specialized for music synthesis, are not studied in this course.
+
+The AudioContext also exposes various properties, such as `sampleRate`, `currentTime` (in seconds, from the start of `AudioContext` creation), `destination`, and the methods for creating each of the various audio nodes.
+
+The easiest way to understand this principle is to look at a [first example at JSBin](https://jsbin.com/gaduqojeke/edit?html,js).
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick= "window.open("https://bit.ly/34cszld")"
+    src    = "https://bit.ly/3ukFWdI"
+    alt    = "A fancy audio player with multiple visualizations"
+    title  = "A fancy audio player with multiple visualizations"
+  />
+</figure>
+
+
+This example is detailed in the next lesson. For the moment, all you need to know is that it routes the signal from an `<audio>` element using a special node that bridges the "streamed audio" world  to the Web Audio World, called a `MediaElementSourceNode`, then this node is connected to a `GainNode` which enables volume control. This node is then connected to the speakers. We can look at the audio graph of this application using a recent version of FireFox. This browser is the only one (@@as at November 2015) to provide a view of the audio graph, which is very useful for debugging:
+
+__Use the Audio Chrome extension to see the WebAudio graph in devtools__
+
+For a long time, FireFox had a very good WebAudio debugger built in its devtools, but it has been discontinued in 2019. Meanwhile you can use a Google Chrome extension named  "WebAudio Inspector" (or "Audion").  You can install it from the [Chrome Web Store](https://bit.ly/3yEgH9C).
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick= "window.open("https://bit.ly/34cszld")"
+    src    = "https://bit.ly/2QOQDYp"
+    alt    = "Chrome WebAudio Inspector extension"
+    title  = "Chrome WebAudio Inspector extension"
+  />
+</figure>
+
+Once installed, open a Web page that contains some WebAudio code ([this one for example](https://output.jsbin.com/gaduqojeke)), open the Developer Tools (function key F12, then the gear-wheel), and locate the “Web Audio” (Editor) option. Once enabled, return to Developer Tools and open the Web Audio tab. Then reload the target webpage so that all Web audio activity can be monitored by the tool. You can click on the WebAudio graph nodes to see their properties' values.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick= "window.open("https://bit.ly/34cszld")"
+    src    = "https://bit.ly/3bTUpqV"
+    alt    = "WebAudio Inspector tab"
+    title  = "WebAudio Inspector tab"
+  />
+</figure>
+
+Note that JSBin examples should be opened in standalone mode (not in editor mode).
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick= "window.open("https://bit.ly/34cszld")"
+    src    = "https://bit.ly/3wr3mzy"
+    alt    = "How to go in JsBin standalone mode: click the black arrow on top right of the output tab"
+    title  = "How to go in JsBin standalone mode: click the black arrow on top right of the output tab"
+  />
+</figure>
+
+Audio nodes are linked via their inputs and outputs, forming a chain that starts with one or more sources, goes through one or more nodes, then ends up at a destination (although you don't have to provide a destination if you just want to visualize some audio data, for example).
+
+The `AudioDestination` node above corresponds to the speakers. In this example, the signal goes from left to right: from the `MediaElementSourceNode` (we will see in the code that it's the audio stream from an `<audio>` element), to a Gain node (and by adjusting the gain property we can set the volume of the sound that outputs from this node), then to the speakers.
+
+#### Build Audio Routing Graph
+
+__Typical code to build an audio routing graph (the one used in the above example)__
+
+HTML code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;audio</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/drums.mp3"</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; id</span><span class="pun">=</span><span class="atv">"gainExample"</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; controls</span><span class="pln"> </span><span class="atn">loop</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/audio&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;br&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;label for="gainSlider"&gt;</span><span class="pln">Gain</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"1"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"0.01"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"1"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"gainSlider"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
+</ol></div><br>
+
+JavaScript source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// This line is a trick to initialize the AudioContext</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">// that will work on all recent browsers</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="typ">AudioContext</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">webkitAudioContext</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> audioContext</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd"></span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> gainExemple</span><span class="pun">,</span><span class="pln"> gainSlider</span><span class="pun">,</span><span class="pln"> gainNode</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// get the AudioContext</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; audioContext </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> ctx</span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// the audio element</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; player&nbsp;</span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#gainExample'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;">&nbsp; player.onplay = () =&gt; {</li>
+<li class="L2"><span color="#666600" style="color: #666600;">&nbsp; &nbsp; &nbsp;audioContext.resume();</span></li>
+<li class="L2"><span color="#666600" style="color: #666600;">&nbsp; }</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; gainSlider </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#gainSlider'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>buildAudioGraph</strong></span><strong><span class="pun">();</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// input listener on the gain slider</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; gainSlider</span><span class="pun">.</span><span class="pln">oninput </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">){</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; gainNode</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; };</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="kwd">function</span><span class="pln"> buildAudioGraph</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// create source and gain node</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> gainMediaElementSource </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(player</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; gainNode </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createGain</span><span class="pun">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong><span class="com">// connect nodes together</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; gainMediaElementSource</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">gainNode</span><span class="pun">);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; gainNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+</ol></div><br>
+
+__Explanations:__
+
+Here we applied a commonly used technique:
+
++ As soon as the page is loaded: initialize the audio context (_line 11_). Here we use a trick so that the code works on all browsers: Chrome, FF, Opera, Safari, Edge. The trick at _line 3_ is required for Safari, as it still needs the WebKit prefixed version of the AudioContext constructor.
++ Then we build a graph (_line 20_).
++ The build graph function first builds the nodes, then connects them to build the audio graph. Notice the use of `audioContext.destination` for the speakers (_line 35_). This is a built-in node. Also, the `MediaElementSource` node "gainexample" which is the HTML's audio element.
+
+#### Example of bigger graphs
+
+Web Audio nodes are implemented natively in the browser. The Web Audio framework has been designed to handle a very large number of nodes. It's common to encounter applications with several dozens of nodes: some, such as this [Vocoder application](https://webaudiodemos.appspot.com/Vocoder/index.html#), use hundreds of nodes (the picture below has been taken while the WebAudio debugger was still included in FireFox, you should get similar results with the Chrome WebAudio Inspector extension).
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick= "window.open("https://bit.ly/34cszld")"
+    src    = "https://bit.ly/34gs3my"
+    alt    = "audio graph of the vocoder app is made of hundreds of nodes"
+    title  = "audio graph of the vocoder app is made of hundreds of nodes"
+  />
+</figure>
+
+
+#### Knowledge check 1.5.1
+
+1. The WebAudio API has a modular approach: you build an audio graph made of diffent nodes connected together, each node being a source or corresponding to a sound effect. The signal follows all the routes in this graph, from the sources to the final destination (which is usually the speakers). Can WebAudio handle big graphs made of hundred of nodes?
+
+  a. It depends on the power of the device, but on modern computers or mobile devices it should be able to handle hundreds of nodes. It has been designed with support for large graphs in mind.<br>
+  b. No, you shouldn't create audio graphs with more than a few nodes.<br>
+
+  Ans: <br>
+  Explanation: 
 
 
 ### 1.5.2 Working with streamed content
