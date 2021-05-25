@@ -1,0 +1,49 @@
+#myCanvas {
+    display:flex;
+    float:left;
+    background-color:black;
+    border:2px solid green;
+    border-radius:.2em;
+    clear:both;
+   
+ 
+}
+
+#aside {
+    display:flex;
+    width:30%;
+    height:500px;
+    padding-left:15px;
+    border: 2px solid green;
+    
+   
+}
+
+body{
+    background-color:antiquewhite;
+    
+}
+
+#header,h2 {
+    text-align:center;
+    text-decoration:underline;
+}
+
+p {
+    font-family:'Sitka Banner';
+}
+
+#footer {
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  width:100%;
+  clear: both;
+  padding-top: 10px;
+}
+
+p b {
+  color:magenta;
+}
+
+

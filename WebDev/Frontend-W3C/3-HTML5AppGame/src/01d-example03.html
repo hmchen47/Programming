@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>playing sound when the square hits the edges</title>
+    <link rel="stylesheet" href="css\animationSound.css" />
+    <script src="js\animationSound.js"></script>
+</head>
+<body>
+    <main id="main">
+        <header id="header">
+            <h1>Simple animation with sound</h1>
+        </header>
+        <canvas id="myCanvas" width="500" height="500">
+
+        </canvas>
+        <aside id="aside">
+            <header>
+                <h2>
+                    <b>Description</b>
+                </h2>
+               <p>
+                   This is a simple animation that plays an arbitrary 
+                   animal sound when the square hits the canvas's border. To play different sounds
+                   i used the addTextTrack method to add a textTrack, then used the VTTCue 
+                   class to create cues and added the cues to the textTrack that i added to the audio.(view the js code to see how it all works!)
+               </p>
+
+                <p>
+                    <b>Note: Since the autoplay policy has changed you have to interact with your browser window as least once eg. by clicking a mouse button, if you want to hear the sound(s).
+                    </b>
+                  <br/>
+                    Thus far this code doesn't work on microsoft edge (the VTTCue constructor is not supported). Use one of the other major browsers to see it in action.
+                </p>
+            </header>
+        </aside>
+      
+      <footer id="footer">
+        &copy;2020
+        created by the <em>nerd</em>
+      </footer>
+        
+    </main>
+</body>
+</html>
+
