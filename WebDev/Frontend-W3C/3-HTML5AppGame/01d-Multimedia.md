@@ -533,9 +533,22 @@ All the critical work is done by the `cuechange` event listener, _lines 27-50_. 
 
 ### 1.4.3 Discussion and projects
 
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
 
+__Suggested topics of discussion:__
 
++ What other examples would need tracks to be created on the fly?
++ What tools can you find on the Web, for updating a document's content in-sync with a video? Are these tools any easier to use than  the techniques presented here?
 
+__Optional projects:__
+
++ Invent something fun with audio sprites! A small graphic animation with sound effects? A concerto with cats and dogs? Look for example at this example written by a student who followed this course:
+
+  [Demo: animation w/ sounds](https://codepen.io/w3devcampus/pen/jOqyprY)
+
+  [Local Demo](src/01d-example03.html)
+
++ Create an interactive page that will display information related to the video being played. We showed a simple example with Wikipedia pages and a Google map, but you can do better than that, maybe use OpenStreetMap (that is free)! Be creative :-)
 
 
 
