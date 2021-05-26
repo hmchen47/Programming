@@ -52,7 +52,7 @@ In this course, we do not cover the whole [Web Audio API specification](https://
 Here's a screenshot from one example we will study: an audio player with animated waveform and volume meters that 'dance' with the music:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick= "window.open("https://bit.ly/34cszld")"
     src    = "https://bit.ly/2St4DY8"
     alt    = "A fancy audio player with multiple visualizations"
@@ -75,8 +75,10 @@ The AudioContext also exposes various properties, such as `sampleRate`, `current
 
 The easiest way to understand this principle is to look at a [first example at JSBin](https://jsbin.com/gaduqojeke/edit?html,js).
 
+[Local Demo](src/01e-example01.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick= "window.open("https://bit.ly/34cszld")"
     src    = "https://bit.ly/3ukFWdI"
     alt    = "A fancy audio player with multiple visualizations"
@@ -92,7 +94,7 @@ __Use the Audio Chrome extension to see the WebAudio graph in devtools__
 For a long time, FireFox had a very good WebAudio debugger built in its devtools, but it has been discontinued in 2019. Meanwhile you can use a Google Chrome extension named  "WebAudio Inspector" (or "Audion").  You can install it from the [Chrome Web Store](https://bit.ly/3yEgH9C).
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
     onclick= "window.open("https://bit.ly/34cszld")"
     src    = "https://bit.ly/2QOQDYp"
     alt    = "Chrome WebAudio Inspector extension"
@@ -102,25 +104,23 @@ For a long time, FireFox had a very good WebAudio debugger built in its devtools
 
 Once installed, open a Web page that contains some WebAudio code ([this one for example](https://output.jsbin.com/gaduqojeke)), open the Developer Tools (function key F12, then the gear-wheel), and locate the “Web Audio” (Editor) option. Once enabled, return to Developer Tools and open the Web Audio tab. Then reload the target webpage so that all Web audio activity can be monitored by the tool. You can click on the WebAudio graph nodes to see their properties' values.
 
-<figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
-    onclick= "window.open("https://bit.ly/34cszld")"
-    src    = "https://bit.ly/3bTUpqV"
-    alt    = "WebAudio Inspector tab"
-    title  = "WebAudio Inspector tab"
-  />
-</figure>
-
 Note that JSBin examples should be opened in standalone mode (not in editor mode).
 
-<figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
-    onclick= "window.open("https://bit.ly/34cszld")"
-    src    = "https://bit.ly/3wr3mzy"
-    alt    = "How to go in JsBin standalone mode: click the black arrow on top right of the output tab"
-    title  = "How to go in JsBin standalone mode: click the black arrow on top right of the output tab"
-  />
-</figure>
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://bit.ly/34cszld" ismap target="_blank">
+    <img style="margin: 0.1em;" height=180
+      src   = "https://bit.ly/3bTUpqV"
+      alt   = "WebAudio Inspector tab"
+      title = "WebAudio Inspector tab"
+    >
+    <img style="margin: 0.1em;" height=180
+      src   = "https://bit.ly/3wr3mzy"
+      alt   = "How to go in JsBin standalone mode: click the black arrow on top right of the output tab"
+      title = "How to go in JsBin standalone mode: click the black arrow on top right of the output tab"
+    >
+  </a>
+</div>
+
 
 Audio nodes are linked via their inputs and outputs, forming a chain that starts with one or more sources, goes through one or more nodes, then ends up at a destination (although you don't have to provide a destination if you just want to visualize some audio data, for example).
 
@@ -198,7 +198,7 @@ Here we applied a commonly used technique:
 Web Audio nodes are implemented natively in the browser. The Web Audio framework has been designed to handle a very large number of nodes. It's common to encounter applications with several dozens of nodes: some, such as this [Vocoder application](https://webaudiodemos.appspot.com/Vocoder/index.html#), use hundreds of nodes (the picture below has been taken while the WebAudio debugger was still included in FireFox, you should get similar results with the Chrome WebAudio Inspector extension).
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open("https://bit.ly/34cszld")"
     src    = "https://bit.ly/34gs3my"
     alt    = "audio graph of the vocoder app is made of hundreds of nodes"
@@ -209,13 +209,77 @@ Web Audio nodes are implemented natively in the browser. The Web Audio framework
 
 #### Knowledge check 1.5.1
 
-1. The WebAudio API has a modular approach: you build an audio graph made of diffent nodes connected together, each node being a source or corresponding to a sound effect. The signal follows all the routes in this graph, from the sources to the final destination (which is usually the speakers). Can WebAudio handle big graphs made of hundred of nodes?
+1. The WebAudio API has a modular approach: you build an audio graph made of different nodes connected together, each node being a source or corresponding to a sound effect. The signal follows all the routes in this graph, from the sources to the final destination (which is usually the speakers). Can WebAudio handle big graphs made of hundred of nodes?
 
   a. It depends on the power of the device, but on modern computers or mobile devices it should be able to handle hundreds of nodes. It has been designed with support for large graphs in mind.<br>
   b. No, you shouldn't create audio graphs with more than a few nodes.<br>
 
   Ans: <br>
   Explanation: 
+
+#### Notes for 1.5.1 Introduction
+
++ Limitations of Standard APIs
+  + typical actions for `<audio>` and `<video>` elements: `<audio src="https://.../mooc/LaSueur,mp3">`
+    + initiate a network request to stream the content
+    + deal w/ decoding/streaming/buffering the incoming data
+    + render audio controls
+    + update the progress indicator, time, etc.
+  + customer player
+    + making own controls via the JavaScript API of the `<audio>` and `<video>` elements
+    + calling `play()` and `pause()`
+    + reading/writing properties such as `currentTime`
+    + listen events, such as `ended`, `error`, `timeupdate`, etc.
+    + managing a playlist, etc.
+  + limitations
+    + play multiple sounds or music in perfect sync
+    + play non-streamed sounds; games: sounds loaded in memory
+    + output directly to the speaker; adding special effects, equalizer, stereo balancing, reverb, etc.
+    + any fancy visualizations that dance w/ the music, e.g., waveforms and frequencies
+  + solution: [Web Audio API](https://webaudio.github.io/web-audio-api/)
+
++ Web Audio concepts
+  + canvas used as a graphic context for drawing shapes and handling properties
+  + Web Audio API: taking a similar approach, using an AudioContext for all its operations
+  + audio context: `AudioContext`
+    + using Web Audio API to build an "audio routing graph"
+    + audio routing graph made of "audio nodes"
+      + some nodes types for audio sources
+      + built-in nodes for speakers
+      + audio effects: delay, reverb, filter, stereo panner, etc.
+      + audio analysis: used for creating fancy visualizations of real time signal
+      + music synthesis (not covered)
+  + `BaseAudioContext` [interface](https://webaudio.github.io/web-audio-api/#BaseAudioContext)
+    + not instantiated directly
+    + extended by the concrete interfaces `AudioContext` and `OfflineAudioContext`
+    + properties: `currentTime`, `sampleRate`, `destination`, `state`, `onstateChange`, `listener`, `audioWorklet`
+    + methods: `createAnalyser()`, `createBuffer()`, `createBufferSource()`, `createConstantSource()`, `createChannelMerger()`, `createChannelSplitter()`, `createDelay()`, `createPanner()`, etc.
+  + `MediaElementSourceNode`: a special node bridging the streamed audio to the WWW
+  + `GainNode`: a node enabling volume control
+  + `AudioDestination`: a node corresponding to speaker
+
++ Audio graph in devtools
+  + Firefox: WebAudio debugger built-in devtools but discontinued in 2019
+  + Chrome: w/ extension named "WenAudio Inspector"
+
++ Example: Build audio routing graph
+  + HTML snippet:
+    + audio element: `<audio src="https://.../drums.mp3" id="gainExample" controls loop crossorigin="anonymous"></audio>`
+    + gain slider: `<label for="gainSlider">Gain</label><input type="range" min=0 max=1 step"0.01" value=1 id=gainSlider/>`
+  + JavaScript snippet
+    + create context: `var ctx = window.AudioContext || window.webkitAudioContext; var audioContext;`
+    + access elements: `var gainExample, gainSlider, gainNode;`
+    + init page after DOM ready: `window.onload = function() {...}`
+      + get Audio Context: `audioContext = new ctx;`
+      + get audio element: `player = document.querySelector('#gainExample');`
+      + callback for audio play: `player.onplay = () => { audioContext.resume(); }`
+      + access gain slider: `gainSlider = document.querySelector('#gainSlider");`
+      + call to build audio graph: `buildAudioGraph();`
+      + callback for gain slider: `gainSlider.oninput = function(evt) { gainNode.gain.value = evt.target.value; }`
+    + build audio graph: `function buildAudioGraph() {...}`
+      + create source and gain node: `var gainMediaElementSource = audioContext.createMediaElementSource(player); gainNode = audioContext.createGain();`
+      + connect nodes: `gainMediaElementSource.connect(gainNode); gainNode.connect(audioContext.destination);`
+
 
 
 ### 1.5.2 Working with streamed content
