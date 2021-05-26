@@ -258,7 +258,7 @@ Web Audio nodes are implemented natively in the browser. The Web Audio framework
     + audio element: `<audio src="https://.../drums.mp3" id="gainExample" controls loop crossorigin="anonymous"></audio>`
     + gain slider: `<label for="gainSlider">Gain</label><input type="range" min=0 max=1 step"0.01" value=1 id=gainSlider/>`
   + JavaScript snippet
-    + create context: `var ctx = window.AudioContext || window.webkitAudioContext; var audioContext;`
+    + create context<a name="audioCtx"></a>: `var ctx = window.AudioContext || window.webkitAudioContext; var audioContext;`
     + access elements: `var gainExample, gainSlider, gainNode;`
     + init page after DOM ready: `window.onload = function() {...}`
       + get Audio Context: `audioContext = new ctx;`
@@ -301,6 +301,8 @@ Typical use:
 
 [Example at JSBin](https://jsbin.com/mifaqa/edit?html,js,output)
 
+[Local Demo](src/01e-example02.html)
+
 HTML:
 
 <div class="source-code"><ol class="linenums">
@@ -330,10 +332,19 @@ In the following lessons, we will see the different nodes that are useful with s
 
 #### Notes for 1.5.2 Working with streamed content
 
-
-
-
-
++ Example: the MediaSourceElement` node
+  + HTML snippet
+    + audio element: `<audio id="player" controls crossorigin="anonymous" loop>...</audio>`
+    + source element: `<source src="https://.../guitarRiff1.mp3">`
+    + exception message: `Your browser does not support the audio tag.`
+  + JavaScript snippet
+    + create [audio context](#audioCtx)
+    + access player element: `var mediaElement = document.querySelector('#player');`
+    + create source node: `var sourceNode = context.createMediaElementSource(mediaElement);`
+    + connect source node to speaker: `sourceNode.connect(context.destination);`
+  + using `context.createMediaElementSource(elem)` to build the `MediaElementSource` node
+  + `elem`: an `<audio>` or `<video>` element
+  + connecting source node to destination node directly w/o additional processing
 
 ### 1.5.3 Most useful filter nodes
 
