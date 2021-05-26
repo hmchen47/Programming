@@ -207,15 +207,6 @@ Web Audio nodes are implemented natively in the browser. The Web Audio framework
 </figure>
 
 
-#### Knowledge check 1.5.1
-
-1. The WebAudio API has a modular approach: you build an audio graph made of different nodes connected together, each node being a source or corresponding to a sound effect. The signal follows all the routes in this graph, from the sources to the final destination (which is usually the speakers). Can WebAudio handle big graphs made of hundred of nodes?
-
-  a. It depends on the power of the device, but on modern computers or mobile devices it should be able to handle hundreds of nodes. It has been designed with support for large graphs in mind.<br>
-  b. No, you shouldn't create audio graphs with more than a few nodes.<br>
-
-  Ans: <br>
-  Explanation: 
 
 #### Notes for 1.5.1 Introduction
 
@@ -281,6 +272,15 @@ Web Audio nodes are implemented natively in the browser. The Web Audio framework
       + connect nodes: `gainMediaElementSource.connect(gainNode); gainNode.connect(audioContext.destination);`
 
 
+#### Knowledge check 1.5.1
+
+1. The WebAudio API has a modular approach: you build an audio graph made of different nodes connected together, each node being a source or corresponding to a sound effect. The signal follows all the routes in this graph, from the sources to the final destination (which is usually the speakers). Can WebAudio handle big graphs made of hundred of nodes?
+
+  a. It depends on the power of the device, but on modern computers or mobile devices it should be able to handle hundreds of nodes. It has been designed with support for large graphs in mind.<br>
+  b. No, you shouldn't create audio graphs with more than a few nodes.<br>
+
+  Ans: a<br>
+  Explanation: Web Audio has been designed to work with huge graphs.
 
 ### 1.5.2 Working with streamed content
 
