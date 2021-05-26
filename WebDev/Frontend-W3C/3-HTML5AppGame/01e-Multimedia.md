@@ -346,8 +346,380 @@ In the following lessons, we will see the different nodes that are useful with s
   + `elem`: an `<audio>` or `<video>` element
   + connecting source node to destination node directly w/o additional processing
 
+
 ### 1.5.3 Most useful filter nodes
 
+
+All definitions come from the [Mozilla Developer Network (MDN) pages](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API) giving details about the Web Audio API. 
+
+Let's study the most useful filter nodes: gain, stereo panner, filter, convolver (reverb).
+
+#### Gain node
+
+Useful for setting volume... see the [Gain node's documentation](https://developer.mozilla.org/en-US/docs/Web/API/GainNode).
+
+> Definition: "The `GainNode` interface represents a change in volume. It is an AudioNode audio-processing module that causes a given gain to be applied to the input data before its propagation to the output. A `GainNode` always has exactly one input and one output, both with the same number of channels."
+
+[Example at JSBin](https://jsbin.com/davebu/edit?html,js,console,output), or try it in your browser:
+
+<p class="exampleHTML"><audio id="gainExample" src="https://mainline.i3s.unice.fr/mooc/drums.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio>&nbsp;<br> <label>Gain</label> <input id="gainSlider" min="0" max="1" step="0.01" value="1" type="range"></p>
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">/* Gain Node */</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> gainExample </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#gainExample'</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> gainSlider </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#gainSlider'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> gainMediaElementSource </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">gainExample</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> gainNode </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createGain</span><span class="pun">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">gainMediaElementSource</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">gainNode</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">gainNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">gainSlider</span><span class="pun">.</span><span class="pln">oninput </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">){</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;gainNode</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+</ol></div><br>
+
+The `gain` property (_line 13_ in the above code) corresponds to the multiplication we apply to the input signal volume. A value of 1 will keep the volume unchanged. A value < 1 will lower the volume (0 will mute the signal), and a value > 1 will increase the global volume, with a risk of clipping. With gain values > 1, we usually add a compressor node to the signal chain to prevent clipping. You will see an example of this when we discuss the compressor node.
+
+
+#### Stereo panner
+
+See the [Stereo Panner node's documentation](https://developer.mozilla.org/en-US/docs/Web/API/StereoPannerNode).
+
+> Definition: "The `StereoPannerNode` interface of the Web Audio API represents a simple stereo panner node that can be used to pan an audio stream left or right. The pan property takes a value between -1 (full left pan) and 1 (full right pan)."
+
+[Example at JSBin](https://jsbin.com/jarimu/edit?html,js,output), or try it in your browser:
+
+<p class="exampleHTML"><audio id="pannerPlayer" src="https://mainline.i3s.unice.fr/mooc/drums.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio> <br> <label for="pannerSlider">Balance</label> <input id="pannerSlider" min="-1" max="1" step="0.1" value="0" type="range"></p>
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="com">// the audio element</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> playerPanner </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#pannerPlayer'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> pannerSlider </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#pannerSlider'</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="com">// create nodes</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> source </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">playerPanner</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> pannerNode </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createStereoPanner</span><span class="pun">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">// connect nodes together</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> source</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">pannerNode</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> pannerNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// input listener on the gain slider</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> pannerSlider</span><span class="pun">.</span><span class="pln">oninput </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">){</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; pannerNode</span><span class="pun">.</span><span class="pln">pan</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">};</span><span class="pln"> </span></li>
+</ol></div><br>
+
+#### Biquad filter
+
+> Definition: "The `BiquadFilterNode` interface represents a simple low-order filter, and is created using the `AudioContext.createBiquadFilter()` method. It is an AudioNode that can represent different kinds of filters, tone control devices, and graphic equalizers. A `BiquadFilterNode` always has exactly one input and one output."
+
+See also the [Biquad Filter node's documentation](https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode).
+
+[Example at JSBin](https://jsbin.com/tuvaxar/edit?html,js,output), or try it in your browser, with a lowpass filter, only the frequency slider will have a noticeable effect:
+
+<p class="exampleHTML"><audio id="biquadExample" src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio> <br> <label>Frequency</label> <input id="biquadFilterFrequencySlider" min="0" max="22050" step="1" value="350" type="range"> <label>Detune</label> <input id="biquadFilterDetuneSlider" min="0" max="100" step="1" value="0" type="range"> <label>Q</label> <input id="biquadFilterQSlider" min="0.0001" max="1000" step="0.01" value="1" type="range"> <label>Type</label><select id="biquadFilterTypeSelector">
+<option selected="selected" value="lowpass">lowpass</option>
+<option value="highpass">highpass</option>
+<option value="bandpass">bandpass</option>
+<option value="lowshelf">lowshelf</option>
+<option value="highshelf">highshelf</option>
+<option value="peaking">peaking</option>
+<option value="notch">notch</option>
+<option value="allpass">allpass</option>
+</select></p>
+
+The most useful slider is the frequency slider (that changes the `frequency` value property of the node). The meaning of the different properties (`frequency`, `detune` and `Q`) differs depending on the `type` of the filter you use (click on the dropdown menu to see the different types available). Look at [this documentation](https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode) for details on the different filters and how the `frequency`, `detune` and `Q` properties are used with each of these filter types.
+
+Here is [a nice graphic application](https://webaudioapi.com/samples/frequency-response/) that shows the frequency responses to the various filters, you can choose the type of filters and play with the different property values using sliders:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3wCeY2L")"
+    src    = "https://bit.ly/3uh4dSd"
+    alt    = "Frequency responses for various filters. Screenshot of a nice application that visualizes that"
+    title  = "Frequency responses for various filters. Screenshot of a nice application that visualizes that"
+  />
+</figure>
+
+
+Multiple filters are often used together. We will make a multi band equalizer in a next lesson, and use six filters with `type=peaking`. 
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> <g class="gr_ gr_195 gr-alert gr_spell gr_run_anim ContextualSpelling ins-del multiReplace" id="195" data-gr-id="195">ctx</g> </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="typ">AudioContext</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">webkitAudioContext</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> audioContext </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> <g class="gr_ gr_196 gr-alert gr_spell gr_run_anim ContextualSpelling ins-del multiReplace" id="196" data-gr-id="196">ctx</g></span><span class="pun">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">/* BiquadFilterNode */</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> biquadExample </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#biquadExample'</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> biquadFilterFrequencySlider </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#biquadFilterFrequencySlider'</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> biquadFilterDetuneSlider </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#biquadFilterDetuneSlider'</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> biquadFilterQSlider </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#biquadFilterQSlider'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> biquadFilterTypeSelector </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#biquadFilterTypeSelector'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> biquadExampleMediaElementSource </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">biquadExample</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> filterNode </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createBiquadFilter</span><span class="pun">();</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">biquadExampleMediaElementSource</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">filterNode</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">filterNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">biquadFilterFrequencySlider</span><span class="pun">.</span><span class="pln">oninput </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">){</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;filterNode</span><span class="pun">.</span><span class="pln">frequency</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> parseFloat</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">biquadFilterDetuneSlider</span><span class="pun">.</span><span class="pln">oninput </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">){</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;filterNode</span><span class="pun">.</span><span class="pln">detune</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> parseFloat</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">biquadFilterQSlider</span><span class="pun">.</span><span class="pln">oninput </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">){</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;filterNode</span><span class="pun">.</span><span class="pln">Q</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> parseFloat</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">biquadFilterTypeSelector</span><span class="pun">.</span><span class="pln">onchange </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">){</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; filterNode</span><span class="pun">.</span><span class="pln">type </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span>;</li>
+</ol></div><br>
+
+#### Convolver Node
+
+__Convolver node: useful for convolution effects such as reverberation__
+
+Definition: "The `ConvolverNode` interface is an AudioNode that performs a Linear Convolution on a given AudioBuffer, __often used to achieve a reverb effect__. A ConvolverNode always has exactly one input and one output."
+
+See the [Convolver node's documentation](https://developer.mozilla.org/en-US/docs/Web/API/ConvolverNode).
+
+[Example at JSBin](https://jsbin.com/belide/edit?html,js,console,output), THIS EXAMPLE DOES NOT WORK IN YOUR BROWSER as the edX platforms disables Ajax loading in its HTML pages. Try it at JSBin!
+
+<p class="exampleHTML"><audio id="convolverPlayer" src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio> <br> <label for="convolverSlider">Reverb (Dry/Wet)</label> <input id="convolverSlider" min="0" max="1" step="0.1" value="0" type="range"></p>
+
+> [From Wikipedia:](https://en.wikipedia.org/wiki/Convolution) a convolution is a mathematical process which can be applied to an audio signal to achieve many interesting high-quality linear effects. Very often, the effect is used to simulate an acoustic space such as a concert hall, cathedral, or outdoor amphitheater. It can also be used for complex filter effects, like a muffled sound coming from inside a closet, sound underwater, sound coming through a telephone, or playing through a vintage speaker cabinet. This technique is very commonly used in major motion picture and music production and is considered to be extremely versatile and of high quality.
+
+Each unique effect is defined by an impulse response. An impulse response can be represented as an audio file and can be recorded from a real acoustic space such as a cave, or can be synthetically generated through a wide variety of techniques. We can find many high quality impulses on the Web (for example @@TJS OK? here). The impulse used in the example is the one recorded at the opera: La Scala Opera of Milan, in Italy. It's a .wav file.
+
+Try [this demo](https://webaudioapi.com/samples/room-effects/) to see the difference between different impulse files!
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3wCeY2L")"
+    src    = "https://bit.ly/3fj5fsz"
+    alt    = "screenshot of a webapp that enable to switch between different impulse files"
+    title  = "screenshot of a webapp that enable to switch between different impulse files"
+  />
+</figure>
+
+
+So before building the audio graph, we need to download the impulse. For this, we use an Ajax request (this will be detailed during Module 3), but for the moment, just take this function as it is... The Web Audio API requires that impulse files should be decoded in memory before use. Accordingly, once the requested file has downloaded, we call the decodeAudioData method. Once the impulse is decoded, we can build the graph. So typical use is as follows:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> impulseURL </span><span class="pun">=</span><span class="pln"> </span><span class="str">"https://mainline.i3s.unice.fr/mooc/Scala-Milan-Opera-Hall.wav"</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">var decodedImpulse;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> loadImpulse</span><span class="pun">(</span><span class="pln">impulseURL</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// we only get here&nbsp;once the impulse has finished</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// loading and is decoded</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;buildAudioGraphConvolver</span><span class="pun">();</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">});</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> loadImpulse</span><span class="pun">(</span><span class="pln">url</span><span class="pun">,</span><span class="pln"> callback</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ajaxRequest </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ajaxRequest</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'GET'</span><span class="pun">,</span><span class="pln"> url</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ajaxRequest</span><span class="pun">.</span><span class="pln">responseType </span><span class="pun">=</span><span class="pln"> </span><span class="str">'arraybuffer'</span><span class="pun">; // for binary transfer</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ajaxRequest</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; // The impulse has been loaded</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> impulseData </span><span class="pun">=</span><span class="pln"> ajaxRequest</span><span class="pun">.</span><span class="pln">response</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; // let's decode it.</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; audioContext</span><span class="pun">.</span><span class="pln">decodeAudioData</span><span class="pun">(</span><span class="pln">impulseData</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">buffer</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// The impulse has been decoded</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;decodedImpulse </span><span class="pun">=</span><span class="pln"> buffer</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Let's call the callback function, we're done!</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;callback</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">});</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ajaxRequest</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Error with loading&nbsp;audio data"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">err</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ajaxRequest</span><span class="pun">.</span><span class="pln">send</span><span class="pun">();</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+Now let's consider the function which builds the graph. In order to set the quantity of reverb we would like to apply, we need two separate routes for the signal:
+
+1. One "dry" route where we directly connect the audio source to the destination,
+1. One "wet" route where we connect the audio source to the convolver node (that will add a reverb effect), then to the destination,
+1. At the end of both routes, before the destination, we add a gain node, so that we can specify the quantity of dry and wet signal we're going to send to the speakers.
+
+The audio graph will look like this (picture taken with the now discontinued FireFox WebAudio debugger, you should get similar results with the Chrome WebAudio Inspector extension):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3wCeY2L")"
+    src    = "https://bit.ly/3yOQNQS"
+    alt    = "audio graph of the previous example"
+    title  = "audio graph of the previous example"
+  />
+</figure>
+
+
+And here is the function which builds the graph:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> buildAudioGraphConvolver</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// create&nbsp;the nodes</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> source </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">playerConvolver</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>convolverNode </strong></span><strong><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createConvolver</span><span class="pun">();</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pun">&nbsp; // Set the buffer property of the convolver node with the decoded impulse</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; convolverNode</span><span class="pun">.</span><span class="pln">buffer </span><span class="pun">=</span><span class="pln"> decodedImpulse</span><span class="pun">;</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; convolverGain </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createGain</span><span class="pun">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; convolverGain</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; directGain </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createGain</span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; directGain</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// direct/dry route source -&gt; directGain -&gt; destination</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; source</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">directGain</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; directGain</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// wet route with convolver: source -&gt; convolver </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// -&gt; convolverGain -&gt; destination</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; source</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">convolverNode</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; convolverNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">convolverGain</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; convolverGain</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+Note that at line 6 we use the decoded impulse. We could not have done this before the impulse was loaded and decoded.
+
+
+#### The Dynamics Compressor node
+
+> Definition: "The DynamicsCompressorNode interface provides a compression effect, which lowers the volume of the loudest parts of the signal in order to help prevent clipping and distortion that can occur when multiple sounds are played and multiplexed together at once. This is often used in musical production and game audio."
+
+It's usually a good idea to insert a compressor in your audio graph to give a louder, richer and fuller sound, and to prevent clipping. See the [Dynamics Compressor node's documentation](https://developer.mozilla.org/en-US/docs/Web/API/DynamicsCompressorNode).
+
+[Example you can try on JSBin](https://jsbin.com/momixok/edit?html,js,console,output) or try it here in your browser:
+
+<p class="exampleHTML"><audio id="compressorExample" src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio> <br> <label for="gainSlider1">Gain</label> <input id="gainSlider1" min="0" max="10" step="0.01" value="8" type="range"> <button id="compressorButton">Turn compressor On</button></p>
+
+In this example we set the gain to a very high value that will make a saturated sound. To prevent clipping, it is sufficient to add a compressor right at the end of the graph! Here we use the compressor with all default settings.
+
+NB: This course does not go into detail about the different properties of the compressor node, as they are largely for musicians with the purpose of enabling the user to set subtle effects such as release, attack, etc.
+
+Audio graph with the compressor activated (picture taken with the now discontinued FireFox WebAudio debugger, you should get similar results with the Chrome WebAudio Inspector extension):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3wCeY2L")"
+    src    = "https://bit.ly/3fN9iMG"
+    alt    = "Audio graph of the previous example"
+    title  = "Audio graph of the previous example"
+  />
+</figure>
+
+
+Extract of the HTML code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;audio</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3"</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; id</span><span class="pun">=</span><span class="atv">"compressorExample"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">loop</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;&lt;/audio&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;br&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"gainSlider1"</span><span class="tag">&gt;</span><span class="pln">Gain</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"10"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"0.01"</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; <strong>value</strong></span><strong><span class="pun">=</span><span class="atv">"8"</span></strong><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"gainSlider1"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"compressorButton"</span><span class="tag">&gt;</span><span class="pln">Turn compressor On</span><span class="tag">&lt;/button&gt;</span></li>
+</ol></div><br>
+
+JavaScript source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// This line is a trick to initialize the AudioContext</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">// that will work on all recent browsers</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="typ">AudioContext</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">webkitAudioContext</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> audioContext</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> compressorExemple</span><span class="pun">,</span><span class="pln"> gainSlider1</span><span class="pun">,</span><span class="pln"> gainNode1</span><span class="pun">,</span><span class="pln"> compressorNode</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> compressorButton</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> compressorOn </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// get the AudioContext</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; audioContext </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> ctx</span><span class="pun">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// the audio element</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; compressorExemple </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#compressorExample'</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; gainSlider1 </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#gainSlider1'</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// button for turning on/off the compressor</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; compressorButton </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#compressorButton'</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; buildAudioGraph</span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// input listener on the gain slider</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; gainSlider1</span><span class="pun">.</span><span class="pln">oninput </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; gainNode1</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; compressorButton</span><span class="pun">.</span><span class="pln">onclick </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">compressorOn</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// disconnect the compressor and make a </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// direct route from gain to destination</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; compressorNode</span><span class="pun">.</span><span class="pln">disconnect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gainNode1</span><span class="pun">.</span><span class="pln">disconnect</span><span class="pun">(</span><span class="pln">compressorNode</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gainNode1</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; compressorButton</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">"Turn compressor: On"</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span class="com">// compressor was off, we connect the gain to the compressor </span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// and the compressor to the destination</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gainNode1</span><span class="pun">.</span><span class="pln">disconnect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gainNode1</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">compressorNode</span><span class="pun">);</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; compressorNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; compressorButton</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">"Turn compressor: Off"</span><span class="pun">;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;compressorOn </span><span class="pun">=</span><span class="pln"> </span><span class="pun">!</span><span class="pln">compressorOn</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> buildAudioGraph</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// create source and gain node</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> gainMediaElementSource </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">compressorExemple</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;gainNode1 </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createGain</span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;gainNode1</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> parseFloat</span><span class="pun">(</span><span class="pln">gainSlider1</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// do not connect it yet</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>&nbsp;compressorNode </strong></span><strong><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createDynamicsCompressor</span><span class="pun">();</span><span class="pln">&nbsp;</span><span class="com">// connect nodes together</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;gainMediaElementSource</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">gainNode1</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;gainNode1</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+
+__Explanations:__
+
+There is nothing special here compared to the other examples in this section, except that we have used a new method `disconnect` (_line 32_ and _line 38_), which is available on all types of nodes (except `ctx.destination`)  to modify the graph on the fly. When the button is clicked, we remove or add a compressor in the audio graph (_lines 28-42_) and to achieve this, we disconnect and reconnect some of the nodes.
 
 
 
