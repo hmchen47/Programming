@@ -284,6 +284,49 @@ Web Audio nodes are implemented natively in the browser. The Web Audio framework
 
 ### 1.5.2 Working with streamed content
 
+#### Live coding video: working with streamed content
+
+<a href="https://edx-video.net/W3CHTM52/W3CHTM52T415-V001100_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript Download](https://bit.ly/2RJV8Uw)
+
+
+#### The MediaSourceElement node
+
+In the previous lesson, we encountered the MediaElementSource node that is used for routing the sound from a `<video>` or `<audio>` element stream. The above video shows how to make a simple example step by step, and how to setup FireFox for debugging Web Audio applications and visualize the audio graph.
+
+Typical use:
+
+[Example at JSBin](https://jsbin.com/mifaqa/edit?html,js,output)
+
+HTML:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;audio</span><span class="pln"> </span><strong><span class="atn">id</span><span class="pun">=</span><span class="atv">"player"</span></strong><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="pln"> </span><span class="atn">loop</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;Your browser does not support the audio tag.</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/audio&gt;</span></li>
+</ol></div><br>
+
+JavaScript:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="typ">AudioContext</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">webkitAudioContext</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> context </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> ctx</span><span class="pun">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> mediaElement </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.querySelector</span><span class="pun">(</span><span class="str">'<strong>#player</strong>'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> sourceNode </span><span class="pun">=</span><span class="pln"> context</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">mediaElement</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun"><span class="pun" style="line-height: 25.6px;"><span style="color: #000000; line-height: 25.6px;">sourceNode</span>.<span color="#000000" style="color: #000000;">connect</span></span><span class="pun" style="line-height: 25.6px;">(context.destination</span><span class="pun" style="line-height: 25.6px;">); // connect to the speakers</span></span></li>
+</ol></div><br>
+
+The `MediaElementSource` node  is built using `context.createMediaElementSource(elem)`, where `elem` is an `<audio>` or a `<video>` element.
+
+Then we connect this source Node to other nodes. If we connect it directly to `context.destination`, the sound goes to the speakers with no additional processing.
+
+In the following lessons, we will see the different nodes that are useful with streamed audio and with the `MediaElementSource` node. Adding them in the audio graph will enable us to change the sound in many different ways.
+
 
 
 
