@@ -879,6 +879,157 @@ There is nothing special here compared to the other examples in this section, ex
 
 ### 1.5.4 Writing an equalizer
 
+#### Audio Equalizer
+
+__Example #1: an audio equalizer with an `<audio>` element__
+
+[Example at JSBin](https://jsbin.com/loquwih/edit?html,css,js,output), here is a screenshot:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3oXBelg")"
+    src    = "https://bit.ly/3upIW8N"
+    alt    = "an audio player with an equalizer"
+    title  = "an audio player with an equalizer"
+  />
+</figure>
+
+
+This example uses six `BiquadFilter` nodes with `type="peaking"`.
+
+If you read [the description of this filter type](https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode): _"Frequencies inside the range get a boost or an attenuation; frequencies outside it are unchanged."_ This is exactly what we need to write a multi band equalizer! We're going to use several sliders, each of which boosts one range of frequency values.
+
+The definition says that:
+
++ the `frequency` property value of a filter will indicate the middle of the frequency range getting a boost or an attenuation, each slider corresponds to a filter whose frequency will be set to 60Hz, 170Hz, 350Hz, 1000Hz, 3500Hz, or 10000Hz.
++ the `gain` property value of a filter corresponds to the boost, in dB, to be applied; if negative, it will be an attenuation. We will code the sliders' event listeners to change the gain value of the corresponding filter.
++ the `Q` property values control the width of the frequency band. The greater the Q value, the smaller the frequency band. We'll ignore it for the purposes of this example.
+
+HTML code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;h2&gt;</span><span class="pln">Equalizer made with the Web Audio API</span><span class="tag">&lt;/h2&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"eq"</span><span class="tag">&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;audio</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"player"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="pln"> </span><span class="atn">loop</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/drums.mp3"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span style="color: #000000; line-height: 1.6;">&nbsp; &nbsp; &nbsp;Your browser does not support the audio tag.</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;/audio&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag"></span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;<br></span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;label&gt;</span><span class="pln">60Hz</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"1"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"-30"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"30"</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;oninput</span><span class="pun">=</span><span class="atv">"</span><span class="pln">changeGain</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;/input&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"gain0"</span><span class="tag">&gt;</span><span class="pln">0 dB</span><span class="tag">&lt;/output&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;/div&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag"></span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label&gt;</span><span class="pln">170Hz</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; value</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"1"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"-30"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"30"</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; oninput</span><span class="pun">=</span><span class="atv">"</span><span class="pln">changeGain</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;/input&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"gain1"</span><span class="tag">&gt;</span><span class="pln">0 dB</span><span class="tag">&lt;/output&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;/div&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag"></span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;label&gt;</span><span class="pln">350Hz</span><span class="tag">&lt;/label&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"1"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"-30"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"30"</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;oninput</span><span class="pun">=</span><span class="atv">"</span><span class="pln">changeGain</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">);</span><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;/input&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"gain2"</span><span class="tag">&gt;</span><span class="pln">0 dB</span><span class="tag">&lt;/output&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;/div&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">...</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/div&gt;</span></li>
+</ol></div><br>
+
+JavaScript code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">//Builds an equalizer with multiple <g class="gr_ gr_63 gr-alert gr_spell gr_run_anim ContextualSpelling ins-del multiReplace" id="63" data-gr-id="63">biquad</g> filters</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="typ">AudioContext</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">webkitAudioContext</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> context </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> ctx</span><span class="pun">();</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> mediaElement </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'player'</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> sourceNode </span><span class="pun">=</span><span class="pln"> context</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">mediaElement</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">// Creates the equalizer,&nbsp;comprised of&nbsp;a set of biquad filters</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> filters </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// Set filters</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">60</span><span class="pun">,</span><span class="pln"> </span><span class="lit">170</span><span class="pun">,</span><span class="pln"> </span><span class="lit">350</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1000</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3500</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10000</span><span class="pun">].</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">freq</span><span class="pun">,</span><span class="pln"> i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> eq </span><span class="pun">=</span><span class="pln"> context</span><span class="pun">.</span><span class="pln">createBiquadFilter</span><span class="pun">();</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;eq</span><span class="pun">.</span><span class="pln">frequency</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> freq</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;eq</span><span class="pun">.</span><span class="pln">type </span><span class="pun">=</span><span class="pln"> </span><span class="str">"peaking"</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;eq</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;filters</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">eq</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">});</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">// Connects filters in&nbsp;sequence</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> sourceNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">filters</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd"></span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> filters</span><span class="pun">.</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;filters</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">filters</span><span class="pun">[</span><span class="pln">i</span><span class="pun">+</span><span class="lit">1</span><span class="pun">]);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="com">// Connects the last filter to the speakers</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">filters</span><span class="pun">[</span><span class="pln">filters</span><span class="pun">.</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">].</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">context</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">// Event listener called by the sliders</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> changeGain</span><span class="pun">(</span><span class="pln">sliderVal</span><span class="pun">,</span><span class="pln">nbFilter</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> value </span><span class="pun">=</span><span class="pln"> parseFloat</span><span class="pun">(</span><span class="pln">sliderVal</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; filters</span><span class="pun">[</span><span class="pln">nbFilter</span><span class="pun">].</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Updates output labels</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> output </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#gain"</span><span class="pun">+</span><span class="pln">nbFilter</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; output</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> value </span><span class="pun">+</span><span class="pln"> </span><span class="str">" dB"</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+
+Here is the final audio graph (picture taken with the now discontinued FireFox WebAudio debugger, you should get similar results with the Chrome WebAudio Inspector extension):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3oXBelg")"
+    src    = "https://bit.ly/3oUOgA3"
+    alt    = "audio graph of the previous example"
+    title  = "audio graph of the previous example"
+  />
+</figure>
+
+
+#### Video Equalizer
+
+__Example #2: equalizer with a `<video>` element__
+
+We cloned the previous example and simply changed the `<audio>...</audio>` part of the HTML code by:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"player"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"320"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"240"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">crossOrigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.mp4"</span><span class="pln"> </span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span></li>
+</ol></div><br>
+
+And the example works in the same way, but this time with a video. Try moving the sliders to change the sound!
+
+[Example at JSBin](https://jsbin.com/kukupot/edit?html,css,js,output):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3oXBelg")"
+    src    = "https://bit.ly/34CEhpP"
+    alt    = "same example as previously but with a video above the equalizer"
+    title  = "same example as previously but with a video above the equalizer"
+  />
+</figure>
+
+
 
 
 
