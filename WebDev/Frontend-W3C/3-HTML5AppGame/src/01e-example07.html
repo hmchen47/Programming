@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>WebAudio example of compressor node</title>
+  <script src="js/01e-example07.js"></script>
+</head>
+<body>
+  <h1>Example of use of a compressor node</h1>
+  <p>Click the button to turn the compressor on/off. We set a huge gain on the signal in purpose, so that it clips and sounds saturated. Using a compressor with default property values will prevent clipping<p>
+  <audio src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3" id="compressorExample" controls loop crossorigin="anonymous"></audio>
+        <br>
+        <label for="gainSlider1">Gain</label>
+        <input type="range" min="0" max="10" step="0.01" value="8" id="gainSlider1" />
+  <button id="compressorButton">Turn compressor On</button>
+
+</body>
+</html>
+
