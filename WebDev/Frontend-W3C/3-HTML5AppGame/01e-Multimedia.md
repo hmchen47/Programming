@@ -334,8 +334,8 @@ In the following lessons, we will see the different nodes that are useful with s
 
 + Example: the MediaSourceElement` node
   + HTML snippet
-    + audio element: `<audio id="player" controls crossorigin="anonymous" loop>...</audio>`
-    + source element: `<source src="https://.../guitarRiff1.mp3">`
+    + audio element<a name="audioElem"></a>: `<audio id="player" controls crossorigin="anonymous" loop>...</audio>`
+    + source element<a name="guitarElem"></a>: `<source src="https://.../guitarRiff1.mp3">`
     + exception message: `Your browser does not support the audio tag.`
   + JavaScript snippet
     + create [audio context](#audioCtx)
@@ -361,6 +361,8 @@ Useful for setting volume... see the [Gain node's documentation](https://develop
 > Definition: "The `GainNode` interface represents a change in volume. It is an AudioNode audio-processing module that causes a given gain to be applied to the input data before its propagation to the output. A `GainNode` always has exactly one input and one output, both with the same number of channels."
 
 [Example at JSBin](https://jsbin.com/davebu/edit?html,js,console,output), or try it in your browser:
+
+[Local Demo](src/01e-example03.html)
 
 <p class="exampleHTML"><audio id="gainExample" src="https://mainline.i3s.unice.fr/mooc/drums.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio>&nbsp;<br> <label>Gain</label> <input id="gainSlider" min="0" max="1" step="0.01" value="1" type="range"></p>
 
@@ -394,6 +396,8 @@ See the [Stereo Panner node's documentation](https://developer.mozilla.org/en-US
 
 [Example at JSBin](https://jsbin.com/jarimu/edit?html,js,output), or try it in your browser:
 
+[Local Demo](src/01e-example04.html)
+
 <p class="exampleHTML"><audio id="pannerPlayer" src="https://mainline.i3s.unice.fr/mooc/drums.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio> <br> <label for="pannerSlider">Balance</label> <input id="pannerSlider" min="-1" max="1" step="0.1" value="0" type="range"></p>
 
 Source code extract:
@@ -424,6 +428,8 @@ Source code extract:
 See also the [Biquad Filter node's documentation](https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode).
 
 [Example at JSBin](https://jsbin.com/tuvaxar/edit?html,js,output), or try it in your browser, with a lowpass filter, only the frequency slider will have a noticeable effect:
+
+[Local Demo](src/01e-example05.html)
 
 <p class="exampleHTML"><audio id="biquadExample" src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio> <br> <label>Frequency</label> <input id="biquadFilterFrequencySlider" min="0" max="22050" step="1" value="350" type="range"> <label>Detune</label> <input id="biquadFilterDetuneSlider" min="0" max="100" step="1" value="0" type="range"> <label>Q</label> <input id="biquadFilterQSlider" min="0.0001" max="1000" step="0.01" value="1" type="range"> <label>Type</label><select id="biquadFilterTypeSelector">
 <option selected="selected" value="lowpass">lowpass</option>
@@ -501,17 +507,19 @@ Source code extract:
 
 __Convolver node: useful for convolution effects such as reverberation__
 
-Definition: "The `ConvolverNode` interface is an AudioNode that performs a Linear Convolution on a given AudioBuffer, __often used to achieve a reverb effect__. A ConvolverNode always has exactly one input and one output."
+> Definition: "The `ConvolverNode` interface is an AudioNode that performs a Linear Convolution on a given AudioBuffer, __often used to achieve a reverb effect__. A ConvolverNode always has exactly one input and one output."
 
 See the [Convolver node's documentation](https://developer.mozilla.org/en-US/docs/Web/API/ConvolverNode).
 
 [Example at JSBin](https://jsbin.com/belide/edit?html,js,console,output), THIS EXAMPLE DOES NOT WORK IN YOUR BROWSER as the edX platforms disables Ajax loading in its HTML pages. Try it at JSBin!
 
+[Local Demo](src/01e-example06.html)
+
 <p class="exampleHTML"><audio id="convolverPlayer" src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio> <br> <label for="convolverSlider">Reverb (Dry/Wet)</label> <input id="convolverSlider" min="0" max="1" step="0.1" value="0" type="range"></p>
 
 > [From Wikipedia:](https://en.wikipedia.org/wiki/Convolution) a convolution is a mathematical process which can be applied to an audio signal to achieve many interesting high-quality linear effects. Very often, the effect is used to simulate an acoustic space such as a concert hall, cathedral, or outdoor amphitheater. It can also be used for complex filter effects, like a muffled sound coming from inside a closet, sound underwater, sound coming through a telephone, or playing through a vintage speaker cabinet. This technique is very commonly used in major motion picture and music production and is considered to be extremely versatile and of high quality.
 
-Each unique effect is defined by an impulse response. An impulse response can be represented as an audio file and can be recorded from a real acoustic space such as a cave, or can be synthetically generated through a wide variety of techniques. We can find many high quality impulses on the Web (for example @@TJS OK? here). The impulse used in the example is the one recorded at the opera: La Scala Opera of Milan, in Italy. It's a .wav file.
+E__ach unique effect is defined by an impulse response.__ An impulse response can be represented as an audio file and can be recorded from a real acoustic space such as a cave, or can be synthetically generated through a wide variety of techniques. We can find many high quality impulses on the Web (for example @@TJS OK? [here](https://www.kvraudio.com/forum/viewtopic.php?p=2102159)). The impulse used in the example is the one recorded at the opera: La Scala Opera of Milan, in Italy. It's a .wav file.
 
 Try [this demo](https://webaudioapi.com/samples/room-effects/) to see the difference between different impulse files!
 
@@ -525,7 +533,7 @@ Try [this demo](https://webaudioapi.com/samples/room-effects/) to see the differ
 </figure>
 
 
-So before building the audio graph, we need to download the impulse. For this, we use an Ajax request (this will be detailed during Module 3), but for the moment, just take this function as it is... The Web Audio API requires that impulse files should be decoded in memory before use. Accordingly, once the requested file has downloaded, we call the decodeAudioData method. Once the impulse is decoded, we can build the graph. So typical use is as follows:
+So before building the audio graph, we need to download the impulse. For this, we use an Ajax request (this will be detailed during Module 3), but for the moment, just take this function as it is... The Web Audio API requires that impulse files should be decoded in memory before use. Accordingly, once the requested file has downloaded, we call the `decodeAudioData` method. Once the impulse is decoded, we can build the graph. So typical use is as follows:
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> impulseURL </span><span class="pun">=</span><span class="pln"> </span><span class="str">"https://mainline.i3s.unice.fr/mooc/Scala-Milan-Opera-Hall.wav"</span><span class="pun">;</span></li>
@@ -616,11 +624,13 @@ Note that at line 6 we use the decoded impulse. We could not have done this befo
 
 #### The Dynamics Compressor node
 
-> Definition: "The DynamicsCompressorNode interface provides a compression effect, which lowers the volume of the loudest parts of the signal in order to help prevent clipping and distortion that can occur when multiple sounds are played and multiplexed together at once. This is often used in musical production and game audio."
+> Definition: "The `DynamicsCompressorNode` interface provides a compression effect, which lowers the volume of the loudest parts of the signal in order to help prevent clipping and distortion that can occur when multiple sounds are played and multiplexed together at once. This is often used in musical production and game audio."
 
 It's usually a good idea to insert a compressor in your audio graph to give a louder, richer and fuller sound, and to prevent clipping. See the [Dynamics Compressor node's documentation](https://developer.mozilla.org/en-US/docs/Web/API/DynamicsCompressorNode).
 
 [Example you can try on JSBin](https://jsbin.com/momixok/edit?html,js,console,output) or try it here in your browser:
+
+[Local Demo](src/01e-example07.html)
 
 <p class="exampleHTML"><audio id="compressorExample" src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio> <br> <label for="gainSlider1">Gain</label> <input id="gainSlider1" min="0" max="10" step="0.01" value="8" type="range"> <button id="compressorButton">Turn compressor On</button></p>
 
@@ -722,7 +732,149 @@ __Explanations:__
 There is nothing special here compared to the other examples in this section, except that we have used a new method `disconnect` (_line 32_ and _line 38_), which is available on all types of nodes (except `ctx.destination`)  to modify the graph on the fly. When the button is clicked, we remove or add a compressor in the audio graph (_lines 28-42_) and to achieve this, we disconnect and reconnect some of the nodes.
 
 
+#### Notes for 1.5.3 Most useful filter nodes
 
++ [Gain node](https://developer.mozilla.org/en-US/docs/Web/API/GainNode)
+  + the `GainNode` interface
+    + representing a change in volume
+    + an AudioNode audio-processing module
+    + applied to the input data before its propagation to the output
+    + exactly one input and one output w/ the same number of channels
+  + `gain` property: corresponding to multiplication applied to the input signal volume
+    + value = 1: unchanged volume
+    + value < 1: lower the volume
+    + value > 1: increasing the global volume, w/ risk of clipping
+  + solution to prevent clipping: adding a compressor node
+
++ Example: gain node
+  + access elements: `var gainExample = document.querySelector('#gainExample'); var gainSlider = document.querySelector('#gainSlider');`
+  + create gain node: `var gainMediaElementSource = audioContext.createMediaElementSource(gainExample); var gainNode = audioContext.createGain();`
+  + create connection btw gain node and destination: `gainMediaElementSource.connect(gainNode); gainNode.connect(audioContext.destination);`
+  + add listener for gain node: `gainSlide.oninput = function(evt) { gainNode.gain.value = evt.target.value; };`
+
++ [Stereo panner](https://developer.mozilla.org/en-US/docs/Web/API/StereoPannerNode)
+  + the `StereoPannerNode` interface
+  + representing a simple stereo panner node
+  + used to pan an audio stream left or right
+  + property `pan`: value $\in [-1, 1]$
+
++ Example: stereo panner
+  + access elements: `playerPanner = document.querySelector('#pannerPlayer'); pannerSlide = document.querySelector('#pannerSlide');`
+  + create stereo node: `var source = audioContext.createMediaElementSource(playerPanner); pannerNode = audioContext.createStereoPanner();`
+  + connect stereo to destination: `source.connect(pannerNode); pannerNode.connect(audioContext.destination);`
+  + add listener on pan slider: `pannerSlider.oninput = function(evt) { pannerNode.pan.value = evt.target.value; };`
+
++ [Biquad filter](https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode)
+  + the `BiquadFilterNode` interface
+    + representing a simple low-order filter
+    + creating via `AudioContext.createBiquadFilterNode()`
+    + AudioNode able to represent different kinds of filters, control devices, and graphic equalizers
+    + exactly one input and one output
+  + properties
+    + `frequency`: frequency in the current filtering algorithm (Hz); most impactful
+    + `detune`: detuning of the frequency in cents
+    + `Q`: Quality factor, a dimensionless parameter describing how underdamped an oscillator or recsonator is
+    + `gain`: the gain used in the current filtering algorithm
+    + `type`: kind of filtering algorithm, including `lowpass`, `highpass`, `bandpass`, `lowself`, `highself`, `peaking`, `notch`, `allpass`
+  + use of `frequency`, `detune` and `Q` depnding on type of filtering algorithm
+  + demo: [frequency response of various filters](https://webaudioapi.com/samples/frequency-response/)
+  + multiple filtersoften used together
+
++ Example: Biquad filter
+  + create Audio context: `var ctx = window.AudioContext || window.webkitAuddioContext; var audioContext = new ctx();`
+  + access element for sliders: `var biquadExample = document.querySelector('#biquadExample'); var biquadFilterFrequencySlider = document.queryFequencySlider = document.querySelector('#biquadFilterFrequencySlider'); var biquadFilterDetuneSlide = document.querySlelector(#biquadFilterDetuneSlider'); var biquadFilterQSilder = document.querySelector('#biquadFilterQSlider'); var biquadFilterTypeSelector = document.querySelector('#biquadFilterTypeSelector');`
+  + create source node: `var biquadExampleMediaElementSource = audioContext.createMediaElementSource(biquadExample);`
+  + create filter node: `var filterNode = audioContext.createBiquadFilter();`
+  + connect source, filter and destination: `biquadExampleMediaElementSource.connect(filterNode); filterNode.connect(audioContext.destination);`
+  + add event for frequncy slider: `biquadFilterFrequencySlider.oninput = funcntion(evt) { fileterNode.frequency.value = parseFloat(evt.target.value); };`
+  + add event for detune slider: `biquadFilterDetuneSlider.oninput = function(evt) { filterNode.detune.value = parseFloat(evt.target.value); };`
+  + add event for Q slider: `biquadFilterQSlider.oninput = function(evt) { filterNode.Q.value = parseFloat(evt.target.value); };`
+  + add event for type slector: `biquadFilterTypeSelector.onchange = function(evt) { flterNode.type = evt.target.value; };`
+
++ Convolver node
+  + the `ConvolverNode` interface
+    + useful for convolution effects such as reverberation
+    + an AudioNode performing a Linear Convolution on a given AudioBuffer
+    + often used to achieve a reverb effect
+    + exactly one inputr and one output
+  + properties
+    + `buffer`: a mono, stereo, or 4-channel AudioBuffer containing impulse response used by the `ConvolverNode` to create the reverb effect
+    + `normalize`: a boolrsn, controlling whether the impulse response from the buffer, scaled by an equal-power normalization
+  + effect defined by an impulse response
+  + impulse response
+    + possibly represented as an audio file, decoded in memory before use
+    + able to be recorded from a real acoustic space such as cave
+    + able to synthestically generated through a wide variety of tehcniques
+
++ Convolution
+  + a mathematical process applied to an audio signal to achieve high-quality linear effect
+  + often used to simulate an acoustic space such as a concert hall, cathedradal or outdoor amphitheater
+  + possibly used for complex filter effcts, example:
+    + a muffled sound coming inside from a closet
+    + sound underwater
+    + sound coming through a telephone
+    + playing through a vintage speaker cabinet
+  + commonly used in major motion picture and music production
+
++ Example: convolver node
+  + declare varaibel for impulse: `var impulseURL = "https://.../mooc/Scala-Milan-Opera-Hall.wav"; var decodedImpulse;`
+  + call to load and convolve impulse: `loadImpulse(impulseURL, function() { buildAudioGraphConvolve(); });`
+  + load and convolve impulse: `fucntion loadImpulse(url, callback) {...}`
+    + set Ajax connection: `ajaxRequest = new XMLHttpRequest(); ajaxRequest.open('GET', url, true); ajaxRequest.responseType = 'arraybuffer';`
+    + add listener for AJAX request: `ajaxRequest.onload = function {...}`
+      + access impulse data: `var impulseData = ajaxRequest.response;
+      + decode impuse data: `audioContext.decodeAudioData(impulseData, function(buffer) { decodedImpulse = buffer; callback(); });`
+    + add listener for AJAX error: `ajaxRequest.onerror = function(e) { console.log("Error with loading audio data" + e.err); };`
+  + send convolved data: `ajaxRequest.send();`
+
++ Example: audio graph of convolver node
+  + two separate routes for different quantity of reverb
+    + `dry` route directedly connecting the audio source to the destination
+    + `wet` route connecting the audio source to the convolver node
+    + add gain nodes on both routes
+  + build Audio Graph Convolver: `function buildAudioGraphConvolver() {...}`
+    + create nodes: `var source = audioContext.createMediaElementSource(playerConvoler); convolverNode = audioContext.createConvolver();`
+    + set buffer property of convolver node: `convolverNode.buffer = decodedImpulse;`
+    + create gain node for wet route: `convolverGain = audioContext.createGain(); convolverGain.gain.value = 0;`
+    + create gain node for dry eoute: `directGain = audioContext.createGain(); directGain.gain.value = 1;`
+    + connect dry route: `source.connect(directGain); directGain.connect(audioContext.destination);`
+    + connect wet route: `source,connect(convolverNode); convolverNode.connect(concolverGain); convervolverGain.connect(audioContext.destination);`
+
++ [Dynamics compressor node](https://developer.mozilla.org/en-US/docs/Web/API/DynamicsCompressorNode)
+  + the `DynamicsCompressorNode` interface
+    + providing a compression effect
+    + lower the volume of the loudest parts of the signal to help preventing clipping and distortion
+    + often used in musical production and game audio
+  + properties
+    + `threshold`: a k-rate AudioParam representing the decibel value above which the compression will start taking effect
+    + `knee`: a k-rate AudioParam containing a decibel value representing the range above the threshold where the curve smoothly transition tot the compressed portion
+    + `ratio`: a k-rate AudioParam representing the amount of change, in dB, needed in the input for 1 dB change in the output
+    + `attack`: a k-rate AudioParam representing the amount of time, in second, required to reduce the gain by 10 dB
+    + `release`: a k-rate AudioParam representing the amount of time, in seconds, required to increase the gain by 10 dB
+    + `reduction`: the amount of gain reduction currently applied by the compressor to the signal
+  + sufficiently adding gain node to compress saturated sound
+  + properties of compressor mainly for musians, not going into detail here
+
++ Example: compressor node
+  + HTML snippet
+    + [audio element](#audioElem)
+    + gain slider: `<label for="gainSlider1">Gain</label><input type="range" min=0 max=10 step="0.01" value=8 id="gainSlider1" />`
+    + toggle button for compressor: `<button id="compressorButton">Turn compressor On</button>`
+  + JavaScript snippet
+    + create sudio context: `var ctx = window.AudioContext || widow.webkitAudioContext; var audioContext;`
+    + delcalre variables for compressor: `var compressorExample, gainSlider1, gainNode1, compressorNode; var compressorButton; var compressorOn = false;`
+    + init page fater DOM ready: `window.onload = fucntion() {...};`
+      + get AudioContext: `audioContext = new ctx();`
+      + access elements: `compressorExample = document.querySelector('#compressorExample'); gainSlider1 = document.querySelector('#gainSlider1'); compressorButton = document.querySelector('#compressorButton');`
+      + call to build audio graph: `buildAudioGraph();`
+      + add event for gain slider: `gainSlider1.oninpu = function(evt) { gainNode1.gain.value = evt.target.value; };`
+        + toggle conpressor button: `compressorButton.onclick = function(evt) {...};`
+          + On: `if (compressorOn) { compressorNode.disconnect(audioContext.destination); gainNode1.deconnect(compressorNode)}; gainNode1.connect(audioContext.destination); compressorButton.innerHTML = "Turn compresssor: On";`
+          + Off: `else { gainNode1.disconnect(audioContext.destination); gainNode1.connect(compressorNode); compressorNode.connect(audioContext.destination); compressorButton.innerHTML = "Turn ciompressor: Off" }`
+        + toggle status: `compressorOn = !compressorOn;`
+    + build audio graph: `function buildAudioGraph() {...}`
+      + crate nodes: `var gainMediaElementSource = audioContext.createMediaElementSource(compressorExample); gainNode1 = audioContexxt.createGain(); gainNode1.gain.value = parseFloat(gainSlider1.value); compressorNode = audioContext.createDynamicCompressor();`
+      + connect nodes: `gainMediaElementSource.connect(gainNode1); gainNode1.connect(audioContext.destination);`
 
 
 ### 1.5.4 Writing an equalizer
