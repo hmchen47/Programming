@@ -771,10 +771,19 @@ There is nothing special here compared to the other examples in this section, ex
     + AudioNode able to represent different kinds of filters, control devices, and graphic equalizers
     + exactly one input and one output
   + properties
-    + `frequency`: frequency in the current filtering algorithm (Hz); most impactful
+    + `frequency`
+      + frequency in the current filtering algorithm (Hz); most impactful
+      + boosting volume inside the range of frequencies
+      + unchanged volume outside the range of frequencies
     + `detune`: detuning of the frequency in cents
-    + `Q`: Quality factor, a dimensionless parameter describing how underdamped an oscillator or recsonator is
-    + `gain`: the gain used in the current filtering algorithm
+    + `Q`
+      + Quality factor, a dimensionless parameter describing how underdamped an oscillator or resonator is
+      + control the width of the frequency band
+      + The greater the Q value, the smaller the frequency band.
+    + `gain`
+      + the gain used in the current filtering algorithm
+      + positive value: corresponding to the boost, in dB, to be applied
+      + negative value: attentuation
     + `type`: kind of filtering algorithm, including `lowpass`, `highpass`, `bandpass`, `lowself`, `highself`, `peaking`, `notch`, `allpass`
   + use of `frequency`, `detune` and `Q` depnding on type of filtering algorithm
   + demo: [frequency response of various filters](https://webaudioapi.com/samples/frequency-response/)
@@ -782,33 +791,33 @@ There is nothing special here compared to the other examples in this section, ex
 
 + Example: Biquad filter
   + create Audio context: `var ctx = window.AudioContext || window.webkitAuddioContext; var audioContext = new ctx();`
-  + access element for sliders: `var biquadExample = document.querySelector('#biquadExample'); var biquadFilterFrequencySlider = document.queryFequencySlider = document.querySelector('#biquadFilterFrequencySlider'); var biquadFilterDetuneSlide = document.querySlelector(#biquadFilterDetuneSlider'); var biquadFilterQSilder = document.querySelector('#biquadFilterQSlider'); var biquadFilterTypeSelector = document.querySelector('#biquadFilterTypeSelector');`
+  + access element for sliders: `var biquadExample = document.querySelector('#biquadExample'); var biquadFilterFrequencySlider = document.querySelector('#biquadFilterFrequencySlider'); var biquadFilterDetuneSlide = document.querySelector(#biquadFilterDetuneSlider'); var biquadFilterQSilder = document.querySelector('#biquadFilterQSlider'); var biquadFilterTypeSelector = document.querySelector('#biquadFilterTypeSelector');`
   + create source node: `var biquadExampleMediaElementSource = audioContext.createMediaElementSource(biquadExample);`
   + create filter node: `var filterNode = audioContext.createBiquadFilter();`
   + connect source, filter and destination: `biquadExampleMediaElementSource.connect(filterNode); filterNode.connect(audioContext.destination);`
-  + add event for frequncy slider: `biquadFilterFrequencySlider.oninput = funcntion(evt) { fileterNode.frequency.value = parseFloat(evt.target.value); };`
+  + add event for frequency slider: `biquadFilterFrequencySlider.oninput = function(evt) { fileterNode.frequency.value = parseFloat(evt.target.value); };`
   + add event for detune slider: `biquadFilterDetuneSlider.oninput = function(evt) { filterNode.detune.value = parseFloat(evt.target.value); };`
   + add event for Q slider: `biquadFilterQSlider.oninput = function(evt) { filterNode.Q.value = parseFloat(evt.target.value); };`
-  + add event for type slector: `biquadFilterTypeSelector.onchange = function(evt) { flterNode.type = evt.target.value; };`
+  + add event for type selector: `biquadFilterTypeSelector.onchange = function(evt) { flterNode.type = evt.target.value; };`
 
 + Convolver node
   + the `ConvolverNode` interface
     + useful for convolution effects such as reverberation
     + an AudioNode performing a Linear Convolution on a given AudioBuffer
     + often used to achieve a reverb effect
-    + exactly one inputr and one output
+    + exactly one input and one output
   + properties
     + `buffer`: a mono, stereo, or 4-channel AudioBuffer containing impulse response used by the `ConvolverNode` to create the reverb effect
-    + `normalize`: a boolrsn, controlling whether the impulse response from the buffer, scaled by an equal-power normalization
+    + `normalize`: a boolean, controlling whether the impulse response from the buffer, scaled by an equal-power normalization
   + effect defined by an impulse response
   + impulse response
     + possibly represented as an audio file, decoded in memory before use
     + able to be recorded from a real acoustic space such as cave
-    + able to synthestically generated through a wide variety of tehcniques
+    + able to synthestically generated through a wide variety of techniques
 
 + Convolution
   + a mathematical process applied to an audio signal to achieve high-quality linear effect
-  + often used to simulate an acoustic space such as a concert hall, cathedradal or outdoor amphitheater
+  + often used to simulate an acoustic space such as a concert hall, cathedral or outdoor amphitheater
   + possibly used for complex filter effcts, example:
     + a muffled sound coming inside from a closet
     + sound underwater
@@ -817,9 +826,9 @@ There is nothing special here compared to the other examples in this section, ex
   + commonly used in major motion picture and music production
 
 + Example: convolver node
-  + declare varaibel for impulse: `var impulseURL = "https://.../mooc/Scala-Milan-Opera-Hall.wav"; var decodedImpulse;`
+  + declare variabel for impulse: `var impulseURL = "https://.../mooc/Scala-Milan-Opera-Hall.wav"; var decodedImpulse;`
   + call to load and convolve impulse: `loadImpulse(impulseURL, function() { buildAudioGraphConvolve(); });`
-  + load and convolve impulse: `fucntion loadImpulse(url, callback) {...}`
+  + load and convolve impulse: `function loadImpulse(url, callback) {...}`
     + set Ajax connection: `ajaxRequest = new XMLHttpRequest(); ajaxRequest.open('GET', url, true); ajaxRequest.responseType = 'arraybuffer';`
     + add listener for AJAX request: `ajaxRequest.onload = function {...}`
       + access impulse data: `var impulseData = ajaxRequest.response;
@@ -829,16 +838,16 @@ There is nothing special here compared to the other examples in this section, ex
 
 + Example: audio graph of convolver node
   + two separate routes for different quantity of reverb
-    + `dry` route directedly connecting the audio source to the destination
+    + `dry` route directly connecting the audio source to the destination
     + `wet` route connecting the audio source to the convolver node
     + add gain nodes on both routes
   + build Audio Graph Convolver: `function buildAudioGraphConvolver() {...}`
-    + create nodes: `var source = audioContext.createMediaElementSource(playerConvoler); convolverNode = audioContext.createConvolver();`
+    + create nodes: `var source = audioContext.createMediaElementSource(playerConvolver); convolverNode = audioContext.createConvolver();`
     + set buffer property of convolver node: `convolverNode.buffer = decodedImpulse;`
     + create gain node for wet route: `convolverGain = audioContext.createGain(); convolverGain.gain.value = 0;`
-    + create gain node for dry eoute: `directGain = audioContext.createGain(); directGain.gain.value = 1;`
+    + create gain node for dry route: `directGain = audioContext.createGain(); directGain.gain.value = 1;`
     + connect dry route: `source.connect(directGain); directGain.connect(audioContext.destination);`
-    + connect wet route: `source,connect(convolverNode); convolverNode.connect(concolverGain); convervolverGain.connect(audioContext.destination);`
+    + connect wet route: `source,connect(convolverNode); convolverNode.connect(convolverGain); convolverGain.connect(audioContext.destination);`
 
 + [Dynamics compressor node](https://developer.mozilla.org/en-US/docs/Web/API/DynamicsCompressorNode)
   + the `DynamicsCompressorNode` interface
@@ -885,8 +894,10 @@ __Example #1: an audio equalizer with an `<audio>` element__
 
 [Example at JSBin](https://jsbin.com/loquwih/edit?html,css,js,output), here is a screenshot:
 
+[Local Demo](src/01e-example08.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick= "window.open("https://bit.ly/3oXBelg")"
     src    = "https://bit.ly/3upIW8N"
     alt    = "an audio player with an equalizer"
@@ -1020,8 +1031,10 @@ And the example works in the same way, but this time with a video. Try moving th
 
 [Example at JSBin](https://jsbin.com/kukupot/edit?html,css,js,output):
 
+[Local Demo](src/01e-example09.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick= "window.open("https://bit.ly/3oXBelg")"
     src    = "https://bit.ly/34CEhpP"
     alt    = "same example as previously but with a video above the equalizer"
@@ -1030,9 +1043,28 @@ And the example works in the same way, but this time with a video. Try moving th
 </figure>
 
 
+#### Notes for 1.5.4 Writing an equalizer
 
-
-
++ Example: audio/video equalizer
+  + HTML snippet
+    + audio element: `<audio id="player" controls crossorigin="anonymous" loop><source src="https://.../drums.mp3"></audio>`
+    + 60Hz gain slider: `<div class="controls"><label>60Hz</label><input type="range" value=0 step=1 min=-30 max=30 oninput="changeGain(this.value, 0);"></input><output id="gain0()">0 dB</output></div>`
+    + 170Hz gain slider: `<div class="controls"><label>170Hz</label><input type="range" value=0 step=1 min=-30 max=30 oninput="changeGain(this.value, 0);"></input><output id="gain1()">0 dB</output></div>`
+    + ...
+  + JavaScript snippet
+    + create [audio context](#audioCtx)
+    + access palyer element: `var mediaElement = document.getElementById('player');`
+    + create source node: `var sourceNode = context.createMediaElementSource(mediaElement);`
+    + create filters: `var filters = []; [60, 170, 350, 1000, 3500, 10000].forEach(function(freq, i) {...});`
+      + create filter node: `var eq = context.createBiquadFilter();`
+      + set various properties: `eq,frequency.value = freq; eq.type = "peaking"; eq.gain.value = 0; filters.push(eq);`
+      + append created node to filters: `filters.push(eq);`
+    + connect filters in sequence: `sourceNode.connect(filters[0]); for (var i=0; i<filters.length-1; i++) { filters[i].connect(filters[i+1]); }`
+    + connect last filter to destination: `filters[filters.length-1].connect(context.destination);`
+    + add event listeners for sliders: `function changeGain(sliderVal, nbFilter) {...}`
+      + assign gain value to filter: `var value = parseFloat(sliderVal); filters[nbFilter].gain.value = value;`
+      + update output label: `var output = document.querySelector('#gain"+nbFilter); output.value = value + " dB";`
+  + HTML video element: `<video id="player" width=320 height=240 controls crossOrigin="anonymous"><source src="https://.../elephant-dream-medium.mp4">`
 
 
 ### 1.5.5 Waveforms
