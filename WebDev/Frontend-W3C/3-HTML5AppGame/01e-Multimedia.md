@@ -1069,6 +1069,228 @@ And the example works in the same way, but this time with a video. Try moving th
 
 ### 1.5.5 Waveforms
 
+#### Live video coding: animating a waveform
+
+<a href="https://edx-video.net/W3CHTM52/W3CHTM52T415-V001400_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript Download](https://bit.ly/3usRdJ6)
+
+Do try on and study the code in the [JSBin example](https://jsbin.com/sequtas/edit) created during the Live Coding Video
+
+WebAudio offers an Analyser node that provides real-time frequency and time-domain analysis information. It leaves the audio stream unchanged from the input to the output, but allows us to acquire data about the sound signal being played. This data is easy for us to process since complex computations such as Fast Fourier Transforms are being executed, behind the scenes.
+
+
+#### Audio Waveform Visualization
+
+__Example #1: audio player with waveform visualization__
+
+[Example at JSBin](https://jsbin.com/sufatup/edit?html,js,output)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open("https://bit.ly/3c1Lh3z")"
+    src    = "https://bit.ly/3ft2ZPn"
+    alt    = "Audio player with waveform visualization"
+    title  = "Audio player with waveform visualization"
+  />
+</figure>
+
+
+__Do things in order!__
+
+First, select the audio context and the canvas context, then build the audio graph, and finally run the animation loop.
+
+Typical operations to perform once the HTML page is loaded:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// get the audio context</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;audioContext</span><span class="pun">=</span><span class="pln"> ...</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// get the canvas, its graphic context...</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myCanvas"</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;width </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;height </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvasContext </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// Build the audio graph with an analyser node at the end</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;buildAudioGraph</span><span class="pun">();</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// starts the animation at 60 frames/s</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestAnimationFrame</span><span class="pun">(</span><span class="pln">visualize</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+</ol></div>
+
+
+__Step #1: build the audio graph with an analyser node at the end__
+
+If we want to visualize the sound that is coming out of the speakers, we have to put an analyser node at almost the end of the sound graph. Example #1 shows a typical use: an `<audio>` element, a `MediaElementElementSource` node connected to an `Analyser` node, and the analyser node connected to the speakers (`audioContext.destination`). The visualization is a graphic animation that uses the `requestAnimationFrame` API presented in teh W3C HTML5 Coding Essentials and Best Practices course (Module 4).
+
+__Typical code for building the audio graph:__
+
+HTML code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;audio</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="atn">id</span><span class="pun">=</span><span class="atv">"player"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">loop</span><span class="pln"> </span><span class="atn">crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/audio&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">300</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">100</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
+</ol></div><br>
+
+JavaScript code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> buildAudioGraph</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> mediaElement </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'player'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> sourceNode </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">mediaElement</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="com">// Create an analyser node</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;analyser </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createAnalyser</span><span class="pun">();</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"> </span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="com">//&nbsp;set visualizer options, for lower precision change 1024 to 512,</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; &nbsp;// 256, 128, 64 etc. bufferLength will be equal to fftSize/2</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;analyser</span><span class="pun">.</span><span class="pln">fftSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1024</span><span class="pun">;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;bufferLength </span><span class="pun">=</span><span class="pln"> analyser</span><span class="pun">.</span><span class="pln">frequencyBinCount</span><span class="pun">;</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;dataArray </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Uint8Array</span><span class="pun">(</span><span class="pln">bufferLength</span><span class="pun">);</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln"> </span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;sourceNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">analyser</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;analyser</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+With the exception of _lines 8-12_, where we set the analyser options (explained later), we build the following graph (picture taken with the now discontinued FireFox WebAudio debugger, you should get similar results with the Chrome WebAudio Inspector extension):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick= "window.open("https://bit.ly/3c1Lh3z")"
+    src    = "https://bit.ly/3oYy0Oz"
+    alt    = "Audio graph with analyser node and properties"
+    title  = "Audio graph with analyser node and properties"
+  />
+</figure>
+
+
+
+__Step #2: write the animation loop__
+
+The visualization itself depends on the options which we set for the analyser node. In this case we set the FFT size to 1024 (FFT is a kind of accuracy setting: the bigger the value, the more accurate the analysis will be. 1024 is common for visualizing waveforms, while lower values are preferred for visualizing frequencies). Here is what we set in this example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> analyser</span><span class="pun">.</span><span class="pln">fftSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1024</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> bufferLength </span><span class="pun">=</span><span class="pln"> analyser</span><span class="pun">.</span><span class="pln">frequencyBinCount</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> dataArray </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Uint8Array</span><span class="pun">(</span><span class="pln">bufferLength</span><span class="pun">);</span></li>
+</ol></div><br>
+
++ _Line 2_: we set the size of the FFT,
++ _Line 3_: this is the byte array that will contain the data we want to visualize. Its length is equal to `fftSize/2`.
+
+When we build the graph, these parameters are set - effectively as constants, to control the analysis during play-back.
+
+Here is the code that is run 60 times per second to draw the waveform:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> visualize</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// 1 - clear the canvas</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// like this: canvasContext.clearRect(0, 0, width, height);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Or use rgba fill to give a slight blur effect</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'rgba(0, 0, 0, 0.5)'</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="com">// 2 - Get the analyser data - for waveforms we need time domain data</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; analyser</span><span class="pun">.</span><span class="pln">getByteTimeDomainData</span><span class="pun">(</span><span class="pln">dataArray</span><span class="pun">);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; // 3 - draws the waveform</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'lightBlue'</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// the waveform is in one single path, first let's</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// clear any previous path that could be in the buffer</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> sliceWidth </span><span class="pun">=</span><span class="pln"> width </span><span class="pun">/</span><span class="pln"> bufferLength</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> bufferLength</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // dataArray values are between 0 and 255,</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; //&nbsp;normalize v, now between 0 and 1</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> v </span><span class="pun">=</span><span class="pln"> dataArray</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> 255</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // y will be in [0, canvas height], in pixels</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> y </span><span class="pun">=</span><span class="pln"> v </span><span class="pun">*</span><span class="pln"> height</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">i </span><span class="pun">===</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; canvasContext</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; canvasContext</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; x </span><span class="pun">+=</span><span class="pln"> sliceWidth</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">/</span><span class="lit">2</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// draw the path at once</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// once again call the visualize function at 60 frames/s</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">visualize</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+</ol></div><br>
+
+__Explanations:__
+
++ _Lines 9-10_: we ask for the time domain analysis data. The call to `getByteTimeDomainData(dataArray)` will fill the array with values corresponding to the waveform to draw. The returned values are between 0 and 255. See the [specification for details](https://webaudio.github.io/web-audio-api/#widl-AnalyserNode-getByteTimeDomainData-void-Uint8Array-array) about what they represent exactly in terms of audio processing.
+
+Below are other examples that draw waveforms.
+
+
+#### Video Waveform Visualization
+
+__Example #2: video player with waveform visualization__
+
+Using a `<video>` element is very similar to using an `<audio>` element. We have made no changes to the JavaScript code here; we Just changed "audio" to "video" in the HTML code. 
+
+[Example at JSBin](https://jsbin.com/fuyejuz/edit?html,js,console,output):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open("https://bit.ly/3c1Lh3z")"
+    src    = "https://bit.ly/3vtyQ8r"
+    alt    = "a video player with real time waveform visualization"
+    title  = "a video player with real time waveform visualization"
+  />
+</figure>
+
+
+
+#### Graphic Equalizer
+
+__Example #3: both previous examples, this time with the graphic equalizer__
+
+Adding the graphic equalizer to the graph changes nothing, we visualize the sound that goes to the speakers. Try lowering the slider values - you should see the waveform changing.
+
+[Example at JSBin - Audio Player](https://jsbin.com/qijujuz/edit?html,js,output)
+
+[Example at JSBin - Video Player](https://jsbin.com/jafoboh/edit?js,console,output)
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://bit.ly/3c1Lh3z" ismap target="_blank">
+    <img style="margin: 0.1em;" width=200
+      src   = "https://bit.ly/3fPgLuS"
+      alt   = "audio player + equalizer + visualization"
+      title = "audio player + equalizer + visualization"
+    >
+    <img style="margin: 0.1em;" width=200
+      src   = "https://bit.ly/3vvLJP5"
+      alt   = "Video player + equalizer + waveform visualization"
+      title = "Video player + equalizer + waveform visualization"
+    >
+  </a>
+</div>
+
 
 
 
