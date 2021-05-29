@@ -1054,7 +1054,7 @@ And the example works in the same way, but this time with a video. Try moving th
   + JavaScript snippet
     + create [audio context](#audioCtx)
     + access palyer element: `var mediaElement = document.getElementById('player');`
-    + create source node: `var sourceNode = context.createMediaElementSource(mediaElement);`
+    + create source node<a name="srcNode"></a>: `var sourceNode = context.createMediaElementSource(mediaElement);`
     + create filters: `var filters = []; [60, 170, 350, 1000, 3500, 10000].forEach(function(freq, i) {...});`
       + create filter node: `var eq = context.createBiquadFilter();`
       + set various properties: `eq,frequency.value = freq; eq.type = "peaking"; eq.gain.value = 0; filters.push(eq);`
@@ -1079,6 +1079,8 @@ And the example works in the same way, but this time with a video. Try moving th
 
 Do try on and study the code in the [JSBin example](https://jsbin.com/sequtas/edit) created during the Live Coding Video
 
+[Local Demo](src/01e-example10.html)
+
 WebAudio offers an Analyser node that provides real-time frequency and time-domain analysis information. It leaves the audio stream unchanged from the input to the output, but allows us to acquire data about the sound signal being played. This data is easy for us to process since complex computations such as Fast Fourier Transforms are being executed, behind the scenes.
 
 
@@ -1087,6 +1089,8 @@ WebAudio offers an Analyser node that provides real-time frequency and time-doma
 __Example #1: audio player with waveform visualization__
 
 [Example at JSBin](https://jsbin.com/sufatup/edit?html,js,output)
+
+[Local Ddemo](src/01e-exampl11.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
@@ -1255,6 +1259,8 @@ Using a `<video>` element is very similar to using an `<audio>` element. We have
 
 [Example at JSBin](https://jsbin.com/fuyejuz/edit?html,js,console,output):
 
+[Local Demo](src/01e-example12.html)
+
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick= "window.open("https://bit.ly/3c1Lh3z")"
@@ -1272,9 +1278,9 @@ __Example #3: both previous examples, this time with the graphic equalizer__
 
 Adding the graphic equalizer to the graph changes nothing, we visualize the sound that goes to the speakers. Try lowering the slider values - you should see the waveform changing.
 
-[Example at JSBin - Audio Player](https://jsbin.com/qijujuz/edit?html,js,output)
+[Example at JSBin - Audio Player](https://jsbin.com/qijujuz/edit?html,js,output) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Local Demo - Audio Player](src/01e-example13.html)
 
-[Example at JSBin - Video Player](https://jsbin.com/jafoboh/edit?js,console,output)
+[Example at JSBin - Video Player](https://jsbin.com/jafoboh/edit?js,console,output) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Local Demo - Video Player](src/01e-example14.html)
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://bit.ly/3c1Lh3z" ismap target="_blank">
@@ -1292,7 +1298,46 @@ Adding the graphic equalizer to the graph changes nothing, we visualize the soun
 </div>
 
 
+#### Notes for 1.5.5 Waveforms
 
++ Analyzer node
+  + providing real-time frequency and time-doimain analysis information
+  + leaving audio stream unchchanged
+  + allowing to acqure data about the sound signal played
+  + processsing the data vai complex computation such as FFT
+  + typical operations to perform waveform after DOM ready
+    + get [audio context](#audioCtx): `audioContext = ...;`
+    + access canvas<a name="canvas"></a> and get properties: `canvas = document.querySelector("#myCanvas"); width = canvas.width; height = canvas.height; canvasContext = canvas.getContext("2d");`
+    + call function to build audio graph: `buildAudioGraph();`
+    + start animation: `requestAnimationFrame(visualize);`
+
++ Build audio/video graph w/ analyzer node
+  + HTML snippet
+    + audio element: `<audio srcv="https://.../guitaRifff1.mp3" id="player" controls loop crossorigin="anonymous"></audio>`
+    + video element: `<video srcv="https://.../guitaRifff1.mp3" id="player" controls loop crossorigin="anonymous"></video>`
+    + graph convas: `<canvas id="myCanvas" with=300 height=100></canvas>`
+  + JavaScript snippet: `function buildAudioGraph() {...}`
+    + access player: `var mediaElement = document.getElementById('player');`
+    + create [source node](#srcNode)
+    + create analyzer node: `analuser = audioContext.createAnalyzer();`
+    + set visualizer options: `analyzer.fftSize = 1024; bufferLength = analyzer.frequencyBinCount; datArray = new Unit8Array(bufferLength);`
+      + `bufferLength`: the sixze of the FFT
+      + `dataArray`: the byte array containing the data to visualize w/ size = `fftSize/2`
+    + build audio graph: `sourceNode.connect(analyzer); analyzer.connect(audioContext.destination);`
+
++ Create animation loop: `fucntion visualize() {...}`
+  + create the canvas: `canvasContext.fillStyle = 'rgba(0, 0, 0, 0.5)'; canvasContext.fillRect(0, 0, width, height);`
+  + get analyzer data - time-domain data: `analyzer.getByteTimeDomainData(dataArray);`
+  + draw the waveform: `canvasContext.lineWidth = 2; canvasContext.strokeStyle = 'lighBlue';`
+  + clearn pthe previous path: `canvasContext.beginPath();`
+  + declare variables: `var sliceWidth = width/bufferLength; var x = 0;`
+  + iterate on all data in buffer: `for (var i=0; i<bufferLength; i++) {...}}`
+    + normalize data and rescale height: `var v = dataArray[i]/255; var y = v * height;`
+    + plot 1st point: `if (i === 0) {canvasContext.moveTo(x, y);}`
+    + plot the following points: `else {canvasContext.lineTo(x, y);}`
+    + move to next data: `x += sliceWidth;`
+  + draw horizontal line: `canvasContext.lineTo(canvas.width, canvas.length/2); canvasContext.stroke();`
+  + call the visualize fucntion at 60 frames/sec: `requestAnimationFrame(visualize);`
 
 
 
