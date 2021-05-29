@@ -1344,7 +1344,183 @@ Adding the graphic equalizer to the graph changes nothing, we visualize the soun
 ### 1.5.6 Frequencies
 
 
+#### First typical example
 
+[Example at JSBin](https://jsbin.com/wenuvub/edit?js,output):
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://bit.ly/2R2ZKVt" ismap target="_blank">
+    <img style="margin: 0.1em;" height=130
+      src   = "https://bit.ly/3yNjehZ"
+      alt   = "audio player with frequency visualisations with red bars"
+      title = "audio player with frequency visualisations with red bars"
+    >
+    <img style="margin: 0.1em;" height=130
+      src   = "https://bit.ly/3yRlqoS"
+      alt   = "frequency viualisation this time fftsize = 64"
+      title = "frequency viualisation this time fftsize = 64"
+    >
+  </a>
+</div>
+
+
+This time, instead of a waveform we want to visualize an animated bar chart. Each bar will correspond to a frequency range and 'dance' in concert with the music being played.
+
++ The frequency range depends upon the sample rate of the signal (the audio source) and on the FFT size. While the sound is being played, the values change and the bar chart is animated.
++ The number of bars is equal to the FFT size / 2 (left screenshot with size = 512, right screenshot with size = 64).
++ In the example above, the Nth bar (from left to right) corresponds to the frequency range `N * (samplerate/fftSize)`. If we have a sample rate equal to 44100 Hz and a FFT size equal to 512, then the first bar represents frequencies between 0 and 44100/512 = 86.12Hz. etc. As the amount of data returned by the analyser node is half the fft size, we will only be able to plot the frequency-range to half the sample rate. You will see that this is generally enough as frequencies in the second half of the sample rate are not relevant.
++ The height of each bar shows the strength of that specific frequency bucket. It's just a representation of how much of each frequency is present in the signal (i.e. how "loud" the frequency is).
+
+You do __not__ have to master the signal processing 'plumbing' summarised above - just plot the reported values!
+
+Enough said! Let's study some extracts from the source code. 
+
+This code is very similar to the first example given at the top of this page. We've set the FFT size to a lower value, and rewritten the animation loop to plot frequency bars instead of a waveform:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> buildAudioGraph</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;">&nbsp; ...</li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Create an analyser node</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyser </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createAnalyser</span><span class="pun">();</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="com">// Try changing to lower values: 512, 256, 128, 64...</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; // Lower values are good for frequency visualizations, </span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; // try 128, 64 etc.?&nbsp;</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; analyser</span><span class="pun">.</span><span class="pln">fftSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">256</span><span class="pun">;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;...</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+This time, when building the audio graph, we have used a smaller FFT size. Values between 64 and 512 are very common here. Try them in the JSBin example! Apart from the lines in bold, this function is exactly the same as in the first example.
+
+The new visualization code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> visualize</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// clear the canvas</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="com">// Get the analyser data</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; analyser</span><span class="pun">.</span><span class="pln">getByteFrequencyData</span><span class="pun">(</span><span class="pln">dataArray</span><span class="pun">);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> barWidth </span><span class="pun">=</span><span class="pln"> width </span><span class="pun">/</span><span class="pln"> bufferLength</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> barHeight</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// values go from 0 to 255 and the canvas heigt is 100. Let's rescale</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// before drawing. This is the scale factor</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; heightScale </span><span class="pun">=</span><span class="pln"> height</span><span class="pun">/</span><span class="lit">128</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> bufferLength</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // between 0 and 255</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; barHeight </span><span class="pun">=</span><span class="pln"> dataArray</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; // The color is red but lighter or darker depending on the value</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pln" style="line-height: 1.6;">canvasContext</span><span class="pun" style="line-height: 1.6;">.</span><span class="pln" style="line-height: 1.6;">fillStyle </span><span class="pun" style="line-height: 1.6;">=</span><span class="pln" style="line-height: 1.6;"> </span><span class="str" style="line-height: 1.6;">'rgb('</span><span class="pln" style="line-height: 1.6;"> </span><span class="pun" style="line-height: 1.6;">+</span><span class="pln" style="line-height: 1.6;"> </span><span class="pun" style="line-height: 1.6;">(</span><span class="pln" style="line-height: 1.6;">barHeight</span><span class="pun" style="line-height: 1.6;">+</span><span class="lit" style="line-height: 1.6;">100</span><span class="pun" style="line-height: 1.6;">)</span><span class="pln" style="line-height: 1.6;"> </span><span class="pun" style="line-height: 1.6;">+</span><span class="pln" style="line-height: 1.6;"> </span><span class="str" style="line-height: 1.6;">',50,50)'</span><span class="pun" style="line-height: 1.6;">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="line-height: 1.6;">&nbsp; &nbsp; // scale from [0, 255] to the canvas height [0, height] pixels</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; barHeight </span><span class="pun">*=</span><span class="pln"> heightScale</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // draw the bar</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvasContext</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">-</span><span class="pln">barHeight</span><span class="pun">/</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> barWidth</span><span class="pun">,</span><span class="pln"> barHeight</span><span class="pun">/</span><span class="lit">2</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 1 is the number of pixels between bars -&nbsp;you can change it</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; x </span><span class="pun">+=</span><span class="pln"> barWidth </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// once again call the visualize function at 60 frames/s</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">visualize</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+__Explanations:__
+
++ _Line 6_: this is different to code which draws a waveform! We ask for byteFrequencyData (vs byteTimeDomainData earlier) and it returns an array of fftSize/2 values between 0 and 255.
++ _Lines 16-29_: we iterate on the value. The x position of each bar is incremented at each iteration (_line 28_) adding a small interval of 1 pixel between bars (you can try different values here). The width of each bar is computed at line 8.
++ _Line 14_: we compute a scale factor to be able to display the values (ranging from 0 to 255) in direct proportion to the height of the canvas. This scale factor is used in _line 23_, when we compute the height of the bars we are going to draw.
+
+
+#### Impressive Frequency Visualization
+
+__Other examples: achieving more impressive frequency visualization__
+
+[Example at JSBin](https://jsbin.com/muzifi/edit?html,css,js,output) with a different look for the visualization: please read the source code and try to understand how the drawing of the frequency is done.
+
+
+[Last example](https://jsbin.com/fekorej/edit?html,js,output) at JSBin with this time the graphic equalizer, a master volume (gain) and a stereo panner node just before the visualizer node:
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://bit.ly/2R2ZKVt" ismap target="_blank">
+    <img style="margin: 0.1em;" width=250
+      src   = "https://bit.ly/3p0CHaq"
+      alt   = "Same example as before but with symmetric and colored frequency visualisations"
+      title = "Same example as before but with symmetric and colored frequency visualisations"
+    >
+    <img style="margin: 0.1em;" width=250
+      src   = "https://bit.ly/3vAQvLd"
+      alt   = "Previous example with a master volume (gain node) and the equalizer + a stereoPanner node"
+      title = "Previous example with a master volume (gain node) and the equalizer + a stereoPanner node"
+    >
+  </a>
+</div>
+
+And here is the audio graph for this example (picture taken with the now discontinued FireFox WebAudio debugger, you should get similar results with the Chrome WebAudio Inspector extension):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+    onclick= "window.open("https://bit.ly/2R2ZKVt")"
+    src    = "https://bit.ly/3wVRqGD"
+    alt    = "audio graph from above example"
+    title  = "audio graph from above example"
+  />
+</figure>
+
+Source code from this example's the buildAudioGraph function:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> buildAudioGraph</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> mediaElement </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'player'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> sourceNode </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">mediaElement</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Create an analyser node</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyser </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createAnalyser</span><span class="pun">();</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// Try changing for lower values: 512, 256, 128, 64...</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyser</span><span class="pun">.</span><span class="pln">fftSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1024</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferLength </span><span class="pun">=</span><span class="pln"> analyser</span><span class="pun">.</span><span class="pln">frequencyBinCount</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; dataArray </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Uint8Array</span><span class="pun">(</span><span class="pln">bufferLength</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Create the equalizer, which comprises a set of biquad filters</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Set filters</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">[</span><span class="lit">60</span><span class="pun">,</span><span class="pln"> </span><span class="lit">170</span><span class="pun">,</span><span class="pln"> </span><span class="lit">350</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1000</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3500</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10000</span><span class="pun">].</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">freq</span><span class="pun">,</span><span class="pln"> i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> eq </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createBiquadFilter</span><span class="pun">();</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;eq</span><span class="pun">.</span><span class="pln">frequency</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> freq</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;eq</span><span class="pun">.</span><span class="pln">type </span><span class="pun">=</span><span class="pln"> </span><span class="str">"peaking"</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;eq</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;filters</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">eq</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">});</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Connect filters in&nbsp;sequence</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;sourceNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">filters</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> filters</span><span class="pun">.</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;filters</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">filters</span><span class="pun">[</span><span class="pln">i</span><span class="pun">+</span><span class="lit">1</span><span class="pun">]);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Master volume is a gain node</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;masterGain </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createGain</span><span class="pun">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;masterGain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Connect the last filter to the speakers</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;filters</span><span class="pun">[</span><span class="pln">filters</span><span class="pun">.</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">].</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">masterGain</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>&nbsp;</strong></span><strong><span class="com">// for stereo balancing, split the signal</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;stereoPanner </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createStereoPanner</span><span class="pun">();</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="com">// connect master volume output to the stereo panner</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;masterGain</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">stereoPanner</span><span class="pun">);</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Connect the stereo panner to analyser and analyser to destination</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;stereoPanner</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">analyser</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;analyser</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
 
 
 
