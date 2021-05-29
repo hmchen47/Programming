@@ -1,0 +1,49 @@
+<html lang="en">
+  <head>
+    <title>Equalizer made with the Web Audio API</title>
+    <link rel="stylesheet" href="css/01e-example14.css">
+    <script src="js/01e-example14.js"></script>
+  </head>
+<body>
+<h2>Equalizer made with the Web Audio API</h2>
+
+<div class="eq">
+ <video id="player" width="320" height="240" controls crossorigin="anonymous">
+<source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.mp4" >
+</video>
+   <canvas id="myCanvas" width=300 height=100></canvas>
+  <div class="controls">
+    <label>60Hz</label>
+    <input type="range" value="0" step="1" min="-30" max="30" oninput="changeGain(this.value, 0);"></input>
+  <output id="gain0">0 dB</output>
+  </div>
+  <div class="controls">
+    <label>170Hz</label>
+    <input type="range" value="0" step="1" min="-30" max="30" oninput="changeGain(this.value, 1);"></input>
+<output id="gain1">0 dB</output>
+  </div>
+  <div class="controls">
+    <label>350Hz</label>
+    <input type="range" value="0" step="1" min="-30" max="30" oninput="changeGain(this.value, 2);"></input>
+<output id="gain2">0 dB</output>
+  </div>
+  <div class="controls">
+    <label>1000Hz</label>
+    <input type="range" value="0" step="1" min="-30" max="30" oninput="changeGain(this.value, 3);"></input>
+<output id="gain3">0 dB</output>
+  </div>
+  <div class="controls">
+    <label>3500Hz</label>
+    <input type="range" value="0" step="1" min="-30" max="30" oninput="changeGain(this.value, 4);"></input>
+<output id="gain4">0 dB</output>
+  </div>
+  <div class="controls">
+    <label>10000Hz</label>
+    <input type="range" value="0" step="1" min="-30" max="30" oninput="changeGain(this.value, 5);"></input>
+<output id="gain5">0 dB</output>
+  </div>
+
+</div>
+</body>
+</html>
+
