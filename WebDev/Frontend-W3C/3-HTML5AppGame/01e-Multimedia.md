@@ -1055,11 +1055,11 @@ And the example works in the same way, but this time with a video. Try moving th
     + create [audio context](#audioCtx)
     + access palyer element: `var mediaElement = document.getElementById('player');`
     + create source node<a name="srcNode"></a>: `var sourceNode = context.createMediaElementSource(mediaElement);`
-    + create filters: `var filters = []; [60, 170, 350, 1000, 3500, 10000].forEach(function(freq, i) {...});`
+    + create filters<a name="eqiualizer"></a>: `var filters = []; [60, 170, 350, 1000, 3500, 10000].forEach(function(freq, i) {...});`
       + create filter node: `var eq = context.createBiquadFilter();`
       + set various properties: `eq,frequency.value = freq; eq.type = "peaking"; eq.gain.value = 0; filters.push(eq);`
       + append created node to filters: `filters.push(eq);`
-    + connect filters in sequence: `sourceNode.connect(filters[0]); for (var i=0; i<filters.length-1; i++) { filters[i].connect(filters[i+1]); }`
+    + connect filters in sequence<a name="sequence"></a>: `sourceNode.connect(filters[0]); for (var i=0; i<filters.length-1; i++) { filters[i].connect(filters[i+1]); }`
     + connect last filter to destination: `filters[filters.length-1].connect(context.destination);`
     + add event listeners for sliders: `function changeGain(sliderVal, nbFilter) {...}`
       + assign gain value to filter: `var value = parseFloat(sliderVal); filters[nbFilter].gain.value = value;`
@@ -1300,36 +1300,36 @@ Adding the graphic equalizer to the graph changes nothing, we visualize the soun
 
 #### Notes for 1.5.5 Waveforms
 
-+ Analyzer node
++ analyzer node
   + providing real-time frequency and time-doimain analysis information
   + leaving audio stream unchchanged
   + allowing to acqure data about the sound signal played
   + processsing the data vai complex computation such as FFT
   + typical operations to perform waveform after DOM ready
-    + get [audio context](#audioCtx): `audioContext = ...;`
+    + get audio context: `audioContext = audioContext.createAnalyser();`
     + access canvas<a name="canvas"></a> and get properties: `canvas = document.querySelector("#myCanvas"); width = canvas.width; height = canvas.height; canvasContext = canvas.getContext("2d");`
     + call function to build audio graph: `buildAudioGraph();`
     + start animation: `requestAnimationFrame(visualize);`
 
 + Build audio/video graph w/ analyzer node
   + HTML snippet
-    + audio element: `<audio srcv="https://.../guitaRifff1.mp3" id="player" controls loop crossorigin="anonymous"></audio>`
-    + video element: `<video srcv="https://.../guitaRifff1.mp3" id="player" controls loop crossorigin="anonymous"></video>`
+    + audio element: `<audio src="https://.../guitaRifff1.mp3" id="player" controls loop crossorigin="anonymous"></audio>`
+    + video element: `<video src="https://.../guitaRifff1.mp3" id="player" controls loop crossorigin="anonymous"></video>`
     + graph convas: `<canvas id="myCanvas" with=300 height=100></canvas>`
   + JavaScript snippet: `function buildAudioGraph() {...}`
     + access player: `var mediaElement = document.getElementById('player');`
     + create [source node](#srcNode)
-    + create analyzer node: `analuser = audioContext.createAnalyzer();`
-    + set visualizer options: `analyzer.fftSize = 1024; bufferLength = analyzer.frequencyBinCount; datArray = new Unit8Array(bufferLength);`
-      + `bufferLength`: the sixze of the FFT
+    + create analyzer node: `analuser = audioContext.createanalyser();`
+    + set visualizer options<a name="fftSettings"></a>: `analyser.fftSize = 1024; bufferLength = analyser.frequencyBinCount; datArray = new Unit8Array(bufferLength);`
+      + `bufferLength`: the size of the FFT
       + `dataArray`: the byte array containing the data to visualize w/ size = `fftSize/2`
-    + build audio graph: `sourceNode.connect(analyzer); analyzer.connect(audioContext.destination);`
+    + build audio graph: `sourceNode.connect(analszer); analyser.connect(audioContext.destination);`
 
-+ Create animation loop: `fucntion visualize() {...}`
++ Create animation loop: `function visualize() {...}`
   + create the canvas: `canvasContext.fillStyle = 'rgba(0, 0, 0, 0.5)'; canvasContext.fillRect(0, 0, width, height);`
-  + get analyzer data - time-domain data: `analyzer.getByteTimeDomainData(dataArray);`
-  + draw the waveform: `canvasContext.lineWidth = 2; canvasContext.strokeStyle = 'lighBlue';`
-  + clearn pthe previous path: `canvasContext.beginPath();`
+  + get analyzer data - time-domain data: `analyser.getByteTimeDomainData(dataArray);`
+  + draw the waveform: `canvasContext.lineWidth = 2; canvasContext.strokeStyle = 'lightBlue';`
+  + clean the previous path: `canvasContext.beginPath();`
   + declare variables: `var sliceWidth = width/bufferLength; var x = 0;`
   + iterate on all data in buffer: `for (var i=0; i<bufferLength; i++) {...}}`
     + normalize data and rescale height: `var v = dataArray[i]/255; var y = v * height;`
@@ -1337,7 +1337,7 @@ Adding the graphic equalizer to the graph changes nothing, we visualize the soun
     + plot the following points: `else {canvasContext.lineTo(x, y);}`
     + move to next data: `x += sliceWidth;`
   + draw horizontal line: `canvasContext.lineTo(canvas.width, canvas.length/2); canvasContext.stroke();`
-  + call the visualize fucntion at 60 frames/sec: `requestAnimationFrame(visualize);`
+  + call the visualize function at 60 frames/sec: `requestAnimationFrame(visualize);`
 
 
 
@@ -1347,6 +1347,8 @@ Adding the graphic equalizer to the graph changes nothing, we visualize the soun
 #### First typical example
 
 [Example at JSBin](https://jsbin.com/wenuvub/edit?js,output):
+
+[Local Demo](src/01e-example15.html)
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://bit.ly/2R2ZKVt" ismap target="_blank">
@@ -1368,7 +1370,7 @@ This time, instead of a waveform we want to visualize an animated bar chart. Eac
 
 + The frequency range depends upon the sample rate of the signal (the audio source) and on the FFT size. While the sound is being played, the values change and the bar chart is animated.
 + The number of bars is equal to the FFT size / 2 (left screenshot with size = 512, right screenshot with size = 64).
-+ In the example above, the Nth bar (from left to right) corresponds to the frequency range `N * (samplerate/fftSize)`. If we have a sample rate equal to 44100 Hz and a FFT size equal to 512, then the first bar represents frequencies between 0 and 44100/512 = 86.12Hz. etc. As the amount of data returned by the analyser node is half the fft size, we will only be able to plot the frequency-range to half the sample rate. You will see that this is generally enough as frequencies in the second half of the sample rate are not relevant.
++ In the example above, the `Nth` bar (from left to right) corresponds to the frequency range `N * (samplerate/fftSize)`. If we have a sample rate equal to 44100 Hz and a FFT size equal to 512, then the first bar represents frequencies between 0 and 44100/512 = 86.12Hz. etc. As the amount of data returned by the analyser node is half the fft size, we will only be able to plot the frequency-range to half the sample rate. You will see that this is generally enough as frequencies in the second half of the sample rate are not relevant.
 + The height of each bar shows the strength of that specific frequency bucket. It's just a representation of how much of each frequency is present in the signal (i.e. how "loud" the frequency is).
 
 You do __not__ have to master the signal processing 'plumbing' summarised above - just plot the reported values!
@@ -1438,14 +1440,18 @@ __Explanations:__
 + _Line 14_: we compute a scale factor to be able to display the values (ranging from 0 to 255) in direct proportion to the height of the canvas. This scale factor is used in _line 23_, when we compute the height of the bars we are going to draw.
 
 
-#### Impressive Frequency Visualization
+#### Fancy Frequency Visualization
 
 __Other examples: achieving more impressive frequency visualization__
 
 [Example at JSBin](https://jsbin.com/muzifi/edit?html,css,js,output) with a different look for the visualization: please read the source code and try to understand how the drawing of the frequency is done.
 
+[Local Demo](src/01e-example16.html)
 
-[Last example](https://jsbin.com/fekorej/edit?html,js,output) at JSBin with this time the graphic equalizer, a master volume (gain) and a stereo panner node just before the visualizer node:
+
+[Last example at JSBin](https://jsbin.com/fekorej/edit?html,js,output) with this time the graphic equalizer, a master volume (gain) and a stereo panner node just before the visualizer node:
+
+[Local Demo](src/01e-example17.html)
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://bit.ly/2R2ZKVt" ismap target="_blank">
@@ -1465,7 +1471,7 @@ __Other examples: achieving more impressive frequency visualization__
 And here is the audio graph for this example (picture taken with the now discontinued FireFox WebAudio debugger, you should get similar results with the Chrome WebAudio Inspector extension):
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 45vw;"
     onclick= "window.open("https://bit.ly/2R2ZKVt")"
     src    = "https://bit.ly/3wVRqGD"
     alt    = "audio graph from above example"
@@ -1523,6 +1529,42 @@ Source code from this example's the buildAudioGraph function:
 </ol></div>
 
 
+#### Notes for 1.5.6 Frequencies
+
++ Basic frequencies visualization
+  + bar chart corresponding to a frequency range
+  + frequencies range dependning on sample rate of the signal (the audio source) and on the FFT size
+  + number of bars = the FFT size / 2
+  + the nth bar corresponding to the frequency range $N \times (\text{samplerate}/text{fftSize})$. example
+    + sameple rate: 44100 Hz
+    + FFT size: 512
+    + 1st bar: $[0, 44100/512) = [0, 86,12)$Hz
+    + number of data returned by the analyzer node: fftSize / 2
+    + only half of the sample rate
+  + height: the stength of the specific freqnecy bucket
+
++ Example: frequency visualization `fucntion visualize() {...}`
+  + clear the canvas: `canvasContext.clearRect(0, 0, width, height);`
+  + get analyser data on frequency domain: `analyser.getByteFrequencyData(dataArray);`
+  + declare variables: `var barWidth = width / bufferLength; var barHeight; var x = 0; heightScale = height/128;`
+  + iterate on buffer: `for (var i=0; i<bufferLength; i++) {...}`
+    + set bar height: `barHeight = dataArray[i];`
+    + set bar color w/ red from lighter to darker: `canvasContext.fillStyle = 'rgb(' + (barHeight + 100) + ',50, 50);`
+    + rescale to canvas height: `barHeight += heightScale;`
+    + draw the bar: `canvasContext.fillRect(x, height-barHeight/2, barWidth, barHeight/2);`
+    + create the gap btw bars: `x += barWidth + 1;`
+  + call animation loop: `requestAnimationFrame(visualize);`
+
++ Example: audio graph of fancy frequency visualization - `function buildAudioGraph() {...}`
+  + access elements: `var mediaElement = document.getElementById('player'); var sourceNode = audioContext.createMediaElementSource(mediaElement);`
+  + create analyser node: `analyser = audioContext.createAnalyser();`
+  + set [visualization option](#fftSettings)
+  + create [filters](#equalizer)
+  + connect [filters in sequence](#sequence)
+  + set master volume in gain node: `masterGain = audioContext.createGain(); masterGain.value = 1;`
+  + connecct laster filter to gain node: `filters[filters.length - 1].connect(masterGain);`
+  + create stereo balancing and connect to gain and stereo nodes: `stereoPanner = audioContext.createStereoPanner(); masterGain.connect(stereoPanner);`
+  + connect stereo panner to analyser to destination: `stereoPlanner.connect(analyser); analyser.connect(audioContext.destination);`
 
 
 ### 1.5.7 Volume meters
