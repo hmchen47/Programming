@@ -1791,9 +1791,11 @@ The code is very similar to the previous one. We draw two rectangles side-by-sid
 
 Indeed, the proposed examples are ok for making things "dancing in music" but rather inaccurate if you are looking for a real volume meter. Results may also change if you modify the size of the fft in the analyser node properties. There are accurate implementations of volume meters in WebAudio (see this [volume meter example](https://github.com/cwilso/volume-meter)) but they use nodes that were out of the scope for this course. Also, a student from this course named "SoundSpinning" proposed also another approximation that gives more stable results. Read below:
 
-*** _SoundSpinning:_ "The only half close way I found for the meter levels is to use `getFloatTimeDomainDatadata` from the analyser, which seems to give a normalized array between -1 and 1. Then just plot the actual wave level values as we loop in the canvas rendering. This is still not great, since the canvas works at 60Hz while (most of the times) audio sampling is 44.1kHz, but it is closer. This also keeps the same levels no matter what `FFTsize` you apply."
+*** _SoundSpinning:_ "The only half close way I found for the meter levels is to use `getFloatTimeDomainData` data from the analyser, which seems to give a normalized array between -1 and 1. Then just plot the actual wave level values as we loop in the canvas rendering. This is still not great, since the canvas works at 60Hz while (most of the times) audio sampling is 44.1kHz, but it is closer. This also keeps the same levels no matter what `FFTsize` you apply."
 
 Here is a [codepen with my proposed meters](https://codepen.io/Sound_Spinning/pen/RwPKgOK). ***
+
+[Local Demo](src/01e-example20.html)
 
 
 #### Notes for 1.5.7 Volume meters
@@ -1853,8 +1855,17 @@ Here is a [codepen with my proposed meters](https://codepen.io/Sound_Spinning/pe
     + compute left channel data: `analyserLeft.getByteFrequencyData(dataArrayLeft); var averageLeft = getAverageVolume(dataArray);`
     + draw vertical meter for left channel: `canvasContext.fillRect(0, height-averageLeft, 25 height);`
     + compute right channel data: `analyserRight.getByteFrequencyData(dataArrayRight); var averageRight = getAverageVolume(dataArray);`
-    + draw vertical meter for right channel: `canvasContext.fillRect(0, height-averageRight, 25 height);`
+    + draw vertical meter for right channel: `canvasContext.fillRect(26, height-averageRight, 25 height);`
     + restore canvas ctx: `canvasContext.restore();`
+
++ Accurate implementation of volume meter
+  + the above method inaccurate in terms of real volume meter
+  + cwilso approximation
+    + [simple volume meter](https://github.com/cwilso/volume-meter)
+    + `var meter = createAudioMeter(audioContext,clipLevel,averaging,clipLag);`
+  + SoundSpinning approximation
+    + using `getFloatTimeDomainData` from analyser w/ nmormalized array valued btw -1 and 1
+    + still not accurate but closer, e.g., 60kHz on canvas as audio smapling on 44.1kHz
 
 
 ### 1.5.8 Sound samples loaded in memory
