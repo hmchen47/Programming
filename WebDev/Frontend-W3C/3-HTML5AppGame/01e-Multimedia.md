@@ -67,11 +67,11 @@ __The audio context__
 
 The canvas used a graphic context for drawing shapes and handling properties such as colors and line widths.
 
-The Web Audio API takes a similar approach, using an AudioContext for all its operations. 
+The Web Audio API takes a similar approach, using an `AudioContext` for all its operations. 
 
 Using this context, the first thing we do when using this API is to build an "audio routing graph" made of "audio nodes" which are linked together (most of the time in the course, we are going to call it the "audio graph"). Some node types are for "audio sources", another built-in node is for the speakers, and many other types exist, that correspond to audio effects (delay, reverb, filter, stereo panner, etc.), audio analysis (useful for creating fancy visualizations of the real time signal). Others, which are specialized for music synthesis, are not studied in this course.
 
-The AudioContext also exposes various properties, such as `sampleRate`, `currentTime` (in seconds, from the start of `AudioContext` creation), `destination`, and the methods for creating each of the various audio nodes.
+The `AudioContext` also exposes various properties, such as `sampleRate`, `currentTime` (in seconds, from the start of `AudioContext` creation), `destination`, and the methods for creating each of the various audio nodes.
 
 The easiest way to understand this principle is to look at a [first example at JSBin](https://jsbin.com/gaduqojeke/edit?html,js).
 
@@ -189,7 +189,7 @@ __Explanations:__
 
 Here we applied a commonly used technique:
 
-+ As soon as the page is loaded: initialize the audio context (_line 11_). Here we use a trick so that the code works on all browsers: Chrome, FF, Opera, Safari, Edge. The trick at _line 3_ is required for Safari, as it still needs the WebKit prefixed version of the AudioContext constructor.
++ As soon as the page is loaded: initialize the audio context (_line 11_). Here we use a trick so that the code works on all browsers: Chrome, FF, Opera, Safari, Edge. The trick at _line 3_ is required for Safari, as it still needs the WebKit prefixed version of the `AudioContext` constructor.
 + Then we build a graph (_line 20_).
 + The build graph function first builds the nodes, then connects them to build the audio graph. Notice the use of `audioContext.destination` for the speakers (_line 35_). This is a built-in node. Also, the `MediaElementSource` node "gainexample" which is the HTML's audio element.
 
@@ -231,7 +231,7 @@ Web Audio nodes are implemented natively in the browser. The Web Audio framework
 
 + Web Audio concepts
   + canvas used as a graphic context for drawing shapes and handling properties
-  + Web Audio API: taking a similar approach, using an AudioContext for all its operations
+  + Web Audio API: taking a similar approach, using an `AudioContext` for all its operations
   + audio context: `AudioContext`
     + using Web Audio API to build an "audio routing graph"
     + audio routing graph made of "audio nodes"
@@ -1053,7 +1053,7 @@ And the example works in the same way, but this time with a video. Try moving th
     + ...
   + JavaScript snippet
     + create [audio context](#audioCtx)
-    + access palyer element: `var mediaElement = document.getElementById('player');`
+    + access palyer element<a name="playerElem"></a>: `var mediaElement = document.getElementById('player');`
     + create source node<a name="srcNode"></a>: `var sourceNode = context.createMediaElementSource(mediaElement);`
     + create filters<a name="eqiualizer"></a>: `var filters = []; [60, 170, 350, 1000, 3500, 10000].forEach(function(freq, i) {...});`
       + create filter node: `var eq = context.createBiquadFilter();`
@@ -1319,7 +1319,7 @@ Adding the graphic equalizer to the graph changes nothing, we visualize the soun
   + JavaScript snippet: `function buildAudioGraph() {...}`
     + access player: `var mediaElement = document.getElementById('player');`
     + create [source node](#srcNode)
-    + create analyzer node: `analuser = audioContext.createanalyser();`
+    + create analyzer node<a name="analyser"></a>: `analyser = audioContext.createAnalyser();`
     + set visualizer options<a name="fftSettings"></a>: `analyser.fftSize = 1024; bufferLength = analyser.frequencyBinCount; datArray = new Unit8Array(bufferLength);`
       + `bufferLength`: the size of the FFT
       + `dataArray`: the byte array containing the data to visualize w/ size = `fftSize/2`
@@ -1543,7 +1543,7 @@ Source code from this example's the buildAudioGraph function:
     + only half of the sample rate
   + height: the stength of the specific freqnecy bucket
 
-+ Example: frequency visualization `fucntion visualize() {...}`
++ Example: frequency visualization `function visualize() {...}`
   + clear the canvas: `canvasContext.clearRect(0, 0, width, height);`
   + get analyser data on frequency domain: `analyser.getByteFrequencyData(dataArray);`
   + declare variables: `var barWidth = width / bufferLength; var barHeight; var x = 0; heightScale = height/128;`
@@ -1564,12 +1564,12 @@ Source code from this example's the buildAudioGraph function:
   + set master volume in gain node: `masterGain = audioContext.createGain(); masterGain.value = 1;`
   + connecct laster filter to gain node: `filters[filters.length - 1].connect(masterGain);`
   + create stereo balancing and connect to gain and stereo nodes: `stereoPanner = audioContext.createStereoPanner(); masterGain.connect(stereoPanner);`
-  + connect stereo panner to analyser to destination: `stereoPlanner.connect(analyser); analyser.connect(audioContext.destination);`
+  + connect stereo panner to analyser to destination<a name="stereoAnalyserDest"></a>: `stereoPlanner.connect(analyser); analyser.connect(audioContext.destination);`
 
 
 ### 1.5.7 Volume meters
 
-<p class="exampleHTML"><span style="color: #ff0000;"><strong>Important note:</strong></span> the volume meter implementations below use rough approximations and cannot be taken as the most accurate way to compute an exact volume. See at the end of the page for some extra explanations, as well as links to better (and more complex) implementations.&nbsp;</p>
+<p style="margin: 10px; border: 1px solid black; padding: 5px;"><span style="color: #ff0000;"><strong>Important note:</strong></span> the volume meter implementations below use rough approximations and cannot be taken as the most accurate way to compute an exact volume. See at the end of the page for some extra explanations, as well as links to better (and more complex) implementations.&nbsp;</p>
 
 
 #### Volume Meter of Audio Player
@@ -1577,6 +1577,8 @@ Source code from this example's the buildAudioGraph function:
 __Example #1: add a single volume meter to the audio player__
 
 [Try it at JSBin](https://jsbin.com/kuciset/edit?html,css,js,output):
+
+[Local Demo](src/01e-example18.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
@@ -1624,7 +1626,7 @@ Here are the two functions we will call from the animation loop:
 <li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
 </ol></div><br>
 
-Note that we are measuring intensity (line 4) and once the frequency analysis data is copied into the dataarray, we call the getAverageVolume function (line 5) to compute the average value which we will draw as the volume meter.
+Note that we are measuring intensity (_line 4_) and once the frequency analysis data is copied into the dataarray, we call the `getAverageVolume` function (_line 5_) to compute the average value which we will draw as the volume meter.
 
 This is how we create the gradient:
 
@@ -1652,7 +1654,7 @@ And here is what the new animation loop looks like (for the sake of clarity, we 
 <li class="L8" style="margin-bottom: 0px;">}</li>
 </ol></div><br>
 
-Notice that we used the best practices seen in week 3 of the HTML5 part 1 course: we saved and restored the context in all functions that change something in the canvas context (see function drawVolumeMeter and drawWaveForm in the source code).
+Notice that we used the best practices seen in week 3 of the HTML5 part 1 course: we saved and restored the context in all functions that change something in the canvas context (see function `drawVolumeMeter` and `drawWaveForm` in the source code).
 
 
 #### Volume Meters for Stereo Channels
@@ -1665,7 +1667,7 @@ We added a `stereoPanner` node right after the source and a left/right balance s
 
 In order to isolate the left and the right channel (for creating individual volume meters), we used a new node called a Channel Splitter node. From this node, we created two routes, each going to a separate analyser (_lines 46 and 47_ of the example below)
 
-+ See the [ChannelSplitterNode's documentation](https://developer.mozilla.org/en-US/docs/Web/API/ChannelSplitterNode). Notice that there is also a [ChannelMergerNode](https://developer.mozilla.org/fr/docs/Web/API/ChannelMergerNode) for merging multiple routes into a single stereo signal.
++ See the [ChannelSplitterNode's documentation](https://developer.mozilla.org/en-US/docs/Web/API/ChannelSplitterNode). Notice that there is also a [ChannelMergerNode](https://developer.mozilla.org/en-US/docs/Web/API/ChannelMergerNode) for merging multiple routes into a single stereo signal.
 
 Use the connect method with extra parameters to connect the different outputs of the channel splitter node:
 
@@ -1673,6 +1675,8 @@ Use the connect method with extra parameters to connect the different outputs of
 + `connect(node, 1, 0)` to connect the right output channel to another node,
 
 [Example at JSBin](https://jsbin.com/qezevew/edit?html,css,js,output):
+
+[Loacal Demo](src/01e-example19.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
@@ -1783,7 +1787,6 @@ And here is the new function for drawing the two volume meters:
 
 The code is very similar to the previous one. We draw two rectangles side-by-side, corresponding to the two analyser nodes - instead of the single display in the previous example.
 
-
 #### Extra explanations and resources
 
 Indeed, the proposed examples are ok for making things "dancing in music" but rather inaccurate if you are looking for a real volume meter. Results may also change if you modify the size of the fft in the analyser node properties. There are accurate implementations of volume meters in WebAudio (see this [volume meter example](https://github.com/cwilso/volume-meter)) but they use nodes that were out of the scope for this course. Also, a student from this course named "SoundSpinning" proposed also another approximation that gives more stable results. Read below:
@@ -1793,9 +1796,65 @@ Indeed, the proposed examples are ok for making things "dancing in music" but ra
 Here is a [codepen with my proposed meters](https://codepen.io/Sound_Spinning/pen/RwPKgOK). ***
 
 
+#### Notes for 1.5.7 Volume meters
 
++ Example: volume meter of audio player
+  + tasks:
+    + volume meter: tracing upward/downward w/ the intensity of the music
+    + compute the average intensity of frequency ranges
+    + draw the average intensity w/ gradient-filled rectangle
+  + draw volume meter: `function drawVolumeMeter() {...}`
+    + save canvas ctx: `canvasContext.save();`
+    + get analyser data and their average: `analyser.getByteFrequencyData(dataArray); var average = getAverageVolume(dataAnalysis);`
+    + set fill style: `canvasContext.fillStyle = gradient;`
+    + draw the vertical meter: `canvasContext.fillRect(0, height-average, 25, height);`
+    + restore ctx: `canvasContext.restore();`
+  + get average volume: `function getAverageVolume(array) {...}`
+    + declare variable: `var values = 0; var average; var length = array.length;`
+    + get all the frequency amplitude: `for (avr i=0; i<length; i++) {values += array[i]; }`
+    + get average value: `average = values/length; return average;`
+  + create gradient: `gradient = canvasContext.createLinearGradient(0, 0, 0, height); gradient.addColorStop(1, '#000000'); gradient.addColorStop(0.75, '#ff0000'); gradient.addColorStop(0.25, '#ffff00'); gradient.addColorStop(0, '#ffffff');`
+  + draw visualization: `function visualize() {...}`
+    + empty canvas: `clearCanvas();`
+    + draw waveform and volume meter: `drawVolumeMeter(); drawWaveform();`
+    + call animation loop: `requestAnimationFrame(visualize);`
 
++ Example: volume meters of stereo channels
+  + stereo channels
+    + split the audio signal and create a separate analyser for each output channel
+    + add `stereoPanner` node right after the source node
+    + add a left/right balance slider to control the `pan` property
+    + add [Channel Splitter node](https://developer.mozilla.org/en-US/docs/Web/API/ChannelSplitterNode) to isolate right and left channels
+  + audio graph
 
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+        onclick= "window.open("https://bit.ly/3uBXZfy")"
+        src    = "https://bit.ly/3i4pvjn"
+        alt    = "Audiograph from previous example"
+        title  = "Audiograph from previous example"
+      />
+    </figure>
+  
+  + build audio graph: `function buildAudioGraph() {...}`
+    + access [player element](#playerElem)
+    + create [source node](#srcNode)
+    + connect source node to stereo node: `stereoPanner = audioContext.createStereoPanner(); sourceNode.connect(stereoPanner);`
+    + create [analyzer node](#analyser)
+    + set [visualizer options](#fftSettings)
+    + connect [stereo panner to analyser to destination](#stereoAnalyserDest)
+    + set left channel: `analyserLeft.fftSize = 256; bufferLengthLeft = analyserLeft.frequencyBinCount; dataArrayLeft = new Unit8Array(bufferLengthLeft);`
+    + set right channel: `analyserRight.fftSize = 256; bufferLengthRight = analyserRight.frequencyBinCount; dataArrayRight = new Unit8Array(bufferLengthRight);`
+    + create and connect splitter node: `splitter = audioContext.createChannelSplitter(); stereoPanner.connect(splitter);`
+    + connect splitter to left/right analyser: `splitter.connect(analyserLeft, 0, 0); splitter.connect(analyserRight. 0. 0);`
+  + draw volume meters: `function drawVolumeMeters() {...}`
+    + save canvas ctx: `canvasContext.save();`
+    + set fill style: `canvasContext.fillStyle = gradient;`
+    + compute left channel data: `analyserLeft.getByteFrequencyData(dataArrayLeft); var averageLeft = getAverageVolume(dataArray);`
+    + draw vertical meter for left channel: `canvasContext.fillRect(0, height-averageLeft, 25 height);`
+    + compute right channel data: `analyserRight.getByteFrequencyData(dataArrayRight); var averageRight = getAverageVolume(dataArray);`
+    + draw vertical meter for right channel: `canvasContext.fillRect(0, height-averageRight, 25 height);`
+    + restore canvas ctx: `canvasContext.restore();`
 
 
 ### 1.5.8 Sound samples loaded in memory
