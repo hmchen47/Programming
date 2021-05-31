@@ -1,0 +1,43 @@
+
+
+div audio {
+  display: block;
+  margin-bottom:10px;
+  margin-left:10px;
+}
+
+#myCanvas {
+  border:1px solid;
+  margin-bottom:10px;
+}
+.main {
+  margin: 32px;
+  border:1px solid;
+  border-radius:15px;
+  background-color:lightGrey;
+  padding:10px;
+  width:320px;
+  box-shadow: 10px 10px 5px grey;
+  text-align:center;
+  font-family: "Open Sans";
+  font-size: 12px;
+}
+
+
+div.controls:hover {
+  color:blue;
+}
+div.controls label {
+  display: inline-block;
+  text-align: center;
+  width: 50px;
+}
+
+div.controls label, div.controls input, output {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+   font-family: "Open Sans",Verdana,Geneva,sans-serif,sans-serif;
+  font-size: 12px;
+}
+

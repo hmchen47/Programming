@@ -1,0 +1,25 @@
+<html lang="en">
+  <head>
+    <title>2D audio vizualization: volume meter</title>
+    <link rel="stylesheet" href="css/01e-example18.css">
+    <script src="js/01e-example19.js"></script>
+  </head>
+<body>
+<h2>2D audio vizualization: waveform and  stereo volume meters</h2>
+
+<div class="main">
+<audio src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3" id="player" controls loop crossorigin="anonymous">
+</audio>
+  <canvas id="myCanvas" width=300 height=100></canvas>
+    <div class="controls">
+   
+  <div class="controls">
+    <label>Balance</label>
+    <input type="range" value="0" step="0.1" min="-1" max="1" oninput="changeBalance(this.value);"></input>
+<output id="balanceOutput">0&nbsp;&nbsp;&nbsp;&nbsp;</output>
+  </div>
+</div>
+  
+</body>
+</html>
+
