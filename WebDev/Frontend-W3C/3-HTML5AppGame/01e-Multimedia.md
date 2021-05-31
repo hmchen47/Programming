@@ -1569,6 +1569,230 @@ Source code from this example's the buildAudioGraph function:
 
 ### 1.5.7 Volume meters
 
+<p class="exampleHTML"><span style="color: #ff0000;"><strong>Important note:</strong></span> the volume meter implementations below use rough approximations and cannot be taken as the most accurate way to compute an exact volume. See at the end of the page for some extra explanations, as well as links to better (and more complex) implementations.&nbsp;</p>
+
+
+#### Volume Meter of Audio Player
+
+__Example #1: add a single volume meter to the audio player__
+
+[Try it at JSBin](https://jsbin.com/kuciset/edit?html,css,js,output):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open("https://bit.ly/3uBXZfy")"
+    src    = "https://bit.ly/3vDdsxw"
+    alt    = "Single volume meter that dances with the music"
+    title  = "Single volume meter that dances with the music"
+  />
+</figure>
+
+
+In order to have a "volume meter" which traces upward/downward with the intensity of the music, we will compute the average intensity of our frequency ranges, and draw this value using a nice gradient-filled rectangle.
+
+Here are the two functions we will call from the animation loop:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> drawVolumeMeter</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>analyser</strong></span><strong><span class="pun">.</span><span class="pln">getByteFrequencyData</span><span class="pun">(</span><span class="pln">dataArray</span><span class="pun">);</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> average </span><span class="pun">=</span><span class="pln"> getAverageVolume</span><span class="pun">(</span><span class="pln">dataArray</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// set the fill style to a nice gradient</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">gradient</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// draw the vertical meter</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln">height</span><span class="pun">-</span><span class="pln">average</span><span class="pun">,</span><span class="lit">25</span><span class="pun">,</span><span class="pln">height</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> getAverageVolume</span><span class="pun">(</span><span class="pln">array</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> values </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> average</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> length </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// get all the frequency amplitudes</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; values </span><span class="pun">+=</span><span class="pln"> array</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; average </span><span class="pun">=</span><span class="pln"> values </span><span class="pun">/</span><span class="pln"> length</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> average</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div><br>
+
+Note that we are measuring intensity (line 4) and once the frequency analysis data is copied into the dataarray, we call the getAverageVolume function (line 5) to compute the average value which we will draw as the volume meter.
+
+This is how we create the gradient:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="com">// create a vertical gradient of the height of the canvas</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> gradient </span><span class="pun">=</span><span class="pln"> canvasContext</span><span class="pun">.</span><span class="pln">createLinearGradient</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> gradient</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="str">'#000000'</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> gradient</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0.75</span><span class="pun">,</span><span class="str">'#ff0000'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> gradient</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0.25</span><span class="pun">,</span><span class="str">'#ffff00'</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> gradient</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="str">'#ffffff'</span><span class="pun">);</span></li>
+</ol></div><br>
+
+And here is what the new animation loop looks like (for the sake of clarity, we have moved the code that draws the signal waveform to a separate function):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> visualize</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; clearCanvas</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; drawVolumeMeter</span><span class="pun">();</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; drawWaveform</span><span class="pun">();</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// call again the visualize function at 60 frames/s</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">visualize</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;">}</li>
+</ol></div><br>
+
+Notice that we used the best practices seen in week 3 of the HTML5 part 1 course: we saved and restored the context in all functions that change something in the canvas context (see function drawVolumeMeter and drawWaveForm in the source code).
+
+
+#### Volume Meters for Stereo Channels
+
+__Example #2: draw two volume meters, one for each stereo channel__
+
+This time, let's split the audio signal and create a separate analyser for each output channel. We retain the analyser node that is being used to draw the waveform, as this works on the stereo signal (and is connected to the destination in order to hear full audio).
+
+We added a `stereoPanner` node right after the source and a left/right balance slider to control its `pan` property. Use this slider to see how the left and right volume meter react.
+
+In order to isolate the left and the right channel (for creating individual volume meters), we used a new node called a Channel Splitter node. From this node, we created two routes, each going to a separate analyser (_lines 46 and 47_ of the example below)
+
++ See the [ChannelSplitterNode's documentation](https://developer.mozilla.org/en-US/docs/Web/API/ChannelSplitterNode). Notice that there is also a [ChannelMergerNode](https://developer.mozilla.org/fr/docs/Web/API/ChannelMergerNode) for merging multiple routes into a single stereo signal.
+
+Use the connect method with extra parameters to connect the different outputs of the channel splitter node:
+
++ `connect(node, 0, 0)` to connect the left output channel to another node,
++ `connect(node, 1, 0)` to connect the right output channel to another node,
+
+[Example at JSBin](https://jsbin.com/qezevew/edit?html,css,js,output):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open("https://bit.ly/3uBXZfy")"
+    src    = "https://bit.ly/2St4DY8"
+    alt    = "Example with stereo volume meters"
+    title  = "Example with stereo volume meters"
+  />
+</figure>
+
+This is the audio graph we've built (picture taken with the now discontinued FireFox WebAudio debugger, you should get similar results with the Chrome WebAudio Inspector extension):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick= "window.open("https://bit.ly/3uBXZfy")"
+    src    = "https://bit.ly/3i4pvjn"
+    alt    = "Audiograph from previous example"
+    title  = "Audiograph from previous example"
+  />
+</figure>
+
+
+As you can see there are two routes: the one on top sends the output signal to the speakers and uses an analyser node to animate the waveform, meanwhile the one at the bottom splits the signal and send its left and right parts to separate analyser nodes which draw the two volume meters. Just before the split, we added a stereoPanner to enable adjustment of the left/right balance with a slider.
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> buildAudioGraph</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> mediaElement </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'player'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> sourceNode </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">mediaElement</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong>&nbsp;</strong></span><strong>// connect the source node to a stereo panner</strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; stereoPanner </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createStereoPanner</span><span class="pun">();</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; sourceNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">stereoPanner</span><span class="pun">);</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"></li>
+<li class="L6" style="margin-bottom: 0px;">&nbsp; // Create an analyser node for the waveform</li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyser </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createAnalyser</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">//&nbsp;Use FFT value adapted to waveform drawing</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyser</span><span class="pun">.</span><span class="pln">fftSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1024</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferLength </span><span class="pun">=</span><span class="pln"> analyser</span><span class="pun">.</span><span class="pln">frequencyBinCount</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; dataArray </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Uint8Array</span><span class="pun">(</span><span class="pln">bufferLength</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Connect the stereo panner to the analyser</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; stereoPanner</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">analyser</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// and the analyser to the destination</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyser</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="com">// End of route 1. &nbsp;W</span>e start another route from the</strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong>&nbsp; // stereoPanner node, with two analysers for the meters</strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// Two analysers for the stereo volume meters</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="com">&nbsp; // Here we use a small FFT value as we're gonna work with</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="com">&nbsp; // frequency analysis data</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyserLeft </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createAnalyser</span><span class="pun">();</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyserLeft</span><span class="pun">.</span><span class="pln">fftSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">256</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferLengthLeft </span><span class="pun">=</span><span class="pln"> analyserLeft</span><span class="pun">.</span><span class="pln">frequencyBinCount</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; dataArrayLeft </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Uint8Array</span><span class="pun">(</span><span class="pln">bufferLengthLeft</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyserRight </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createAnalyser</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyserRight</span><span class="pun">.</span><span class="pln">fftSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">256</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferLengthRight </span><span class="pun">=</span><span class="pln"> analyserRight</span><span class="pun">.</span><span class="pln">frequencyBinCount</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; dataArrayRight </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Uint8Array</span><span class="pun">(</span><span class="pln">bufferLengthRight</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong> // Split the signal</strong></span></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; splitter </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createChannelSplitter</span><span class="pun">();</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Connect the stereo panner&nbsp;to the splitter node</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; stereoPanner</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">splitter</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Connect each&nbsp;of the outputs from the splitter to</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// the analysers</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; splitter</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">analyserLeft</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; splitter</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">analyserRight</span><span class="pun">,</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// No need to connect these analysers to something, the sound</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// is already connected through the route that goes through</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// the analyser used for the waveform</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+And here is the new function for drawing the two volume meters:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> drawVolumeMeters</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// set the fill style to a nice gradient</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">gradient</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// left channel</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyserLeft</span><span class="pun">.</span><span class="pln">getByteFrequencyData</span><span class="pun">(</span><span class="pln">dataArrayLeft</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> averageLeft </span><span class="pun">=</span><span class="pln"> getAverageVolume</span><span class="pun">(</span><span class="pln">dataArrayLeft</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// draw the vertical meter for left channel</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln">height</span><span class="pun">-</span><span class="pln">averageLeft</span><span class="pun">,</span><span class="lit">25</span><span class="pun">,</span><span class="pln">height</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// right channel</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyserRight</span><span class="pun">.</span><span class="pln">getByteFrequencyData</span><span class="pun">(</span><span class="pln">dataArrayRight</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> averageRight </span><span class="pun">=</span><span class="pln"> getAverageVolume</span><span class="pun">(</span><span class="pln">dataArrayRight</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// draw the vertical meter for left channel</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">26</span><span class="pun">,</span><span class="pln">height</span><span class="pun">-</span><span class="pln">averageRight</span><span class="pun">,</span><span class="lit">25</span><span class="pun">,</span><span class="pln">height</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pln" style="line-height: 1.6;">canvasContext</span><span class="pun" style="line-height: 1.6;">.</span><span class="pln" style="line-height: 1.6;">restore</span><span class="pun" style="line-height: 1.6;">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+The code is very similar to the previous one. We draw two rectangles side-by-side, corresponding to the two analyser nodes - instead of the single display in the previous example.
+
+
+#### Extra explanations and resources
+
+Indeed, the proposed examples are ok for making things "dancing in music" but rather inaccurate if you are looking for a real volume meter. Results may also change if you modify the size of the fft in the analyser node properties. There are accurate implementations of volume meters in WebAudio (see this [volume meter example](https://github.com/cwilso/volume-meter)) but they use nodes that were out of the scope for this course. Also, a student from this course named "SoundSpinning" proposed also another approximation that gives more stable results. Read below:
+
+*** _SoundSpinning:_ "The only half close way I found for the meter levels is to use `getFloatTimeDomainDatadata` from the analyser, which seems to give a normalized array between -1 and 1. Then just plot the actual wave level values as we loop in the canvas rendering. This is still not great, since the canvas works at 60Hz while (most of the times) audio sampling is 44.1kHz, but it is closer. This also keeps the same levels no matter what `FFTsize` you apply."
+
+Here is a [codepen with my proposed meters](https://codepen.io/Sound_Spinning/pen/RwPKgOK). ***
+
+
 
 
 
