@@ -1951,10 +1951,312 @@ Try also this small demonstration that uses the [Howler.js](https://goldfirestud
   + no wait time to start playing
 
 
+
 ### 1.5.9 Load and play sound samples
 
+Use an `AudioBufferSourceNode` as the source of the sound sample in the Web Audio graph.
+
+There is a special node in Web Audio for handling sound samples, called an `AudioBufferSourceNode`.
+
+This node has different properties:
+
++ `buffer`: the decoded sound sample.
++ `loop`: should the sample be played as an infinite loop - when the sample has played to its end, it is re-started from the beginning. (default is True), it also depends on the two next properties.
++ `loopStart`: a double value indicating, in seconds, in the buffer sample playing must restart. Its default value is 0.
++ `loopEnd`: a double value indicating, in seconds, at what point in the buffer sample playing must stop (and eventually loop again). Its default value is 0.
++ `playbackRate`: the speed factor at which the audio asset will be played. Since no pitch correction is applied on the output, this can be used to change the pitch of the sample.
++ `detune`: not relevant for this course.
 
 
+#### Loading and decoding a sound sample
+
+__Before use, a sound sample must be loaded using Ajax, decoded, and set to the `buffer` property of an `AudioBufferSourceNode`.__
+
+Try the [example at JSBin](https://jsbin.com/botagas/edit?html,js,console,output):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open("https://bit.ly/3uPRR3P")"
+    src    = "https://bit.ly/3pckbMc"
+    alt    = "example that loads and play a unique sound"
+    title  = "example that loads and play a unique sound"
+  />
+</figure>
+
+
+In this example, as soon as the page is loaded, we send an Ajax request to a remote server in order to get the file shoot2.mp3. When the file is loaded, we decode it. Then we enable the button (before the sample was not available, and thus could not be played). Now you can click on the button to make the noise.
+
+Notice in the code that each time we click on the button, we rebuild the audio graph.
+
+<p class="exampleHTML" style="color: red; text-align: center;"><strong>This is because AudioBufferSourceNodes can be used only once!&nbsp;<br></strong><br>But don't worry, Web Audio is optimized for handling thousands of nodes...</p>
+
+HTML code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"playButton"</span><span class="pln"> </span><span class="atn">disabled</span><span class="pun">=</span><span class="atv">true</span><span class="tag">&gt;</span><span class="pln">Play sound</span><span class="tag">&lt;/button&gt;</span></li>
+</ol></div><br>
+
+JavaScript source code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> <g class="gr_ gr_136 gr-alert gr_spell gr_run_anim ContextualSpelling ins-del multiReplace" id="136" data-gr-id="136">ctx</g></span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> soundURL </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">'https://mainline.i3s.unice.fr/mooc/shoot2.mp3'</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> decodedSound</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// The page has been loaded</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="com">// To make it work even on browsers like Safari, that still</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// do not recognize the non prefixed version of AudioContext</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> audioContext </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="typ">AudioContext</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">webkitAudioContext</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> audioContext</span><span class="pun">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;loadSoundUsingAjax</span><span class="pun">(</span><span class="pln">soundURL</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// By default the button is disabled, it will be</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// clickable only when the sound sample will be loaded</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;playButton</span><span class="pun">.</span><span class="pln">onclick </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; playSound</span><span class="pun">(</span><span class="pln">decodedSound</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> loadSoundUsingAjax</span><span class="pun">(</span><span class="pln">url</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> request </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;request</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'GET'</span><span class="pun">,</span><span class="pln"> url</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Important: we're loading binary data</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;request</span><span class="pun">.</span><span class="pln">responseType </span><span class="pun">=</span><span class="pln"> </span><span class="str">'arraybuffer'</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Decode asynchronously</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;request</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Sound loaded"</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Let's decode it. This is also asynchronous</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">decodeAudioData</span><span class="pun">(</span><span class="pln">request</span><span class="pun">.</span><span class="pln">response</span><span class="pun">,</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; function</span><span class="pun">(</span><span class="pln">buffer</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{ // success</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Sound decoded"</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;decodedSound </span><span class="pun">=</span><span class="pln"> buffer</span><span class="pun">; &nbsp; &nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// we enable the button</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;playButton</span><span class="pun">.</span><span class="pln">disabled </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">},</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{ // error</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"error"</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; ); // end of decodeAudioData callback</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">}; &nbsp; // end of the onload callback</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Send the request. When the file will be loaded,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// the request.onload callback will be called (above)</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; request</span><span class="pun">.</span><span class="pln">send</span><span class="pun">();</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="kwd">function</span><span class="pln"> playSound</span><span class="pun">(</span><span class="pln">buffer</span><span class="pun">){</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="pun">&nbsp; &nbsp; // builds the audio graph, then start playing the source</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> bufferSource </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createBufferSource</span><span class="pun">();</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; bufferSource</span><span class="pun">.</span><span class="pln">buffer </span><span class="pun">=</span><span class="pln"> buffer</span><span class="pun">;</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; bufferSource</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; bufferSource</span><span class="pun">.</span><span class="pln">start</span><span class="pun">(); // remember, you can start() a source only once!</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pun">}</span></strong></li>
+</ol></div><br>
+
+__Explanations:__
+
++ When the page is loaded, we first call the `loadSoundUsingAjax` function for loading and decoding the sound sample (line 16), then we define a click listener for the play button. Loading and decoding the sound can take some time, so it's an asynchronous process. This means that the call to `loadSoundUsingAjax` will return while the downloading and decoding is still in progress. We can define a click listener on the button anyway, as it is disabled by default (see the HTML code). Once the sample has been loaded and decoded, only then will the button be enabled (_line 42_).
++ The `loadSoundUsingAjax` function will first create an `XmlHttpRequest` using the "new version of Ajax called XhR2" (described in detail during week 3). First we create the request (_lines 26-30_): notice the use of '`arrayBuffer`' as a `responseType` for the request. This has been introduced by Xhr2 and is necessary for binary file transfer. Then the request is sent (_line 52_).
++ Ajax is an asynchronous process: once the browser receives the requested file, the `request`. onload callback will be called (it is defined at _line 33__), and we can decode the file (an mp3, the content of which must be uncompressed in memory). This is done by calling `ctx.decodeAudioData(file, successCallback, errorCallback)`.  When the file is decoded, the success callback is called (_lines 38-43_). We store the decoded buffer in the variable decodedSound, and we enable the button.
++ Now, when someone clicks on the button, the `playSound` function will be called (_lines 55-61_). This function builds a simple audio graph: it creates an AudioBufferSourceNode (_line 57_), sets its buffer property with the decoded sample, connects this source to the speakers (_line 59_) and plays the sound. <span style="color: pink;">Source nodes can only be used once (a "fire and forget" philosophy), so to play the sound again, we have to rebuild a source node and connect that to the destination. This seems strange when you learn Web Audio, but don't worry - it's a very fast operation, even with hundreds of nodes.</span>
+
+
+#### The `BufferLoader` Utility
+
+__Loading and decoding multiple sounds: the `BufferLoader` utility__
+
+__The problem: AJax requests are asynchronous__
+
+The asynchronous aspect of Ajax has always been problematic for beginners. For example, if our applications use multiple sound samples and we need to be sure that all of them are loaded and decoded, using the code we presented in the earlier example will not work as is. We cannot call:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">loadSoundSample</span><span class="pun">(</span><span class="pln">urlOfSound1</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">loadSoundSample</span><span class="pun">(</span><span class="pln">urlOfSound2</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">loadSoundSample</span><span class="pun">(</span><span class="pln">urlOfSound3</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">etc</span><span class="pun">...</span></li>
+</ol></div><br>
+
+... because we will never know exactly when all the sounds have finished being loaded and decoded. All these calls will run operations in the background yet return instantly.
+
+
+#### Preloading Sound and Image Assets
+
+__The BufferLoader utility object: useful for preloading sound and image assets__
+
+There are different approaches for dealing with this problem. During the HTML5 Coding Essentials and Best Practices course, we presented utility functions for loading multiple images. Here we use the same approach and have packaged the code into an object called the BufferedLoader.
+
+Example at JSBin that uses the BufferLoader utility:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open("https://bit.ly/3uPRR3P")"
+    src    = "https://bit.ly/3wPR5VC"
+    alt    = "Example that loads two sounds and create two buttons for playing them"
+    title  = "Example that loads two sounds and create two buttons for playing them"
+  />
+</figure>
+
+
+HTML code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"shot1Normal"</span><span class="pln"> </span><span class="atn">disabled</span><span class="pun">=</span><span class="atv">true</span><span class="tag">&gt;</span><span class="pln">Shot 1</span><span class="tag">&lt;/button&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"shot2Normal"</span><span class="pln"> </span><span class="atn">disabled</span><span class="pun">=</span><span class="atv">true</span><span class="tag">&gt;</span><span class="pln">Shot 2</span><span class="tag">&lt;/button&gt;</span></li>
+</ol></div><br>
+
+
+JavaScript code extract (does not contain the BufferLoader utility code):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> listOfSoundSamplesURLs </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">'https://mainline.i3s.unice.fr/mooc/shoot1.mp3'</span><span class="pun">,</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">'https://mainline.i3s.unice.fr/mooc/shoot2.mp3'</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">];</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// To make it work even on browsers like Safari, that still</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// do not recognize the non prefixed version of AudioContext</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">&nbsp; var</span><span class="pln"> audioContext </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="typ">AudioContext</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">webkitAudioContext</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> audioContext</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; loadAllSoundSamples</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> playSampleNormal</span><span class="pun">(</span><span class="pln">buffer</span><span class="pun">){</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; // builds the audio graph and play</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> bufferSource </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createBufferSource</span><span class="pun">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferSource</span><span class="pun">.</span><span class="pln">buffer </span><span class="pun">=</span><span class="pln"> buffer</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferSource</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferSource</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> onSamplesDecoded</span><span class="pun">(</span><span class="pln">buffers</span><span class="pun">){</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"all samples loaded and decoded"</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// enables the buttons</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;shot1Normal</span><span class="pun">.</span><span class="pln">disabled</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;shot2Normal</span><span class="pun">.</span><span class="pln">disabled</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// creates the click listeners on the buttons</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;shot1Normal</span><span class="pun">.</span><span class="pln">onclick </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; playSampleNormal</span><span class="pun">(</span><span class="pln">buffers</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;shot2Normal</span><span class="pun">.</span><span class="pln">onclick </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; playSampleNormal</span><span class="pun">(</span><span class="pln">buffers</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> loadAllSoundSamples</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// onSamplesDecoded will be called when all samples </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// have been loaded and decoded, and the decoded sample will</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// be its only parameter (see function above)</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferLoader </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">BufferLoader</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">,&nbsp;</span><span class="pln" style="line-height: 1.6;">listOfSoundSamplesURLs</span><span class="pun" style="line-height: 1.6;">,</span><span style="color: #000000; line-height: 1.6; background-color: #ffffff;">onSamplesDecoded</span>);</li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// starts loading and decoding the files</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferLoader</span><span class="pun">.</span><span class="pln">load</span><span class="pun">();</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+After the call to `loadAllSoundSamples()` (_line 13_), when all the sound sample files have been loaded and decoded, a callback will be initiated to `onSamplesDecoded(decodedSamples)`, located at _line 25_. The array of decoded samples is the  parameter of the `onSamplesDecoded` function.
+
+The `BufferLoader` utility object is created at _line 45_ and takes as parameters: 1) the audio context, 2) an array listing the URLs of the different audio files to be loaded and decoded, and 3) the callback function which is to be called once all the files have been loaded and decoded. This callback function should accept an array as its parameter: the array of decoded sound files.
+
+To study the source of the BufferLoaded object, look at the JavaScript tab in [the example at JSBin](https://jsbin.com/gegita/edit?html,js,console,output).
+
+__Playing the two sound samples at various playback rates, repeatedly__
+
+This is a variant of the previous example (picture taken with the now discontinued FireFox WebAudio debugger, you should get similar results with the Chrome WebAudio Inspector extension).
+
+[Example at JSBin](https://jsbin.com/zebokeg/edit?html,js,console,output):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open("https://bit.ly/3uPRR3P")"
+    src    = "https://bit.ly/3vJ9nHZ"
+    alt    = "Audio Graph used in the previous example source node -> gain -> compressor -> destination"
+    title  = "Audio Graph used in the previous example source node -> gain -> compressor -> destination"
+  />
+</figure>
+
+
+In this example, we added a function (borrowed and adapted from this [article on HTML5Rocks](https://www.html5rocks.com/en/tutorials/webaudio/games/)):
+
++ `makeSource(buffer)`
+
+Here is the source code of this function:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> makeSource</span><span class="pun">(</span><span class="pln">buffer</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// build graph source -&gt; gain -&gt; compressor -&gt; speakers</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// We use a compressor at the end to cut the part of the signal</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// that would make peaks</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// create the nodes</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> source </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createBufferSource</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> compressor </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createDynamicsCompressor</span><span class="pun">();</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> gain </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createGain</span><span class="pun">();</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// set their properties</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// Not all shots&nbsp;will have the same volume</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;gain</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0.2</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">();</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;source</span><span class="pun">.</span><span class="pln">buffer </span><span class="pun">=</span><span class="pln"> buffer</span><span class="pun">;<br></span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// Build the graph</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;source</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">gain</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; gain</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">compressor</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; compressor</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">return</span><span class="pln"> source</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+And this is the function that plays different sounds in a row, eventually creating random time intervals between them and random pitch variations:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> playSampleRepeated</span><span class="pun">(</span><span class="pln">buffer</span><span class="pun">,</span><span class="pln"> rounds</span><span class="pun">,</span><span class="pln"> interval</span><span class="pun">,</span><span class="pln"> random</span><span class="pun">,</span><span class="pln"> random2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">typeof</span><span class="pln"> random </span><span class="pun">==</span><span class="pln"> </span><span class="str">'undefined'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; random </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">typeof</span><span class="pln"> random2 </span><span class="pun">==</span><span class="pln"> </span><span class="str">'undefined'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; random2 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> time </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">currentTime</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Make multiple sources using the same buffer and play in quick succession.</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> rounds</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> source </span><span class="pun">=</span><span class="pln"> makeSource</span><span class="pun">(</span><span class="pln">buffer</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; source</span><span class="pun">.</span><span class="pln">playbackRate</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">()</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> random2</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; source</span><span class="pun">.</span><span class="pln">start</span><span class="pun">(</span><span class="pln">time </span><span class="pun">+</span><span class="pln"> i </span><span class="pun">*</span><span class="pln"> interval </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">()</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> random</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+__Explanations:__
+
++ _Lines 11-15_: we make a loop for building multiple routes in the graph. The number of routes corresponds to the number of times that we want the same buffer to be played. Note that the random2 parameter enables us to randomize the playback rate of the source node that corresponds to the pitch of the sound. 
++ _Line 14_: this is where the sound is being played. Instead of calling source.start(), we call source.start(delay), this tells the Web Audio scheduler to play the sound after a certain time. 
++ The makeSource function builds a graph from one decoded sample to the speakers. A gain is added that is also randomized in order to generate shot sounds with different volumes (between 0.2 and 1.2 in the example). A compressor node is added in order to limit the max intensity of the signal in case the gain makes it peak.
+
+
+#### Knowledge check 1.5.9
+
+1. Video games often need to play sound samples in rapid sequence, with different effects, pitch, etc. What best practice has been presented in the course?
+
+  a. They should be loaded and decoded, before being used.<br>
+  b. All sound samples must be loaded before being used.<br>
+
+  Ans: <br>
+  Explanation: 
 
 
 
