@@ -1870,10 +1870,85 @@ Here is a [codepen with my proposed meters](https://codepen.io/Sound_Spinning/pe
 
 ### 1.5.8 Sound samples loaded in memory
 
+For some applications, it may be necessary to load sound samples into memory and uncompress them before they can be used.
+
++ No streaming/decoding in real time means less CPU is used,
++ With all samples loaded in memory, it's possible to play them in sync with great precision,
++ It's possible to make loops, add effects, change the playback rate, etc.
++ And of course, if they are in memory and uncompressed, there is no wait time for them to start playing: they are ready to be used immediately!
+
+These features are useful in video games: where a library of sounds may need to ready to be played. By changing the playback rate or the effects, many different sounds can be created, even with a limited number of samples (for instance, an explosion played at different speed, with different effects).
 
 
+#### Examples
+
+__Let's try some demos!__
+
+Here is a first [example at JSBin](https://jsbin.com/gojuxo/edit?html,js,console,output): click on the different buttons. Only two minimal sound samples are used in this example: [shot1.mp3](https://mainline.i3s.unice.fr/mooc/shoot1.mp3) and [shot2.mp3](https://mainline.i3s.unice.fr/mooc/shoot2.mp3). You can download many free sound samples like these from the freesound.org Web site.
+
+[Local Demo](src/01e-example21.html)
+
+Here is how the WebAudio graph looks like (picture taken with the now discontinued FireFox WebAudio debugger, you should get similar results with the Chrome WebAudio Inspector extension):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick= "window.open("https://bit.ly/2TurtPU")"
+    src    = "https://bit.ly/3i4Lc2G"
+    alt    = "Screenshot with buttons that play sound samples many times with different pitch, volume, interval of times"
+    title  = "Screenshot with buttons that play sound samples many times with different pitch, volume, interval of times"
+  />
+</figure>
+
+Music applications such as Digital Audio Workstations (GarageBand-like apps) will need to play/record/loop music tracks in memory.
+
+[Try this impressive DAW](https://remixxer.com/app/) that uses free sound samples from freesound.org! Each instrument is a small audio file that contains all the notes played on a real instrument. When you play a song (midi file) the app will play-along, selecting the same musical note from the corresponding instrument audio sample. This is all done with Web Audio and samples loaded in memory:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick= "window.open("https://bit.ly/2TurtPU")"
+    src    = "https://bit.ly/3c3alXF"
+    alt    = "The remixer DAW workstation, a typical screenshot of a DAW with tracks, mix table etc."
+    title  = "The remixer DAW workstation, a typical screenshot of a DAW with tracks, mix table etc."
+  />
+</figure>
 
 
+The author of this course wrote a multitrack audio player: it loads different mp3 files corresponding to different instruments and play/loop them in sync.
+
+[You can try](https://mainline.i3s.unice.fr/) it or get [the sources on GitHub](https://github.com/squallooo/MT5). The documentation is in the help menu.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/2TurtPU")"
+    src    = "https://bit.ly/34yYNrc"
+    alt    = "Screenshot of MT5 a multitrack player"
+    title  = "Screenshot of MT5 a multitrack player"
+  />
+</figure>
+
+Try also this small demonstration that uses the [Howler.js](https://goldfirestudios.com/blog/104/howler.js-Modern-Web-Audio-Javascript-Library) library for loading sound samples in memory and playing them using WebAudio (we'll discuss this library later). Click on the main window and notice how fast the sound effects are played. Click as fast as you can!
+
+[Try the explosion demo at JSBin](https://jsbin.com/gefezu/edit):
+
+[Local Demo](src/01e-example22.html)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open("https://bit.ly/2TurtPU")"
+    src    = "https://bit.ly/34MxZE9"
+    alt    = "Screenshot of an example that plays sound in memory. It's an explosion framework based on a particle system"
+    title  = "Screenshot of an example that plays sound in memory. It's an explosion framework based on a particle system"
+  />
+</figure>
+
+
+#### Notes for 1.5.8 Sound samples loaded in memory
+
++ Applications w/ audio im memory
+  + no streaming/decoding in real time $\to$ less CPU used
+  + possible to play in-memory samples in sync w/ great precision
+  + possible to make loops, add effects, change the playback rate, etc.
+  + no wait time to start playing
 
 
 ### 1.5.9 Load and play sound samples
