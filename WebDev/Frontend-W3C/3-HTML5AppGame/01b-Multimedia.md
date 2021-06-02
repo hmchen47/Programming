@@ -295,7 +295,7 @@ Now, it's time to look at the twin brother of an HTML track: the corresponding `
     + display status: `displayTrackStatus(htmlTracks);`
   + display track status: `function displayTrackStatuses(htmlTracks) {...}`
     + iterate through tracks: `for (var i=0; i < htmlTracks.length; i++) {...}`
-    + display info: `trackStatusesDiv.innerHTML += "<li><b>Track:" + i + ":</b></li>" + "<url>" + label + kind + lang + readyState + "</ul>"`
+    + display info: `trackStatusesDiv.innerHTML += "<li><b>Track:" + i + ":</b></li>" + "<ul>" + label + kind + lang + readyState + "</ul>"`
 
 + Values of `readyState` attribute
   + __0 = NONE__: the text track's cues not obtained
