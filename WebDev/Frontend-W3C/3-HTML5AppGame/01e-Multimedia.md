@@ -2348,7 +2348,56 @@ __Explanations:__
 
 ### 1.5.10 Sound samples and effects
 
+Any of the effects that discussed during these lectures (gain, stereo panner, reverb, compressor, equalizer, analyser node for visualization, etc.) may be added to the audio graphs that we have built in our sound sample examples.
 
+Below, we have mixed the code from two previous examples:
+
+[This one at JSBin](https://jsbin.com/vejocav/edit?html,css,js,output):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open("https://bit.ly/3uOirdC")"
+    src    = "https://bit.ly/2St4DY8"
+    alt    = "audio player with volume meters and waveform"
+    title  = "audio player with volume meters and waveform"
+  />
+</figure>
+
+
+And [this one at JSBin](https://jsbin.com/nazega/edit?html,js,console,output) (picture taken with the now discontinued FireFox WebAudio debugger, you should get similar results with the Chrome WebAudio Inspector extension):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3uOirdC")"
+    src    = "https://bit.ly/2RbHpWk"
+    alt    = "multiple sound samples played at different intervals and rates"
+    title  = "multiple sound samples played at different intervals and rates"
+  />
+</figure>
+
+And here is the result ([try it at JSBin](https://jsbin.com/coraso/edit?html,js,console,output)):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open("https://bit.ly/3uOirdC")"
+    src    = "https://bit.ly/3g0Ty98"
+    alt    = "Sound samples and 2D visualization"
+    title  = "Sound samples and 2D visualization"
+  />
+</figure>
+
+Here is the audio graph of this example (picture taken with the now discontinued FireFox WebAudio debugger, you should get similar results with the Chrome WebAudio Inspector extension):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3uOirdC")"
+    src    = "https://bit.ly/3g0nDp7"
+    alt    = "audio graph of the previous example"
+    title  = "audio graph of the previous example"
+  />
+</figure>
+
+Look at the source code on JSBin, it's a quick merge of the two previous examples.
 
 
 
