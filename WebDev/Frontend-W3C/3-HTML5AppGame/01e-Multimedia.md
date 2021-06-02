@@ -2428,7 +2428,61 @@ Many JavaScript libraries have been built on top of WebAudio. We recommend the f
 
 ### 1.5.12 Discussion and projects
 
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
 
+#### Suggested topics of discussion
+
++ Prior to this week, did you know that all the things presented in this course could be accomplished in a Web application? 
++ Which interesting tools / libraries have you found for using WebAudio?
++ Do you have any experience with audio processing? If so, please post a message in the forum as we need help designing a good sounding distortion effect/amp simulator for guitar!
+
+#### Optional projects
+
++ We would like to see the best audio visualizations possible! Drawing wave forms and frequency bars is so common!... Please show us some psychedelic animations or use something like this: 
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://bit.ly/3papfkv" ismap target="_blank">
+    <img style="margin: 0.1em;" height=150
+      src   = "https://bit.ly/3yUiFmp"
+      alt   = "vu meter analogicvu meter"
+      title = "vu meter analogicvu meter"
+    >
+    <img style="margin: 0.1em;" height=150
+      src   = "https://bit.ly/3wT3gkq"
+      alt   = "vu meter analogicvu meter"
+      title = "vu meter analogicvu meter"
+    >
+  </a>
+</div>
+
+
+By the way, look at this, too. It uses the techniques we saw for drawing volume meters: it animates different shapes and colors that follow the beat of the music.
+
+And here is an impressive music visualization example written by a student of this course.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick= "window.open("https://bit.ly/3papfkv")"
+    src    = "https://bit.ly/3yURVlM"
+    alt    = "audio visualization example"
+    title  = "audio visualization example"
+  />
+</figure>
+
++ And... we would like to see the ultimate audio or video player, with great effects: reverb, equalizer, stereo, compressor, etc.
++ __Make a graphic equalizer__: take the code from the example given in the course, mix it with the one from [the application that draws the frequency response of a single filter](https://webaudioapi.com/samples/frequency-response/), and make a multi-band graphic equalizer, perhaps inspired by this one:
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open("https://bit.ly/3papfkv")"
+      src    = "https://bit.ly/3g0YIlw"
+      alt    = "graphic equalizer"
+      title  = "graphic equalizer"
+    />
+  </figure>
+
++ __Sound sample project:__ try to make a small multi track player (load the files in memory like sound samples). You can get free multi track audio files [on this Web site](https://www.cambridge-mt.com/ms-mtk.htm) (or find real multi track songs by famous artists - many have been ripped from the Guitar Hero or Rock Band games and are available as Moog files on the Web).
++ __Audio samples:__ prepare a set of audio samples for the video game you will develop during Week 2. Register on [freesound.org](https://freesound.org/), download the sounds, prepare a small app that uses the BufferLoader utility that we presented in the course, add buttons to the page to play them, and why not add some effects, too?
 
 
 
