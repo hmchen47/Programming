@@ -2418,6 +2418,13 @@ Many JavaScript libraries have been built on top of WebAudio. We recommend the f
 + For writing musical applications, take a look at [ToneJS](https://github.com/Tonejs/Tone.js)!
 
 
+#### Notes for 1.5.11 Useful third party libraries
+
++ Useful 3rd party libraries
+  + [HowlerJS](https://howlerjs.com/)
+  + [Webaudiox](https://blog.jetienne.com/blog/2014/02/27/webaudiox-jsfx/)
+  + [ToneJS](https://github.com/Tonejs/Tone.js)
+
 
 ### 1.5.12 Discussion and projects
 
