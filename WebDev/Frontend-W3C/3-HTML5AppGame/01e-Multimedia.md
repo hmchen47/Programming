@@ -1956,7 +1956,7 @@ Try also this small demonstration that uses the [Howler.js](https://goldfirestud
 
 Use an `AudioBufferSourceNode` as the source of the sound sample in the Web Audio graph.
 
-There is a special node in Web Audio for handling sound samples, called an `AudioBufferSourceNode`.
+There is a special node in Web Audio for handling sound samples, called an [`AudioBufferSourceNode`](https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode).
 
 This node has different properties:
 
@@ -1973,6 +1973,8 @@ This node has different properties:
 __Before use, a sound sample must be loaded using Ajax, decoded, and set to the `buffer` property of an `AudioBufferSourceNode`.__
 
 Try the [example at JSBin](https://jsbin.com/botagas/edit?html,js,console,output):
+
+[Local Demo](src/01e-example23.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
@@ -2064,10 +2066,10 @@ JavaScript source code:
 
 __Explanations:__
 
-+ When the page is loaded, we first call the `loadSoundUsingAjax` function for loading and decoding the sound sample (line 16), then we define a click listener for the play button. Loading and decoding the sound can take some time, so it's an asynchronous process. This means that the call to `loadSoundUsingAjax` will return while the downloading and decoding is still in progress. We can define a click listener on the button anyway, as it is disabled by default (see the HTML code). Once the sample has been loaded and decoded, only then will the button be enabled (_line 42_).
++ When the page is loaded, we first call the `loadSoundUsingAjax` function for loading and decoding the sound sample (_line 16_), then we define a click listener for the play button. Loading and decoding the sound can take some time, so it's an asynchronous process. This means that the call to `loadSoundUsingAjax` will return while the downloading and decoding is still in progress. We can define a click listener on the button anyway, as it is disabled by default (see the HTML code). Once the sample has been loaded and decoded, only then will the button be enabled (_line 42_).
 + The `loadSoundUsingAjax` function will first create an `XmlHttpRequest` using the "new version of Ajax called XhR2" (described in detail during week 3). First we create the request (_lines 26-30_): notice the use of '`arrayBuffer`' as a `responseType` for the request. This has been introduced by Xhr2 and is necessary for binary file transfer. Then the request is sent (_line 52_).
-+ Ajax is an asynchronous process: once the browser receives the requested file, the `request`. onload callback will be called (it is defined at _line 33__), and we can decode the file (an mp3, the content of which must be uncompressed in memory). This is done by calling `ctx.decodeAudioData(file, successCallback, errorCallback)`.  When the file is decoded, the success callback is called (_lines 38-43_). We store the decoded buffer in the variable decodedSound, and we enable the button.
-+ Now, when someone clicks on the button, the `playSound` function will be called (_lines 55-61_). This function builds a simple audio graph: it creates an AudioBufferSourceNode (_line 57_), sets its buffer property with the decoded sample, connects this source to the speakers (_line 59_) and plays the sound. <span style="color: pink;">Source nodes can only be used once (a "fire and forget" philosophy), so to play the sound again, we have to rebuild a source node and connect that to the destination. This seems strange when you learn Web Audio, but don't worry - it's a very fast operation, even with hundreds of nodes.</span>
++ Ajax is an asynchronous process: once the browser receives the requested file, the `request.onload` callback will be called (it is defined at _line 33_), and we can decode the file (an mp3, the content of which must be uncompressed in memory). This is done by calling `ctx.decodeAudioData(file, successCallback, errorCallback)`.  When the file is decoded, the success callback is called (_lines 38-43_). We store the decoded buffer in the variable decodedSound, and we enable the button.
++ Now, when someone clicks on the button, the `playSound` function will be called (_lines 55-61_). This function builds a simple audio graph: it creates an `AudioBufferSourceNode` (_line 57_), sets its buffer property with the decoded sample, connects this source to the speakers (_line 59_) and plays the sound. <span style="color: pink;">Source nodes can only be used once (a "fire and forget" philosophy), so to play the sound again, we have to rebuild a source node and connect that to the destination. This seems strange when you learn Web Audio, but don't worry - it's a very fast operation, even with hundreds of nodes.</span>
 
 
 #### The `BufferLoader` Utility
@@ -2094,10 +2096,12 @@ __The BufferLoader utility object: useful for preloading sound and image assets_
 
 There are different approaches for dealing with this problem. During the HTML5 Coding Essentials and Best Practices course, we presented utility functions for loading multiple images. Here we use the same approach and have packaged the code into an object called the BufferedLoader.
 
-Example at JSBin that uses the BufferLoader utility:
+[Example at JSBin](https://jsbin.com/javoger/edit?html,js,console,output) that uses the BufferLoader utility:
+
+[Local Demo](src/01e-example24.html)
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick= "window.open("https://bit.ly/3uPRR3P")"
     src    = "https://bit.ly/3wPR5VC"
     alt    = "Example that loads two sounds and create two buttons for playing them"
@@ -2172,7 +2176,12 @@ After the call to `loadAllSoundSamples()` (_line 13_), when all the sound sample
 
 The `BufferLoader` utility object is created at _line 45_ and takes as parameters: 1) the audio context, 2) an array listing the URLs of the different audio files to be loaded and decoded, and 3) the callback function which is to be called once all the files have been loaded and decoded. This callback function should accept an array as its parameter: the array of decoded sound files.
 
-To study the source of the BufferLoaded object, look at the JavaScript tab in [the example at JSBin](https://jsbin.com/gegita/edit?html,js,console,output).
+To study the source of the BufferLoaded object, look at the JavaScript tab in [the example at JSBin](https://jsbin.com/gegita/edit?html,js,console,output). 
+
+[Local Demo](src/01e-example25.html)
+
+
+####  Example: Two Sound Samples
 
 __Playing the two sound samples at various playback rates, repeatedly__
 
@@ -2180,8 +2189,10 @@ This is a variant of the previous example (picture taken with the now discontinu
 
 [Example at JSBin](https://jsbin.com/zebokeg/edit?html,js,console,output):
 
+[Local Demo](src/01e-example26.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
     onclick= "window.open("https://bit.ly/3uPRR3P")"
     src    = "https://bit.ly/3vJ9nHZ"
     alt    = "Audio Graph used in the previous example source node -> gain -> compressor -> destination"
@@ -2246,6 +2257,81 @@ __Explanations:__
 + _Lines 11-15_: we make a loop for building multiple routes in the graph. The number of routes corresponds to the number of times that we want the same buffer to be played. Note that the random2 parameter enables us to randomize the playback rate of the source node that corresponds to the pitch of the sound. 
 + _Line 14_: this is where the sound is being played. Instead of calling source.start(), we call source.start(delay), this tells the Web Audio scheduler to play the sound after a certain time. 
 + The makeSource function builds a graph from one decoded sample to the speakers. A gain is added that is also randomized in order to generate shot sounds with different volumes (between 0.2 and 1.2 in the example). A compressor node is added in order to limit the max intensity of the signal in case the gain makes it peak.
+
+
+#### Notes for 1.5.9 Load and play sound samples
+
++ The [`AudioBufferSourceNode` object](https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode)
+  + used as the source of the sound sample in the Web Audio graph
+  + handling sound samples
+  + used only once
+  + properties:
+    + `buffer`: the decoded sound sample
+    + `loop`: boolean value, sound sample played as an infinite loop
+    + `loopStart`: a double value, in seconds, indicating the point in buffer where the loop restarts, default value = 0
+    + `loopEnd`: a double value, in seconds, indicating the point in buffer where the playing stops, default value = 0
+    + `playbackRate`: the speed factor, used to change the pitch of the sample
+    + `detune`: a k-rate AudioParam representing detuning of playback in cents, a logarithmic unit of measure used for musicl intervals
+
++ Example: `AudioBufferSourceNode` to load and decoding sound sample
+  + HTML snippet: `<button id="playButton" disabled=true>Play sound</buton>`
+  + Javascript snippet:
+    + declare global variables: `var ctx; var soundURL = 'https://.../shoot2.mp3'; vadr decodedSound;`
+    + init after DOM ready: `window.onload = function int() {...}`
+      + create audio ctx: `var audioContext = window.AudioContext || window.webkitAudioContext; ctx = new audioContext();`
+      + call to load and decode sound w/ Ajax: `loadSoundUsingAjax(soundURL);`
+      + add listener to play sound: `playButton.onclick = function(evt) { playSound(deciodedSound); };`
+    + load and decode sound w/ Ajax: `function loadSoundUsingAjax(url) {...}`
+      + open connecction: `var request = new XMLHttpRequest(); request.open('GET', url, true); request.responsType = 'arraybuffer';`
+      + decode asynchronously: `reuest.onload = function () {...}`
+        + log msg: `console.log("Sound loaded");`
+        + decode sound: `ctx.decodeAudioData(request.response. function(buffer) {//success}, function(e) {//errror} );`
+          + success: `console.log("Sound decoded"); decodedSound = buffer; playButton.disabled = false;`
+          + error: `console.log("error");`
+      + send the request: `request.send();`
+    + play sound<a name="playSound"></a>: `function playSound(buffer) {...}`
+      + build audio graph: `var bufferSource = ctx.createBufferSource(); bufferSource.buffer = buffer; bufferSource.connect(ctx.destiunation);`
+      + start to play the sound: `bufferSource.start();`
+
++ The `BufferLoader` utility
+  + usful for preloading and sound and image assets
+  + issue: assynchronlously request via Ajax
+  + applications w/ multiple sound samples: ensuring loaded and decoded them all before starting
+  + loading sound samples and triggering event individually $\to$ unable to ensure all sound samples loaded
+
++ Example: preloading sound samples w/ `BufferLoader`
+  + HTML snippet - buttons: `<button id="shot1Normal" disabled=true>Shot 1</button><button id="shot2Normal" disabled=true>Shot 2</button>`
+  + JavaScript snippet:
+    + set sound assets: `var listOfSoundSamplesURLs = ['https://.../shot1.mp3', 'https://.../shot2.mp3'];`
+    + init page after DOM ready: `window.onload = function init() {...};`
+      + create [audio context](#audioCtx)
+      + call to load lal sound samples: `loadAllSoundSamples();`
+    + build [audio graph and play](#playSound)
+    + decode samples: `function onSamplesDecoded(buffers) {...}`
+      + log msg: `console.log("all samples loaded and decoded");`
+      + enable buttons: `shot1Normal.disalbed = false; shot2Normal.disabled = false;`
+      + add click listener on button 1: `shot1Normal.onclick = function(evt) { playSampleNormal(buffers[0]); };`
+      + add click listener on button 2: `shot2Normal.onclick = function(evt) { playSampleNormal(buffers[1]); };`
+    + load all sound samles: `fucntion loadAllSoundSamples() {...}`
+      + create loader w/ callback `onSamplesDecoded`: `bufferLoader = new BufferLoader(ctx, listOfSoundSamplesURLs, onSampllesDecoded);`
+      + start loading adn decoding smaples: `bufferLoader.load();`
+
++ Example: playing 2 sound samples w/ different rates
+  + audio graph: source $\to$ gain $\to$ compressor $\to$ speakers
+  + make source: `function makeSource(buffer) {...}`
+    + create nodes: `var source = ctx.createBufferSource(); var compressor = ctx.createDynamicsCompressor(); cvar gain = ctx.createGain();`
+    + set gain node property: `gain.gain.value = 0.2 + Math.random();`
+    + assign sound samplle: `source.buffer = buffer;`
+    + connect nodes: `soource.connect(gain); gain.connect(compressor); compressor.connect(ctx.destiantion);`
+    + return the head of graph: `return source;`
+  + play different sound samples repeatedly: `function playSampleRepeated(buffer, rounds, interval, random, random2) {...}`
+    + set random values if not defined: `if (typeof random == 'undefined') {random = 0; }; if (typeof random2 == 'undefined' ) {random2 = 0; }`
+    + get current time: `var time = ctx.currentTime;`
+    + use a sound sample as multiple sound sources and play: `for (var i=0; i<sounds; i++) {...}`
+      + assign sound sample: `var source = makeSource(buffer);`
+      + assign playing rate: `source.playbackRate.value = 1 + Math.random() * random2;`
+      + assign the start time: `source.start(time + i * interval + Math.random() * random);`
+
 
 
 #### Knowledge check 1.5.9
