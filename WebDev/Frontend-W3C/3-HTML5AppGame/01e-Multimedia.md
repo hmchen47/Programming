@@ -2176,7 +2176,7 @@ After the call to `loadAllSoundSamples()` (_line 13_), when all the sound sample
 
 The `BufferLoader` utility object is created at _line 45_ and takes as parameters: 1) the audio context, 2) an array listing the URLs of the different audio files to be loaded and decoded, and 3) the callback function which is to be called once all the files have been loaded and decoded. This callback function should accept an array as its parameter: the array of decoded sound files.
 
-To study the source of the BufferLoaded object, look at the JavaScript tab in [the example at JSBin](https://jsbin.com/gegita/edit?html,js,console,output). 
+To study the source of the `BufferLoaded` object, look at the JavaScript tab in [the example at JSBin](https://jsbin.com/gegita/edit?html,js,console,output). 
 
 [Local Demo](src/01e-example25.html)
 
@@ -2341,8 +2341,8 @@ __Explanations:__
   a. They should be loaded and decoded, before being used.<br>
   b. All sound samples must be loaded before being used.<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: Indeed, all sound samples must be decoded and loaded into memory before playing with them. Due to the asynchronous nature of Ajax and of the decoding process, this operation can be tricky when you need to download and decode multiple sound samples before starting your application. This is why we recommend the BufferLoader utility.
 
 
 
