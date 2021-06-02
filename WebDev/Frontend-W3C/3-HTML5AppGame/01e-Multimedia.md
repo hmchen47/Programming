@@ -2407,11 +2407,15 @@ Look at the source code on JSBin, it's a quick merge of the two previous example
 
 
 
-
 ### 1.5.11 Useful third party libraries
 
+It's best practice to know the Web Audio API itself. Many of the examples demonstrated during this course may be hard to write using high-level libraries. However, if you don't have too many custom needs, such libraries can make your life simpler! Also, some libraries use sound synthesis that we did not cover in the course and are fun to use - for example, adding 8-bit sounds to your HTML5 game!
 
+Many JavaScript libraries have been built on top of WebAudio. We recommend the following:
 
++ HowlerJS: useful for loading and playing sound sample in video games. Can handle audio sprites (multiple sounds in a single audio file), loops, spatialization. Very simple to use. Try this [very simple example](https://jsbin.com/wuteqo/edit?html,js,output) we prepared for you at JsBin that uses HowlerJS!
++ [Webaudiox](https://blog.jetienne.com/blog/2014/02/27/webaudiox-jsfx/), and in particular a helper built with this library, jsfx for adding 8-bit procedural sounds to video games, without the need to load audio files. [Try the demo](https://jeromeetienne.github.io/webaudiox/examples/jsfx.html)! There is also a [sound generator](https://egonelbre.com/project/jsfx/) you can try. When you find a sound you like, just copy and paste the parameter values into your code.
++ For writing musical applications, take a look at [ToneJS](https://github.com/Tonejs/Tone.js)!
 
 
 
