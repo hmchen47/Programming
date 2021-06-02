@@ -631,11 +631,11 @@ This technique will be used in one of the next lessons, and we will show you how
       + the complete content of the WebVTT file
     + `activeCues`
       + used in event listeners while video playing
-      + corresponding to the cues located in the current tiem segment
+      + corresponding to the cues located in the current time segment
       + start and end time possibly overlapped but rare
       + returning a `TextTrackCueList` object
   + methods
-    + `addCue(cue)`: add a cue tot he list of cues
+    + `addCue(cue)`: add a cue to the list of cues
     + `removeCue(id)`: return a cue from the list of cues
     + `getCueById(id)`: return the cue w/ a given `id`
 
@@ -648,7 +648,7 @@ This technique will be used in one of the next lessons, and we will show you how
     + not formatted String in the WebVTT file
 
   <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
       onclick= "window.open('https://bit.ly/3u8AKda')"
       src    = "https://bit.ly/3eYLZjM"
       alt    = "a webVtt file extract with arrows showing id, startTime, endTime and text"
@@ -662,7 +662,7 @@ This technique will be used in one of the next lessons, and we will show you how
   + empty displayed msg: `trackStatusesDiv.innerHTML = "";`
   + assign variable for cues: `var cues = track.cues;`
   + iterate through all cues in the track: `for (var i=0; i < cues.length; i++) {...}`
-    + set various variables w/ contents of cue: `var cue = cues[i]; var id = cue.id + "<br>"; var timeSegment = cue.startTime + " => " + "<br>"; var text = cue.text + "<P>";`
+    + set various variables w/ contents of cue: `var cue = cues[i]; var id = cue.id + "<br>"; var timeSegment = cue.startTime + " => " + "<br>"; var text = cue.text + "<p>";`
     + display the message: `trackStatusesDiv.innerHTML += id + timeSegment + text;`
 
 
