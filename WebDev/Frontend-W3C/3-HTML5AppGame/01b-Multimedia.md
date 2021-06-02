@@ -138,7 +138,7 @@ etc.
   + [document](https://bit.ly/33RJsl8) in HTML5/HTML5.1 specification
   + enabling to manipulate `<track>` contents from JavaScript
   + cue:
-    + element w/ an `id`, a starTime, and an endTime
+    + element w/ an `id`, a startTime, and an endTime
     + text content: containing HTML tags for styling or associated w/ a "voice"
     + voice element: `<v name_of_speaker> ... </v>`
   + example
