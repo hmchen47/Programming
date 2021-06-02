@@ -467,7 +467,7 @@ __Explanations:__
 + Accessing `TextTrack` object
   + obtaining from associated HTML track
     + access HTMl `track` element: `var htmlTracks = document.querySelectorAll("track");`
-    + `TextTrack` object associate w/ the 1st HTML track: `var textTrack = htmlTrack[0].track;`
+    + `TextTrack` object associated w/ the 1st HTML track: `var textTrack = htmlTrack[0].track;`
     + get 1st track attributes: `var kind = textTrack.kind; var label = textTrack.label; var lang = textTrack.language; ...`
   + obtaining from the HTML video/audio element
     + access video element: `var videoElement = document.querySelector("#myVideo");`
@@ -491,23 +491,23 @@ __Explanations:__
   + setting `mode` property as `showing` and `hidden` to force a track to be loaded
 
 + Example: button to load tracks
-  + creating HTML button
-    + `<button id="buttonLoadFirstTrack" onclick="forceLoadTrack(0);" disabled> Force load track 0 </button>`
-    + callback function to get track (forcing load if necessary): `forceLoadTrack(trackNumber)`
+  + HTML snippet
+    + creating HTML button: `<button id="buttonLoadFirstTrack" onclick="forceLoadTrack(0);" disabled> Force load track 0 </button>`
+    + callback function to get track (forcing load if necessary): `forceLoadTrack(trackNumber);`
     + get TextTrack object w/ associated HTML `<track>` element: `function getTrack(htmlTrack, callback): {...}`
-      + track variable: `var TextTrack = htmlTrack.track;`
-      + check track loaded: `if (htmlTrack.readySyaye === 2) {...}`
+      + declare variable: `var TextTrack = htmlTrack.track;`
+      + check track loaded: `if (htmlTrack.readyState === 2) {...}`
         + console log: `console.log("text track already loaded");`
         + exec callback function: `callback(textTrack);`
       + track not loaded yet:
         + console log: `console.log("Forcing the text track to be loaded");`
         + force to load track: `textTrack.mode = "hidden";`
-        + using an event listener while loading track: `htmlTrack.addEventListener('load', function(e) {callback(textTrack)});`
-  + JavaScript to download and display tracks
-    + force to load track: `function forceLoadTrack(n) (getTrack(htmlTracks[n], readContent);`
+        + use listener while loading track: `htmlTrack.addEventListener('load', function(e) {callback(textTrack);});`
+  + JavaScript snippet
+    + force to load track: `function forceLoadTrack(n) {getTrack(htmlTracks[n], readContent;}`
     + read and display track status: `function readContent(track) {...}`
       + console log: `console.log("reading content of loaded track ...");`
-      + update page w/ new track: `displayTrackStatuses(htmlTracks)`
+      + update page w/ new track: `displayTrackStatuses(htmlTracks);`
 
 
 #### Knowledge check 1.2.3
