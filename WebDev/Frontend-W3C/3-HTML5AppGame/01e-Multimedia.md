@@ -2354,6 +2354,8 @@ Below, we have mixed the code from two previous examples:
 
 [This one at JSBin](https://jsbin.com/vejocav/edit?html,css,js,output):
 
+[Local Demo](src/01e-example27.html)
+
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick= "window.open("https://bit.ly/3uOirdC")"
@@ -2366,6 +2368,8 @@ Below, we have mixed the code from two previous examples:
 
 And [this one at JSBin](https://jsbin.com/nazega/edit?html,js,console,output) (picture taken with the now discontinued FireFox WebAudio debugger, you should get similar results with the Chrome WebAudio Inspector extension):
 
+[Local Demo](src/01e-example28.html)
+
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick= "window.open("https://bit.ly/3uOirdC")"
@@ -2376,6 +2380,8 @@ And [this one at JSBin](https://jsbin.com/nazega/edit?html,js,console,output) (p
 </figure>
 
 And here is the result ([try it at JSBin](https://jsbin.com/coraso/edit?html,js,console,output)):
+
+[Local Demo](src/01e-example29.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
