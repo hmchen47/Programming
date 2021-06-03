@@ -831,10 +831,9 @@ Source code extract:
 
 #### Notes for 1.2.5 Listening to events
 
-+ Cue events
-  + types of events
-    + `enter` and `exit` events fired for cues
-    + `cuechange` events fired for `TextTrack` objects
++ Cue events:  types of events
+  + `enter` and `exit` events fired for cues
+  + `cuechange` events fired for `TextTrack` objects
 
 + Cue change event
   + event listener: `track.addEventListener("cueChange", function(e) {...});`
@@ -842,9 +841,9 @@ Source code extract:
     + console log: `console.log("cue change");`
   + assumption: no overlapped cues for the current time segment
   + video played $\to$ time counter increasing
-  + `this.activeCue;`: the list of cues in the current time segments, `this` representing the track firing the event
+  + `this.activeCue`: the list of cues in the current time segments, `this` representing the track firing the event
 
-+ cue enter and exit events
++ Cue enter and exit events
   + set variable for cues: `var cues = track.cues;`
   + iterate on all cues of the current track: `for (var i=0, len=cue.length; i < len; i++) {...}`
     + get current cue: `var cue = cues[i];`
@@ -857,8 +856,8 @@ Source code extract:
   + display cue contents: `function readContent(track) {...}`
   + console log: `console.log("adding cue change listener to loaded track...");`
   + empty msg: `trackStatusesDiv.innerHTML = "";`
-  + add cue change event listener: `track.addEventListener("cuechange", function(e){...})`
-    + access 1st active cues: `var cue = this.activeCues[0];`
+  + add cue change event listener: `track.addEventListener("cuechange", function(e){...});`
+    + access $i$th active cues: `var cue = this.activeCues[0];`
     + check the existence of cue: `if (cue !== undefined) {...}`
     + append info if cue existed: `trackStatusesDiv.innerHTML += "cue change: text = " + cue.text + "<br>"";`
   + play video: `video.play();`
