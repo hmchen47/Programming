@@ -1010,25 +1010,25 @@ JavaScript code:
     + init page after fully loaded: `function init() {...}`
       + access elements: `langButtonDiv = document.querySelector("#langButtonDiv"); currentLangButton = document.querySelector("#currentLang"); video = document.querySelector("#myVideo");`
       + log msg: `console.log("Number of tracks = " + video.textTracks.length);`
-      + display activeated track: `currentLangSpan.innerHTML = activeTrack();`
+      + display activated track: `currentLangSpan.innerHTML = activeTrack();`
       + build buttons: `buildButtons();`
     + active track: `function activeTrack() {...}`
       + iterate on tracks: `for (var i=0; i<video.textTracks.length; i++) {...}`
-      + showing mode: `if (video.textTrack[i].mode === 'showing') { return video.textTracks[i].label + " (" + video.textTracks[i].language + ")" }`
+      + showing mode: `if (video.textTrack[i].mode === 'showing') { return video.textTracks[i].label + " (" + video.textTracks[i].language + ")"; }`
       + other mode: `return "no substitle/caption selected";`
-    + builkd buttons: `function buildButtons() {...}`
+    + build buttons: `function buildButtons() {...}`
       + check the existence of track: `if (video.textTracks) {...}`
-      + create a button each track: `for (var i=0;i<video.textTracks; i++) {...}`
-        + access current track: `var track = video.textTracks[i];`
-        + skip mode not subtitles and captions: `if ((track.kind !== "subtitles") && (track.kind !== "captions")) continue;`
-        + create button: `createButton(video.textTracks[i]);`
+      + create a button each track: `for (var i=0;i<video.textTracks.length; i++) {...}`
+      + access current track: `var track = video.textTracks[i];`
+      + skip mode not subtitles and captions: `if ((track.kind !== "subtitles") && (track.kind !== "captions")) continue;`
+      + create button: `createButton(video.textTracks[i]);`
     + create button: `function createButton(track) {...}`
       + access element: `var b = document.createElement("button"); b.value = track.label;`
       + set `lang` attribute: `b.setAttribute("lang", track.language);`
       + add event listener: `b.addEventListener('click', function(e)) {...}`
         + get `lang` value: `var lang = this.getAttribute('lang');`
         + iterate tracks: `for (var i=0; i<video.textTracks.length; i++) {...}`
-        + same language: `if (video.textTracks[i].language == lang) { video.textTracks[i].mode = 'showing'; }1
+        + same language: `if (video.textTracks[i].language == lang) { video.textTracks[i].mode = 'showing'; }`
         + other language: `else { video.textTracks[i].mode = 'hidden'; }`
         + display the new active track: `currentLangSpan.innerHTML = activeTracl();`
       + create button label and add button to container: `b.appendChild(document.createTextNode(track.label)); langButtonDiv.appendChild(b);`
