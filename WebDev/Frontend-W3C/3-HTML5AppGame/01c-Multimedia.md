@@ -805,9 +805,9 @@ JavaScript code:
 #### Notes for 1.3.2 Captions, descriptions, chapters, and metadata
 
 + Example: display video description
-  + `mode` property: `disable`, `hidden`, or `showing`
+  + `mode` property: `disabled`, `hidden`, or `showing`
     + multiple tracks able to be any state
-    + event difference: `hiddent` tracks able to fire events while `disable` track unable to fire events
+    + event difference: `hidden` tracks able to fire events while `disabled` track unable to fire events
   + tasks
     + showing the use of the `mode` property
     + listening for cue event to capture the current subtitle/caption
@@ -818,19 +818,19 @@ JavaScript code:
       + MP4 video source: `<source src="https://.../sintel.mp4" type="video/mp4">`
       + Webm video source: `<source src="https://.../sintel.webm" type="video/webm">`
       + English caption: `<track src="https://.../sintel-cpations.vtt" kind=captions label="English Captions" default/>`
-      + audio descriptions:" `<track src="https://.../" kind=descriptions label="Audio Descriptions">`
-      + chapter markers: `<track src="https://.../" kind=chapters label="Chapter Markers">`
-      + thumbnail preview: `<track src="https://.../" kind=metadata label="Preview Thumbs">`
+      + audio descriptions:" `<track src="https://.../sintel-descriptions.vtt" kind=descriptions label="Audio Descriptions">`
+      + chapter markers: `<track src="https://.../sintel-chapters.vtt" kind=chapters label="Chapter Markers">`
+      + thumbnail preview: `<track src="https://.../sintel-thumbs.vtt" kind=metadata label="Preview Thumbs">`
     + clear subtitles: `<button onclick="clearSubtitlesCaptions();">Clear subtitles/captions log</button>`
     + button for English: `<button onclcik="toggleTracks(0);">Toggle english caption track mode</button>`
     + button for audio: `<button onclcik="toggleTracks(1);">Toggle audio description track mode</button>`
     + button for cpapter: `<button onclcik="toggleTracks(2);">Toggle chapter caption track mode</button>`
     + button for preview: `<button onclcik="toggleTracks(3);">Toggle preview thumbnail track mode</button>`
-    + containers for trac status & subtitle captions: `<p><div id="currentTrackStatuses"></div></p> <p><div id="subtitlesCaptions"></div></p>`
+    + containers for track status & subtitle captions: `<p><div id="currentTrackStatuses"></div></p> <p><div id="subtitlesCaptions"></div></p>`
   + Javascript snippet
-    + declar global variables: `var reacks, video, statusDiv, subtitlesCaptionsDiv;`
+    + declar global variables: `var tracks, video, statusDiv, subtitlesCaptionsDiv;`
     + init page while page loaded: `function init() {...}`
-      + access video, status, subtitlem and tracks elements: `video = document.querySelector(:#myVideo"); statusDiv = document.querySelector("currentTrackStatuses"); subtitlesCaptionsDiv = document.querySelector("#subtitleCations"); tracks = document.querySelectorAll("track");`
+      + access video, status, subtitle and tracks elements: `video = document.querySelector("#myVideo"); statusDiv = document.querySelector("currentTrackStatuses"); subtitlesCaptionsDiv = document.querySelector("#subtitleCations"); tracks = document.querySelectorAll("track");`
       + add event listener: `video.addEventListener('loadedmetadata', fucntion() {...});`
         + log msg: `console.log("metadata loaded");`
         + iterate to add event listeners for all cues: `for (var i=0; i<tracks.length; i++) { var t = tracks[i].track; if (t.mode === "showing") { t.addEventListener("cuechange", logCue, false) } }`
@@ -838,23 +838,23 @@ JavaScript code:
     + disply status of tracks: `function displayTrackStatus() {...}`
       + display the status / mode value of each track w/ color red if disable and color green if showing
       + iterate on all tracks: `for (var i=0; i<tracks.length; i++) {...}`
-        + declare variables: `vatr t = tracks[i].length; var mode = t.mode;`
-        + disable mode: `if (mode === "disable") { mode = "<span style='color: red'>" + t.mode + "</span>"; }`
+        + declare variables: `var t = tracks[i].length; var mode = t.mode;`
+        + disabled mode: `if (mode === "disabled") { mode = "<span style='color: red'>" + t.mode + "</span>"; }`
         + showing mode: `else if (mode === "showing") { mode = "<span style='color: green'>" + t.mode + "</span>" }`
         + append to container: `appendToScrollableDiv(statusDiv, "track" + i + ": " + t.label + " " + t.kind + " in " + mode + " mode");`
     + append to container: `function appendToScrollableDiv(div, text) {...}`
       + two scrollable divs
       + append text to the div passed as a parameter
       + declare variables: `var inner = div.innerHTML; div.innerHTML = inner + text + "<br/>";`
-      + appedn to the text: `div.scrollTop = div.scrollHeight;`
-    + empty div container: `function clearDiv(div) { div.innerHTML; }`
-    + empty subtitle container: `function clearSubstitutesCaptions() { clearDiv(subtitlesCaptionsDiv; }`
+      + append to the text: `div.scrollTop = div.scrollHeight;`
+    + empty div container: `function clearDiv(div) { div.innerHTML = ''; }`
+    + empty subtitle container: `function clearSubstitutesCaptions() { clearDiv(subtitlesCaptionsDiv); }`
     + toggle track mode: `function toggleTrack(i) {...}`
       + declare variable: `var t = tracks[i].track;`
       + deal w/ different modes: `switch (t.mode) {...}`
-        + disable mode: `case "disabled": t.addEventListener('cuechange', logCue, false); t.mode='hidden'; break;`
-        + hidden mode: `case "hidden": t.addEventListener('cuechange', logCue, flase); t.mode="showing"; break;`
-        + showing mode: `case "showing"; t.removeEventListener('curchange', logCue, flase); t.mode="disabled"; break;`
+        + disabld mode: `case "disabled": t.addEventListener('cuechange', logCue, false); t.mode='hidden'; break;`
+        + hidden mode: `case "hidden": t.mode="showing"; break;`
+        + showing mode: `case "showing": t.removeEventListener('curchange', logCue, flase); t.mode="disabled"; break;`
       + update status: `clearDiv(statusDiv); displayTrackStatus(); appendToScrollableDiv(statusDiv, "<br>" + t.label + " are now " + t.mode);`
     + callback for current event: `function logCue() {...}`
       + check active cue existed: `if (this.activeCues && this.activeCues.length) {...}`
