@@ -1180,7 +1180,7 @@ However, we will see how we can do better by using JSON objects as cue contents.
 
 + VebVTT file and chapters
   + using WebVTT files to define chapters
-  + task: display subtitles/caption in `.vtt` files
+  + task: display subtitles/caption into `.vtt` files
   + HTML snippet: [video element](#videoElmt)
   + no browser taking chapter track in account
   + example of `.vtt` file <a name="vtt"></a>
@@ -1199,7 +1199,7 @@ However, we will see how we can do better by using JSON objects as cue contents.
     ```
 
     + cue id: `chapter-` + chapter number
-    + start and edn time of the cue/chapter
+    + start and end time of the cue/chapter
     + description of the chapter: `Introduction`, `Watch out!`, etc.
 
 + Example: display English chapters
