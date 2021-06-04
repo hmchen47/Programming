@@ -497,15 +497,15 @@ JavaScript code:
       + English subtitle track: `<track label="Englisg subtitle" kind=subtitles srclang=en src="https://.../elephats-dream-subtitles-en.vtt">`
       + Deutsch subtitle track: `<track label="Deutsch subtitle" kind=subtitles srclang=de src="https://.../elephats-dream-subtitles-de.vtt">`
       + English capters track: `<track label="Englisg chapters" kind=chapters srclang=en src="https://.../elephats-dream-chapters-en.vtt">`
-    + button to load English transcript<a name="buttonEn"></a>: `<button disabled id="buttonEnglish" onclick="loadTranscript('en')>Display English transcript</button>`
-    + button to load German transcript<a name="buttonDe"></a>: `<button disabled id="buttonGerman" onclick="loadTranscript('de')>Display Deutsch transcript</button>`
+    + button to load English transcript<a name="buttonEn"></a>: `<button disabled id="buttonEnglish" onclick="loadTranscript('en');">Display English transcript</button>`
+    + button to load German transcript<a name="buttonDe"></a>: `<button disabled id="buttonDeutsch " onclick="loadTranscript('de');">Display Deutsch transcript</button>`
     + video container w/ various video sources and tracks
   + CSS style snippet<a name="css"></a>
     + cues color: `.cues {color: blue; }`
     + mouse hover cues: `.cues.hover{ text-decoration: underline; }`
     + current cue: `.cues.current{ color: black; font-weight: bold; }`
-    + Video container: `#myVideo{ display: block; float: left; margin-right: 3%; width: 66%; background-color: black; position: relative; }`
-    + transcript container: `#transcript{ paddin: 10px; border: 1px solid; float: left; max-height: 225px; overflow: auto; width: 25%; margin: 0; font-size: 14px; list-style: none; }`
+    + video container: `#myVideo{ display: block; float: left; margin-right: 3%; width: 66%; background-color: black; position: relative; }`
+    + transcript container: `#transcript{ padding: 10px; border: 1px solid; float: left; max-height: 225px; overflow: auto; width: 25%; margin: 0; font-size: 14px; list-style: none; }`
   + Javascript snippet
     + declare global variables: `var video, transcriptDiv; var tracks, trackElems, trackURLs = []; var buttonEnglish, buttonDeutsch;`
     + actions after page loaded<a name="pageLoad"></a>: `window.onload = function() {...}`
@@ -514,7 +514,7 @@ JavaScript code:
       + transcript container: `transcriptDiv = document.querySelector("#transcript");`
       + all tracks: `trackElems = document.querySelectorAll("track);`
       + get all URLs of vtt files: `for (var i=0; i<trackElms.length; i++) {...}`
-        + current track: `var currentTrackElem = trackElems[i];
+        + current track: `var currentTrackElem = trackElems[i];`
         + URL of current track: `tracksURLs[i] = currentTrackElem.src;`
       + English button: `buttonEnglish = document.querySelector("#buttonEnglish");`
       + Deutsch button: `buttonDeutsch = document.querySelector("#buttonDeutsch");`
@@ -525,19 +525,19 @@ JavaScript code:
       + set all track mode disabled: `disableAllTracks();`
       + iterate through all languages: `for (var i=0; i<tracks.length; i++) {...}`
         + access current track and element: `var track = tracks[i]; var trackAsHtmlElem = trackElems[i];`
-        + existence of language and kind of track id ok: `if ((track.language === lang) && (track.kind !== "chapter")) {...}`
+        + existence of language and kind of track id: `if ((track.language === lang) && (track.kind !== "chapter")) {...}`
         + change track mode: `track.mode = "showing";`
         + display track: `displayCues(track);`
-        + checktrack status: `if (trackAsHtml.readyState ==== 2) {...}`
-        + display function if ok: `displayCues(track);`
-        + download and display track: `displayCuesTrackLoaded(trackAsHtmlElem, track);`
+        + check track status: `if (trackAsHtml.readyState === 2) {...}`
+        + call to display function if ok: `displayCues(track);`
+        + call to download and display track: `displayCuesTrackLoaded(trackAsHtmlElem, track);`
         + add event listener for FireFox (no enter/exit events): `track.addEventListener("cuechange", function(e) {...})`
           + current cue: `var cue = this.activeCues[0];`
           + log msg: `console.log("cue change");`
           + get cue: `var transcriptText = document.getElementById(cue.id);`
           + change display style: `transcriptText.classList.add("current");`
     + download and display transcript<a name="downDisplay"></a>: `function displayCuesAfterTrackLoaded(trackElem, track) {...}`
-      + add event listener: `trackElem.addEventListener('load', dunction(e) {...})`
+      + add event listener: `trackElem.addEventListener('load', function(e) {...})`
       + log msg: `console.log("track loaded");`
       + call function to display cues: `displayCues(track);`
     + disable all tracks: `function disableAllTracks() {...}`
@@ -545,18 +545,18 @@ JavaScript code:
       + disable current track: `tracks[i].mode = "disabled";`
     + display all cues of current track: `function displayCues(track) {...}`
       + get all cues: `var cues = track.cues;`
-      + iterate on all cues: `for (var i=0; i<cues.length; i++) {...} (...)`
-        + get current cue andcall function to add event listener: `var cue = cues[i]; addCueListeners(cue);`
+      + iterate on all cues: `for (var i=0; i<cues.length; i++) {...}`
+        + get current cue and call function to add event listener: `var cue = cues[i]; addCueListeners(cue);`
         + call function to get all cues w/ voice `<v speaker>...</v>`: `var voices = getVoices(cue.text);`
         + declare transcript text variable: `var transText = "";`
         + voice existed: `if (voices.length >0) {...}`
           + existed: `for (var j=0; j<voices.length;j++) {transText += voices[j].voice + ": " + removeHTML(voices[j].text) });`
           + non-existed: `transText = cue.text;`
-        + declare clickable contents: `var clickableTransText = "<li class='cues' id=" + cue.id + "onclick="jumpTo(" + cue+startTime + ");" + ">" + transText + "</li>";`
+        + declare clickable contents: `var clickableTransText = "<li class='cues' id=" + cue.id + "onclick="jumpTo(" + cue.startTime + ");" + ">" + transText + "</li>";`
         + add to transcript container: `addToTranscriptDiv(clickableTransText);`
     + extract info for speaker and text<a name="extractInfo"></a>: `function getVoices(speech) {...}`
       + declare variables: `var voices = []; var pos = speech.indexOf('<');`
-      + iterate until `pos` not existed: `while(pos ~= -1) {...}`
+      + iterate until `pos` not existed: `while(pos != -1) {...}`
         + get various info: `endVoice = speech.indexOf('>'); var voice = speech.substring(pos + 2, endVoice).trim(); var endSpeech = speech.indexOf('</v>'); var text = speech.substring(endVoice + 1, endSpeech);`
         + append current voice: `voice.push({ 'voice': voice, 'text': text});`
         + move the position: `speech = speech.substring(endSpeech + 4); pos = speech.indexOf('<'));`
@@ -564,7 +564,7 @@ JavaScript code:
     + remove HTML `div` element<a name="removeHTML"></a>: `function removeHTML(text) {...}`
       + access `div` element: `var div = document.createElement('div');`
       + write given text: `div.innerHTML = text;`
-      + return required info: `return div.textContent || div.innerText || ";`
+      + return required info: `return div.textContent || div.innerText || '';`
     + jump to a given time to play video<a name="jumpStart"></a>: `function jumpTo(time) { video.currentTime = time; video.play(); }`
     + clear transcript container: `function clearTranscriptDiv() { transcriptDiv.innerHTML = ""; }`
     + add cue to transcript container: `function addToTranscriptDiv(htmlText) { transcriptDiv.innerHTML += htmlText; }`
@@ -573,7 +573,7 @@ JavaScript code:
         + log msg: `console.log('enter id =' + this.id);`
         + access transcript element: `vat transcriptText = document.getElementById(this.id);`
         + add highlighted style: `transcriptText.classList.add("current");`
-      + callback function for exit event: `function cue.onexit = function() {...};`
+      + callback function for exit event: `cue.onexit = function() {...};`
         + log msg: `console.log('exit id=' + cue.id);`
         + access transcript element: `var transcriptText = document.getElementById(this.id);`
         + remove highlighted style: `transcriptText.classList.remove("current");`
@@ -598,14 +598,14 @@ JavaScript code:
         + declare transcript: `var transcript = "";`
       + iterate all lines within callback: `for (var i=0; i<lines.length; i++) {...}`
       + extract identifier from the line and check existence for each iteration: `var identifier = pattern.exec(lines[i]); if (identifier) {...}`
-      + extract start time of the next line: `i++; var timecode = patternTimecode.exec(line[i]);`
+      + extract start time of the next line: `i++; var timecode = patternTimecode.exec(lines[i]);`
       + check start time: `if (timecode && i > lines.length) {...}`
         + get cue from the next line: `i++; var text = lines[i];`
-        + move to the next text line: `while (lines[i] !== " && i < lines.length) { text = text + '\n' + lines[i]; i++; }`
-        + extract the voice: `var transText = "; var voices = getVoices(text);`
-        + iterate for multiple voices and add to the transcript text: `if (voices.length > 0) { for (var j = 0; j<voices.length; j++) { transText += voices.length; j++) { transText += voices.voice + ':' + removeHTML(voices[i].text) + '<br>'} } }`
+        + move to the next text line: `while (lines[i] !== '' && i < lines.length) { text = text + '\n' + lines[i]; i++; }`
+        + extract the voice: `var transText = ''; var voices = getVoices(text);`
+        + iterate for multiple voices and add to the transcript text: `if (voices.length > 0) { for (var j = 0; j<voices.length; j++) { transText += voices.voice + ':' + removeHTML(voices[i].text) + '<br>'} } }`
         + not voice text: `else {transText = removeHTML(text) + '<br>'; }`
-      + append to transcript text: `transText += transText;`
+      + append to transcript text: `transcript += transText;`
       + send the Ajax request: `reqTrans.send();`
     + [extract voice](#extractInfo) from cues
     + [remove HTML](#removeHTML)
@@ -831,7 +831,7 @@ JavaScript code:
     + declar global variables: `var reacks, video, statusDiv, subtitlesCaptionsDiv;`
     + init page while page loaded: `function init() {...}`
       + access video, status, subtitlem and tracks elements: `video = document.querySelector(:#myVideo"); statusDiv = document.querySelector("currentTrackStatuses"); subtitlesCaptionsDiv = document.querySelector("#subtitleCations"); tracks = document.querySelectorAll("track");`
-      + add event listerner: `video.addEventListener('loadedmetadata', fucntion() {...});`
+      + add event listener: `video.addEventListener('loadedmetadata', fucntion() {...});`
         + log msg: `console.log("metadata loaded");`
         + iterate to add event listeners for all cues: `for (var i=0; i<tracks.length; i++) { var t = tracks[i].track; if (t.mode === "showing") { t.addEventListener("cuechange", logCue, false) } }`
         + display the tracks and their status/mode value: `displayTrackStatus();`
