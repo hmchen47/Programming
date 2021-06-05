@@ -1589,14 +1589,13 @@ This example is the same as the previous one except that we have kept the featur
 
 + WebVTT file w/ JSON
   + possible to use JSON as cue values
-  + absle to manipulate JSON from HavaScript
+  + able to manipulate JSON from JavaScript
   + able to be extracted JSON object w/ `cue.text`
   + a powerful way of embedding metadata
-  + particularlly used in conjuntion w/ listening for cue and track events
+  + particularly used in conjunction w/ listening for cue and track events
 
-
-+ Example: extracy JSON object from WebVTT file
-  + text withing curly brakets `{...}` as a JSON object
++ Example: extract JSON object from WebVTT file
+  + text within curly brackets `{...}` as a JSON object
 
     ```json
     WEBVTT
@@ -1629,15 +1628,15 @@ This example is the same as the previous one except that we have kept the featur
     chapter-1
     00:00:00.000 --> 00:00:26.000
     {
-    "description": "Introduction",
-    "image": "introduction.jpg"
+      "description": "Introduction",
+      "image": "introduction.jpg"
     }
     
     chapter-2
     00:00:28.206 --> 00:01:02.000
     {
-    "description": "Watch out!",
-    "image": "watchOut.jpg"
+      "description": "Watch out!",
+      "image": "watchOut.jpg"
     }
     ...
     ```
@@ -1654,12 +1653,12 @@ This example is the same as the previous one except that we have kept the featur
       + build chapter navigation menu: `buildChapterMenu('en', 'chapters');`
     + create chapter menu: `function buildChapterMenu(lang, kind) {...}`
       + iterate on all tracks: `for (var i=0; i<tracks.length; i++) {...}`
-      + declar variables: `var track = tracks[i]; var trackAsHtmlElem = trackElems[i];`
-      + check language and kinnd of the current track: `if ((track.language === lang) && (track.kind === kind)) {...}`
+      + declare variables: `var track = tracks[i]; var trackAsHtmlElem = trackElems[i];`
+      + check language and kind of the current track: `if ((track.language === lang) && (track.kind === kind)) {...}`
         + almost same as [button click snippet](#buttonClick)
         + display chapter menu: `displayChapterMarkers(track);`
       + other than the same language and kind: `else { displayChapterMarkersAfterTrackLoaded(trackAsHtmlElem, track); }`
-    + display charter menu: `function displayChapterMarkers(track) {...}`
+    + display chapter menu: `function displayChapterMarkers(track) {...}`
       + declare variable: `var cues = track.cues;`
       + assign invisible value: `track.mode = "hidden";`
       + iterate on cues: `for (var i=0, len = cues.length; i<len; i++) {...}`
@@ -1672,13 +1671,13 @@ This example is the same as the previous one except that we have kept the featur
       + add listener after track loaded: `trackElem.addEventListener('load', function(e){...});`
       + log msg: `console.log('chapter track loaded');`
       + display chapter menu: `displayChapterMarkers(track);`
-    + play video from given started time: `function jumpTo(time) {...}`
+    + play video from given start time: `function jumpTo(time) {...}`
       + set start time: `video.currentTime = time;`
       + play video: `play.video();`
   + CSS style
     + chapter menu: `#chapterMenuSection { background-color: lightgrey; border-radius: 10px; padding: 20px; border: 1px solid; display: inline-block; margin: 0px 30px 30px 30px; width: 90% }`
-    + image: `fiure.img{ margin: 2px; floadt: left; }`
-    + descrition: `figcaption.desc { yexy-align: center; fong-weight: normal; margin: 2px; }`
+    + image: `figure.img{ margin: 2px; float: left; }`
+    + description: `figcaption.desc { text-align: center; font-weight: normal; margin: 2px; }`
     + thumbnail img: `.thumb { height: 75px; border: 1px solid #000; margin: 10px 5px 0 0; box-shadow: 5px 5px 5px grey; transition: all 0.5s; }`
     + thumbnail hover: `.thumb.hover { box-shadow: 5px 5px 5px black; }`
 
