@@ -490,42 +490,42 @@ All the critical work is done by the `cuechange` event listener, _lines 27-50_. 
 
 + Example: video tracks w/ JSON cue to sync Google map views
   + a demo by Sam Dutton
-  + active cue changed $\to$ the Google map and equivalent Google strret view updated
+  + active cue changed $\to$ the Google map and equivalent to Google street view updated
   + example of cue content: `{"lat":37.4219276, "lng":-122.088218, "t":1331363000}`
   + cue events and cue content
     + access cue DOM object: `var videoElement = document.querySelector("#myvideo");`
     + access 1st track: `var textTracks = videoElement.textTracks; var textTrack = textTracks[0];`
-    + get a cue w/ ID="wikipedia": `var cue = textTrack.getCueById("Wikipedia");`
+    + get a cue w/ id="wikipedia": `var cue = textTrack.getCueById("Wikipedia");`
   + add event listeners to cue object
-    + enter event: `cue.onenter = function() { // display sth, play a sound, update any DOM element ... };`
-    + exit event: `cue.onexit = function() { // so sth else };`
+    + enter event: `cue.onenter = function() { // display sth, play a sound, update any DOM element... };`
+    + exit event: `cue.onexit = function() { // do sth else };`
   + implement [`getCueById`](#getCueById) if not support
 
-+ Example: display wikipedia page and a google map while a video playing
++ Example: display wikipedia page and a Google map while a video playing
   + HTML snippet
-    + video element: `<video id="myVideo" controls crossporigin="anonymous"> ... </video>`
-      + mp4 source: `<source src="https://.../mooc/sauraiPizzacat.mp4" type="video/mp4">...</source>`
-      + ctt track: `<track label="urls track" src="https://.../SamuraiPizzaCat-metadata.vtt" kind="metadata"></track>`
+    + video element: `<video id="myVideo" controls crossorigin="anonymous"> ... </video>`
+      + mp4 source: `<source src="https://.../mooc/samuraiPizzacat.mp4" type="video/mp4">...</source>`
+      + vtt track: `<track label="urls track" src="https://.../samuraiPizzacat-metadata.vtt" kind="metadata"></track>`
     + map container: `<div id="map"></div>`
     + iframe container: `<aside><iframe sandbox="allow-same-origin" id="myIframe"></frame></aside>`
     + Google map: `<script src="https://maps.google.com/maps/api/js?sensor=false"></script>`
   + JavaScript snippet:
     + init page after DOM ready: `window.onload = function() {...}`
-      + access elements: `var videoElement = document.querySelector("myVideo"); var myIFrame = document.querySelector("#myIframe"); var currentURLSpan = document.querySelector("#currentURL");`
-      + access cue: `var textTracks = videoElement.textTrack; var textTrack = textTrack[0];`
+      + access elements: `var videoElement = document.querySelector("#myVideo"); var myIFrame = document.querySelector("#myIframe"); var currentURLSpan = document.querySelector("#currentURL");`
+      + access cue: `var textTracks = videoElement.textTrack; var textTrack = textTracks[0];`
       + change mode: `textTrack.mode = "hidden";`
       + set position on google map: `var centerpos = new google.maps.LatLng(48.579400, 7.7519);`
       + set google map options: `var optionsGmaps = { center: centerpos, navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL}, mapTypeId: google.maps.MapTypedId.ROADMAP, zoom: 15 };`
       + init map object: `var map = new google.maps.Map(document.getElementById("map"), optionsGmaps);`
       + add cuechange event listener: `textTrack.oncuechange = function() {...}`
         + access active cue: `var cue = this.activeCues[0];`
-        + exit if not available: `if (cue === undefined) return;`
+        + exist if not available: `if (cue === undefined) return;`
         + convert text to JSON object: `var cueContentJSON = JSON.parse(cue.text);`
         + different actions according to mode: `switch(cueContentJSON.type) {...}`
         + WikipediaPage case: `case "WikipediaPage": var myURL = cueContentJSON.url; var myLink = "<a href=\"" + myURL + "\">" + "</a>"; currentURLSPan.innerHTML = myLink; myIFrame.src = myURL; break;`
-        + LongLat case: `drawPosition(cueContentJSON.lobg, cueContentJSON.lat); break;`
-    + set marker on Google map: `function drawPosition(long, lat) {...}`
-      + create new object for map: `var latlng = new google.maps.LatLng(lat, long);`
+        + LngLat case: `drawPosition(cueContentJSON.lng, cueContentJSON.lat); break;`
+    + set marker on Google map: `function drawPosition(lng, lat) {...}`
+      + create new object for map: `var latlng = new google.maps.LatLng(lat, lng);`
       + add marker at position: `var marker = new google.maps.Marker({ position: latlng, map: map, title: "You are here" });`
       + center map on longitude and latitude: `map.panTo(latlng);`
 
