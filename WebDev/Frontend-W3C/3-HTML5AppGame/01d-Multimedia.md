@@ -265,7 +265,7 @@ HTML source code extract:
       + declare cue: `var cue = track.getCueById(id);`
       + add start and end times: `audio.currentTime = cue.startTime; endTime = cue.endTime;`
       + play audio: `play.audio();`
-    + create all listeners for all buttons: `var buttons = document.querySelectorAll("button.playSound");`
+    + access all buttons: `var buttons = document.querySelectorAll("button.playSound");`
     + iterate on adding click events: `for (var i=0; i<button.length; i++) { buttons[i].addEventListener("click", function(e) { playSound(this.id); }); }`
 
 
