@@ -232,7 +232,7 @@ HTML source code extract:
     + JavaScript snippet to implement `getCueById`<a name="getCueById"></a>
       + check the type of track: `if (typeof track.getCueById !== "function") {...}`
       + callback function: `track.getCueById = function(d) {...};`
-      + access cues: `var cues = track.track,cues;`
+      + access cues: `var cues = track.cues;`
       + iterate on cues: `for (var i=0; i<track.cues.length; i++) { if (cues[i].id === id) { return cues[i]; } }`
 
 + Example: add cues to a track on the fly
@@ -242,28 +242,28 @@ HTML source code extract:
     + parameters
       + `kind`: str; possible values - `subtitles`, `captions`, `chapters`, etc.
       + `label`: str, optional; description of the track
-      + `language`: str, optional; usually used abbreviation from BCP-47, like, 'en', 'fr', 'de', etc.
+      + `language`: str, optional; usually using abbreviation from BCP-47, like, 'en', 'fr', 'de', etc.
   + VTTCue constructor
     + enable to create cue class-instances programmatically
     + create a cue instance by using `new` keyword
   + HTML snippet: `<div id="soundButtons" class="isSupported"></div>`
   + JavaScript snippet
     + init page w/ DOM ready: `window.onload = funct() {...}`
-      + create audio element: `var audio = newAudio("https://.../nimalSounds.mp3");`
+      + create audio element: `var audio = newAudio("https://.../animalSounds.mp3");`
       + add event listener after metadata loaded: `audio.addEventListener("loadedmetadata", function() {...});`
-        + add track info: `var track = audio.adTextTrack("metadata", "sprite track", "en");`
+        + add track info: `var track = audio.addTextTrack("metadata", "sprite track", "en");`
         + assign track mode: `track.mode = "hidden";`
       + implement w/ browser w/o [getCueById](#getCueById)
     + declare [sound array](#sounds)
     + iterate on each sound: `for (var i=0; i !== sounds.length; i++) {...}`
-      + create new cue and addign value: `var cue = new VTTCue(sound.startTime, sound.endTime, sound.id); cue.id = sound.id;`
+      + create new cue and add value: `var cue = new VTTCue(sound.startTime, sound.endTime, sound.id); cue.id = sound.id;`
       + add cue to track: `track.addCue(cue);`
       + create button adn add to HTML document: `document.querySelector("#soundButtons").innerHTML += "<button class='playSound' id=" + sound.id + ">" + sound.id + "</button>";`
     + declar end time: `var endTime;`
     + add listener for end time: `audio.addEventListener("timeupdate", function(evt) { if (evt.target.currentTime > endTime) evt.target.pause(); })`
     + play sound: `function playSound(id) {...}`
       + declare cue: `var cue = track.getCueById(id);`
-      + add start and end times: `audi.currentTime = cue.startTime; endTime = cue.endTime;`
+      + add start and end times: `audio.currentTime = cue.startTime; endTime = cue.endTime;`
       + play audio: `play.audio();`
     + create all listeners for all buttons: `var buttons = document.querySelectorAll("button.playSound");`
     + iterate on adding click events: `for (var i=0; i<button.length; i++) { buttons[i].addEventListener("click", function(e) { playSound(this.id); }); }`
