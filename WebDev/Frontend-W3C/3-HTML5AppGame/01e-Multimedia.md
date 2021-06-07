@@ -293,7 +293,7 @@ Web Audio nodes are implemented natively in the browser. The Web Audio framework
 [Transcript Download](https://bit.ly/2RJV8Uw)
 
 
-#### The MediaSourceElement node
+#### The MediaElementSource node
 
 In the previous lesson, we encountered the MediaElementSource node that is used for routing the sound from a `<video>` or `<audio>` element stream. The above video shows how to make a simple example step by step, and how to setup FireFox for debugging Web Audio applications and visualize the audio graph.
 
@@ -332,7 +332,7 @@ In the following lessons, we will see the different nodes that are useful with s
 
 #### Notes for 1.5.2 Working with streamed content
 
-+ Example: the MediaSourceElement` node
++ Example: the `MediaElementSource` node
   + HTML snippet
     + audio element<a name="audioElem"></a>: `<audio id="player" controls crossorigin="anonymous" loop>...</audio>`
     + source element<a name="guitarElem"></a>: `<source src="https://.../guitarRiff1.mp3">`
@@ -343,7 +343,7 @@ In the following lessons, we will see the different nodes that are useful with s
     + create source node: `var sourceNode = context.createMediaElementSource(mediaElement);`
     + connect source node to speaker: `sourceNode.connect(context.destination);`
   + using `context.createMediaElementSource(elem)` to build the `MediaElementSource` node
-  + `elem`: an `<audio>` or `<video>` element
+    + `elem`: an `<audio>` or `<video>` element
   + connecting source node to destination node directly w/o additional processing
 
 
