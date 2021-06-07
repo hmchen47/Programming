@@ -211,7 +211,7 @@ Web Audio nodes are implemented natively in the browser. The Web Audio framework
 #### Notes for 1.5.1 Introduction
 
 + Limitations of Standard APIs
-  + typical actions for `<audio>` and `<video>` elements: `<audio src="https://.../mooc/LaSueur,mp3">`
+  + typical actions for `<audio>` and `<video>` elements: `<audio src="https://.../mooc/LaSueur.mp3">`
     + initiate a network request to stream the content
     + deal w/ decoding/streaming/buffering the incoming data
     + render audio controls
@@ -220,7 +220,7 @@ Web Audio nodes are implemented natively in the browser. The Web Audio framework
     + making own controls via the JavaScript API of the `<audio>` and `<video>` elements
     + calling `play()` and `pause()`
     + reading/writing properties such as `currentTime`
-    + listen events, such as `ended`, `error`, `timeupdate`, etc.
+    + listening events, such as `ended`, `error`, `timeupdate`, etc.
     + managing a playlist, etc.
   + limitations
     + play multiple sounds or music in perfect sync
@@ -240,7 +240,7 @@ Web Audio nodes are implemented natively in the browser. The Web Audio framework
       + audio effects: delay, reverb, filter, stereo panner, etc.
       + audio analysis: used for creating fancy visualizations of real time signal
       + music synthesis (not covered)
-  + `BaseAudioContext` [interface](https://webaudio.github.io/web-audio-api/#BaseAudioContext)
+  + [`BaseAudioContext` interface](https://webaudio.github.io/web-audio-api/#BaseAudioContext)
     + not instantiated directly
     + extended by the concrete interfaces `AudioContext` and `OfflineAudioContext`
     + properties: `currentTime`, `sampleRate`, `destination`, `state`, `onstateChange`, `listener`, `audioWorklet`
@@ -251,7 +251,7 @@ Web Audio nodes are implemented natively in the browser. The Web Audio framework
 
 + Audio graph in devtools
   + Firefox: WebAudio debugger built-in devtools but discontinued in 2019
-  + Chrome: w/ extension named "WenAudio Inspector"
+  + Chrome: w/ extension named "WebAudio Inspector"
 
 + Example: Build audio routing graph
   + HTML snippet:
