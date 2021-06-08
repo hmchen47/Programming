@@ -519,7 +519,7 @@ See the [Convolver node's documentation](https://developer.mozilla.org/en-US/doc
 
 > [From Wikipedia:](https://en.wikipedia.org/wiki/Convolution) a convolution is a mathematical process which can be applied to an audio signal to achieve many interesting high-quality linear effects. Very often, the effect is used to simulate an acoustic space such as a concert hall, cathedral, or outdoor amphitheater. It can also be used for complex filter effects, like a muffled sound coming from inside a closet, sound underwater, sound coming through a telephone, or playing through a vintage speaker cabinet. This technique is very commonly used in major motion picture and music production and is considered to be extremely versatile and of high quality.
 
-E__ach unique effect is defined by an impulse response.__ An impulse response can be represented as an audio file and can be recorded from a real acoustic space such as a cave, or can be synthetically generated through a wide variety of techniques. We can find many high quality impulses on the Web (for example @@TJS OK? [here](https://www.kvraudio.com/forum/viewtopic.php?p=2102159)). The impulse used in the example is the one recorded at the opera: La Scala Opera of Milan, in Italy. It's a .wav file.
+__Each unique effect is defined by an impulse response.__ An impulse response can be represented as an audio file and can be recorded from a real acoustic space such as a cave, or can be synthetically generated through a wide variety of techniques. We can find many high quality impulses on the Web (for example @@TJS OK? [here](https://www.kvraudio.com/forum/viewtopic.php?p=2102159)). The impulse used in the example is the one recorded at the opera: La Scala Opera of Milan, in Italy. It's a .wav file.
 
 Try [this demo](https://webaudioapi.com/samples/room-effects/) to see the difference between different impulse files!
 
@@ -750,7 +750,7 @@ There is nothing special here compared to the other examples in this section, ex
   + access elements: `var gainExample = document.querySelector('#gainExample'); var gainSlider = document.querySelector('#gainSlider');`
   + create gain node: `var gainMediaElementSource = audioContext.createMediaElementSource(gainExample); var gainNode = audioContext.createGain();`
   + create connection btw gain node and destination: `gainMediaElementSource.connect(gainNode); gainNode.connect(audioContext.destination);`
-  + add listener for gain node: `gainSlide.oninput = function(evt) { gainNode.gain.value = evt.target.value; };`
+  + add listener for gain node: `gainSlider.oninput = function(evt) { gainNode.gain.value = evt.target.value; };`
 
 + [Stereo panner](https://developer.mozilla.org/en-US/docs/Web/API/StereoPannerNode)
   + the `StereoPannerNode` interface
@@ -787,10 +787,10 @@ There is nothing special here compared to the other examples in this section, ex
     + `type`: kind of filtering algorithm, including `lowpass`, `highpass`, `bandpass`, `lowself`, `highself`, `peaking`, `notch`, `allpass`
   + use of `frequency`, `detune` and `Q` depnding on type of filtering algorithm
   + demo: [frequency response of various filters](https://webaudioapi.com/samples/frequency-response/)
-  + multiple filtersoften used together
+  + multiple filters often used together
 
 + Example: Biquad filter
-  + create Audio context: `var ctx = window.AudioContext || window.webkitAuddioContext; var audioContext = new ctx();`
+  + create Audio context: `var ctx = window.AudioContext || window.webkitAudioContext; var audioContext = new ctx();`
   + access element for sliders: `var biquadExample = document.querySelector('#biquadExample'); var biquadFilterFrequencySlider = document.querySelector('#biquadFilterFrequencySlider'); var biquadFilterDetuneSlide = document.querySelector(#biquadFilterDetuneSlider'); var biquadFilterQSilder = document.querySelector('#biquadFilterQSlider'); var biquadFilterTypeSelector = document.querySelector('#biquadFilterTypeSelector');`
   + create source node: `var biquadExampleMediaElementSource = audioContext.createMediaElementSource(biquadExample);`
   + create filter node: `var filterNode = audioContext.createBiquadFilter();`
