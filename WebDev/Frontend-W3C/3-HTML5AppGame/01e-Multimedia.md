@@ -831,7 +831,7 @@ There is nothing special here compared to the other examples in this section, ex
   + load and convolve impulse: `function loadImpulse(url, callback) {...}`
     + set Ajax connection: `ajaxRequest = new XMLHttpRequest(); ajaxRequest.open('GET', url, true); ajaxRequest.responseType = 'arraybuffer';`
     + add listener for AJAX request: `ajaxRequest.onload = function {...}`
-      + access impulse data: `var impulseData = ajaxRequest.response;
+      + access impulse data: `var impulseData = ajaxRequest.response;`
       + decode impuse data: `audioContext.decodeAudioData(impulseData, function(buffer) { decodedImpulse = buffer; callback(); });`
     + add listener for AJAX error: `ajaxRequest.onerror = function(e) { console.log("Error with loading audio data" + e.err); };`
   + send convolved data: `ajaxRequest.send();`
@@ -856,13 +856,13 @@ There is nothing special here compared to the other examples in this section, ex
     + often used in musical production and game audio
   + properties
     + `threshold`: a k-rate AudioParam representing the decibel value above which the compression will start taking effect
-    + `knee`: a k-rate AudioParam containing a decibel value representing the range above the threshold where the curve smoothly transition tot the compressed portion
+    + `knee`: a k-rate AudioParam containing a decibel value representing the range above the threshold where the curve smoothly transition to the compressed portion
     + `ratio`: a k-rate AudioParam representing the amount of change, in dB, needed in the input for 1 dB change in the output
     + `attack`: a k-rate AudioParam representing the amount of time, in second, required to reduce the gain by 10 dB
     + `release`: a k-rate AudioParam representing the amount of time, in seconds, required to increase the gain by 10 dB
     + `reduction`: the amount of gain reduction currently applied by the compressor to the signal
   + sufficiently adding gain node to compress saturated sound
-  + properties of compressor mainly for musians, not going into detail here
+  + properties of compressor mainly for musicians, not going into detail here
 
 + Example: compressor node
   + HTML snippet
@@ -870,19 +870,19 @@ There is nothing special here compared to the other examples in this section, ex
     + gain slider: `<label for="gainSlider1">Gain</label><input type="range" min=0 max=10 step="0.01" value=8 id="gainSlider1" />`
     + toggle button for compressor: `<button id="compressorButton">Turn compressor On</button>`
   + JavaScript snippet
-    + create sudio context: `var ctx = window.AudioContext || widow.webkitAudioContext; var audioContext;`
-    + delcalre variables for compressor: `var compressorExample, gainSlider1, gainNode1, compressorNode; var compressorButton; var compressorOn = false;`
-    + init page fater DOM ready: `window.onload = fucntion() {...};`
+    + create audio context: `var ctx = window.AudioContext || widow.webkitAudioContext; var audioContext;`
+    + delcare variables for compressor: `var compressorExample, gainSlider1, gainNode1, compressorNode; var compressorButton; var compressorOn = false;`sa
+    + init page after DOM ready: `window.onload = function() {...};`
       + get AudioContext: `audioContext = new ctx();`
       + access elements: `compressorExample = document.querySelector('#compressorExample'); gainSlider1 = document.querySelector('#gainSlider1'); compressorButton = document.querySelector('#compressorButton');`
       + call to build audio graph: `buildAudioGraph();`
-      + add event for gain slider: `gainSlider1.oninpu = function(evt) { gainNode1.gain.value = evt.target.value; };`
-        + toggle conpressor button: `compressorButton.onclick = function(evt) {...};`
-          + On: `if (compressorOn) { compressorNode.disconnect(audioContext.destination); gainNode1.deconnect(compressorNode)}; gainNode1.connect(audioContext.destination); compressorButton.innerHTML = "Turn compresssor: On";`
-          + Off: `else { gainNode1.disconnect(audioContext.destination); gainNode1.connect(compressorNode); compressorNode.connect(audioContext.destination); compressorButton.innerHTML = "Turn ciompressor: Off" }`
-        + toggle status: `compressorOn = !compressorOn;`
+      + add event for gain slider: `gainSlider1.oninput = function(evt) { gainNode1.gain.value = evt.target.value; };`
+      + toggle conpressor button: `compressorButton.onclick = function(evt) {...};`
+        + On: `if (compressorOn) { compressorNode.disconnect(audioContext.destination); gainNode1.connect(compressorNode); gainNode1.connect(audioContext.destination); compressorButton.innerHTML = "Turn compressor: On"; }`
+        + Off: `else { gainNode1.disconnect(audioContext.destination); gainNode1.connect(compressorNode); compressorNode.connect(audioContext.destination); compressorButton.innerHTML = "Turn compressor: Off" }`
+      + toggle status: `compressorOn = !compressorOn;`
     + build audio graph: `function buildAudioGraph() {...}`
-      + crate nodes: `var gainMediaElementSource = audioContext.createMediaElementSource(compressorExample); gainNode1 = audioContexxt.createGain(); gainNode1.gain.value = parseFloat(gainSlider1.value); compressorNode = audioContext.createDynamicCompressor();`
+      + crate nodes: `var gainMediaElementSource = audioContext.createMediaElementSource(compressorExample); gainNode1 = audioContext.createGain(); gainNode1.gain.value = parseFloat(gainSlider1.value); compressorNode = audioContext.createDynamicCompressor();`
       + connect nodes: `gainMediaElementSource.connect(gainNode1); gainNode1.connect(audioContext.destination);`
 
 
