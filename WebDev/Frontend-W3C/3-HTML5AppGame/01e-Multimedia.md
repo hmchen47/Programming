@@ -1048,8 +1048,8 @@ And the example works in the same way, but this time with a video. Try moving th
 + Example: audio/video equalizer
   + HTML snippet
     + audio element: `<audio id="player" controls crossorigin="anonymous" loop><source src="https://.../drums.mp3"></audio>`
-    + 60Hz gain slider: `<div class="controls"><label>60Hz</label><input type="range" value=0 step=1 min=-30 max=30 oninput="changeGain(this.value, 0);"></input><output id="gain0()">0 dB</output></div>`
-    + 170Hz gain slider: `<div class="controls"><label>170Hz</label><input type="range" value=0 step=1 min=-30 max=30 oninput="changeGain(this.value, 0);"></input><output id="gain1()">0 dB</output></div>`
+    + 60Hz gain slider: `<div class="controls"><label>60Hz</label><input type="range" value=0 step=1 min=-30 max=30 oninput="changeGain(this.value, 0);"></input><output id="gain0">0 dB</output></div>`
+    + 170Hz gain slider: `<div class="controls"><label>170Hz</label><input type="range" value=0 step=1 min=-30 max=30 oninput="changeGain(this.value, 1);"></input><output id="gain1">0 dB</output></div>`
     + ...
   + JavaScript snippet
     + create [audio context](#audioCtx)
@@ -1057,7 +1057,7 @@ And the example works in the same way, but this time with a video. Try moving th
     + create source node<a name="srcNode"></a>: `var sourceNode = context.createMediaElementSource(mediaElement);`
     + create filters<a name="eqiualizer"></a>: `var filters = []; [60, 170, 350, 1000, 3500, 10000].forEach(function(freq, i) {...});`
       + create filter node: `var eq = context.createBiquadFilter();`
-      + set various properties: `eq,frequency.value = freq; eq.type = "peaking"; eq.gain.value = 0; filters.push(eq);`
+      + set various properties: `eq.frequency.value = freq; eq.type = "peaking"; eq.gain.value = 0; filters.push(eq);`
       + append created node to filters: `filters.push(eq);`
     + connect filters in sequence<a name="sequence"></a>: `sourceNode.connect(filters[0]); for (var i=0; i<filters.length-1; i++) { filters[i].connect(filters[i+1]); }`
     + connect last filter to destination: `filters[filters.length-1].connect(context.destination);`
