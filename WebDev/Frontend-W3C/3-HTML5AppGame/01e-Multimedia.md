@@ -1055,7 +1055,7 @@ And the example works in the same way, but this time with a video. Try moving th
     + create [audio context](#audioCtx)
     + access palyer element<a name="playerElem"></a>: `var mediaElement = document.getElementById('player');`
     + create source node<a name="srcNode"></a>: `var sourceNode = context.createMediaElementSource(mediaElement);`
-    + create filters<a name="eqiualizer"></a>: `var filters = []; [60, 170, 350, 1000, 3500, 10000].forEach(function(freq, i) {...});`
+    + create filters<a name="equalizer"></a>: `var filters = []; [60, 170, 350, 1000, 3500, 10000].forEach(function(freq, i) {...});`
       + create filter node: `var eq = context.createBiquadFilter();`
       + set various properties: `eq.frequency.value = freq; eq.type = "peaking"; eq.gain.value = 0; filters.push(eq);`
       + append created node to filters: `filters.push(eq);`
@@ -1533,15 +1533,15 @@ Source code from this example's the buildAudioGraph function:
 
 + Basic frequencies visualization
   + bar chart corresponding to a frequency range
-  + frequencies range dependning on sample rate of the signal (the audio source) and on the FFT size
+  + frequencies range depending on sample rate of the signal (the audio source) and on the FFT size
   + number of bars = the FFT size / 2
-  + the nth bar corresponding to the frequency range $N \times (\text{samplerate}/text{fftSize})$. example
-    + sameple rate: 44100 Hz
+  + the nth bar corresponding to the frequency range $N \times (\text{sampleRate}/\text{fftSize})$. example
+    + sample rate: 44100 Hz
     + FFT size: 512
-    + 1st bar: $[0, 44100/512) = [0, 86,12)$Hz
+    + 1st bar: $[0, 44100/512) = [0, 86.12)$Hz
     + number of data returned by the analyzer node: fftSize / 2
     + only half of the sample rate
-  + height: the stength of the specific freqnecy bucket
+  + height: the strength of the specific frequency bucket
 
 + Example: frequency visualization `function visualize() {...}`
   + clear the canvas: `canvasContext.clearRect(0, 0, width, height);`
@@ -1549,7 +1549,7 @@ Source code from this example's the buildAudioGraph function:
   + declare variables: `var barWidth = width / bufferLength; var barHeight; var x = 0; heightScale = height/128;`
   + iterate on buffer: `for (var i=0; i<bufferLength; i++) {...}`
     + set bar height: `barHeight = dataArray[i];`
-    + set bar color w/ red from lighter to darker: `canvasContext.fillStyle = 'rgb(' + (barHeight + 100) + ',50, 50);`
+    + set bar color w/ red from lighter to darker: `canvasContext.fillStyle = 'rgb(' + (barHeight + 100) + ', 50, 50)';`
     + rescale to canvas height: `barHeight += heightScale;`
     + draw the bar: `canvasContext.fillRect(x, height-barHeight/2, barWidth, barHeight/2);`
     + create the gap btw bars: `x += barWidth + 1;`
@@ -1562,9 +1562,9 @@ Source code from this example's the buildAudioGraph function:
   + create [filters](#equalizer)
   + connect [filters in sequence](#sequence)
   + set master volume in gain node: `masterGain = audioContext.createGain(); masterGain.value = 1;`
-  + connecct laster filter to gain node: `filters[filters.length - 1].connect(masterGain);`
+  + connect last filter to gain node: `filters[filters.length - 1].connect(masterGain);`
   + create stereo balancing and connect to gain and stereo nodes: `stereoPanner = audioContext.createStereoPanner(); masterGain.connect(stereoPanner);`
-  + connect stereo panner to analyser to destination<a name="stereoAnalyserDest"></a>: `stereoPlanner.connect(analyser); analyser.connect(audioContext.destination);`
+  + connect stereo panner to analyser to destination<a name="stereoAnalyserDest"></a>: `stereoPanner.connect(analyser); analyser.connect(audioContext.destination);`
 
 
 ### 1.5.7 Volume meters
