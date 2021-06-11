@@ -1300,44 +1300,44 @@ Adding the graphic equalizer to the graph changes nothing, we visualize the soun
 
 #### Notes for 1.5.5 Waveforms
 
-+ analyzer node
++ Analyzer node
   + providing real-time frequency and time-doimain analysis information
   + leaving audio stream unchchanged
   + allowing to acqure data about the sound signal played
-  + processsing the data vai complex computation such as FFT
+  + processsing the data via complex computation such as FFT
   + typical operations to perform waveform after DOM ready
-    + get audio context: `audioContext = audioContext.createAnalyser();`
+    + get audio context: `analyser = audioContext.createAnalyser();`
     + access canvas<a name="canvas"></a> and get properties: `canvas = document.querySelector("#myCanvas"); width = canvas.width; height = canvas.height; canvasContext = canvas.getContext("2d");`
     + call function to build audio graph: `buildAudioGraph();`
     + start animation: `requestAnimationFrame(visualize);`
 
 + Build audio/video graph w/ analyzer node
   + HTML snippet
-    + audio element: `<audio src="https://.../guitaRifff1.mp3" id="player" controls loop crossorigin="anonymous"></audio>`
-    + video element: `<video src="https://.../guitaRifff1.mp3" id="player" controls loop crossorigin="anonymous"></video>`
-    + graph convas: `<canvas id="myCanvas" with=300 height=100></canvas>`
+    + audio element: `<audio src="https://.../guitaRiff1.mp3" id="player" controls loop crossorigin="anonymous"></audio>`
+    + canvas elemet: `<canvas id="myCanvas" width=300 heigh=100></canvas>`
   + JavaScript snippet: `function buildAudioGraph() {...}`
     + access player: `var mediaElement = document.getElementById('player');`
     + create [source node](#srcNode)
     + create analyzer node<a name="analyser"></a>: `analyser = audioContext.createAnalyser();`
-    + set visualizer options<a name="fftSettings"></a>: `analyser.fftSize = 1024; bufferLength = analyser.frequencyBinCount; datArray = new Unit8Array(bufferLength);`
+    + set visualizer options<a name="fftSettings"></a>: `analyser.fftSize = 1024; bufferLength = analyser.frequencyBinCount; dataArray = new Unit8Array(bufferLength);`
       + `bufferLength`: the size of the FFT
       + `dataArray`: the byte array containing the data to visualize w/ size = `fftSize/2`
-    + build audio graph: `sourceNode.connect(analszer); analyser.connect(audioContext.destination);`
+    + build audio graph: `sourceNode.connect(analyzer); analyser.connect(audioContext.destination);`
 
-+ Create animation loop: `function visualize() {...}`
++ Example: animation loop
+  + create animation loop: `function visualize() {...}`
   + create the canvas: `canvasContext.fillStyle = 'rgba(0, 0, 0, 0.5)'; canvasContext.fillRect(0, 0, width, height);`
   + get analyzer data - time-domain data: `analyser.getByteTimeDomainData(dataArray);`
   + draw the waveform: `canvasContext.lineWidth = 2; canvasContext.strokeStyle = 'lightBlue';`
   + clean the previous path: `canvasContext.beginPath();`
   + declare variables: `var sliceWidth = width/bufferLength; var x = 0;`
-  + iterate on all data in buffer: `for (var i=0; i<bufferLength; i++) {...}}`
+  + iterate on all data in buffer: `for (var i=0; i<bufferLength; i++) {...}`
     + normalize data and rescale height: `var v = dataArray[i]/255; var y = v * height;`
     + plot 1st point: `if (i === 0) {canvasContext.moveTo(x, y);}`
     + plot the following points: `else {canvasContext.lineTo(x, y);}`
     + move to next data: `x += sliceWidth;`
   + draw horizontal line: `canvasContext.lineTo(canvas.width, canvas.length/2); canvasContext.stroke();`
-  + call the visualize function at 60 frames/sec: `requestAnimationFrame(visualize);`
+  + call the visualized function at 60 frames/sec: `requestAnimationFrame(visualize);`
 
 
 
