@@ -1807,15 +1807,15 @@ Here is a [codepen with my proposed meters](https://codepen.io/Sound_Spinning/pe
     + draw the average intensity w/ gradient-filled rectangle
   + draw volume meter: `function drawVolumeMeter() {...}`
     + save canvas ctx: `canvasContext.save();`
-    + get analyser data and their average: `analyser.getByteFrequencyData(dataArray); var average = getAverageVolume(dataAnalysis);`
+    + get analyser data and their average: `analyser.getByteFrequencyData(dataArray); var average = getAverageVolume(dataArray);`
     + set fill style: `canvasContext.fillStyle = gradient;`
     + draw the vertical meter: `canvasContext.fillRect(0, height-average, 25, height);`
     + restore ctx: `canvasContext.restore();`
   + get average volume: `function getAverageVolume(array) {...}`
     + declare variable: `var values = 0; var average; var length = array.length;`
-    + get all the frequency amplitude: `for (avr i=0; i<length; i++) {values += array[i]; }`
+    + get all the frequency ampitude: `for (avr i=0; i<length; i++) {values += array[i]; }`
     + get average value: `average = values/length; return average;`
-  + create gradient: `gradient = canvasContext.createLinearGradient(0, 0, 0, height); gradient.addColorStop(1, '#000000'); gradient.addColorStop(0.75, '#ff0000'); gradient.addColorStop(0.25, '#ffff00'); gradient.addColorStop(0, '#ffffff');`
+  + create gradient style: `gradient = canvasContext.createLinearGradient(0, 0, 0, height); gradient.addColorStop(1, '#000000'); gradient.addColorStop(0.75, '#ff0000'); gradient.addColorStop(0.25, '#ffff00'); gradient.addColorStop(0, '#ffffff');`
   + draw visualization: `function visualize() {...}`
     + empty canvas: `clearCanvas();`
     + draw waveform and volume meter: `drawVolumeMeter(); drawWaveform();`
@@ -1830,7 +1830,7 @@ Here is a [codepen with my proposed meters](https://codepen.io/Sound_Spinning/pe
   + audio graph
 
     <figure style="margin: 0.5em; text-align: center;">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
         onclick= "window.open("https://bit.ly/3uBXZfy")"
         src    = "https://bit.ly/3i4pvjn"
         alt    = "Audiograph from previous example"
@@ -1848,23 +1848,23 @@ Here is a [codepen with my proposed meters](https://codepen.io/Sound_Spinning/pe
     + set left channel: `analyserLeft.fftSize = 256; bufferLengthLeft = analyserLeft.frequencyBinCount; dataArrayLeft = new Unit8Array(bufferLengthLeft);`
     + set right channel: `analyserRight.fftSize = 256; bufferLengthRight = analyserRight.frequencyBinCount; dataArrayRight = new Unit8Array(bufferLengthRight);`
     + create and connect splitter node: `splitter = audioContext.createChannelSplitter(); stereoPanner.connect(splitter);`
-    + connect splitter to left/right analyser: `splitter.connect(analyserLeft, 0, 0); splitter.connect(analyserRight. 0. 0);`
+    + connect splitter to left/right analyser: `splitter.connect(analyserLeft, 0, 0); splitter.connect(analyserRight, 0, 0);`
   + draw volume meters: `function drawVolumeMeters() {...}`
     + save canvas ctx: `canvasContext.save();`
     + set fill style: `canvasContext.fillStyle = gradient;`
     + compute left channel data: `analyserLeft.getByteFrequencyData(dataArrayLeft); var averageLeft = getAverageVolume(dataArray);`
-    + draw vertical meter for left channel: `canvasContext.fillRect(0, height-averageLeft, 25 height);`
+    + draw vertical meter for left channel: `canvasContext.fillRect(0, height-averageLeft, 25, height);`
     + compute right channel data: `analyserRight.getByteFrequencyData(dataArrayRight); var averageRight = getAverageVolume(dataArray);`
-    + draw vertical meter for right channel: `canvasContext.fillRect(26, height-averageRight, 25 height);`
+    + draw vertical meter for right channel: `canvasContext.fillRect(26, height-averageRight, 25, height);`
     + restore canvas ctx: `canvasContext.restore();`
 
 + Accurate implementation of volume meter
   + the above method inaccurate in terms of real volume meter
   + cwilso approximation
     + [simple volume meter](https://github.com/cwilso/volume-meter)
-    + `var meter = createAudioMeter(audioContext,clipLevel,averaging,clipLag);`
+    + `var meter = createAudioMeter(audioContext, clipLevel, averaging, clipLag);`
   + SoundSpinning approximation
-    + using `getFloatTimeDomainData` from analyser w/ nmormalized array valued btw -1 and 1
+    + using `getFloatTimeDomainData` from analyser w/ normalized array valued btw -1 and 1
     + still not accurate but closer, e.g., 60kHz on canvas as audio smapling on 44.1kHz
 
 
