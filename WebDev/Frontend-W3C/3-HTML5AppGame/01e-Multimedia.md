@@ -2271,29 +2271,29 @@ __Explanations:__
     + `playbackRate`: the speed factor, used to change the pitch of the sample
     + `detune`: a k-rate AudioParam representing detuning of playback in cents, a logarithmic unit of measure used for musicl intervals
 
-+ Example: `AudioBufferSourceNode` to load and decoding sound sample
-  + HTML snippet: `<button id="playButton" disabled=true>Play sound</buton>`
++ Example: `AudioBufferSourceNode` to load and decode sound sample
+  + HTML snippet: `<button id="playButton" disabled=true>Play sound</button>`
   + Javascript snippet:
-    + declare global variables: `var ctx; var soundURL = 'https://.../shoot2.mp3'; vadr decodedSound;`
-    + init after DOM ready: `window.onload = function int() {...}`
+    + declare global variables: `var ctx; var soundURL = 'https://.../shoot2.mp3'; var decodedSound;`
+    + init after DOM ready: `window.onload = function init() {...}`
       + create audio ctx: `var audioContext = window.AudioContext || window.webkitAudioContext; ctx = new audioContext();`
       + call to load and decode sound w/ Ajax: `loadSoundUsingAjax(soundURL);`
-      + add listener to play sound: `playButton.onclick = function(evt) { playSound(deciodedSound); };`
+      + add listener to play sound: `playButton.onclick = function(evt) { playSound(decodedSound); };`
     + load and decode sound w/ Ajax: `function loadSoundUsingAjax(url) {...}`
-      + open connecction: `var request = new XMLHttpRequest(); request.open('GET', url, true); request.responsType = 'arraybuffer';`
-      + decode asynchronously: `reuest.onload = function () {...}`
+      + open connection: `var request = new XMLHttpRequest(); request.open('GET', url, true); request.responsType = 'arraybuffer';`
+      + decode asynchronously: `request.onload = function () {...}`
         + log msg: `console.log("Sound loaded");`
-        + decode sound: `ctx.decodeAudioData(request.response. function(buffer) {//success}, function(e) {//errror} );`
-          + success: `console.log("Sound decoded"); decodedSound = buffer; playButton.disabled = false;`
-          + error: `console.log("error");`
+        + decode sound: `ctx.decodeAudioData(request.response. function(buffer) {//success}, function(e) {//error} );`
+        + success: `console.log("Sound decoded"); decodedSound = buffer; playButton.disabled = false;`
+        + error: `console.log("error");`
       + send the request: `request.send();`
     + play sound<a name="playSound"></a>: `function playSound(buffer) {...}`
       + build audio graph: `var bufferSource = ctx.createBufferSource(); bufferSource.buffer = buffer; bufferSource.connect(ctx.destiunation);`
       + start to play the sound: `bufferSource.start();`
 
 + The `BufferLoader` utility
-  + usful for preloading and sound and image assets
-  + issue: assynchronlously request via Ajax
+  + useful for preloading and sound & image assets
+  + issue: asynchronously request via Ajax
   + applications w/ multiple sound samples: ensuring loaded and decoded them all before starting
   + loading sound samples and triggering event individually $\to$ unable to ensure all sound samples loaded
 
@@ -2303,24 +2303,24 @@ __Explanations:__
     + set sound assets: `var listOfSoundSamplesURLs = ['https://.../shot1.mp3', 'https://.../shot2.mp3'];`
     + init page after DOM ready: `window.onload = function init() {...};`
       + create [audio context](#audioCtx)
-      + call to load lal sound samples: `loadAllSoundSamples();`
+      + call to load all sound samples: `loadAllSoundSamples();`
     + build [audio graph and play](#playSound)
     + decode samples: `function onSamplesDecoded(buffers) {...}`
       + log msg: `console.log("all samples loaded and decoded");`
-      + enable buttons: `shot1Normal.disalbed = false; shot2Normal.disabled = false;`
+      + enable buttons: `shot1Normal.disabled = false; shot2Normal.disabled = false;`
       + add click listener on button 1: `shot1Normal.onclick = function(evt) { playSampleNormal(buffers[0]); };`
       + add click listener on button 2: `shot2Normal.onclick = function(evt) { playSampleNormal(buffers[1]); };`
-    + load all sound samles: `fucntion loadAllSoundSamples() {...}`
-      + create loader w/ callback `onSamplesDecoded`: `bufferLoader = new BufferLoader(ctx, listOfSoundSamplesURLs, onSampllesDecoded);`
-      + start loading adn decoding smaples: `bufferLoader.load();`
+    + load all sound samples: `function loadAllSoundSamples() {...}`
+      + create loader w/ callback `onSamplesDecoded`: `bufferLoader = new BufferLoader(ctx, listOfSoundSamplesURLs, onSamplesDecoded);`
+      + start loading and decoding samples: `bufferLoader.load();`
 
 + Example: playing 2 sound samples w/ different rates
   + audio graph: source $\to$ gain $\to$ compressor $\to$ speakers
   + make source: `function makeSource(buffer) {...}`
-    + create nodes: `var source = ctx.createBufferSource(); var compressor = ctx.createDynamicsCompressor(); cvar gain = ctx.createGain();`
+    + create nodes: `var source = ctx.createBufferSource(); var compressor = ctx.createDynamicsCompressor(); var gain = ctx.createGain();`
     + set gain node property: `gain.gain.value = 0.2 + Math.random();`
-    + assign sound samplle: `source.buffer = buffer;`
-    + connect nodes: `soource.connect(gain); gain.connect(compressor); compressor.connect(ctx.destiantion);`
+    + assign sound sample: `source.buffer = buffer;`
+    + connect nodes: `source.connect(gain); gain.connect(compressor); compressor.connect(ctx.destination);`
     + return the head of graph: `return source;`
   + play different sound samples repeatedly: `function playSampleRepeated(buffer, rounds, interval, random, random2) {...}`
     + set random values if not defined: `if (typeof random == 'undefined') {random = 0; }; if (typeof random2 == 'undefined' ) {random2 = 0; }`
