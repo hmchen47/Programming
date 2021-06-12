@@ -1944,13 +1944,11 @@ Try also this small demonstration that uses the [Howler.js](https://goldfirestud
 
 #### Notes for 1.5.8 Sound samples loaded in memory
 
-+ Applications w/ audio im memory
++ Applications w/ audio in memory
   + no streaming/decoding in real time $\to$ less CPU used
   + possible to play in-memory samples in sync w/ great precision
   + possible to make loops, add effects, change the playback rate, etc.
   + no wait time to start playing
-
-
 
 ### 1.5.9 Load and play sound samples
 
