@@ -333,6 +333,36 @@
     + making an app for creating on the fly subtitles/captions
     + etc.
 
++ [The `<track>` element](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-121-the-timed-text-track-api)
+  + typically within `<video>` and `<audio>` elements
+  + attributes
+    + `label`
+    + `kind`: subtitle, captions, chapters, matadata, etc.
+    + `srclang`: language
+    + `src`: a source URL
+    + ...
+
++ [Multiple tracks support](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-121-the-timed-text-track-api)
+  + supporting for multiple tracks probably different significantly btw browsers (May 2020)
+  + Safari
+    + providing a menu to choose which subtitle/track to display
+    + `default` attribute: loading the text track by default
+  + Chrome & Opera
+    + providing a subtitle menu
+    + loading the text track which matches the browser's language if existed
+    + none loaded if no matching
+  + Firefox
+    + providing a subtitle menu
+    + displaying the first defined text track only if the `default` set
+    + loading all tracks in memory as page loaded
+
++ [WebVTT text racks](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-121-the-timed-text-track-api)
+  + [document](https://bit.ly/33RJsl8) in HTML5/HTML5.1 specification
+  + enabling to manipulate `<track>` contents from JavaScript
+  + cue:
+    + element w/ an `id`, a startTime, and an endTime
+    + text content: containing HTML tags for styling or associated w/ a "voice"
+    + voice element: `<v name_of_speaker> ... </v>`
 
 
 ## Controls of `<audio>` and `<video>` elements
@@ -567,6 +597,13 @@
   + event
     + listen to these events using `addEventListener()` or by assigning an event listener to the `oneventname` property of this interface
     + `error`: fired when an error occurs, available via the `onerror` property
+
+
+## The Timed Text Track API
+
+
+
+
 
 
 ## Graphics and Animation
