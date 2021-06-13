@@ -608,8 +608,36 @@
 
 ## The Timed Text Track API
 
++ [The `TextTrack` object](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-123-the-texttrack-object)
+  + containing the cue, not HTML object itself
+  + w/ different methods and properties for manipulating track content
+  + associated w/ different events
 
++ [Accessing `TextTrack` object](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-123-the-texttrack-object)
+  + obtaining from associated HTML track
+    + access HTMl `track` element: `var htmlTracks = document.querySelectorAll("track");`
+    + `TextTrack` object associated w/ the 1st HTML track: `var textTrack = htmlTrack[0].track;`
+    + get 1st track attributes: `var kind = textTrack.kind; var label = textTrack.label; var lang = textTrack.language; ...`
+  + obtaining from the HTML video/audio element
+    + access video element: `var videoElement = document.querySelector("#myVideo");`
+    + all tracks w/ the video element: `var textTracks = videoElement.textTracks;`
+    + access 1st track element: `var textTrack = textTracks[0];`
+    + get 1st track attributes: `var kind = textTrack.kind; var mode = textTrack.mode; ...`
+  + content existed only if a track loaded
 
++ [The `mode` property of `TextTrack` objects](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-123-the-texttrack-object)
+  + `showing`
+    + track already loaded or being loaded by the browser
+    + displayed in the video once completely loaded
+    + firing event while video played
+  + `hidden`
+    + track ready loaded or being loaded by the browser
+    + firing events while video played
+    + nothing visible in the standard video player GUI
+  + `disabled`
+    + track not loaded
+    + stop firing events
+  + setting `mode` property as `showing` and `hidden` to force a track to be loaded
 
 
 
@@ -738,6 +766,9 @@
 ## Example: Track
 
 + Example: [Status of an HTML track](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-122-the-html-track-element)
+
++ Example: [button to load tracks](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-123-the-texttrack-object)
+
 
 
 
