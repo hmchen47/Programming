@@ -783,9 +783,9 @@ There is nothing special here compared to the other examples in this section, ex
     + `gain`
       + the gain used in the current filtering algorithm
       + positive value: corresponding to the boost, in dB, to be applied
-      + negative value: attentuation
+      + negative value: attenuation
     + `type`: kind of filtering algorithm, including `lowpass`, `highpass`, `bandpass`, `lowself`, `highself`, `peaking`, `notch`, `allpass`
-  + use of `frequency`, `detune` and `Q` depnding on type of filtering algorithm
+  + use of `frequency`, `detune` and `Q` depending on type of filtering algorithm
   + demo: [frequency response of various filters](https://webaudioapi.com/samples/frequency-response/)
   + multiple filters often used together
 
@@ -813,7 +813,7 @@ There is nothing special here compared to the other examples in this section, ex
   + impulse response
     + possibly represented as an audio file, decoded in memory before use
     + able to be recorded from a real acoustic space such as cave
-    + able to synthestically generated through a wide variety of techniques
+    + able to synthetically generated through a wide variety of techniques
 
 + Convolution
   + a mathematical process applied to an audio signal to achieve high-quality linear effect
