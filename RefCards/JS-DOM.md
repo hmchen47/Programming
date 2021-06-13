@@ -627,6 +627,44 @@
     + stop firing events
   + setting `mode` property as `showing` and `hidden` to force a track to be loaded
 
++ [Properties & methods of `TextTrack` object](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-124-working-with-cues)
+  + properties
+    + `kind`
+      + equivalent to `kind` attribute of HTML track elements
+      + possible values: `"subtitles"`, `"caption"`, `"description"`, `"chapters"`, or `"metadata"`
+    + `label`: the label of the track
+    + `language`: the language of the text track
+    + `mode`: values - "disabled"|"hidden"|"showing"
+    + `cues`
+      + a list of cues as a `TextTrackCueList` object
+      + the complete content of the WebVTT file
+    + `activeCues`
+      + used in event listeners while video playing
+      + corresponding to the cues located in the current time segment
+      + start and end time possibly overlapped but rare
+      + returning a `TextTrackCueList` object
+  + methods
+    + `addCue(cue)`: add a cue to the list of cues
+    + `removeCue(id)`: return a cue from the list of cues
+    + `getCueById(id)`: return the cue w/ a given `id`
+
++ [Properties & methods of `TexTrackCueList` object](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-124-working-with-cues)
+  + object: a collection of cues
+  + `ld`: the cue id as written in the starting line of the WebVTT file
+  + `startTime` and `endTime`:
+    + define the time segment for the cue, in second
+    + floating point value
+    + not formatted String in the WebVTT file
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://bit.ly/3u8AKda')"
+      src    = "https://bit.ly/3eYLZjM"
+      alt    = "a webVtt file extract with arrows showing id, startTime, endTime and text"
+      title  = "a webVtt file extract with arrows showing id, startTime, endTime and text"
+    />
+  </figure>
+
 
 
 
@@ -760,6 +798,7 @@
 
 + Example: [Accessing `TextTrack` object](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-123-the-texttrack-object)
 
++ Example: [display the content of a track](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-124-working-with-cues)
 
 
 
