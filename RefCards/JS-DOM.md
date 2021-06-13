@@ -671,7 +671,12 @@
   + HTML snippet: [video element](#videoElmt)
   + no browser taking chapter track in account
 
-
++ [WebVTT file w/ JSON](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-135-with-thumbnails-using-json-cues)
+  + possible to use JSON as cue values
+  + able to manipulate JSON from JavaScript
+  + able to be extracted JSON object w/ `cue.text`
+  + a powerful way of embedding metadata
+  + particularly used in conjunction w/ listening for cue and track events
 
 
 
@@ -845,6 +850,33 @@
 
 + Example: [clickable chapters](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-134-with-a-simple-chapter-navigation-menu)
 
++ Example: [extract JSON object from WebVTT file](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-135-with-thumbnails-using-json-cues)
+
++ Example: [chapter menu w/ description of chapter markers](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-135-with-thumbnails-using-json-cues)
+  + procedure: manually capture the images from the video file
+    + click on each chapter link to pause video
+    + using a screen capture tool to grape each image corresponding to the beginning of chapter
+    + resizing the images approximately 200x400 pixels
+  + WebVTT w/ chapter
+
+    ```json
+    WEBVTT
+    
+    chapter-1
+    00:00:00.000 --> 00:00:26.000
+    {
+      "description": "Introduction",
+      "image": "introduction.jpg"
+    }
+    
+    chapter-2
+    00:00:28.206 --> 00:01:02.000
+    {
+      "description": "Watch out!",
+      "image": "watchOut.jpg"
+    }
+    ...
+    ```
 
 
 
