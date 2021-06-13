@@ -364,6 +364,13 @@
     + text content: containing HTML tags for styling or associated w/ a "voice"
     + voice element: `<v name_of_speaker> ... </v>`
 
++ [Values of `readyState` attribute](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-122-the-html-track-element)
+  + __0 = NONE__: the text track's cues not obtained
+  + __1 = LOADING__: the text track loaded w/o errors yet, further cues able to be added to the track by the parser
+  + __2 = LOADED__: the text track loaded w/o errors
+  + __3 = ERROR__: the text track enabled but accessing failed, likely missing
+
+
 
 ## Controls of `<audio>` and `<video>` elements
 
@@ -726,6 +733,12 @@
 + Example: [buffering status](../WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#335-extended-examples)
 
 + Example: [customized player](../WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#335-extended-examples)
+
+
+## Example: Track
+
++ Example: [Status of an HTML track](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-122-the-html-track-element)
+
 
 
 
