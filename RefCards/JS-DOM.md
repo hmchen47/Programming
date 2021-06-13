@@ -668,6 +668,7 @@
 
 
 
+
 ## Graphics and Animation
 
 + [HTML5 canvas](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md)
@@ -799,6 +800,29 @@
 + Example: [Accessing `TextTrack` object](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-123-the-texttrack-object)
 
 + Example: [display the content of a track](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-124-working-with-cues)
+
++ Example: [clickable transcript](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-131-with-a-clickable-transcript-on-the-side)
+  + tasks:
+    + read a single subtitle file via buttons
+    + display the contents of the transcript file on the right container
+    + click on cue to force the video to jump to the corresponding location
+    + highlight the current text played
+  + implementing procedure
+    + not loading all tracks at the same time
+      + different browsers deciding when and which track to load
+      + click button to enforce the loading of the track if not loaded yet
+    + iterate through cues and generate the transcript as a set of `<li> ... </li>`
+    + define the `id` attribute of the `<li>` element
+      + get `id` when clicking on the cue
+      + find the corresponding cue start time
+      + make the video jump to the time location
+    + add `enter` and `exit` listeners
+      + use for highlighting the current cue
+      + Firefox no supported yet, using `cuechage` event listener instead
+
++ Example: [download vtt file w/ Ajax/XHR2](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-131-with-a-clickable-transcript-on-the-side)
+  + used prior to the track API available
+  + download WebVTT files using Ajax and parse manually
 
 
 
