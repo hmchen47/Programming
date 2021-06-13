@@ -2292,7 +2292,7 @@ __Explanations:__
       + start to play the sound: `bufferSource.start();`
 
 + The `BufferLoader` utility
-  + useful for preloading and sound & image assets
+  + useful for preloading sound & image assets
   + issue: asynchronously request via Ajax
   + applications w/ multiple sound samples: ensuring loaded and decoded them all before starting
   + loading sound samples and triggering event individually $\to$ unable to ensure all sound samples loaded
