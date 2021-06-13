@@ -665,6 +665,12 @@
     />
   </figure>
 
++ [VebVTT file and chapters](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-134-with-a-simple-chapter-navigation-menu)
+  + using WebVTT files to define chapters
+  + task: display subtitles/caption into `.vtt` files
+  + HTML snippet: [video element](#videoElmt)
+  + no browser taking chapter track in account
+
 
 
 
@@ -834,7 +840,10 @@
     + changing the mode of a track in video element by toggling on the button
 
 + Example: [subtitle language](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-133-with-buttons-for-choosing-the-subtitle-language)
-  + task: choose subtitle/caption track via button
+
++ Example: [display English chapters](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-134-with-a-simple-chapter-navigation-menu)
+
++ Example: [clickable chapters](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-134-with-a-simple-chapter-navigation-menu)
 
 
 
