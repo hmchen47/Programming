@@ -833,6 +833,8 @@
     + listening for cue event to capture the current subtitle/caption
     + changing the mode of a track in video element by toggling on the button
 
++ Example: [subtitle language](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-133-with-buttons-for-choosing-the-subtitle-language)
+  + task: choose subtitle/caption track via button
 
 
 
