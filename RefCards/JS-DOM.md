@@ -824,7 +824,14 @@
   + used prior to the track API available
   + download WebVTT files using Ajax and parse manually
 
-
++ Example: [display video description](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-132-captions-descriptions-chapters-and-metadata)
+  + `mode` property: `disabled`, `hidden`, or `showing`
+    + multiple tracks able to be any state
+    + event difference: `hidden` tracks able to fire events while `disabled` track unable to fire events
+  + tasks
+    + showing the use of the `mode` property
+    + listening for cue event to capture the current subtitle/caption
+    + changing the mode of a track in video element by toggling on the button
 
 
 
