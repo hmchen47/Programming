@@ -255,7 +255,7 @@ JavaScript:
 
 10. JSON and JavaScript objects
 
-  Replace the AAA placeholder (above) with the correct code (the number of letters is not significant, and do not include the ; statement terminator)
+  Replace the __AAA__ placeholder (above) with the correct code (the number of letters is not significant, and do not include the ; statement terminator)
 
   Ans: `JSON.parse(cue.text)` or `JSON.parse(cue.text);`<br>
   Explanation: The cue is read as a JSON encoded string. In order to turn it into a JavaScript object, you must use `JSON.parse(cue.text)`
@@ -263,7 +263,7 @@ JavaScript:
 
 11. Give me a description please!
 
-  What would you code (above) instead of the BBB placeholder? (the number of letters is not significant, and do not include the ; statement terminator)
+  What would you code (above) instead of the __BBB__ placeholder? (the number of letters is not significant, and do not include the ; statement terminator)
 
   Ans: `cueObject.description`<br>
   Explanation: Once the cue content has been decoded, it can be used as a normal JavaScript object. To access the description use `cueObject.description`
@@ -284,6 +284,256 @@ JavaScript:
   Ans: bef<br>
   Explanation: Only the `VTTCue` constructor, and the `addTextTrack` method and `addCue` methods, are valid.
 
+
+### 1.6.2 The Web Audio API (13-27)
+
+13. Can you do it?
+
+  What is NOT POSSIBLE using only an `<audio>` or a `<video>` element (without using WebAudio): (3 correct answers.)
+
+  a. Streaming audio or video content<br>
+  b. Making fancy visualizations which dance with the music<br>
+  c. Making custom play, stop, pause buttons, using JavaScript and methods from the API of these elements<br>
+  d. Managing a playlist, using JavaScript and events from the API of these elements<br>
+  e. Adding sound effects such as reverberation, filters, etc.<br>
+  f. Playing multiple audio or video files in _perfect synchronization_<br>
+  
+  Ans: <br>
+  Explanation: 
+
+
+14. Canvas and Web Audio
+
+  What do the HTML5 canvas API and the WebAudio API have in common?
+
+  a. They use a "context" object for calling methods and accessing properties<br>
+  b. They have nothing in common<br>
+  
+  Ans: <br>
+  Explanation: 
+
+
+<hr>
+
+__Source code for the next questions (15 and 16)__
+
+HTML:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;audio</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/drums.mp3"</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">id</span><span class="pun">=</span><span class="atv">"player"</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">controls</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">loop</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/audio&gt;</span></li>
+</ol></div><br>
+
+JavaScript:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> audioContext</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> player</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// get the AudioContext</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; audioContext </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">AudioContext</span><span class="pun">();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// the audio element</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; player </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#player'</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; buildAudioGraph</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> buildAudioGraph</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// create source node with the audio element stream</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> source </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><strong><span class="pln">AAA</span></strong><span class="pun">(</span><span class="pln">player</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// connect source node to the speaker</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; source</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><strong><span class="pln">BBB</span></strong><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+15. Use the source, Luke!
+
+  Replace the __AAA__ placeholder (above) with the correct code
+  
+  Ans: <br>
+  Explanation: 
+
+
+16. Show me where to go!
+
+  What would you code (above) instead of the __BBB__ placeholder?
+  
+  Ans: <br>
+  Explanation: 
+
+
+17. Left or right?
+
+What is the name of the node used to adjust the left/right channel balance?
+
+  a. 2DSpatialNode<br>
+  a. StereoPanner<br>
+  a. ChannelSplitter<br>
+  
+  Ans: <br>
+  Explanation: 
+
+
+18. Too much gain?
+
+The gain node is useful for changing the volume of a signal in the audio routing graph. Can it have values above 1? (Yes/No)
+  
+  Ans: <br>
+  Explanation: 
+
+
+19. What? A plastic pipe?
+
+  What is a compressor node useful for?
+
+  a. It lowers the volume of the loudest parts of the signal in order to help prevent clipping and distortion<br>
+  b. It compresses the signal and produces a muffled sound as if it were coming from the other end of a plastic pipe<br>
+  
+  Ans: <br>
+  Explanation: 
+
+
+20. Impulse what?
+
+  The convolver node uses an impulse response as the value of its buffer property. It's often an audio file. What is it and how do we use it?
+  
+  a. An impulse response can be recorded as an audio file, from a real acoustic space such as a cave or an opera. We find many impulse responses on the Web. It should be loaded in memory and decoded using the decodeAudioData method of the audio context.<br>
+  b. It is a set of parameters, the file we load is just a binary file with encoded parameters.<br>
+  
+  Ans: <br>
+  Explanation: 
+
+
+<hr>
+
+__Source code for the next 4 questions (21, 22, 23 and 24)__
+
+HTML:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;audio</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"player"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">loop</span><span class="pln"> </span><span class="atn">crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/audio&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">300</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">100</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
+</ol></div><br>
+
+JavaScript:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> buildAudioGraph</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> mediaElement </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'player'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> sourceNode </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">mediaElement</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="com">// Create an analyser node</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;analyser </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createAnalyser</span><span class="pun">();</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"> </span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="com">// Set visualizer options, for lower precision change 1024 to 512,</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; &nbsp;// 256, 128, 64 etc.</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;analyser</span><span class="pun">.</span><span class="pln">fftSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1024</span><span class="pun">;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;bufferLength </span><span class="pun">=</span><span class="pln"> analyser</span><span class="pun">.</span><span class="pln">frequencyBinCount</span><span class="pun">;</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;dataArray </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Uint8Array</span><span class="pun">(</span><span class="pln">bufferLength</span><span class="pun">);</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln"> </span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;sourceNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">analyser</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;analyser</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+And here is an extract of the code that does a real time animated visualization of the signal:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> visualize</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1 - Clear the canvas</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">...</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 2 - Get the analyser data</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyser</span><span class="pun">.</span><strong><span class="pln">AAA</span></strong><span class="pun">(</span><span class="pln">dataArray</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// 3 - Draws the visualization...</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// dataArray values are between ? and ?,</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// Once again call the visualize function at 60 frames/s</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">visualize</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+21. Number of data to draw?
+
+  We created an analyser node in the buildAudioGraph function. We set the FFT size to 1024, at _line 10_. What will be the size of the buffer containing the __frequency__ analysis data (in other words, what will be the length of the dataArray object)?
+
+  a. 512<br>
+  a. 1024<br>
+  
+  Ans: <br>
+  Explanation: 
+
+
+22. Value range?
+
+  What is the range of the values in the `dataArray` (_line 9_ in the visualize() function)?
+
+  a. It depends on the size of the `fftSize` property of the analyser<br>
+  a. All values are between 0 and 255<br>
+  a. All values are between -128 and +128<br>
+  
+  Ans: <br>
+  Explanation: 
+
+
+23. Visualize waveforms
+
+  Instead of the __AAA__ placeholder at _line 5_ of the visualize function, which method would you call to visualize a waveform?
+  
+  Ans: <br>
+  Explanation: 
+
+
+24. Visualize frequencies
+
+  Instead of the __AAA__ placeholder at _line 5_ of the visualize function, which method would you call to visualize frequencies?
+  
+  Ans: <br>
+  Explanation: 
+
+
+25. Separate these channels, please!
+
+  What is the difference between the stereoPanner and the channelSplitter nodes?
+
+  a. The stereoPanner is for adjusting the stereo. It has only one input and one output. The channelSplitter node has one input but can have more than one output, for example for separating the left and right channels in the audio graph.<br>
+  b. They do the same thing: adjust the stereo balance between the left and right channels.<br>
+  
+  Ans: <br>
+  Explanation: 
+
+
+26. Multiple sound samples
+
+  Video games often need to play sound samples in rapid sequence, with different effects, pitch, etc. In the course material, what has been presented as a best practice?
+
+  a. All sound samples should be loaded and decoded before use<br>
+  b. All sound samples must be loaded before being used<br>
+  
+  Ans: <br>
+  Explanation: 
+
+
+27. Security belt please!
+
+  When we played with sound samples of rifle shots, why did we use a compressor node? (2 correct answers.)
+
+  a. Just in case....<br>
+  b. Because a sound might be clipped if the gain value is higher than 1 (if we used a gain node with each sound)<br>
+  c. Because when playing multiple sounds, when these sounds are merged into one before being sent to the speakers, the result might be clipped<br>
+  
+  Ans: <br>
+  Explanation: 
 
 
 
