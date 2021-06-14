@@ -50,8 +50,8 @@ JavaScript:
   How can we know the type and language of the first track?
 
   a. We cannot know this information, as it is only available from the `TextTrack` object associated with the HTML `track`.<br>
-  a. We use `firstTrack.kind` and `firstTrack.srclang`<br>
-  a. We use `firstTrack.lang` and `firstTrack.type`<br>
+  b. We use `firstTrack.kind` and `firstTrack.srclang`<br>
+  c. We use `firstTrack.lang` and `firstTrack.type`<br>
 
   Ans: <br>
   Explanation: 
@@ -62,8 +62,8 @@ JavaScript:
   Which property is useful for getting the current HTML track state (loaded, loading, error, etc.)?
 
   a. `firstTrack.readyState`<br>
-  a. `firstTrack.ready`<br>
-  a. `firstTrack.loaded`<br>
+  b. `firstTrack.ready`<br>
+  c. `firstTrack.loaded`<br>
 
   Ans: <br>
   Explanation: 
@@ -85,9 +85,9 @@ JavaScript:
 How can we access a TextTrack object? (2 correct answers)
 
   a. From the HTML element, using the `track` property we can use the TextTrack object associated with a given HTML track,<br>
-  a. Using the DOM API: `document.querySelectorAll("tracks")`<br>
-  a. From the video HTML element, by calling the method `video.getTextTracks()`<br>
-  a. From the video HTML element, using the textTracks property like this: `var textTracks = video.textTracks`<br>
+  b. Using the DOM API: `document.querySelectorAll("tracks")`<br>
+  c. From the video HTML element, by calling the method `video.getTextTracks()`<br>
+  d. From the video HTML element, using the textTracks property like this: `var textTracks = video.textTracks`<br>
 
   Ans: <br>
   Explanation: 
