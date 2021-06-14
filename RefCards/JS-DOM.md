@@ -1075,7 +1075,7 @@
 + Example: [display wikipedia page and a Google map while a video playing](../Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-142-update-the-document-in-sync-with-a-media-playing)
 
 
-## Example: Web Audio API
+## Example: the Web Audio API
 
 + Example: [Build audio routing graph](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-151-introduction)
 
@@ -1093,6 +1093,7 @@
 
 + Example: [compressor node](..(../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes))
 
++ Example: [audio/video equalizer](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-154-writing-an-equalizer)
 
 
 
