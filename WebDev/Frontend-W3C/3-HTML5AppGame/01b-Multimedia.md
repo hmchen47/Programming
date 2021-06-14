@@ -104,8 +104,9 @@ etc.
     + `kind`: subtitle, captions, chapters, matadata, etc.
     + `srclang`: language
     + `src`: a source URL
+    + `default`: specifying the track is to be enabled if the user's preferences do not indicate that another track would be more appropriate
     + ...
-  + example
+  + example<a name="trackHtml"></a>
 
     ```html
     <video id="myVideo" preload="metadata" controls crossOrigin="anonymous">
@@ -854,6 +855,7 @@ Source code extract:
     + cue exit event: `cue.onexit = function(){ // do something else };`
 
 + Example: cue change events
+  + [HTML snippet](#trackHtml)
   + display cue contents: `function readContent(track) {...}`
   + console log: `console.log("adding cue change listener to loaded track...");`
   + empty msg: `trackStatusesDiv.innerHTML = "";`
@@ -862,6 +864,9 @@ Source code extract:
     + check the existence of cue: `if (cue !== undefined) {...}`
     + append info if cue existed: `trackStatusesDiv.innerHTML += "cue change: text = " + cue.text + "<br>"";`
   + play video: `video.play();`
+  + `default` attribute:
+    + `var firstTrack = video.textTracks[0];`: no default attribute $\to$ not active nor hidden, but disabled $\to$ no track loaded $\to$ no even fired
+    + `var firstTrack = video.textTracks[1];`: default attribute enabled $\to$ active $\to$ Deutsch track loaded $\to$ even fired as expected
 
 + Example: cue enter and exit events
   + dispay msg: `function readContent(track) {...}`
