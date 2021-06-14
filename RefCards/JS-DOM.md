@@ -678,6 +678,53 @@
   + a powerful way of embedding metadata
   + particularly used in conjunction w/ listening for cue and track events
 
++ [Segmenting sound file](../Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-141-creating-tracks-on-the-fly)
+  + sound sprites
+    + small sounds as parts of a mp3 file
+    + able to be played separately
+  + each sound defined as a cue in a track associated w/ the `<audio>` element
+  + tasks:
+    + create a WebVTT file w/ many cues on the fly
+    + cut a big sound file into segments
+    + play segments on demand
+  + defining the different animal sounds in the audio file <a name="sounds"></a>
+
+    ```js
+    var sounds = [
+        { id: "purr", startTime: 0.200, endTime: 1.800 },
+        { id: "meow", startTime: 2.300, endTime: 3.300 },
+        { id: "bark", startTime: 3.900, endTime: 4.300 },
+        { id: "baa", startTime: 5.000, endTime: 5.800 }
+        ...
+    ];
+    ```
+
+  + ideas
+    + create a track on the fly
+    + add cues within the track
+    + cue created w/ the id, the start and end time taken from the above JavaScript object
+    + results: a track w/ individual cues located at the time location of the animal sound file
+  + implementation
+    + generate buttons in the HTML document
+    + excute `getCueById` method when clicked on a button
+    + access the start and end time properties of the cue
+    + play the sound
+  + polyfill for `getCueById`:
+    + no available on all browsers yet
+    + JavaScript snippet to implement `getCueById`<a name="getCueById"></a>
+      + check the type of track: `if (typeof track.getCueById !== "function") {...}`
+      + callback function: `track.getCueById = function(d) {...};`
+      + access cues: `var cues = track.cues;`
+      + iterate on cues: `for (var i=0; i<track.cues.length; i++) { if (cues[i].id === id) { return cues[i]; } }`
+
++ [Event listeners w/ JSON cue](../Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-142-update-the-document-in-sync-with-a-media-playing)
+  + capturing the JSON content of a cue while the video reaches its start time
+  + add `cuechange` event listener to `textTrack`: `textTrack.oncuechange = function() {...}`
+    + declare variable for active cue: `var cue = this.activeCues[0];`
+    + convert text into JSON obj: `var obj = JSON.parse(cue.text);`
+    + other actions
+
+
 
 
 ## Graphics and Animation
@@ -878,5 +925,22 @@
     ...
     ```
 
++ Example: [add cues to a track on the fly](../Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-141-creating-tracks-on-the-fly)
+  + `addTextTrack` method
+    + syntax: `addTextTrack(kind[, label[, language]])`
+    + docstring: add a TextTrack to a track element
+    + parameters
+      + `kind`: str; possible values - `subtitles`, `captions`, `chapters`, etc.
+      + `label`: str, optional; description of the track
+      + `language`: str, optional; usually using abbreviation from BCP-47, like, 'en', 'fr', 'de', etc.
+  + VTTCue constructor
+    + enable to create cue class-instances programmatically
+    + create a cue instance by using `new` keyword
+
++ [Example: video tracks w/ JSON cue to sync Google map views](../Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-142-update-the-document-in-sync-with-a-media-playing)
+  + a demo by Sam Dutton
+  + active cue changed $\to$ the Google map and equivalent to Google street view updated
+
++ Example: [display wikipedia page and a Google map while a video playing](../Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-142-update-the-document-in-sync-with-a-media-playing)
 
 
