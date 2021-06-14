@@ -772,6 +772,89 @@
   + Chrome: w/ extension named "WebAudio Inspector"
 
 
++ [Gain node](https://developer.mozilla.org/en-US/docs/Web/API/GainNode)
+  + the `GainNode` interface
+    + representing a change in volume
+    + an AudioNode audio-processing module
+    + applied to the input data before its propagation to the output
+    + exactly one input and one output w/ the same number of channels
+  + `gain` property: corresponding to multiplication applied to the input signal volume
+    + value = 1: unchanged volume
+    + value < 1: lower the volume
+    + value > 1: increasing the global volume, w/ risk of clipping
+  + solution to prevent clipping: adding a compressor node
+
++ [Stereo panner](https://developer.mozilla.org/en-US/docs/Web/API/StereoPannerNode)
+  + the `StereoPannerNode` interface
+  + representing a simple stereo panner node
+  + used to pan an audio stream left or right
+  + property `pan`: value $\in [-1, 1]$
+
++ [Biquad filter](https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode)
+  + the `BiquadFilterNode` interface
+    + representing a simple low-order filter
+    + creating via `AudioContext.createBiquadFilterNode()`
+    + AudioNode able to represent different kinds of filters, control devices, and graphic equalizers
+    + exactly one input and one output
+  + properties
+    + `frequency`
+      + frequency in the current filtering algorithm (Hz); most impactful
+      + boosting volume inside the range of frequencies
+      + unchanged volume outside the range of frequencies
+    + `detune`: detuning of the frequency in cents
+    + `Q`
+      + Quality factor, a dimensionless parameter describing how underdamped an oscillator or resonator is
+      + control the width of the frequency band
+      + The greater the Q value, the smaller the frequency band.
+    + `gain`
+      + the gain used in the current filtering algorithm
+      + positive value: corresponding to the boost, in dB, to be applied
+      + negative value: attenuation
+    + `type`: kind of filtering algorithm, including `lowpass`, `highpass`, `bandpass`, `lowself`, `highself`, `peaking`, `notch`, `allpass`
+  + use of `frequency`, `detune` and `Q` depending on type of filtering algorithm
+  + demo: [frequency response of various filters](https://webaudioapi.com/samples/frequency-response/)
+  + multiple filters often used together
+
++ [Convolver node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
+  + the `ConvolverNode` interface
+    + useful for convolution effects such as reverberation
+    + an AudioNode performing a Linear Convolution on a given AudioBuffer
+    + often used to achieve a reverb effect
+    + exactly one input and one output
+  + properties
+    + `buffer`: a mono, stereo, or 4-channel AudioBuffer containing impulse response used by the `ConvolverNode` to create the reverb effect
+    + `normalize`: a boolean, controlling whether the impulse response from the buffer, scaled by an equal-power normalization
+  + effect defined by an impulse response
+  + impulse response
+    + possibly represented as an audio file, decoded in memory before use
+    + able to be recorded from a real acoustic space such as cave
+    + able to synthetically generated through a wide variety of techniques
+
++ [Convolution](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
+  + a mathematical process applied to an audio signal to achieve high-quality linear effect
+  + often used to simulate an acoustic space such as a concert hall, cathedral or outdoor amphitheater
+  + possibly used for complex filter effcts, example:
+    + a muffled sound coming inside from a closet
+    + sound underwater
+    + sound coming through a telephone
+    + playing through a vintage speaker cabinet
+  + commonly used in major motion picture and music production
+
++ [Dynamics compressor node](https://developer.mozilla.org/en-US/docs/Web/API/DynamicsCompressorNode)
+  + the `DynamicsCompressorNode` interface
+    + providing a compression effect
+    + lower the volume of the loudest parts of the signal to help preventing clipping and distortion
+    + often used in musical production and game audio
+  + properties
+    + `threshold`: a k-rate AudioParam representing the decibel value above which the compression will start taking effect
+    + `knee`: a k-rate AudioParam containing a decibel value representing the range above the threshold where the curve smoothly transition to the compressed portion
+    + `ratio`: a k-rate AudioParam representing the amount of change, in dB, needed in the input for 1 dB change in the output
+    + `attack`: a k-rate AudioParam representing the amount of time, in second, required to reduce the gain by 10 dB
+    + `release`: a k-rate AudioParam representing the amount of time, in seconds, required to increase the gain by 10 dB
+    + `reduction`: the amount of gain reduction currently applied by the compressor to the signal
+  + sufficiently adding gain node to compress saturated sound
+  + properties of compressor mainly for musicians, not going into detail here
+
 
 
 
@@ -997,6 +1080,18 @@
 + Example: [Build audio routing graph](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-151-introduction)
 
 + Example: [the `MediaElementSource` node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-152-working-with-streamed-content)
+
++ Example: [Biquad filter](..(../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes))
+
++ Example: [gain node](..(../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes))
+
++ Example: [stereo panner](..(../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes))
+
++ Example: [convolver node](..(../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes))
+
++ Example: [audio graph of convolver node](..(../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes))
+
++ Example: [compressor node](..(../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes))
 
 
 
