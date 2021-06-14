@@ -633,6 +633,7 @@ This technique will be used in one of the next lessons, and we will show you how
       + used in event listeners while video playing
       + corresponding to the cues located in the current time segment
       + start and end time possibly overlapped but rare
+      + used for overcoming overlapped instead of only th e"current cue"
       + returning a `TextTrackCueList` object
   + methods
     + `addCue(cue)`: add a cue to the list of cues
