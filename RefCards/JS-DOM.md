@@ -878,6 +878,11 @@
     + only half of the sample rate
   + height: the strength of the specific frequency bucket
 
++ [Accurate implementation of volume meter](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-157-volume-meters)
+  + the above method inaccurate in terms of real volume meter
+  + cwilso approximation
+  + SoundSpinning approximation
+
 
 
 
@@ -1125,6 +1130,29 @@
 + Example: [frequency visualization](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-156-frequencies)
 
 + Example: [audio graph of fancy frequency visualization](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-156-frequencies)
+
++ Example: [volume meter of audio player](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-157-volume-meters)
+  + tasks:
+    + volume meter: tracing upward/downward w/ the intensity of the music
+    + compute the average intensity of frequency ranges
+    + draw the average intensity w/ gradient-filled rectangle
+
++ Example: [volume meters of stereo channels](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-157-volume-meters)
+  + stereo channels
+    + split the audio signal and create a separate analyser for each output channel
+    + add `stereoPanner` node right after the source node
+    + add a left/right balance slider to control the `pan` property
+    + add [Channel Splitter node](https://developer.mozilla.org/en-US/docs/Web/API/ChannelSplitterNode) to isolate right and left channels
+  + audio graph
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick= "window.open("https://bit.ly/3uBXZfy")"
+        src    = "https://bit.ly/3i4pvjn"
+        alt    = "Audiograph from previous example"
+        title  = "Audiograph from previous example"
+      />
+    </figure>
 
 
 
