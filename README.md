@@ -559,7 +559,7 @@ This repository tracks my learning on different programming languages.
 
   <!-- DOM APIs -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan=4 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> DOM API </th>
+    <th rowspan=4 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> DOM APIs </th>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#overview"> Overview </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#modifying-html-document"> Access HTML </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#manipulating-html-document"> Manipulate HTML </a> </td>
@@ -569,18 +569,30 @@ This repository tracks my learning on different programming languages.
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#form-validation"> Form Validation </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-video-element"> Video Element </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-track-element"> Track Element </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-getusermedia-api---accessing-webcam--microphone"> getUserMedia API </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#controls-of-audio-and-video-elements"> Controls </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-getusermedia-api---accessing-webcam--microphone"> getUserMedia API </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-mediarecorder-api"> MediaRecorder API </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#/JS-DOM.md#graphic-and-animation"> Graphics & Animation </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-timed-text-track-api"> Text Track API </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#the-web-audio-api"> Web Audio API </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#graphic-and-animation"> Graphics & Animation </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#assets-loading"> Assets </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#example-canvas-and-animation"> Ex: Canvas & Animation </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#example-audio"> Ex: Audio </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#example-video"> Ex: Video </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#example-track"> Ex: Track </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#example-the-web-audio-api"> Ex: Web Audio  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#">  </a> </td>
   </tr>
 
