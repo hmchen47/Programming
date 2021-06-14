@@ -726,6 +726,54 @@
 
 
 
+## The Web Audio API
+
++ [Limitations of Standard APIs](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-151-introduction)
+  + typical actions for `<audio>` and `<video>` elements: `<audio src="https://.../mooc/LaSueur.mp3">`
+    + initiate a network request to stream the content
+    + deal w/ decoding/streaming/buffering the incoming data
+    + render audio controls
+    + update the progress indicator, time, etc.
+  + customer player
+    + making own controls via the JavaScript API of the `<audio>` and `<video>` elements
+    + calling `play()` and `pause()`
+    + reading/writing properties such as `currentTime`
+    + listening events, such as `ended`, `error`, `timeupdate`, etc.
+    + managing a playlist, etc.
+  + limitations
+    + play multiple sounds or music in perfect sync
+    + play non-streamed sounds; games: sounds loaded in memory
+    + output directly to the speaker; adding special effects, equalizer, stereo balancing, reverb, etc.
+    + any fancy visualizations that dance w/ the music, e.g., waveforms and frequencies
+  + solution: [Web Audio API](https://webaudio.github.io/web-audio-api/)
+
++ [Web Audio concepts](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-151-introduction)
+  + canvas used as a graphic context for drawing shapes and handling properties
+  + Web Audio API: taking a similar approach, using an `AudioContext` for all its operations
+  + audio context: `AudioContext`
+    + using Web Audio API to build an "audio routing graph"
+    + audio routing graph made of "audio nodes"
+      + some nodes types for audio sources
+      + built-in nodes for speakers
+      + audio effects: delay, reverb, filter, stereo panner, etc.
+      + audio analysis: used for creating fancy visualizations of real time signal
+      + music synthesis (not covered)
+  + [`BaseAudioContext` interface](https://webaudio.github.io/web-audio-api/#BaseAudioContext)
+    + not instantiated directly
+    + extended by the concrete interfaces `AudioContext` and `OfflineAudioContext`
+    + properties: `currentTime`, `sampleRate`, `destination`, `state`, `onstateChange`, `listener`, `audioWorklet`
+    + methods: `createAnalyser()`, `createBuffer()`, `createBufferSource()`, `createConstantSource()`, `createChannelMerger()`, `createChannelSplitter()`, `createDelay()`, `createPanner()`, etc.
+  + `MediaElementSourceNode`: a special node bridging the streamed audio to the WWW
+  + `GainNode`: a node enabling volume control
+  + `AudioDestination`: a node corresponding to speaker
+
++ [Audio graph in devtools](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-151-introduction)
+  + Firefox: WebAudio debugger built-in devtools but discontinued in 2019
+  + Chrome: w/ extension named "WebAudio Inspector"
+
+
+
+
 
 ## Graphics and Animation
 
@@ -942,5 +990,13 @@
   + active cue changed $\to$ the Google map and equivalent to Google street view updated
 
 + Example: [display wikipedia page and a Google map while a video playing](../Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-142-update-the-document-in-sync-with-a-media-playing)
+
+
+## Example: Web Audio API
+
++ Example: [Build audio routing graph](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-151-introduction)
+
+
+
 
 
