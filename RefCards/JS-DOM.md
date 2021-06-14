@@ -907,12 +907,6 @@
   + applications w/ multiple sound samples: ensuring loaded and decoded them all before starting
   + loading sound samples and triggering event individually $\to$ unable to ensure all sound samples loaded
 
-+ Example: [`AudioBufferSourceNode` to load and decode sound sample](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
-
-+ Example: [preloading sound samples w/ `BufferLoader`](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
-
-+ Example: [playing 2 sound samples w/ different rates](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
-
 
 
 ## Graphics and Animation
@@ -1182,6 +1176,12 @@
         title  = "Audiograph from previous example"
       />
     </figure>
+
++ Example: [`AudioBufferSourceNode` to load and decode sound sample](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
+
++ Example: [preloading sound samples w/ `BufferLoader`](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
+
++ Example: [playing 2 sound samples w/ different rates](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
 
 
 
