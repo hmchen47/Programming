@@ -1865,7 +1865,7 @@ Here is a [codepen with my proposed meters](https://codepen.io/Sound_Spinning/pe
     + `var meter = createAudioMeter(audioContext, clipLevel, averaging, clipLag);`
   + SoundSpinning approximation
     + using `getFloatTimeDomainData` from analyser w/ normalized array valued btw -1 and 1
-    + still not accurate but closer, e.g., 60kHz on canvas as audio smapling on 44.1kHz
+    + still not accurate but closer, e.g., 60kHz on canvas as audio sampling on 44.1kHz
 
 
 ### 1.5.8 Sound samples loaded in memory
@@ -1949,6 +1949,7 @@ Try also this small demonstration that uses the [Howler.js](https://goldfirestud
   + possible to play in-memory samples in sync w/ great precision
   + possible to make loops, add effects, change the playback rate, etc.
   + no wait time to start playing
+
 
 ### 1.5.9 Load and play sound samples
 
@@ -2422,6 +2423,7 @@ Many JavaScript libraries have been built on top of WebAudio. We recommend the f
   + [HowlerJS](https://howlerjs.com/)
   + [Webaudiox](https://blog.jetienne.com/blog/2014/02/27/webaudiox-jsfx/)
   + [ToneJS](https://github.com/Tonejs/Tone.js)
+
 
 
 ### 1.5.12 Discussion and projects
