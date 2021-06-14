@@ -494,9 +494,9 @@ JavaScript code:
     + video element<a name="videoElmt"></a>: `<video preload="metadata" controls crossOrigin="anonymous"> ... </video>`
       + MP4 video source: `<source src="https://.../elephants-dream-medium.mp4" type="video/mp4">`
       + Webm video source: `<source src="https://.../elephats-dream-medium.webm" type="video/webm">`
-      + English subtitle track: `<track label="Englisg subtitle" kind=subtitles srclang=en src="https://.../elephats-dream-subtitles-en.vtt">`
+      + English subtitle track: `<track label="Englih subtitle" kind=subtitles srclang=en src="https://.../elephats-dream-subtitles-en.vtt">`
       + Deutsch subtitle track: `<track label="Deutsch subtitle" kind=subtitles srclang=de src="https://.../elephats-dream-subtitles-de.vtt">`
-      + English capters track: `<track label="Englisg chapters" kind=chapters srclang=en src="https://.../elephats-dream-chapters-en.vtt">`
+      + English capters track: `<track label="English chapters" kind=chapters srclang=en src="https://.../elephats-dream-chapters-en.vtt">`
     + button to load English transcript<a name="buttonEn"></a>: `<button disabled id="buttonEnglish" onclick="loadTranscript('en');">Display English transcript</button>`
     + button to load German transcript<a name="buttonDe"></a>: `<button disabled id="buttonDeutsch " onclick="loadTranscript('de');">Display Deutsch transcript</button>`
     + video container w/ various video sources and tracks
@@ -823,15 +823,15 @@ JavaScript code:
       + thumbnail preview: `<track src="https://.../sintel-thumbs.vtt" kind=metadata label="Preview Thumbs">`
     + clear subtitles: `<button onclick="clearSubtitlesCaptions();">Clear subtitles/captions log</button>`
     + button for English: `<button onclcik="toggleTracks(0);">Toggle english caption track mode</button>`
-    + button for audio: `<button onclcik="toggleTracks(1);">Toggle audio description track mode</button>`
-    + button for cpapter: `<button onclcik="toggleTracks(2);">Toggle chapter caption track mode</button>`
-    + button for preview: `<button onclcik="toggleTracks(3);">Toggle preview thumbnail track mode</button>`
+    + button for audio: `<button onclick="toggleTracks(1);">Toggle audio description track mode</button>`
+    + button for chapter: `<button onclick="toggleTracks(2);">Toggle chapter caption track mode</button>`
+    + button for preview: `<button onclick="toggleTracks(3);">Toggle preview thumbnail track mode</button>`
     + containers for track status & subtitle captions: `<p><div id="currentTrackStatuses"></div></p> <p><div id="subtitlesCaptions"></div></p>`
   + Javascript snippet
     + declar global variables: `var tracks, video, statusDiv, subtitlesCaptionsDiv;`
     + init page while page loaded: `function init() {...}`
       + access video, status, subtitle and tracks elements: `video = document.querySelector("#myVideo"); statusDiv = document.querySelector("currentTrackStatuses"); subtitlesCaptionsDiv = document.querySelector("#subtitleCations"); tracks = document.querySelectorAll("track");`
-      + add event listener: `video.addEventListener('loadedmetadata', fucntion() {...});`
+      + add event listener: `video.addEventListener('loadedmetadata', function() {...});`
         + log msg: `console.log("metadata loaded");`
         + iterate to add event listeners for all cues: `for (var i=0; i<tracks.length; i++) { var t = tracks[i].track; if (t.mode === "showing") { t.addEventListener("cuechange", logCue, false) } }`
         + display the tracks and their status/mode value: `displayTrackStatus();`
@@ -852,9 +852,9 @@ JavaScript code:
     + toggle track mode: `function toggleTrack(i) {...}`
       + declare variable: `var t = tracks[i].track;`
       + deal w/ different modes: `switch (t.mode) {...}`
-        + disabld mode: `case "disabled": t.addEventListener('cuechange', logCue, false); t.mode='hidden'; break;`
+        + disabled mode: `case "disabled": t.addEventListener('cuechange', logCue, false); t.mode='hidden'; break;`
         + hidden mode: `case "hidden": t.mode="showing"; break;`
-        + showing mode: `case "showing": t.removeEventListener('curchange', logCue, flase); t.mode="disabled"; break;`
+        + showing mode: `case "showing": t.removeEventListener('curchange', logCue, false); t.mode="disabled"; break;`
       + update status: `clearDiv(statusDiv); displayTrackStatus(); appendToScrollableDiv(statusDiv, "<br>" + t.label + " are now " + t.mode);`
     + callback for current event: `function logCue() {...}`
       + check active cue existed: `if (this.activeCues && this.activeCues.length) {...}`
@@ -1618,7 +1618,7 @@ This example is the same as the previous one except that we have kept the featur
 + Example: chapter menu w/ description of chapter markers
   + procedure: manually capture the images from the video file
     + click on each chapter link to pause video
-    + using a screen capture tool to grap each image corresponding to the beginning of chapter
+    + using a screen capture tool to grape each image corresponding to the beginning of chapter
     + resizing the images approximately 200x400 pixels
   + WebVTT w/ chapter
 
@@ -1649,7 +1649,7 @@ This example is the same as the previous one except that we have kept the featur
   + JavaScript snippet
     + declare variables: `var video, chapterMenuDiv; var tracks, trackElems, tracksURLs = [];`
     + init page after DOM ready: `window.onload = function() {...}`
-      + same snippe as [page load](#pageLoad)
+      + same snippet as [page load](#pageLoad)
       + build chapter navigation menu: `buildChapterMenu('en', 'chapters');`
     + create chapter menu: `function buildChapterMenu(lang, kind) {...}`
       + iterate on all tracks: `for (var i=0; i<tracks.length; i++) {...}`
@@ -1663,7 +1663,7 @@ This example is the same as the previous one except that we have kept the featur
       + assign invisible value: `track.mode = "hidden";`
       + iterate on cues: `for (var i=0, len = cues.length; i<len; i++) {...}`
         + declare variable for info: `var cue = cues[i];`
-        + assign variables related to JSON onbject: `var cueObject = JSON.parse(cue.text); var description = cueObject.description; var imageFileName = cueObject.image; var imageURL = "https://.../mooc" + imageFileName;`
+        + assign variables related to JSON object: `var cueObject = JSON.parse(cue.text); var description = cueObject.description; var imageFileName = cueObject.image; var imageURL = "https://.../mooc" + imageFileName;`
         + add figure: `var figure = document.createElement('figure'); figure.classList.add('img');`
         + add img element: `figure.innerHTML = "<img onclick='jumpTo(" + cue.startTime + ");' class='thumb' src='" + imageURL + "><figcaption class='desc'>" + description + "</figcaption></figure>";`
         + add figure to chapter menu: `chapterMenuDiv.insertBefore(figure, null);`
