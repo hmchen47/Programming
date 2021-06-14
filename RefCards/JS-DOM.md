@@ -883,6 +883,11 @@
   + cwilso approximation
   + SoundSpinning approximation
 
++ [Applications w/ audio in memory](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-158-sound-samples-loaded-in-memory)
+  + no streaming/decoding in real time $\to$ less CPU used
+  + possible to play in-memory samples in sync w/ great precision
+  + possible to make loops, add effects, change the playback rate, etc.
+  + no wait time to start playing
 
 
 
