@@ -996,6 +996,7 @@
 
 + Example: [Build audio routing graph](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-151-introduction)
 
++ Example: [the `MediaElementSource` node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-152-working-with-streamed-content)
 
 
 
