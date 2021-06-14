@@ -889,6 +889,30 @@
   + possible to make loops, add effects, change the playback rate, etc.
   + no wait time to start playing
 
++ The [`AudioBufferSourceNode` object](https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode)
+  + used as the source of the sound sample in the Web Audio graph
+  + handling sound samples
+  + used only once
+  + properties:
+    + `buffer`: the decoded sound sample
+    + `loop`: boolean value, sound sample played as an infinite loop
+    + `loopStart`: a double value, in seconds, indicating the point in buffer where the loop restarts, default value = 0
+    + `loopEnd`: a double value, in seconds, indicating the point in buffer where the playing stops, default value = 0
+    + `playbackRate`: the speed factor, used to change the pitch of the sample
+    + `detune`: a k-rate AudioParam representing detuning of playback in cents, a logarithmic unit of measure used for musicl intervals
+
++ [The `BufferLoader` utility](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
+  + useful for preloading sound & image assets
+  + issue: asynchronously request via Ajax
+  + applications w/ multiple sound samples: ensuring loaded and decoded them all before starting
+  + loading sound samples and triggering event individually $\to$ unable to ensure all sound samples loaded
+
++ Example: [`AudioBufferSourceNode` to load and decode sound sample](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
+
++ Example: [preloading sound samples w/ `BufferLoader`](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
+
++ Example: [playing 2 sound samples w/ different rates](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
+
 
 
 ## Graphics and Animation
