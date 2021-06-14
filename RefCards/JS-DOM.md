@@ -340,6 +340,7 @@
     + `kind`: subtitle, captions, chapters, matadata, etc.
     + `srclang`: language
     + `src`: a source URL
+    + `default`: specifying the track is to be enabled if the user's preferences do not indicate that another track would be more appropriate
     + ...
 
 + [Multiple tracks support](../WebDev/Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-121-the-timed-text-track-api)
