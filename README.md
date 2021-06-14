@@ -559,7 +559,7 @@ This repository tracks my learning on different programming languages.
 
   <!-- DOM APIs -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <th rowspan=4 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> DOM APIs </th>
+    <th rowspan=6 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> DOM APIs </th>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#overview"> Overview </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#modifying-html-document"> Access HTML </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-DOM.md#manipulating-html-document"> Manipulate HTML </a> </td>
