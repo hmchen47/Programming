@@ -248,7 +248,7 @@ HTML source code extract:
     + create a cue instance by using `new` keyword
   + HTML snippet: `<div id="soundButtons" class="isSupported"></div>`
   + JavaScript snippet
-    + init page w/ DOM ready: `window.onload = funct() {...}`
+    + init page w/ DOM ready: `window.onload = function() {...}`
       + create audio element: `var audio = newAudio("https://.../animalSounds.mp3");`
       + add event listener after metadata loaded: `audio.addEventListener("loadedmetadata", function() {...});`
         + add track info: `var track = audio.addTextTrack("metadata", "sprite track", "en");`
