@@ -907,6 +907,11 @@
   + applications w/ multiple sound samples: ensuring loaded and decoded them all before starting
   + loading sound samples and triggering event individually $\to$ unable to ensure all sound samples loaded
 
++ [Useful 3rd party libraries](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-1511-useful-third-party-libraries)
+  + [HowlerJS](https://howlerjs.com/)
+  + [Webaudiox](https://blog.jetienne.com/blog/2014/02/27/webaudiox-jsfx/)
+  + [ToneJS](https://github.com/Tonejs/Tone.js)
+
 
 
 ## Graphics and Animation
