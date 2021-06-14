@@ -866,6 +866,18 @@
     + call function to build audio graph: `buildAudioGraph();`
     + start animation: `requestAnimationFrame(visualize);`
 
++ [Basic frequencies visualization](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-156-frequencies)
+  + bar chart corresponding to a frequency range
+  + frequencies range depending on sample rate of the signal (the audio source) and on the FFT size
+  + number of bars = the FFT size / 2
+  + the nth bar corresponding to the frequency range $N \times (\text{sampleRate}/\text{fftSize})$. example
+    + sample rate: 44100 Hz
+    + FFT size: 512
+    + 1st bar: $[0, 44100/512) = [0, 86.12)$Hz
+    + number of data returned by the analyzer node: fftSize / 2
+    + only half of the sample rate
+  + height: the strength of the specific frequency bucket
+
 
 
 
@@ -1092,23 +1104,27 @@
 
 + Example: [the `MediaElementSource` node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-152-working-with-streamed-content)
 
-+ Example: [Biquad filter](..(../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes))
++ Example: [Biquad filter](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
 
-+ Example: [gain node](..(../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes))
++ Example: [gain node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
 
-+ Example: [stereo panner](..(../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes))
++ Example: [stereo panner](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
 
-+ Example: [convolver node](..(../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes))
++ Example: [convolver node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
 
-+ Example: [audio graph of convolver node](..(../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes))
++ Example: [audio graph of convolver node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
 
-+ Example: [compressor node](..(../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes))
++ Example: [compressor node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
 
 + Example: [audio/video equalizer](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-154-writing-an-equalizer)
 
 + Example: [Build audio/video graph w/ analyzer node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-155-waveforms)
 
 + Example: [animation loop](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-155-waveforms)
+
++ Example: [frequency visualization](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-156-frequencies)
+
++ Example: [audio graph of fancy frequency visualization](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-156-frequencies)
 
 
 
