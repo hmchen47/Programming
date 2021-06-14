@@ -855,6 +855,17 @@
   + sufficiently adding gain node to compress saturated sound
   + properties of compressor mainly for musicians, not going into detail here
 
++ [Analyzer node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-155-waveforms)
+  + providing real-time frequency and time-doimain analysis information
+  + leaving audio stream unchchanged
+  + allowing to acqure data about the sound signal played
+  + processsing the data via complex computation such as FFT
+  + typical operations to perform waveform after DOM ready
+    + get audio context: `analyser = audioContext.createAnalyser();`
+    + access canvas<a name="canvas"></a> and get properties: `canvas = document.querySelector("#myCanvas"); width = canvas.width; height = canvas.height; canvasContext = canvas.getContext("2d");`
+    + call function to build audio graph: `buildAudioGraph();`
+    + start animation: `requestAnimationFrame(visualize);`
+
 
 
 
@@ -1094,6 +1105,10 @@
 + Example: [compressor node](..(../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes))
 
 + Example: [audio/video equalizer](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-154-writing-an-equalizer)
+
++ Example: [Build audio/video graph w/ analyzer node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-155-waveforms)
+
++ Example: [animation loop](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-155-waveforms)
 
 
 
