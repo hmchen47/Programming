@@ -1,8 +1,6 @@
 # Module 1: Advanced HTML5 multimedia section
 
-
 ## 1.6 Exercises - Module 1 (27 Questions)
-
 
 ### 1.6.1 The Text Track API (1-12)
 
@@ -45,6 +43,9 @@ JavaScript:
 <li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
 </ol></div><br>
 
+[Local Code Snippet](src/01f-exercise01.html)
+
+
 1. Which language do you speak?
 
   How can we know the type and language of the first track?
@@ -53,8 +54,8 @@ JavaScript:
   b. We use `firstTrack.kind` and `firstTrack.srclang`<br>
   c. We use `firstTrack.lang` and `firstTrack.type`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: The correct properties we can use on an HTML `track` element are `kind` and `srclang`.
 
 
 2. Are you ready?
@@ -65,8 +66,12 @@ JavaScript:
   b. `firstTrack.ready`<br>
   c. `firstTrack.loaded`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: The readyState property of an HTML track element will give the current HTML track state. The possible values are:
+    + 0 = NONE - the text track's cues have not been obtained,
+    + 1 = LOADING - the text track is loading with no errors yet. Further cues can still be added to the track by the parser,
+    + 2 = LOADED - the text track has been loaded with no errors,
+    + 3 = ERROR - the text track was enabled, but when the user agent attempted to obtain it, something failed. Some or all of the cues are likely missing and will not be obtained.
 
 
 3. Looking inside...
@@ -76,8 +81,8 @@ JavaScript:
   a. No, we can only read track content using a `TextTrack` object obtained, for example, with `firstTrack.track` in the source code given at the beginning of this page.<br>
   b. Yes, use `firstTrack.cues` which contains a list of cues for the track. Iterate over this list to access the individual cues.<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: <span style="color: magenta">a</span>, xb<br>
+  Explanation: No, cues can be obtained only from TextTrack objects, and the track should have been loaded in memory.
 
 
 4. Blood on the tracks
@@ -89,8 +94,8 @@ How can we access a TextTrack object? (2 correct answers)
   c. From the video HTML element, by calling the method `video.getTextTracks()`<br>
   d. From the video HTML element, using the textTracks property like this: `var textTracks = video.textTracks`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: ad, xcd, xab<br>
+  Explanation: TextTracks may be accessed using either the `track` property of an HTML track, or the video element's `textTrack` property. The DOM API in the example given will return the list of HTML track elements, not TextTrack objects, and the method `getTextTracks()` does not exist.
 
 
 5. Please load me
@@ -101,8 +106,8 @@ How can we access a TextTrack object? (2 correct answers)
   b. Set the `mode` property of the TextTrack object associated with this track, to "hidden" or "showing"<br>
   c. Call the load method on the HTML track element: `firstTrack.load()`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: It is possible to force a track to be loaded by setting the `mode` property of the TextTrack object to "showing" or "hidden".<br/>Tracks that are not loaded have their `mode` property set to "disabled".
 
 
 6. Valid properties
@@ -116,15 +121,16 @@ How can we access a TextTrack object? (2 correct answers)
   e. `startTime`<br>
   f. `endTime`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: abef<br>
+  Explanation: `id`, `text`, `startTime` and `endTime` are correct.
+
 
 7. Multiple activities at the same time
 
   Can cues overlap in time? In other words: can we have more than one cue active at a given point in time? (Yes/No)
 
-  Ans: <br>
-  Explanation: 
+  Ans: Yes<br>
+  Explanation: Yes, cues may overlap. This is why in a cuechange track event listener, we can't acquire only the "current cue": instead the `TextTrack.activeCues` property contains a list of active cues. In the tracks of examples shown during the course we had no overlapping cues, and so we took the first element in the activeCues list as the current cue.
 
 
 <hr>
@@ -173,6 +179,9 @@ JavaScript:
 <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
 </ol></div><br>
 
+[Local Exercise Code](src/01f-exercise02.html)
+
+
 8. Fire or not fire!
 
   What does the above code do?
@@ -181,8 +190,8 @@ JavaScript:
   b. It reports no errors, but no event is fired<br>
   c. In the console it displays the English subtitles in sync<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: <span style="color: magenta">b</span>, xc<br>
+  Explanation: The code is not best practice: verify that the track is loaded before working with it, accessing its content, etc. The first track does not have the default attribute, therefore it is not active nor hidden, it is disabled. It exists, but as it is not showing or hidden (and even not loaded, with some browsers), it will not fire any events while the video is playing. Try [this JSBin](https://jsbin.com/visegax/edit?html,js,console,output) with different browsers.
 
 
 9. And like this?
@@ -192,8 +201,8 @@ JavaScript:
   a. In modern browsers (excluding FireFox), it displays the German subtitles in sync over the video and in the console<br>
   b. It reports no errors, but no event is fired<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: The code is not best practice: verify that the track is loaded before working with it, accessing its content, etc. The first track does not have the default attribute, therefore it is not active nor hidden, it is disabled. It exists, but as it is not showing or hidden (and even not loaded, with some browsers), it will not fire any events while the video is playing. Try [this JSBin](https://jsbin.com/visegax/edit?html,js,console,output) with different browsers.
 
 
 <hr>
@@ -248,16 +257,17 @@ JavaScript:
 
   Replace the AAA placeholder (above) with the correct code (the number of letters is not significant, and do not include the ; statement terminator)
 
-  Ans: <br>
-  Explanation: 
+  Ans: `JSON.parse(cue.text)` or `JSON.parse(cue.text);`<br>
+  Explanation: The cue is read as a JSON encoded string. In order to turn it into a JavaScript object, you must use `JSON.parse(cue.text)`
 
 
 11. Give me a description please!
 
   What would you code (above) instead of the BBB placeholder? (the number of letters is not significant, and do not include the ; statement terminator)
 
-  Ans: <br>
-  Explanation: 
+  Ans: `cueObject.description`<br>
+  Explanation: Once the cue content has been decoded, it can be used as a normal JavaScript object. To access the description use `cueObject.description`
+
 
 
 12. Give me more tracks and cues!
@@ -271,8 +281,8 @@ JavaScript:
   e. The `addTextTrack` method of a video or audio element: `video.addTextTrack(kind, label, language);`<br>
   f. The `addCue` method you can use from a TextTrack: `track.addCue(cue);`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: bef<br>
+  Explanation: Only the `VTTCue` constructor, and the `addTextTrack` method and `addCue` methods, are valid.
 
 
 
