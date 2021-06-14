@@ -333,7 +333,7 @@
     + making an app for creating on the fly subtitles/captions
     + etc.
 
-+ [The `<track>` element](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-121-the-timed-text-track-api)
++ [The `<track>` element](../WebDev/Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-121-the-timed-text-track-api)
   + typically within `<video>` and `<audio>` elements
   + attributes
     + `label`
@@ -342,7 +342,7 @@
     + `src`: a source URL
     + ...
 
-+ [Multiple tracks support](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-121-the-timed-text-track-api)
++ [Multiple tracks support](../WebDev/Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-121-the-timed-text-track-api)
   + supporting for multiple tracks probably different significantly btw browsers (May 2020)
   + Safari
     + providing a menu to choose which subtitle/track to display
@@ -356,7 +356,7 @@
     + displaying the first defined text track only if the `default` set
     + loading all tracks in memory as page loaded
 
-+ [WebVTT text racks](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-121-the-timed-text-track-api)
++ [WebVTT text racks](../WebDev/Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-121-the-timed-text-track-api)
   + [document](https://bit.ly/33RJsl8) in HTML5/HTML5.1 specification
   + enabling to manipulate `<track>` contents from JavaScript
   + cue:
@@ -364,7 +364,7 @@
     + text content: containing HTML tags for styling or associated w/ a "voice"
     + voice element: `<v name_of_speaker> ... </v>`
 
-+ [Values of `readyState` attribute](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-122-the-html-track-element)
++ [Values of `readyState` attribute](../WebDev/Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-122-the-html-track-element)
   + __0 = NONE__: the text track's cues not obtained
   + __1 = LOADING__: the text track loaded w/o errors yet, further cues able to be added to the track by the parser
   + __2 = LOADED__: the text track loaded w/o errors
@@ -608,12 +608,12 @@
 
 ## The Timed Text Track API
 
-+ [The `TextTrack` object](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-123-the-texttrack-object)
++ [The `TextTrack` object](../WebDev/Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-123-the-texttrack-object)
   + containing the cue, not HTML object itself
   + w/ different methods and properties for manipulating track content
   + associated w/ different events
 
-+ [The `mode` property of `TextTrack` objects](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-123-the-texttrack-object)
++ [The `mode` property of `TextTrack` objects](../WebDev/Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-123-the-texttrack-object)
   + `showing`
     + track already loaded or being loaded by the browser
     + displayed in the video once completely loaded
@@ -627,7 +627,7 @@
     + stop firing events
   + setting `mode` property as `showing` and `hidden` to force a track to be loaded
 
-+ [Properties & methods of `TextTrack` object](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-124-working-with-cues)
++ [Properties & methods of `TextTrack` object](../WebDev/Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-124-working-with-cues)
   + properties
     + `kind`
       + equivalent to `kind` attribute of HTML track elements
@@ -648,7 +648,7 @@
     + `removeCue(id)`: return a cue from the list of cues
     + `getCueById(id)`: return the cue w/ a given `id`
 
-+ [Properties & methods of `TexTrackCueList` object](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-124-working-with-cues)
++ [Properties & methods of `TexTrackCueList` object](../WebDev/Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-124-working-with-cues)
   + object: a collection of cues
   + `ld`: the cue id as written in the starting line of the WebVTT file
   + `startTime` and `endTime`:
@@ -665,20 +665,20 @@
     />
   </figure>
 
-+ [VebVTT file and chapters](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-134-with-a-simple-chapter-navigation-menu)
++ [VebVTT file and chapters](../WebDev/Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-134-with-a-simple-chapter-navigation-menu)
   + using WebVTT files to define chapters
   + task: display subtitles/caption into `.vtt` files
   + HTML snippet: [video element](#videoElmt)
   + no browser taking chapter track in account
 
-+ [WebVTT file w/ JSON](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-135-with-thumbnails-using-json-cues)
++ [WebVTT file w/ JSON](../WebDev/Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-135-with-thumbnails-using-json-cues)
   + possible to use JSON as cue values
   + able to manipulate JSON from JavaScript
   + able to be extracted JSON object w/ `cue.text`
   + a powerful way of embedding metadata
   + particularly used in conjunction w/ listening for cue and track events
 
-+ [Segmenting sound file](../Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-141-creating-tracks-on-the-fly)
++ [Segmenting sound file](../WebDev/Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-141-creating-tracks-on-the-fly)
   + sound sprites
     + small sounds as parts of a mp3 file
     + able to be played separately
@@ -717,7 +717,7 @@
       + access cues: `var cues = track.cues;`
       + iterate on cues: `for (var i=0; i<track.cues.length; i++) { if (cues[i].id === id) { return cues[i]; } }`
 
-+ [Event listeners w/ JSON cue](../Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-142-update-the-document-in-sync-with-a-media-playing)
++ [Event listeners w/ JSON cue](../WebDev/Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-142-update-the-document-in-sync-with-a-media-playing)
   + capturing the JSON content of a cue while the video reaches its start time
   + add `cuechange` event listener to `textTrack`: `textTrack.oncuechange = function() {...}`
     + declare variable for active cue: `var cue = this.activeCues[0];`
@@ -728,7 +728,7 @@
 
 ## The Web Audio API
 
-+ [Limitations of Standard APIs](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-151-introduction)
++ [Limitations of Standard APIs](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-151-introduction)
   + typical actions for `<audio>` and `<video>` elements: `<audio src="https://.../mooc/LaSueur.mp3">`
     + initiate a network request to stream the content
     + deal w/ decoding/streaming/buffering the incoming data
@@ -747,7 +747,7 @@
     + any fancy visualizations that dance w/ the music, e.g., waveforms and frequencies
   + solution: [Web Audio API](https://webaudio.github.io/web-audio-api/)
 
-+ [Web Audio concepts](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-151-introduction)
++ [Web Audio concepts](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-151-introduction)
   + canvas used as a graphic context for drawing shapes and handling properties
   + Web Audio API: taking a similar approach, using an `AudioContext` for all its operations
   + audio context: `AudioContext`
@@ -767,7 +767,7 @@
   + `GainNode`: a node enabling volume control
   + `AudioDestination`: a node corresponding to speaker
 
-+ [Audio graph in devtools](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-151-introduction)
++ [Audio graph in devtools](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-151-introduction)
   + Firefox: WebAudio debugger built-in devtools but discontinued in 2019
   + Chrome: w/ extension named "WebAudio Inspector"
 
@@ -815,7 +815,7 @@
   + demo: [frequency response of various filters](https://webaudioapi.com/samples/frequency-response/)
   + multiple filters often used together
 
-+ [Convolver node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
++ [Convolver node](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
   + the `ConvolverNode` interface
     + useful for convolution effects such as reverberation
     + an AudioNode performing a Linear Convolution on a given AudioBuffer
@@ -830,7 +830,7 @@
     + able to be recorded from a real acoustic space such as cave
     + able to synthetically generated through a wide variety of techniques
 
-+ [Convolution](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
++ [Convolution](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
   + a mathematical process applied to an audio signal to achieve high-quality linear effect
   + often used to simulate an acoustic space such as a concert hall, cathedral or outdoor amphitheater
   + possibly used for complex filter effcts, example:
@@ -855,7 +855,7 @@
   + sufficiently adding gain node to compress saturated sound
   + properties of compressor mainly for musicians, not going into detail here
 
-+ [Analyzer node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-155-waveforms)
++ [Analyzer node](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-155-waveforms)
   + providing real-time frequency and time-doimain analysis information
   + leaving audio stream unchchanged
   + allowing to acqure data about the sound signal played
@@ -866,7 +866,7 @@
     + call function to build audio graph: `buildAudioGraph();`
     + start animation: `requestAnimationFrame(visualize);`
 
-+ [Basic frequencies visualization](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-156-frequencies)
++ [Basic frequencies visualization](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-156-frequencies)
   + bar chart corresponding to a frequency range
   + frequencies range depending on sample rate of the signal (the audio source) and on the FFT size
   + number of bars = the FFT size / 2
@@ -878,12 +878,12 @@
     + only half of the sample rate
   + height: the strength of the specific frequency bucket
 
-+ [Accurate implementation of volume meter](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-157-volume-meters)
++ [Accurate implementation of volume meter](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-157-volume-meters)
   + the above method inaccurate in terms of real volume meter
   + cwilso approximation
   + SoundSpinning approximation
 
-+ [Applications w/ audio in memory](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-158-sound-samples-loaded-in-memory)
++ [Applications w/ audio in memory](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-158-sound-samples-loaded-in-memory)
   + no streaming/decoding in real time $\to$ less CPU used
   + possible to play in-memory samples in sync w/ great precision
   + possible to make loops, add effects, change the playback rate, etc.
@@ -901,13 +901,13 @@
     + `playbackRate`: the speed factor, used to change the pitch of the sample
     + `detune`: a k-rate AudioParam representing detuning of playback in cents, a logarithmic unit of measure used for musicl intervals
 
-+ [The `BufferLoader` utility](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
++ [The `BufferLoader` utility](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
   + useful for preloading sound & image assets
   + issue: asynchronously request via Ajax
   + applications w/ multiple sound samples: ensuring loaded and decoded them all before starting
   + loading sound samples and triggering event individually $\to$ unable to ensure all sound samples loaded
 
-+ [Useful 3rd party libraries](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-1511-useful-third-party-libraries)
++ [Useful 3rd party libraries](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-1511-useful-third-party-libraries)
   + [HowlerJS](https://howlerjs.com/)
   + [Webaudiox](https://blog.jetienne.com/blog/2014/02/27/webaudiox-jsfx/)
   + [ToneJS](https://github.com/Tonejs/Tone.js)
@@ -1023,7 +1023,7 @@
 
 ## Example: Video
 
-+ Example: [control w/ external buttons](/WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#333-examples-using-the-javascript-api)
++ Example: [control w/ external buttons](../WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#333-examples-using-the-javascript-api)
 
 + Example: [playing multiple videos sequentially](../WebDev/Frontend-W3C/5-JavaScript/03c-HTML5API.md#333-examples-using-the-javascript-api)
 
@@ -1038,15 +1038,15 @@
 
 ## Example: Track
 
-+ Example: [Status of an HTML track](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-122-the-html-track-element)
++ Example: [Status of an HTML track](../WebDev/Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-122-the-html-track-element)
 
-+ Example: [button to load tracks](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-123-the-texttrack-object)
++ Example: [button to load tracks](../WebDev/Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-123-the-texttrack-object)
 
-+ Example: [Accessing `TextTrack` object](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-123-the-texttrack-object)
++ Example: [Accessing `TextTrack` object](../WebDev/Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-123-the-texttrack-object)
 
-+ Example: [display the content of a track](../Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-124-working-with-cues)
++ Example: [display the content of a track](../WebDev/Frontend-W3C/3-HTML5AppGame/01b-Multimedia.md#notes-for-124-working-with-cues)
 
-+ Example: [clickable transcript](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-131-with-a-clickable-transcript-on-the-side)
++ Example: [clickable transcript](../WebDev/Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-131-with-a-clickable-transcript-on-the-side)
   + tasks:
     + read a single subtitle file via buttons
     + display the contents of the transcript file on the right container
@@ -1065,11 +1065,11 @@
       + use for highlighting the current cue
       + Firefox no supported yet, using `cuechage` event listener instead
 
-+ Example: [download vtt file w/ Ajax/XHR2](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-131-with-a-clickable-transcript-on-the-side)
++ Example: [download vtt file w/ Ajax/XHR2](../WebDev/Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-131-with-a-clickable-transcript-on-the-side)
   + used prior to the track API available
   + download WebVTT files using Ajax and parse manually
 
-+ Example: [display video description](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-132-captions-descriptions-chapters-and-metadata)
++ Example: [display video description](../WebDev/Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-132-captions-descriptions-chapters-and-metadata)
   + `mode` property: `disabled`, `hidden`, or `showing`
     + multiple tracks able to be any state
     + event difference: `hidden` tracks able to fire events while `disabled` track unable to fire events
@@ -1078,15 +1078,15 @@
     + listening for cue event to capture the current subtitle/caption
     + changing the mode of a track in video element by toggling on the button
 
-+ Example: [subtitle language](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-133-with-buttons-for-choosing-the-subtitle-language)
++ Example: [subtitle language](../WebDev/Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-133-with-buttons-for-choosing-the-subtitle-language)
 
-+ Example: [display English chapters](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-134-with-a-simple-chapter-navigation-menu)
++ Example: [display English chapters](../WebDev/Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-134-with-a-simple-chapter-navigation-menu)
 
-+ Example: [clickable chapters](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-134-with-a-simple-chapter-navigation-menu)
++ Example: [clickable chapters](../WebDev/Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-134-with-a-simple-chapter-navigation-menu)
 
-+ Example: [extract JSON object from WebVTT file](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-135-with-thumbnails-using-json-cues)
++ Example: [extract JSON object from WebVTT file](../WebDev/Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-135-with-thumbnails-using-json-cues)
 
-+ Example: [chapter menu w/ description of chapter markers](../Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-135-with-thumbnails-using-json-cues)
++ Example: [chapter menu w/ description of chapter markers](../WebDev/Frontend-W3C/3-HTML5AppGame/01c-Multimedia.md#notes-for-135-with-thumbnails-using-json-cues)
   + procedure: manually capture the images from the video file
     + click on each chapter link to pause video
     + using a screen capture tool to grape each image corresponding to the beginning of chapter
@@ -1112,7 +1112,7 @@
     ...
     ```
 
-+ Example: [add cues to a track on the fly](../Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-141-creating-tracks-on-the-fly)
++ Example: [add cues to a track on the fly](../WebDev/Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-141-creating-tracks-on-the-fly)
   + `addTextTrack` method
     + syntax: `addTextTrack(kind[, label[, language]])`
     + docstring: add a TextTrack to a track element
@@ -1124,48 +1124,48 @@
     + enable to create cue class-instances programmatically
     + create a cue instance by using `new` keyword
 
-+ [Example: video tracks w/ JSON cue to sync Google map views](../Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-142-update-the-document-in-sync-with-a-media-playing)
++ [Example: video tracks w/ JSON cue to sync Google map views](../WebDev/Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-142-update-the-document-in-sync-with-a-media-playing)
   + a demo by Sam Dutton
   + active cue changed $\to$ the Google map and equivalent to Google street view updated
 
-+ Example: [display wikipedia page and a Google map while a video playing](../Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-142-update-the-document-in-sync-with-a-media-playing)
++ Example: [display wikipedia page and a Google map while a video playing](../WebDev/Frontend-W3C/3-HTML5AppGame/01d-Multimedia.md#notes-for-142-update-the-document-in-sync-with-a-media-playing)
 
 
 ## Example: the Web Audio API
 
-+ Example: [Build audio routing graph](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-151-introduction)
++ Example: [Build audio routing graph](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-151-introduction)
 
-+ Example: [the `MediaElementSource` node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-152-working-with-streamed-content)
++ Example: [the `MediaElementSource` node](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-152-working-with-streamed-content)
 
-+ Example: [Biquad filter](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
++ Example: [Biquad filter](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
 
-+ Example: [gain node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
++ Example: [gain node](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
 
-+ Example: [stereo panner](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
++ Example: [stereo panner](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
 
-+ Example: [convolver node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
++ Example: [convolver node](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
 
-+ Example: [audio graph of convolver node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
++ Example: [audio graph of convolver node](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
 
-+ Example: [compressor node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
++ Example: [compressor node](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-153-most-useful-filter-nodes)
 
-+ Example: [audio/video equalizer](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-154-writing-an-equalizer)
++ Example: [audio/video equalizer](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-154-writing-an-equalizer)
 
-+ Example: [Build audio/video graph w/ analyzer node](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-155-waveforms)
++ Example: [Build audio/video graph w/ analyzer node](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-155-waveforms)
 
-+ Example: [animation loop](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-155-waveforms)
++ Example: [animation loop](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-155-waveforms)
 
-+ Example: [frequency visualization](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-156-frequencies)
++ Example: [frequency visualization](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-156-frequencies)
 
-+ Example: [audio graph of fancy frequency visualization](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-156-frequencies)
++ Example: [audio graph of fancy frequency visualization](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-156-frequencies)
 
-+ Example: [volume meter of audio player](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-157-volume-meters)
++ Example: [volume meter of audio player](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-157-volume-meters)
   + tasks:
     + volume meter: tracing upward/downward w/ the intensity of the music
     + compute the average intensity of frequency ranges
     + draw the average intensity w/ gradient-filled rectangle
 
-+ Example: [volume meters of stereo channels](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-157-volume-meters)
++ Example: [volume meters of stereo channels](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-157-volume-meters)
   + stereo channels
     + split the audio signal and create a separate analyser for each output channel
     + add `stereoPanner` node right after the source node
@@ -1182,11 +1182,11 @@
       />
     </figure>
 
-+ Example: [`AudioBufferSourceNode` to load and decode sound sample](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
++ Example: [`AudioBufferSourceNode` to load and decode sound sample](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
 
-+ Example: [preloading sound samples w/ `BufferLoader`](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
++ Example: [preloading sound samples w/ `BufferLoader`](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
 
-+ Example: [playing 2 sound samples w/ different rates](../Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
++ Example: [playing 2 sound samples w/ different rates](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
 
 
 
