@@ -298,8 +298,8 @@ JavaScript:
   e. Adding sound effects such as reverberation, filters, etc.<br>
   f. Playing multiple audio or video files in _perfect synchronization_<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: bef<br>
+  Explanation: With the standard `<audio>` and `<video>` elements, it's not possible to process the signal for adding sound effects or fancy visualizations. It's also not possible to play multiple multimedia files in perfect sync, owing to the streamed nature of these elements.
 
 
 14. Canvas and Web Audio
@@ -309,8 +309,8 @@ JavaScript:
   a. They use a "context" object for calling methods and accessing properties<br>
   b. They have nothing in common<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: The canvas uses a graphic context for drawing shapes and handling properties such as colors and line widths.<br>The `WebAudio` API takes a similar approach, using an `AudioContext` for all its operations.
 
 
 <hr>
@@ -357,16 +357,16 @@ JavaScript:
 
   Replace the __AAA__ placeholder (above) with the correct code
   
-  Ans: <br>
-  Explanation: 
+  Ans: `createMediaElementSource`<br>
+  Explanation: The correct way to create a source node that corresponds to the audio stream of an audio or video element is to use the `audioContext.createMediaElementSource(elem)` method. In the above example the correct answer is: `audioContext.createMediaElementSource(player);`
 
 
 16. Show me where to go!
 
   What would you code (above) instead of the __BBB__ placeholder?
   
-  Ans: <br>
-  Explanation: 
+  Ans: `audioContext.destination`<br>
+  Explanation: The speakers node is predefined: if the variable that corresponds to the audio context is named `audioContext`, then the speakers are the `audioContext.destination` object/node.
 
 
 17. Left or right?
@@ -374,19 +374,19 @@ JavaScript:
 What is the name of the node used to adjust the left/right channel balance?
 
   a. 2DSpatialNode<br>
-  a. StereoPanner<br>
-  a. ChannelSplitter<br>
+  b. StereoPanner<br>
+  c. ChannelSplitter<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: The StereoPanner node is used to implement a left/right controller. See for example: [This example at JSBin](http://jsbin.com/zojona/edit?html,js,output)
 
 
 18. Too much gain?
 
 The gain node is useful for changing the volume of a signal in the audio routing graph. Can it have values above 1? (Yes/No)
   
-  Ans: <br>
-  Explanation: 
+  Ans: Yes<br>
+  Explanation: Yes, gain nodes can have any value >= 0. If a gain is too high the signal can peak and be distorted.
 
 
 19. What? A plastic pipe?
@@ -396,8 +396,8 @@ The gain node is useful for changing the volume of a signal in the audio routing
   a. It lowers the volume of the loudest parts of the signal in order to help prevent clipping and distortion<br>
   b. It compresses the signal and produces a muffled sound as if it were coming from the other end of a plastic pipe<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: The `DynamicsCompressorNode` interface provides a compression effect, which lowers the volume of the loudest parts of the signal in order to help prevent clipping and distortion that might occur when multiple sounds are played and multiplexed together at once. This is often used in musical production and game audio.<br>It's usually a good idea to insert a compressor near the end of your audio graph to give a louder, richer and fuller sound, and prevent clipping.
 
 
 20. Impulse what?
@@ -407,8 +407,10 @@ The gain node is useful for changing the volume of a signal in the audio routing
   a. An impulse response can be recorded as an audio file, from a real acoustic space such as a cave or an opera. We find many impulse responses on the Web. It should be loaded in memory and decoded using the decodeAudioData method of the audio context.<br>
   b. It is a set of parameters, the file we load is just a binary file with encoded parameters.<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation:
+    + An impulse response can be represented as an audio file and can be recorded from a real acoustic space such as a cave, or can be synthetically generated through a wide variety of techniques. We can find many high quality impulse files on the Web. In the course we used a .wav file that corresponds to the impulse response of La Scala Opera, Milan, Italy.
+    + So before building the audio graph, we need to download the impulse. For this, we used an Ajax request. The `WebAudio` API also requires that impulse files should be decoded in memory before use. For this reason, once the requested file has arrived we call the `decodeAudioData` method. Once the impulse is decoded, we can build the graph.
 
 
 <hr>
@@ -465,13 +467,13 @@ And here is an extract of the code that does a real time animated visualization 
 
 21. Number of data to draw?
 
-  We created an analyser node in the buildAudioGraph function. We set the FFT size to 1024, at _line 10_. What will be the size of the buffer containing the __frequency__ analysis data (in other words, what will be the length of the dataArray object)?
+  We created an analyser node in the `buildAudioGraph` function. We set the FFT size to 1024, at _line 10_. What will be the size of the buffer containing the __frequency__ analysis data (in other words, what will be the length of the `dataArray` object)?
 
   a. 512<br>
-  a. 1024<br>
+  b. 1024<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: The number of data returned is equal to the FFT size/2. In this example, 512.
 
 
 22. Value range?
@@ -479,27 +481,27 @@ And here is an extract of the code that does a real time animated visualization 
   What is the range of the values in the `dataArray` (_line 9_ in the visualize() function)?
 
   a. It depends on the size of the `fftSize` property of the analyser<br>
-  a. All values are between 0 and 255<br>
-  a. All values are between -128 and +128<br>
+  b. All values are between 0 and 255<br>
+  c. All values are between -128 and +128<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: All values are between 0 and 255. Usually you will adjust these values to fit between 0 and the height of the canvas you use to draw the visualization, in pixels.
 
 
 23. Visualize waveforms
 
   Instead of the __AAA__ placeholder at _line 5_ of the visualize function, which method would you call to visualize a waveform?
   
-  Ans: <br>
-  Explanation: 
+  Ans: `getByteTimeDomainData`<br>
+  Explanation: For visualizing waveforms, we need time domain data. So we call the `analyser.getByteTimeDomainData(dataArray)` method. The correct answer is `getByteTimeDomainData`.
 
 
 24. Visualize frequencies
 
   Instead of the __AAA__ placeholder at _line 5_ of the visualize function, which method would you call to visualize frequencies?
   
-  Ans: <br>
-  Explanation: 
+  Ans: `getByteFrequencyData`<br>
+  Explanation: For visualizing frequencies, we need frequency data. We should call the `analyser.getByteFrequencyData(dataArray)` method. The correct answer is `getByteFrequencyData`.
 
 
 25. Separate these channels, please!
@@ -509,8 +511,8 @@ And here is an extract of the code that does a real time animated visualization 
   a. The stereoPanner is for adjusting the stereo. It has only one input and one output. The channelSplitter node has one input but can have more than one output, for example for separating the left and right channels in the audio graph.<br>
   b. They do the same thing: adjust the stereo balance between the left and right channels.<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: The `ChannelSplitterNode` interface, often used in conjunction with its opposite, `ChannelMergerNode`, separates the different channels of an audio source into a set of mono outputs. This is useful for accessing each channel separately.
 
 
 26. Multiple sound samples
@@ -520,8 +522,8 @@ And here is an extract of the code that does a real time animated visualization 
   a. All sound samples should be loaded and decoded before use<br>
   b. All sound samples must be loaded before being used<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: Indeed, all sound samples must be decoded and loaded into memory before playing with them. Due to the asynchronous nature of both Ajax and the decoding process, this operation can be tricky when you need to download and decode multiple sound samples before starting your application. This is why we have recommended, the BufferLoader utility.
 
 
 27. Security belt please!
@@ -532,8 +534,10 @@ And here is an extract of the code that does a real time animated visualization 
   b. Because a sound might be clipped if the gain value is higher than 1 (if we used a gain node with each sound)<br>
   c. Because when playing multiple sounds, when these sounds are merged into one before being sent to the speakers, the result might be clipped<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: bc<br>
+  Explanation: Indeed, using a compressor node is always a good way of ensuring that the signal will not clip and produce crackles and a distorted sound.
+
+
 
 
 
