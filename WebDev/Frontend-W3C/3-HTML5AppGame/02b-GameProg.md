@@ -148,6 +148,144 @@ Using [the WebSockets technology](https://fr.wikipedia.org/wiki/WebSocket) (whic
   + [Websockets](https://fr.wikipedia.org/wiki/WebSocket): providing the means for sending messages to a sever and receiving event-driven responses w/o having to poll the sever for a reply
 
 
+### 2.2.3 The "game loop"
+
+The "game loop" is the main component of any game. It separates the game logic and the visual layer from a user's input and actions.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick= "window.open("https://bit.ly/2Ttk7fr")"
+    src    = "https://bit.ly/2U3TxcZ"
+    alt    = ""
+    title  = ""
+  />
+</figure>
+
+Traditional applications respond to user input and do nothing without it - word processors format text as a user types. If the user doesn't type anything, the word processor is waiting for an action.
+
+Games operate differently: a game must continue to operate regardless of a user's input!
+
+The game loop allows this. The game loop is computing events in our game all the time. Even if the user doesn’t make any action, the game will move the enemies, resolve collisions, play sounds and draw graphics as fast as possible. 
+
+
+#### Different implementations of the 'Main Game Loop'
+
+There are different ways to perform animation with JavaScript. A very detailed comparison of three different methods has already been presented in the W3Cx HTML5 Coding Essentials course. Below is a quick reminder of the methods, illustrated with new, short, online examples.
+
+__Performing animation using the JavaScript setInterval(...) function__
+
++ Syntax: `setInterval(function, ms);`
+
+  The setInterval function calls a function or evaluates an expression at specified intervals of time (in milliseconds), and returns a unique id of the action. You can always stop this by calling the clearInterval(id) function with the interval identifier as an argument.
+
+[Try an example at JSBin](https://jsbin.com/qopefu/edit): open the HTML, JavaScript and output tabs to see the code.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/2Ttk7fr")"
+    src    = "https://bit.ly/35qR52E"
+    alt    = "Screenshot of the JsBin setInterval Example with different tabs opened"
+    title  = "Screenshot of the JsBin setInterval Example with different tabs opened"
+  />
+</figure>
+
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> addStarToTheBody </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"*"</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="com">//this will add one star to the document each 200ms (1/5s)</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">setInterval</span><span class="pun">(</span><span class="pln">addStarToTheBody</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></strong></li>
+</ol></div><br>
+
+<span style="color: red;">WRONG:</span>
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">setInterval</span><span class="pun">(‘</span><span class="pln">addStarToTheBody</span><span class="pun">()’,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">setInterval</span><span class="pun">(‘</span><span class="pln">document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="pun">“*”;’,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></li>
+</ol></div><br>
+
+<span style="color: lightgreen;">GOOD:</span>
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">setInterval</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(){</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="pun">“*”;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">},</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></li>
+</ol></div><br>
+
+or like we did in the example, with an external function.
+
+<font style="pink;">Reminder from the HTML5 Coding Essentials course: with <code>setInterval</code> - if we set the number of milliseconds at, say, 200, it will call our game loop function EACH 200ms, <u>even if the previous one is not yet finished</u></font>.  Because of this disadvantage, we might prefer to use another function, better suited to our goals.
+
+__Using `setTimeout()` instead of `setInterval()`__
+
++ Syntax: `setTimeout(function, ms);`
+
+  The `setTimeout` function works like `setInterval` but with one little difference: it calls your function AFTER a given amount of time.
+
+[Try an example at JSBin](https://jsbin.com/vuvitu/edit): open the HTML, JavaScript and output tabs to see the code. This example does the same thing as the previous example by adding a "*" to the document every 200ms.
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> addStarToTheBody </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"*"</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="com">// calls again itself AFTER 200ms</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>setTimeout</strong></span><strong><span class="pun">(</span><span class="pln">addStarToTheBody</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="com">// calls the function AFTER 200ms</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">setTimeout</span><span class="pun">(</span><span class="pln">addStarToTheBody</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></strong></li>
+</ol></div><br>
+
+This example will work like the previous example. However, it is a definite improvement, because the timer waits for the function to finish everything inside before calling it again. 
+
+For several years, setTimeout was the best and most popular JavaScript implementation of game loops. This changed when Mozilla presented the requestAnimationFrame API, which became the reference W3C standard API for game animation.
+
+
+__Using the `requestAnimationFrame` API__
+
+  + Note: using `requestAnimationFrame` was covered in detail in the W3Cx HTML5 Coding Essentials course.
+
+When we use timeouts or intervals in our animations, the browser doesn’t have any information about our intentions -- do we want to repaint the DOM structure or a  canvas during every loop? Or maybe we just want to make some calculations or send requests a couple of times per second? For this reason, it is really hard for the browser’s engine to optimize the loop.
+
+And since we want to repaint the game (move the characters, animate sprites, etc.) every frame, Mozilla and other contributors/developers introduced a new approach which they called `requestAnimationFrame`.
+
+This approach helps the browser to optimize all the animations on the screen, no matter whether  Canvas, DOM or WebGL. Also, if the animation loop is running in a browser tab that is not currently visible, the browser won't keep it running.
+
+Basic usage, [online example at JSBin](https://jsbin.com/geqija/1/edit?html,js,output).
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// called after the page is entirely loaded</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>requestAnimationFrame</strong></span><strong><span class="pun">(</span><span class="pln">mainloop</span><span class="pun">);</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> mainloop</span><span class="pun">(</span><span class="pln">timestamp</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"*"</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// call back itself every 60th of second</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>requestAnimationFrame</strong></span><strong><span class="pun">(</span><span class="pln">mainloop</span><span class="pun">);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+Notice that calling `requestAnimationFrame(mainloop)` at _line 10_, asks the browser to call the `mainloop` function every 16.6 ms: this corresponds to 60 times per second (16.6 ms = 1/60 s).
+
+__This target may be hard to reach; the animation loop content may take longer than this, or the scheduler may be a bit early or late.__
+
+__Many "real action games" perform what we call *time-based animation*.__ For this, we need an accurate timer that will tell us the elapsed time between each animation frame. Depending on this time, we can compute the distances each object on the screen must achieve in order to move at a given speed, independently of the CPU or GPU of the computer or mobile device that is running the game. 
+
+The `timestamp` parameter of the `mainloop` function is useful for exactly that: it gives a high resolution time.
+
+We will cover this in more detail, later in the course.
+
+
+
 
 
 
