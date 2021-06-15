@@ -41,7 +41,7 @@ The W3C [HTML Working Group](https://www.w3.org/html/wg/) published [HTML Canvas
 
 #### Animating at 60 fps: the requestAnimationFrame API
 
-The requestAnimationFrame API targets 60 frames per second animation in canvases. This API is quite simple and also comes with a high resolution timer. Animation at 60 fps is often easy to obtain with simple 2D games on major desktop computers. This is the preferred way to perform animation, as the browser will ensure that animation is not performed when the canvas is not visible, thus saving CPU resources.
+The `requestAnimationFrame` API targets 60 frames per second animation in canvases. This API is quite simple and also comes with a high resolution timer. Animation at 60 fps is often easy to obtain with simple 2D games on major desktop computers. This is the preferred way to perform animation, as the browser will ensure that animation is not performed when the canvas is not visible, thus saving CPU resources.
 
 
 #### Videos and animated textures: the `<video>` element
@@ -51,9 +51,7 @@ The HTML5 `<video>` element was introduced in the HTML5 specification for the pu
 By combining the capabilities of the `<video>` and `<canvas>` elements, it is possible to manipulate video data to incorporate a variety of visual effects  in real time, and conversely, to use images from videos as "animated textures" over graphic objects.
 
 
-#### `<audio>` Element and the Web Audio API
-
-__Audio (streamed audio and real time sound effects): the `<audio>` element and the Web Audio API__
+#### Audio : the `<audio>` element and the Web Audio API
 
 __The `<audio>` element__
 
@@ -65,9 +63,7 @@ __The Web Audio API__
 This is a 100% JavaScript API designed for working in real time with uncompressed sound samples or for generating procedural music. Sound samples will need to be loaded into memory and decompressed prior to being used. Up to 12 sound effects are provided natively by browsers that support the API (all major browsers except IE, although Microsoft Edge supports it).
 
 
-#### Keyboard & Mouse Events and The GamePad API
-
-__Interacting: dealing with keyboard and mouse events, the GamePad API__
+#### Interacting: dealing with keyboard and mouse events, the GamePad API
 
 User inputs will rely on several APIs, some of which are well established, such as the DOM API that is used for keyboard, touch or mouse inputs. There is also a [Gamepad API](https://www.w3.org/TR/gamepad/) (in W3C Working Draft status) that is already implemented by some browsers, which we will also cover in this course. The Gamepad specification defines a low-level interface that represents gamepad devices.
 
@@ -86,6 +82,70 @@ Using [the WebSockets technology](https://fr.wikipedia.org/wiki/WebSocket) (whic
   />
 </figure>
 
+
+#### Notes for 2.2.2 Elements and APIs useful for writing games
+
++ Drawing
+  + `<canvas>` element
+    + a new HTML element
+    + a resolution-dependent bitmap canvas used for rendering graphs, game graphs, or orther images on-the-fly
+    + rectangle shape able to draw by using scripting w/ JavaScript
+    + a drawable region defined w/ `height` and `width` attributes
+  + multiple canvas on one page
+    + possible stacked one on top of another, such as transpreant layer
+    + visible in the DOM tree
+    + one's state independent of the others
+  + a rich JavaScript API
+    + all kind of shapes
+    + wireframe or filled shapes
+    + properties: color, line width, patterns, gradient, etc.
+    + transparency and pixel level manipulation
+    + supported by all browsers, on desktop or mobile phones, and on most devices
+
++ Animation
+  + `requestAnimationFrame` API
+    + targeting 60 fps in canvases
+    + w/ high resolution timer
+  + 60 fps: easy to obtain w/ simple 2D games on major desktop commputers
+  + preferred way to perform animation
+  + no animation performed if not visible $\to$ saving CPU resources
+
++ Video and animated texture
+  + `<video>` element
+    + playing streaming videos or movies
+    + partially replacing the object element
+  + JavaScript API
+    + nearly the same as the one of the `<audio>` element
+    + enabling full control from JavaScript
+  + combining the capabilities of the `<video>` and `<canvas>` elements
+    + possible to maipulate video data to incorporate a variety of visual effects in real time
+    + possible to use images from video as "animated textures" over graphic object
+
++ Audio
+  + the `<audio>` element
+    + an HTML element
+    + introduced to give a consistent API for playing streamed sounds in browsers
+    + file format support varying btw browsers
+    + MP3 working nearly all browsers
+    + only for streaming compressed audio $\implies$ consuming CPU resources
+    + no sound effects, such changing speed and real-time effect
+  + the Web Audio API
+    + a 100\% JavaScript API designed for working in real-time w/ uncompressed sound samples or for generating procedural music
+    + sound samples loaded into memory and decompressed prior to being used
+    + up to 12 sound effects natively provided by browsers
+
++ Interaction
+  + user input replying on several APIs
+  + DOM API used for keyboard, touch, or mouse inputs
+  + GamePad API (working draft)
+    + define a low-level interface representing gamepad devices
+    + already implemented by some browsers
+
++ Multiple participants: Websockets
+  + not part of HTML5 but W3C [WebRTC](https://www.w3.org/TR/webrtc/) specification, "Real-time Communication between Browsers"
+  + creating two-way communication sessions btw multiple browsers and a server
+  + [socket.io](https://socket.io/): useful libraries built on top of Websocket API
+  + [Websockets](https://fr.wikipedia.org/wiki/WebSocket): providing the means for sending messages to a sever and receiving event-driven responses w/o having to poll the sever for a reply
 
 
 
