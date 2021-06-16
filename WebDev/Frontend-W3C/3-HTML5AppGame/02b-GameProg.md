@@ -354,6 +354,26 @@ We will cover this in more detail, later in the course.
   + animation loop: `function mainloop(timestamp) { document.body.innerHTML += "*"; requestAnimationFrame(mainloop); };`
 
 
+### 2.2.4 Discussion
+
+Please either post your comments/observations/questions or share your creations.
+
+Suggested topics of discussion:
+
++ Did you know about DHTML? Did you try one of the best arcade games ever made using Web Technologies: [SWARM](https://def-logic.com/_dhtml/swarm/), written by Brent Silby long before HTML5 and the `<canvas>` was available? Impressive isn't it? Have you tried [these other games](https://def-logic.com/)?
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open("https://bit.ly/3cKQa16")"
+      src    = "https://bit.ly/35ul1ec"
+      alt    = "swarm game screenshot"
+      title  = "swarm game screenshot"
+    />
+  </figure>
+
++ Do you have any ideas about how we could move animated graphic objects with DHTML, in this pre-HTML5 canvas era?
++ If you know of some great demos, games, or remarkable facts that should be added in the HTML game history, please let us know...
++ Did you know we could use a gamepad with a browser?
 
 
 
