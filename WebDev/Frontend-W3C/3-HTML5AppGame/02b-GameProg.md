@@ -153,7 +153,7 @@ Using [the WebSockets technology](https://fr.wikipedia.org/wiki/WebSocket) (whic
 The "game loop" is the main component of any game. It separates the game logic and the visual layer from a user's input and actions.
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
     onclick= "window.open("https://bit.ly/2Ttk7fr")"
     src    = "https://bit.ly/2U3TxcZ"
     alt    = ""
@@ -172,13 +172,17 @@ The game loop allows this. The game loop is computing events in our game all the
 
 There are different ways to perform animation with JavaScript. A very detailed comparison of three different methods has already been presented in the W3Cx HTML5 Coding Essentials course. Below is a quick reminder of the methods, illustrated with new, short, online examples.
 
+#### setInterval Function
+
 __Performing animation using the JavaScript setInterval(...) function__
 
 + Syntax: `setInterval(function, ms);`
 
-  The setInterval function calls a function or evaluates an expression at specified intervals of time (in milliseconds), and returns a unique id of the action. You can always stop this by calling the clearInterval(id) function with the interval identifier as an argument.
+  The `setInterval` function calls a function or evaluates an expression at specified intervals of time (in milliseconds), and returns a unique id of the action. You can always stop this by calling the `clearInterval(id)` function with the interval identifier as an argument.
 
 [Try an example at JSBin](https://jsbin.com/qopefu/edit): open the HTML, JavaScript and output tabs to see the code.
+
+[Local Demo](src/02b-example01.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -220,6 +224,8 @@ or like we did in the example, with an external function.
 
 <font style="pink;">Reminder from the HTML5 Coding Essentials course: with <code>setInterval</code> - if we set the number of milliseconds at, say, 200, it will call our game loop function EACH 200ms, <u>even if the previous one is not yet finished</u></font>.  Because of this disadvantage, we might prefer to use another function, better suited to our goals.
 
+#### setTimeout Function
+
 __Using `setTimeout()` instead of `setInterval()`__
 
 + Syntax: `setTimeout(function, ms);`
@@ -227,6 +233,8 @@ __Using `setTimeout()` instead of `setInterval()`__
   The `setTimeout` function works like `setInterval` but with one little difference: it calls your function AFTER a given amount of time.
 
 [Try an example at JSBin](https://jsbin.com/vuvitu/edit): open the HTML, JavaScript and output tabs to see the code. This example does the same thing as the previous example by adding a "*" to the document every 200ms.
+
+[Local Demo](src/02b-example02.html)
 
 Source code extract:
 
@@ -243,8 +251,10 @@ Source code extract:
 
 This example will work like the previous example. However, it is a definite improvement, because the timer waits for the function to finish everything inside before calling it again. 
 
-For several years, setTimeout was the best and most popular JavaScript implementation of game loops. This changed when Mozilla presented the requestAnimationFrame API, which became the reference W3C standard API for game animation.
+For several years, `setTimeout` was the best and most popular JavaScript implementation of game loops. This changed when Mozilla presented the `requestAnimationFrame` API, which became the reference W3C standard API for game animation.
 
+
+#### requestAnimationFrame Function
 
 __Using the `requestAnimationFrame` API__
 
@@ -257,6 +267,8 @@ And since we want to repaint the game (move the characters, animate sprites, etc
 This approach helps the browser to optimize all the animations on the screen, no matter whether  Canvas, DOM or WebGL. Also, if the animation loop is running in a browser tab that is not currently visible, the browser won't keep it running.
 
 Basic usage, [online example at JSBin](https://jsbin.com/geqija/1/edit?html,js,output).
+
+[Local Demo](src/02b-example03.html)
 
 Source code extract:
 
@@ -284,6 +296,62 @@ The `timestamp` parameter of the `mainloop` function is useful for exactly that:
 
 We will cover this in more detail, later in the course.
 
+
+#### Notes for 2.2.3 The "game loop"
+
++ Game loop
+  + the main component of any game
+  + separating the game logic and the visual layer from a user's input and action
+  + traditional applications: respond to user input and do nothing w/o it
+  + game: continue operating regardless of a user's input
+  + computing events in the game all the time, even if no action from user
+  + possible actions: move the enemies, resolve collisions, playing sound and drawing graphics
+  + possible implementations
+    + `setInterval(function, ms)`
+    + `setTimeout(function, ms)`
+    + `requestAnimationFrame(mainloop)`
+
++ Animation using `setInterval` function
+  + syntax: `setInterval(function, ms)`
+  + call a function and evaluate an expression at specified intervals of time (in ms)
+  + return a unique id of this action
+  + stop by calling `clearInterval(id)`
+  + call the `function` every `ms` second even if the previous one not yet finished
+
++ Example: animation w/ `setInterval` function
+  + add start to body: `var addStarToTheBody = function() { document.body.innerHTML += "*"; };
+  + add start every 200ms: `setInterval(addStarToTheBody, 200);`
+  + wrong implementation
+    + `setInterval('addStarToTheBody()', 200);`
+    + `setInterval('document.body.innerHTML += '*';', 200);`
+  + good practice: `setInterval(function() { document.body.innerHTML += '*'; }, 200);`
+
++ Animation using `setTimeout` function
+  + syntax: `setTimeout(function, ms)`
+  + work like `setInterval` but w/ one little difference
+  + call `function` __AFTER__ a given amount of time
+  + definite improvement: timer waiting for the function to finish everything inside before calling it again
+
++ Example: animation w/ `setTimeout` function
+  + add star to body: `var addStarToTheBody = function() { document.body.innerHTML += '*'; setTimeout(addStarToTheBody, 200); };`
+  + call the function after 200 ms: `setTimeout(addStarToTheBody, 200);`
+
++ Animation using `requestAnimationFrame` function
+  + syntax: `requestAnimationFrame(mainloop)`
+  + 60 fps: 16.6 ms = 1/60 s
+  + help browser to optimize all the animations on the screen
+  + `setInterval` & `setTimeout`: browser w/o info about the actions within function $\to$ execution time unknown
+  + animation loop in a invisible tab: not running
+  + issue: animation loop content probably takes longer than the rate (60 fps)
+  + solution: time-based animation
+    + require an accurate timer to tell the elapsed time btw each animation frame
+    + according to the time, compute the distances each object on the screen must achieve to move at a given speed
+    + independently of the CPU or GPU of the computer or mobile device
+  + `timestamp` parameter of the `mainloop` function: a high-resolution time
+
++ Example: animation w/ `requestAnimationFrame` function
+  + init page after DOM ready: `window.onload() { requestAnimationFrame(mainloop); };`
+  + animation loop: `function mainloop(timestamp) { document.body.innerHTML += "*"; requestAnimationFrame(mainloop); };`
 
 
 
