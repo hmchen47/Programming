@@ -50,6 +50,8 @@ __Let's put something into the mainLoop function, and check if it works__
 
 Try this [online example at JSBin](https://jsbin.com/tatowa/edit), with a new `mainloop`:  (check the JavaScript and output tabs). This page should display a different random number every 1/60 second. We don't have a real game yet, but we're improving our game engine :-)
 
+[Local Demo](src/02b-example04.html)
+
 Source code extract:
 
 <div class="source-code"><ol class="linenums">
@@ -73,9 +75,11 @@ The principle is simple:
 2. If the sum of the deltas is greater or equal to 1000, then 1s has elapsed since we started counting.
 3. If at the same time, we count the number of _frames_ that have been drawn, then we have the _frame rate_ - measured in number of frames per second. Remember, it should be around 60 fps!
 
-__Quick glossary:__ the word delta is the name of a Greek letter (uppercase Δ, lowercase δ or 𝛿). The upper-case version is used in mathematics as an abbreviation for measuring the change in some object, over time - in our case, how quickly the mainloopis running. This dictates the maximum speed at which the game display will be updated. This maximum speed could be referred to as the _rate of change_. We call what is displayed at a single point-in-time, a frame. Thus the _rate of change_  can be measured in frames per second (fps). Accordingly, our game's delta, determines the achievable frame rate - the __shorter__ the delta (measured in mS), the __faster__ the possible _rate of change_ (in _fps_).
+__Quick glossary:__ the word delta is the name of a Greek letter (uppercase Δ, lowercase δ or 𝛿). The upper-case version is used in mathematics as an abbreviation for measuring the change in some object, over time - in our case, how quickly the mainloop is running. This dictates the maximum speed at which the game display will be updated. This maximum speed could be referred to as the _rate of change_. We call what is displayed at a single point-in-time, a frame. Thus the _rate of change_  can be measured in frames per second (fps). Accordingly, our game's delta, determines the achievable frame rate - the __shorter__ the delta (measured in mS), the __faster__ the possible _rate of change_ (in _fps_).
 
 Here is a screenshot of an example and the code we added to our game engine, for measuring FPS (try it [online at JSBin](https://jsbin.com/noqibu/edit)):
+
+[Local Demo](src/02b-example05.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -133,7 +137,7 @@ Now we can call the `measureFPS` function from inside the animation loop, passin
 <li class="L6" style="margin-bottom: 0px;"><span class="pun">};</span></li>
 </ol></div><br>
 
-And the <div> element used to display FPS on the screen is created in this example by the start() function:
+And the `<div>` element used to display FPS on the screen is created in this example by the `start()` function:
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> start </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
@@ -156,7 +160,7 @@ My favorite hack uses the onerror callback on an `<img>` element like this:
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln">&nbsp;mainloop</span><span class="pun">(</span><span class="pun">){</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> img </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">;</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; img</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="pun"><span style="color: #000000; line-height: 23.2727px;">mainloop</span>;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; img</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="pun"><span style="line-height: 23.2727px;">mainloop</span>;</span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; img</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">'data:image/png,'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">();</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 </ol></div><br>
@@ -164,6 +168,8 @@ My favorite hack uses the onerror callback on an `<img>` element like this:
 What we are doing here, is creating a new image on each frame and providing invalid data as a source of the image. The image cannot be displayed properly, so the browser calls the onerror event handler that is the mainloop function itself, and so on.
 
 Funny right? Please try this and check the number of FPS displayed with this [JSBin example](https://jsbin.com/notupe/edit).
+
+[Local Demo](src/02b-example06.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -189,6 +195,80 @@ Source code extract of this example:
 <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; img</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">'data:image/png,'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">();</span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
 </ol></div><br>
+
+
+#### Notes for 2.3.1 A game framework skeleton
+
++ Game framework skeleton
+  + based on the [Black Box Driven Development](https://hacks.mozilla.org/2014/08/black-box-driven-development-in-javascript/)
+    + principle 1: modularize everything
+    + principle 2: expose only public methods
+    + principle 3: use composition over inheritance
+  + a simple objected-based model using encapsulation to expose only useful methods and properties
+  + cut into several files once becoming too large to fit into one single file
+
++ Example: game framework starting point
+  + generate game framework: `var GF = function() {...}`
+    + create animation loop: `var mainloop = function() { requestAnimationFrame(mainloop); };`
+    + init game loop: `var star = function() { requestAnimationFrame(mainloop); };`
+    + return a public API: `return { start: start };`
+  + create a new game instance
+    + declare game instance: `var game = new GF();`
+    + launch game: `game.start();`
+
++ Example: animation loop of game framework
+  + create animation loop: `var mainloop = function(time) {...};`
+  + call animation function to display random number in page: `document.body.innerHTML = Math.random();`
+  + call animation loop: `requestAnimationFrame(mainloop);`
+
++ Measuring animation's frame rate
+  + every game requiring a function to measure the actual frame rate achieved by the code
+  + principle:
+    + count the time elapsed by adding deltas in the `mainloop`
+    + sum of the deltas $\ge 1000 \implies$ 1s elapsed since starting point
+    + meanwhile, count the number of frames drawn $\implies$ meansure frame rate, should be 60 fps
+  + delta ($\Delta, \delta$)
+    + $Delta$:
+      + used in mathematics as an abbreviation for measuring the change in some object
+      + how quickly the mainloop running
+      + the maimum spped, rate of change, at which the game display will be updated
+      + rate of change able to be measured in frames per second (fps)
+    + $\delta$
+      + determin the achievable frame rate
+      + the shorter the delta (in ms), the faster the possible rate of change (in fps)
+
++ Example: counting frames/s
+  + delcare variables: `var frameCount = 0; var lastTime; var fpsContainer; var fps;`
+  + measure FPS: `var measureFPS = function(newTime) {...}`
+  + test and process first invocation: `if (lastTime === undefined) { lastTime = newTime; return; }`
+  + calculate the delta btw last & current frame: `var diffTime = newTime - lastTime;`
+  + check delta and assign values: `if (diffTime >= 1000) { fps = frameCount; frameCount = 0; lastTime = newTime; }`
+  + display info: `fpsContainer.innerHTML = 'FPS: ' + fps;`
+  + increase frame count: `frameCount++;`
+
++ Example: compute FPS in animation loop
+  + create animation loop: `var mainloop = function(time) {...}`
+  + compute FPS: `measureFPS(time);`
+  + call animation loop: `requestAnimationFrame(mainloop);`
+
++ Example: display FPS
+  + initialize the game framework: `var start = function() {...}`
+  + add div container: `fpsContainer = document.createElement('div');`
+  + add div contain to page: `document.body.appendChild(fpsContainer);`
+  + init the animation loop: `requestAnimationFrame(mainloop);`
+
++ Example: image element w/ error callback
+  + create animation loop: `function mainloop {...}`
+  + delcare variable: `var img = new image;`
+  + assign error callback: `img.onerror = mainloop;`
+  + assign image source: `img.src = 'data:image/png,' + Math.random();`
+
++ Example: check the number of FPS
+  + create animation loop: `var mainloop = function() {...}`
+  + measure FPS w/ current time: `measureFPS(+(new Date()));`
+  + generate new image: `var img = new Image();`
+  + handle error: `img.error = mainloop;`
+  + assign image source: `img.src = 'data.image/pbg' + Math.random();`
 
 
 #### Knowledge check 2.3.1
