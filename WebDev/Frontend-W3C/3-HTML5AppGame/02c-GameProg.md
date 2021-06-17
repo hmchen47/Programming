@@ -278,9 +278,9 @@ Source code extract of this example:
   a. We use the parameter passed by the browser to the animation loop. This is a requestAnimationFrame API feature.<br>
   a. We use the Date() JavaScript object, that returns the current time.<br>
 
-  Ans: <br/>
-  Explanation: 
-  
+  Ans: <span style="color: magenta;">a</span>, xb<br/>
+  Explanation: When we ask the browser to call the `mainloop` function using `requestAnimationFrame(mainloop)`, a time parameter is passed to the `mainloop` function. It's a high resolution time in ms, that we use to compute deltas. By computing the difference between the current time and the previous time measured during the previous execution of `mainloop`, we can get the elapsed time, with a sub millisecond accuracy.
+
 
 
 
