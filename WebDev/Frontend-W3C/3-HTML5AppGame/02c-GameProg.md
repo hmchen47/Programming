@@ -590,6 +590,70 @@ Next, let's see how to interact with it using the mouse or the keyboard.
       + return public API: `return { start: start };`
 
 
+### 2.3.3 User interaction and event handling
+
+#### Input & output: how do events work in Web apps & games?
+
+__HTML5 events__
+
+There is no input or output in JavaScript. We treat events caused by user actions as inputs, and we manipulate the DOM structure as output. Usually in games, we will maintain state variables representing moving objects like the position and speed of an alien ship, and the animation loop will refer to these variables in determining the movement of such objects.
+
+In any case, the events are called DOM events, and we use the DOM APIs to create _event handlers_.
+
+__How to listen to events__
+
+There are three ways to manage events in the DOM structure. You could attach an event inline in your HTML code like this:
+
+__Method #1: declare an event handler in the HTML code__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"someDiv"</span><span class="pln"> </span><strong><span class="atn">onclick</span></strong><span class="pun">=</span><span class="atv">"</span><span class="pln">alert</span><span class="pun">(</span><span class="str">'clicked!'</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln"> content of the div </span><span class="tag">&lt;/div&gt;</span></li>
+</ol></div><br>
+
+This method is very easy to use, but it is not the recommended way to handle events. Indeed, It works today but is _deprecated_ (will probably be abandoned in the future). Mixing 'visual layer' (HTML) and 'logic layer' (JavaScript) in one place is really bad practice and causes a host of problems during development.
+
+__Method #2: attach an event handler to an HTML element in JavaScript__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'someDiv'</span><span class="pun">).</span><strong><span class="pln">onclick </span></strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str"><g class="gr_ gr_54 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="54" data-gr-id="54">'clicked</g>!'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+This method is fine, but  you will not be able to attach multiple _listener_ functions. If you need to do this, use the version shown below.
+
+__Method #3: register a callback to the event listener with the addEventListener method (preferred  method)__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'someDiv'</span><span class="pun">).</span><strong><span class="pln">addEventListener</span></strong><span class="pun">(</span><span class="str">'click'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">'clicked!'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+</ol></div><br>
+
+Note that the third parameter describes whether the _callback_ has to be called during the captured phase. This is not important for now, just set it to false.
+
+
+#### Details of the DOM event are passed to the event listener function
+
+When you create an event listener and attach it to an element, the listener will create an `event` object to describe what happened. This object is provided as a parameter of the callback function:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">element</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str"><g class="gr_ gr_64 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="64" data-gr-id="64">'click</g>'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><strong><span class="kwd">event</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// now you can use event object inside the callback</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+</ol></div><br>
+
+Depending on the type of event you are listening to, you will consult different properties from the `event` object in order to obtain useful information such as: "which keys are pressed down?", "what is the location of the mouse cursor?", "which mouse button has been clicked?", etc.
+
+In the following lessons, we will remind you now how to deal with the keyboard and the mouse (previously covered during the HTML5 Part 1 course) in the context of a game engine (in particular, how to manage multiple events at the same time), and also demonstrate how you can accept input from a game pad using the new Gamepad API.
+
+
+#### Further reading
+
+In the method #1 above, we mentioned that "Mixing 'visual layer' (HTML) and 'logic layer' (JavaScript) ... bad practice", and this is similarly reflected in many style features being deprecated in HTML5 and moved into CSS3. The management philosophy at play here is called "the separation of concerns" and applies in several ways to software development - at the code level, through to the management of staff. It's not part of the course, but professionals may find the following references useful:
+
++ [Separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) - Wikipedia, the free encyclopedia
+
 
 
 
