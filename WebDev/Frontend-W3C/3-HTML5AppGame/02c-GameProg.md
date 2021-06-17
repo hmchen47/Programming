@@ -208,7 +208,7 @@ Source code extract of this example:
   + cut into several files once becoming too large to fit into one single file
 
 + Example: game framework starting point
-  + generate game framework: `var GF = function() {...}`
+  + generate game framework <a name="gf"></a>: `var GF = function() {...}`
     + create animation loop: `var mainloop = function() { requestAnimationFrame(mainloop); };`
     + init game loop: `var star = function() { requestAnimationFrame(mainloop); };`
     + return a public API: `return { start: start };`
@@ -239,12 +239,12 @@ Source code extract of this example:
 
 + Example: counting frames/s
   + delcare variables: `var frameCount = 0; var lastTime; var fpsContainer; var fps;`
-  + measure FPS: `var measureFPS = function(newTime) {...}`
-  + test and process first invocation: `if (lastTime === undefined) { lastTime = newTime; return; }`
-  + calculate the delta btw last & current frame: `var diffTime = newTime - lastTime;`
-  + check delta and assign values: `if (diffTime >= 1000) { fps = frameCount; frameCount = 0; lastTime = newTime; }`
-  + display info: `fpsContainer.innerHTML = 'FPS: ' + fps;`
-  + increase frame count: `frameCount++;`
+  + measure FPS<a name="measureFPS"></a>: `var measureFPS = function(newTime) {...}`
+    + test and process first invocation: `if (lastTime === undefined) { lastTime = newTime; return; }`
+    + calculate the delta btw last & current frame: `var diffTime = newTime - lastTime;`
+    + check delta and assign values: `if (diffTime >= 1000) { fps = frameCount; frameCount = 0; lastTime = newTime; }`
+    + display info: `fpsContainer.innerHTML = 'FPS: ' + fps;`
+    + increase frame count: `frameCount++;`
 
 + Example: compute FPS in animation loop
   + create animation loop: `var mainloop = function(time) {...}`
@@ -252,7 +252,7 @@ Source code extract of this example:
   + call animation loop: `requestAnimationFrame(mainloop);`
 
 + Example: display FPS
-  + initialize the game framework: `var start = function() {...}`
+  + initialize the game framework<a name="initGF"></a>: `var start = function() {...}`
   + add div container: `fpsContainer = document.createElement('div');`
   + add div contain to page: `document.body.appendChild(fpsContainer);`
   + init the animation loop: `requestAnimationFrame(mainloop);`
@@ -275,7 +275,7 @@ Source code extract of this example:
 
 1. How do we measure the time between two consecutive animations?
 
-  a. We use the parameter passed by the browser to the animation loop. This is a requestAnimationFrame API feature.<br>
+  a. We use the parameter passed by the browser to the animation loop. This is a `requestAnimationFrame` API feature.<br>
   a. We use the Date() JavaScript object, that returns the current time.<br>
 
   Ans: <span style="color: magenta;">a</span>, xb<br/>
@@ -297,8 +297,10 @@ Let's do this by including into our framework the same "monster" we used during 
 
 How to draw a monster in a canvas: you can try it [online at JSBin](https://jsbin.com/ponaki/edit).
 
+[Local Demo](src/02b-example07.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick= "window.open("https://bit.ly/2UeN679")"
     src    = "https://bit.ly/3xrMtFt"
     alt    = "Small monster drawn in a canvas"
@@ -405,21 +407,25 @@ In this small example, we used the `context` object to draw a monster using the 
 + And if we change the coordinate system (this is what the call to `ctx.translate(...)` does) in a function, it is a best practice to always save the previous context  at the beginning of the function and restore it at the end of the function (_lines 27 and 50_).
 
 
-#### Animating the monster and including it in our game engine
+#### Including Animation to Game Engine
+
+__Animating the monster and including it in our game engine__
 
 Ok, now that we know how to move the monster, let's integrate it into our game engine:
 
 1. add the canvas to the HTML page,
-1. add the content of the `init()` function to the `start()` function of the game engine,
-1. add a few global variables (`canvas`, `ctx`, etc.),
-1. call the `drawMonster(...)` function from the mainLoop,
-1. add a random displacement to the x, y position of the monster to see it moving,
-1. in the main loop, do not forget to clear the canvas before drawing again; this is done using the `ctx.clearRect(x, y, width, height)` function.
+2. add the content of the `init()` function to the `start()` function of the game engine,
+3. add a few global variables (`canvas`, `ctx`, etc.),
+4. call the `drawMonster(...)` function from the mainLoop,
+5. add a random displacement to the x, y position of the monster to see it moving,
+6. in the main loop, do not forget to clear the canvas before drawing again; this is done using the `ctx.clearRect(x, y, width, height)` function.
 
-You can try [this version online at JSBin](https://jsbin.com/xuruja/edit). 
+You can try [this version online at JSBin](https://jsbin.com/xuruja/edit).
+
+[Local Demo](src/02b-example08.html)
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick= "window.open("https://bit.ly/2UeN679")"
     src    = "https://bit.ly/35v4GpW"
     alt    = "Screenshot of a trembling monster in a 60 f/s animation"
@@ -523,6 +529,65 @@ __Explanations:__
 If you try the example, you will see a trembling monster. The canvas is cleared and the monster drawn in random positions, at around 60 times per second!
 
 Next, let's see how to interact with it using the mouse or the keyboard.
+
+
+#### Notes for 2.3.2 Introducing graphics
+
++ Best practices for canvas
+  1. use a function called AFTER the page is fully loaded (and the DOM is ready), set a pointer to the canvas node in the DOM
+  2. get a 2D graphic context for this canvas; the `context` object used to
+      + draw on the canvas
+      + set global properties, such as color, gradient, patterns and line width
+  3. then able to draw something
+  4. do not forget to use global variables for the canvas for the canvas and context object, in particular, the width and height of the cnavas
+  5. for each function that will change the context, start by saving context and end by restoring it
+
++ Example: draw a monster in a canvas
+  + canvas element <a name="canvasElm"></a>: `<canvas id="myCanvas" width=200 height=200></canvas>`
+  + canvas style <a name="canvasStyle"></a>: `canvas { border: 1px solid black; }`
+  + JavaScript snippet
+    + declare global variable: `var canvas, ctx, w, h;`
+    + init page after DOM ready<a name="initCanvas"></a>: `window.onload = function init() {...}`
+      + access canvas element: `canvas = document.querySelector("#myCanvas");`
+      + set useful values: `w = canvas.width; h = canvas.height;`
+      + set 2D graphic for canvas: `ctx = canvas.getContext("2d");`
+      + call to draw monster: `drawMyMonster(10, 10);`
+    + draw monster<a name="drawMonster"></a>: `function drawMyMonster(x, y) {...}`
+      + save the context: `ctx.save();`
+      + translate the coordinate: `ctx.translate(x, y);`
+      + draw the frame:  `ctx.translate(0, 0, 100, 100);`
+      + draw eyes: `ctx.fillRect(20, 20, 10, 10); ctx.fillRect(65, 20, 10, 10);`
+      + draw nose: `ctx.strokeRect(45, 40, 10, 40);`
+      + draw mouth: `ctx.strokeRect(35, 84, 30, 10);`
+      + draw teeth: `ctx.fillRect(38, 84, 10, 10); ctx.fillRect(52, 84, 10, 10);`
+      + restore the context: `ctx.restore();`
+
++ Adding animaton into canvas
+  1. add the canvas to the HTML page
+  2. add tne content of the `init()` function to the `start()` function of the game engine
+  3. add a few global variables, such as `canvas`, `ctx`, etc.
+  4. call the `drawMonster(...)` function from the mainloop
+  5. add a random displacement to the x, y position of the monster to see it moving
+  6. before drawing again in main loop, clear the canvas by `ctx.clearRect(x, y, width, height)` fucntion
+
++ Example: add animation to game engine
+  + create [canvas element](#canvasElm)
+  + JavaScript snippet:
+    + init page after DOM ready: `window.onload = function init() { var game = new GF(); game.start(); };`
+    + generate game framework: `var GF = function() {...};`
+      + declare variables: `var canvas, ctx, x, y;`
+      + [measure FPS](#measureFPS)
+      + clear canvas: `function clearCanvas() { ctx.clearRect(0, 0, w, h); }`
+      + [draw monster](#drawMonster)
+      + generate main loop: `var mainloop = function(time) {...}`
+        + call to measure FPS: `measureFPS(time);`
+        + clear the canvas: `clearCanvas();`
+        + call to draw monster: `drawMyMonster(10+Math.random()*10, 10+Math.random()*10);`
+        + call to animate: `requestAnimateFrame(mainloop);`
+      + [init the GF](#startGF) w/ 
+        + [init canvas](#initCanvas) w/o drawing monster
+        + start the animation: `requestAnimationFrame('2d');`
+      + return public API: `return { start: start };`
 
 
 
