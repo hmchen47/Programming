@@ -211,7 +211,7 @@ Source code extract of this example:
   + generate game framework <a name="gf"></a>: `var GF = function() {...}`
     + create animation loop: `var mainloop = function() { requestAnimationFrame(mainloop); };`
     + init game loop: `var star = function() { requestAnimationFrame(mainloop); };`
-    + return a public API: `return { start: start };`
+    + return a public API<a name="publicAPI"></a>: `return { start: start };`
   + create a new game instance
     + declare game instance: `var game = new GF();`
     + launch game: `game.start();`
@@ -573,11 +573,11 @@ Next, let's see how to interact with it using the mouse or the keyboard.
 + Example: add animation to game engine
   + create [canvas element](#canvasElm)
   + JavaScript snippet:
-    + init page after DOM ready: `window.onload = function init() { var game = new GF(); game.start(); };`
-    + generate game framework: `var GF = function() {...};`
+    + init page after DOM ready<a name="newGF"></a>: `window.onload = function init() { var game = new GF(); game.start(); };`
+    + generate game framework<a name="genGF"></a>: `var GF = function() {...};`
       + declare variables: `var canvas, ctx, x, y;`
       + [measure FPS](#measureFPS)
-      + clear canvas: `function clearCanvas() { ctx.clearRect(0, 0, w, h); }`
+      + clear canvas<a name="clearCanvas"></a>: `function clearCanvas() { ctx.clearRect(0, 0, w, h); }`
       + [draw monster](#drawMonster)
       + generate main loop: `var mainloop = function(time) {...}`
         + call to measure FPS: `measureFPS(time);`
@@ -587,7 +587,7 @@ Next, let's see how to interact with it using the mouse or the keyboard.
       + [init the GF](#startGF) w/ 
         + [init canvas](#initCanvas) w/o drawing monster
         + start the animation: `requestAnimationFrame('2d');`
-      + return public API: `return { start: start };`
+      + return [public API](#publicAPI)
 
 
 ### 2.3.3 User interaction and event handling
@@ -713,7 +713,7 @@ You can try key codes with this [interactive example](http://www.asquare.net/jav
 </figure>
 
 
-#### Multiple Key-related Events
+#### Multiple Keyboard-related Events
 
 __Game requirements: managing multiple `keypress` / `keyrelease` events__
 
@@ -736,10 +736,12 @@ So, these are the changes to our small game engine prototype (which is far from 
 
 1. We add an empty `inputStates` object as a global property of the game engine,
 2. In the `start()` method, we add event listeners for each keydown and keyup event which controls the game.
-3. In each listener, we test if an arrow key or the space bar has been pressed or released, and we set the properties of the inputStates object accordingly. For example, if the space bar is pressed, we set `inputStates.space=true;` but if it's released, we reset to `inputStates.space=false`.
+3. In each listener, we test if an arrow key or the space bar has been pressed or released, and we set the properties of the `inputStates` object accordingly. For example, if the space bar is pressed, we set `inputStates.space=true;` but if it's released, we reset to `inputStates.space=false`.
 4. In the main loop (to prove everything is working), we add tests to check which keys are down; and if a key is down, we print its name on the canvas.
 
 Here is the [online example](https://jsbin.com/razeya/edit) you can try at JSBin
+
+[Local Demo](src/02b-example09.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
@@ -863,6 +865,65 @@ And here is the complete source code:
 </ol></div><br>
 
 You may notice that on some computers / operating systems, it is not possible to simultaneously press the up and down arrow keys, or left and right arrow keys, because they are mutually exclusive. However space + up + right should work in combination.
+
+
+#### Notes for 2.3.4 Adding key listeners
+
++ Keyboard related events
+  + the code of the key passed tot he listener function once key-board event fired
+  + example: `window.addEventListener('keydown', function(evt) { if (event.keyCode === 37) { // left arrow pressed } }; flase);`
+  + online interactive [event keycode test page](http://www.asquare.net/javascript/tests/KeyCode.html)
+
++ Multiple keyboard related events
+  + game requirements:
+    + check keys pressed at a very high frequency
+    + typically from inside the game loop that is looping at up to 60 times per second
+    + possible pressed down multiple keys
+  + keep the list if pertinent keys in a JavaScript object
+    + typical methods: store the list of the keys up or down at a given time in a JavaScript object
+    + object `inputStates`
+      + update content inside the different input event listener
+      + check values inside the game loop to make the game react accordingly
+  + add changes to game framework
+    + add empty `inputState` object as a global property of the game engine
+    + add event listeners for each keydown and keyup event to control game within `start()` method
+    + test if an arrow key or the space bar pressed or released $\to$ set the properties of the `inputState` object accordingly, e.g., space bar pressed w/ setting `inputState.space=true;` but released w/ resetting `inputState.space=false;`
+    + add tests to checck which keys are down within main loop
+
++ Example: handling multiple keyboard-related events
+  + [init page](#newGF) after DOM ready
+  + [generate game framework](#genGF)
+    + declare dictionary to handle inputs: `var inputStates = {};`
+    + [measure FPS](#measureFPS)
+    + [clear canvas](#clearCanvas)
+    + [draw monster](#drawMonster)
+    + check input states<a name="chkInput"></a>:
+      + left arrow key: `if (inputStates.left) { ctx.fillText("left", 150, 20); }`
+      + up arrow key: `if (inputStates.up) { ctx.fillText("up", 150, 50); }`
+      + right arrow key: `if (inputStates.right) { ctx.fillText("right", 150, 80); }`
+      + down arrow key: `if (inputStates.down) { ctx.fillText("down", 150, 120); }`
+      + space bar: `if (inputStates.space) { ctx.fillText("space bar", 140, 150); }`
+    + call animation loop: `rrequestAnimationFrame(mainloop);`
+  + [init game framework](#initGF) w/ input handling
+    + set 2d context: `ctx = canvas.getContext('2d');`
+    + set font: `ctx.font = "20px Arial";`
+    + add event listener for key pressed<a name="keyDownCode"></a>: `window.addEventListener('keydown', function(evt) {...}), flase);`
+      + left arrow key: `if (evt.keyCode === 37) { inputStates.left = true; }`
+      + up arrow key: `else if (evt.keyCode === 38) { inputStates.up = true; }`
+      + right arrow key: `else if (evt.keyCode === 39) { inputStates.right = true; }`
+      + down arrow key: `else if (evt.keyCode === 40) { inputStates.down = true; }`
+      + space bar: `else if (evt.keyCode === 32) {inputStates.space = true; }`
+    + add event listener for key released<a name="keyUpCode"></a>: `window.addEventListener('keyup', function(evt) {...}), flase);`
+      + left arrow key: `if (evt.keyCode === 37) { inputStates.left = flase; }`
+      + up arrow key: `else if (evt.keyCode === 38) { inputStates.up = flase; }`
+      + right arrow key: `else if (evt.keyCode === 39) { inputStates.right = flase; }`
+      + down arrow key: `else if (evt.keyCode === 40) { inputStates.down = flase; }`
+      + space bar: `else if (evt.keyCode === 32) {inputStates.space = false; }`
+    + start amimation: `requestAnimationFrame(mainloop);`
+    + return [public API](#publicAPI)
+
+
+
 
 
 
