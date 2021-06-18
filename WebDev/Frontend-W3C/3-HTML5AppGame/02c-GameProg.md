@@ -622,7 +622,7 @@ __Method #2: attach an event handler to an HTML element in JavaScript__
 
 This method is fine, but  you will not be able to attach multiple _listener_ functions. If you need to do this, use the version shown below.
 
-__Method #3: register a callback to the event listener with the addEventListener method (preferred  method)__
+__Method #3: register a callback to the event listener with the `addEventListener` method (preferred  method)__
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'someDiv'</span><span class="pun">).</span><strong><span class="pln">addEventListener</span></strong><span class="pun">(</span><span class="str">'click'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
@@ -653,6 +653,34 @@ In the following lessons, we will remind you now how to deal with the keyboard a
 In the method #1 above, we mentioned that "Mixing 'visual layer' (HTML) and 'logic layer' (JavaScript) ... bad practice", and this is similarly reflected in many style features being deprecated in HTML5 and moved into CSS3. The management philosophy at play here is called "the separation of concerns" and applies in several ways to software development - at the code level, through to the management of staff. It's not part of the course, but professionals may find the following references useful:
 
 + [Separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) - Wikipedia, the free encyclopedia
+
+
+#### Notes for 2.3.3 User interaction and event handling
+
++ HTML5 events
+  + JavaScript w/o input and output
+    + treating event caused by user actions as inputs
+    + manipulating the DOM structure as output
+  + games
+    + maintaining state variables respenting moving objects like the position and speed of an alient ship
+    + the animation loop refers to the variables in determining the movement of suchg objects
+  + listeming the event
+    + declare an event handler in the HTML code
+      + example: `<div id="someDiv" onclick="alert('clicked!');"> content of the div</div>`
+      + easy to use but not recommended $\to$ deprecated
+      + bad practice ([separation of concerns](2.3.3 User interaction and event handling)): mixing 'visual layer' (HTML) and 'logical layer' (JavaScript)
+    + attach an event handler to an HTML element in JavaScript
+      + example: `document.getElementByID('someDiv').onclick = function() { alert('clicked!'); }`
+      + not able to attach multiple listener functions
+    + register a callback tot he event listener w/ the `addEventListener` method (preferred method)
+      + example: `document.getElementById('someDiv').addEventListener('click', function() { alert('clicked!'); }, false );`
+      + parameter `false` describes whether the callback has to be called during the captured phase
+
++ DOM event passed to the event listener function
+  + the listener creating an `event` object to describe what happened
+  + example: `element.addEventListener('click', function(evt) { // use evt object inside he callback }, false);`
+  + different types of event $\to$ different properties of the `event` object
+
 
 
 
