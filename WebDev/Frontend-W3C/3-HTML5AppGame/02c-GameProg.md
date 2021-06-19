@@ -1341,6 +1341,397 @@ JavaScript source code:
   + return a [public API](#publicAPI)
 
 
+### 2.3.6 Gamepad events
+
+
+#### Live coding video: gamepad management
+
+<a href="https://edx-video.net/W3CHTM52/W3CHTM52T415-V002100_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript Download](https://bit.ly/35CmbEQ)
+
+
+Some games, mainly arcade/action games, are designed to be used with a gamepad:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick= "window.open("https://bit.ly/3iW8jNo")"
+    src    = "https://bit.ly/2TLYJ5c"
+    alt    = "a xbox 360 gamepad"
+    title  = "a xbox 360 gamepad"
+  />
+</figure>
+
+
+The [Gamepad API](https://w3c.github.io/gamepad/) is currently supported by all major browsers (including Microsoft Edge), except Internet Explorer - see the up to date version of this [feature's compatbility table](https://caniuse.com/#feat=gamepad). Note that the API is still a draft and may change in the future. We recommend using a Wired Xbox 360 Controller or a PS2 controller, both of which should work out of the box on Windows XP, Windows Vista, Windows, and Linux desktop distributions. Wireless controllers are supposed to work too, but we haven't tested the API with them. You may find someone who has managed but they've probably needed to install an operating system driver to make it work.
+
+
+#### Detecting gamepads
+
+__Events triggered when the gamepad is plugged in or unplugged__
+
+Let's start with a 'discovery' script to check that the GamePad is connected, and to see the range of facilities it can offer to JavaScript.
+
+If the user interacts with a controller (presses a button, moves a stick) a [`gamepadconnected`](https://w3c.github.io/gamepad/#event-gamepadconnected) event will be sent to the page. NB the page must be visible! The event object passed to the `gamepadconnected` listener has a `gamepad` property which describes the connected device.
+
+[Example on JSBin](https://jsbin.com/kiduwu/edit?console,output)
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">"gamepadconnected"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> gamepad </span><span class="pun">=</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">gamepad</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> index </span><span class="pun">=</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">index;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> id </span><span class="pun">=</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">id</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> nbButtons </span><span class="pun">=</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">buttons</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> nbAxes </span><span class="pun">=</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Gamepad No "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> index </span><span class="pun">+</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="str">", with id "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> id </span><span class="pun">+</span><span class="pln"> </span><span class="str">" is connected. It has "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;nbButtons </span><span class="pun">+</span><span class="pln"> </span><span class="str">" buttons and "</span><span class="pln"> </span><span class="pun">+</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;nbAxes </span><span class="pun">+</span><span class="pln"> </span><span class="str">" axes"</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">});</span></li>
+</ol></div><br>
+
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+    onclick= "window.open("https://bit.ly/3iW8jNo")"
+    src    = "https://bit.ly/2Udwwo5"
+    alt    = "a xbox 360 gamepad"
+    title  = "a xbox 360 gamepad"
+  />
+</figure>
+
+If a gamepad is disconnected (you unplug it), a [`gamepaddisconnected`](https://w3c.github.io/gamepad/#event-gamepaddisconnected) event is fired. Any references to the gamepad object will have their `connected` property set to false.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">"<g class="gr_ gr_186 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="186" data-gr-id="186">gamepaddisconnected</g>"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> gamepad </span><span class="pun">=</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">gamepad</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> index </span><span class="pun">=</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">index;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Gamepad No "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> index +&nbsp;</span><span class="str">" has been disconnected"</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">});</span></li>
+</ol></div>
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick= "window.open("https://bit.ly/3iW8jNo")"
+    src    = "https://bit.ly/3wIDRdH"
+    alt    = "gamepad disconnected, screenshot from jsbin console"
+    title  = "gamepad disconnected, screenshot from jsbin console"
+  />
+</figure>
+
+
+__Scanning for gamepads__
+
+If you reload the page, and if the gamepad has already been detected by the browser, it will not fire the gamepadconnected event again. This can be problematic if you use a global variable for managing the gamepad, or an array of gamepads in your code. As the event is not fired, these variables will stay undefined...
+
+So, you need to regularly scan for gamepads available on the system. You should still use that event listener if you want to do something special when the system detects that a gamepad has been unplugged.
+
+Here is the code to use to scan for a gamepad:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> gamepad</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> mainloop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;...</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;scangamepads</span><span class="pun">();</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// test gamepad status: buttons, joysticks etc.</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;...</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainloop</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> scangamepads</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// function called 60 times/s</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong>&nbsp;</strong></span><strong><span class="com">// the gamepad is a "snapshot", so we need to set it </span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="com">// 60 times / second in order to have an updated status</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> gamepads </span><span class="pun">=</span><span class="pln"> navigator</span><span class="pun">.</span><span class="pln">getGamepads</span><span class="pun">();</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> gamepads</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// current gamepad is not necessarily the first</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">gamepads</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;gamepad </span><span class="pun">=</span><span class="pln"> gamepads</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+In this code, we check every 1/60 second for newly or re-connected gamepads, and we update the gamepad global var with the first gamepad object returned by the browser. We need to do this so that we have an accurate "snapshot" of the gamepad state, with fixed values for the buttons, axes, etc. If we want to check the current button and joystick statuses, we must poll the browser at a high frequency  and call for an updated snapshot.
+
+From the specification: "_`getGamepads` retrieves a snapshot of the data for the currently connected and interacted with gamepads._"
+
+This code will be integrated (as well as the event listeners presented earlier) in the next JSBin examples.
+
+To keep things simple, the above code works with a single gamepad - here's a good [example of managing multiple gamepads](https://github.com/luser/gamepadtest).
+
+
+#### Detecting button status and axes values (joysticks)
+
+__Properties of the gamepad object__
+
+The gamepad object returned in the event listener has [different properties](https://w3c.github.io/gamepad/#gamepad-interface):
+
++ `id`: a string indicating the id of the gamepad. Useful with the `mapping` property below.
++ `index`: an integer used to distinguish multiple controllers (gamepad 1, gamepad 2, etc.).
++ `connected`: true if the controller is still connected, false if it has been disconnected.
++ `mapping`: not implemented yet by most browsers. It will allow the controllers of the gamepad to be remapped. A layout map is associated with the id of the gamepad. By default, and before they implement support for different mapping, all connected gamepads use a [standard default layout](https://w3c.github.io/gamepad/#remapping).
+
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+      onclick= "window.open("https://bit.ly/3gGGF5m")"
+      src    = "https://bit.ly/3gGGF5m"
+      alt    = "standard gamepad layout"
+      title  = "standard gamepad layout"
+    />
+    <figcaption> Click the above image to open a large view in another window/tab. </figcaption>
+  </figure>
+
++ `axes`: an array of floating point values containing the state of each axis on the device. Usually these represent the analog sticks, with a pair of axes giving the position of the stick in its X and Y axes. Each axis is normalized to the range of -1.0...1.0, with -1.0 representing the up or left-most position of the axis, and 1.0 representing the down or right-most position of the axis.
++ `buttons`: an array of [GamepadButton](https://w3c.github.io/gamepad/#idl-def-GamepadButton) objects containing the state of each button on the device. Each GamepadButton has a `pressed` and a `value` property.
++ The `pressed` property is a Boolean property indicating whether the button is currently pressed (`true`) or unpressed (`false`).
++ The `value` property is a floating point value used to enable representing analog buttons, such as the triggers, on many modern gamepads. The values are normalized to the range 0.0...1.0, with 0.0 representing a button that is not pressed, and 1.0 representing a button that is fully depressed.
+
+
+__Detecting whether a button is pressed__
+
+Digital, on/off buttons evaluate to either one or zero (respectively). Whereas analog buttons will return a floating-point value between zero and one.
+
+[Example on JSBin](https://jsbin.com/heriqej/edit). You might also give a look at at [this demo](https://github.com/luser/gamepadtest) that does the same thing but with multiple gamepads.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick= "window.open("https://bit.ly/3iW8jNo")"
+    src    = "https://bit.ly/3vJEpia"
+    alt    = "button status detected, example on jsbin"
+    title  = "button status detected, example on jsbin"
+  />
+</figure>
+
+
+Code for checking if a button is pressed:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> checkButtons</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">buttons</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; // do nothing is the gamepad is not ok</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; if(gamepad === undefined) return;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; if(!gamepad.connected) return;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">buttons</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">b</span><span class="pun">.</span><span class="pln">pressed</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Button "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i </span><span class="pun">+</span><span class="pln"> </span><span class="str">" is pressed."</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if(b.value !== undefined)</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// analog trigger L2 or R2, value is a float in [0, 1]</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Its value:"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">val</span>);</li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+Next, we'll integrate it into the `mainloop` code. Note that we also need to call the `scangamepads` function from the loop, to generate fresh "snapshots" of the gamepad with updated properties. Without this call, the `gamepad.buttons` will return the same  states every time.
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> <g class="gr_ gr_192 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="192" data-gr-id="192">mainloop</g></span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// clear, draw objects, etc...</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;...</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;scangamepads</span><span class="pun">();</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Check gamepad button states</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;checkButtons</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// animate at 60 frames/s</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainloop</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+
+__Detecting axes (joystick) values__
+
+[Example on JSBin](https://jsbin.com/yaxika/edit)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3iW8jNo")"
+    src    = "https://bit.ly/3wFhxSp"
+    alt    = "axes detection in JsBin"
+    title  = "axes detection in JsBin"
+  />
+</figure>
+
+
+Code for detecting the axes' values:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// detect axis (joystick states)</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> checkAxes</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">gamepad </span><span class="pun">===</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">return</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(!</span><span class="pln">gamepad</span><span class="pun">.</span><span class="pln">connected</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">return</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="pln">gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> axisValue </span><span class="pun">=</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// do something with the value</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">...</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+__Detecting the direction (left, right, up, down, diagonals) and angle of the left joystick__
+
+We could add an inputStates object similar to the one we used in the game framework, and check its values in the mainloop to decide whether to move the player up/down/left/right, including diagonals - or maybe we'd prefer to use the current angle of the joystick. Here is how we manage this:
+
+[JSBin example](https://jsbin.com/vuxoqo/edit?js,output):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3iW8jNo")"
+    src    = "https://bit.ly/3q9LfMD"
+    alt    = "direction and angle detection for joystick"
+    title  = "direction and angle detection for joystick"
+  />
+</figure>
+
+
+Source code extract:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd">var</span><span class="pln"> inputStates </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> <g class="gr_ gr_189 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="189" data-gr-id="189">mainloop</g></span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// clear, draw objects, etc...</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// update gamepad status</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;scangamepads</span><span class="pun">();</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Check gamepad button states</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; checkButtons</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Check joysticks states</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; checkAxes</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong><span class="com">// Move the player, taking into account</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="com">// the gamepad left joystick state</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; updatePlayerPosition</span><span class="pun">();</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// We could use the same technique in</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// order to react when buttons are pressed</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">//...</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// animate at 60 frames/s</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainloop</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> updatePlayerPosition</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;directionDiv</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>&nbsp;</strong></span><strong><span class="kwd">if</span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">left</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; directionDiv</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Moving left"</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">if</span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">right</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; directionDiv</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Moving right"</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">if</span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">up</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; directionDiv</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Moving up"</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">if</span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">down</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; directionDiv</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Moving down"</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// Display the angle in degrees, in the HTML page</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;angleDiv</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">((</span><strong><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">angle</span></strong><span class="pun">*</span><span class="lit">180</span><span class="pun">/</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">));</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com">// gamepad code below</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="com">// -------------------------</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">// detect axis (joystick states)</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> checkAxes</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">gamepad </span><span class="pun">===</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">return</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">(!</span><span class="pln">gamepad</span><span class="pun">.</span><span class="pln">connected</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">return</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">...</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong>&nbsp;</strong></span><strong><span class="com">// Set inputStates.left, right, up, down</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; inputStates</span><span class="pun">.</span><span class="pln">left </span><span class="pun">=</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">right </span><span class="pun">=</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">up </span><span class="pun">=</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">down </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln"> </span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="com">// all values between [-1 and 1]</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong>&nbsp;</strong></span><strong><span class="com">// Horizontal detection</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0.5</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">right</span><span class="pun">=</span><span class="kwd">true</span><span class="pun">;</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">left</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">;</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> </span><span class="pun">-</span><span class="lit">0.5</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">left</span><span class="pun">=</span><span class="kwd">true</span><span class="pun">;</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">right</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln"> </span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="com">// vertical detection</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0.5</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">down</span><span class="pun">=</span><span class="kwd">true</span><span class="pun">;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">up</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">;</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> </span><span class="pun">-</span><span class="lit">0.5</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">up</span><span class="pun">=</span><span class="kwd">true</span><span class="pun">;</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">down</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">;</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></strong><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// compute the angle. gamepad.axes[1] is the </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// sinus of the angle (values between [-1, 1]),</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// gamepad.axes[0] is the cosinus of the angle.</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// we display the value in degree as in a regular</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// trigonometric circle, with the x axis to the right</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// and the y axis that goes up.</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// The angle = arcTan(sin/cos); We inverse the sign of</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// the sinus in order to have the angle in standard</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// x and y axis (y going up)</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>inputStates</strong></span><strong><span class="pun">.</span><span class="pln">angle </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">atan2</span><span class="pun">(-</span><span class="pln">gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">[</span><span class="lit">1</span><span class="pun">],</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+#### Other gamepads and joysticks tested
+
+__Logitech Attack 3 Joystick on Linux__
+
+> _Hi (=dn reports)_: Have successfully installed a Logitech Attack 3 joy-stick on my Thinkpad running Linux Mint 17.1. It runs all of the code presented here correctly, reporting 11 buttons and 3 axes (the knurled rotating knob (closest to my pen) is described as a 'throttle' or 'accelerator')).
+
+> Traditionally Linux has been described as 'for work only' or 'no games', so it was a pleasant surprise to see how easy things were - no "driver" to install (it seems important to uninstall any existing connection between a device and the x-server), installed "joystick" testing and calibration tool, and the "jstest-gtk" configuration and testing tool; and that was 'it' - no actual configuration was necessary!
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3iW8jNo")"
+    src    = "https://bit.ly/3xAOQWu"
+    alt    = "saitek joystick"
+    title  = "saitek joystick"
+  />
+</figure>
+
+
+__Wireless Microsoft gamepad__
+
+> Hi! (Michel Buffa reports) I managed to test a wireless Microsoft gamepad on a PC windows 8.1 and it worked with Chrome/FF. I did not try with a console version of the wireless gamepad, I tried with a version for PC, that comes with a wireless receiver (see pictures and video)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3iW8jNo")"
+    src    = "https://bit.ly/3wHAYKi"
+    alt    = "wireless padwureless pad"
+    title  = "wireless padwureless pad"
+  />
+</figure>
+
+
+[Video of this gamepad with Windows 8.1 + FireFox](https://goo.gl/photos/rfNc36W8v9ZKRyjH8)
+
+
+#### External resources
+
++ THE BEST resource: [this paper](https://www.smashingmagazine.com/2015/11/gamepad-api-in-web-games/) from smashingmagazine.com tells you everything about the GamePad API. Very complete, explains how to set a dead zone, a keyboard fallback, etc.
++ Good [article](https://hacks.mozilla.org/2013/12/the-gamepad-api/) about using the gamepad API on the Mozilla Developer Network site
++ An [interesting article](https://www.html5rocks.com/en/tutorials/doodles/gamepad/) on the gamepad support, published on the HTML5 Rocks Web site
++ [gamepad.js](https://github.com/neogeek/gamepad.js) is a Javascript library to enable the use of gamepads and joysticks in the browser. It smoothes over the differences between browsers, platforms, APIs, and a wide variety of gamepad/joystick devices.
++ [Another library](https://github.com/kallaspriit/HTML5-JavaScript-Gamepad-Controller-Library) we used in our team for controlling a mobile robot (good support from the authors)
++ [Gamepad Controls for HTML5 Games](https://blog.teamtreehouse.com/gamepad-controls-html5-games)
+
+
+
+
+
+
 
 
 
