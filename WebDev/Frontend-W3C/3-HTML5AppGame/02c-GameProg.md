@@ -871,7 +871,7 @@ You may notice that on some computers / operating systems, it is not possible to
 
 + Keyboard related events
   + the code of the key passed tot he listener function once key-board event fired
-  + example: `window.addEventListener('keydown', function(evt) { if (event.keyCode === 37) { // left arrow pressed } }; flase);`
+  + example: `window.addEventListener('keydown', function(evt) { if (event.keyCode === 37) { // left arrow pressed } }; false);`
   + online interactive [event keycode test page](http://www.asquare.net/javascript/tests/KeyCode.html)
 
 + Multiple keyboard related events
@@ -893,7 +893,7 @@ You may notice that on some computers / operating systems, it is not possible to
 + Example: handling multiple keyboard-related events
   + [init page](#newGF) after DOM ready
   + [generate game framework](#genGF)
-    + declare dictionary to handle inputs: `var inputStates = {};`
+    + declare dictionary to handle inputs<a name="input"></a>: `var inputStates = {};`
     + [measure FPS](#measureFPS)
     + [clear canvas](#clearCanvas)
     + [draw monster](#drawMonster)
@@ -903,7 +903,7 @@ You may notice that on some computers / operating systems, it is not possible to
       + right arrow key: `if (inputStates.right) { ctx.fillText("right", 150, 80); }`
       + down arrow key: `if (inputStates.down) { ctx.fillText("down", 150, 120); }`
       + space bar: `if (inputStates.space) { ctx.fillText("space bar", 140, 150); }`
-    + call animation loop: `rrequestAnimationFrame(mainloop);`
+    + call animation loop: `requestAnimationFrame(mainloop);`
   + [init game framework](#initGF) w/ input handling
     + set 2d context: `ctx = canvas.getContext('2d');`
     + set font: `ctx.font = "20px Arial";`
@@ -932,8 +932,8 @@ You may notice that on some computers / operating systems, it is not possible to
   <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open("https://bit.ly/35zjZh9")"
     src    = "https://bit.ly/3iRXVGv"
-    alt    = "A few remindersa schema of mouse internals"
-    title  = "A few remindersa schema of mouse internals"
+    alt    = "A few reminder sa schema of mouse internals"
+    title  = "A few reminder sa schema of mouse internals"
   />
 </figure>
 
@@ -948,7 +948,9 @@ Special care must be taken when acquiring mouse coordinates because the HTML5 ca
 
 The width and height of the `rect` object must be taken into account. These dimensions correspond to the padding / margins / borders of the canvas. See how we deal with them in the `getMousePos()` function in the next example.
 
-Here is an [online example at JSBin](https://jsbin.com/metavu/edit) that covers  all cases correctly.
+Here is an [online example at JSBin](https://jsbin.com/metavu/edit) that covers all cases correctly.
+
+[Local Demo](src/02b-example10.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
@@ -1019,8 +1021,10 @@ Below is the JavaScript source code for this small example:
 
 Try this [example at JsBin](https://jsbin.com/soduko/edit?js,output)
 
+[Local Demo](src/02b-example11.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick= "window.open("https://bit.ly/35zjZh9")"
     src    = "https://bit.ly/2TEFgmZ"
     alt    = "A rectangle that follows the mouse cursor"
@@ -1105,8 +1109,10 @@ Now we will include these listeners into our game framework. Notice that we chan
 
 The [new online version of the game engine](https://jsbin.com/rizuyah/edit) can be tried at JSBin:
 
+[Local Demo](src/02b-example12.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick= "window.open("https://bit.ly/35zjZh9")"
     src    = "https://bit.ly/3q6HaZP"
     alt    = "Screenshot of a JsBin example that shows message on mouse events"
@@ -1251,9 +1257,88 @@ JavaScript source code:
 <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; start</span><span class="pun">:</span><span class="pln"> start</span></li>
 <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-</ol></div><br>
+</ol></div>
 
 
+#### Notes for 2.3.5 Adding mouse listeners
+
++ Mouse corrdinate
+  + HTML canvas w/ default (or directed) CSS properties producing false corrdinate
+  + using `var rect = canvas.getBoundingClientRect();` to get exact mouse cursor corrdinates
+    + considering the width and height of the `rect` object
+    + dimensions corresponding to the padding / margins / borders of the canvas
+  + `getMousePos()` to retrieve the mouse position within page
+
++ Example: mouse position in canvas
+  + delcare variables; `var canvas, ctx; var inputStates = {};`
+  + init page after DOM ready: `window.onload = function init() {...}`
+    + access canvas element: `canvas = document.getElementById('myCanvas');`
+    + set 2d graphic: `ctx = canvas.getContext('2d');`
+    + add mouse move listener<a name="mousemove"></a>: `canvas.addEventListener('mousemove', function(evt) {...}, false);`
+      + get mouse position: `inputStates.mousePos = getMousePos(canvas, evt);`
+      + display position msg: `var message = 'Mouse position: ' + inputStates.mousePos.x + inputStates.mousePos.y; writeMessage(canvas, message);`
+    + add mouse button down listener<a name="mousedown"></a>: `canvas.addEventListener('mousedown', function(evt) {...}, false);`
+      + set mouse status: `inputStates.mousedown = true; inputStates.mouseButton = evt.button;`
+      + display position msg: `var message = "Mouse button: " + evt.button + " down at position: " + inputStates.mousePos.x + "," + inputStates.mousePos.y; writeMessage(canvas, message);`
+    + add mouse button up listener<a name="mouseup"></a>: `canvas.addEventListener('mousedown', function(evt) {...}, false);`
+      + set mouse status: `inputStates.mousedown = false;`
+      + display position msg: `var message = "Mouse up at position: " + inputStates.mousePos.x + "," +  inputStates.mousePos.y; writeMessage(canvas, message);`
+    + display message: `function writeMessage(canvas, message) {...}`
+      + set 2d context: `var ctx = canvas.getContext('2d');`
+      + save context: `ctx.save();`
+      + empty canvas: `ctx.clearRect(0, 0, canvas.width, canvas.height);`
+      + set style and draw message: `ctx.font = '18pt Calibri'; ctx.fillStyle = 'black'; ctx.fillText(message, 10, 25);`
+      + restore context: `ctx.restore();`
+    + get mouse position<a name="mousePos"></a>: `function getMousePos(canvas, evt) {...}`
+      + get CSS boundaries: `var rect = canvas.getBoundingClientRect();`
+      + return the relative position: `return {x: evt.clientX - rect.left, y: evt.clientY - rect..top};`
+
++ Example: object following mouse cursor
+  + declare variables: `var canvas, ctx, width, height; var rect = {x: 40, y: 40, rayon: 30, width: 80, height: 80, v: 1}; var mmousepos = {x: 0, y: 0};`
+  + init page after DOM ready: `function init() {...}`
+    + access canvas element and get 2d context: `canvas = document.querySelector("#myCanvas"); ctx = canvas.getContext{'2d');`
+    + get cnavas dimensions: `width = canvas.width; height = canvas.height;`
+    + add mouse move event listener: `canvas.addEventListener('mousemove', fucntion (evt) { mousepos = getMousePos(canvas, evt); }, false);`
+    + call animation loop: `mainloop();`
+  + generate animation loop: `function mainloop() {...}`
+    + clear screen: `ctx.clearRect(0, 0, canvas.width, canvas.height);`
+    + move object: `var dx = rect.x - mousepos.x; var dy = rect.y - mousepos.y; var angle =  Math.anta(dy, dx); rect.x -= rect.v*Math.cos(angle); recct.y -= rect.v*Math.sin(angle);`
+    + draw object: `drawRectangle(angle);`
+    + request new frame: `window.requestAnimationFrame(mainloop);`
+  + draw object: `function drawRectangle(angle) {...}`
+    + save context: `ctx.save();`
+    + move the coordinate system: `ctx.translate(rect.x, rect.y); ctx.rotate(angle);`
+    + recenter the coordinate system to object center: `ctx.translate(-rect.width/2, -rect.height/2);`
+    + draw the rectangle: `ctx.fillRect(0, 0, rect.width, rect.height);`
+    + restore context: `ctx.resore();`
+  + get [mouse position](#mousePos)
+  
++ Example: adding mouse listeners to the game framework
+  + [init page](#newGF) after DOM ready
+  + [generate game framework](#genGF)
+    + ...
+    + declare dictionary to [handle inputs](#input)
+    + [measure FPS](#measureFPS)
+    + ...
+  + [clear canvas](#clearCanvas)
+  + [draw monster](#drawMonster)
+  + generate main loop: `var mainloop = function(time) {...}`
+    + call to measure FPS: `measureFPS(time);`
+    + clear the canvas: `clearCanvas();`
+    + call to draw monster: `drawMyMonster(10+Math.random()*10, 10+Math.random()*10);`
+    + [check input](#chkInput)
+    + display mouse psotion: `if (inputStates.mousePos) { ctx.fillText("x = " + inputStates.mousePos.x + " y = " + inputStates.mousePos.y, 5, 150); }`
+    + display mouse button: `if (inputStates.mousedown) { ctx.fillText("mousedown b" + inputStates.mouseButton, 5, 180); }`
+    + call to animate: `requestAnimateFrame(mainloop);`
+  + get [mouse position](#mousePos)
+  + register event listeners: `var start = function() {...}`
+    + add event listener for [key pressed](#keyDownCode)
+    + add event listener for [key released](#keyUpCode)
+    + add event listener for [mouse move](#mousemove)
+    + add event listener for [mouse button down](#mousedown)
+    + add event listener for [mouse button up](#mouseup)
+    + call to animate: `requestAnimationFrame(mainloop);`
+  + return a [public API](#publicAPI)
 
 
 
