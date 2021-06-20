@@ -50,6 +50,8 @@ When we use requestAnimationFrame for implementing such an animation, as we did 
 
 [Online example at JSBin](https://jsbin.com/dibuze/edit)
 
+[Local Demo](src/02d-example01.html)
+
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick= "window.open("https://bit.ly/3gJ34xX")"
@@ -130,6 +132,8 @@ Here is the same example to which we have added a loop that wastes time right in
 
 [Try it on JsBin](https://jsbin.com/remide/edit) and notice that the square moves much slower on the screen. Indeed, its speed is a direct consequence of the extra time spent in the animation loop.
 
+[Local Demo](src/02d-example02.html)
+
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> animationLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">...</span></li>
@@ -140,6 +144,45 @@ Here is the same example to which we have added a loop that wastes time right in
 <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></li>
 <li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span></li>
 </ol></div>
+
+#### Notes for 2.4.1 Introduction
+
++ Time-based animation
+  + animate objects to move at the same speed on screen, regardless of the device running the game
+    + compute the amount of time elapsed btw the last frame and the current one
+    + adjust the distance the objects move across the screen depending on the delta of time
+  + perform some animations only a few times per second
+    + sprite-based animation: drawing different images as an object moves
+    + draw object only ten times per second, not change the images of the animation 60 times/s
+    + screen still performs 60 fps
+  + accurate set the framerate
+    + leave some CPU time for other tasks
+    + many games consoles limit the frame-rate tp 1/30th of a second
+
++ Procedure to measure time btw frames
+  + erase the canvas
+  + draw the shapes
+  + move the shapes
+  + got to the 1st step
+
++ Example: regular animation
+  + rectangle moves faster on the desktop computer screen that on mobile phone
+  + declare variables: `var canvas, ctx; var width, height; var x, y; var speed;`
+  + init page after DOM ready: `function init() {...}`
+    + init variables: `canvas = document.queryAnimationFrame("#myCanvas"); ctx = canvas.getContext('2d'); width = canvas.width = width; height = canvas.height; x= 10; y = 10;`
+    + set speed: `speedX = 3;`
+    + start animation: `animationLoop();`
+  + generate animation loop<a name="animationLoop"></a>: `function animationLoop() {...}`
+    + clear canvas: `ctx.cleanRec(0, 0, 10, 10);`
+    + draw shape: `ctx.strokeRect(x, y, 10, 10);`
+    + move rectangle: `x += speedX;`
+    + check collision on left and right: `if (((x+5) > width) || (x <= 0)) { x -= speedX; speedX = -speedX; }`
+    + call next frame: `requestAnimationFrame(animationLoop);`
+
++ Example: simulating a low-end device
+  + generate [animation loop](#animationLoop)
+  + additional loop to slow the animaton loop after clear rectangle: `for (var i=0; i<50000000; i++) { // slow down artifically the animation };`
+
 
 
 
