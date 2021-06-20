@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=utf-8 />
+<title>Small example of animation</title>
+  <script>
+    var canvas, ctx;
+    var width, height;
+    var x, y;
+    var speedX;
+    
+    // Called after the DOM is ready (page loaded)
+    function init() {
+      // init the different variables
+      canvas = document.querySelector("#mycanvas");
+      ctx = canvas.getContext('2d');
+      width = canvas.width;
+      height = canvas.height;
+      
+      x=10; y = 10;
+      
+      // Move 3 pixels left or right at each frame
+      speedX = 3;
+      
+      // Start animation
+      animationLoop();
+    }
+    
+    function animationLoop() {
+      // an animation is : 1) clear canvas and 2) draw shapes, 
+      // 3) move shapes, 4) recall the loop with requestAnimationFrame
+      
+      // clear canvas
+      ctx.clearRect(0, 0, width, height);
+      
+      for(var i = 0; i < 70000000; i++) {
+        // slow down artificially the animation
+      }
+      
+      ctx.strokeRect(x, y, 10, 10);
+      
+      // move rectangle
+      x += speedX;
+      
+      // check collision on left or right
+      if(((x+5) > width) || (x <= 0)) {
+        // cancel move + inverse speed
+        x -= speedX;
+        speedX = -speedX;
+      }
+      
+      // animate. This works only in Chrome. For FF use mozRequestAnimationFrame
+      // For support for all browsers, look at the shym in the HTML5 course.
+      requestAnimationFrame(animationLoop);
+    }  
+  </script>
+</head>
+  
+<body onload="init();">
+  <canvas id="mycanvas" width="200" height="50" style="border: 2px solid black"></canvas>
+</body>
+</html>
