@@ -209,7 +209,7 @@ So, if we measure the time at the beginning of each animation loop, and store it
 We then apply some simple math to compute the number of pixels we need to move the shape to achieve a given speed (in pixels/s).
 
 
-__#### __Example #1: using time based animation: the bouncing square__
+__Example #1: using time based animation: the bouncing square__
 
 [Online example at JSBin](https://jsbin.com/riferi/edit):
 
@@ -463,7 +463,7 @@ Source code of the example:
 Only two lines have changed but the accuracy is much higher, if you uncomment the console.log(...) calls in the main loop. You will see the difference.
 
 
-#### Method #3: 
+#### Method #3: using timestamp parameter of requestAnimationFrame
 
 __Method #3: using the optional timestamp parameter of the callback function of requestAnimationFrame__
 
@@ -563,7 +563,20 @@ Source code of the example:
 
 #### Notes for 2.4.2 Measuring time between frames
 
++ Methods to measure time btw frames
+  + using the JavaScript `Data` object
+    + standard JavaScript for measuring time: `var time = new Date().getTime();`
+    + alternative solution: `var time = Date().now();`
+    + `getTime()` method: return the number of millisecond (Unix epoch) since midnight on 1970-01-01
+    + procedure
+      + measure the time at the beginning of each animation loop
+      + store the time
+      + compute the delta of times elapsed btw two consecutive loops
+    + applying some simple math to compute the number of pixels $\to$ move the object to achieve a given speed (in pixels/s)
+  + using the new HTML5 high-resolution timer
+  + using optional timestamps parameter of rge callback function of `requestAnimationFrame`
 
++ 
 
 
 
