@@ -1365,6 +1365,9 @@ Some games, mainly arcade/action games, are designed to be used with a gamepad:
 </figure>
 
 
+#### The Gamepad API
+
+
 The [Gamepad API](https://w3c.github.io/gamepad/) is currently supported by all major browsers (including Microsoft Edge), except Internet Explorer - see the up to date version of this [feature's compatbility table](https://caniuse.com/#feat=gamepad). Note that the API is still a draft and may change in the future. We recommend using a Wired Xbox 360 Controller or a PS2 controller, both of which should work out of the box on Windows XP, Windows Vista, Windows, and Linux desktop distributions. Wireless controllers are supposed to work too, but we haven't tested the API with them. You may find someone who has managed but they've probably needed to install an operating system driver to make it work.
 
 
@@ -1377,6 +1380,8 @@ Let's start with a 'discovery' script to check that the GamePad is connected, an
 If the user interacts with a controller (presses a button, moves a stick) a [`gamepadconnected`](https://w3c.github.io/gamepad/#event-gamepadconnected) event will be sent to the page. NB the page must be visible! The event object passed to the `gamepadconnected` listener has a `gamepad` property which describes the connected device.
 
 [Example on JSBin](https://jsbin.com/kiduwu/edit?console,output)
+
+[Local Demo](src/02b-example013.html)
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">"gamepadconnected"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
@@ -1415,7 +1420,7 @@ If a gamepad is disconnected (you unplug it), a [`gamepaddisconnected`](https://
 </ol></div>
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick= "window.open("https://bit.ly/3iW8jNo")"
     src    = "https://bit.ly/3wIDRdH"
     alt    = "gamepad disconnected, screenshot from jsbin console"
@@ -1480,7 +1485,7 @@ The gamepad object returned in the event listener has [different properties](htt
 
 
   <figure style="margin: 0.5em; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
       onclick= "window.open("https://bit.ly/3gGGF5m")"
       src    = "https://bit.ly/3gGGF5m"
       alt    = "standard gamepad layout"
@@ -1500,6 +1505,8 @@ __Detecting whether a button is pressed__
 Digital, on/off buttons evaluate to either one or zero (respectively). Whereas analog buttons will return a floating-point value between zero and one.
 
 [Example on JSBin](https://jsbin.com/heriqej/edit). You might also give a look at at [this demo](https://github.com/luser/gamepadtest) that does the same thing but with multiple gamepads.
+
+[Local Demo](src/02b-example14.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
@@ -1552,6 +1559,8 @@ __Detecting axes (joystick) values__
 
 [Example on JSBin](https://jsbin.com/yaxika/edit)
 
+[Local Demo](src/02b-example15.html)
+
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick= "window.open("https://bit.ly/3iW8jNo")"
@@ -1583,6 +1592,8 @@ __Detecting the direction (left, right, up, down, diagonals) and angle of the le
 We could add an inputStates object similar to the one we used in the game framework, and check its values in the mainloop to decide whether to move the player up/down/left/right, including diagonals - or maybe we'd prefer to use the current angle of the joystick. Here is how we manage this:
 
 [JSBin example](https://jsbin.com/vuxoqo/edit?js,output):
+
+[Local Demo](src/02b-example16.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -1728,8 +1739,89 @@ __Wireless Microsoft gamepad__
 + [Gamepad Controls for HTML5 Games](https://blog.teamtreehouse.com/gamepad-controls-html5-games)
 
 
+#### Notes for 2.3.6 Gamepad events
 
++ Gamepad API
+  + a [W3C draft](https://w3c.github.io/gamepad/)
+  + supported by all browsers, except IE
+  + recommendation: Wired Xbox 360 Controller or a PS2 controller
+  + wireless controllers supported but not tested yet
+  + some controllers probably require to install drivers
 
++ Detecting gamepad
+  + event triggered when plugged in or unplugged
+  + `gamepadconnected` event triigered as user interacting (press a button or move a stick)
+  + `gamdpad` property along w/ event listener to describe the connected device
+  + issue: gamepad already detected by the browser
+    + using a global varaible for managing the gamepad or an array of gampads in code
+    + reload page $\to$ no event fired $\to$ variables undefined
+  + solution: regular scanning gamps availability
+  + `getGamepads`: retrieving a snapshot of the data for the current connected nad interacted w/ gamepads
+  + [luser/gamepadtest in GitHub](https://github.com/luser/gamepadtest): good example of managing multiple gamepads
+
++ Attributes of [Gamepad interface](https://w3c.github.io/gamepad/#gamepad-interface)
+  + `id`: identification string for the gamepad, brand or style of connected gamepad, useful w/ `mapping` property
+  + `index`: index of the gamepad in the Naviagtor, used for multiple gamepads
+  + `connected`: whether the physical device represented still conneccted tot the system
+  + `timestamp`: last time the data updated
+  + `mapping`:
+    + setting a property to a known mapping name
+    + not inplemented yet by most browsers
+    + a layout map associated w/ the `id` of the gamepad
+    + default: all connected gamepads using a [standard default layout](https://w3c.github.io/gamepad/#remapping)
+  + `axes`:
+    + array of values for all axes of gamepad, ranging [-1.0, 1.0]
+    + usually representing the analog sticks
+    + a pair of axes given the position on the stick in its X and Y axis
+    + -1.0 representing the up or left-most position of the axis while 1.0 representing the down or right-most position of the axis
+    + compute the angle via axes values w/ `angle = arcTan(sin/cos);`
+  + `buttons`: array of button states of `GamepadButton` objects for all buttons of the gamepad
+    + `pressed`: a Boolean property indicating whether the button is currently presssed (`true`) or unpressed (`false`)
+    + `value`: a floating points value used to enable representing analog buttons, normalized to [0.0, 1.0]
+
++ Example: detecting gamepad
+  + add gamepad connetced evenet listener<a name="gamepadconnected"></a>: `windows.addEventlistener("gandpadconnected", function(e) {...});`
+    + access gamepad attributes: `var gamepad = e.gamepad; var index = gamepad.index; var id = gamepad.id; var nbButtons = gampad.buttons.length; var nbAxes = gampad.axes.length;`
+    + log msg: `console.log("Gamepad No " + index + ", with id " + id + " is connected. It has " + nbButtons + " buttons and " + nbAxes + " axes");
+  + add gamepad disconncted event listener<a name="gamepaddisconnected"></a>: `windows.addEventListener("gamepaddisconnected", fucntion(e) {...});`
+    + access gamepad attribute: `var gampad = e.gamepad; var index = gamepad.index;`
+    + log msg: `console.log("Gamepad No " + index + " has beedn disconnected");`
+
++ Example: scanning the gamepad
+  + scan gamepad availability every 1/60 second
+  + declar variable: `var gamepad;`
+  + create aniimation lopp w/ gampad scan: `function mainloop() {...}`
+    + call to scan gamepads: `... scangamepads(); // test gampad status: buttons, joysticks etc.`
+    + call for next frame: `... requestAnimationFramw(mainloop);`
+  + scan gamepads<a name="scangamepad"></a>: `fucntion scangampads() {...}`
+    + get list of gamepads: `var gamepads = navigator.getGamepads();`
+    + iterate on all gamepad ports: `for (var i=0; i<gamepads.length; i++>) {...}`
+      + chk availability: `if (gamepads[i] !== undefined) { gamepad = gamepads[i]; }`
+
++ Example: detecting button status
+  + scan buttons<a name="chkButtons"></a>: `function checkButtons(gamepad) {...}`
+  + iterate through all buttons: `for (var i=0; i<gamepad.buttons.length; i++) {...}`
+  + pass through if gamepad not available: `if (gamepad === undefined) return; if (!gampad.connected) return;`
+  + declare variable for buttons: `var b = gamdpad.button[i];`
+  + check button pressing: `if (b.pressed) {...}`
+    + log msg: `console.log("Button " + i + " is pressed.");`
+    + chk axes values and log msg: `if (b.value !== undefined) {console.log("It's value: " + b./value);}`
+
++ Example: detecting axes values
+  + check axes w/ values<a name="chkAxesVal"></a>: `fucntion checkAxes(gamepad) {...}`
+  + check availability of gamepad: `if (gamepad === undefined) return; if (~gampad.connected) return;`
+  + iterate through all axes: `for (var i=0; i<gamepad.axes.length; i++) {...}`
+    + access axis: `var axisValue = gamepad.axes[i];`
+    + action: `// do something w/ the value`
+
++ Example: detecting the direction
+  + check axes w/ direction<a name="chkAxesDir"></a>: `function checkAxes(gamepad) {...}`
+  + reset direction w/ inputStates: `inputStates.left = inputStates.right = inputStatse.top = inputStates.down = false;`
+  + read value for left direction: `if (gamepad.axes[0] > 0.5) {inputStates.right = true; inputStates.left = false;}`
+  + read value for right direction: `else if (gamepad.axes[0] < -0.5) {inputStates.right = false; inputStates.left = true;}`
+  + read value for down direction: `if (gamepad.axes[1] > 0.5) {inputStates.down = true; inputStates.up = false;}`
+  + read value for up direction: `else if (gamepad.axes[1] < -0.5) {inputStates.down = false; inputStates.up = true;}`
+  + compute the angle: `inputStates.angle = Math.atan2(-gamepad.axes[1], gamepad.axes[0]);`
 
 
 
