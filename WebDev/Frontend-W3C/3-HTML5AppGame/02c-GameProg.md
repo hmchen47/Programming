@@ -1835,13 +1835,15 @@ __Wireless Microsoft gamepad__
 
 [Transcript Download](https://bit.ly/2SEYqcs)
 
-#### Moving Object with Arrow Keys
+#### Moving object with arrow keys
 
 __Make the monster move using the arrow keys, and to increase its speed by pressing a mouse button__
 
 To conclude this topic about events, we will use the arrow keys to move our favorite monster up/down/left/right, and make it accelerate when we press a mouse button while it is moving. Notice that pressing two keys at the same time will make it move diagonally.
 
 Check this [online example at JSBin](https://jsbin.com/yebufu/edit): we've changed very few lines of code from the previous evolution!
+
+[Local Demo](src/02b-example17.html)
 
 
 #### Add a JavaScript object to describe the monster
@@ -1940,6 +1942,8 @@ Let's add the gamepad utility functions from the previous lesson (we tidied them
 
 [Check the result](https://jsbin.com/yidohe/edit) on JSBin:
 
+[Local Demo](src/02b-example18.html)
+
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick= "window.open("https://bit.ly/3wKXUrX")"
@@ -1990,8 +1994,44 @@ And here is the updateGamePadStatus function (the inner function calls are to ga
 The `checkAxes` function updates the `left`, `right`, `up`, `down` properties of the `inputStates` object we previously used with key events. Therefore, without changing any code in the `updatePlayerPosition` function, the monster moves by joystick command!
 
 
+#### Notes for 2.3.7 Move the monster!
 
++ Example: moving and accelerating object
+  + tasks:
+    + arrow keys to move object up/down/left/right
+    + mouse button to accelerate
+  + set object psoition and speed: `var monster = {x: 10, y: 10, speed: 1};`
+  + generate animation loop: `var mainloop = function(time) {...}
+    + call to measure FPS: `measureFPS(time);`
+    + call to empty canvas: `clearCanvas();`
+    + call to draw objecct: `drawMyMonster(monster.x, monster.y);`
+    + call to check position: `updateMonsterPosition();`
+    + call next animation frame: `requestAnimationFrame(mainloop);`
+  + update the position of monster: `function updateMonsterPosition() {...}`
+    + init monster speed: `monster.speedX = monster.speedY;`
+    + display left arrow key and set speed: `if (inputStates.left) { ctx.fillText("left", 150, 20); monster.speedX = -monster.speed; }`
+    + display up arrow key and set speed: `if (inputStates.up) { ctx.fillText("up", 150, 40); monster.speedX = -monster.speed; }`
+    + display right arrow key and set speed: `if (inputStates.right) { ctx.fillText("right", 150, 60); monster.speedX = monster.speed; }`
+    + display down arrow key and set speed: `if (inputStates.down) { ctx.fillText("down", 150, 80); monster.speedX = monster.speed; }`
+    + display space bar: `if (inputStates.space) { ctx.fillText("space bar", 150, 100); }`
+    + display mouse position: `if (inputStates.mousePos) {ctx.fillText("x = " + inputStates.mousePos, 5, 150); }`
+    + display mouse buttom down: `if (inputStates.mousedown) {ctx.fillText("mousedown b " + inputStates.mouseButton, 5, 180); monster.speed = 5; }`
+    + display mouse button up: `else { monster.speed = 1; }`
+    + accelerate speed: `monster.x += monster.speedX; monster.y += monster.speedY;`
 
++ Example: gamepad enhancements
+  + generate animation loop: `var mainloop = fucntion(time) {...}`
+  + generate animation loop: `var mainloop = function(time) {...}
+    + call to measure FPS: `measureFPS(time);`
+    + call to empty canvas: `clearCanvas();`
+    + call to update gamepad status: `updateGameStatus();`
+    + call to draw objecct: `drawMyMonster(monster.x, monster.y);`
+    + call to check position: `updateMonsterPosition();`
+    + call next animation frame: `requestAnimationFrame(mainloop);`
+  + update gamepad status: `fucntion updateGameStatus() {...}`
+    + call to get new snapshot to the gamepad properties: `scangamepad();`
+    + call to check gamepad button states: `checkButtons(gamepad);`
+    + call to check joystick: `checkAxes(gamepad);`
 
 
 
