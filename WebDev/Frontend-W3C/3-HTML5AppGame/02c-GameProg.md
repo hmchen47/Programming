@@ -2034,5 +2034,27 @@ The `checkAxes` function updates the `left`, `right`, `up`, `down` properties of
     + call to check joystick: `checkAxes(gamepad);`
 
 
+### 2.3.8 Discussion and project
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+#### Suggested topics of discussion:
+
++ The gamepad API can also be used for serious applications. In our laboratory we remote control a mobile robot with a gamepad and a P2P connection using the WebRTC API. Do you know other applications or demos on the web that use the gamepad API?
++ If you write a nice demo or find any interesting tools relating to the gamepad API, please share in the forum!
+
+
+#### Optional project:
+
+Have a go at improving the last example:
+
++ Add gamepad support if you have a gamepad or joystick
++ Make the canvas bigger, add a background if you like (remember you can do this using CSS, or draw something on the whole canvas area instead of clearing it),
++ Improve the appearance of the monster, try animating parts of it,
++ Try to make it "follow" the mouse,
++ Start adding sound effects using skills you learned in Week 1...
+etc.
+
+Feel free to experiment and be creative. When attempting more complex ideas, consider collaborating with friends you've made in the discussion forum.
 
 
