@@ -24,8 +24,10 @@ __Animating multiple balls which bounce off horizontal and vertical walls__
 
 [Online example](https://jsbin.com/fikomik/edit?js,output) at JSBin:
 
+[Local Demo](src/02e-example01.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick= "window.open("https://bit.ly/3cYKbWP")"
     src    = "https://bit.ly/35EjWAV"
     alt    = "Some circular balls that bounce agains vertical and horizontal borders of the canvas"
@@ -167,15 +169,17 @@ Notice that:
 
 + All the balls are stored in an array (_line 4_),
 + We wrote a `createBalls(nb)` function that creates a given number of balls (and stores them in the array) with random values for position and speed (_lines 18-32_)
-+ In the mainLoop, we iterate on the array of balls and for each ball we: 1) move it, 2) test if it collides with the boundaries of the canvas (in the function `testCollisionWithWalls`), and 3) we draw the balls (lines 38-50). The order of these steps is not critical and may be changed.
++ In the mainLoop, we iterate on the array of balls and for each ball we: 1) move it, 2) test if it collides with the boundaries of the canvas (in the function `testCollisionWithWalls`), and 3) we draw the balls (_lines 38-50_). The order of these steps is not critical and may be changed.
 + The function that tests collisions is straightforward (_lines 55-76_).  We did not use "if... else if" since a ball may sometimes touch two walls at once (in the corners). In that rare case, we need to invert both the horizontal and vertical speeds. When a ball collides with a wall, we need to replace it in a position where it is no longer against the wall (otherwise it will collide again during the next animation loop execution).
 
 
-#### Direction and velocity of wall colissions
+#### Direction and velocity with wall colisions
 
 __Similar example but with the ball direction as an angle, and a single velocity variable__
 
 Try this [example at JSBin](https://jsbin.com/begaci/edit): it behaves in the same way as the previous example.
+
+[Local Demo](src/02e-example02.html)
 
 Note that we just changed the way we designed the balls and computed the angles after they rebound from the walls. The changes are highlighted in bold:
 
@@ -255,6 +259,68 @@ Note that we just changed the way we designed the balls and computed the angles 
 </ol></div><br>
 
 Using angles or horizontal and vertical increments is equivalent. However, one method might be preferable to the other: for example, to control an object that follows the mouse, or that tracks another object in order to attack it, angles would be more practical input to the computations required.
+
+
+#### Notes for 2.5.1 Animating multiple objects
+
++ Pseudo class
+  + define a constructor function for creating objects
+  + found in other object-oriented languages, such as Java, C#, etc.
+  + useful to create many objects of the same classes
+
++ Example: direction and velocity w/ wall collisions
+  + constructor function for balls w/ x & y velocity<a name="ballXY"></a>: `function Ball(x, y, vx, vy, diameter) {...}`
+    + declare ball properties: `this.x = x; this.y = y; this.vx = vx; this.vy = vy; this.radius = diameters/2;`
+    + draw ball: `this.draw = function() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0.2*Math.PI); ctx.fill(); };`
+    + move ball: `this.move = function() { this.x += this.x; this.y += this.y; };`
+  + declare variables<a name="vars"></a>: `var canvas, ctx, width, height;`
+  + declare array of balls<a name="ballArray"></a>: `var ballArray = [];`
+  + init page after DOM ready<a name="init"></a>: `function innit() {...}`
+    + access canvas and set context: `var canvas = document.querySelector("#myCanvas"); var ctx = canvas.getContext("2d");`
+    + set varables: `width = canvas.width; height = canvas.height;`
+    + call to create balls: `createBalls(16);`
+    + start animation loop: `requestAnimationFrame(mainLoop);`
+  + create balls w/ x, y velocity: `function createBalls(numberOfBalls) {...}`
+    + iterate to create balls: `for (var i-0; i<numberOfBalls; i++) {...}`
+    + create ball: `var ball = new Ball(width*Math.random(), height*Math.random(), (10*Math.random())-5, (10*Math.random())-5, 30);`
+    + add ball to array: `ballArray[i] = ball;`
+  + create animation loop<a name="animationLoop"></a>: `function mainLoop() {...}`
+    + empty canvas: `ctx.clearRect(0, 0, width, height);`
+    + draw balls through loop: `for (var i=0; i<ballArray.length; i++) {...}`
+      + get the ball: `var ball = ballArray[i];`
+      + move the ball: `ball.move();`
+      + call to test collision: `textCollisionWithWalls(ball);`
+      + draw the ball: `ball.draw();`
+    + request for next frame: `window.requestAnimationFrame(mainLoop);`
+  + text collision w/ x, y velocity: `function testCollisionWithWalls(ball) {...}`
+    + (x, y): center of the circle
+    + collision: replace the ball at position where it's exactly in contact w/ the border
+    + test collision independently, `if...else if` not suitable
+    + left colission: `if (ball.x < (ball.radius)) {ball.x = ball.radius; ball.vx *= -1;}`
+    + right colission: `if (ball.x > width - ball.radius) {ball.x = width - ball.radius; ball.vx *= -1;}`
+    + up colission: `if (ball.y < (ball.radius)) {ball.y = ball.radius; ball.vy *= -1;}`
+    + right colission: `if (ball.y > width - ball.radius) {ball.y = width - ball.radius; ball.vy *= -1;}`
+
++ Example: direction and velocity with wall colissions
+  + [declare variables](#vars)
+  + declare [array of balls](#ballArray)
+  + [init page after DOM ready](#init)
+  + create balls w/ angle & speed: `function createBalls(numberOfBalls) {...}`
+    + iterate to create balls: `for (var i-0; i<numberOfBalls; i++) {...}`
+    + create ball: `var ball = new Ball(width*Math.random(), height*Math.random(), (2*Math.PI)*Math.random(), (10*Math.random())-5, 30);`
+    + add ball to array: `ballArray[i] = ball;`
+  + create [animation loop](#animationLoop)
+  + text collision w/ angle & speed: `function testCollisionWithWalls(ball) {...}`
+    + test collision independently, `if...else if` not suitable
+    + left colission: `if (ball.x < (ball.radius)) {ball.x = ball.radius; ball.angle = -ball.angle + Math.PI;}`
+    + right colission: `if (ball.x > width - ball.radius) {ball.x = width - ball.radius; ball.angle = -ball.angle + Math.PI;}`
+    + up colission: `if (ball.y < (ball.radius)) {ball.y = ball.radius; ball.angle = -ball.angle;}`
+    + right colission: `if (ball.y > width - ball.radius) {ball.y = width - ball.radius; ball.angle = -ball.angle;}`
+  + constructor function for balls w/ speed and angle<a name="ballSA"></a>: `function Ball(x, y, angle, v, diameter) {...}`
+    + declare ball properties: `this.x = x; this.y = y; this.angle = angle; this.v = v; this.radius = diameters/2;`
+    + draw ball: `this.draw = function() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0.2*Math.PI); ctx.fill(); };`
+    + move ball: `this.move = function() { this.x += this.v * Math.cos(this.angle); this.y += this.v * Math.sin(this.angle); };`
+
 
 
 
