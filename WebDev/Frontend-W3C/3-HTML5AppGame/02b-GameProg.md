@@ -201,8 +201,8 @@ Source code extract:
 <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"*"</span><span class="pun">;</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pun">};</span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="com">//this will add one star to the document each 200ms (1/5s)</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">setInterval</span><span class="pun">(</span><span class="pln">addStarToTheBody</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com">//this will add one star to the document each 200ms (1/5s)</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">setInterval</span><span class="pun">(</span><span class="pln">addStarToTheBody</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></strong></li>
 </ol></div><br>
 
 <span style="color: red;">WRONG:</span>
@@ -241,12 +241,12 @@ Source code extract:
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> addStarToTheBody </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"*"</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="com">// calls again itself AFTER 200ms</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>setTimeout</strong></span><strong><span class="pun">(</span><span class="pln">addStarToTheBody</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="com">// calls again itself AFTER 200ms</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong style="color: red;">setTimeout</strong></span><strong style="color: red;"><span class="pun">(</span><span class="pln">addStarToTheBody</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></strong></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pun">};</span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="com">// calls the function AFTER 200ms</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">setTimeout</span><span class="pun">(</span><span class="pln">addStarToTheBody</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com">// calls the function AFTER 200ms</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">setTimeout</span><span class="pun">(</span><span class="pln">addStarToTheBody</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></strong></li>
 </ol></div><br>
 
 This example will work like the previous example. However, it is a definite improvement, because the timer waits for the function to finish everything inside before calling it again. 
@@ -275,14 +275,14 @@ Source code extract:
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// called after the page is entirely loaded</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>requestAnimationFrame</strong></span><strong><span class="pun">(</span><span class="pln">mainloop</span><span class="pun">);</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong style="color: red;">requestAnimationFrame</strong></span><strong style="color: red;"><span class="pun">(</span><span class="pln">mainloop</span><span class="pun">);</span></strong></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span><span class="pln"> </span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> mainloop</span><span class="pun">(</span><span class="pln">timestamp</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"*"</span><span class="pun">;</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// call back itself every 60th of second</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>requestAnimationFrame</strong></span><strong><span class="pun">(</span><span class="pln">mainloop</span><span class="pun">);</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="com">// call back itself every 60th of second</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong style="color: red;">requestAnimationFrame</strong></span><strong style="color: red;"><span class="pun">(</span><span class="pln">mainloop</span><span class="pun">);</span></strong></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 </ol></div><br>
 
