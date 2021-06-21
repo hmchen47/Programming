@@ -939,8 +939,89 @@ To animate a monster at 60 fps but blinking his eyes once per second, you would 
   + calculate [distance to move](#calcDist)
 
 
+### 2.4.4 Adding time-based animation
+
+To add time-based animation to our game engine, we will be using the technique discussed in the previous lesson. This technique is now widely supported by browsers, and adds time-based animation to our game framework, through the timestamp parameter passed to the callback function (`mainLoop`) by the call to `requestAnimationFrame(mainLoop)`.
+
+Here is an [online example of the game framework](https://jsbin.com/xacebu/edit) at JSBin: this time, the monster has a speed in pixels/s and we use time-based animation. Try it and verify the smoothness of the animation; the FPS counter on a Mac Book Pro core i7 shows 60 fps.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick= "window.open("https://bit.ly/3wLsW2P")"
+    src    = "https://bit.ly/2SO5ymI"
+    alt    = "screenshot of the monster moving at 60 f/s"
+    title  = "screenshot of the monster moving at 60 f/s"
+  />
+</figure>
+
+Now try this [slightly modified version](https://jsbin.com/gazatuquya/edit?html,js,output) in which we added a delay inside the animation loop. This should slow down the frame rate.  On a Mac Book Pro + core i7, the frame-rate drops down to 37 fps. However, if you move the monster using the arrow keys, its speed on the screen is the same, excepting that it's not as smooth as in the previous version, which ran at 60 fps.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick= "window.open("https://bit.ly/3wLsW2P")"
+    src    = "https://bit.ly/2TRhBQt"
+    alt    = "screenshot of example that runs at 37 f/s"
+    title  = "screenshot of example that runs at 37 f/s"
+  />
+</figure>
 
 
+Here are the parts we changed:
+
++ Declaration of the monster object - now the speed is in pixels/s instead of in pixels per frame
+
+  <div class="source-code"><ol style="list-style-type: decimal;">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="com">// The monster !</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> monster </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;x</span><span class="pun">:</span><span class="lit">10</span><span class="pun">,</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;y</span><span class="pun">:</span><span class="lit">10</span><span class="pun">,</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>speed</strong></span><strong><span class="pun">:</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="com">// pixels/s this time !</span></strong></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+  </ol></div><br>
+
++ We added a `timer(currentTime)` function that returns the `delta` of the time elapsed since its last call
+
+  We refer to it from the game loop, to measure the time between frames. Notice that here we pass the delta as a parameter to the `updateMonsterPosition` call:
+
+  <div class="source-code"><ol style="list-style-type: decimal;">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd">function</span><span class="pln"> timer</span><span class="pun">(</span><span class="pln">currentTime</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+  <li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> delta </span><span class="pun">=</span><span class="pln"> currentTime </span><span class="pun">-</span><span class="pln"> oldTime</span><span class="pun">;</span></strong></li>
+  <li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;oldTime </span><span class="pun">=</span><span class="pln"> currentTime</span><span class="pun">;</span></strong></li>
+  <li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> delta</span><span class="pun">;</span></strong></li>
+  <li class="L3" style="margin-bottom: 0px;"><strong><span class="pun">}</span></strong></li>
+  <li class="L6" style="margin-bottom: 0px;"><span class="kwd"></span></li>
+  <li class="L6" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> mainLoop </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><strong><span class="pln">time</span></strong><span class="pun">){</span></li>
+  <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">//main function, called each frame </span></li>
+  <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>measureFPS</strong></span><strong><span class="pun">(</span><span class="pln">time</span><span class="pun">);</span></strong></li>
+  <li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+  <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// number of ms since last frame draw</span></strong></li>
+  <li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;delta </span><span class="pun">=</span><span class="pln"> timer</span><span class="pun">(</span><span class="pln">time</span><span class="pun">);</span></strong></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Clear the canvas</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;clearCanvas</span><span class="pun">();</span></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+  <li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// draw the monster</span></li>
+  <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;drawMyMonster</span><span class="pun">(</span><span class="pln">monster</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">y</span><span class="pun">);</span></li>
+  <li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+  <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// Check inputs and move the monster</span></strong></li>
+  <li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;updateMonsterPosition</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">);</span></strong></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// call the animation loop every 1/60th of second</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+  </ol></div><br>
+
++ Finally, we use the time-delta in the `updateMonsterPosition(...)` function
+
+  <div class="source-code"><ol style="list-style-type: decimal;">
+  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> updateMonsterPosition</span><span class="pun">(</span><strong><span class="pln">delta</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+  <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">...</span></li>
+  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Compute the incX and inY in pixels depending</span></li>
+  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// on the time elapsed since last redraw</span></li>
+  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>monster</strong></span><strong><span class="pun">.</span><span class="pln">x </span><span class="pun">+=</span><span class="pln"> calcDistanceToMove</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">speedX</span><span class="pun">);</span></strong></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>&nbsp;monster</strong></span><strong><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> calcDistanceToMove</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">speedY</span><span class="pun">);</span></strong></li>
+  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pun">}</span></li>
+  </ol></div>
 
 
 
