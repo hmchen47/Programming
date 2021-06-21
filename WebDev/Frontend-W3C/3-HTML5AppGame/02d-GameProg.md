@@ -167,10 +167,10 @@ Here is the same example to which we have added a loop that wastes time right in
 
 + Example: regular animation
   + rectangle moves faster on the desktop computer screen that on mobile phone
-  + declare variables: `var canvas, ctx; var width, height; var x, y; var speed;`
-  + init page after DOM ready: `function init() {...}`
+  + declare variables: `var canvas, ctx; var width, height; var x, y; var speedX;`
+  + init page after DOM ready<a name="init"></a>: `function init() {...}`
     + init variables: `canvas = document.queryAnimationFrame("#myCanvas"); ctx = canvas.getContext('2d'); width = canvas.width = width; height = canvas.height; x= 10; y = 10;`
-    + set speed: `speedX = 3;`
+    + set speed<a name="speed"></a>: `speedX = 3;`
     + start animation: `animationLoop();`
   + generate animation loop<a name="animationLoop"></a>: `function animationLoop() {...}`
     + clear canvas: `ctx.cleanRec(0, 0, 10, 10);`
@@ -181,7 +181,7 @@ Here is the same example to which we have added a loop that wastes time right in
 
 + Example: simulating a low-end device
   + generate [animation loop](#animationLoop)
-  + additional loop to slow the animaton loop after clear rectangle: `for (var i=0; i<50000000; i++) { // slow down artifically the animation };`
+  + additional loop to slow the animaton loop after clear rectangle<a name="simulation"></a>: `for (var i=0; i<50000000; i++) { // slow down artificially the animation };`
 
 
 ### 2.4.2 Measuring time between frames
@@ -319,11 +319,12 @@ Source code from the example:
 
 In this example, we only added a few lines of code for measuring the time and computing the time elapsed between two consecutive frames (see line 38). Normally, requestAnimationFrame(callback) tries to call the callback function every 16.66 ms (this corresponds to 60 frames/s)... but this is never exactly the case. If you do a console.log(delta)in the animation loop, you will see that even on a very powerful computer, the delta is "very close" to 16.6666 ms, but 99% of the time it will be slightly different.
 
-The function calcDistanceToMove(delta, speed) takes two parameters: 1) the time elapsed in ms, and 2) the target speed in pixels/s. 
+The function `calcDistanceToMove(delta, speed)` takes two parameters: 1) the time elapsed in ms, and 2) the target speed in pixels/s. 
 
-Try this example on a smartphone, use this link to run the JSBin example in stand-alone mode. Normally you should see no difference in speed, but it may look a bit jerky on a low-end smartphone or on a slow computer. This is the correct behavior.
+Try this example on a smartphone, use this [link](https://jsbin.com/jeribi) to run the JSBin example in stand-alone mode. Normally you should see no difference in speed, but it may look a bit jerky on a low-end smartphone or on a slow computer. _This is the correct behavior._
 
 Or you can try the next example that simulates a complex animation loop that takes a long time to draw each frame...
+
 
 __Example #2: using a simulation that spends a lot of time in the animation loop, to compare with the previous example__
 
@@ -385,7 +386,7 @@ This API is very simple to use - just do:
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;time&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;performance</span><span class="pun" style="color: #669900;">.</span><span class="pln">now</span><span class="pun" style="color: #669900;">();</span></li>
 </ol></div><br>
 
-... to get a sub-millisecond time-stamp. It is similar to Date.now() except that the accuracy is much higher and that the result is not exactly the same. The value returned is a floating point number, not an integer value!
+... to get a sub-millisecond time-stamp. It is similar to `Date.now()` except that the accuracy is much higher and that the result is not exactly the same. The value returned is a floating point number, not an integer value!
 
 From this article that explains the High Resolution Time API: 
 > "The only method exposed is `now()`, which returns a DOMHighResTimeStamp representing the current time in milliseconds. The timestamp is very accurate, with precision to a thousandth of a millisecond. Please note that while `Date.now()` returns the number of milliseconds elapsed since 1 January 1970 00:00:00 UTC, `performance.now()` returns the number of milliseconds, with microseconds in the fractional part, from performance.`timing.navigationStart()`, the start of navigation of the document, to the `performance.now()` call. Another important difference between `Date.now()` and `performance.now()` is that the latter is monotonically increasing, so the difference between two calls will never be negative."
@@ -469,13 +470,13 @@ __Method #3: using the optional timestamp parameter of the callback function of 
 
 <p class="exampleHTML" style="text-align: center;"><span style="color: #ff0000;"><strong><span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;">This is the recommended method!</span></strong></span></p>
 
-There is an optional parameter that is passed to the callback function called by requestAnimationFrame: a timestamp!
+There is an optional parameter that is passed to the callback function called by `requestAnimationFrame`: a timestamp!
 
 [The requestAnimationFrame API specification](https://www.w3.org/TR/animation-timing/) says that this timestamp corresponds to the time elapsed since the page has been loaded.
 
-It is similar to the value sent by the high resolution timer using performance.now().
+It is similar to the value sent by the high resolution timer using `performance.now()`.
 
-Here is a running example  of the animated rectangle, that uses this timestamp parameter.
+Here is a running example  of the animated rectangle, that uses this `timestamp` parameter.
 
 [Online example at JSBin](https://jsbin.com/kuvumu/edit):
 
@@ -567,18 +568,63 @@ Source code of the example:
   + using the JavaScript `Data` object
     + standard JavaScript for measuring time: `var time = new Date().getTime();`
     + alternative solution: `var time = Date().now();`
-    + `getTime()` method: return the number of millisecond (Unix epoch) since midnight on 1970-01-01
+    + `getTime()` method: return an integer number of millisecond (Unix epoch) since midnight on 1970-01-01
     + procedure
       + measure the time at the beginning of each animation loop
       + store the time
       + compute the delta of times elapsed btw two consecutive loops
     + applying some simple math to compute the number of pixels $\to$ move the object to achieve a given speed (in pixels/s)
   + using the new HTML5 high-resolution timer
-  + using optional timestamps parameter of rge callback function of `requestAnimationFrame`
+    + [Hight Resolution Time API](https://www.w3.org/TR/hr-time/): a working draft
+    + `performance.now()`:
+      + get a sub-millisecond time-stamp
+      + similar to `Date.now()` but w/ much higher accuracy
+      + return a floating point number, called a `DOMHighResTimeStamp`
+  + using timestamps parameter of rge callback function of `requestAnimationFrame`
+    + recommended method
+    + timestamps as optional parameter
+    + corresponding too the time elapsed since the page loaded
+    + similar to the value sent by the high resolution timer using `performance.now()`
 
-+ 
++ Example: using Date object
+  + declare variables<a name="vars"></a>: `var canvas, ctx; var width, height; var x, y, incX; var speedX;`
+  + declare and set time-related variables<a name="timeVars"></a>: `var now, delta = 0; var then = new Date().getTime();`
+  + [init page after DOM ready](#init) w/ change `speedX = 200;`
+  + generate [animation loop](#animationLoop) w/ time measurement and change
+    + measure time<a name=measureTime></a>: `now = new Date().getTime(); delta = now - then;`
+    + change `speedX` to `incX` for assigning `x`
+    + store current frame time before request next frame: `then = now;`
+  + compute the distance to move<a name="calcDist"></a>: `var calcDistanceToMove = function(delta, speed) {return (speed * delta)/1000;}`
 
++ Example: simulation spending time in animation loop
+  + generate [animation loop](#animationLoop) w/ time measurement and change
+    + [measure time](#measureTime)
+    + call to compute distance: `incX = calcDistanceToMove(delta, speedX);`
+    + add [simulation](#simulation) after clear canvas
+    + measure time<a name=measureTime></a>: `now = new Date().getTime(); delta = now - then;`
+    + change `speedX` to `incX` for assigning `x`
+    + store current frame time before request next frame: `then = now;`
 
++ Example: high resultion API
+  + declare variable: `var speedX; var now, delta;`
+  + get high resultion timer: `var then = performance.now();`
+  + [init page after DOM ready](#init)
+  + generate [animation loop](#animationLoop) w/ additional code
+    + get current time: `var now = performance.now();`
+    + calculate distance: `incX = calcDistanceToMove(delta, speedX);`
+    + store current frame time before request next frame: `then = now;`
+
++ Example: using timestamp parameter of `requestAnimationFrame`
+  + [declar variables](#vars) w/ `var oldTime = 0;`
+  + [declar time variables](#timeVars)
+  + [init page after DOM ready](#init) w/ timestamps parameter
+  + generate animation loop: `function animationLoop(currentTime) {...}`
+    + compute time difference: `delta = currentTime - oldTime;`
+    + call to compute the distance: `calcDistanceToMove(delta, speedX);`
+    + clear and redraw object as [old animation loop](#animationLoop)
+    + reset old frame timer: `oldTime = currentTime;`
+    + call for next frame: `requestAnimationFrame(animationLoop);`
+  + calculate [distance to move](#calcDist)
 
 
 
