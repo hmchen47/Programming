@@ -1045,6 +1045,21 @@ Here are the parts we changed:
     + y-axis in pixel: `monster.y += calcDistanceToMove(delta, monster.speedY);`
 
 
+### 2.4.5 Discussion and projects
+
+Please either post your comments/observations/questions or share your creations.
+
+#### Suggested topics of discussion:
+
++ Did you know that time based animation is used by all "real" games?
++ Many game frameworks available on the web include time based animation. While the course explains the low level operations used in many of these frameworks, it's interesting to know they exist and test some demos. We recommend you look at phaser.io.
++ How would you design a scheduler for your game, to trigger events at some predefined times (start an enemy wave, use a timed level in the game, etc.)
+
+#### Optional projects:
+
++ If you have started developing your own small game from the examples given in the course (what, you haven't started yet??? ;) ), please add time-based animation to your project.
++ Add sliders to adjust the frame rate or the speed of the objects in the examples given in the course or in your own project, so as to illustrate the time-based animation concept.
+
 
 
 
