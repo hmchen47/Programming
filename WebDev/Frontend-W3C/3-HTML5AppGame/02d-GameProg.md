@@ -1052,7 +1052,7 @@ Please either post your comments/observations/questions or share your creations.
 #### Suggested topics of discussion:
 
 + Did you know that time based animation is used by all "real" games?
-+ Many game frameworks available on the web include time based animation. While the course explains the low level operations used in many of these frameworks, it's interesting to know they exist and test some demos. We recommend you look at phaser.io.
++ Many game frameworks available on the web include time based animation. While the course explains the low level operations used in many of these frameworks, it's interesting to know they exist and test some demos. We recommend you look at [phaser.io](https://phaser.io/).
 + How would you design a scheduler for your game, to trigger events at some predefined times (start an enemy wave, use a timed level in the game, etc.)
 
 #### Optional projects:
