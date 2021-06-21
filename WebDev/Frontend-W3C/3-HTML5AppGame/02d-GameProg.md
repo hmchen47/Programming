@@ -39,9 +39,9 @@ This technique is useful when:
 Let's take a simple example with a small rectangle that moves from left to right. At each animation loop, we erase the canvas content, calculate the rectangle's new position, draw the rectangle, and call the animation loop again. So you animate a shape as follows (note: steps 2 and 3 can be swapped):
 
 1. erase the canvas,
-1. draw the shapes,
-1. move the shapes,
-1. go to step 1.
+2. draw the shapes,
+3. move the shapes,
+4. go to step 1.
 
 When we use requestAnimationFrame for implementing such an animation, as we did in the previous lessons, the browser tries to keep the frame-rate at 60 fps, meaning that the ideal time between frames will be 1/60 second = 16.66 ms.
 
@@ -945,6 +945,8 @@ To add time-based animation to our game engine, we will be using the technique d
 
 Here is an [online example of the game framework](https://jsbin.com/xacebu/edit) at JSBin: this time, the monster has a speed in pixels/s and we use time-based animation. Try it and verify the smoothness of the animation; the FPS counter on a Mac Book Pro core i7 shows 60 fps.
 
+[Local Demo](src/02d-example08.html)
+
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick= "window.open("https://bit.ly/3wLsW2P")"
@@ -955,6 +957,8 @@ Here is an [online example of the game framework](https://jsbin.com/xacebu/edit)
 </figure>
 
 Now try this [slightly modified version](https://jsbin.com/gazatuquya/edit?html,js,output) in which we added a delay inside the animation loop. This should slow down the frame rate.  On a Mac Book Pro + core i7, the frame-rate drops down to 37 fps. However, if you move the monster using the arrow keys, its speed on the screen is the same, excepting that it's not as smooth as in the previous version, which ran at 60 fps.
+
+[Local Demo](src/02d-example09.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
@@ -1022,6 +1026,25 @@ Here are the parts we changed:
   <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>&nbsp;monster</strong></span><strong><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> calcDistanceToMove</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">speedY</span><span class="pun">);</span></strong></li>
   <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pun">}</span></li>
   </ol></div>
+
+
+#### Notes for 2.4.4 Adding time-based animation
+
++ Example: game framework adding time-based animation
+  + declare monster object: `var monster = {x: 10, y: 10, speed; 10, };`
+  + measure the time btw feames: `function timer(currentTime) {var delta = currentTime - oldTime; oldTime = currentTime; return delta;}`
+  + generate animation loop: `var mainLoop = fucntion(time) {...}`
+    + measure FPS: `measureFPS(time);`
+    + calculate time different: `delta = timers(time);`
+    + call to empty canvas: `clearCanvas();`
+    + call to draw the monster: `drawMyMonster(monster.x, monster.y);`
+    + call to move the monster: `updateMonsterPosition(delta);`
+    + call for next frame: `requestAnimationFrame(mainLoop);`
+  + compute the increments on each axis: `function updateMonsterPosition(delta) {...}`
+    + x-axis in pixel: `monster.x += calcDistanceToMove(delta, monster.speedX);`
+    + y-axis in pixel: `monster.y += calcDistanceToMove(delta, monster.speedY);`
+
+
 
 
 
