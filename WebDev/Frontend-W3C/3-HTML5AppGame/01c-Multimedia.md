@@ -25,7 +25,7 @@ It might be interesting to read the content of a track before playing the video.
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/2QzbheZ")"
+    onclick= "window.open('https://bit.ly/2QzbheZ")"
     src    = "https://bit.ly/3wnyEHw"
     alt    = "edX video player with clickable transcript on the right"
     title  = "edX video player with clickable transcript on the right"
@@ -53,7 +53,7 @@ Try [this example at JSBin](https://jsbin.com/sodihux/1/edit?html,css,js,output)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/2QzbheZ")"
+    onclick= "window.open('https://bit.ly/2QzbheZ")"
     src    = "https://bit.ly/33Wezw5"
     alt    = "video player with clickable transcript"
     title  = "video player with clickable transcript"
@@ -336,7 +336,7 @@ Here is an [example at JSBin](https://jsbin.com/vedelequso/edit?html,js,output) 
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/2QzbheZ")"
+    onclick= "window.open('https://bit.ly/2QzbheZ")"
     src    = "https://bit.ly/3bAOJBZ"
     alt    = "screenshot of JsBin example: video on top and two buttons 'english' and 'german' at bottom for extracting the track contents in english or german"
     title  = "screenshot of JsBin example: video on top and two buttons 'english' and 'german' at bottom for extracting the track contents in english or german"
@@ -628,7 +628,7 @@ In the screen-capture below, we have a WebVTT file displaying a scene's captions
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3oCbhrn")"
+    onclick= "window.open('https://bit.ly/3oCbhrn")"
     src    = "https://bit.ly/3uiXJCp"
     alt    = "Example that shows how to toggle track modes and listen to events"
     title  = "Example that shows how to toggle track modes and listen to events"
@@ -879,7 +879,7 @@ Here is a [simple example at JSBin](https://jsbin.com/balowuq/1/edit?html,css,js
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/3hLYBMV")"
+    onclick= "window.open('https://bit.ly/3hLYBMV')"
     src    = "https://bit.ly/3yytDhu"
     alt    = "Buttons for choosing the track/language under a standard video player"
     title  = "Buttons for choosing the track/language under a standard video player"
@@ -1045,7 +1045,7 @@ We can use WebVTT files to define chapters. The syntax is exactly the same as fo
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3bMOhAL")"
+    onclick= "window.open('https://bit.ly/3bMOhAL')"
     src    = "https://bit.ly/3bQO13s"
     alt    = "Simple chapter navigation"
     title  = "Simple chapter navigation"
@@ -1164,7 +1164,7 @@ Chapter navigation, illustrated in the video player below, is fairly popular.
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-    onclick= "window.open("https://bit.ly/3bMOhAL")"
+    onclick= "window.open('https://bit.ly/3bMOhAL')"
     src    = "https://bit.ly/3fbqfkM"
     alt    = "Example of video player that uses text based chapter navigation"
     title  = "Example of video player that uses text based chapter navigation"
@@ -1270,7 +1270,7 @@ Earlier we saw [an example](https://jsbin.com/jiyodit/edit?html,css,js,output) t
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3bQuyA9")"
+    onclick= "window.open('https://bit.ly/3bQuyA9')"
     src    = "https://bit.ly/3bQO13s"
     alt    = "Simple chapter menu in plain text"
     title  = "Simple chapter menu in plain text"
@@ -1369,7 +1369,7 @@ Before explaining the code, we propose that you [try this example at JSBin](http
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3bQuyA9")"
+    onclick= "window.open('https://bit.ly/3bQuyA9')"
     src    = "https://bit.ly/3wyNATD"
     alt    = "Video with nice chapter menu that uses thumbnail images"
     title  = "Video with nice chapter menu that uses thumbnail images"
@@ -1559,7 +1559,7 @@ A sample menu marker is shown below (it's also animated - hover your mouse over 
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
-    onclick= "window.open("https://bit.ly/3bQuyA9")"
+    onclick= "window.open('https://bit.ly/3bQuyA9')"
     src    = "https://bit.ly/3ffAvsx"
     alt    = "Introduction"
     title  = "Introduction"
@@ -1577,7 +1577,7 @@ This example is the same as the previous one except that we have kept the featur
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3bQuyA9")"
+    onclick= "window.open('https://bit.ly/3bQuyA9")"
     src    = "https://bit.ly/3ucOkfp"
     alt    = "Chapter menu + clickable transcript"
     title  = "Chapter menu + clickable transcript"

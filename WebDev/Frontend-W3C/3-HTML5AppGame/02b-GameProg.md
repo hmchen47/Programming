@@ -75,7 +75,7 @@ Using [the WebSockets technology](https://fr.wikipedia.org/wiki/WebSocket) (whic
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
-    onclick= "window.open("https://bit.ly/3iHzWtq")"
+    onclick= "window.open('https://bit.ly/3iHzWtq')"
     src    = "https://bit.ly/3xnz3KU"
     alt    = "a graph showing several clients interacting with a websocket server"
     title  = "a graph showing several clients interacting with a websocket server"
@@ -154,7 +154,7 @@ The "game loop" is the main component of any game. It separates the game logic a
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 8vw;"
-    onclick= "window.open("https://bit.ly/2Ttk7fr")"
+    onclick= "window.open('https://bit.ly/2Ttk7fr')"
     src    = "https://bit.ly/2U3TxcZ"
     alt    = ""
     title  = ""
@@ -186,7 +186,7 @@ __Performing animation using the JavaScript setInterval(...) function__
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/2Ttk7fr")"
+    onclick= "window.open('https://bit.ly/2Ttk7fr')"
     src    = "https://bit.ly/35qR52E"
     alt    = "Screenshot of the JsBin setInterval Example with different tabs opened"
     title  = "Screenshot of the JsBin setInterval Example with different tabs opened"
@@ -364,7 +364,7 @@ Suggested topics of discussion:
 
   <figure style="margin: 0.5em; text-align: center;">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-      onclick= "window.open("https://bit.ly/3cKQa16")"
+      onclick= "window.open('https://bit.ly/3cKQa16')"
       src    = "https://bit.ly/35ul1ec"
       alt    = "swarm game screenshot"
       title  = "swarm game screenshot"

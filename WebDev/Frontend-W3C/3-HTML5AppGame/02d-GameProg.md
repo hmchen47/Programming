@@ -54,7 +54,7 @@ When we use requestAnimationFrame for implementing such an animation, as we did 
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
-    onclick= "window.open("https://bit.ly/3gJ34xX")"
+    onclick= "window.open('https://bit.ly/3gJ34xX')"
     src    = "https://bit.ly/3iU60KX"
     alt    = "image of a small rectangle in a canvas, moving from left to right"
     title  = "image of a small rectangle in a canvas, moving from left to right"
@@ -217,7 +217,7 @@ __Example #1: using time based animation: the bouncing square__
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/3cYaKeJ")"
+    onclick= "window.open('https://bit.ly/3cYaKeJ')"
     src    = "https://bit.ly/3gF086H"
     alt    = "Bouncing square with time bases animation"
     title  = "Bouncing square with time bases animation"
@@ -648,7 +648,7 @@ Try to change the parameter value of the call to:
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/3gGsRYD")"
+    onclick= "window.open('https://bit.ly/3gGsRYD')"
     src    = "https://bit.ly/3iYegcK"
     alt    = "Screenshot of a jsbin example with an animated curve, we can set the framerate in this example..."
     title  = "Screenshot of a jsbin example with an animated curve, we can set the framerate in this example..."
@@ -949,7 +949,7 @@ Here is an [online example of the game framework](https://jsbin.com/xacebu/edit)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
-    onclick= "window.open("https://bit.ly/3wLsW2P")"
+    onclick= "window.open('https://bit.ly/3wLsW2P')"
     src    = "https://bit.ly/2SO5ymI"
     alt    = "screenshot of the monster moving at 60 f/s"
     title  = "screenshot of the monster moving at 60 f/s"
@@ -962,7 +962,7 @@ Now try this [slightly modified version](https://jsbin.com/gazatuquya/edit?html,
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
-    onclick= "window.open("https://bit.ly/3wLsW2P")"
+    onclick= "window.open('https://bit.ly/3wLsW2P')"
     src    = "https://bit.ly/2TRhBQt"
     alt    = "screenshot of example that runs at 37 f/s"
     title  = "screenshot of example that runs at 37 f/s"

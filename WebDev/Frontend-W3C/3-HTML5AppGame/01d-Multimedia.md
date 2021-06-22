@@ -29,7 +29,7 @@ Below is the sound file. You can try to play it:
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-    onclick= "window.open("https://bit.ly/3ywzkfL")"
+    onclick= "window.open('https://bit.ly/3ywzkfL')"
     src    = "https://bit.ly/3ws8Z0z"
     alt    = "Click a button to play an animal sound"
     title  = "Click a button to play an animal sound"
@@ -295,7 +295,7 @@ Here is a very impressive demo by Sam Dutton that uses JSON cues containing the 
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3vetGwK")"
+    onclick= "window.open('https://bit.ly/3vetGwK')"
     src    = "https://bit.ly/3yA1INX"
     alt    = "Video synced with google map and google street map"
     title  = "Video synced with google map and google street map"
@@ -364,7 +364,7 @@ Try [the example at JSBin](https://jsbin.com/gucutiyoyu/2/edit?html,js,output)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3vetGwK")"
+    onclick= "window.open('https://bit.ly/3vetGwK')"
     src    = "https://bit.ly/2RHURBC"
     alt    = "video synced with an iframe that shows external URLs and with a google map"
     title  = "video synced with an iframe that shows external URLs and with a google map"

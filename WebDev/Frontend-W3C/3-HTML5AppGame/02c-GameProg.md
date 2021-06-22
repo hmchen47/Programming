@@ -83,7 +83,7 @@ Here is a screenshot of an example and the code we added to our game engine, for
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3xuD14p")"
+    onclick= "window.open('https://bit.ly/3xuD14p')"
     src    = "https://bit.ly/3q2qd2v"
     alt    = "screenshot of the example that displays 60 frames/s"
     title  = "screenshot of the example that displays 60 frames/s"
@@ -173,7 +173,7 @@ Funny right? Please try this and check the number of FPS displayed with this [JS
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3xuD14p")"
+    onclick= "window.open('https://bit.ly/3xuD14p')"
     src    = "https://bit.ly/3wtWW3n"
     alt    = "Screenshot of example with 4441 FPS displayed"
     title  = "Screenshot of example with 4441 FPS displayed"
@@ -301,7 +301,7 @@ How to draw a monster in a canvas: you can try it [online at JSBin](https://jsbi
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
-    onclick= "window.open("https://bit.ly/2UeN679")"
+    onclick= "window.open('https://bit.ly/2UeN679')"
     src    = "https://bit.ly/3xrMtFt"
     alt    = "Small monster drawn in a canvas"
     title  = "Small monster drawn in a canvas"
@@ -426,7 +426,7 @@ You can try [this version online at JSBin](https://jsbin.com/xuruja/edit).
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
-    onclick= "window.open("https://bit.ly/2UeN679")"
+    onclick= "window.open('https://bit.ly/2UeN679')"
     src    = "https://bit.ly/35v4GpW"
     alt    = "Screenshot of a trembling monster in a 60 f/s animation"
     title  = "Screenshot of a trembling monster in a 60 f/s animation"
@@ -705,7 +705,7 @@ You can try key codes with this [interactive example](http://www.asquare.net/jav
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/2SH2BEt")"
+    onclick= "window.open('https://bit.ly/2SH2BEt')"
     src    = "https://bit.ly/35LX8zj"
     alt    = "JavaScript key codes"
     title  = "JavaScript key codes"
@@ -745,7 +745,7 @@ Here is the [online example](https://jsbin.com/razeya/edit) you can try at JSBin
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
-    onclick= "window.open("https://bit.ly/2SH2BEt")"
+    onclick= "window.open('https://bit.ly/2SH2BEt')"
     src    = "https://bit.ly/3q6zPJI"
     alt    = "trembling monster with multiple key press management."
     title  = "trembling monster with multiple key press management."
@@ -930,7 +930,7 @@ You may notice that on some computers / operating systems, it is not possible to
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-    onclick= "window.open("https://bit.ly/35zjZh9")"
+    onclick= "window.open('https://bit.ly/35zjZh9')"
     src    = "https://bit.ly/3iRXVGv"
     alt    = "A few reminder sa schema of mouse internals"
     title  = "A few reminder sa schema of mouse internals"
@@ -954,7 +954,7 @@ Here is an [online example at JSBin](https://jsbin.com/metavu/edit) that covers 
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/35zjZh9")"
+    onclick= "window.open('https://bit.ly/35zjZh9')"
     src    = "https://bit.ly/3wGu1sL"
     alt    = "screenshot of a JsBin example that shows the mouse position + button pressed"
     title  = "screenshot of a JsBin example that shows the mouse position + button pressed"
@@ -1025,7 +1025,7 @@ Try this [example at JsBin](https://jsbin.com/soduko/edit?js,output)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
-    onclick= "window.open("https://bit.ly/35zjZh9")"
+    onclick= "window.open('https://bit.ly/35zjZh9')"
     src    = "https://bit.ly/2TEFgmZ"
     alt    = "A rectangle that follows the mouse cursor"
     title  = "A rectangle that follows the mouse cursor"
@@ -1113,7 +1113,7 @@ The [new online version of the game engine](https://jsbin.com/rizuyah/edit) can 
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
-    onclick= "window.open("https://bit.ly/35zjZh9")"
+    onclick= "window.open('https://bit.ly/35zjZh9')"
     src    = "https://bit.ly/3q6HaZP"
     alt    = "Screenshot of a JsBin example that shows message on mouse events"
     title  = "Screenshot of a JsBin example that shows message on mouse events"
@@ -1357,7 +1357,7 @@ Some games, mainly arcade/action games, are designed to be used with a gamepad:
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
-    onclick= "window.open("https://bit.ly/3iW8jNo")"
+    onclick= "window.open('https://bit.ly/3iW8jNo')"
     src    = "https://bit.ly/2TLYJ5c"
     alt    = "a xbox 360 gamepad"
     title  = "a xbox 360 gamepad"
@@ -1401,7 +1401,7 @@ If the user interacts with a controller (presses a button, moves a stick) a [`ga
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
-    onclick= "window.open("https://bit.ly/3iW8jNo")"
+    onclick= "window.open('https://bit.ly/3iW8jNo')"
     src    = "https://bit.ly/2Udwwo5"
     alt    = "a xbox 360 gamepad"
     title  = "a xbox 360 gamepad"
@@ -1421,7 +1421,7 @@ If a gamepad is disconnected (you unplug it), a [`gamepaddisconnected`](https://
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3iW8jNo")"
+    onclick= "window.open('https://bit.ly/3iW8jNo')"
     src    = "https://bit.ly/3wIDRdH"
     alt    = "gamepad disconnected, screenshot from jsbin console"
     title  = "gamepad disconnected, screenshot from jsbin console"
@@ -1486,7 +1486,7 @@ The gamepad object returned in the event listener has [different properties](htt
 
   <figure style="margin: 0.5em; text-align: center;">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
-      onclick= "window.open("https://bit.ly/3gGGF5m")"
+      onclick= "window.open('https://bit.ly/3gGGF5m')"
       src    = "https://bit.ly/3gGGF5m"
       alt    = "standard gamepad layout"
       title  = "standard gamepad layout"
@@ -1510,7 +1510,7 @@ Digital, on/off buttons evaluate to either one or zero (respectively). Whereas a
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-    onclick= "window.open("https://bit.ly/3iW8jNo")"
+    onclick= "window.open('https://bit.ly/3iW8jNo')"
     src    = "https://bit.ly/3vJEpia"
     alt    = "button status detected, example on jsbin"
     title  = "button status detected, example on jsbin"
@@ -1563,7 +1563,7 @@ __Detecting axes (joystick) values__
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3iW8jNo")"
+    onclick= "window.open('https://bit.ly/3iW8jNo')"
     src    = "https://bit.ly/3wFhxSp"
     alt    = "axes detection in JsBin"
     title  = "axes detection in JsBin"
@@ -1597,7 +1597,7 @@ We could add an inputStates object similar to the one we used in the game framew
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3iW8jNo")"
+    onclick= "window.open('https://bit.ly/3iW8jNo')"
     src    = "https://bit.ly/3q9LfMD"
     alt    = "direction and angle detection for joystick"
     title  = "direction and angle detection for joystick"
@@ -1704,7 +1704,7 @@ __Logitech Attack 3 Joystick on Linux__
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3iW8jNo")"
+    onclick= "window.open('https://bit.ly/3iW8jNo')"
     src    = "https://bit.ly/3xAOQWu"
     alt    = "saitek joystick"
     title  = "saitek joystick"
@@ -1718,7 +1718,7 @@ __Wireless Microsoft gamepad__
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3iW8jNo")"
+    onclick= "window.open('https://bit.ly/3iW8jNo')"
     src    = "https://bit.ly/3wHAYKi"
     alt    = "wireless padwureless pad"
     title  = "wireless padwureless pad"
@@ -1946,7 +1946,7 @@ Let's add the gamepad utility functions from the previous lesson (we tidied them
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
-    onclick= "window.open("https://bit.ly/3wKXUrX")"
+    onclick= "window.open('https://bit.ly/3wKXUrX')"
     src    = "https://bit.ly/3gIdqzg"
     alt    = "move the monster with the gamepad, jsbin screenshot"
     title  = "move the monster with the gamepad, jsbin screenshot"
