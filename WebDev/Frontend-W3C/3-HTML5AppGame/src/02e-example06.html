@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+  
+        #myCanvas {
+            border: 1px solid #9C9898;
+        }
+    </style>
+    <script>
+        var targetX = 500, targetY = 200, targetRadius = 50;
+        var playerX=100, playerY=100;
+      
+     
+  
+      
+        function writeMessage(canvas, message) {
+            var context = canvas.getContext('2d');
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.font = '18pt Calibri';
+            context.fillStyle = 'black';
+            context.fillText(message, 10, 25);
+        }
+
+        function getMousePos(canvas, evt) {
+            // get canvas position
+            var obj = canvas;
+            var top = 0;
+            var left = 0;
+            while (obj && obj.tagName != 'BODY') {
+                top += obj.offsetTop;
+                left += obj.offsetLeft;
+                obj = obj.offsetParent;
+            }
+
+            // return relative mouse position
+            var mouseX = evt.clientX - left + window.pageXOffset;
+            var mouseY = evt.clientY - top + window.pageYOffset;
+            return {
+                x:mouseX,
+                y:mouseY
+            };
+        }
+      
+      function drawObstacles(canvas, context) {
+        context.fillRect(100+10*Math.random(),100+10*Math.random(), 200, 200);        
+      }
+      
+      function drawPlayer(canvas, context, x, y) {
+        context.fillRect(x,y, 20,20);
+      }
+      
+      // Collisions between rectangle
+      function rectsOverlap(x0, y0, w0, h0, x2, y2, w2, h2) {
+        if ((x0 > (x2 + w2)) || ((x0 + w0) < x2))
+            return false;
+      
+        if ((y0 > (y2 + h2)) || ((y0 + h0) < y2))
+            return false;
+        return true;
+      }
+      
+      // Collisions between rectangle and circle
+      function circRectsOverlap(x0, y0, w0, h0, cx, cy, r) {
+          var testX=cx; 
+          var testY=cy; 
+          
+          if (testX < x0) testX=x0; 
+          if (testX > (x0+w0)) testX=(x0+w0); 
+          if (testY < y0) testY=y0; 
+          if (testY > (y0+h0)) testY=(y0+h0); 
+ 
+          return (((cx-testX)*(cx-testX)+(cy-testY)*(cy-testY))<r*r); 
+      }
+      
+      function drawTarget(canvas, context, x, y, r, fillColor) {
+               
+                context.save();
+                context.beginPath();
+                context.arc(x, y, r, 0, 2*Math.PI, false);
+                context.fillStyle=fillColor;
+                context.fill();
+                context.lineWidth = 5;
+                context.strokeStyle = "black";
+            
+                context.stroke();
+                context.restore();
+      }
+
+        window.onload = function () {
+            var canvas = document.getElementById('myCanvas');
+            var context = canvas.getContext('2d');
+            var started = false, previousMousePos;
+            var mousePos;
+            var vitesseX=0; vitesseY = 0;
+          
+            function checkArrowKeysUp(e){
+              var arrs= [], key= window.event? event.keyCode: e.keyCode;
+              arrs[37]= 'left';
+              arrs[38]= 'up';
+              arrs[39]= 'right';
+              arrs[40]= 'down';
+              if(arrs[key]) console.log(arrs[key]);
+              
+              if(arrs[key] == 'left') {
+                vitesseX= 0;
+              } 
+              if(arrs[key] == 'right') {
+                 vitesseX=0;
+              }
+              if(arrs[key] == 'up') {
+                 vitesseY=0;
+              }
+              if(arrs[key] == 'down') {
+                 vitesseY=0;
+              }
+           }
+          
+            function checkArrowKeysDown(e){
+              var arrs= [], key= window.event? event.keyCode: e.keyCode;
+              arrs[37]= 'left';
+              arrs[38]= 'up';
+              arrs[39]= 'right';
+              arrs[40]= 'down';
+              if(arrs[key]) console.log(arrs[key]);
+              
+              if(arrs[key] == 'left') {
+                vitesseX= -4;
+              } 
+              if(arrs[key] == 'right') {
+                 vitesseX=4;
+              }
+              if(arrs[key] == 'up') {
+                 vitesseY=-4;
+              }
+              if(arrs[key] == 'down') {
+                 vitesseY=4;
+              }
+           }
+           document.onkeydown=checkArrowKeysDown;
+           document.onkeyup=checkArrowKeysUp;
+          
+          function mainLoop() {
+            // Main drawing loop
+            // clear canvas
+             context.clearRect(0,0, canvas.width, canvas.height);
+            
+            
+             drawObstacles(canvas, context);
+            
+            // If mouse on canvas
+            if(mousePos != undefined) {
+                 drawPlayer(canvas, context, playerX, playerY);
+                 
+              // Move player
+              playerX += vitesseX; playerY +=vitesseY;
+              
+              // Collision test with rectangular obstacle
+
+                  if(rectsOverlap(playerX, playerY, 20, 20, 100, 100, 200,200)) {
+                    // Draw red
+                    context.fillStyle = 'red';
+                    // Change speed
+                    vitesseX = 2;
+                    vitesseY = 2;                    
+                  } else { 
+                    context.fillStyle ='black';
+                  }
+              
+              // Collision with circular target
+              if(circRectsOverlap(playerX, playerY, 20, 20, 
+                                      targetX, targetY, targetRadius)) {                                         
+                      drawTarget(canvas, context, targetX, targetY, targetRadius, 'yellow');                    
+                  } else {                    
+                     drawTarget(canvas, context, targetX, targetY, targetRadius, "#8ED6FF");
+                  }
+            }
+                 
+            // Recall mainloop 60 times/s. This version works only in Google Chrome. If you want it to work with other browsers, you must use the 
+            // shym presented in the course.
+            requestAnimationFrame(mainLoop);
+            
+          }
+          
+         
+            canvas.addEventListener('mousemove', function (evt) {
+              
+                mousePos = getMousePos(canvas, evt);
+              playerX = mousePos.x; playerY = mousePos.y;
+
+            }, false);
+           
+          mainLoop();
+        };
+    </script>
+</head>
+  <h1>Small "game engine" example</h1>
+  <p>Run it standalone (click the small arrow on top left of this window), and you will then be able to control the player (small black square) using the arrow keys. You can also move the square with the mouse, for debugging collision detection.</p>
+<body onmousedown="return false;">
+<canvas id="myCanvas" width="578" height="400">
+</canvas>
+</body>
+</html>
