@@ -430,7 +430,456 @@ Now, in order to turn this into a game, we need to create some interactions betw
     + set up arrow key: `if (inputStates.up) {monster.speedY = -monster.speed;}`
     + ...
     + compute the position: `monster.x += calcDistanceToMove(delta, monster.speedX); monster.y += calcDistanceToMove(delta, monster.speedY);`
+  + draw balls w/ new position: `function updateBalls(delta) {...}`
+    + iterate all balls: `for (var i=0; i<ballArray.length; i++) {...}`
+    + call to move ball: `ball.move();`
+    + call to test wall collision: `testCollisionWithWalls(ball);`
+    + call to draw ball: `ball.draw();`
 
+
+### 2.5.3 Collision detection
+
+In this chapter, we explore some techniques for detecting collisions between objects. This includes moving and static objects. We first present three "classic" collision tests, and follow them with brief sketches of more complex algorithms.
+
+#### Circle collision test
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+    onclick= "window.open("https://bit.ly/3vJxHZv")"
+    src    = "https://bit.ly/3cZ1O8K"
+    alt    = "two circles with distances between the centers drawn"
+    title  = "two circles with distances between the centers drawn"
+  />
+</figure>
+
+
+Collision between circles is easy. Imagine there are two circles:
+
+1. Circle `c1` with center `(x1,y1)` and radius `r1`;
+1. Circle `c2` with center `(x2,y2)` and radius `r2`.
+
+Imagine there is a line running between those two center points. The distances from the center points to the edge of each circle is, by definition, equal to their respective radii. So:
+
+if the edges of the circles touch, the distance between the centers is r1+r2;
+any greater distance and the circles don't touch or collide; whereas
+any less and they do collide or overlay.
+
+<font style="color: red;">In other words: if the distance between the center points is less than the sum of the radii, then the circles collide.</font>
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> circleCollideNonOptimised</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> y1</span><span class="pun">,</span><span class="pln"> r1</span><span class="pun">,</span><span class="pln"> x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">,</span><span class="pln"> r2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> dx </span><span class="pun">=</span><span class="pln"> x1 </span><span class="pun">-</span><span class="pln"> x2</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> dy </span><span class="pun">=</span><span class="pln"> y1 </span><span class="pun">-</span><span class="pln"> y2</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong><span class="kwd">var</span><span class="pln"> distance </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sqrt</span><span class="pun">(</span><span class="pln">dx </span><span class="pun">*</span><span class="pln"> dx </span><span class="pun">+</span><span class="pln"> dy </span><span class="pun">*</span><span class="pln"> dy</span><span class="pun">);</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">(</span><span class="pln">distance </span><span class="pun">&lt;</span><span class="pln"> r1 </span><span class="pun">+</span><span class="pln"> r2</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+This could be optimized a little averting the need to compute a square root:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">(</span><span class="pln">x2</span><span class="pun">-</span><span class="pln">x1</span><span class="pun">)^</span><span class="lit">2</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="pun">(</span><span class="pln">y1</span><span class="pun">-</span><span class="pln">y2</span><span class="pun">)^</span><span class="lit">2</span><span class="pln"> </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">r1</span><span class="pun">+</span><span class="pln">r2</span><span class="pun">)^</span><span class="lit">2</span></li>
+</ol></div><br>
+
+Which yields:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> circleCollide</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> y1</span><span class="pun">,</span><span class="pln"> r1</span><span class="pun">,</span><span class="pln"> x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">,</span><span class="pln"> r2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> dx </span><span class="pun">=</span><span class="pln"> x1 </span><span class="pun">-</span><span class="pln"> x2</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> dy </span><span class="pun">=</span><span class="pln"> y1 </span><span class="pun">-</span><span class="pln"> y2</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">((</span><span class="pln">dx </span><span class="pun">*</span><span class="pln"> dx </span><span class="pun">+</span><span class="pln"> dy </span><span class="pun">*</span><span class="pln"> dy</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">r1 </span><span class="pun">+</span><span class="pln"> r2</span><span class="pun">)*(</span><span class="pln">r1</span><span class="pun">+</span><span class="pln">r2</span><span class="pun">));</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div><br>
+
+This technique is attractive because a "bounding circle" can often be used with graphic objects of other shapes, providing they are not too elongated horizontally or vertically.
+
+#### Test the idea
+
+Try [this example at JSBin](https://jsbin.com/ciyiko/edit): move the monster with the arrow keys and use the mouse to move "the player": a small circle. Try to make collisions between the monster and the circle you control.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open("https://bit.ly/3vJxHZv")"
+    src    = "https://bit.ly/3h8CCy7"
+    alt    = "monster and small circle: collision, they are drawn in red and a 'collision' message appears"
+    title  = "monster and small circle: collision, they are drawn in red and a 'collision' message appears"
+  />
+</figure>
+
+This online example uses the game framework (without time-based animation in this one). We just added a "player" (for the moment, a circle that follows the mouse cursor), and a "monster". We created two JavaScript objects for describing the monster and the player, and these objects both have a `boundingCircleRadius` property:
+
+Let's implement this as a JavaScript function step-by-step:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// The monster!</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> monster </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; x</span><span class="pun">:</span><span class="lit">80</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; y</span><span class="pun">:</span><span class="lit">80</span><span class="pun">,</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; height </span><span class="pun">:</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; speed</span><span class="pun">:</span><span class="lit">1</span><span class="pun">,</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong> boundingCircleRadius</strong></span><strong><span class="pun">:</span><span class="pln"> </span><span class="lit">70</span></strong><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> player </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; x</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; y</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>boundingCircleRadius</strong></span><strong><span class="pun">:</span><span class="pln"> </span><span class="lit">20</span></strong><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+</ol></div><br>
+
+The collision test occurs in the main loop:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> mainLoop </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">time</span><span class="pun">){</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">//main function, called each frame </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; measureFPS</span><span class="pun">(</span><span class="pln">time</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Clear the canvas</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; clearCanvas</span><span class="pun">();</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Draw the monster</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; drawMyMonster</span><span class="pun">();</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Check inputs and move the monster</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; updateMonsterPosition</span><span class="pun">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; updatePlayer</span><span class="pun">();</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>checkCollisions</strong></span><strong><span class="pun">();</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Call the animation loop every 1/60th of second</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> updatePlayer</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// The player is just a circle drawn at the mouse position</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Just to test circle/circle collision.</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Move the player and draw it as a circle</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; player</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">; &nbsp;// when the mouse moves</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; player</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">arc</span><span class="pun">(</span><span class="pln">player</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">boundingCircleRadius</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> checkCollisions</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong>&nbsp;</strong></span><strong><span class="kwd">if</span><span class="pun">(</span><span class="pln">circleCollide</span><span class="pun">(</span><span class="pln">player</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">boundingCircleRadius</span><span class="pun">,</span><span class="pln"> </span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monster</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">boundingCircleRadius</span><span class="pun">))</span></strong><span class="pln"> </span><span class="pun">{<br>&nbsp; &nbsp; // Draw everything in red</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"Collision"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{<br>&nbsp; &nbsp; // Draw in black</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"No collision"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'black'</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="kwd">function</span><span class="pln"> circleCollide</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> y1</span><span class="pun">,</span><span class="pln"> r1</span><span class="pun">,</span><span class="pln"> x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">,</span><span class="pln"> r2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> dx </span><span class="pun">=</span><span class="pln"> x1 </span><span class="pun">-</span><span class="pln"> x2</span><span class="pun">;</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> dy </span><span class="pun">=</span><span class="pln"> y1 </span><span class="pun">-</span><span class="pln"> y2</span><span class="pun">;</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">((</span><span class="pln">dx </span><span class="pun">*</span><span class="pln"> dx </span><span class="pun">+</span><span class="pln"> dy </span><span class="pun">*</span><span class="pln"> dy</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">r1 </span><span class="pun">+</span><span class="pln"> r2</span><span class="pun">)*(</span><span class="pln">r1</span><span class="pun">+</span><span class="pln">r2</span><span class="pun">));</span><span class="pln"> </span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pun">}</span></strong></li>
+</ol></div><br>
+
+
+#### [Advanced technique] Collision detection with complex shapes
+
+__[Advanced technique] Use several bounding circles for complex shapes, recompute bounding circles when the shape changes over time (animated objects)__
+
+This is an advanced technique: you can use a list of bounding circles or better still, a hierarchy of bounding circles in order to reduce the number of tests. The image below of an "arm" can be associated with a hierarchy of bounding circles. First, test against the "big one" on the left that contains the whole arm, then if there is a collision, test for the two sub-circles, etc... this recursive algorithm will not be covered in this course, but it's a classic optimization. (left diagram)
+
+In 3D, you can use spheres instead of circles: (right diagram)
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="url" ismap target="_blank">
+    <img style="margin: 0.1em;" height=150
+      src   = "https://bit.ly/3gKp2lm"
+      alt   = "mage of an arm with a hierarchy of bounding circles: one for the whole arm, and two smaller for the forearm and the other part"
+      title = "mage of an arm with a hierarchy of bounding circles: one for the whole arm, and two smaller for the forearm and the other part"
+    >
+    <img style="margin: 0.1em;" height=150
+      src   = "https://bit.ly/3cZ5FTa"
+      alt   = "a 3D object (a lamp) with bounding spheres"
+      title = "a 3D object (a lamp) with bounding spheres"
+    >
+  </a>
+</div>
+
+The famous game Gran Turismo 4 on the PlayStation 2 uses bounding spheres for detecting collisions between cars:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open("https://bit.ly/3vJxHZv")"
+    src    = "https://bit.ly/3zNYIy2"
+    alt    = "Grand turismo used collisions between bounding spheres: image of the game (a car on a road track)"
+    title  = "Grand turismo used collisions between bounding spheres: image of the game (a car on a road track)"
+  />
+</figure>
+
+
+#### Rectangle detection test
+
+__Rectangle (aligned along X and Y axis) detection test__
+
+Let's look at a simple illustration:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open("https://bit.ly/3vJxHZv")"
+    src    = "https://bit.ly/3wPCRo9"
+    alt    = "two pictures: one with non intersected rectangles: the projection of horizontal sides of rectangles to the X axis do not intersect (then rectangles do not intersect), the other with both projections intersect (rectangles intersect)"
+    title  = "two pictures: one with non intersected rectangles: the projection of horizontal sides of rectangles to the X axis do not intersect (then rectangles do not intersect), the other with both projections intersect (rectangles intersect)"
+  />
+</figure>
+
+
+From this:
+
+To detect a collision between two aligned rectangles, we project the horizontal and vertical axis of the rectangles over the X and Y axis. If both projections overlap, there is a collision!
+
+Try this online demonstration of rectangle - [rectangle detection](https://silentmatt.com/rectangle-intersection/)
+
+1 - Only horizontal axis projections overlap: no collision between rectangles (left diagram)
+
+2 - Only vertical axis projections overlap: no collision between rectangles (middle diagram)
+
+3 - Horizontal and vertical axis projections overlap: collision detected! (right diagram)
+
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="url" ismap target="_blank">
+    <img style="margin: 0.1em;" height=200
+      src   = "https://bit.ly/3wPDaiN"
+      alt   = "Only horizontal axis overlap: no collision"
+      title = "Only horizontal axis overlap: no collision"
+    >
+    <img style="margin: 0.1em;" height=200
+      src   = "https://bit.ly/3vH53IF"
+      alt   = "Only vertical axis projections overlap: no collision"
+      title = "Only vertical axis projections overlap: no collision"
+    >
+    <img style="margin: 0.1em;" height=200
+      src   = "https://bit.ly/3d2oO6L"
+      alt   = "the projections of axis overlap: collision detected"
+      title = "the projections of axis overlap: collision detected"
+    >
+  </a>
+</div>
+
+Here is a JavaScript implementation of a rectangle - rectangle (aligned) collision test:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Collisions between aligned rectangles</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> rectsOverlap</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> y1</span><span class="pun">,</span><span class="pln"> w1</span><span class="pun">,</span><span class="pln"> h1</span><span class="pun">,</span><span class="pln"> x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">,</span><span class="pln"> w2</span><span class="pun">,</span><span class="pln"> h2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp;&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">((</span><span class="pln">x1&nbsp;</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">x2 </span><span class="pun">+</span><span class="pln"> w2</span><span class="pun">))</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="pun">((</span><span class="pln">x1&nbsp;</span><span class="pun">+</span><span class="pln"> w1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> x2</span><span class="pun">))</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">; </span>// No horizontal axis projection overlap</li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">((</span><span class="pln">y1&nbsp;</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">y2 </span><span class="pun">+</span><span class="pln"> h2</span><span class="pun">))</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="pun">((</span><span class="pln">y1&nbsp;</span><span class="pun">+</span><span class="pln"> h1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> y2</span><span class="pun">))</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;&nbsp;</span><span style="line-height: 25.6px; background-color: #eeeeee;">// No vertical&nbsp;axis projection overlap</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">; &nbsp; &nbsp;// If previous tests failed, then both axis projections</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // overlap and the rectangles intersect</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div>
+
+
+#### Test the method
+
+Try [this example](https://jsbin.com/fubima/edit) at JSBin: move the monster with the arrow keys and use the mouse to move "the player": this time a small rectangle. Try to make collisions between the monster and the circle you control. Notice that this time the collision detection is more accurate and can work with elongated shapes.
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://bit.ly/3vJxHZv" ismap target="_blank">
+    <img style="margin: 0.1em;" height=150
+      src   = "https://bit.ly/3iXktpr"
+      alt   = "Player as a square is inside the monster bounding circle but not inside the bounding rectangle, as we use rect rect collision test: no collision detected"
+      title = "Player as a square is inside the monster bounding circle but not inside the bounding rectangle, as we use rect rect collision test: no collision detected"
+    >
+    <img style="margin: 0.1em;" height=150
+      src   = "https://bit.ly/3jgHdB1"
+      alt   = "Same as previous picture but this time the player square is inside the monster bounding rectangle: collision detected"
+      title = "Same as previous picture but this time the player square is inside the monster bounding rectangle: collision detected"
+    >
+  </a>
+</div>
+
+
+Here is what we modified (in bold) in the code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">...</span></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// The monster!</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> monster </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; x</span><span class="pun">:</span><span class="pln"> </span><span class="lit">80</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; y</span><span class="pun">:</span><span class="pln"> </span><span class="lit">80</span><span class="pun">,</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; speed</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; boundingCircleRadius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">70</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> player </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; x</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; y</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; boundingCircleRadius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">20</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span style="color: #000000;" color="#000000">...</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> updatePlayer</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; // The player is just a square drawn at the mouse position</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; // Just to test rectangle/rectangle collisions.</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; player</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; player</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; <strong>// draws a rectangle centered on the mouse position</strong></span></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; &nbsp; // we draw it as a square.</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; &nbsp; // We remove size/2 to the x and y position at drawing time in</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; &nbsp; // order to recenter the rectangle on the mouse pos (normally </span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; &nbsp; // the 0, 0 of a rectangle is at its top left corner)</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> size </span><span class="pun">=</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">boundingCircleRadius</span><span class="pun">;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">player</span><span class="pun">.</span><span class="pln">x </span><span class="pun">-</span><span class="pln"> size </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">y </span><span class="pun">-</span><span class="pln"> size </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> size</span><span class="pun">,</span><span class="pln"> size</span><span class="pun">);</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> checkCollisions</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; <strong>// Bounding rect position and size for the player. We need to translate</strong></span></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; // it to half the player's size</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> playerSize </span><span class="pun">=</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">boundingCircleRadius</span><span class="pun">;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> playerXBoundingRect </span><span class="pun">=</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">x </span><span class="pun">-</span><span class="pln"> playerSize </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> playerYBoundingRect </span><span class="pun">=</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">y </span><span class="pun">-</span><span class="pln"> playerSize </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; // Same with the monster bounding rect</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> monsterXBoundingRect </span><span class="pun">=</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">x </span><span class="pun">-</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">width </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> monsterYBoundingRect </span><span class="pun">=</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">y </span><span class="pun">-</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">height </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">rectsOverlap</span><span class="pun">(</span><span class="pln">playerXBoundingRect</span><span class="pun">,</span><span class="pln"> playerYBoundingRect</span><span class="pun">,</span><span class="pln"> </span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;playerSize</span><span class="pun">,</span><span class="pln"> playerSize</span><span class="pun">,</span><span class="pln"> </span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monsterXBoundingRect</span><span class="pun">,</span><span class="pln"> monsterYBoundingRect</span><span class="pun">,</span><span class="pln"> </span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monster</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">height</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"Collision"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"No collision"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'black'</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><strong><span class="com">// Collisions between aligned rectangles</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><strong><span class="kwd">function</span><span class="pln"> rectsOverlap</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> y1</span><span class="pun">,</span><span class="pln"> w1</span><span class="pun">,</span><span class="pln"> h1</span><span class="pun">,</span><span class="pln"> x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">,</span><span class="pln"> w2</span><span class="pun">,</span><span class="pln"> h2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">((</span><span class="pln">x1 </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">x2 </span><span class="pun">+</span><span class="pln"> w2</span><span class="pun">))</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="pun">((</span><span class="pln">x1 </span><span class="pun">+</span><span class="pln"> w1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> x2</span><span class="pun">))</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln"> </span><span class="com">// No horizontal axis projection overlap</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><strong><span class="com"></span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">((</span><span class="pln">y1 </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">y2 </span><span class="pun">+</span><span class="pln"> h2</span><span class="pun">))</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="pun">((</span><span class="pln">y1 </span><span class="pun">+</span><span class="pln"> h1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> y2</span><span class="pun">))</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln"> </span><span class="com">// No vertical axis projection overlap</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><strong><span class="com"></span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln"> </span><span class="com">// If previous tests failed, then both axis projections</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// overlap and the rectangles intersect</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><strong><span class="pun">}</span></strong></li>
+</ol></div><br>
+
+
+#### Many real games use aligned rectangle collision tests
+
+Testing "circle-circle" or "rectangle-rectangle collisions is cheap in terms of computation. "Rectangle-rectangle" collisions are used in many 2D games, such as [Dodonpachi](https://www.youtube.com/watch?v=cgcWY0nOuCI) (one of the most famous and enjoyable shoot'em'ups ever made - you can play it using the MAME arcade game emulator):
+
+You could also try the free Genetos shoot'em up game (Windows only) that retraces the history of the genre over its different levels ([download here](https://tatsuya-koyama.com//works/games/genetos/)). Press the G key to see the bounding rectangles used for collision test. Here is a screenshot:
+
+These games run at 60 fps and can have hundreds of bullets moving at the same time. Collisions have to be tested: did the player's bullets hit an enemy, AND did an enemy bullet (for one of the many enemies) hit the player? These examples demonstrate the efficiency of such collision test techniques.
+
+
+#### Other collision tests
+
+In this section, we only give sketches and examples of more sophisticated collision tests. For further explanation, please follow the links provided.
+
+
+__Aligned rectangle-circle__
+
+There are only two cases when a circle intersects with a rectangle:
+
++ Either the circle's center lies inside the rectangle, or
++ One of the edges of the rectangle intersects the circle.
+
+We propose this function (implemented after reading [this Thread at StackOverflow](https://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection)):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Collisions between rectangle and circle</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> circRectsOverlap</span><span class="pun">(</span><span class="pln">x0</span><span class="pun">,</span><span class="pln"> y0</span><span class="pun">,</span><span class="pln"> w0</span><span class="pun">,</span><span class="pln"> h0</span><span class="pun">,</span><span class="pln"> cx</span><span class="pun">,</span><span class="pln"> cy</span><span class="pun">,</span><span class="pln"> r</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> testX</span><span class="pun">=</span><span class="pln">cx</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> testY</span><span class="pun">=</span><span class="pln">cy</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">testX </span><span class="pun">&lt;</span><span class="pln"> x0</span><span class="pun">)</span><span class="pln"> testX</span><span class="pun">=</span><span class="pln">x0</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">testX </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">x0</span><span class="pun">+</span><span class="pln">w0</span><span class="pun">))</span><span class="pln"> testX</span><span class="pun">=(</span><span class="pln">x0</span><span class="pun">+</span><span class="pln">w0</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">testY </span><span class="pun">&lt;</span><span class="pln"> y0</span><span class="pun">)</span><span class="pln"> testY</span><span class="pun">=</span><span class="pln">y0</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">testY </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">y0</span><span class="pun">+</span><span class="pln">h0</span><span class="pun">))</span><span class="pln"> testY</span><span class="pun">=(</span><span class="pln">y0</span><span class="pun">+</span><span class="pln">h0</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">(((</span><span class="pln">cx</span><span class="pun">-</span><span class="pln">testX</span><span class="pun">)*(</span><span class="pln">cx</span><span class="pun">-</span><span class="pln">testX</span><span class="pun">)+(</span><span class="pln">cy</span><span class="pun">-</span><span class="pln">testY</span><span class="pun">)*(</span><span class="pln">cy</span><span class="pun">-</span><span class="pln">testY</span><span class="pun">))&lt;&nbsp;</span><span class="pln">r</span><span class="pun">*</span><span class="pln">r</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+</ol></div><br>
+
+Try this function in [this example](https://jsbin.com/acohiv/845/edit?html,output) on JSBin.
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://bit.ly/3vJxHZv" ismap target="_blank">
+    <img style="margin: 0.1em;" height=100
+      src   = "https://bit.ly/3gWvF2Y"
+      alt   = "Circle and rectangle not in collisioncircle collides a rectangle"
+      title = "Circle and rectangle not in collisioncircle collides a rectangle"
+    >
+    <img style="margin: 0.1em;" height=100
+      src   = "https://bit.ly/3zNm5bd"
+      alt   = "Circle and rectangle not in collisioncircle collides a rectangle"
+      title = "Circle and rectangle not in collisioncircle collides a rectangle"
+    >
+  </a>
+</div>
+
+
+#### [ADVANCED] Collision between balls (pool like)
+
+
++ Math and physics: please read this external resource (for math), a [great article](https://web.archive.org/web/20181231090226/http://archive.ncsa.illinois.edu/Classes/MATH198/townsend/math.html) that explains the physics of a pool game.
++ [Example of colliding balls](https://jsbin.com/juzefa/edit) at JSBin (author: M.Buffa), and also try [this example](https://jsbin.com/nopefe/edit) that does the same with a blurring effect
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3vJxHZv")"
+    src    = "https://bit.ly/3wPpOmM"
+    alt    = "ball ball collision example"
+    title  = "ball ball collision example"
+  />
+</figure>
+
+
+The principle behind collision resolution for pool balls is as follows. You have a situation where two balls are colliding, and you know their velocities (step 1 in the diagram below). You separate out each ball’s velocity (the solid blue and green arrows in step 1, below) into two perpendicular components: the "normal" component heading towards the other ball (the dotted blue and green arrows in step 2) and the "tangential" component that is perpendicular to the other ball (the dashed blue and green arrows in step 2). We use "normal" for the first component as its direction is along the line that links the centers of the balls, and this line is perpendicular to the collision plane (the plane that is tangent to the two balls at collision point).
+
+The solution for computing the resulting velocities is to swap the components between the two balls (as we move from step 2 to step 3), then finally recombine the velocities for each ball to achieve the result (step 4):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open("https://bit.ly/3vJxHZv")"
+    src    = "https://bit.ly/35G82qa"
+    alt    = "diagram with two balls, velocities, tengeantial and normal planes"
+    title  = "diagram with two balls, velocities, tengeantial and normal planes"
+  />
+</figure>
+
+
+The above picture has been borrowed from [this interesting article](https://sinepost.wordpress.com/2012/09/05/making-your-balls-bounce/) about how to implement in C# pool like collision detection.
+
+Of course, we will only compute these steps if the balls collide, and for that test we will have used the basic circle collision test outlined earlier.
+
+To illustrate the algorithm, [here is an example at JSBin](https://jsbin.com/vuqeti/6/edit) that displays the different vectors in real time, with only two balls. The math for the collision test have also been expanded in the source code to make computations clearer. Note that this is not for beginners: advanced math and physics are involved!
+
+
+#### To go further... video game physics!
+
+
+For the ones who are not afraid by some math and physics and would like to learn how to do collision detection in a more realistic way (using physics modeling), we recommend [this tutorial](https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics), that is the first of a three-part series  about  video game physics.
 
 
 
