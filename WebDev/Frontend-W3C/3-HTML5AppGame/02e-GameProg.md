@@ -328,6 +328,8 @@ This time, let's extract the source code used to create the balls, and include i
 
 [Online example](https://jsbin.com/tehuve/edit) at JSBin.
 
+[Local Demo](src/02e-example03.html)
+
 Try to move the monster with arrow keys and use the mouse button while moving to change the monster's speed. Look at the source code and change the parameters controlling the creation of the balls: number, speed, radius, etc. Also, try changing the monster's default speed. See the results.
 
 <figure style="margin: 0.5em; text-align: center;">
@@ -407,6 +409,27 @@ As you can see, we draw the player/monster, we update its position; and we call 
 
 Now, in order to turn this into a game, we need to create some interactions between the player (the monster) and the obstacles/enemies (balls, walls)... It's time to take a look at collision detection.
 
+
+#### Notes for 2.5.2 Adding balls to the game framework
+
++ Example: game framework w/ bouncing balls
+  + tasks:
+    + move the moster w/ arrow keys
+    + accelerate monster w/ mouse button
+    + animate bouncing balls
+  + generate animation loop: `var mainloop = function(time) {...}`
+    + call to measure FPS: `measureFPS(time);`
+    + clear canvas: `clearCanvas();`
+    + call to draw monster: `drawMyMonster(monster.x, monster.y);`
+    + call to move monster: `updateMonsterPosition(delta);`
+    + call to draw balls: `updateBalls(delta);`
+    + call for next frame: `requestAnimationFrame(mainLoop);`
+  + calculate the new position of monster: `function updateMonsterPosition(delta) {...}`
+    + init speed: `monster.speedX = monster.speedY = 0;`
+    + set left arrow key: `if (inputStates.left) {monster.speedX = -monster.speed;}`
+    + set up arrow key: `if (inputStates.up) {monster.speedY = -monster.speed;}`
+    + ...
+    + compute the position: `monster.x += calcDistanceToMove(delta, monster.speedX); monster.y += calcDistanceToMove(delta, monster.speedY);`
 
 
 
