@@ -28,7 +28,7 @@ __Animating multiple balls which bounce off horizontal and vertical walls__
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
-    onclick= "window.open("https://bit.ly/3cYKbWP")"
+    onclick= "window.open('https://bit.ly/3cYKbWP')"
     src    = "https://bit.ly/35EjWAV"
     alt    = "Some circular balls that bounce agains vertical and horizontal borders of the canvas"
     title  = "Some circular balls that bounce agains vertical and horizontal borders of the canvas"
@@ -334,7 +334,7 @@ Try to move the monster with arrow keys and use the mouse button while moving to
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/3xEXEuO")"
+    onclick= "window.open('https://bit.ly/3xEXEuO')"
     src    = "https://bit.ly/3gPYw8Y"
     alt    = "Monster + balls in the game framework. On the screen we see the monster + a bunch of balls"
     title  = "Monster + balls in the game framework. On the screen we see the monster + a bunch of balls"
@@ -417,7 +417,7 @@ Now, in order to turn this into a game, we need to create some interactions betw
     + move the moster w/ arrow keys
     + accelerate monster w/ mouse button
     + animate bouncing balls
-  + generate animation loop: `var mainloop = function(time) {...}`
+  + generate animation loop<a name="mainLoop"></a>: `var mainLoop = function(time) {...}`
     + call to measure FPS: `measureFPS(time);`
     + clear canvas: `clearCanvas();`
     + call to draw monster: `drawMyMonster(monster.x, monster.y);`
@@ -444,8 +444,8 @@ In this chapter, we explore some techniques for detecting collisions between obj
 #### Circle collision test
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
-    onclick= "window.open("https://bit.ly/3vJxHZv")"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open('https://bit.ly/3vJxHZv')"
     src    = "https://bit.ly/3cZ1O8K"
     alt    = "two circles with distances between the centers drawn"
     title  = "two circles with distances between the centers drawn"
@@ -460,9 +460,9 @@ Collision between circles is easy. Imagine there are two circles:
 
 Imagine there is a line running between those two center points. The distances from the center points to the edge of each circle is, by definition, equal to their respective radii. So:
 
-if the edges of the circles touch, the distance between the centers is r1+r2;
-any greater distance and the circles don't touch or collide; whereas
-any less and they do collide or overlay.
++ if the edges of the circles touch, the distance between the centers is `r1+r2;`
++ any greater distance and the circles don't touch or collide; whereas
++ any less and they do collide or overlay.
 
 <font style="color: red;">In other words: if the distance between the center points is less than the sum of the radii, then the circles collide.</font>
 
@@ -498,9 +498,11 @@ This technique is attractive because a "bounding circle" can often be used with 
 
 Try [this example at JSBin](https://jsbin.com/ciyiko/edit): move the monster with the arrow keys and use the mouse to move "the player": a small circle. Try to make collisions between the monster and the circle you control.
 
+[Local Demo](src/02e-example04.html)
+
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/3vJxHZv")"
+    onclick= "window.open('https://bit.ly/3vJxHZv')"
     src    = "https://bit.ly/3h8CCy7"
     alt    = "monster and small circle: collision, they are drawn in red and a 'collision' message appears"
     title  = "monster and small circle: collision, they are drawn in red and a 'collision' message appears"
@@ -612,7 +614,7 @@ The famous game Gran Turismo 4 on the PlayStation 2 uses bounding spheres for de
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/3vJxHZv")"
+    onclick= "window.open('https://bit.ly/3vJxHZv')"
     src    = "https://bit.ly/3zNYIy2"
     alt    = "Grand turismo used collisions between bounding spheres: image of the game (a car on a road track)"
     title  = "Grand turismo used collisions between bounding spheres: image of the game (a car on a road track)"
@@ -628,7 +630,7 @@ Let's look at a simple illustration:
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/3vJxHZv")"
+    onclick= "window.open('https://bit.ly/3vJxHZv')"
     src    = "https://bit.ly/3wPCRo9"
     alt    = "two pictures: one with non intersected rectangles: the projection of horizontal sides of rectangles to the X axis do not intersect (then rectangles do not intersect), the other with both projections intersect (rectangles intersect)"
     title  = "two pictures: one with non intersected rectangles: the projection of horizontal sides of rectangles to the X axis do not intersect (then rectangles do not intersect), the other with both projections intersect (rectangles intersect)"
@@ -690,6 +692,8 @@ Here is a JavaScript implementation of a rectangle - rectangle (aligned) collisi
 #### Test the method
 
 Try [this example](https://jsbin.com/fubima/edit) at JSBin: move the monster with the arrow keys and use the mouse to move "the player": this time a small rectangle. Try to make collisions between the monster and the circle you control. Notice that this time the collision detection is more accurate and can work with elongated shapes.
+
+[Local Demo](src/02e-example05.html)
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://bit.ly/3vJxHZv" ismap target="_blank">
@@ -823,6 +827,8 @@ We propose this function (implemented after reading [this Thread at StackOverflo
 
 Try this function in [this example](https://jsbin.com/acohiv/845/edit?html,output) on JSBin.
 
+[Local Demo](src/02e-example06.html)
+
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://bit.ly/3vJxHZv" ismap target="_blank">
     <img style="margin: 0.1em;" height=100
@@ -847,7 +853,7 @@ Try this function in [this example](https://jsbin.com/acohiv/845/edit?html,outpu
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3vJxHZv")"
+    onclick= "window.open('https://bit.ly/3vJxHZv')"
     src    = "https://bit.ly/3wPpOmM"
     alt    = "ball ball collision example"
     title  = "ball ball collision example"
@@ -855,13 +861,13 @@ Try this function in [this example](https://jsbin.com/acohiv/845/edit?html,outpu
 </figure>
 
 
-The principle behind collision resolution for pool balls is as follows. You have a situation where two balls are colliding, and you know their velocities (step 1 in the diagram below). You separate out each ball’s velocity (the solid blue and green arrows in step 1, below) into two perpendicular components: the "normal" component heading towards the other ball (the dotted blue and green arrows in step 2) and the "tangential" component that is perpendicular to the other ball (the dashed blue and green arrows in step 2). We use "normal" for the first component as its direction is along the line that links the centers of the balls, and this line is perpendicular to the collision plane (the plane that is tangent to the two balls at collision point).
+The principle behind collision resolution for pool balls is as follows. You have a situation where two balls are colliding, and you know their velocities (step 1 in the diagram below). You separate out each ball's velocity (the solid blue and green arrows in step 1, below) into two perpendicular components: the "normal" component heading towards the other ball (the dotted blue and green arrows in step 2) and the "tangential" component that is perpendicular to the other ball (the dashed blue and green arrows in step 2). We use "normal" for the first component as its direction is along the line that links the centers of the balls, and this line is perpendicular to the collision plane (the plane that is tangent to the two balls at collision point).
 
 The solution for computing the resulting velocities is to swap the components between the two balls (as we move from step 2 to step 3), then finally recombine the velocities for each ball to achieve the result (step 4):
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3vJxHZv")"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open('https://bit.ly/3vJxHZv')"
     src    = "https://bit.ly/35G82qa"
     alt    = "diagram with two balls, velocities, tengeantial and normal planes"
     title  = "diagram with two balls, velocities, tengeantial and normal planes"
@@ -875,11 +881,136 @@ Of course, we will only compute these steps if the balls collide, and for that t
 
 To illustrate the algorithm, [here is an example at JSBin](https://jsbin.com/vuqeti/6/edit) that displays the different vectors in real time, with only two balls. The math for the collision test have also been expanded in the source code to make computations clearer. Note that this is not for beginners: advanced math and physics are involved!
 
+[Local Demo](src/02e-example07.html)
+
 
 #### To go further... video game physics!
 
 
-For the ones who are not afraid by some math and physics and would like to learn how to do collision detection in a more realistic way (using physics modeling), we recommend [this tutorial](https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics), that is the first of a three-part series  about  video game physics.
+For the ones who are not afraid by some math and physics and would like to learn how to do collision detection in a more realistic way (using physics modeling), we recommend [this tutorial](https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics), that is the first of a three-part series about video game physics.
+
+
+#### Notes for 2.5.3 Collision detection
+
++ Circle collision test
+  + objects: (left diagram)
+    + circle `c1` w/ center `(x1, y1)` and radius `r1`
+    + circle `c2` w/ center `(x2, y2)` and radius `r2`
+  + imaging a line running btw two center points
+  + scenarios btw distance and radii of circles
+    + $\overline{c_1 c_2} = r_1 + r_2$: the edges of the circles touch
+    + $\overline{c_1 c_2} > r_1 + r_2$: the circles neither touched nor collided
+    + $\overline{c_1 c_2} < r_1 + r_2$: the circles collided or overlaid
+  + Javascript snippet: `function circleCollideNonOptimised(x1, y1, r1, x2, y2, r2) {...}`
+    + declare variables: `var dx = x1 - x2; dy = y1 - y2;`
+    + compute distance: `var distance = Math,sqrt(dx * dx + dy * dy);`
+    + return boolean value: `return (distance < r1 + r2);`
+  + complex shapes (right diagrams)
+    + using a list of bounding circles or a hierarchy of bounding circles
+    + a hierarchy of bounding circles (middle diagram)
+      + test against the "big one" on the left containing athe whole arm
+      + collision $\implies$ test for two-sub-circles
+      + ...
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/3vJxHZv" ismap target="_blank">
+      <img style="margin: 0.1em;" height=150
+        src   = "https://bit.ly/3cZ1O8K"
+        alt   = "two circles with distances between the centers drawn"
+        title = "two circles with distances between the centers drawn"
+      >
+      <img style="margin: 0.1em;" height=150
+        src   = "https://bit.ly/3gKp2lm"
+        alt   = "mage of an arm with a hierarchy of bounding circles: one for the whole arm, and two smaller for the forearm and the other part"
+        title = "mage of an arm with a hierarchy of bounding circles: one for the whole arm, and two smaller for the forearm and the other part"
+      >
+    </a>
+  </div>
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+</div>
+
++ Example: circle collision test
+  + declare monster object<a name="monsterObj"></a>: `var monster = {x:80, y:80, width:100, heigh:100, speed:1, boundingCircleRadius:70};`
+  + declare player object<a name="playerObj"></a>: `var player = {x:0, y:0, boundingCircleRadius:20}`
+  + generate [animation loop](#mainLoop) adding  player and collision after moster position
+    + call to get player position: `updatePlayer();`
+    + call to check colission: `checkCollisions();`
+  + calculate player position: `function updatePlayer() {...}`
+    + player just a circle drawn at the mouse position
+    + check mouse position to move the player and draw circle: `if (inputStates.mousePos) {...}`
+      + player position: `player.x = inputStates.mousePos.x; player.y = inputStates.mouseStates.mousePos.y;`
+      + draw circle: `ctx.beginPath(); ctx.arc(player.x, player.y, player.boundingCircleRadius, 0, 2*Math.PI); x=ctx.stroke();`
+  + check collision: `function testCollisions() {...}`
+    + call to check collision: `if (circleCollide(player.x, player.y, player.boundingCircleRadius, monster.x monster.y, monster.boundingCircleRadius)) { //red } else { // black }`
+    + colide to draw red: `ctx.fillText("Collision", 150, 20); ctx.strokeStyle = ctx.fillStyle = 'red';`
+    + non-colide to draw black: `ctx.fillText("No collision", 150, 20); ctx.strokeStyle = ctx.fillStyle = 'black';`
+  + check circle collision: `function circleCollide(x1, y1, r1, x2, y2, r2) {...}`
+    + compute differences: `var dx = x1 - x2; dy = y1 - y2;`
+    + check collision or not: `return ((dx * dx + dy * dy) < (r1 + r2)*(r1 + r2));`
+
++ Rectangle detection test
+  + projecting the horizontal and vertical axis of the rectangles over the X and Y asix
+  + scenarios:
+    + only horizontal axis projections overlapped: no collision
+    + only vertical axis projects overlapped: no collision
+    + both horizontal and vertical projects overlapped: collision detected
+  + JavaScript snippet: `function rectsOverlap(x1, y1, w1, h1, x2, y2, w2, h2) {...}`
+    + only horizontal overlap: `if ((x1 > (x2+w2)} || (x1 + w1) < x2)) return false;`
+    + only vertical overlap: `if ((y1 > (y2+h2)) || ((y1+h1) < y2)) return false;`
+    + both axes overlap: `return true;`
+
++ Example: rectangle collision test
+  + declare [monster object](#monsterObj)
+  + declare [player object](#playerObj)
+  + calculate player position: `function updatePlayer() {...}`
+    + draw a rectangle centered on the mouse position
+    + check mouse position to move the player and draw circle: `if (inputStates.mousePos) {...}`
+      + player position: `player.x = inputStates.mousePos.x; player.y = inputStates.mouseStates.mousePos.y;`
+      + draw circle: `var size = player.boundingCircleRadius; ctx.fillRect(player.x - size/2, player.y - size/2, size, size);`
+  + check collision: `function testCollisions() {...}`
+    + get player boundaries: `var playerSize = player.boundingCircleRadius; var playerXBoundingRect = player.x - playerSize/2; var playerYBoundingRect = player.y - playerSize/2;`
+    + get mouse boundaries: `var monsterXBondingRect = monster.x - monster.width/2; var monsterYBondingRect = monster.y - monster.height/2;`
+    + call to check collision: `if (rectsOverlap(playerXBondingRect, playerYBonsingRect, playerSize, playerSize, monsterXBondingRect, monsterYBondingRect, monster.width, monster.height)) { //red } else { // black }`
+      + colide to draw red: `ctx.fillText("Collision", 150, 20); ctx.strokeStyle = ctx.fillStyle = 'red';`
+      + non-colide to draw black: `ctx.fillText("No collision", 150, 20); ctx.strokeStyle = ctx.fillStyle = 'black';`
+    + check rectangle collision: `function rectsOverlap(x1, y1, w1, h1, x2, y2, w2, h2) {...}`
+      + no horizontal overlap: `if ((x1 > (x2 + w2)) || ((x1 + w1) < x2)) return false;`
+      + no vertical overlap: `if ((y1 > (y2+h2)) || ((y1+h1) < y2)) return false;`
+      + both overlap: `return true;`
+
++ Rectangle-circle collision
+  + [scenarios](https://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection)
+    + circle's center lying inside the rectangle
+    + one of the edge of the rectngle interacting the circle
+  + JavaScript snippet: `function circRectsOverlap(x0, y0, w0, h0, cx, cy, r) {...}`
+    + declare and set circle center: `var testX = cx; var testY = cy;`
+    + left collision: `if (testX < x0) testX = x0;`
+    + right collision: `if (testX > (x0+w0)) testX = (x0+w0);`
+    + top collision: `if (testY < y0) testY = y0;`
+    + buttom collision: `if (testY > (y0+h0)) testY = (y0+h0);`
+    + return collision check: `return (((cx-testX)*(cx-testX) - (cy-testY)*(cy-testY)) < r*r>);`
+
++ Ball collision - pool like
+  + two balls collide and know their velocities (step 1)
+  + separate each ball's velocity into perpenduclar componnets (step 2)
+    + "normal" component: heading twoward the other ball
+    + "tangential" component: perpendicular to the other ball
+    + using "normal" for the first components as its direction along the line linking the centers of the balls
+    + line perpendicular to the collision plane, tangent to the two balls at collision point
+  + swap the components btw two balls (step 3)
+  + recombine the velocities for each balls (step 4)
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      onclick= "window.open('https://sinepost.wordpress.com/2012/09/05/making-your-balls-bounce/')"
+      src    = "https://bit.ly/35G82qa"
+      alt    = "diagram with two balls, velocities, tengeantial and normal planes"
+      title  = "diagram with two balls, velocities, tengeantial and normal planes"
+    />
+  </figure>
+
+  + Ref: [Video Game Physics Tutorial - Part I: An Introduction to Rigid Body Dynamics](https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics)
 
 
 
