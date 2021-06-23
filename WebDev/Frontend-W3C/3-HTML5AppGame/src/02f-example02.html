@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Extract and draw sprite</title>
+    <meta name="description" content="Extract and draw sprite">
+    <style>
+        canvas {
+        	border: 1px solid black;
+        }
+    </style>
+  </head>
+  <body>
+    <p>Sprite width: 48, height: 92, rows: 8, sprites per posture: 13</p>
+    <label for="x">x: </label><input id="x" type="number" min="0"><br/>
+    <label for="y">y: </label><input id="y" type="number" min="0"><br/>
+    <label for="width">width: </label><input id="width" type="number" min="0"><br/>
+    <label for="height">height: </label><input id="height" type="number" min="0">
+    <p>Select current sprite: <input type="range" id="spriteSelect" value="0">
+      <output id="spriteNumber"></output>        
+    </p>
+    <p><canvas id="canvas" width="48" height="92" /></p>  
+    <p><canvas id="spritesheet"></canvas></p>
+  </body>
+</html>
+    
