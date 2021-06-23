@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ball Collisions: conservation of momentum & kinetic energy</title>
+<!--   <link rel="stylesheet" type="text/css" href="balls-vels-2.css"> -->
+  <script src="https://kit.fontawesome.com/703ff248f3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/02e-example08.css">
+  <script src="js/02e-example08.js"></script>  
+</head>
+
+<body>
+  <!--[if IE]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. IE is <strong>not supported</strong>. Please <a href="https://browsehappy.com/?locale=en">upgrade / change your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+<h1>Canvas Animation: Collisions</h1>
+<p>
+  Ball interactions solved with displacement &amp; velocity vectors. Impacts between different masses resolved using physics: conservation of momentum & kinetic energy. Energy losses allowed on 'impact' mode. 
+  <small><em>&nbsp;Internet Explorer is not supported, install a <a href="https://browsehappy.com/?locale=en" target="_blank">modern browser</a>.</em></small>
+</p>
+
+<div class="controls">
+  <span>
+    <form autocomplete="off" data-type="Mode">
+      <label><i class="far fa-hand-point-right"></i><b>&nbsp;Mode</b></label>
+      <span>
+        <input type="radio" value="Push 1" name="Mode" id="radio0"/>
+        <label for="radio0">Push 1</label>
+      </span>
+      <span>
+        <input type="radio" value="Push 2" name="Mode" id="radio1"/>
+        <label for="radio1">Push 2</label>
+      </span>
+      <span>
+        <input type="radio" value="Through" name="Mode" id="radio2"/>
+        <label for="radio2">Through</label>
+      </span>
+      <span>
+        <input type="radio" value="Impact" name="Mode" id="radio3"/>
+        <label for="radio3">Impact</label>
+      </span>
+    </form>
+  </span>
+
+  <span>
+    <form autocomplete="off" data-type="Loss">
+      <label>Impact KE Loss</label>
+      <input type="range" min="-10" max="100" step="5" value="0"/>
+      <output>0</output><span>%</span>
+    </form>
+  </span>
+
+</div>
+
+<div class="buttons inline">
+  <button>
+    <span>RESTART</span> <i class="fas fa-redo"></i>
+  </button>
+  <button>
+    <i class="fas fa-pause"></i> <i class="fas fa-play no-show"></i>
+  </button>
+</div>
+
+<div class="controls inline">
+  <span>
+    <form autocomplete="off" data-type="canvasWidth">
+      <label>Resize Canvas</label>
+      <input type="range" min="25" max="100" step="1" value="100"/>
+      <output>100</output><span>%</span>
+    </form>
+  </span>
+</div>
+
+<br class="clearBoth"/>
+
+<canvas id="myCanvas"></canvas>
+
+<div id="addInfo"></div>
+
+<div class="controls">
+  <span>
+    <form autocomplete="off" data-type="Size">
+      <label>Scale Balls</label>
+      <input type="range" min="0.5" max="2" step="0.1" value="1.0"/>
+      <output>1.0</output>
+    </form>
+  </span>
+
+  <span>
+    <form autocomplete="off" data-type="Velocities">
+      <label>Scale Velocities</label>
+      <input type="range" min="0.5" max="2" step="0.1" value="1.0"/>
+      <output>1.0</output>
+    </form>
+  </span>
+
+
+
+</div>
+
+<section id="notes">
+  <h2>Controls</h2>
+  
+  <h3>Modes:</h3>
+  <ul>
+    <li>
+      [<b> Push 1 </b>]: Balls push gently around each other, but try to continue with the same velocity before contact.
+    </li>
+    <li>
+      [<b> Push 2 </b>]: Same as 'Push 1', but with a faster push around.
+    </li>
+    <li>
+      [<b> Through </b>]: No contact, just gradients moving as balls pass through each other. Try scaling up the balls.
+    </li>
+    <li>
+      [<b> Impact </b>]: This is the most complex mode, as it represents actual impacts between objects, while taking into account different masses and kinetic energy loss/gain. This mode activates the 'Impact KE Loss' slider.
+    </li>
+  </ul>
+
+  <h3>Impact KE Loss:</h3>
+  <p>
+    This is based on <a href="https://alevelmaths.co.uk/mechanics/newtons-law-of-restitution/" target="_blank"><em>Newton's law of restitution</em></a>. The values in the slider translate as:
+    <ul>
+    <li>
+      [<b> 0% </b>]: this represents a perfectly elastic impact, where the balls do not lose any energy. The interactions will continue forever.
+    </li>
+    <li>
+      [<b> Between 0% & 100% </b>]: this represents the real world, where there is always some energy lost at an impact (and friction). The kinetic energy (KE) diminishes with each impact and at some point all balls will stop. The higher the value, the quicker they stop.
+      <br>In real life any dynamic (moving) system left to its devices will eventually stop. All energy will be transformed into heat till there is no energy left in the system.
+    </li>
+    <li>
+      [<b> 100% </b>]: this value represents the case where all KE in the normal direction to the contact point (vector between the ball centres) is dissipated into heat, due to deformations of the objects. The balls will tend to stick together. Note that if enough velocity is present in the tangential direction, the balls will still be able to separate and continue.
+    </li>
+    <li>
+      [<b> < 0% </b>]: negative values are allowed here just for fun. They represent injecting KE after each impact, so balls will continuously accelerate. Try first to slow down the balls till only one or two are moving, then slide to a negative value. Over time all balls will get going till it all goes crazy. A bit like media & people with the corona-virus news.
+    </li>
+  </ul>
+  </p>
+
+  <h3>Others:</h3>
+  <p>
+    This is for the curious, in case you want to dig in further on the maths behind the 'Impact mode'.
+    <ul>
+    <li>
+      [<b> Vectors </b>]: all calculations in the JavaScript are based on vectorial operations. The trick at time of the impact is to calculate the contact point (used on colour gradients) and local 'normal' (between ball centres) & 'tangential' directions. If you're new to this, here is some <a href="https://www.bbc.co.uk/bitesize/guides/zgbggk7/revision/1" target="_blank">vectors</a> reading and practising.
+    </li>
+    <li>
+      [<b> Velocities after an Impact </b>]: in order to take into account different masses and energy loss/gain, the velocities after an impact become non trivial. These are calculated by using a bit of physics: <a href="https://www.bbc.co.uk/bitesize/guides/z9499j6/revision/1" target="_blank">conservation of momentum & kinetic energy</a>. Also more reading <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/elacol2.html#c3" target="_blank">here</a>. If you want to go down the rabbit hole further and include energy losses see <a href="https://en.wikipedia.org/wiki/Coefficient_of_restitution" target="_blank">Speeds after Impact</a>.
+    </li>
+    <li>
+      [<b> Velocity Vectors </b>]: a very useful tool to calculate the projections of all velocities wrt to the impact 'normal' & 'tangential' directions is the <a href="https://mathinsight.org/dot_product" target="_blank">vectorial dot product</a>. It is fast and it (fairly) easily allows to convert all values back to the canvas global system (X & Y) for the animation to look realistic. The JavaScript in this code features a 'dotProduct' function as a helper.
+    </li>
+  </ul>
+  </p>
+</section>
+
+<footer>
+  <p>
+    <small>Made by &copy; <a class="btn-link" href="http://soundspinning.tumblr.com" target="_blank">Sound Spinning</a></small>
+  </p>
+</footer>
+
+<!-- <script type="text/javascript" src="balls-vels-2.js"></script> -->
+	
+</body>
+</html>
+
