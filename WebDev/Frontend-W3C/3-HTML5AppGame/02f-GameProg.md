@@ -120,6 +120,24 @@ You will also find sprite sheets that contain completely different sets of sprit
 So, when we think about writing a "sprite engine", we need to consider how to support different layouts of sprite sheet.
 
 
+#### Notes for 2.6.2 Different sorts of sprite sheets
+
++ Types of sprite sheets
+  + multiple postures on a single sprite sheet
+    + different sprite sets corresponding to different postures
+    + example: walking woman
+      + 8 different sets of sprites, or posturess, each corresponding to a direction
+      + each compriseing exactly 13 sprites, aligned in a single row across the sprite sheet
+  + one posture per sprite sheet
+    + only a single sprite set per sheet
+    + spreadign over multiple lines
+    + multiple sprite sheets: one for each posture
+    + example: walking robot (16 sprites) and jumping robot (26 sprites)
+  + hybrid sprite sheets
+    + sprite sheets containing completely different sets of sprites
+    + sprite engine: considering how to support differenet layouts of sprite sheet
+
+
 
 
 
