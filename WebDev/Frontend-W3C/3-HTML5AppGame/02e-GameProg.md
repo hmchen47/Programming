@@ -1078,5 +1078,26 @@ The only additions are: _lines 13-19_ in the updateBalls function, and the `circ
   + call self to draw ball: `ball.draw();`
 
 
+### 2.5.5 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+#### Suggested topics of discussion:
+
++ Have you found any good external resources about collision detection? Please share!
++ Why didn't we use non-oriented rectangle collision tests? Try to find explanations on the web. Why does it cost too much in terms of computation?
++ What would you like to see added to this part of the course?
+
+
+#### Optional projects:
+
++ How would you animate different balls with different sizes, colors, etc?
++ How would you animate other sorts of objects: asteroids, different monsters, spaceships, etc?
++ How would you model intelligent behaviors for the enemies: go in the direction of the player, escape the player, etc?
++ Try to find a polygon-point collision test and use it with some polygon-shaped objects.
++ Here is an impressive example of ball to ball collisions, written by a student who followed this course:
+  + [Original Demo](https://codepen.io/w3devcampus/pen/LYNxgzg)
+  + [Local Demo](src/02e-example09.html)
+
 
 
