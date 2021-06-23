@@ -681,7 +681,7 @@ Here is a JavaScript implementation of a rectangle - rectangle (aligned) collisi
 <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">; </span>// No horizontal axis projection overlap</li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">((</span><span class="pln">y1&nbsp;</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">y2 </span><span class="pun">+</span><span class="pln"> h2</span><span class="pun">))</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="pun">((</span><span class="pln">y1&nbsp;</span><span class="pun">+</span><span class="pln"> h1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> y2</span><span class="pun">))</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;&nbsp;</span><span style="line-height: 25.6px; background-color: #eeeeee;">// No vertical&nbsp;axis projection overlap</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;&nbsp;</span><span style="line-height: 25.6px;">// No vertical&nbsp;axis projection overlap</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">; &nbsp; &nbsp;// If previous tests failed, then both axis projections</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // overlap and the rectangles intersect</span></li>
@@ -730,7 +730,7 @@ Here is what we modified (in bold) in the code:
 <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; y</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; boundingCircleRadius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">20</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span style="color: #000000;" color="#000000">...</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span>...</span></li>
 <li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> updatePlayer</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; // The player is just a square drawn at the mouse position</span></li>
@@ -1022,8 +1022,10 @@ Now we can add the functionality presented in the last lesson, to perform collis
 
 Try [the example](https://jsbin.com/bohebe/edit?js,output) at JsBin!
 
+[Local Demo](src/02e-example08.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick= "window.open('https://bit.ly/3d7dir0')"
     src    = "https://bit.ly/3xISQEx"
     alt    = "Collision between balls and the monster"
@@ -1062,6 +1064,18 @@ Source code extract:
 </ol></div><br>
 
 The only additions are: _lines 13-19_ in the updateBalls function, and the `circRectsOverlap` function!
+
+
+#### Notes for 2.5.4 Adding collision detection to the game framework
+
++ Example: game framework w/ collision detection
+  + calculate ball positions: `function updateBalls(delta) {...}`
+  + iterate through all balls: `for (var i=0; i<ballArray.length; i++) {...}`
+  + get current ball: `var ball = ballArray[i];`
+  + call self to move ball: `ball.move();`
+  + call to test wall collision: `testCollisionWithWalls(ball);`
+  + test colission: `if (circRectsOverlap(monster.x, monster.y, monster.width, monster.height, ball.x, ball.y, ball.radius)) { ball.color = 'red'; }`
+  + call self to draw ball: `ball.draw();`
 
 
 
