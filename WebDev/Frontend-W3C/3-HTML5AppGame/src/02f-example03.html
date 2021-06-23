@@ -1,0 +1,26 @@
+
+<html lang="en">
+  <head>
+    <title>Extract and draw sprite</title>
+    <style>
+        canvas {
+        	border: 1px solid black;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="css/02f-example03.css"> -->
+    <script src="js/02f-example03.js"></script>  
+  </head>
+  <body>
+    Sprite width: 275, height: 275, postures: 1, sprites per posture: 16<p>
+    <label for="x">x: <input id="x" type="number" min=0><br/>
+   <label for="y">y: <input id="y" type="number" min=0><br/>
+      <label for="width">width: <input id="width" type="number" min=0><br/>
+         <label for="height">height: <input id="height" type="number" min=0><p>
+Select current sprite: <input type=range id="spriteSelect" value=0> <output id="spriteNumber">          
+           <p/>
+                   <canvas id="canvas" width="48" height="92" />
+           </p>  
+           <canvas id="spritesheet"></canvas>
+  </body>
+</html>
+    
