@@ -36,6 +36,8 @@ Each line is composed of 13 small images which together comprise an "animated" s
 
 Try it yourself: here is a [quick and dirty example](https://jsbin.com/jokodod/edit?html,js,console,output) to try at JSBin working with the above sprite sheet.  Use the arrow keys and take a look! We accentuated the movement by changing the scale of the sprite as the woman moves up (further from us) or down (closer to us).
 
+[Local Demo](src/02f-example01.html)
+
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick= "window.open('https://bit.ly/3gQmAIU')"
@@ -47,6 +49,16 @@ Try it yourself: here is a [quick and dirty example](https://jsbin.com/jokodod/e
 
 
 We have not yet investigated how this works, nor have we built it into the small game engine we started to build in earlier chapters. First, let's explain how to use "sprites" in JavaScript and canvas.
+
+
+#### Notes for 2.6.1 Introduction
+
++ Sprite animation
+  + using components from a collection of animation frames
+  + animation effect: drawing component images, rapidly, one-after-the-other
+
+
+
 
 
 
