@@ -343,6 +343,10 @@ Now it's time to see how we can make a small sprite animation framework!
 
 + Example: walking woman w/ multiple postures/sheet
   + HTML snippet
+    + tasks:
+      + use a slide to select the current sprite
+      + two canvases: small one for the current seleccted sprite while the large onefor the sprite sheet
+      + draw a red square to highlight the selected sprite of the large canvas
     + display default settings: `<p>Sprite width: 48, height: 92, rows: 8, sprites per posture: 13</p>`
     + row input of sprite sheet: `<label for="x">x <input id="x" type="number" min=0><br/>`
     + column input of sprite sheet: `<label for="y">y <input id="y" type="number" min=0><br/>`
@@ -352,6 +356,12 @@ Now it's time to see how we can make a small sprite animation framework!
     + selected sprite image: `<p><canvas id="canvas" width=48 height=92 /></p>`
     + display sprite sheet: `<p><canvas id="spritesheet"></canvas></p>`
   + JavaScript snippet:
+    + tasks:
+      + set characteristics of the sprite sheet
+      + initialize after the page loaded, get canvas and context and set max and min values of the sliders, disable slider before spritsheet loaded, and load the sprite sheet
+      + run callback once spritesheet loaded, enable the slider, set big canvas size, and draw it
+      + draw the slected sprite in small canvas and red frame in big canvas
+      + move slider to trigger events, compute the x and y position of sprite sheet w/ the numer of sprites per posture, the number of rows, and the dimensions of each sprite, and then update the drawing on two canvas 
     + set characteristics of sprite and sprite sheet: `var SPRITE_WIDTH = 48; var SPRITE_HEIGHT = 92; var NB_ROWS = 8; var NB_FRAMES_PER_PSOTURE = 13;`
     + declare variables: `var xFields, yField, wField, hField, spriteSheet, spriteNumber; var canvas, canvasSpriteSheet, ctx1, ctx2;`
     + init page after DOM ready<a name="init"></a>: `window.onload = function() {...}`
