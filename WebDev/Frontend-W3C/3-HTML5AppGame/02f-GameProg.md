@@ -805,33 +805,52 @@ Source code extract:
   + init page after DOM ready: `window.onload = function init() {...}`
     + create game framework: `var game = new GF();`
     + call self to start game: `game.start();`
-  + declare game framework: `var GF = function() {...}`
+
++ Game framework class w/ sprites: `var GF = function() {...}`
+  + ...
+  + declare variables for sprite directions: `var WOMAN_DIR_RIGHT = 6; var WOMAN_DIR_LEFT = 2;`
+  + declare woman object: `var woman = {x: 10, y: 200, width: 48, speed: 100, direction: WOMMAN_DIR_RIGHT};`
+  + declare arry for sprites: `var wonamSprites = [];`
+  + geneate animation loop: `var mainLoop = function(time) {...}`
     + ...
-    + declare variables for sprite directions: `var WOMAN_DIR_RIGHT = 6; var WOMAN_DIR_LEFT = 2;`
-    + declare woman object: `var woman = {x: 10, y: 200, width: 48, speed: 100, direction: WOMMAN_DIR_RIGHT};`
-    + declare arry for sprites: `var wonamSprites = [];`
-    + geneate animation loop: `var mainLoop = function(time) {...}`
-      + ...
-      + draw woman left or right: `womanSprites[wiman.direction].draw(ctx, woman.x, woman.y); updateWomanPosition(delta);`
-      + ...
-    + declare to update woman position: `function updateWomanPosition(delta) {...}`
-      + check collision on both sides: `if (((woman.x+woman.width) > canvas.width) || (woman.x <0>)) {woman.speed = -woman.speed;}`
-      + change direction: `if (woman.speed >= 0) {woman.direction = WOMAN_DIR_RIGHT;} else {woamn.direction = WOMAN_DIR_LEFT;}`
-      + update position: `woman.x += calcDistanceToMove(delta, woman.speed);`
-    + declare [Sprite class](#sprite)
-    + declare to load assets: `var loadAssets = fucntion(callback) {...}`
-      + declare spritesheet variables: `var SPRITESHEET_URL = "https://i.imgur.com/3VesWqx.png"; var SPRITE_WIDTH = 48; var SPRITE_HEIGHT = 92; var NB_POSTURES = 8; var NB_FRAMES_PER_POSTURE = 13;`
-      + load spritesheet: `var spritesheet = new image(); spritesheet.src = SPRITESHEET_URL;`
-      + creat sprites after spritesheet loaded: `spritesheet.onload = function() {...}`
-        + iterate through all postures: `for (var i=0; i<NB_PSOTURES; i++) {...}`
-          + create sprite: `var sprite = new Sprite();`
-          + extract sprite: `sprite.extractSprites(spritesheet, NB_POSTURES, (i+1), NB_FRAMES_PER_POSTURE, SPRITE_WIDTH, SPRITE_HEIGHT);`
-          + set frame rate: `sprite.setNbImagesPerSecond(20);`
-          + store created sprite into array: `womanSprites[i] = sprite;`
-        + call the callback function passed as a parameter: `callback();`
-    + declare start method: `var start = fucntion() {...}`
-      + ...
-      + call to load assets and start animation: `loadAssets(function() { requestAnimationFrame(mainLoop); });`
+    + draw woman left or right: `womanSprites[wiman.direction].draw(ctx, woman.x, woman.y); updateWomanPosition(delta);`
+    + ...
+  + declare to update woman position: `function updateWomanPosition(delta) {...}`
+    + check collision on both sides: `if (((woman.x+woman.width) > canvas.width) || (woman.x <0>)) {woman.speed = -woman.speed;}`
+    + change direction: `if (woman.speed >= 0) {woman.direction = WOMAN_DIR_RIGHT;} else {woamn.direction = WOMAN_DIR_LEFT;}`
+    + update position: `woman.x += calcDistanceToMove(delta, woman.speed);`
+  + declare [Sprite class](#sprite)
+  + declare to load assets: `var loadAssets = fucntion(callback) {...}`
+    + declare spritesheet variables: `var SPRITESHEET_URL = "https://i.imgur.com/3VesWqx.png"; var SPRITE_WIDTH = 48; var SPRITE_HEIGHT = 92; var NB_POSTURES = 8; var NB_FRAMES_PER_POSTURE = 13;`
+    + load spritesheet: `var spritesheet = new image(); spritesheet.src = SPRITESHEET_URL;`
+    + creat sprites after spritesheet loaded: `spritesheet.onload = function() {...}`
+      + iterate through all postures: `for (var i=0; i<NB_PSOTURES; i++) {...}`
+        + create sprite: `var sprite = new Sprite();`
+        + extract sprite: `sprite.extractSprites(spritesheet, NB_POSTURES, (i+1), NB_FRAMES_PER_POSTURE, SPRITE_WIDTH, SPRITE_HEIGHT);`
+        + set frame rate: `sprite.setNbImagesPerSecond(20);`
+        + store created sprite into array: `womanSprites[i] = sprite;`
+      + call the callback function passed as a parameter: `callback();`
+  + declare start method: `var start = fucntion() {...}`
+    + ...
+    + call to load assets and start animation: `loadAssets(function() { requestAnimationFrame(mainLoop); });`
+
+
+### 2.6.6 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+
+#### Suggested topics of discussion:
+
++ The sprite framework that we have developed during this course can be greatly improved to support other types of sprite sheets or alphabet sprite sheets for writing text made of sprites. If you improve the given code, please share!
++ Please share some nice demos of your own with more sprite sheet examples found on the Web!
++ If you find any good tools or tutorials for creating sprite sheets, please share!
+
+
+#### Optional projects:
+
++ Try to improve the last example presented in the course with the woman moving in all directions.
++ Here is a complete set of sprite sheets for the robot postures. Try to make a nice demo that uses all the postures! An [archive of robot sprites](https://bit.ly/35MVVaV) is available for download.
 
 
 
