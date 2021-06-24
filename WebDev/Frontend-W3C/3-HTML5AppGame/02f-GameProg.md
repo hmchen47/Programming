@@ -608,7 +608,7 @@ Notice that we added a `drawStopped` method in the `Sprite` model in order to st
     + call next frame: `requestAnimationFrame(mainloop);`
 
 + `SpriteImage` class
-  + declare class: `function SpriteImage(img, x, y, width, height) {...}`
+  + declare class<a name="spriteImg"></a>: `function SpriteImage(img, x, y, width, height) {...}`
   + delcare properties: `this.img = img; this.x = x; this.y = y; this.width = width; this.height = height;`
   + declare draw method: `this.draw = function(ctx, xPos, yPos, scale) {ctx.drawImage(this.img, this.x, this.y, this.width, this.height, xPos, yPos, this.width*scale, this.height*scale);}`
 
@@ -619,7 +619,7 @@ Notice that we added a `drawStopped` method in the `Sprite` model in order to st
   + `draw` method: draw current `SpriteImage`
   + drawing multiple times involve an automatic change of the current `SpriteImage` being drawn
   + number of different images drawn per second: a parameter of the sprite
-  + declare class: `function Sprite() {...}`
+  + declare class<a name="sprite"></a>: `function Sprite() {...}`
     + declare properties: `this.spriteArray = []; this.currentFrame = 0; this.delayBetweenFrames = 10;`
     + declare extract method: `this.extractSprite = function(spritesheet, nbPosture, postureToExtract, nbFramesPerPosture, spriteWidth, spriteHeight) {...};`
       + compute number of sprites per row: `var nbSpritesPerRow = Math.floor(spritesheet.width / spriteWidth);`
@@ -628,8 +628,9 @@ Notice that we added a `drawStopped` method in the `Sprite` model in order to st
       + compute x and y position: `var x = (index % nbSpritePerRow)*spriteWidth; var y = Math.floor(index/nbSpritePerRow) * spriteHeight;`
       + build a spriteImage object: `var s = new SpriteImage(spritesheet, x, y, spriteWidth, spriteHeight);`
       + put into array: `this.spriteArray.push(s);`
+    + declare to stop draw<a name="stop"></a>: `this.drawStopped = function(ctx, x, y) { var currentSpriteImage = this.spriteArray[this.currentHtrame]; currentSpriteImage(ctx, x, y,1); }`
     + declare time-related properties: `this.then = performance.now(); this.totalTimeSinceLastRedraw = 0;`
-    + declare draw method: `this.draw = function(ctx, x, y) {...}`
+    + declare draw method<a name="draw"></a>: `this.draw = function(ctx, x, y) {...}`
       + set variables: `var now = performance.now(); var delta = now - this.then;`
       + draw current sprite image: `var currentSpriteImage = this.spriteArray(this.currentFrame); currentSpriteImage.draw(ctx, x, y, 1);`
       + check the time elapsed w/ delay: `if (this.totalTimeSinceLastRedraw > this.delayBetweenFrames) { // next sprite } else { // last redraw };`
@@ -645,14 +646,15 @@ Let us use the animated woman example and take the sprite utility functions and 
 
 First, try [this example](https://jsbin.com/mifeva/edit?js,console,output) at JsBin
 
+[Local Demo](src/02f-example07.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open('https://bit.ly/35QbiPO')"
     src    = "https://bit.ly/3xULb6l"
     alt    = "The woman sprite in the game framework, jsbin screenshot"
     title  = "The woman sprite in the game framework, jsbin screenshot"
   />
-  <figcaption> Fig. 1: ... </figcaption>
 </figure>
 
 
@@ -777,8 +779,49 @@ Source code extract:
 
 #### Notes for 2.6.5 Adding sprites to the game framework
 
-+
++ Adding sprites to game framework - walking woman
+  + declare a `woman` object w/ `x`, `y`, `speed`, `width` and `direction` properties, where `direcction` corresponding to a posture's index
+  + add the `Sprite` and `SpriteImage` objects tot he game framework
+  + create a `loadAssets(callback)` function
+    + loading the sprite sheet
+    + extracting all the woman sprites and building the `womanSprites` array
+    + calling the `callback` function passed as a parameter once finished
+  + call the `loadAssets` function from the game framework `start` function
+    + start the animation loop only when the `loadAssets` function completed loading and extract the sprites
+    + real game: `loadAssets` fucntion probably loading the sounds, sprite sheets or resources, etc.
+    + using the `BufferLoader` utility for loading multiple resources asynchronously
 
++ Example: game framework w/ sprites
+  + init page after DOM ready: `window.onload = function init() {...}`
+    + create game framework: `var game = new GF();`
+    + call self to start game: `game.start();`
+  + declare game framework: `var GF = function() {...}`
+    + ...
+    + declare variables for sprite directions: `var WOMAN_DIR_RIGHT = 6; var WOMAN_DIR_LEFT = 2;`
+    + declare woman object: `var woman = {x: 10, y: 200, width: 48, speed: 100, direction: WOMMAN_DIR_RIGHT};`
+    + declare arry for sprites: `var wonamSprites = [];`
+    + geneate animation loop: `var mainLoop = function(time) {...}`
+      + ...
+      + draw woman left or right: `womanSprites[wiman.direction].draw(ctx, woman.x, woman.y); updateWomanPosition(delta);`
+      + ...
+    + declare to update woman position: `function updateWomanPosition(delta) {...}`
+      + check collision on both sides: `if (((woman.x+woman.width) > canvas.width) || (woman.x <0>)) {woman.speed = -woman.speed;}`
+      + change direction: `if (woman.speed >= 0) {woman.direction = WOMAN_DIR_RIGHT;} else {woamn.direction = WOMAN_DIR_LEFT;}`
+      + update position: `woman.x += calcDistanceToMove(delta, woman.speed);`
+    + declare [Sprite class](#sprite)
+    + declare to load assets: `var loadAssets = fucntion(callback) {...}`
+      + declare spritesheet variables: `var SPRITESHEET_URL = "https://i.imgur.com/3VesWqx.png"; var SPRITE_WIDTH = 48; var SPRITE_HEIGHT = 92; var NB_POSTURES = 8; var NB_FRAMES_PER_POSTURE = 13;`
+      + load spritesheet: `var spritesheet = new image(); spritesheet.src = SPRITESHEET_URL;`
+      + creat sprites after spritesheet loaded: `spritesheet.onload = function() {...}`
+        + iterate through all postures: `for (var i=0; i<NB_PSOTURES; i++) {...}`
+          + create sprite: `var sprite = new Sprite();`
+          + extract sprite: `sprite.extractSprites(spritesheet, NB_POSTURES, (i+1), NB_FRAMES_PER_POSTURE, SPRITE_WIDTH, SPRITE_HEIGHT);`
+          + set frame rate: `sprite.setNbImagesPerSecond(20);`
+          + store created sprite into array: `womanSprites[i] = sprite;`
+        + call the callback function passed as a parameter: `callback();`
+    + declare start method: `var start = fucntion() {...}`
+      + ...
+      + call to load assets and start animation: `loadAssets(function() { requestAnimationFrame(mainLoop); });`
 
 
 
