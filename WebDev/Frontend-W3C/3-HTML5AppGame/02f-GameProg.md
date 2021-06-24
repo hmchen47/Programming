@@ -354,19 +354,19 @@ Now it's time to see how we can make a small sprite animation framework!
   + JavaScript snippet:
     + set characteristics of sprite and sprite sheet: `var SPRITE_WIDTH = 48; var SPRITE_HEIGHT = 92; var NB_ROWS = 8; var NB_FRAMES_PER_PSOTURE = 13;`
     + declare variables: `var xFields, yField, wField, hField, spriteSheet, spriteNumber; var canvas, canvasSpriteSheet, ctx1, ctx2;`
-    + init page after DOM ready: `window.onload = function() {...}`
+    + init page after DOM ready<a name="init"></a>: `window.onload = function() {...}`
       + access canvas and set context: `canvas = document.getElementById("canvas"); ctx1 = canvas.getContext("2d"); canvasSpriteSheet = document.getElementById("spritesheet"); ctx2 = canvasSpriteSheet.getContext("2d");`
       + access elements: `xField = document.querySelector("#x"); yField = document.querySelector("#y"); wField = document.querySelector("#width"); hField = document.querySelector("#height"); spriteSelect = document.querySelector("#spriteSelect"); spriteNumber = document.querySelector("#spriteNumber");`
       + update values of input fields: `wField.value = SPRITE_WIDTH; hField.value = SPRITE_HEIGHT; xField.value = 0; yField.value = 0;`
       + set attributes of slider and default values: `spriteSelect.value = 0; spriteSelect.min = NB_ROWS*NB_FRAMES_PER_POSTURE - 1; spriteSelect.disablked = true; spriteNumber.innerHTML = 0;`
       + load spritesheet: `spritesheet = new img(); spritesheet.src="https://i.imgur.com/3VesWqx.png";`
-    + process after sprite sheet downloaded: `spritesheet.onload = function() {...}`
-      + delcare variable: `var index = spriteSelect.value;`
-      + compute the position of selected posture: `var x = index*SPRITE_WIDTH % spritesheet.width; var y = Math.foor(index/NB_FRAMES_PER_POSTURE) * SPRITE_HEIGHT;`
-      + update fields: `xField.value = x; yField.value = y;`
-      + draw red wireframe for selected sprite: `ctx2.clearRect(0, 0, canvasSpriteSheet.width, canvasSpriteSheet.height,); ctx2.drawImage(spritesheet, 0, 0); drawWireFrameRect(ctx2, x, y, SPRITE_WIDTH, SPRITE_HEIGHT, 'red'. 3);`
-      + draw select sprite in small canvas: `ctx1.clearRect(0, 0, SPRITE_WIDTH, SPRITE_HEIGHT); ctx1.drawImage(spritesheet, x, y, SPRITE_WIDTH, SPRITE_HEIGHT, 0, 0, SPRITE_WIDTH, SPRITE_HEIGHT);`
-      + update output element for slider: `spriteNumber.innerHTML = index;`
+      + process after sprite sheet downloaded<a name="loadSpritesheet"></a>: `spritesheet.onload = function(evt) {...}`
+        + delcare variable: `var index = spriteSelect.value;`
+        + compute the position of selected posture: `var x = index*SPRITE_WIDTH % spritesheet.width; var y = Math.floor(index/NB_FRAMES_PER_POSTURE) * SPRITE_HEIGHT;`
+        + update fields: `xField.value = x; yField.value = y;`
+        + draw red wireframe for selected sprite: `ctx2.clearRect(0, 0, canvasSpriteSheet.width, canvasSpriteSheet.height,); ctx2.drawImage(spritesheet, 0, 0); drawWireFrameRect(ctx2, x, y, SPRITE_WIDTH, SPRITE_HEIGHT, 'red'. 3);`
+        + draw select sprite in small canvas: `ctx1.clearRect(0, 0, SPRITE_WIDTH, SPRITE_HEIGHT); ctx1.drawImage(spritesheet, x, y, SPRITE_WIDTH, SPRITE_HEIGHT, 0, 0, SPRITE_WIDTH, SPRITE_HEIGHT);`
+        + update output element for slider: `spriteNumber.innerHTML = index;`
     + draw wireframe: `function drawWireFrameRect(ctx, x, y, w, h, color, lineWidth) {...}`
       + save ctx: `ctx.save();`
       + set and draw wireframe: `ctx.strokeStyle = color; ctx.lineWidth = lineWidth; ctx.strokeRect(x. y. w. h);`
@@ -376,6 +376,9 @@ Now it's time to see how we can make a small sprite animation framework!
 ### 2.6.4 A small sprite animation framework
 
 Now that we have presented the principle of sprite extraction (sprites as sub-images of a single composite image), let's write a small sprite animation framework.
+
+
+#### Sprite animation framework
 
 Here is how you would create and animate a sprite:
 
@@ -417,7 +420,16 @@ Here is how you would create and animate a sprite:
 
 Try [the example on JSBin](https://jsbin.com/rugosu/edit?js,output) that uses this framework first! Experiment by editing _line 20_: __`robot.setNbImagesPerSecond(20);`__ changing the value of the parameter and observing the result.
 
-Example of the sprite framework on JsBin. Screenshot
+[Local Demo](src/02f-example04.html)
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick= "window.open('https://bit.ly/3wRtk01')"
+    src    = "https://bit.ly/3gYQpad"
+    alt    = "Example of the sprite framework on JsBin. Screenshot"
+    title  = "Example of the sprite framework on JsBin. Screenshot"
+  />
+</figure>
 
 
 #### The `SpriteImage` object and sprite models
@@ -523,8 +535,10 @@ Here is the code of the Sprite model:
 
 [Try this JsBin](http://jsbin.com/fekacu/edit?js,output)
 
+[Local Demo](src/02f-example05.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 40vw;"
     onclick= "window.open('https://bit.ly/3wRtk01')"
     src    = "https://bit.ly/3j4TVT1"
     alt    = "Woman animated"
@@ -554,8 +568,10 @@ This time, we have changed the parameters of the sprites and sprite sheet. Now y
 
 [Example at JsBin](https://jsbin.com/muwoje/edit?js,output)
 
+[Local Demo](src/02f-example06.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open('https://bit.ly/3wRtk01')"
     src    = "https://bit.ly/3qnzPoA"
     alt    = "Woman moving left and right, jsbin screenshot"
@@ -574,6 +590,53 @@ Notice that we added a `drawStopped` method in the `Sprite` model in order to st
 + Game development tutorial (5 May 2020): [Draw images and sprite animations](https://bit.ly/2SlJek3)
 
 
+#### Notes for 2.6.4 A small sprite animation framework
+
++ Example: sprite animation framework w/ alking robot
+  + declare variable: `var robot;`
+  + [init page after DOM ready](#init)
+    + ...
+    + [process after sprite sheet downloaded](#loadSpritesheet)
+      + ...
+      + create robot: `robot = new Sprite();`
+      + extract sprite: `robot.extractSprites(spritesheet, NB_SPRITES, 1, NB_FRAMES_PER_POSTURE, SPRITE_WIDTH, SPRITE_HEIGHT);`
+      + set frame rate: `robot.setNbImagesPerSecond(20);`
+      + start frame: `requestAnimationFrame(mainloop);`
+  + generate animation loop: `function mainloop() {...}`
+    + clear canvas: `ctx.clearRect(0, 0, canvas.width, canvas.height);`
+    + call self to draw robot: `robot.draw(ctx, 0, 0, 0);`
+    + call next frame: `requestAnimationFrame(mainloop);`
+
++ `SpriteImage` class
+  + declare class: `function SpriteImage(img, x, y, width, height) {...}`
+  + delcare properties: `this.img = img; this.x = x; this.y = y; this.width = width; this.height = height;`
+  + declare draw method: `this.draw = function(ctx, xPos, yPos, scale) {ctx.drawImage(this.img, this.x, this.y, this.width, this.height, xPos, yPos, this.width*scale, this.height*scale);}`
+
++ `Sprite` class
+  + an animated object
+  + defined by an array of `SpriteImage` objects
+  + a method for extracting all`SpriteImage` from a given sheet and filling the above array
+  + `draw` method: draw current `SpriteImage`
+  + drawing multiple times involve an automatic change of the current `SpriteImage` being drawn
+  + number of different images drawn per second: a parameter of the sprite
+  + declare class: `function Sprite() {...}`
+    + declare properties: `this.spriteArray = []; this.currentFrame = 0; this.delayBetweenFrames = 10;`
+    + declare extract method: `this.extractSprite = function(spritesheet, nbPosture, postureToExtract, nbFramesPerPosture, spriteWidth, spriteHeight) {...};`
+      + compute number of sprites per row: `var nbSpritesPerRow = Math.floor(spritesheet.width / spriteWidth);`
+      + compute the start and edn indice: `var startIndex = (postureToExtract - 1)*nbFramesPerPosture; var endIndex = startIndex + nbFramesPerRow;`
+      + iterate through the row: `for (var index=startIndex; index<maxIndex; index++) {...}`
+      + compute x and y position: `var x = (index % nbSpritePerRow)*spriteWidth; var y = Math.floor(index/nbSpritePerRow) * spriteHeight;`
+      + build a spriteImage object: `var s = new SpriteImage(spritesheet, x, y, spriteWidth, spriteHeight);`
+      + put into array: `this.spriteArray.push(s);`
+    + declare time-related properties: `this.then = performance.now(); this.totalTimeSinceLastRedraw = 0;`
+    + declare draw method: `this.draw = function(ctx, x, y) {...}`
+      + set variables: `var now = performance.now(); var delta = now - this.then;`
+      + draw current sprite image: `var currentSpriteImage = this.spriteArray(this.currentFrame); currentSpriteImage.draw(ctx, x, y, 1);`
+      + check the time elapsed w/ delay: `if (this.totalTimeSinceLastRedraw > this.delayBetweenFrames) { // next sprite } else { // last redraw };`
+        + move to next sprite: `this.currentFrame++; this.currentFrame %= this.spriteArray.length; this.totalTimeSinceLastRedraw = 0;`
+        + increase delta time: `this.totalTimeSinceLastRedraw += delta;`
+      + update the time: `this.then = now;`
+    + declare method to set number of images per second: `this.setNbImagesPerSecond = function(nb) { this.delayBetweenFrames = 1000 / nb; };`
 
 
 
