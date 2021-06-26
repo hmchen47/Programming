@@ -341,12 +341,12 @@ We will cover this in more detail, later in the course.
   + 60 fps: 16.6 ms = 1/60 s
   + help browser to optimize all the animations on the screen
   + `setInterval` & `setTimeout`: browser w/o info about the actions within function $\to$ execution time unknown
-  + animation loop in a invisible tab: not running
+  + animation loop in an invisible tab: not running
   + issue: animation loop content probably takes longer than the rate (60 fps)
   + solution: time-based animation
     + require an accurate timer to tell the elapsed time btw each animation frame
     + according to the time, compute the distances each object on the screen must achieve to move at a given speed
-    + independently of the CPU or GPU of the computer or mobile device
+    + independent on the CPU or GPU of the computer or mobile device
   + `timestamp` parameter of the `mainloop` function: a high-resolution time
 
 + Example: animation w/ `requestAnimationFrame` function
