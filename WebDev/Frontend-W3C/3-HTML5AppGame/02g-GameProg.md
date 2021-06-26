@@ -593,7 +593,7 @@ The quizzes for this week are not so important. _We're keen to see you write you
   + isolate the collision tests: `collisions.js`
 
 + A simple structure
-  + HTML snippet `game.html`<a name="simpleGame">:
+  + HTML snippet `game.html`<a name="simpleGame"></a>:
     + head part: `<head> ... </head>`
       + sound script: `<script src="https://cdnjs.cloudflare.com/.../howler.min.js"></script>`
       + css style: `<link rel="stylesheet" href="css/game.css">`
@@ -659,6 +659,7 @@ The quizzes for this week are not so important. _We're keen to see you write you
     + link JS file for the collision tests: `<script src="js/collisions.js"></script>`
 
 
+### 
 
 
 
