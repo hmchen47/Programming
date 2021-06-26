@@ -128,7 +128,7 @@ Using [the WebSockets technology](https://fr.wikipedia.org/wiki/WebSocket) (whic
     + file format support varying btw browsers
     + MP3 working nearly all browsers
     + only for streaming compressed audio $\implies$ consuming CPU resources
-    + no sound effects, such changing speed and real-time effect
+    + no sound effects, such as changing speed and real-time effect
   + the Web Audio API
     + a 100\% JavaScript API designed for working in real-time w/ uncompressed sound samples or for generating procedural music
     + sound samples loaded into memory and decompressed prior to being used
