@@ -659,7 +659,83 @@ The quizzes for this week are not so important. _We're keen to see you write you
     + link JS file for the collision tests: `<script src="js/collisions.js"></script>`
 
 
-### 
+### 2.7.3 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+
+#### Suggested topics of discussion:
+
++ What additional content would you like to see in this part of the course?
++ Did you notice we gave you (without saying) a small particle engine during Week 1? This is very useful for simulating explosions or bullet impacts...
+
+
+#### Optional projects: create your own game!
+
+Try to make your own game, either by modifying/completing the given example (change the scenario, add levels, colors, sound effects, sprites, shots, etc.) or by writing your own using the methods explained in the course.
+
++ To inspire you, here are some examples written by Michel's students. Some of them are based on the framework presented in the course.
++ [The Wanted](https://output.jsbin.com/cuwuso/): escape the Police and steal as many gold coins as you can! This game did not really follow the game framework presented in the course, but the final game is fun and is an interesting variation on examples presented in the course.
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/3dgiYPo" ismap target="_blank">
+      <img style="margin: 0.1em;" height=150
+        src   = "https://bit.ly/3wZZjuO"
+        alt   = "Main screen of the game called Wanted"
+        title = "Main screen of the game called Wanted"
+      >
+      <img style="margin: 0.1em;" height=150
+        src   = "https://bit.ly/3dgC0oS"
+        alt   = "The game running, monster with black bombs and gold coins"
+        title = "The game running, monster with black bombs and gold coins"
+      >
+    </a>
+  </div>
+
++ Duck Hunt (by Benjamin Reale and Anthony Caron). Get [the whole game](https://github.com/Ben06/ASCI-CARON-REALE-Duck-Hunt/) at this GitHub link + just grab the sprite sheet and sounds in this [archive](https://bit.ly/3xPI4MI) and try to make the game yourself (500k). This one started with the game framework presented in the course.
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      onclick= "window.open('https://bit.ly/3dgiYPo')"
+      src    = "https://bit.ly/3vWYyS3"
+      alt    = "Screenshot of the Duck hunt game"
+      title  = "Screenshot of the Duck hunt game"
+    />
+  </figure>
+
++ Shoot em up (by Max Chazarra) ([sources](https://bit.ly/3gYbqTS) on the GitHub site). This one started with the game framework presented in the course:
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      onclick= "window.open('https://bit.ly/3dgiYPo')"
+      src    = "https://bit.ly/3jh7b75"
+      alt    = "Screenshot of the shoot em up game"
+      title  = "Screenshot of the shoot em up game"
+    />
+  </figure>
+
++ Gameboy Tetris (written starting from the game framework presented in the course). [Download the sources](https://bit.ly/3dfiqJM) (author Maxime Demetrio)
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      onclick= "window.open('https://bit.ly/3dgiYPo')"
+      src    = "https://bit.ly/2U62vXq"
+      alt    = "gameboy tetris in html5"
+      title  = "gameboy tetris in html5"
+    />
+  </figure>
+
++ A small "kill the ninjas" game (by Tristan Poilvet). This game used the game framework presented in the course as a starting point. [Sources](https://bit.ly/3w7cSHT) available here.
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      onclick= "window.open('https://bit.ly/3dgiYPo')"
+      src    = "https://bit.ly/3jh7per"
+      alt    = "a 'kill the ninja game'"
+      title  = "a 'kill the ninja game'"
+    />
+  </figure>
+
 
 
 
