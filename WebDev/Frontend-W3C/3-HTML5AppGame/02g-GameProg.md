@@ -296,7 +296,7 @@ Let's do this together!
 
 #### Start with a simple structure
 
-First, create a game.html file that contains the actual HTML code:
+First, create a `game.html` file that contains the actual HTML code:
 
 `game.html`:
 
@@ -308,8 +308,8 @@ First, create a game.html file that contains the actual HTML code:
 <li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Nearly a real game</span><span class="tag">&lt;/title&gt;</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp;<strong>&lt;!-- External JS libs --&gt;</strong></span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.25/howler.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span style="color: #000088;" color="#000088">&nbsp;<strong>&lt;!-- CSS files for your game --&gt;</strong></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span style="color: #000088;" color="#000088">&nbsp;&lt;link rel="stylesheet" href="css/game.css"&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span style="color: #008888;" color="#008888">&nbsp;<strong>&lt;!-- CSS files for your game --&gt;</strong></span></li>
+<li class="L4" style="margin-bottom: 0px;"><span style="color: #008888;" color="#008888">&nbsp;&lt;link rel="stylesheet" href="css/game.css"&gt;</span></li>
 <li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"> </span><span class="com">&lt;!-- Include here all game JS files--&gt;</span></strong></li>
 <li class="L6" style="margin-bottom: 0px;"><strong><span class="com">&nbsp;&lt;script src="js/game.js"&gt;&lt;/script&gt;</span></strong></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
@@ -327,7 +327,7 @@ Here is the `game.css` file (very simple):
 <li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 </ol></div><br>
 
-Let's take the JavaScript code from the last JSBin example, save it to a file called `game.js`, and locate it in a subdirectory js under the directory where the `game.html` file is located. Similarly, we'll keep the CSS file in a `css` subdirectory:
+Let's take the JavaScript code from the last JSBin example, save it to a file called `game.js`, and locate it in a subdirectory `js` under the directory where the `game.html` file is located. Similarly, we'll keep the CSS file in a `css` subdirectory:
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
@@ -339,12 +339,12 @@ Let's take the JavaScript code from the last JSBin example, save it to a file ca
 </figure>
 
 
-Try the game: open the game.html file in your browser. If the game does not work, open devtools, look at the console, fix the errors, try again, etc. You may have to do this several times when you split your files and encounter errors.
+Try the game: open the `game.html` file in your browser. If the game does not work, open devtools, look at the console, fix the errors, try again, etc. You may have to do this several times when you split your files and encounter errors.
 
 
 #### Isolate the ball function constructor
 
-Put the Ball constructor function in a js/ball.js file, include it in the game.html file, and try the game: oops, it doesn't work! Let's open the console:
+Put the Ball constructor function in a js/ball.js file, include it in the `game.html` file, and try the game: oops, it doesn't work! Let's open the console:
 
 `Ball.js`:
 
@@ -383,7 +383,7 @@ Just for fun, let's try the game without fixing this, and look at the devtools c
 
 Aha! The `calcDistanceToMove` function is indeed used by the Ball constructor in `ball.js` at _line 27_ (it moves the ball using time-based animation). If you look carefully, you will see that it's also used for moving the monster, etc. In fact, there are parts in the game framework related to time-based animation. Let's move them all into a `timeBasedAnim.js` file!!
 
-Fix: extract the utility functions related to time-based animation and add a _ctx_ parameter to the draw method of `ball.js`. Don't forget to add it in `game.js` where `ball.draw()` is called. The call should be now ball.draw(ctx); instead of ball.draw() without any parameter.
+Fix: extract the utility functions related to time-based animation and add a _ctx_ parameter to the draw method of `ball.js`. Don't forget to add it in `game.js` where `ball.draw()` is called. The call should be now `ball.draw(ctx);` instead of `ball.draw()` without any parameter.
 
 `timeBasedAnim.js`:
 
@@ -557,11 +557,106 @@ We could go further by defining a `monster.js` file, turning all the code relate
 
 [Download the zip](https://bit.ly/3xIZGKm) for this version, just open the game.html file in your browser!
 
+[Local Demo](src/02f-gameForMooc/game.html)
+
 Our intent this week was to show you the primary techniques/approaches for dealing with animation, interactions, collisions, managing with game states, etc. 
 
 The quizzes for this week are not so important. _We're keen to see you write your own game!_ You are welcome to freely re-use the examples presented in the lessons and modify them, improve the code structure, playability, add sounds, better graphics, more levels, etc. We like to give points for style and flair, but most especially because we've been (pleasantly) surprised!
 
 
+#### Notes for 2.7.2 Splitting the game into several JS files
+
++ Modulizing game project
+  + review and isolate functions
+    + grouping functions w/o dependence on the framework
+    + typical functions reused in other project
+      + sprite utility functions
+      + collision detection functions
+      + ball constructor functions
+    + typical interactive functions
+      + key and mouse listener
+      + gamepad code
+      + ...
+  + reduce dependencies:
+    + change code to reduce dependencies
+    + example: add a parameter to to make a function independent from global variables
+  + limit main JavaScript to certain function
+    + `game.js` as the core of the game framework: `init` function, `mainloop` function, game states, score, levels
+    + other functional groupings: `utils.js`, `sprites.js`, `collisions.js`, `listeners.js`
+
++ Possible procedure of game development
+  + start w/ a simple structure: `game.html` and `game.css`
+  + isolate ball function constructor: `ball.js`
+  + isolate time-based animation functions in a separate file: `timeBaseAnim.js`
+  + isolate the part counting the number of frames per second: `fps.js`
+  + isolate the event listeners: `listeners.js`
+  + isolate the collision tests: `collisions.js`
+
++ A simple structure
+  + HTML snippet `game.html`<a name="simpleGame">:
+    + head part: `<head> ... </head>`
+      + sound script: `<script src="https://cdnjs.cloudflare.com/.../howler.min.js"></script>`
+      + css style: `<link rel="stylesheet" href="css/game.css">`
+      + game script: `<script src="js/game.js"></script>`
+    + body part: `<canvas id="myCanvas" width=200 height=200></canvas>`
+  + CSS style `game.css`: `canvas { border: 1px solid black; }`
+
++ Ball function constructor `ball.js`
+  + ball constructor: `function Ball(x, y, angle, v, diameter) {...}`
+    + ...
+    + draw method: `this.draw = function() { ctx.save; ... };`
+    + move method: `this.move = function() { ... this.x += calDistanceToMove(delta, incX); this.y += calcDistanceToMove(delta, incY); };`
+  + `calcDistanceToMove` used here but declared in `game.js` within `GF` object
+  + `ctx` variable missing $\to$ added as a parameter to the `draw` method
+
++ Time-based animation `timeBaseAnim,js`
+  + `calcDistanceToMove` function used by the Ball constructor and moving the monster etc.
+  + extract the utility functions related to time-based animation
+  + add `ctx` parameter to the `draw` method of `ball.js`
+  + delcare variables: `var delta, oldTime = 0;`
+  + calculate time difference btw frames: `function timer(currentTime) {...}`
+    + set time difference: `var delta = currentTime - oldTime;`
+    + update old time: `oldTime = currentTime;`
+    + return the time difference: `return delta;`
+  + calculate distance: `var calcDistanceToMove = function (delta, speed) { return (speed*delta) / 1000; };`
+
++ Count the number of frames per second `fps.js`
+  + add a small `initFPS` function for creating the `<div>` to display the FPS value
+  + call `initFPS` from `GF.start()` method
+  + code in `start` method moved into the `initFPS` function and added into the `fps.js`
+  + declare variables: `var fameCount = 0; var lastTime; var fpsContainer; var fps;`
+  + init PFS count: `var initFPSCount = function() {...}`
+    + create fpd container: `fpsContainer = document.createElement('div');`
+    + add container into page: `document.body.appendChild(fpsContainer);`
+  + measure FPS: `var measureFPS = function(newTime) {...}`
+    + test for the first invocation: `if (lastTime === undefined) ( lastTime = newTime; return; )`
+    + calculate time difference btw the last and current frames: `var diffTime = newTime - lastTime;`
+    + check time difference greater than 1 second: `if (diffTime < 1000) { fps = frameCount; frameCount = 0; lastTime = newTime; }`
+  + display fps info: `fpsContainer.innerHTML = 'FPS: ' + fps; frameCount++;`
+
++ Handling event listeners `listeners.js`
+  + add listenters for input states: `function addListeners(inputStates, canvas) {...}`
+    + add key down listeners: `window.addEventListener('keydown', function(event) {...}, false);`
+      + check left arrow key down: `if (event.keyCode === 37) { inputStates.left = true; }`
+      + check right arrow key up: `else if (event.keyCode === 38) { inputStates.up = true; }`
+      + ...
+    + add key up listeners: `window.addEventListener('keyup', function(event) {...}, false);`
+    + add mouse event listener: `canvas.addEventListener('mouseover', function(evt) {inputStates.mousePos = getMousePos(evt, canvas)}; false);`
+    + ...
+  + calculate mouse position: `function getMousePos(evt, canvas) {...}`
+
++ Collision detection `collisions.js`
+  + detect collision btw rectangle and circle: `function circRectsOverlap(x0, y0, w0, h0, cx, cy, r) {...}`
+  + detection collision w/ walls: `function testCollisionWithWalls(ball, w, h) {...}`
+
++ Final version of game fraework
+  + HTML [simple structure](#simpleGame)
+  + additional links for JS files
+    + link JS file for ball function constructor: `<script src="js/ball.js"></script>`
+    + link JS file for time-based animation functions in a separate file: `<script src="js/timeBaseAnim.js"></script>`
+    + link JS file for the part counting the number of frames per second: `<script src="js/fps.js"></script>`
+    + link JS file for the event listeners: `<script src="js/listeners.js"></script>`
+    + link JS file for the collision tests: `<script src="js/collisions.js"></script>`
 
 
 
