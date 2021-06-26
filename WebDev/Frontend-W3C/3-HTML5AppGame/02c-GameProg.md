@@ -228,13 +228,13 @@ Source code extract of this example:
     + sum of the deltas $\ge 1000 \implies$ 1s elapsed since starting point
     + meanwhile, count the number of frames drawn $\implies$ meansure frame rate, should be 60 fps
   + delta ($\Delta, \delta$)
-    + $Delta$:
+    + $\Delta$:
       + used in mathematics as an abbreviation for measuring the change in some object
       + how quickly the mainloop running
-      + the maimum spped, rate of change, at which the game display will be updated
+      + the maximum speed, rate of change, at which the game display will be updated
       + rate of change able to be measured in frames per second (fps)
     + $\delta$
-      + determin the achievable frame rate
+      + determine the achievable frame rate
       + the shorter the delta (in ms), the faster the possible rate of change (in fps)
 
 + Example: counting frames/s
@@ -258,7 +258,7 @@ Source code extract of this example:
   + init the animation loop: `requestAnimationFrame(mainloop);`
 
 + Example: image element w/ error callback
-  + create animation loop: `function mainloop {...}`
+  + create animation loop: `function mainloop() {...}`
   + delcare variable: `var img = new image;`
   + assign error callback: `img.onerror = mainloop;`
   + assign image source: `img.src = 'data:image/png,' + Math.random();`
@@ -268,7 +268,7 @@ Source code extract of this example:
   + measure FPS w/ current time: `measureFPS(+(new Date()));`
   + generate new image: `var img = new Image();`
   + handle error: `img.error = mainloop;`
-  + assign image source: `img.src = 'data.image/pbg' + Math.random();`
+  + assign image source: `img.src = 'data:image/png' + Math.random();`
 
 
 #### Knowledge check 2.3.1
