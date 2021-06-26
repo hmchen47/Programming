@@ -674,7 +674,8 @@ Here is the discussion forum for this part of the course. Please either post you
 
 Try to make your own game, either by modifying/completing the given example (change the scenario, add levels, colors, sound effects, sprites, shots, etc.) or by writing your own using the methods explained in the course.
 
-+ To inspire you, here are some examples written by Michel's students. Some of them are based on the framework presented in the course.
+To inspire you, here are some examples written by Michel's students. Some of them are based on the framework presented in the course.
+
 + [The Wanted](https://output.jsbin.com/cuwuso/): escape the Police and steal as many gold coins as you can! This game did not really follow the game framework presented in the course, but the final game is fun and is an interesting variation on examples presented in the course.
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
