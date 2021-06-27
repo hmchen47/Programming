@@ -874,7 +874,7 @@ You may notice that on some computers / operating systems, it is not possible to
 
 + Keyboard related events
   + the code of the key passed tot he listener function once key-board event fired
-  + example: `window.addEventListener('keydown', function(evt) { if (event.keyCode === 37) { // left arrow pressed } }; false);`
+  + example: `window.addEventListener('keydown', function(evt) { if (event.keyCode === 37) { // left arrow pressed } }, false);`
   + online interactive [event keycode test page](http://www.asquare.net/javascript/tests/KeyCode.html)
 
 + Multiple keyboard related events
@@ -891,7 +891,7 @@ You may notice that on some computers / operating systems, it is not possible to
     + add empty `inputState` object as a global property of the game engine
     + add event listeners for each keydown and keyup event to control game within `start()` method
     + test if an arrow key or the space bar pressed or released $\to$ set the properties of the `inputState` object accordingly, e.g., space bar pressed w/ setting `inputState.space=true;` but released w/ resetting `inputState.space=false;`
-    + add tests to checck which keys are down within main loop
+    + add tests to check which keys are down within main loop
 
 + Example: handling multiple keyboard-related events
   + [init page](#newGF) after DOM ready
@@ -905,23 +905,23 @@ You may notice that on some computers / operating systems, it is not possible to
       + up arrow key: `if (inputStates.up) { ctx.fillText("up", 150, 50); }`
       + right arrow key: `if (inputStates.right) { ctx.fillText("right", 150, 80); }`
       + down arrow key: `if (inputStates.down) { ctx.fillText("down", 150, 120); }`
-      + space bar: `if (inputStates.space) { ctx.fillText("space bar", 140, 150); }`
+      + space bar: `if (inputStates.space) { ctx.fillText("space bar", 150, 150); }`
     + call animation loop: `requestAnimationFrame(mainloop);`
   + [init game framework](#initGF) w/ input handling
     + set 2d context: `ctx = canvas.getContext('2d');`
     + set font: `ctx.font = "20px Arial";`
-    + add event listener for key pressed<a name="keyDownCode"></a>: `window.addEventListener('keydown', function(evt) {...}), flase);`
+    + add event listener for key pressed<a name="keyDownCode"></a>: `window.addEventListener('keydown', function(evt) {...}, flase);`
       + left arrow key: `if (evt.keyCode === 37) { inputStates.left = true; }`
       + up arrow key: `else if (evt.keyCode === 38) { inputStates.up = true; }`
       + right arrow key: `else if (evt.keyCode === 39) { inputStates.right = true; }`
       + down arrow key: `else if (evt.keyCode === 40) { inputStates.down = true; }`
       + space bar: `else if (evt.keyCode === 32) {inputStates.space = true; }`
-    + add event listener for key released<a name="keyUpCode"></a>: `window.addEventListener('keyup', function(evt) {...}), flase);`
-      + left arrow key: `if (evt.keyCode === 37) { inputStates.left = flase; }`
-      + up arrow key: `else if (evt.keyCode === 38) { inputStates.up = flase; }`
-      + right arrow key: `else if (evt.keyCode === 39) { inputStates.right = flase; }`
-      + down arrow key: `else if (evt.keyCode === 40) { inputStates.down = flase; }`
-      + space bar: `else if (evt.keyCode === 32) {inputStates.space = false; }`
+    + add event listener for key released<a name="keyUpCode"></a>: `window.addEventListener('keyup', function(evt) {...}, flase);`
+      + left arrow key: `if (evt.keyCode === 37) { inputStates.left = false; }`
+      + up arrow key: `else if (evt.keyCode === 38) { inputStates.up = false; }`
+      + right arrow key: `else if (evt.keyCode === 39) { inputStates.right = false; }`
+      + down arrow key: `else if (evt.keyCode === 40) { inputStates.down = false; }`
+      + space bar: `else if (evt.keyCode === 32) { inputStates.space = false; }`
     + start amimation: `requestAnimationFrame(mainloop);`
     + return [public API](#publicAPI)
 
