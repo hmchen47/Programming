@@ -539,7 +539,7 @@ Next, let's see how to interact with it using the mouse or the keyboard.
       + draw on the canvas
       + set global properties, such as color, gradient, patterns and line width
   3. then able to draw something
-  4. do not forget to use global variables for the canvas for the canvas and context object, in particular, the width and height of the cnavas
+  4. do not forget to use global variables for the canvas and context object, in particular, the width and height of the cnavas
   5. for each function that will change the context, start by saving context and end by restoring it
 
 + Example: draw a monster in a canvas
@@ -555,7 +555,7 @@ Next, let's see how to interact with it using the mouse or the keyboard.
     + draw monster<a name="drawMonster"></a>: `function drawMyMonster(x, y) {...}`
       + save the context: `ctx.save();`
       + translate the coordinate: `ctx.translate(x, y);`
-      + draw the frame:  `ctx.translate(0, 0, 100, 100);`
+      + draw the frame:  `ctx.strokeRect(0, 0, 100, 100);`
       + draw eyes: `ctx.fillRect(20, 20, 10, 10); ctx.fillRect(65, 20, 10, 10);`
       + draw nose: `ctx.strokeRect(45, 40, 10, 40);`
       + draw mouth: `ctx.strokeRect(35, 84, 30, 10);`
@@ -579,15 +579,18 @@ Next, let's see how to interact with it using the mouse or the keyboard.
       + [measure FPS](#measureFPS)
       + clear canvas<a name="clearCanvas"></a>: `function clearCanvas() { ctx.clearRect(0, 0, w, h); }`
       + [draw monster](#drawMonster)
-      + generate main loop: `var mainloop = function(time) {...}`
+      + generate animation loop: `var mainloop = function(time) {...}`
         + call to measure FPS: `measureFPS(time);`
-        + clear the canvas: `clearCanvas();`
+        + call to clear the canvas: `clearCanvas();`
         + call to draw monster: `drawMyMonster(10+Math.random()*10, 10+Math.random()*10);`
         + call to animate: `requestAnimateFrame(mainloop);`
-      + [init the GF](#startGF) w/ 
-        + [init canvas](#initCanvas) w/o drawing monster
-        + start the animation: `requestAnimationFrame('2d');`
-      + return [public API](#publicAPI)
+      + start the GF: `var start = function() {...}`
+        + ...
+        + access canvas: `canvas = document.querySelector("#myCanvas");`
+        + set variables: `w = canvas.width; h = canvas.height;`
+        + set context: `ctx.canvas.getContext('2d');`
+        + start the animation: `requestAnimationFrame(mainloop);`
+      + return public API: `return {start: start };`
 
 
 ### 2.3.3 User interaction and event handling
