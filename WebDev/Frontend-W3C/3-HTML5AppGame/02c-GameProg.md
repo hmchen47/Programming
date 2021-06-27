@@ -665,17 +665,17 @@ In the method #1 above, we mentioned that "Mixing 'visual layer' (HTML) and 'log
     + treating event caused by user actions as inputs
     + manipulating the DOM structure as output
   + games
-    + maintaining state variables respenting moving objects like the position and speed of an alient ship
-    + the animation loop refers to the variables in determining the movement of suchg objects
-  + listeming the event
+    + maintaining state variables respenting moving objects like the position and speed of an alien ship
+    + the animation loop refers to the variables in determining the movement of such objects
+  + listening the event
     + declare an event handler in the HTML code
       + example: `<div id="someDiv" onclick="alert('clicked!');"> content of the div</div>`
       + easy to use but not recommended $\to$ deprecated
-      + bad practice ([separation of concerns](2.3.3 User interaction and event handling)): mixing 'visual layer' (HTML) and 'logical layer' (JavaScript)
+      + bad practice ([separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns): mixing 'visual layer' (HTML) and 'logical layer' (JavaScript)
     + attach an event handler to an HTML element in JavaScript
-      + example: `document.getElementByID('someDiv').onclick = function() { alert('clicked!'); }`
+      + example: `document.getElementById('someDiv').onclick = function() { alert('clicked!'); }`
       + not able to attach multiple listener functions
-    + register a callback tot he event listener w/ the `addEventListener` method (preferred method)
+    + register a callback to the event listener w/ the `addEventListener` method (preferred method)
       + example: `document.getElementById('someDiv').addEventListener('click', function() { alert('clicked!'); }, false );`
       + parameter `false` describes whether the callback has to be called during the captured phase
 
