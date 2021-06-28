@@ -1753,23 +1753,23 @@ __Wireless Microsoft gamepad__
 
 + Detecting gamepad
   + event triggered when plugged in or unplugged
-  + `gamepadconnected` event triigered as user interacting (press a button or move a stick)
-  + `gamdpad` property along w/ event listener to describe the connected device
+  + `gamepadconnected` event trigered as user interacting (press a button or move a stick)
+  + `gamepad` property along w/ event listener to describe the connected device
   + issue: gamepad already detected by the browser
-    + using a global varaible for managing the gamepad or an array of gampads in code
+    + using a global variable for managing the gamepad or an array of gampads in code
     + reload page $\to$ no event fired $\to$ variables undefined
-  + solution: regular scanning gamps availability
+  + solution: regular scanning gamepap availability
   + `getGamepads`: retrieving a snapshot of the data for the current connected nad interacted w/ gamepads
   + [luser/gamepadtest in GitHub](https://github.com/luser/gamepadtest): good example of managing multiple gamepads
 
 + Attributes of [Gamepad interface](https://w3c.github.io/gamepad/#gamepad-interface)
   + `id`: identification string for the gamepad, brand or style of connected gamepad, useful w/ `mapping` property
   + `index`: index of the gamepad in the Naviagtor, used for multiple gamepads
-  + `connected`: whether the physical device represented still conneccted tot the system
+  + `connected`: whether the physical device represented still connected to the system
   + `timestamp`: last time the data updated
   + `mapping`:
     + setting a property to a known mapping name
-    + not inplemented yet by most browsers
+    + not implemented yet by most browsers
     + a layout map associated w/ the `id` of the gamepad
     + default: all connected gamepads using a [standard default layout](https://w3c.github.io/gamepad/#remapping)
   + `axes`:
@@ -1779,24 +1779,24 @@ __Wireless Microsoft gamepad__
     + -1.0 representing the up or left-most position of the axis while 1.0 representing the down or right-most position of the axis
     + compute the angle via axes values w/ `angle = arcTan(sin/cos);`
   + `buttons`: array of button states of `GamepadButton` objects for all buttons of the gamepad
-    + `pressed`: a Boolean property indicating whether the button is currently presssed (`true`) or unpressed (`false`)
-    + `value`: a floating points value used to enable representing analog buttons, normalized to [0.0, 1.0]
+    + `pressed`: a Boolean property indicating whether the button is currently pressed (`true`) or unpressed (`false`)
+    + `value`: a floating-point value used to enable representing analog buttons, normalized to [0.0, 1.0]
 
 + Example: detecting gamepad
-  + add gamepad connetced evenet listener<a name="gamepadconnected"></a>: `windows.addEventlistener("gandpadconnected", function(e) {...});`
+  + add gamepad connected evenet listener<a name="gamepadconnected"></a>: `windows.addEventlistener("gandpadconnected", function(e) {...});`
     + access gamepad attributes: `var gamepad = e.gamepad; var index = gamepad.index; var id = gamepad.id; var nbButtons = gampad.buttons.length; var nbAxes = gampad.axes.length;`
-    + log msg: `console.log("Gamepad No " + index + ", with id " + id + " is connected. It has " + nbButtons + " buttons and " + nbAxes + " axes");
-  + add gamepad disconncted event listener<a name="gamepaddisconnected"></a>: `windows.addEventListener("gamepaddisconnected", fucntion(e) {...});`
+    + log msg: `console.log("Gamepad No " + index + ", with id " + id + " is connected. It has " + nbButtons + " buttons and " + nbAxes + " axes");`
+  + add gamepad disconcted event listener<a name="gamepaddisconnected"></a>: `windows.addEventListener("gamepaddisconnected", function(e) {...});`
     + access gamepad attribute: `var gampad = e.gamepad; var index = gamepad.index;`
-    + log msg: `console.log("Gamepad No " + index + " has beedn disconnected");`
+    + log msg: `console.log("Gamepad No " + index + " has been disconnected");`
 
 + Example: scanning the gamepad
   + scan gamepad availability every 1/60 second
-  + declar variable: `var gamepad;`
-  + create aniimation lopp w/ gampad scan: `function mainloop() {...}`
+  + declare variable: `var gamepad;`
+  + create animation loop w/ gampad scan: `function mainloop() {...}`
     + call to scan gamepads: `... scangamepads(); // test gampad status: buttons, joysticks etc.`
-    + call for next frame: `... requestAnimationFramw(mainloop);`
-  + scan gamepads<a name="scangamepad"></a>: `fucntion scangampads() {...}`
+    + call for next frame: `... requestAnimationFrame(mainloop);`
+  + scan gamepads<a name="scangamepad"></a>: `function scangampads() {...}`
     + get list of gamepads: `var gamepads = navigator.getGamepads();`
     + iterate on all gamepad ports: `for (var i=0; i<gamepads.length; i++>) {...}`
       + chk availability: `if (gamepads[i] !== undefined) { gamepad = gamepads[i]; }`
@@ -1804,26 +1804,26 @@ __Wireless Microsoft gamepad__
 + Example: detecting button status
   + scan buttons<a name="chkButtons"></a>: `function checkButtons(gamepad) {...}`
   + iterate through all buttons: `for (var i=0; i<gamepad.buttons.length; i++) {...}`
-  + pass through if gamepad not available: `if (gamepad === undefined) return; if (!gampad.connected) return;`
-  + declare variable for buttons: `var b = gamdpad.button[i];`
+  + pass through if gamepad not available: `if (gamepad === undefined) return; if (!gamepad.connected) return;`
+  + declare variable for buttons: `var b = gamepad.button[i];`
   + check button pressing: `if (b.pressed) {...}`
     + log msg: `console.log("Button " + i + " is pressed.");`
-    + chk axes values and log msg: `if (b.value !== undefined) {console.log("It's value: " + b./value);}`
+    + chk axes values and log msg: `if (b.value !== undefined) {console.log("It's value: " + b.value);}`
 
 + Example: detecting axes values
-  + check axes w/ values<a name="chkAxesVal"></a>: `fucntion checkAxes(gamepad) {...}`
-  + check availability of gamepad: `if (gamepad === undefined) return; if (~gampad.connected) return;`
+  + check axes w/ values<a name="chkAxesVal"></a>: `function checkAxes(gamepad) {...}`
+  + check availability of gamepad: `if (gamepad === undefined) return; if (!gamepad.connected) return;`
   + iterate through all axes: `for (var i=0; i<gamepad.axes.length; i++) {...}`
     + access axis: `var axisValue = gamepad.axes[i];`
     + action: `// do something w/ the value`
 
 + Example: detecting the direction
   + check axes w/ direction<a name="chkAxesDir"></a>: `function checkAxes(gamepad) {...}`
-  + reset direction w/ inputStates: `inputStates.left = inputStates.right = inputStatse.top = inputStates.down = false;`
-  + read value for left direction: `if (gamepad.axes[0] > 0.5) {inputStates.right = true; inputStates.left = false;}`
-  + read value for right direction: `else if (gamepad.axes[0] < -0.5) {inputStates.right = false; inputStates.left = true;}`
-  + read value for down direction: `if (gamepad.axes[1] > 0.5) {inputStates.down = true; inputStates.up = false;}`
-  + read value for up direction: `else if (gamepad.axes[1] < -0.5) {inputStates.down = false; inputStates.up = true;}`
+  + reset direction w/ inputStates: `inputStates.left = inputStates.right = inputStates.top = inputStates.down = false;`
+  + read value for left direction: `if (gamepad.axes[0] > 0.5) { inputStates.right = true; inputStates.left = false; }`
+  + read value for right direction: `else if (gamepad.axes[0] < -0.5) { inputStates.right = false; inputStates.left = true; }`
+  + read value for down direction: `if (gamepad.axes[1] > 0.5) { inputStates.down = true; inputStates.up = false; }`
+  + read value for up direction: `else if (gamepad.axes[1] < -0.5) { inputStates.down = false; inputStates.up = true; }`
   + compute the angle: `inputStates.angle = Math.atan2(-gamepad.axes[1], gamepad.axes[0]);`
 
 
