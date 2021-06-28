@@ -1294,18 +1294,18 @@ JavaScript source code:
       + restore context: `ctx.restore();`
     + get mouse position<a name="mousePos"></a>: `function getMousePos(canvas, evt) {...}`
       + get CSS boundaries: `var rect = canvas.getBoundingClientRect();`
-      + return the relative position: `return {x: evt.clientX - rect.left, y: evt.clientY - rect..top};`
+      + return the relative position: `return {x: evt.clientX - rect.left, y: evt.clientY - rect.top};`
 
 + Example: object following mouse cursor
-  + declare variables: `var canvas, ctx, width, height; var rect = {x: 40, y: 40, rayon: 30, width: 80, height: 80, v: 1}; var mmousepos = {x: 0, y: 0};`
+  + declare variables: `var canvas, ctx, width, height; var rect = {x: 40, y: 40, rayon: 30, width: 80, height: 80, v: 1}; var mmousePos = {x: 0, y: 0};`
   + init page after DOM ready: `function init() {...}`
     + access canvas element and get 2d context: `canvas = document.querySelector("#myCanvas"); ctx = canvas.getContext{'2d');`
-    + get cnavas dimensions: `width = canvas.width; height = canvas.height;`
-    + add mouse move event listener: `canvas.addEventListener('mousemove', fucntion (evt) { mousepos = getMousePos(canvas, evt); }, false);`
+    + get canvas dimensions: `width = canvas.width; height = canvas.height;`
+    + add mouse move event listener: `canvas.addEventListener('mousemove', function (evt) { mousePos = getMousePos(canvas, evt); }, false);`
     + call animation loop: `mainloop();`
   + generate animation loop: `function mainloop() {...}`
     + clear screen: `ctx.clearRect(0, 0, canvas.width, canvas.height);`
-    + move object: `var dx = rect.x - mousepos.x; var dy = rect.y - mousepos.y; var angle =  Math.anta(dy, dx); rect.x -= rect.v*Math.cos(angle); recct.y -= rect.v*Math.sin(angle);`
+    + move object: `var dx = rect.x - mousePos.x; var dy = rect.y - mousePos.y; var angle =  Math.anta(dy, dx); rect.x -= rect.v*Math.cos(angle); rect.y -= rect.v*Math.sin(angle);`
     + draw object: `drawRectangle(angle);`
     + request new frame: `window.requestAnimationFrame(mainloop);`
   + draw object: `function drawRectangle(angle) {...}`
