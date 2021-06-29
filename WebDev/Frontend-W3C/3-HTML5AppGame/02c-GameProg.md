@@ -2004,34 +2004,33 @@ The `checkAxes` function updates the `left`, `right`, `up`, `down` properties of
     + arrow keys to move object up/down/left/right
     + mouse button to accelerate
   + set object psoition and speed: `var monster = {x: 10, y: 10, speed: 1};`
-  + generate animation loop: `var mainloop = function(time) {...}
+  + generate animation loop: `var mainloop = function(time) {...}`
     + call to measure FPS: `measureFPS(time);`
     + call to empty canvas: `clearCanvas();`
-    + call to draw objecct: `drawMyMonster(monster.x, monster.y);`
+    + call to draw monster: `drawMyMonster(monster.x, monster.y);`
     + call to check position: `updateMonsterPosition();`
     + call next animation frame: `requestAnimationFrame(mainloop);`
   + update the position of monster: `function updateMonsterPosition() {...}`
-    + init monster speed: `monster.speedX = monster.speedY;`
+    + init monster speed: `monster.speedX = monster.speedY = 0;`
     + display left arrow key and set speed: `if (inputStates.left) { ctx.fillText("left", 150, 20); monster.speedX = -monster.speed; }`
-    + display up arrow key and set speed: `if (inputStates.up) { ctx.fillText("up", 150, 40); monster.speedX = -monster.speed; }`
+    + display up arrow key and set speed: `if (inputStates.up) { ctx.fillText("up", 150, 40); monster.speedY = -monster.speed; }`
     + display right arrow key and set speed: `if (inputStates.right) { ctx.fillText("right", 150, 60); monster.speedX = monster.speed; }`
-    + display down arrow key and set speed: `if (inputStates.down) { ctx.fillText("down", 150, 80); monster.speedX = monster.speed; }`
+    + display down arrow key and set speed: `if (inputStates.down) { ctx.fillText("down", 150, 80); monster.speedY = monster.speed; }`
     + display space bar: `if (inputStates.space) { ctx.fillText("space bar", 150, 100); }`
-    + display mouse position: `if (inputStates.mousePos) {ctx.fillText("x = " + inputStates.mousePos, 5, 150); }`
+    + display mouse position: `if (inputStates.mousePos) {ctx.fillText("x = " + inputStates.mousePos.x + " y = " + inputStates.mousePos.y, 5, 150); }`
     + display mouse buttom down: `if (inputStates.mousedown) {ctx.fillText("mousedown b " + inputStates.mouseButton, 5, 180); monster.speed = 5; }`
     + display mouse button up: `else { monster.speed = 1; }`
     + accelerate speed: `monster.x += monster.speedX; monster.y += monster.speedY;`
 
 + Example: gamepad enhancements
-  + generate animation loop: `var mainloop = fucntion(time) {...}`
-  + generate animation loop: `var mainloop = function(time) {...}
+  + generate animation loop: `var mainloop = function(time) {...}`
     + call to measure FPS: `measureFPS(time);`
     + call to empty canvas: `clearCanvas();`
     + call to update gamepad status: `updateGameStatus();`
-    + call to draw objecct: `drawMyMonster(monster.x, monster.y);`
+    + call to draw object: `drawMyMonster(monster.x, monster.y);`
     + call to check position: `updateMonsterPosition();`
     + call next animation frame: `requestAnimationFrame(mainloop);`
-  + update gamepad status: `fucntion updateGameStatus() {...}`
+  + update gamepad status: `function updateGameStatus() {...}`
     + call to get new snapshot to the gamepad properties: `scangamepad();`
     + call to check gamepad button states: `checkButtons(gamepad);`
     + call to check joystick: `checkAxes(gamepad);`
