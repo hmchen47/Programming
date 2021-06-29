@@ -157,19 +157,19 @@ Here is the same example to which we have added a loop that wastes time right in
     + screen still performs 60 fps
   + accurate set the framerate
     + leave some CPU time for other tasks
-    + many games consoles limit the frame-rate tp 1/30th of a second
+    + many game consoles limit the frame-rate tp 1/30th of a second
 
 + Procedure to measure time btw frames
-  + erase the canvas
-  + draw the shapes
-  + move the shapes
-  + got to the 1st step
+  1. erase the canvas
+  2. draw the shapes
+  3. move the shapes
+  4. go to the 1st step
 
 + Example: regular animation
   + rectangle moves faster on the desktop computer screen that on mobile phone
   + declare variables: `var canvas, ctx; var width, height; var x, y; var speedX;`
   + init page after DOM ready<a name="init"></a>: `function init() {...}`
-    + init variables: `canvas = document.queryAnimationFrame("#myCanvas"); ctx = canvas.getContext('2d'); width = canvas.width = width; height = canvas.height; x= 10; y = 10;`
+    + init variables: `canvas = document.querySelector("#myCanvas"); ctx = canvas.getContext('2d'); width = canvas.width; height = canvas.height; x= 10; y = 10;`
     + set speed<a name="speed"></a>: `speedX = 3;`
     + start animation: `animationLoop();`
   + generate animation loop<a name="animationLoop"></a>: `function animationLoop() {...}`
@@ -181,7 +181,7 @@ Here is the same example to which we have added a loop that wastes time right in
 
 + Example: simulating a low-end device
   + generate [animation loop](#animationLoop)
-  + additional loop to slow the animaton loop after clear rectangle<a name="simulation"></a>: `for (var i=0; i<50000000; i++) { // slow down artificially the animation };`
+  + additional loop to slow the animaton loop after clear rectangle<a name="simulation"></a>: `for (var i=0; i<50000000; i++) { // slow down artificially the animation }`
 
 
 ### 2.4.2 Measuring time between frames
