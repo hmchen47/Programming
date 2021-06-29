@@ -565,7 +565,7 @@ Source code of the example:
 #### Notes for 2.4.2 Measuring time between frames
 
 + Methods to measure time btw frames
-  + using the JavaScript `Data` object
+  + using the JavaScript `Date` object
     + standard JavaScript for measuring time: `var time = new Date().getTime();`
     + alternative solution: `var time = Date().now();`
     + `getTime()` method: return an integer number of millisecond (Unix epoch) since midnight on 1970-01-01
@@ -577,13 +577,13 @@ Source code of the example:
   + using the new HTML5 high-resolution timer
     + [Hight Resolution Time API](https://www.w3.org/TR/hr-time/): a working draft
     + `performance.now()`:
-      + get a sub-millisecond time-stamp
+      + get a sub-millisecond timestamp
       + similar to `Date.now()` but w/ much higher accuracy
       + return a floating point number, called a `DOMHighResTimeStamp`
-  + using timestamps parameter of rge callback function of `requestAnimationFrame`
+  + using timestamps parameter of the callback function of `requestAnimationFrame`
     + recommended method
     + timestamps as optional parameter
-    + corresponding too the time elapsed since the page loaded
+    + corresponding to the time elapsed since the page loaded
     + similar to the value sent by the high resolution timer using `performance.now()`
 
 + Example: using Date object
@@ -616,7 +616,7 @@ Source code of the example:
 
 + Example: using timestamp parameter of `requestAnimationFrame`
   + [declar variables](#vars) w/ `var oldTime = 0;`
-  + [declar time variables](#timeVars)
+  + [declar time-related variables](#timeVars)
   + [init page after DOM ready](#init) w/ timestamps parameter
   + generate animation loop: `function animationLoop(currentTime) {...}`
     + compute time difference: `delta = currentTime - oldTime;`
