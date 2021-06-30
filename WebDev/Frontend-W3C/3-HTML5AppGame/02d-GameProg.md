@@ -614,7 +614,7 @@ Source code of the example:
     + calculate distance: `incX = calcDistanceToMove(delta, speedX);`
     + store current frame time before request next frame: `then = now;`
 
-+ Example: using timestamp parameter of `requestAnimationFrame`
++ Example: using timestamps parameter of `requestAnimationFrame`
   + [declar variables](#vars) w/ `var oldTime = 0;`
   + [declar time-related variables](#timeVars)
   + [init page after DOM ready](#init) w/ timestamps parameter
