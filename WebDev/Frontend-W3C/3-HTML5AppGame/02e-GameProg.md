@@ -268,14 +268,14 @@ Using angles or horizontal and vertical increments is equivalent. However, one m
   + found in other object-oriented languages, such as Java, C#, etc.
   + useful to create many objects of the same classes
 
-+ Example: direction and velocity w/ wall collisions
++ Example: multiple balls
   + constructor function for balls w/ x & y velocity<a name="ballXY"></a>: `function Ball(x, y, vx, vy, diameter) {...}`
     + declare ball properties: `this.x = x; this.y = y; this.vx = vx; this.vy = vy; this.radius = diameters/2;`
     + draw ball: `this.draw = function() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0.2*Math.PI); ctx.fill(); };`
     + move ball: `this.move = function() { this.x += this.x; this.y += this.y; };`
   + declare variables<a name="vars"></a>: `var canvas, ctx, width, height;`
   + declare array of balls<a name="ballArray"></a>: `var ballArray = [];`
-  + init page after DOM ready<a name="init"></a>: `function innit() {...}`
+  + init page after DOM ready<a name="init"></a>: `function init() {...}`
     + access canvas and set context: `var canvas = document.querySelector("#myCanvas"); var ctx = canvas.getContext("2d");`
     + set varables: `width = canvas.width; height = canvas.height;`
     + call to create balls: `createBalls(16);`
@@ -292,14 +292,14 @@ Using angles or horizontal and vertical increments is equivalent. However, one m
       + call to test collision: `textCollisionWithWalls(ball);`
       + draw the ball: `ball.draw();`
     + request for next frame: `window.requestAnimationFrame(mainLoop);`
-  + text collision w/ x, y velocity: `function testCollisionWithWalls(ball) {...}`
+  + test collision w/ x, y velocity: `function testCollisionWithWalls(ball) {...}`
     + (x, y): center of the circle
     + collision: replace the ball at position where it's exactly in contact w/ the border
     + test collision independently, `if...else if` not suitable
-    + left colission: `if (ball.x < (ball.radius)) {ball.x = ball.radius; ball.vx *= -1;}`
-    + right colission: `if (ball.x > width - ball.radius) {ball.x = width - ball.radius; ball.vx *= -1;}`
-    + up colission: `if (ball.y < (ball.radius)) {ball.y = ball.radius; ball.vy *= -1;}`
-    + right colission: `if (ball.y > width - ball.radius) {ball.y = width - ball.radius; ball.vy *= -1;}`
+    + left colission: `if (ball.x < (ball.radius)) { ball.x = ball.radius; ball.vx *= -1; }`
+    + right colission: `if (ball.x > width - ball.radius) { ball.x = width - ball.radius; ball.vx *= -1; }`
+    + up colission: `if (ball.y < (ball.radius)) { ball.y = ball.radius; ball.vy *= -1; }`
+    + down colission: `if (ball.y > width - ball.radius) { ball.y = height - ball.radius; ball.vy *= -1; }`
 
 + Example: direction and velocity with wall colissions
   + [declare variables](#vars)
@@ -310,7 +310,7 @@ Using angles or horizontal and vertical increments is equivalent. However, one m
     + create ball: `var ball = new Ball(width*Math.random(), height*Math.random(), (2*Math.PI)*Math.random(), (10*Math.random())-5, 30);`
     + add ball to array: `ballArray[i] = ball;`
   + create [animation loop](#animationLoop)
-  + text collision w/ angle & speed: `function testCollisionWithWalls(ball) {...}`
+  + test collision w/ angle & speed: `function testCollisionWithWalls(ball) {...}`
     + test collision independently, `if...else if` not suitable
     + left colission: `if (ball.x < (ball.radius)) {ball.x = ball.radius; ball.angle = -ball.angle + Math.PI;}`
     + right colission: `if (ball.x > width - ball.radius) {ball.x = width - ball.radius; ball.angle = -ball.angle + Math.PI;}`
