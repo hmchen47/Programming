@@ -426,8 +426,8 @@ Now, in order to turn this into a game, we need to create some interactions betw
     + call for next frame: `requestAnimationFrame(mainLoop);`
   + calculate the new position of monster: `function updateMonsterPosition(delta) {...}`
     + init speed: `monster.speedX = monster.speedY = 0;`
-    + set left arrow key: `if (inputStates.left) {monster.speedX = -monster.speed;}`
-    + set up arrow key: `if (inputStates.up) {monster.speedY = -monster.speed;}`
+    + set left arrow key: `if (inputStates.left) { monster.speedX = -monster.speed; }`
+    + set up arrow key: `if (inputStates.up) { monster.speedY = -monster.speed; }`
     + ...
     + compute the position: `monster.x += calcDistanceToMove(delta, monster.speedX); monster.y += calcDistanceToMove(delta, monster.speedY);`
   + draw balls w/ new position: `function updateBalls(delta) {...}`
