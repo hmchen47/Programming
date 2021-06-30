@@ -891,7 +891,7 @@ To animate a monster at 60 fps but blinking his eyes once per second, you would 
 
 + Frame rate
   + ignore some frames to reach desired frame rate w/ `requestAnimationFrame`
-  + possible to set the frame rate using time based nimation
+  + possible to set the frame rate using time-based animation
     + set a global variable corresponding to the desired frame rate
     + compare the elapsed time btw two executions of the animation loop
       + time elapsed too short for the target frame rate: do nothing
@@ -900,26 +900,26 @@ To animate a monster at 60 fps but blinking his eyes once per second, you would 
 
 + Example: change frame rate
   + access canvas element: `var canvas = document.querySelector("#myCanvas"); var ctx = canvas.getContext("2d");`
-  + declare variable: `var width = canvas.width, height = canvas.width;; var lastX = width * Math.random(); var lastY = height * Math.random(); var hue =0;`
+  + declare variable: `var width = canvas.width, height = canvas.width; var lastX = width * Math.random(); var lastY = height * Math.random(); var hue =0;`
   + call to set frame rate: `setFrameRateInFramesPerSecond(60);`
-  + declared time relatred variables: `var now, delta, delayInMS, totalTimeSinceLastDraw = 0; var then = performance.now();`
+  + declare time-related variables: `var now, delta, delayInMS, totalTimeSinceLastDraw = 0; var then = performance.now();`
   + call to start animation: `requestAnimationFrame(mainloop);`
   + set frame rate<a name="frameRate"></a>: `function setFrameRateInFramesPerSecond(frameRate) { delayInMS = 1000/frameRate; }`
   + generate animation loop: `function mainloop(time) {...}`
-    + set time-related variables: `now = time; delta = now = tehn;`
+    + set time-related variables: `now = time; delta = now - then;`
     + check time to redraw: `if (totalTimeSinceLastRedraw > delayInMS) {...}`
       + save context: `ctx.save();`
       + draw blurred rectangle: `ctx.fillStyle = "rgba(0, 0, 0, 0.1); ctx.fillRect(0, 0, width, height);`
-      + translate the ctx: `ctx.translate(width/2, height/2); ctx.scale(0.9, 0.9); ctx.translate(-width/2, -height/2);`
+      + translate ctx: `ctx.translate(width/2, height/2); ctx.scale(0.9, 0.9); ctx.translate(-width/2, -height/2);`
       + begin a new draw: `ctx.beginPath();`
       + set style and position for new curve: `ctx.lineWidth = 5 + Math.random() * 10; ctx.moveTo(lastX, lastY);`
       + set end position for curve: `lastX = width * Math.random(); lastY = height * Math.random();`
-      + set curve path: `ctx.beizierCurveTo(width*Math.random(), height*Math.random(), width*Math.random(), height*Math.random(), lastX, lastY);`
+      + set curve path: `ctx.bezierCurveTo(width*Math.random(), height*Math.random(), width*Math.random(), height*Math.random(), lastX, lastY);`
       + set curve style and draw: `hue = hue + 10 * Math.random(); ctx.strokeStyle = "hsl(" + hue + ", 50%, 50%)"; ctx.shadowColor = "white"; ctx.shadowBlur = 10; ctx.stroke();`
       + restore ctx: `ctx.restore();`
       + reset last redraw time: `totalTimeLastSinceRedraw = 0;`
     + increase time if redraw not reached: `else { totalTimeSinceLastRedraw += delta; }`
-    + call for next frame: `requestAnimationFrame();`
+    + call for next frame: `requestAnimationFrame(mainloop);`
 
 + Example: bouncing rectangle w/ adjustable frame rate
   + [declare variables](#vars)
@@ -931,7 +931,7 @@ To animate a monster at 60 fps but blinking his eyes once per second, you would 
     + set time variables: `now = time; delta = now -then;`
     + check time to redraw: `if (totalTimeSinceLastRedraw > delayInMS) {...}`
       + call to calculate distance to move: `incX = calcDisatnceToMove(totalTimeSinceLastRedraw, speedX);`
-      + perform animation: `ctx.clearRect(0, 0, width, height); ctx.strokeRect(x, y, 10, 10); x += incX; if ((x+10 >= 10) || (x<=0)) {x -= incX; speedX = -speedX;}`
+      + perform animation: `ctx.clearRect(0, 0, width, height); ctx.strokeRect(x, y, 10, 10); x += incX; if ((x+10 >= witdth) || (x <= 0)) {x -= incX; speedX = -speedX;}`
       + reset redraw time: `totalTimeSinceLastRedraw = 0;`
     + increase time w/p redraw: `else {totalTimeSinceLastRedraw += delta;}`
     + store time: `then = now;`
