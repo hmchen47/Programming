@@ -1031,9 +1031,9 @@ Here are the parts we changed:
 #### Notes for 2.4.4 Adding time-based animation
 
 + Example: game framework adding time-based animation
-  + declare monster object: `var monster = {x: 10, y: 10, speed; 10, };`
+  + declare monster object: `var monster = { x: 10, y: 10, speed: 10 };`
   + measure the time btw feames: `function timer(currentTime) {var delta = currentTime - oldTime; oldTime = currentTime; return delta;}`
-  + generate animation loop: `var mainLoop = fucntion(time) {...}`
+  + generate animation loop: `var mainLoop = function(time) {...}`
     + measure FPS: `measureFPS(time);`
     + calculate time different: `delta = timers(time);`
     + call to empty canvas: `clearCanvas();`
