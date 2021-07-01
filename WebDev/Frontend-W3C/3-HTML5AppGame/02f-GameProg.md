@@ -338,48 +338,48 @@ Now it's time to see how we can make a small sprite animation framework!
   + extracting the different postures and store them in an array of sprites
   + sprite engine
     + choosing the appropriate one
-    + drawing withing the animation loop
+    + drawing within the animation loop
     + taking into account elapsed time: creating a realistic "delay" btw each change of sprite image
 
 + Example: walking woman w/ multiple postures/sheet
   + HTML snippet
     + tasks:
       + use a slide to select the current sprite
-      + two canvases: small one for the current seleccted sprite while the large onefor the sprite sheet
+      + two canvases: small one for the current selected sprite while the large one for the sprite sheet
       + draw a red square to highlight the selected sprite of the large canvas
     + display default settings: `<p>Sprite width: 48, height: 92, rows: 8, sprites per posture: 13</p>`
     + row input of sprite sheet: `<label for="x">x <input id="x" type="number" min=0><br/>`
     + column input of sprite sheet: `<label for="y">y <input id="y" type="number" min=0><br/>`
     + width input of selected posture: `<label for="width">width <input id="width" type="number" min=0><br/>`
-    + length input of selected posture: `<label for="height">height <input id="height" type="number" min=0><br/>`
+    + height input of selected posture: `<label for="height">height <input id="height" type="number" min=0><br/>`
     + slider to select sprite: `<p>Select current sprite <input type=range id="spriteSelect" value=0> <output id="spriteNumber"></output></p>`
     + selected sprite image: `<p><canvas id="canvas" width=48 height=92 /></p>`
     + display sprite sheet: `<p><canvas id="spritesheet"></canvas></p>`
   + JavaScript snippet:
     + tasks:
       + set characteristics of the sprite sheet
-      + initialize after the page loaded, get canvas and context and set max and min values of the sliders, disable slider before spritsheet loaded, and load the sprite sheet
+      + initialize after the page loaded, get canvas and context, set max and min values of the sliders, disable slider before spritsheet loaded, and load the sprite sheet
       + run callback once spritesheet loaded, enable the slider, set big canvas size, and draw it
-      + draw the slected sprite in small canvas and red frame in big canvas
+      + draw the selected sprite in small canvas and red frame in big canvas
       + move slider to trigger events, compute the x and y position of sprite sheet w/ the numer of sprites per posture, the number of rows, and the dimensions of each sprite, and then update the drawing on two canvas 
     + set characteristics of sprite and sprite sheet: `var SPRITE_WIDTH = 48; var SPRITE_HEIGHT = 92; var NB_ROWS = 8; var NB_FRAMES_PER_PSOTURE = 13;`
-    + declare variables: `var xFields, yField, wField, hField, spriteSheet, spriteNumber; var canvas, canvasSpriteSheet, ctx1, ctx2;`
+    + declare variables: `var xField, yField, wField, hField, spriteSheet, spriteNumber; var canvas, canvasSpriteSheet, ctx1, ctx2;`
     + init page after DOM ready<a name="init"></a>: `window.onload = function() {...}`
       + access canvas and set context: `canvas = document.getElementById("canvas"); ctx1 = canvas.getContext("2d"); canvasSpriteSheet = document.getElementById("spritesheet"); ctx2 = canvasSpriteSheet.getContext("2d");`
       + access elements: `xField = document.querySelector("#x"); yField = document.querySelector("#y"); wField = document.querySelector("#width"); hField = document.querySelector("#height"); spriteSelect = document.querySelector("#spriteSelect"); spriteNumber = document.querySelector("#spriteNumber");`
       + update values of input fields: `wField.value = SPRITE_WIDTH; hField.value = SPRITE_HEIGHT; xField.value = 0; yField.value = 0;`
-      + set attributes of slider and default values: `spriteSelect.value = 0; spriteSelect.min = NB_ROWS*NB_FRAMES_PER_POSTURE - 1; spriteSelect.disablked = true; spriteNumber.innerHTML = 0;`
+      + set attributes of slider and default values: `spriteSelect.value = 0; spriteSelect.min = 0; spriteSelect.max = NB_ROWS*NB_FRAMES_PER_POSTURE - 1; spriteSelect.disabled = true; spriteNumber.innerHTML = 0;`
       + load spritesheet: `spritesheet = new img(); spritesheet.src="https://i.imgur.com/3VesWqx.png";`
       + process after sprite sheet downloaded<a name="loadSpritesheet"></a>: `spritesheet.onload = function(evt) {...}`
         + delcare variable: `var index = spriteSelect.value;`
         + compute the position of selected posture: `var x = index*SPRITE_WIDTH % spritesheet.width; var y = Math.floor(index/NB_FRAMES_PER_POSTURE) * SPRITE_HEIGHT;`
         + update fields: `xField.value = x; yField.value = y;`
-        + draw red wireframe for selected sprite: `ctx2.clearRect(0, 0, canvasSpriteSheet.width, canvasSpriteSheet.height,); ctx2.drawImage(spritesheet, 0, 0); drawWireFrameRect(ctx2, x, y, SPRITE_WIDTH, SPRITE_HEIGHT, 'red'. 3);`
+        + draw red wireframe for selected sprite: `ctx2.clearRect(0, 0, canvasSpriteSheet.width, canvasSpriteSheet.height); ctx2.drawImage(spritesheet, 0, 0); drawWireFrameRect(ctx2, x, y, SPRITE_WIDTH, SPRITE_HEIGHT, 'red', 3);`
         + draw select sprite in small canvas: `ctx1.clearRect(0, 0, SPRITE_WIDTH, SPRITE_HEIGHT); ctx1.drawImage(spritesheet, x, y, SPRITE_WIDTH, SPRITE_HEIGHT, 0, 0, SPRITE_WIDTH, SPRITE_HEIGHT);`
         + update output element for slider: `spriteNumber.innerHTML = index;`
     + draw wireframe: `function drawWireFrameRect(ctx, x, y, w, h, color, lineWidth) {...}`
       + save ctx: `ctx.save();`
-      + set and draw wireframe: `ctx.strokeStyle = color; ctx.lineWidth = lineWidth; ctx.strokeRect(x. y. w. h);`
+      + set and draw wireframe: `ctx.strokeStyle = color; ctx.lineWidth = lineWidth; ctx.strokeRect(x, y, w, h);`
       + restore ctx: `ctx.restore();`
 
 
