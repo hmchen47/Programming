@@ -1074,7 +1074,7 @@ The only additions are: _lines 13-19_ in the updateBalls function, and the `circ
   + get current ball: `var ball = ballArray[i];`
   + call self to move ball: `ball.move();`
   + call to test wall collision: `testCollisionWithWalls(ball);`
-  + test collission: `if (circRectsOverlap(monster.x, monster.y, monster.width, monster.height, ball.x, ball.y, ball.radius)) { ball.color = 'red'; }`
+  + test collision: `if (circRectsOverlap(monster.x, monster.y, monster.width, monster.height, ball.x, ball.y, ball.radius)) { ball.color = 'red'; }`
   + call self to draw ball: `ball.draw();`
 
 
