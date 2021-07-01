@@ -173,7 +173,7 @@ Notice that:
 + The function that tests collisions is straightforward (_lines 55-76_).  We did not use "if... else if" since a ball may sometimes touch two walls at once (in the corners). In that rare case, we need to invert both the horizontal and vertical speeds. When a ball collides with a wall, we need to replace it in a position where it is no longer against the wall (otherwise it will collide again during the next animation loop execution).
 
 
-#### Direction and velocity with wall colisions
+#### Direction and velocity with wall collisions
 
 __Similar example but with the ball direction as an angle, and a single velocity variable__
 
@@ -296,12 +296,12 @@ Using angles or horizontal and vertical increments is equivalent. However, one m
     + (x, y): center of the circle
     + collision: replace the ball at position where it's exactly in contact w/ the border
     + test collision independently, `if...else if` not suitable
-    + left colission: `if (ball.x < (ball.radius)) { ball.x = ball.radius; ball.vx *= -1; }`
-    + right colission: `if (ball.x > width - ball.radius) { ball.x = width - ball.radius; ball.vx *= -1; }`
-    + up colission: `if (ball.y < (ball.radius)) { ball.y = ball.radius; ball.vy *= -1; }`
-    + down colission: `if (ball.y > width - ball.radius) { ball.y = height - ball.radius; ball.vy *= -1; }`
+    + left collision: `if (ball.x < (ball.radius)) { ball.x = ball.radius; ball.vx *= -1; }`
+    + right collision: `if (ball.x > width - ball.radius) { ball.x = width - ball.radius; ball.vx *= -1; }`
+    + up collision: `if (ball.y < (ball.radius)) { ball.y = ball.radius; ball.vy *= -1; }`
+    + down collision: `if (ball.y > width - ball.radius) { ball.y = height - ball.radius; ball.vy *= -1; }`
 
-+ Example: direction and velocity with wall colissions
++ Example: direction and velocity with wall collisions
   + [declare variables](#vars)
   + declare [array of balls](#ballArray)
   + [init page after DOM ready](#init)
@@ -312,10 +312,10 @@ Using angles or horizontal and vertical increments is equivalent. However, one m
   + create [animation loop](#animationLoop)
   + test collision w/ angle & speed: `function testCollisionWithWalls(ball) {...}`
     + test collision independently, `if...else if` not suitable
-    + left colission: `if (ball.x < (ball.radius)) {ball.x = ball.radius; ball.angle = -ball.angle + Math.PI;}`
-    + right colission: `if (ball.x > width - ball.radius) {ball.x = width - ball.radius; ball.angle = -ball.angle + Math.PI;}`
-    + up colission: `if (ball.y < (ball.radius)) {ball.y = ball.radius; ball.angle = -ball.angle;}`
-    + right colission: `if (ball.y > width - ball.radius) {ball.y = width - ball.radius; ball.angle = -ball.angle;}`
+    + left collision: `if (ball.x < (ball.radius)) {ball.x = ball.radius; ball.angle = -ball.angle + Math.PI;}`
+    + right collision: `if (ball.x > width - ball.radius) {ball.x = width - ball.radius; ball.angle = -ball.angle + Math.PI;}`
+    + up collision: `if (ball.y < (ball.radius)) {ball.y = ball.radius; ball.angle = -ball.angle;}`
+    + right collision: `if (ball.y > width - ball.radius) {ball.y = width - ball.radius; ball.angle = -ball.angle;}`
   + constructor function for balls w/ speed and angle<a name="ballSA"></a>: `function Ball(x, y, angle, v, diameter) {...}`
     + declare ball properties: `this.x = x; this.y = y; this.angle = angle; this.v = v; this.radius = diameters/2;`
     + draw ball: `this.draw = function() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0.2*Math.PI); ctx.fill(); };`
@@ -903,12 +903,12 @@ For the ones who are not afraid by some math and physics and would like to learn
     + $\overline{c_1 c_2} < r_1 + r_2$: the circles collided or overlaid
   + Javascript snippet: `function circleCollideNonOptimised(x1, y1, r1, x2, y2, r2) {...}`
     + declare variables: `var dx = x1 - x2; dy = y1 - y2;`
-    + compute distance: `var distance = Math,sqrt(dx * dx + dy * dy);`
+    + compute distance: `var distance = Math.sqrt(dx * dx + dy * dy);`
     + return boolean value: `return (distance < r1 + r2);`
   + complex shapes (right diagrams)
     + using a list of bounding circles or a hierarchy of bounding circles
     + a hierarchy of bounding circles (middle diagram)
-      + test against the "big one" on the left containing athe whole arm
+      + test against the "big one" on the left containing the whole arm
       + collision $\implies$ test for two-sub-circles
       + ...
 
@@ -935,7 +935,7 @@ For the ones who are not afraid by some math and physics and would like to learn
   + declare player object<a name="playerObj"></a>: `var player = {x:0, y:0, boundingCircleRadius:20}`
   + generate [animation loop](#mainLoop) adding  player and collision after moster position
     + call to get player position: `updatePlayer();`
-    + call to check colission: `checkCollisions();`
+    + call to check collision: `checkCollisions();`
   + calculate player position: `function updatePlayer() {...}`
     + player just a circle drawn at the mouse position
     + check mouse position to move the player and draw circle: `if (inputStates.mousePos) {...}`
@@ -943,8 +943,8 @@ For the ones who are not afraid by some math and physics and would like to learn
       + draw circle: `ctx.beginPath(); ctx.arc(player.x, player.y, player.boundingCircleRadius, 0, 2*Math.PI); x=ctx.stroke();`
   + check collision: `function testCollisions() {...}`
     + call to check collision: `if (circleCollide(player.x, player.y, player.boundingCircleRadius, monster.x monster.y, monster.boundingCircleRadius)) { //red } else { // black }`
-    + colide to draw red: `ctx.fillText("Collision", 150, 20); ctx.strokeStyle = ctx.fillStyle = 'red';`
-    + non-colide to draw black: `ctx.fillText("No collision", 150, 20); ctx.strokeStyle = ctx.fillStyle = 'black';`
+    + collide to draw red: `ctx.fillText("Collision", 150, 20); ctx.strokeStyle = ctx.fillStyle = 'red';`
+    + non-collide to draw black: `ctx.fillText("No collision", 150, 20); ctx.strokeStyle = ctx.fillStyle = 'black';`
   + check circle collision: `function circleCollide(x1, y1, r1, x2, y2, r2) {...}`
     + compute differences: `var dx = x1 - x2; dy = y1 - y2;`
     + check collision or not: `return ((dx * dx + dy * dy) < (r1 + r2)*(r1 + r2));`
@@ -952,11 +952,11 @@ For the ones who are not afraid by some math and physics and would like to learn
 + Rectangle detection test
   + projecting the horizontal and vertical axis of the rectangles over the X and Y asix
   + scenarios:
-    + only horizontal axis projections overlapped: no collision
-    + only vertical axis projects overlapped: no collision
-    + both horizontal and vertical projects overlapped: collision detected
+    + only horizontal axis projection overlapped: no collision
+    + only vertical axis projection overlapped: no collision
+    + both horizontal and vertical projectsions overlapped: collision detected
   + JavaScript snippet: `function rectsOverlap(x1, y1, w1, h1, x2, y2, w2, h2) {...}`
-    + only horizontal overlap: `if ((x1 > (x2+w2)} || (x1 + w1) < x2)) return false;`
+    + only horizontal overlap: `if ((x1 > (x2+w2)) || ((x1 + w1) < x2)) return false;`
     + only vertical overlap: `if ((y1 > (y2+h2)) || ((y1+h1) < y2)) return false;`
     + both axes overlap: `return true;`
 
@@ -972,8 +972,8 @@ For the ones who are not afraid by some math and physics and would like to learn
     + get player boundaries: `var playerSize = player.boundingCircleRadius; var playerXBoundingRect = player.x - playerSize/2; var playerYBoundingRect = player.y - playerSize/2;`
     + get mouse boundaries: `var monsterXBondingRect = monster.x - monster.width/2; var monsterYBondingRect = monster.y - monster.height/2;`
     + call to check collision: `if (rectsOverlap(playerXBondingRect, playerYBonsingRect, playerSize, playerSize, monsterXBondingRect, monsterYBondingRect, monster.width, monster.height)) { //red } else { // black }`
-      + colide to draw red: `ctx.fillText("Collision", 150, 20); ctx.strokeStyle = ctx.fillStyle = 'red';`
-      + non-colide to draw black: `ctx.fillText("No collision", 150, 20); ctx.strokeStyle = ctx.fillStyle = 'black';`
+      + collide to draw red: `ctx.fillText("Collision", 150, 20); ctx.strokeStyle = ctx.fillStyle = 'red';`
+      + non-collide to draw black: `ctx.fillText("No collision", 150, 20); ctx.strokeStyle = ctx.fillStyle = 'black';`
     + check rectangle collision: `function rectsOverlap(x1, y1, w1, h1, x2, y2, w2, h2) {...}`
       + no horizontal overlap: `if ((x1 > (x2 + w2)) || ((x1 + w1) < x2)) return false;`
       + no vertical overlap: `if ((y1 > (y2+h2)) || ((y1+h1) < y2)) return false;`
@@ -982,24 +982,24 @@ For the ones who are not afraid by some math and physics and would like to learn
 + Rectangle-circle collision
   + [scenarios](https://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection)
     + circle's center lying inside the rectangle
-    + one of the edge of the rectngle interacting the circle
+    + one of the edges of the rectngle interacting the circle
   + JavaScript snippet: `function circRectsOverlap(x0, y0, w0, h0, cx, cy, r) {...}`
     + declare and set circle center: `var testX = cx; var testY = cy;`
     + left collision: `if (testX < x0) testX = x0;`
     + right collision: `if (testX > (x0+w0)) testX = (x0+w0);`
     + top collision: `if (testY < y0) testY = y0;`
     + buttom collision: `if (testY > (y0+h0)) testY = (y0+h0);`
-    + return collision check: `return (((cx-testX)*(cx-testX) - (cy-testY)*(cy-testY)) < r*r>);`
+    + return collision check: `return (((cx-testX)*(cx-testX) - (cy-testY)*(cy-testY)) < r*r);`
 
 + Ball collision - pool like
   + two balls collide and know their velocities (step 1)
   + separate each ball's velocity into perpenduclar componnets (step 2)
     + "normal" component: heading twoward the other ball
     + "tangential" component: perpendicular to the other ball
-    + using "normal" for the first components as its direction along the line linking the centers of the balls
+    + using "normal" for the first component as its direction along the line linking the centers of the balls
     + line perpendicular to the collision plane, tangent to the two balls at collision point
   + swap the components btw two balls (step 3)
-  + recombine the velocities for each balls (step 4)
+  + recombine the velocities for each ball (step 4)
 
   <figure style="margin: 0.5em; text-align: center;">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
@@ -1074,7 +1074,7 @@ The only additions are: _lines 13-19_ in the updateBalls function, and the `circ
   + get current ball: `var ball = ballArray[i];`
   + call self to move ball: `ball.move();`
   + call to test wall collision: `testCollisionWithWalls(ball);`
-  + test colission: `if (circRectsOverlap(monster.x, monster.y, monster.width, monster.height, ball.x, ball.y, ball.radius)) { ball.color = 'red'; }`
+  + test collission: `if (circRectsOverlap(monster.x, monster.y, monster.width, monster.height, ball.x, ball.y, ball.radius)) { ball.color = 'red'; }`
   + call self to draw ball: `ball.draw();`
 
 
