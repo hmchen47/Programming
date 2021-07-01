@@ -127,7 +127,7 @@ So, when we think about writing a "sprite engine", we need to consider how to su
     + different sprite sets corresponding to different postures
     + example: walking woman
       + 8 different sets of sprites, or posturess, each corresponding to a direction
-      + each compriseing exactly 13 sprites, aligned in a single row across the sprite sheet
+      + each comprising exactly 13 sprites, aligned in a single row across the sprite sheet
   + one posture per sprite sheet
     + only a single sprite set per sheet
     + spreadign over multiple lines
