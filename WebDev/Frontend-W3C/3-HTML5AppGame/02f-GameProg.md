@@ -790,47 +790,48 @@ Source code extract:
 #### Notes for 2.6.5 Adding sprites to the game framework
 
 + Adding sprites to game framework - walking woman
-  + declare a `woman` object w/ `x`, `y`, `speed`, `width` and `direction` properties, where `direcction` corresponding to a posture's index
-  + add the `Sprite` and `SpriteImage` objects tot he game framework
+  + declare a `woman` object w/ `x`, `y`, `speed`, `width` and `direction` properties, where `direction` corresponding to a posture's index
+  + add the `Sprite` and `SpriteImage` objects to the game framework
   + create a `loadAssets(callback)` function
     + loading the sprite sheet
     + extracting all the woman sprites and building the `womanSprites` array
     + calling the `callback` function passed as a parameter once finished
   + call the `loadAssets` function from the game framework `start` function
     + start the animation loop only when the `loadAssets` function completed loading and extract the sprites
-    + real game: `loadAssets` fucntion probably loading the sounds, sprite sheets or resources, etc.
+    + real game: `loadAssets` function probably loading the sounds, sprite sheets or resources, etc.
     + using the `BufferLoader` utility for loading multiple resources asynchronously
 
-+ Example: game framework w/ sprites
++ Example: game framework w/ sprites - Init Page
   + init page after DOM ready: `window.onload = function init() {...}`
-    + create game framework: `var game = new GF();`
-    + call self to start game: `game.start();`
+  + create game framework: `var game = new GF();`
+  + call self to start game: `game.start();`
 
-+ Game framework class w/ sprites: `var GF = function() {...}`
++ Example: Game framework class w/ sprites - GF class
+  + decalre game framework: `var GF = function() {...}`
   + ...
   + declare variables for sprite directions: `var WOMAN_DIR_RIGHT = 6; var WOMAN_DIR_LEFT = 2;`
-  + declare woman object: `var woman = {x: 10, y: 200, width: 48, speed: 100, direction: WOMMAN_DIR_RIGHT};`
-  + declare arry for sprites: `var wonamSprites = [];`
+  + declare woman object: `var woman = {x: 10, y: 200, width: 48, speed: 100, direction: WOMAN_DIR_RIGHT};`
+  + declare array for sprites: `var womanSprites = [];`
   + geneate animation loop: `var mainLoop = function(time) {...}`
     + ...
-    + draw woman left or right: `womanSprites[wiman.direction].draw(ctx, woman.x, woman.y); updateWomanPosition(delta);`
+    + draw woman left or right: `womanSprites[woman.direction].draw(ctx, woman.x, woman.y); updateWomanPosition(delta);`
     + ...
   + declare to update woman position: `function updateWomanPosition(delta) {...}`
-    + check collision on both sides: `if (((woman.x+woman.width) > canvas.width) || (woman.x <0>)) {woman.speed = -woman.speed;}`
-    + change direction: `if (woman.speed >= 0) {woman.direction = WOMAN_DIR_RIGHT;} else {woamn.direction = WOMAN_DIR_LEFT;}`
+    + check collision on both sides: `if (((woman.x+woman.width) > canvas.width) || (woman.x <0)) { woman.speed = -woman.speed; }`
+    + change direction: `if (woman.speed >= 0) { woman.direction = WOMAN_DIR_RIGHT; } else { woman.direction = WOMAN_DIR_LEFT; }`
     + update position: `woman.x += calcDistanceToMove(delta, woman.speed);`
   + declare [Sprite class](#sprite)
-  + declare to load assets: `var loadAssets = fucntion(callback) {...}`
+  + declare to load assets: `var loadAssets = function(callback) {...}`
     + declare spritesheet variables: `var SPRITESHEET_URL = "https://i.imgur.com/3VesWqx.png"; var SPRITE_WIDTH = 48; var SPRITE_HEIGHT = 92; var NB_POSTURES = 8; var NB_FRAMES_PER_POSTURE = 13;`
     + load spritesheet: `var spritesheet = new image(); spritesheet.src = SPRITESHEET_URL;`
     + creat sprites after spritesheet loaded: `spritesheet.onload = function() {...}`
-      + iterate through all postures: `for (var i=0; i<NB_PSOTURES; i++) {...}`
+      + iterate through all postures: `for (var i=0; i<NB_POSTURES; i++) {...}`
         + create sprite: `var sprite = new Sprite();`
         + extract sprite: `sprite.extractSprites(spritesheet, NB_POSTURES, (i+1), NB_FRAMES_PER_POSTURE, SPRITE_WIDTH, SPRITE_HEIGHT);`
         + set frame rate: `sprite.setNbImagesPerSecond(20);`
         + store created sprite into array: `womanSprites[i] = sprite;`
       + call the callback function passed as a parameter: `callback();`
-  + declare start method: `var start = fucntion() {...}`
+  + declare start method: `var start = function() {...}`
     + ...
     + call to load assets and start animation: `loadAssets(function() { requestAnimationFrame(mainLoop); });`
 
