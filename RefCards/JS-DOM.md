@@ -1021,6 +1021,46 @@
   + [Websockets](https://fr.wikipedia.org/wiki/WebSocket): providing the means for sending messages to a sever and receiving event-driven responses w/o having to poll the sever for a reply
 
 
++ [Game loop](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-223-the-game-loop)
+  + the main component of any game
+  + separating the game logic and the visual layer from a user's input and action
+  + traditional applications: respond to user input and do nothing w/o it
+  + game: continue operating regardless of a user's input
+  + computing events in the game all the time, even if no action from user
+  + possible actions: move the enemies, resolve collisions, playing sound and drawing graphics
+  + possible implementations
+    + `setInterval(function, ms)`
+    + `setTimeout(function, ms)`
+    + `requestAnimationFrame(mainloop)`
+
++ [Animation using `setInterval` function](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-223-the-game-loop)
+  + syntax: `setInterval(function, ms)`
+  + call a function and evaluate an expression at specified intervals of time (in ms)
+  + return a unique id of this action
+  + stop by calling `clearInterval(id)`
+  + call the `function` every `ms` second even if the previous one not yet finished
+
++ [Animation using `setTimeout` function](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-223-the-game-loop)
+  + syntax: `setTimeout(function, ms)`
+  + work like `setInterval` but w/ one little difference
+  + call `function` __AFTER__ a given amount of time
+  + definite improvement: timer waiting for the function to finish everything inside before calling it again
+
++ [Animation using `requestAnimationFrame` function](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-223-the-game-loop)
+  + syntax: `requestAnimationFrame(mainloop)`
+  + 60 fps: 16.6 ms = 1/60 s
+  + help browser to optimize all the animations on the screen
+  + `setInterval` & `setTimeout`: browser w/o info about the actions within function $\to$ execution time unknown
+  + animation loop in an invisible tab: not running
+  + issue: animation loop content probably takes longer than the rate (60 fps)
+  + solution: time-based animation
+    + require an accurate timer to tell the elapsed time btw each animation frame
+    + according to the time, compute the distances each object on the screen must achieve to move at a given speed
+    + independent on the CPU or GPU of the computer or mobile device
+  + `timestamp` parameter of the `mainloop` function: a high-resolution time
+
+
+
 ## Assets Loading
 
 + [Background loader](../WebDev/Frontend-W3C/5-JavaScript/03e-HTML5API.md#354-advanced-a-multiple-image-sound-and-music-loader)
@@ -1034,8 +1074,6 @@
   + alternatively, change `src` attribute
 
 
-
-## Games
 
 
 
@@ -1066,10 +1104,16 @@
   + [circle-Rectangle collision detection](https://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection)
   + example: [collision detection btw balls & the player](src/02f-example12.html)
 
-
 + [Changing variable dynamically - game completion](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#267-adding-input-fields)
   + using `input` fields to change the init variables
   + example: [game to collide selected color balls](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example13.html)
+
++ Example: [animation w/ `setInterval` function](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-223-the-game-loop)
+
++ Example: [animation w/ `setTimeout` function](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-223-the-game-loop)
+
++ Example: [animation w/ `requestAnimationFrame` function](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-223-the-game-loop)
+
 
 
 ## Example: Audio
