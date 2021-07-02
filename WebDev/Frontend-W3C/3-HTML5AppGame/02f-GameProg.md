@@ -602,7 +602,7 @@ Notice that we added a `drawStopped` method in the `Sprite` model in order to st
 
 #### Notes for 2.6.4 A small sprite animation framework
 
-+ Example: sprite animation framework w/ alking robot
++ Example: sprite animation framework w/ walking robot
   + declare variable: `var robot;`
   + [init page after DOM ready](#init)
     + ...
@@ -625,7 +625,7 @@ Notice that we added a `drawStopped` method in the `Sprite` model in order to st
 + `Sprite` class
   + an animated object
   + defined by an array of `SpriteImage` objects
-  + a method for extracting all`SpriteImage` from a given sheet and filling the above array
+  + a method for extracting all`SpriteImage` from a given sheet and filling the array
   + `draw` method: draw current `SpriteImage`
   + drawing multiple times involve an automatic change of the current `SpriteImage` being drawn
   + number of different images drawn per second: a parameter of the sprite
@@ -633,7 +633,7 @@ Notice that we added a `drawStopped` method in the `Sprite` model in order to st
     + declare properties: `this.spriteArray = []; this.currentFrame = 0; this.delayBetweenFrames = 10;`
     + declare extract method: `this.extractSprite = function(spritesheet, nbPosture, postureToExtract, nbFramesPerPosture, spriteWidth, spriteHeight) {...};`
       + compute number of sprites per row: `var nbSpritesPerRow = Math.floor(spritesheet.width / spriteWidth);`
-      + compute the start and edn indice: `var startIndex = (postureToExtract - 1)*nbFramesPerPosture; var endIndex = startIndex + nbFramesPerRow;`
+      + compute the start and end indice: `var startIndex = (postureToExtract - 1)*nbFramesPerPosture; var endIndex = startIndex + nbFramesPerRow;`
       + iterate through the row: `for (var index=startIndex; index<maxIndex; index++) {...}`
       + compute x and y position: `var x = (index % nbSpritePerRow)*spriteWidth; var y = Math.floor(index/nbSpritePerRow) * spriteHeight;`
       + build a spriteImage object: `var s = new SpriteImage(spritesheet, x, y, spriteWidth, spriteHeight);`
