@@ -297,6 +297,17 @@
 				+ `currentVideo`: a variable corresonding to the the index of the current video
         + `myVideo.src = sources [currentVideo % sources.length]`: set the `src` of the video element to `sources[0]`, then to `sources[1]`, and module w/ the length of the list to repeat the playing
 
++ [Video and animated texture](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-222-elements-and-apis-useful-for-writing-games)
+  + `<video>` element
+    + playing streaming videos or movies
+    + partially replacing the object element
+  + JavaScript API
+    + nearly the same as the one of the `<audio>` element
+    + enabling full control from JavaScript
+  + combining the capabilities of the `<video>` and `<canvas>` elements
+    + possible to maipulate video data to incorporate a variety of visual effects in real time
+    + possible to use images from video as "animated textures" over graphic object
+
 
 ## The `<audio>` elements
 
@@ -318,6 +329,19 @@
     + using nearly zero CPU and w/o delay when playing (no buffering)
     + complicated to use for this purpose
   + [howler.js](https://howlerjs.com/) simplifying the use of the WebAudio API
+
++ [Audio](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-222-elements-and-apis-useful-for-writing-games)
+  + the `<audio>` element
+    + an HTML element
+    + introduced to give a consistent API for playing streamed sounds in browsers
+    + file format support varying btw browsers
+    + MP3 working nearly all browsers
+    + only for streaming compressed audio $\implies$ consuming CPU resources
+    + no sound effects, such as changing speed and real-time effect
+  + the Web Audio API
+    + a 100\% JavaScript API designed for working in real-time w/ uncompressed sound samples or for generating procedural music
+    + sound samples loaded into memory and decompressed prior to being used
+    + up to 12 sound effects natively provided by browsers
 
 
 
@@ -965,6 +989,37 @@
     + test game state: game over if no life left
     + etc.
 
++ [Drawing](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-222-elements-and-apis-useful-for-writing-games)
+  + `<canvas>` element
+    + a new HTML element
+    + a resolution-dependent bitmap canvas used for rendering graphs, game graphs, or orther images on-the-fly
+    + rectangle shape able to draw by using scripting w/ JavaScript
+    + a drawable region defined w/ `height` and `width` attributes
+  + multiple canvas on one page
+    + possible stacked one on top of another, such as transpreant layer
+    + visible in the DOM tree
+    + one's state independent of the others
+  + a rich JavaScript API
+    + all kind of shapes
+    + wireframe or filled shapes
+    + properties: color, line width, patterns, gradient, etc.
+    + transparency and pixel level manipulation
+    + supported by all browsers, on desktop or mobile phones, and on most devices
+
++ [Animation](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-222-elements-and-apis-useful-for-writing-games)
+  + `requestAnimationFrame` API
+    + targeting 60 fps in canvases
+    + w/ high resolution timer
+  + 60 fps: easy to obtain w/ simple 2D games on major desktop commputers
+  + preferred way to perform animation
+  + no animation performed if not visible $\to$ saving CPU resources
+
++ [Multiple participants: Websockets](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-222-elements-and-apis-useful-for-writing-games)
+  + not part of HTML5 but W3C [WebRTC](https://www.w3.org/TR/webrtc/) specification, "Real-time Communication between Browsers"
+  + creating two-way communication sessions btw multiple browsers and a server
+  + [socket.io](https://socket.io/): useful libraries built on top of Websocket API
+  + [Websockets](https://fr.wikipedia.org/wiki/WebSocket): providing the means for sending messages to a sever and receiving event-driven responses w/o having to poll the sever for a reply
+
 
 ## Assets Loading
 
@@ -977,6 +1032,11 @@
       + multiple samples elements probably required
       + pause one and start another when changig music
   + alternatively, change `src` attribute
+
+
+
+## Games
+
 
 
 ## Example: Canvas and Animation
