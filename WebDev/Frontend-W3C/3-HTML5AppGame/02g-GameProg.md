@@ -574,12 +574,12 @@ The quizzes for this week are not so important. _We're keen to see you write you
       + collision detection functions
       + ball constructor functions
     + typical interactive functions
-      + key and mouse listener
+      + key and mouse listeners
       + gamepad code
       + ...
   + reduce dependencies:
     + change code to reduce dependencies
-    + example: add a parameter to to make a function independent from global variables
+    + example: add a parameter to make a function independent from global variables
   + limit main JavaScript to certain function
     + `game.js` as the core of the game framework: `init` function, `mainloop` function, game states, score, levels
     + other functional groupings: `utils.js`, `sprites.js`, `collisions.js`, `listeners.js`
@@ -601,7 +601,7 @@ The quizzes for this week are not so important. _We're keen to see you write you
     + body part: `<canvas id="myCanvas" width=200 height=200></canvas>`
   + CSS style `game.css`: `canvas { border: 1px solid black; }`
 
-+ Ball function constructor `ball.js`
++ Ball function constructor, `ball.js`
   + ball constructor: `function Ball(x, y, angle, v, diameter) {...}`
     + ...
     + draw method: `this.draw = function() { ctx.save; ... };`
@@ -609,7 +609,7 @@ The quizzes for this week are not so important. _We're keen to see you write you
   + `calcDistanceToMove` used here but declared in `game.js` within `GF` object
   + `ctx` variable missing $\to$ added as a parameter to the `draw` method
 
-+ Time-based animation `timeBaseAnim,js`
++ Time-based animation, `timeBasedAnim,js`
   + `calcDistanceToMove` function used by the Ball constructor and moving the monster etc.
   + extract the utility functions related to time-based animation
   + add `ctx` parameter to the `draw` method of `ball.js`
@@ -620,21 +620,21 @@ The quizzes for this week are not so important. _We're keen to see you write you
     + return the time difference: `return delta;`
   + calculate distance: `var calcDistanceToMove = function (delta, speed) { return (speed*delta) / 1000; };`
 
-+ Count the number of frames per second `fps.js`
++ Count the number of frames per second, `fps.js`
   + add a small `initFPS` function for creating the `<div>` to display the FPS value
   + call `initFPS` from `GF.start()` method
   + code in `start` method moved into the `initFPS` function and added into the `fps.js`
   + declare variables: `var fameCount = 0; var lastTime; var fpsContainer; var fps;`
   + init PFS count: `var initFPSCount = function() {...}`
-    + create fpd container: `fpsContainer = document.createElement('div');`
+    + create fps container: `fpsContainer = document.createElement('div');`
     + add container into page: `document.body.appendChild(fpsContainer);`
   + measure FPS: `var measureFPS = function(newTime) {...}`
-    + test for the first invocation: `if (lastTime === undefined) ( lastTime = newTime; return; )`
+    + test for the first invocation: `if (lastTime === undefined) { lastTime = newTime; return; }`
     + calculate time difference btw the last and current frames: `var diffTime = newTime - lastTime;`
     + check time difference greater than 1 second: `if (diffTime < 1000) { fps = frameCount; frameCount = 0; lastTime = newTime; }`
   + display fps info: `fpsContainer.innerHTML = 'FPS: ' + fps; frameCount++;`
 
-+ Handling event listeners `listeners.js`
++ Handling event listeners, `listeners.js`
   + add listenters for input states: `function addListeners(inputStates, canvas) {...}`
     + add key down listeners: `window.addEventListener('keydown', function(event) {...}, false);`
       + check left arrow key down: `if (event.keyCode === 37) { inputStates.left = true; }`
@@ -645,8 +645,8 @@ The quizzes for this week are not so important. _We're keen to see you write you
     + ...
   + calculate mouse position: `function getMousePos(evt, canvas) {...}`
 
-+ Collision detection `collisions.js`
-  + detect collision btw rectangle and circle: `function circRectsOverlap(x0, y0, w0, h0, cx, cy, r) {...}`
++ Collision detection, `collisions.js`
+  + detection collision btw rectangle and circle: `function circRectsOverlap(x0, y0, w0, h0, cx, cy, r) {...}`
   + detection collision w/ walls: `function testCollisionWithWalls(ball, w, h) {...}`
 
 + Final version of game fraework
