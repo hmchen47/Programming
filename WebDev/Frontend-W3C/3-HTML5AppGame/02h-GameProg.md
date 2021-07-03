@@ -241,7 +241,18 @@ The Sprite constructor function:
   Explanation: It's useful for setting the number of frames per second. We will draw a different image from the spriteArray that composes the animated character.
 
 
+### 2.8.4 Game states, collision detection (12)
 
+12. State variables?
+
+  Why did we use inputStates and gameStates variables?
+
+  a. It's just how Professor Buffa programs games. It's not a best practice to use state variables like this.<br>
+  b. A game is a state machine. The states are changed depending on user interactions, collisions, or game conditions; and the mainloop will refer to the current states to make the game respond accordingly.<br>
+  c. We could have changed the x and y coordinates of the player in the key or mouse event listeners, and that would have done the same thing.<br>
+
+  Ans: <br>
+  Example: 
 
 
 
