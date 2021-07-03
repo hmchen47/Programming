@@ -245,14 +245,14 @@ The Sprite constructor function:
 
 12. State variables?
 
-  Why did we use inputStates and gameStates variables?
+  Why did we use `inputStates` and `gameStates` variables?
 
   a. It's just how Professor Buffa programs games. It's not a best practice to use state variables like this.<br>
   b. A game is a state machine. The states are changed depending on user interactions, collisions, or game conditions; and the mainloop will refer to the current states to make the game respond accordingly.<br>
   c. We could have changed the x and y coordinates of the player in the key or mouse event listeners, and that would have done the same thing.<br>
 
-  Ans: <br>
-  Example: 
+  Ans: b<br>
+  Example: A game is a state machine. The mainloop runs 60 times/s and is able to react rapidly to any state changes. Never allocate or de-allocate memory in the mainloop. Slow or asynchronous operations must be done outside the mainloop and just change state variables that are checked in the mainloop.
 
 
 
