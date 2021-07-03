@@ -1063,6 +1063,24 @@
 
 ## Time-base Animation
 
++ [Time-based animation](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-241-introduction)
+  + animate objects to move at the same speed on screen, regardless of the device running the game
+    + compute the amount of time elapsed btw the last frame and the current one
+    + adjust the distance the objects move across the screen depending on the delta of time
+  + perform some animations only a few times per second
+    + sprite-based animation: drawing different images as an object moves
+    + draw object only ten times per second, not change the images of the animation 60 times/s
+    + screen still performs 60 fps
+  + accurate set the framerate
+    + leave some CPU time for other tasks
+    + many game consoles limit the frame-rate tp 1/30th of a second
+
++ [Procedure to measure time btw frames](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-241-introduction)
+  1. erase the canvas
+  2. draw the shapes
+  3. move the shapes
+  4. go to the 1st step
+
 
 
 
@@ -1481,6 +1499,10 @@
     + mouse button to accelerate
 
 + Example: [gamepad enhancements](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-237-move-the-monster)
+
++ Example: [regular animation](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-241-introduction)
+
++ Example: [simulating a low-end device](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-241-introduction)
 
 
 
