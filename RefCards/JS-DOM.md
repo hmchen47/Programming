@@ -1152,6 +1152,27 @@
   + the listener creating an `event` object to describe what happened
   + different types of event $\to$ different properties of the `event` object
 
++ [Keyboard related events](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-234-adding-key-listeners)
+  + the code of the key passed tot he listener function once key-board event fired
+  + example: `window.addEventListener('keydown', function(evt) { if (event.keyCode === 37) { // left arrow pressed } }, false);`
+  + online interactive [event keycode test page](http://www.asquare.net/javascript/tests/KeyCode.html)
+
++ [Multiple keyboard related events](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-234-adding-key-listeners)
+  + game requirements:
+    + check keys pressed at a very high frequency
+    + typically from inside the game loop that is looping at up to 60 times per second
+    + possible pressed down multiple keys
+  + keep the list if pertinent keys in a JavaScript object
+    + typical methods: store the list of the keys up or down at a given time in a JavaScript object
+    + object `inputStates`
+      + update content inside the different input event listener
+      + check values inside the game loop to make the game react accordingly
+  + add changes to game framework
+    + add empty `inputState` object as a global property of the game engine
+    + add event listeners for each keydown and keyup event to control game within `start()` method
+    + test if an arrow key or the space bar pressed or released $\to$ set the properties of the `inputState` object accordingly, e.g., space bar pressed w/ setting `inputState.space=true;` but released w/ resetting `inputState.space=false;`
+    + add tests to check which keys are down within main loop
+
 
 
 
@@ -1390,6 +1411,8 @@
 + Example: [draw a monster in a canvas](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-232-introducing-graphics)
 
 + Example: [add animation to game engine](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-232-introducing-graphics)
+
++ Example: [handling multiple keyboard-related events](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-234-adding-key-listeners)
 
 
 
