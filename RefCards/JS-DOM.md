@@ -1061,6 +1061,11 @@
 
 
 
+## Time-base Animation
+
+
+
+
 ## Assets Loading
 
 + [Background loader](../WebDev/Frontend-W3C/5-JavaScript/03e-HTML5API.md#354-advanced-a-multiple-image-sound-and-music-loader)
@@ -1072,6 +1077,43 @@
       + multiple samples elements probably required
       + pause one and start another when changig music
   + alternatively, change `src` attribute
+
+
+
+## Game Framework
+
++ [Game framework skeleton](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+  + based on the [Black Box Driven Development](https://hacks.mozilla.org/2014/08/black-box-driven-development-in-javascript/)
+    + principle 1: modularize everything
+    + principle 2: expose only public methods
+    + principle 3: use composition over inheritance
+  + a simple objected-based model using encapsulation to expose only useful methods and properties
+  + cut into several files once becoming too large to fit into one single file
+
++ Example: [game framework starting point](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+  + generate game framework <a name="gf"></a>: `var GF = function() {...}`
+    + create animation loop: `var mainloop = function() { requestAnimationFrame(mainloop); };`
+    + init game loop: `var star = function() { requestAnimationFrame(mainloop); };`
+    + return a public API<a name="publicAPI"></a>: `return { start: start };`
+  + create a new game instance
+    + declare game instance: `var game = new GF();`
+    + launch game: `game.start();`
+
++ [Measuring animation's frame rate](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+  + every game requiring a function to measure the actual frame rate achieved by the code
+  + principle:
+    + count the time elapsed by adding deltas in the `mainloop`
+    + sum of the deltas $\ge 1000 \implies$ 1s elapsed since starting point
+    + meanwhile, count the number of frames drawn $\implies$ meansure frame rate, should be 60 fps
+  + delta ($\Delta, \delta$)
+    + $\Delta$:
+      + used in mathematics as an abbreviation for measuring the change in some object
+      + how quickly the mainloop running
+      + the maximum speed, rate of change, at which the game display will be updated
+      + rate of change able to be measured in frames per second (fps)
+    + $\delta$
+      + determine the achievable frame rate
+      + the shorter the delta (in ms), the faster the possible rate of change (in fps)
 
 
 
@@ -1292,6 +1334,21 @@
 + Example: [preloading sound samples w/ `BufferLoader`](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
 
 + Example: [playing 2 sound samples w/ different rates](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
+
+
+## Example: Game
+
++ Example: [animation loop of game framework](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+
++ Example: [counting frames/s](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+
++ Example: [compute FPS in animation loop](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+
++ Example: [display FPS](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+
++ Example: [image element w/ error callback](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+
++ Example: [check the number of FPS](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
 
 
 
