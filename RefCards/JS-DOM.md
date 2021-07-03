@@ -1548,4 +1548,6 @@
 
 + Example: [bouncing rectangle w/ adjustable frame rate](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-243-setting-the-frame-rate)
 
++ Example: [game framework adding time-based animation](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-244-adding-time-based-animation)
+
 
