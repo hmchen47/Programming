@@ -1113,6 +1113,14 @@
   + change frame rate: `setFrameRateInFramesPerSecond(nb);`
 
 
+## Sprite-based Animation
+
++ [Sprite animation](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-261-introduction)
+  + using components from a collection of animation frames
+  + animation effect: drawing component images, rapidly, one-after-the-other
+
+
+
 
 
 ## Assets Loading
