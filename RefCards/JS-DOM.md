@@ -1134,6 +1134,13 @@
     + sprite sheets containing completely different sets of sprites
     + sprite engine: considering how to support differenet layouts of sprite sheet
 
++ [Procedure of sprite animation](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-263-sprite-extraction-and-animation)
+  + loading the sprite sheet(s)
+  + extracting the different postures and store them in an array of sprites
+  + sprite engine
+    + choosing the appropriate one
+    + drawing within the animation loop
+    + taking into account elapsed time: creating a realistic "delay" btw each change of sprite image
 
 
 
@@ -1676,6 +1683,9 @@
 + Example: [rectangle collision test](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-253-collision-detection)
 
 + Example: [game framework w/ collision detection](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-254-adding-collision-detection-to-the-game-framework)
+
++ Example: [walking woman w/ multiple postures/sheet](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-263-sprite-extraction-and-animation)
+
 
 
 
