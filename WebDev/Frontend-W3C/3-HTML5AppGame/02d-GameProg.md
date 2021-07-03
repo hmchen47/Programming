@@ -914,7 +914,7 @@ To animate a monster at 60 fps but blinking his eyes once per second, you would 
       + begin a new draw: `ctx.beginPath();`
       + set style and position for new curve: `ctx.lineWidth = 5 + Math.random() * 10; ctx.moveTo(lastX, lastY);`
       + set end position for curve: `lastX = width * Math.random(); lastY = height * Math.random();`
-      + set curve path: `ctx.bezierCurveTo(width*Math.random(), height*Math.random(), width*Math.random(), height*Math.random(), lastX, lastY);`
+      + set curve path: `ctx.bizierCurveTo(width*Math.random(), height*Math.random(), width*Math.random(), height*Math.random(), lastX, lastY);`
       + set curve style and draw: `hue = hue + 10 * Math.random(); ctx.strokeStyle = "hsl(" + hue + ", 50%, 50%)"; ctx.shadowColor = "white"; ctx.shadowBlur = 10; ctx.stroke();`
       + restore ctx: `ctx.restore();`
       + reset last redraw time: `totalTimeLastSinceRedraw = 0;`
@@ -935,7 +935,7 @@ To animate a monster at 60 fps but blinking his eyes once per second, you would 
       + reset redraw time: `totalTimeSinceLastRedraw = 0;`
     + increase time w/p redraw: `else {totalTimeSinceLastRedraw += delta;}`
     + store time: `then = now;`
-    + call for next frame: `requestAnimarionFrame(mainloop);`
+    + call for next frame: `requestAnimationFrame(mainloop);`
   + calculate [distance to move](#calcDist)
 
 
