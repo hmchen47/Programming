@@ -1201,6 +1201,10 @@
     + principle 3: use composition over inheritance
   + a simple objected-based model using encapsulation to expose only useful methods and properties
   + cut into several files once becoming too large to fit into one single file
+  + game:
+    + a state machine
+    + states changed depending on user interaction, collisions, or game conditions
+    + animation loop referring to current states to make the game respond accordingly
 
 + [Measuring animation's frame rate](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
   + every game requiring a function to measure the actual frame rate achieved by the code
