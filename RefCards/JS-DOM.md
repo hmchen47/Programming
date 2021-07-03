@@ -1118,6 +1118,7 @@
 + [Sprite animation](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-261-introduction)
   + using components from a collection of animation frames
   + animation effect: drawing component images, rapidly, one-after-the-other
+  + using time-based aniamtion in draw function of the prite model
 
 + [Types of sprite sheets](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-262-different-sorts-of-sprite-sheets)
   + multiple postures on a single sprite sheet
@@ -1157,21 +1158,9 @@
   + declare class<a name="sprite"></a>: `function Sprite() {...}`
     + declare properties: `this.spriteArray = []; this.currentFrame = 0; this.delayBetweenFrames = 10;`
     + declare extract method: `this.extractSprite = function(spritesheet, nbPosture, postureToExtract, nbFramesPerPosture, spriteWidth, spriteHeight) {...};`
-      + compute number of sprites per row: `var nbSpritesPerRow = Math.floor(spritesheet.width / spriteWidth);`
-      + compute the start and end indice: `var startIndex = (postureToExtract - 1)*nbFramesPerPosture; var endIndex = startIndex + nbFramesPerRow;`
-      + iterate through the row: `for (var index=startIndex; index<maxIndex; index++) {...}`
-      + compute x and y position: `var x = (index % nbSpritePerRow)*spriteWidth; var y = Math.floor(index/nbSpritePerRow) * spriteHeight;`
-      + build a spriteImage object: `var s = new SpriteImage(spritesheet, x, y, spriteWidth, spriteHeight);`
-      + put into array: `this.spriteArray.push(s);`
     + declare to stop draw<a name="stop"></a>: `this.drawStopped = function(ctx, x, y) { var currentSpriteImage = this.spriteArray[this.currentFrame]; currentSpriteImage(ctx, x, y,1); }`
     + declare time-related properties: `this.then = performance.now(); this.totalTimeSinceLastRedraw = 0;`
     + declare draw method<a name="draw"></a>: `this.draw = function(ctx, x, y) {...}`
-      + set variables: `var now = performance.now(); var delta = now - this.then;`
-      + draw current sprite image: `var currentSpriteImage = this.spriteArray(this.currentFrame); currentSpriteImage.draw(ctx, x, y, 1);`
-      + check the time elapsed w/ delay: `if (this.totalTimeSinceLastRedraw > this.delayBetweenFrames) { // next sprite } else { // last redraw };`
-        + move to next sprite: `this.currentFrame++; this.currentFrame %= this.spriteArray.length; this.totalTimeSinceLastRedraw = 0;`
-        + increase delta time: `this.totalTimeSinceLastRedraw += delta;`
-      + update the time: `this.then = now;`
     + declare method to set number of images per second: `this.setNbImagesPerSecond = function(nb) { this.delayBetweenFrames = 1000 / nb; };`
 
 + [Adding sprites to game framework - walking woman](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-265-adding-sprites-to-the-game-framework)

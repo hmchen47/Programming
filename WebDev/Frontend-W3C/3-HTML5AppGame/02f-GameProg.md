@@ -56,6 +56,7 @@ We have not yet investigated how this works, nor have we built it into the small
 + Sprite animation
   + using components from a collection of animation frames
   + animation effect: drawing component images, rapidly, one-after-the-other
+  + using time-based aniamtion in draw function of the prite model
 
 
 ### 2.6.2 Different sorts of sprite sheets
