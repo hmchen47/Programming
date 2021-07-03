@@ -1736,6 +1736,9 @@
 
 + Example: [Game framework class w/ sprites - GF class](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-265-adding-sprites-to-the-game-framework)
 
++ Example: [properties for balls](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-271-menus-high-score-tables-etc)
+
++ Example: [game states](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-271-menus-high-score-tables-etc)
 
 
 
