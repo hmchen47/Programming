@@ -61,20 +61,20 @@
   a. It will remain constant<br>
   b. It will depend on the device running the script<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: With time-based animation, we compute the time that has elapsed between the previous frame drawn and the current one, and depending on this delta of time, we adjust the distance we move objects on the screen so that their speed in pixels per second remains constant.
 
 
 6. Setting the frame rate
 
-  We have a mainloop that targets 60 frames/second and we use the requestAnimationFrame API for implementing it. How can we set the frame rate to nearly 37 frames/s, for example?
+  We have a mainloop that targets 60 frames/second and we use the `requestAnimationFrame` API for implementing it. How can we set the frame rate to nearly 37 frames/s, for example?
 
   a. We can measure the deltas of time between frames, and sum them up. If the sum is superior to the delay that corresponds to 1/37s, then we draw the frame, otherwise we do nothing.<br>
   b. We should stop using `requestAnimationFrame` and use `setInterval` instead - it's better.<br>
   c. We can't.<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: The mainloop, for all the reasons explained during the HTML5 Part 1 course, should use the `requestAnimation` API. In order not to draw at 60 frames/s but less, we should measure the time elapsed and sum the deltas of time. When the sum is superior to the delay that corresponds to 1/37s (for 37 frames/s), then we draw the frame.
 
 
 7. I prefer HD!
@@ -86,8 +86,8 @@
   c. `var time = Date.now();`<br>
   d. Use the parameter passed to the `mainloop` when called by `requestAnimationFrame(mainloop)`<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: bd<br>
+  Explanation: The `performance.now()` and the `requestAnimationFrame` APIs provide high resolution time.
 
 
 8. Sprites and time based animation?
@@ -97,8 +97,11 @@
   a. used time-based animation in the draw method of the sprite object model<br>
   b. did not use time-based animation as it did not address the moving object problem<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: <font style="color: magenta;">a</font>, xb<br>
+  Explanation: It used time-based animation in the draw function of the sprite model to set the number of times we will draw a new image of animation, per second.
+
+
+
 
 
 
