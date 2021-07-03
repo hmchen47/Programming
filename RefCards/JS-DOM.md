@@ -1103,7 +1103,14 @@
     + corresponding to the time elapsed since the page loaded
     + similar to the value sent by the high resolution timer using `performance.now()`
 
-
++ [Frame rate](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-243-setting-the-frame-rate)
+  + ignore some frames to reach desired frame rate w/ `requestAnimationFrame`
+  + possible to set the frame rate using time-based animation
+    + set a global variable corresponding to the desired frame rate
+    + compare the elapsed time btw two executions of the animation loop
+      + time elapsed too short for the target frame rate: do nothing
+      + time elapsed exceeding the delay corresponding to the choosen frame rate: draw the frame and reset the time to zero
+  + change frame rate: `setFrameRateInFramesPerSecond(nb);`
 
 
 
@@ -1536,5 +1543,9 @@
 
 + Example: [using timestamps parameter of `requestAnimationFrame`](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-242-measuring-time-between-frames)
 
+
++ Example: [change frame rate](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-243-setting-the-frame-rate)
+
++ Example: [bouncing rectangle w/ adjustable frame rate](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-243-setting-the-frame-rate)
 
 
