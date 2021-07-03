@@ -1180,6 +1180,43 @@
     + dimensions corresponding to the padding / margins / borders of the canvas
   + `getMousePos()` to retrieve the mouse position within page
 
++ [Gamepad API](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-236-gamepad-events)
+  + a [W3C draft](https://w3c.github.io/gamepad/)
+  + supported by all browsers, except IE
+  + recommendation: Wired Xbox 360 Controller or a PS2 controller
+  + wireless controllers supported but not tested yet
+  + some controllers probably require to install drivers
+
++ [Detecting gamepad](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-236-gamepad-events)
+  + event triggered when plugged in or unplugged
+  + `gamepadconnected` event trigered as user interacting (press a button or move a stick)
+  + `gamepad` property along w/ event listener to describe the connected device
+  + issue: gamepad already detected by the browser
+    + using a global variable for managing the gamepad or an array of gampads in code
+    + reload page $\to$ no event fired $\to$ variables undefined
+  + solution: regular scanning gamepap availability
+  + `getGamepads`: retrieving a snapshot of the data for the current connected nad interacted w/ gamepads
+  + [luser/gamepadtest in GitHub](https://github.com/luser/gamepadtest): good example of managing multiple gamepads
+
++ Attributes of [Gamepad interface](https://w3c.github.io/gamepad/#gamepad-interface)
+  + `id`: identification string for the gamepad, brand or style of connected gamepad, useful w/ `mapping` property
+  + `index`: index of the gamepad in the Naviagtor, used for multiple gamepads
+  + `connected`: whether the physical device represented still connected to the system
+  + `timestamp`: last time the data updated
+  + `mapping`:
+    + setting a property to a known mapping name
+    + not implemented yet by most browsers
+    + a layout map associated w/ the `id` of the gamepad
+    + default: all connected gamepads using a [standard default layout](https://w3c.github.io/gamepad/#remapping)
+  + `axes`:
+    + array of values for all axes of gamepad, ranging [-1.0, 1.0]
+    + usually representing the analog sticks
+    + a pair of axes given the position on the stick in its X and Y axis
+    + -1.0 representing the up or left-most position of the axis while 1.0 representing the down or right-most position of the axis
+    + compute the angle via axes values w/ `angle = arcTan(sin/cos);`
+  + `buttons`: array of button states of `GamepadButton` objects for all buttons of the gamepad
+    + `pressed`: a Boolean property indicating whether the button is currently pressed (`true`) or unpressed (`false`)
+    + `value`: a floating-point value used to enable representing analog buttons, normalized to [0.0, 1.0]
 
 
 
@@ -1427,6 +1464,17 @@
 + Example: [object following mouse cursor](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-235-adding-mouse-listeners)
   
 + Example: [adding mouse listeners to the game framework](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-235-adding-mouse-listeners)
+
++ Example: [detecting gamepad](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-236-gamepad-events)
+
++ Example: [scanning the gamepad](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-236-gamepad-events)
+
++ Example: [detecting button status](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-236-gamepad-events)
+
++ Example: [detecting axes values](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-236-gamepad-events)
+
++ Example: [detecting the direction](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-236-gamepad-events)
+
 
 
 
