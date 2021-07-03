@@ -25,3 +25,21 @@ The following sections of this course present a few examples of file downloads/u
 The current support of XHR2 is excellent: see related [CanIUse's browser compatibility table](https://caniuse.com/#feat=xhr2).
 
 
+#### Notes for 3.2.1 Ajax and XHR2
+
++ Asynchronous JavaScript and XML (Ajax)
+  + a group of interrelated Web development techniques
+  + used on the client-side to create asynchronous Web application
+  + Web applications able to send data to and retrieve from a server asynchronously w/o interfering w/ the display and behavior of the existing page
+  + data retrieved via the `XMLHttpRequest` object, usually JSON format used than XML
+  + XHR2: XmlHttpRequest level 2, the new version of Ajax, improvement
+    + easier to use syntax
+    + in-browser encoding/decoding of binary files
+    + progress monitoring of uploads and downloads
+
+
+
+
+
+
+
