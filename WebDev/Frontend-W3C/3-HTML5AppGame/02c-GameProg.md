@@ -206,6 +206,10 @@ Source code extract of this example:
     + principle 3: use composition over inheritance
   + a simple objected-based model using encapsulation to expose only useful methods and properties
   + cut into several files once becoming too large to fit into one single file
+  + game:
+    + a state machine
+    + states changed depending on user interaction, collisions, or game conditions
+    + animation loop referring to current states to make the game respond accordingly
 
 + Example: game framework starting point
   + generate game framework <a name="gf"></a>: `var GF = function() {...}`
