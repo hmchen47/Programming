@@ -1475,6 +1475,13 @@
 
 + Example: [detecting the direction](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-236-gamepad-events)
 
++ Example: [moving and accelerating object](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-237-move-the-monster)
+  + tasks:
+    + arrow keys to move object up/down/left/right
+    + mouse button to accelerate
+
++ Example: [gamepad enhancements](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-237-move-the-monster)
+
 
 
 
