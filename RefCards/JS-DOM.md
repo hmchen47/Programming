@@ -1346,6 +1346,40 @@
   + found in other object-oriented languages, such as Java, C#, etc.
   + useful to create many objects of the same classes
 
++ [Modulizing game project](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
+  + review and isolate functions
+    + grouping functions w/o dependence on the framework
+    + typical functions reused in other project
+      + sprite utility functions
+      + collision detection functions
+      + ball constructor functions
+    + typical interactive functions
+      + key and mouse listeners
+      + gamepad code
+      + ...
+  + reduce dependencies:
+    + change code to reduce dependencies
+    + example: add a parameter to make a function independent from global variables
+  + limit main JavaScript to certain function
+    + `game.js` as the core of the game framework: `init` function, `mainloop` function, game states, score, levels
+    + other functional groupings: `utils.js`, `sprites.js`, `collisions.js`, `listeners.js`
+
++ [Possible procedure of game development](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
+  + start w/ a simple structure: `game.html` and `game.css`
+  + isolate ball function constructor: `ball.js`
+  + isolate time-based animation functions in a separate file: `timeBaseAnim.js`
+  + isolate the part counting the number of frames per second: `fps.js`
+  + isolate the event listeners: `listeners.js`
+  + isolate the collision tests: `collisions.js`
+
++ [A simple structure](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
+  + HTML snippet `game.html`<a name="simpleGame"></a>:
+    + head part: `<head> ... </head>`
+      + sound script: `<script src="https://cdnjs.cloudflare.com/.../howler.min.js"></script>`
+      + css style: `<link rel="stylesheet" href="css/game.css">`
+      + game script: `<script src="js/game.js"></script>`
+    + body part: `<canvas id="myCanvas" width=200 height=200></canvas>`
+  + CSS style `game.css`: `canvas { border: 1px solid black; }`
 
 
 
@@ -1740,6 +1774,12 @@
 
 + Example: [game states](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-271-menus-high-score-tables-etc)
 
-
++ Procedure for game development
+  + [Ball function constructor, `ball.js`](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
+  + [Time-based animation, `timeBasedAnim,js`](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
+  + [Count the number of frames per second, `fps.js`](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
+  + [Handling event listeners, `listeners.js`](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
+  + [Collision detection, `collisions.js`](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
+  + [Final version of game fraework](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
 
 
