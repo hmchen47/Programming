@@ -961,7 +961,7 @@
       + `ctx.beginPath();`: lift pen to begin a new draw, no line btw the previous ned point and the current starting point
       + useful global properties: `w = canvas.width; h = canvas.height;`
     + typical procedure for function to change the context
-      + change any properties of global context: 
+      + change any properties of global context:
         + start by saving the content: `ctx.save();`
         + end by restoring it: `ctx.restore();`
       + properties including color, line, width, coordinate system, etc.
@@ -1109,7 +1109,7 @@
     + set a global variable corresponding to the desired frame rate
     + compare the elapsed time btw two executions of the animation loop
       + time elapsed too short for the target frame rate: do nothing
-      + time elapsed exceeding the delay corresponding to the choosen frame rate: draw the frame and reset the time to zero
+      + time elapsed exceeding the delay corresponding to the chosen frame rate: draw the frame and reset the time to zero
   + change frame rate: `setFrameRateInFramesPerSecond(nb);`
 
 
@@ -1201,15 +1201,6 @@
     + principle 3: use composition over inheritance
   + a simple objected-based model using encapsulation to expose only useful methods and properties
   + cut into several files once becoming too large to fit into one single file
-
-+ Example: [game framework starting point](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
-  + generate game framework <a name="gf"></a>: `var GF = function() {...}`
-    + create animation loop: `var mainloop = function() { requestAnimationFrame(mainloop); };`
-    + init game loop: `var star = function() { requestAnimationFrame(mainloop); };`
-    + return a public API<a name="publicAPI"></a>: `return { start: start };`
-  + create a new game instance
-    + declare game instance: `var game = new GF();`
-    + launch game: `game.start();`
 
 + [Measuring animation's frame rate](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
   + every game requiring a function to measure the actual frame rate achieved by the code
@@ -1426,7 +1417,7 @@
 + [Rectangle-circle collision](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-253-collision-detection)
   + [scenarios](https://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection)
     + circle's center lying inside the rectangle
-    + one of the edges of the rectngle interacting the circle
+    + one of the edges of the rectangle interacting the circle
   + JavaScript snippet: `function circRectsOverlap(x0, y0, w0, h0, cx, cy, r) {...}`
     + declare and set circle center: `var testX = cx; var testY = cy;`
     + left collision: `if (testX < x0) testX = x0;`
@@ -1437,7 +1428,7 @@
 
 + [Ball collision - pool like](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-253-collision-detection)
   + two balls collide and know their velocities (step 1)
-  + separate each ball's velocity into perpenduclar componnets (step 2)
+  + separate each ball's velocity into perpendicular componets (step 2)
     + "normal" component: heading twoward the other ball
     + "tangential" component: perpendicular to the other ball
     + using "normal" for the first component as its direction along the line linking the centers of the balls
@@ -1678,6 +1669,8 @@
 
 
 ## Example: Game
+
++ Example: [game framework starting point](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
 
 + Example: [animation loop of game framework](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
 
