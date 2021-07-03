@@ -1119,6 +1119,21 @@
   + using components from a collection of animation frames
   + animation effect: drawing component images, rapidly, one-after-the-other
 
++ [Types of sprite sheets](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-262-different-sorts-of-sprite-sheets)
+  + multiple postures on a single sprite sheet
+    + different sprite sets corresponding to different postures
+    + example: walking woman
+      + 8 different sets of sprites, or posturess, each corresponding to a direction
+      + each comprising exactly 13 sprites, aligned in a single row across the sprite sheet
+  + one posture per sprite sheet
+    + only a single sprite set per sheet
+    + spreadign over multiple lines
+    + multiple sprite sheets: one for each posture
+    + example: walking robot (16 sprites) and jumping robot (26 sprites)
+  + hybrid sprite sheets
+    + sprite sheets containing completely different sets of sprites
+    + sprite engine: considering how to support differenet layouts of sprite sheet
+
 
 
 
