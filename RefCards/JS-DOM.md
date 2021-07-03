@@ -1267,6 +1267,12 @@
     + `pressed`: a Boolean property indicating whether the button is currently pressed (`true`) or unpressed (`false`)
     + `value`: a floating-point value used to enable representing analog buttons, normalized to [0.0, 1.0]
 
++ [Pseudo class](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-251-animating-multiple-objects)
+  + define a constructor function for creating objects
+  + found in other object-oriented languages, such as Java, C#, etc.
+  + useful to create many objects of the same classes
+
+
 
 
 
@@ -1549,5 +1555,14 @@
 + Example: [bouncing rectangle w/ adjustable frame rate](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-243-setting-the-frame-rate)
 
 + Example: [game framework adding time-based animation](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-244-adding-time-based-animation)
+
++ Example: [multiple balls](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-251-animating-multiple-objects)
+
++ Example: [direction and velocity with wall collisions](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-251-animating-multiple-objects)
+
+
+
+
+
 
 
