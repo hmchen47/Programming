@@ -2003,7 +2003,7 @@ The `checkAxes` function updates the `left`, `right`, `up`, `down` properties of
   + tasks:
     + arrow keys to move object up/down/left/right
     + mouse button to accelerate
-  + set object psoition and speed: `var monster = {x: 10, y: 10, speed: 1};`
+  + set object position and speed: `var monster = {x: 10, y: 10, speed: 1};`
   + generate animation loop: `var mainloop = function(time) {...}`
     + call to measure FPS: `measureFPS(time);`
     + call to empty canvas: `clearCanvas();`
