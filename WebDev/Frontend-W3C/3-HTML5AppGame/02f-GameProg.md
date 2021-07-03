@@ -56,7 +56,7 @@ We have not yet investigated how this works, nor have we built it into the small
 + Sprite animation
   + using components from a collection of animation frames
   + animation effect: drawing component images, rapidly, one-after-the-other
-  + using time-based aniamtion in draw function of the prite model
+  + using time-based animation in draw function of the sprite model
 
 
 ### 2.6.2 Different sorts of sprite sheets
@@ -127,7 +127,7 @@ So, when we think about writing a "sprite engine", we need to consider how to su
   + multiple postures on a single sprite sheet
     + different sprite sets corresponding to different postures
     + example: walking woman
-      + 8 different sets of sprites, or posturess, each corresponding to a direction
+      + 8 different sets of sprites, or postures, each corresponding to a direction
       + each comprising exactly 13 sprites, aligned in a single row across the sprite sheet
   + one posture per sprite sheet
     + only a single sprite set per sheet
@@ -362,7 +362,7 @@ Now it's time to see how we can make a small sprite animation framework!
       + initialize after the page loaded, get canvas and context, set max and min values of the sliders, disable slider before spritsheet loaded, and load the sprite sheet
       + run callback once spritesheet loaded, enable the slider, set big canvas size, and draw it
       + draw the selected sprite in small canvas and red frame in big canvas
-      + move slider to trigger events, compute the x and y position of sprite sheet w/ the numer of sprites per posture, the number of rows, and the dimensions of each sprite, and then update the drawing on two canvas 
+      + move slider to trigger events, compute the x and y position of sprite sheet w/ the number of sprites per posture, the number of rows, and the dimensions of each sprite, and then update the drawing on two canvas 
     + set characteristics of sprite and sprite sheet: `var SPRITE_WIDTH = 48; var SPRITE_HEIGHT = 92; var NB_ROWS = 8; var NB_FRAMES_PER_POSTURE = 13;`
     + declare variables: `var xField, yField, wField, hField, spriteSheet, spriteNumber; var canvas, canvasSpriteSheet, ctx1, ctx2;`
     + init page after DOM ready<a name="init"></a>: `window.onload = function() {...}`
