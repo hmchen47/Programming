@@ -1115,6 +1115,22 @@
       + determine the achievable frame rate
       + the shorter the delta (in ms), the faster the possible rate of change (in fps)
 
++ [Best practices for canvas](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-232-introducing-graphics)
+  1. use a function called AFTER the page is fully loaded (and the DOM is ready), set a pointer to the canvas node in the DOM
+  2. get a 2D graphic context for this canvas; the `context` object used to
+      + draw on the canvas
+      + set global properties, such as color, gradient, patterns and line width
+  3. then able to draw something
+  4. do not forget to use global variables for the canvas and context object, in particular, the width and height of the cnavas
+  5. for each function that will change the context, start by saving context and end by restoring it
+
++ [Adding animaton into canvas](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-232-introducing-graphics)
+  1. add the canvas to the HTML page
+  2. add tne content of the `init()` function to the `start()` function of the game engine
+  3. add a few global variables, such as `canvas`, `ctx`, etc.
+  4. call the `drawMonster(...)` function from the mainloop
+  5. add a random displacement to the x, y position of the monster to see it moving
+  6. before drawing again in main loop, clear the canvas by `ctx.clearRect(x, y, width, height)` fucntion
 
 
 
@@ -1349,6 +1365,10 @@
 + Example: [image element w/ error callback](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
 
 + Example: [check the number of FPS](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+
++ Example: [draw a monster in a canvas](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-232-introducing-graphics)
+
++ Example: [add animation to game engine](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-232-introducing-graphics)
 
 
 
