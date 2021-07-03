@@ -110,8 +110,8 @@
   a. A graphic character that will be animated by drawing different images rapidly<br>
   b. A graphic character drawn using an animated gif image, for example<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: A sprite animated character is made of different sub-images that we draw consecutively.
 
 <hr>
 
@@ -226,8 +226,8 @@ The Sprite constructor function:
 
   In the above code, we build the robot sprite inside the `spritesheet.onload` listener. Look at the code that extracts the sprites (_lines 6-29_): does it require the sprite sheet to be loaded in order to work? (Yes/No)
 
-  Ans: <br>
-  Explanation: 
+  Ans: Yes<br>
+  Explanation: Yes, in the above code, the sprite sheet needs to be loaded otherwise its size (width and height) will be undefined or equal to zero. _Line 11_ in the code extractor above will extract `SpriteImages` with the wrong coordinates. It's a best practice when programming games, to load all assets (images, sounds) before doing anything (extracting sprites, start the animation, play the sounds).
 
 
 11. Sprite animation too fast?
@@ -237,8 +237,11 @@ The Sprite constructor function:
   a. In order to set the number of frames of animation to draw per second<br>
   b. It's not important - I suppose it is going to be useful when we will move the character<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: It's useful for setting the number of frames per second. We will draw a different image from the spriteArray that composes the animated character.
+
+
+
 
 
 
