@@ -1560,6 +1560,7 @@
 
 + Example: [direction and velocity with wall collisions](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-251-animating-multiple-objects)
 
++ Example: [game framework w/ bouncing balls](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-252-adding-balls-to-the-game-framework)
 
 
 
