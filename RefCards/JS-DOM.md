@@ -1163,7 +1163,7 @@
       + compute x and y position: `var x = (index % nbSpritePerRow)*spriteWidth; var y = Math.floor(index/nbSpritePerRow) * spriteHeight;`
       + build a spriteImage object: `var s = new SpriteImage(spritesheet, x, y, spriteWidth, spriteHeight);`
       + put into array: `this.spriteArray.push(s);`
-    + declare to stop draw<a name="stop"></a>: `this.drawStopped = function(ctx, x, y) { var currentSpriteImage = this.spriteArray[this.currentHtrame]; currentSpriteImage(ctx, x, y,1); }`
+    + declare to stop draw<a name="stop"></a>: `this.drawStopped = function(ctx, x, y) { var currentSpriteImage = this.spriteArray[this.currentFrame]; currentSpriteImage(ctx, x, y,1); }`
     + declare time-related properties: `this.then = performance.now(); this.totalTimeSinceLastRedraw = 0;`
     + declare draw method<a name="draw"></a>: `this.draw = function(ctx, x, y) {...}`
       + set variables: `var now = performance.now(); var delta = now - this.then;`
@@ -1173,6 +1173,18 @@
         + increase delta time: `this.totalTimeSinceLastRedraw += delta;`
       + update the time: `this.then = now;`
     + declare method to set number of images per second: `this.setNbImagesPerSecond = function(nb) { this.delayBetweenFrames = 1000 / nb; };`
+
++ [Adding sprites to game framework - walking woman](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-265-adding-sprites-to-the-game-framework)
+  + declare a `woman` object w/ `x`, `y`, `speed`, `width` and `direction` properties, where `direction` corresponding to a posture's index
+  + add the `Sprite` and `SpriteImage` objects to the game framework
+  + create a `loadAssets(callback)` function
+    + loading the sprite sheet
+    + extracting all the woman sprites and building the `womanSprites` array
+    + calling the `callback` function passed as a parameter once finished
+  + call the `loadAssets` function from the game framework `start` function
+    + start the animation loop only when the `loadAssets` function completed loading and extract the sprites
+    + real game: `loadAssets` function probably loading the sounds, sprite sheets or resources, etc.
+    + using the `BufferLoader` utility for loading multiple resources asynchronously
 
 
 
@@ -1720,6 +1732,9 @@
 
 + Example: [sprite animation framework w/ walking robot](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-264-a-small-sprite-animation-framework)
 
++ Example: [game framework w/ sprites - Init Page](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-265-adding-sprites-to-the-game-framework)
+
++ Example: [Game framework class w/ sprites - GF class](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-265-adding-sprites-to-the-game-framework)
 
 
 
