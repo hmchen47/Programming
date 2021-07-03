@@ -1081,6 +1081,30 @@
   3. move the shapes
   4. go to the 1st step
 
++ [Methods to measure time btw frames](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-242-measuring-time-between-frames)
+  + using the JavaScript `Date` object
+    + standard JavaScript for measuring time: `var time = new Date().getTime();`
+    + alternative solution: `var time = Date().now();`
+    + `getTime()` method: return an integer number of millisecond (Unix epoch) since midnight on 1970-01-01
+    + procedure
+      + measure the time at the beginning of each animation loop
+      + store the time
+      + compute the delta of times elapsed btw two consecutive loops
+    + applying some simple math to compute the number of pixels $\to$ move the object to achieve a given speed (in pixels/s)
+  + using the new HTML5 high-resolution timer
+    + [Hight Resolution Time API](https://www.w3.org/TR/hr-time/): a working draft
+    + `performance.now()`:
+      + get a sub-millisecond timestamp
+      + similar to `Date.now()` but w/ much higher accuracy
+      + return a floating point number, called a `DOMHighResTimeStamp`
+  + using timestamps parameter of the callback function of `requestAnimationFrame`
+    + recommended method
+    + timestamps as optional parameter
+    + corresponding to the time elapsed since the page loaded
+    + similar to the value sent by the high resolution timer using `performance.now()`
+
+
+
 
 
 
@@ -1504,6 +1528,13 @@
 
 + Example: [simulating a low-end device](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-241-introduction)
 
++ Example: [using Date object](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-242-measuring-time-between-frames)
+
++ Example: [simulation spending time in animation loop](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-242-measuring-time-between-frames)
+
++ Example: [high resultion API](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-242-measuring-time-between-frames)
+
++ Example: [using timestamps parameter of `requestAnimationFrame`](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-242-measuring-time-between-frames)
 
 
 
