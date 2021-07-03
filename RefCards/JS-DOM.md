@@ -1652,6 +1652,7 @@
 
 + Example: [rectangle collision test](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-253-collision-detection)
 
++ Example: [game framework w/ collision detection](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-254-adding-collision-detection-to-the-game-framework)
 
 
 
