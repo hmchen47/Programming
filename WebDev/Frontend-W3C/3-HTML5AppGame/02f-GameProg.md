@@ -362,7 +362,7 @@ Now it's time to see how we can make a small sprite animation framework!
       + run callback once spritesheet loaded, enable the slider, set big canvas size, and draw it
       + draw the selected sprite in small canvas and red frame in big canvas
       + move slider to trigger events, compute the x and y position of sprite sheet w/ the numer of sprites per posture, the number of rows, and the dimensions of each sprite, and then update the drawing on two canvas 
-    + set characteristics of sprite and sprite sheet: `var SPRITE_WIDTH = 48; var SPRITE_HEIGHT = 92; var NB_ROWS = 8; var NB_FRAMES_PER_PSOTURE = 13;`
+    + set characteristics of sprite and sprite sheet: `var SPRITE_WIDTH = 48; var SPRITE_HEIGHT = 92; var NB_ROWS = 8; var NB_FRAMES_PER_POSTURE = 13;`
     + declare variables: `var xField, yField, wField, hField, spriteSheet, spriteNumber; var canvas, canvasSpriteSheet, ctx1, ctx2;`
     + init page after DOM ready<a name="init"></a>: `window.onload = function() {...}`
       + access canvas and set context: `canvas = document.getElementById("canvas"); ctx1 = canvas.getContext("2d"); canvasSpriteSheet = document.getElementById("spritesheet"); ctx2 = canvasSpriteSheet.getContext("2d");`
@@ -638,7 +638,7 @@ Notice that we added a `drawStopped` method in the `Sprite` model in order to st
       + compute x and y position: `var x = (index % nbSpritePerRow)*spriteWidth; var y = Math.floor(index/nbSpritePerRow) * spriteHeight;`
       + build a spriteImage object: `var s = new SpriteImage(spritesheet, x, y, spriteWidth, spriteHeight);`
       + put into array: `this.spriteArray.push(s);`
-    + declare to stop draw<a name="stop"></a>: `this.drawStopped = function(ctx, x, y) { var currentSpriteImage = this.spriteArray[this.currentHtrame]; currentSpriteImage(ctx, x, y,1); }`
+    + declare to stop draw<a name="stop"></a>: `this.drawStopped = function(ctx, x, y) { var currentSpriteImage = this.spriteArray[this.currentFrame]; currentSpriteImage(ctx, x, y,1); }`
     + declare time-related properties: `this.then = performance.now(); this.totalTimeSinceLastRedraw = 0;`
     + declare draw method<a name="draw"></a>: `this.draw = function(ctx, x, y) {...}`
       + set variables: `var now = performance.now(); var delta = now - this.then;`
@@ -807,7 +807,7 @@ Source code extract:
   + call self to start game: `game.start();`
 
 + Example: Game framework class w/ sprites - GF class
-  + decalre game framework: `var GF = function() {...}`
+  + declare game framework: `var GF = function() {...}`
   + ...
   + declare variables for sprite directions: `var WOMAN_DIR_RIGHT = 6; var WOMAN_DIR_LEFT = 2;`
   + declare woman object: `var woman = {x: 10, y: 200, width: 48, speed: 100, direction: WOMAN_DIR_RIGHT};`
@@ -824,7 +824,7 @@ Source code extract:
   + declare to load assets: `var loadAssets = function(callback) {...}`
     + declare spritesheet variables: `var SPRITESHEET_URL = "https://i.imgur.com/3VesWqx.png"; var SPRITE_WIDTH = 48; var SPRITE_HEIGHT = 92; var NB_POSTURES = 8; var NB_FRAMES_PER_POSTURE = 13;`
     + load spritesheet: `var spritesheet = new image(); spritesheet.src = SPRITESHEET_URL;`
-    + creat sprites after spritesheet loaded: `spritesheet.onload = function() {...}`
+    + create sprites after spritesheet loaded: `spritesheet.onload = function() {...}`
       + iterate through all postures: `for (var i=0; i<NB_POSTURES; i++) {...}`
         + create sprite: `var sprite = new Sprite();`
         + extract sprite: `sprite.extractSprites(spritesheet, NB_POSTURES, (i+1), NB_FRAMES_PER_POSTURE, SPRITE_WIDTH, SPRITE_HEIGHT);`
