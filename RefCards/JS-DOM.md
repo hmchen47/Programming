@@ -1173,6 +1173,14 @@
     + test if an arrow key or the space bar pressed or released $\to$ set the properties of the `inputState` object accordingly, e.g., space bar pressed w/ setting `inputState.space=true;` but released w/ resetting `inputState.space=false;`
     + add tests to check which keys are down within main loop
 
++ [Mouse corrdinate](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-235-adding-mouse-listeners)
+  + HTML canvas w/ default (or directed) CSS properties producing false corrdinate
+  + using `var rect = canvas.getBoundingClientRect();` to get exact mouse cursor corrdinates
+    + considering the width and height of the `rect` object
+    + dimensions corresponding to the padding / margins / borders of the canvas
+  + `getMousePos()` to retrieve the mouse position within page
+
+
 
 
 
@@ -1413,6 +1421,12 @@
 + Example: [add animation to game engine](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-232-introducing-graphics)
 
 + Example: [handling multiple keyboard-related events](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-234-adding-key-listeners)
+
++ Example: [mouse position in canvas](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-235-adding-mouse-listeners)
+
++ Example: [object following mouse cursor](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-235-adding-mouse-listeners)
+  
++ Example: [adding mouse listeners to the game framework](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-235-adding-mouse-listeners)
 
 
 
