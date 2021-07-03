@@ -1142,6 +1142,38 @@
     + drawing within the animation loop
     + taking into account elapsed time: creating a realistic "delay" btw each change of sprite image
 
++ [`SpriteImage` class](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-264-a-small-sprite-animation-framework)
+  + declare class<a name="spriteImg"></a>: `function SpriteImage(img, x, y, width, height) {...}`
+  + delcare properties: `this.img = img; this.x = x; this.y = y; this.width = width; this.height = height;`
+  + declare draw method: `this.draw = function(ctx, xPos, yPos, scale) {ctx.drawImage(this.img, this.x, this.y, this.width, this.height, xPos, yPos, this.width*scale, this.height*scale);}`
+
++ [`Sprite` class](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-264-a-small-sprite-animation-framework)
+  + an animated object
+  + defined by an array of `SpriteImage` objects
+  + a method for extracting all`SpriteImage` from a given sheet and filling the array
+  + `draw` method: draw current `SpriteImage`
+  + drawing multiple times involve an automatic change of the current `SpriteImage` being drawn
+  + number of different images drawn per second: a parameter of the sprite
+  + declare class<a name="sprite"></a>: `function Sprite() {...}`
+    + declare properties: `this.spriteArray = []; this.currentFrame = 0; this.delayBetweenFrames = 10;`
+    + declare extract method: `this.extractSprite = function(spritesheet, nbPosture, postureToExtract, nbFramesPerPosture, spriteWidth, spriteHeight) {...};`
+      + compute number of sprites per row: `var nbSpritesPerRow = Math.floor(spritesheet.width / spriteWidth);`
+      + compute the start and end indice: `var startIndex = (postureToExtract - 1)*nbFramesPerPosture; var endIndex = startIndex + nbFramesPerRow;`
+      + iterate through the row: `for (var index=startIndex; index<maxIndex; index++) {...}`
+      + compute x and y position: `var x = (index % nbSpritePerRow)*spriteWidth; var y = Math.floor(index/nbSpritePerRow) * spriteHeight;`
+      + build a spriteImage object: `var s = new SpriteImage(spritesheet, x, y, spriteWidth, spriteHeight);`
+      + put into array: `this.spriteArray.push(s);`
+    + declare to stop draw<a name="stop"></a>: `this.drawStopped = function(ctx, x, y) { var currentSpriteImage = this.spriteArray[this.currentHtrame]; currentSpriteImage(ctx, x, y,1); }`
+    + declare time-related properties: `this.then = performance.now(); this.totalTimeSinceLastRedraw = 0;`
+    + declare draw method<a name="draw"></a>: `this.draw = function(ctx, x, y) {...}`
+      + set variables: `var now = performance.now(); var delta = now - this.then;`
+      + draw current sprite image: `var currentSpriteImage = this.spriteArray(this.currentFrame); currentSpriteImage.draw(ctx, x, y, 1);`
+      + check the time elapsed w/ delay: `if (this.totalTimeSinceLastRedraw > this.delayBetweenFrames) { // next sprite } else { // last redraw };`
+        + move to next sprite: `this.currentFrame++; this.currentFrame %= this.spriteArray.length; this.totalTimeSinceLastRedraw = 0;`
+        + increase delta time: `this.totalTimeSinceLastRedraw += delta;`
+      + update the time: `this.then = now;`
+    + declare method to set number of images per second: `this.setNbImagesPerSecond = function(nb) { this.delayBetweenFrames = 1000 / nb; };`
+
 
 
 
@@ -1685,6 +1717,8 @@
 + Example: [game framework w/ collision detection](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-254-adding-collision-detection-to-the-game-framework)
 
 + Example: [walking woman w/ multiple postures/sheet](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-263-sprite-extraction-and-animation)
+
++ Example: [sprite animation framework w/ walking robot](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-264-a-small-sprite-animation-framework)
 
 
 
