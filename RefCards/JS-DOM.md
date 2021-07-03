@@ -1275,6 +1275,92 @@
 
 
 
+## Collision Detection
+
++ [Circle collision test](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-253-collision-detection)
+  + objects: (left diagram)
+    + circle `c1` w/ center `(x1, y1)` and radius `r1`
+    + circle `c2` w/ center `(x2, y2)` and radius `r2`
+  + imaging a line running btw two center points
+  + scenarios btw distance and radii of circles
+    + $\overline{c_1 c_2} = r_1 + r_2$: the edges of the circles touch
+    + $\overline{c_1 c_2} > r_1 + r_2$: the circles neither touched nor collided
+    + $\overline{c_1 c_2} < r_1 + r_2$: the circles collided or overlaid
+  + Javascript snippet: `function circleCollideNonOptimised(x1, y1, r1, x2, y2, r2) {...}`
+    + declare variables: `var dx = x1 - x2; dy = y1 - y2;`
+    + compute distance: `var distance = Math.sqrt(dx * dx + dy * dy);`
+    + return boolean value: `return (distance < r1 + r2);`
+  + complex shapes (right diagrams)
+    + using a list of bounding circles or a hierarchy of bounding circles
+    + a hierarchy of bounding circles (middle diagram)
+      + test against the "big one" on the left containing the whole arm
+      + collision $\implies$ test for two-sub-circles
+      + ...
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/3vJxHZv" ismap target="_blank">
+      <img style="margin: 0.1em;" height=150
+        src   = "https://bit.ly/3cZ1O8K"
+        alt   = "two circles with distances between the centers drawn"
+        title = "two circles with distances between the centers drawn"
+      >
+      <img style="margin: 0.1em;" height=150
+        src   = "https://bit.ly/3gKp2lm"
+        alt   = "mage of an arm with a hierarchy of bounding circles: one for the whole arm, and two smaller for the forearm and the other part"
+        title = "mage of an arm with a hierarchy of bounding circles: one for the whole arm, and two smaller for the forearm and the other part"
+      >
+    </a>
+  </div>
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+</div>
+
++ [Rectangle detection test](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-253-collision-detection)
+  + projecting the horizontal and vertical axis of the rectangles over the X and Y asix
+  + scenarios:
+    + only horizontal axis projection overlapped: no collision
+    + only vertical axis projection overlapped: no collision
+    + both horizontal and vertical projectsions overlapped: collision detected
+  + JavaScript snippet: `function rectsOverlap(x1, y1, w1, h1, x2, y2, w2, h2) {...}`
+    + only horizontal overlap: `if ((x1 > (x2+w2)) || ((x1 + w1) < x2)) return false;`
+    + only vertical overlap: `if ((y1 > (y2+h2)) || ((y1+h1) < y2)) return false;`
+    + both axes overlap: `return true;`
+
++ [Rectangle-circle collision](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-253-collision-detection)
+  + [scenarios](https://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection)
+    + circle's center lying inside the rectangle
+    + one of the edges of the rectngle interacting the circle
+  + JavaScript snippet: `function circRectsOverlap(x0, y0, w0, h0, cx, cy, r) {...}`
+    + declare and set circle center: `var testX = cx; var testY = cy;`
+    + left collision: `if (testX < x0) testX = x0;`
+    + right collision: `if (testX > (x0+w0)) testX = (x0+w0);`
+    + top collision: `if (testY < y0) testY = y0;`
+    + buttom collision: `if (testY > (y0+h0)) testY = (y0+h0);`
+    + return collision check: `return (((cx-testX)*(cx-testX) - (cy-testY)*(cy-testY)) < r*r);`
+
++ [Ball collision - pool like](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-253-collision-detection)
+  + two balls collide and know their velocities (step 1)
+  + separate each ball's velocity into perpenduclar componnets (step 2)
+    + "normal" component: heading twoward the other ball
+    + "tangential" component: perpendicular to the other ball
+    + using "normal" for the first component as its direction along the line linking the centers of the balls
+    + line perpendicular to the collision plane, tangent to the two balls at collision point
+  + swap the components btw two balls (step 3)
+  + recombine the velocities for each ball (step 4)
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      onclick= "window.open('https://sinepost.wordpress.com/2012/09/05/making-your-balls-bounce/')"
+      src    = "https://bit.ly/35G82qa"
+      alt    = "diagram with two balls, velocities, tengeantial and normal planes"
+      title  = "diagram with two balls, velocities, tengeantial and normal planes"
+    />
+  </figure>
+
+  + Ref: [Video Game Physics Tutorial - Part I: An Introduction to Rigid Body Dynamics](https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics)
+
+
+
 
 
 ## Example: Canvas and Animation
@@ -1561,6 +1647,10 @@
 + Example: [direction and velocity with wall collisions](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-251-animating-multiple-objects)
 
 + Example: [game framework w/ bouncing balls](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-252-adding-balls-to-the-game-framework)
+
++ Example: [circle collision test](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-253-collision-detection)
+
++ Example: [rectangle collision test](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-253-collision-detection)
 
 
 
