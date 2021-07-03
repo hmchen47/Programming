@@ -32,10 +32,12 @@ The current support of XHR2 is excellent: see related [CanIUse's browser compati
   + used on the client-side to create asynchronous Web application
   + Web applications able to send data to and retrieve from a server asynchronously w/o interfering w/ the display and behavior of the existing page
   + data retrieved via the `XMLHttpRequest` object, usually JSON format used than XML
-  + XHR2: XmlHttpRequest level 2, the new version of Ajax, improvement
-    + easier to use syntax
-    + in-browser encoding/decoding of binary files
-    + progress monitoring of uploads and downloads
+  + the new version of Ajax
+    + XmlHttpRequest level 2 (XHR2)
+    + improvement
+      + easier to use syntax
+      + in-browser encoding/decoding of binary files
+      + progress monitoring of uploads and downloads
 
 
 
