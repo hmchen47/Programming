@@ -1132,6 +1132,27 @@
   5. add a random displacement to the x, y position of the monster to see it moving
   6. before drawing again in main loop, clear the canvas by `ctx.clearRect(x, y, width, height)` fucntion
 
++ [HTML5 events](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-233-user-interaction-and-event-handling)
+  + JavaScript w/o input and output
+    + treating event caused by user actions as inputs
+    + manipulating the DOM structure as output
+  + games
+    + maintaining state variables respenting moving objects like the position and speed of an alien ship
+    + the animation loop refers to the variables in determining the movement of such objects
+  + listening the event
+    + declare an event handler in the HTML code
+      + easy to use but not recommended $\to$ deprecated
+      + bad practice ([separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns): mixing 'visual layer' (HTML) and 'logical layer' (JavaScript)
+    + attach an event handler to an HTML element in JavaScript
+      + not able to attach multiple listener functions
+    + register a callback to the event listener w/ the `addEventListener` method (preferred method)
+      + parameter `false` describes whether the callback has to be called during the captured phase
+
++ [DOM event passed to the event listener function](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-233-user-interaction-and-event-handling)
+  + the listener creating an `event` object to describe what happened
+  + different types of event $\to$ different properties of the `event` object
+
+
 
 
 
