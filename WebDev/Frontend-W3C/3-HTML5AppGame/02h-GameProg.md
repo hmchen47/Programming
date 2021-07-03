@@ -52,5 +52,54 @@
   Explanation: Let `b` be a gamepad button. If `b.pressed` is true, then `b` is pressed. If `b.value` is defined, then `b` is an analog trigger and `b.value` is a floating point value between 0 and 1.
 
 
+### 2.8.2 Time-based animation (5-8)
+
+5. What time is it?
+
+  A graphic object moves across the screen. With time-based animation, how quickly does it move?
+
+  a. It will remain constant<br>
+  b. It will depend on the device running the script<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+6. Setting the frame rate
+
+  We have a mainloop that targets 60 frames/second and we use the requestAnimationFrame API for implementing it. How can we set the frame rate to nearly 37 frames/s, for example?
+
+  a. We can measure the deltas of time between frames, and sum them up. If the sum is superior to the delay that corresponds to 1/37s, then we draw the frame, otherwise we do nothing.<br>
+  b. We should stop using `requestAnimationFrame` and use `setInterval` instead - it's better.<br>
+  c. We can't.<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+7. I prefer HD!
+
+  Which of these gives a high resolution time (with a sub millisecond accuracy)? (2 correct answers.)
+
+  a. `var time = new Date().getTime();`<br>
+  b. `var time = performance.now();`<br>
+  c. `var time = Date.now();`<br>
+  d. Use the parameter passed to the `mainloop` when called by `requestAnimationFrame(mainloop)`<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+8. Sprites and time based animation?
+
+  The sprite animation framework proposed in the course...
+
+  a. used time-based animation in the draw method of the sprite object model<br>
+  b. did not use time-based animation as it did not address the moving object problem<br>
+
+  Ans: <br>
+  Explanation: 
+
+
 
 
