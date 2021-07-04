@@ -51,7 +51,9 @@ The current support of XHR2 is excellent: see related [CanIUse's browser compati
 [Transcript Download](https://bit.ly/3hhbMVq)
 
 
-#### Ajax and binary files - downloading files and monitoring progress
+#### Ajax and binary files
+
+__Ajax and binary files - downloading files and monitoring progress__
 
 HTTP is a text based protocol, so when you upload/download images, videos or any binary file, they must first be text encoded for transmission, then decoded on-the-fly upon receipt by the server or browser. For a long time, when using Ajax, these binary files had to be decoded "by hand", using JavaScript code. Not recommended!
 
@@ -80,6 +82,8 @@ _Note_: 1) the simple and concise syntax, and 2) the use of the new `arrayBuffer
 __Example: download a binary song file using XHR2 and responseType='arraybuffer', and play it using Web Audio__
 
 Try [this example](https://jsbin.com/mecakaz/edit?html,js,console,output) on JSBin:
+
+[Local Demo](src/03b-example01.html)
 
 In this example, instead of reading the file from disk, we download it using XHR2.
 
@@ -182,7 +186,9 @@ __Explanations:__
 + When the play button is enabled and clicked (_line 15_) it calls the `playSound` function. This builds a minimal Web Audio graph with a `BufferSource` node that contains the decoded sound (_lines 31-32_), connects it to the speakers (_line 35_), and then plays it.
 
 
-#### Monitoring uploads or downloads using a `progress` event
+#### Monitoring uploads and downloads
+
+__Monitoring uploads or downloads using a `progress` event__
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
@@ -260,7 +266,7 @@ Combining these with a `<progress>` element, makes it very easy to render an ani
 HTML:
 
 <div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;progress</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"downloadProgress"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">0</span><span class="tag">&gt;&lt;progress&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;progress</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"downloadProgress"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">0</span><span class="tag">&gt;&lt;/progress&gt;</span></li>
 </ol></div><br>
 
 JavaScript:
@@ -320,11 +326,122 @@ __Complete example: monitoring the download of a song file__
 
 [Try it on JSBin](https://jsbin.com/nuxanaf/edit?html,output) - look at the code, which includes the previous source code extract.
 
+[Local Demo](src/03b-example02.html)
+
 
 #### Notes for 3.2.2 Ajax/XHR2 and binary files
 
++ Ajax and binary files
+  + HTTP: a text based protocol
+  + upload/download binary files
+    + images, videos, audio and any other binary files
+    + encoded to text before transmission
+    + decoded on-the-fly upon receipt by the browser or server
+  + Ajax: decoded to binary files "by hand" w/ JavaScript code $\to$ not recommended
+  + XHR2:
+    + supported by all browsers after 2012
+    + able to download binary files
+    + asking the browser to encode/decode the file to send/receive, natively
+    + using `XMLHttpRequest` to send or receive a file
+    + set the `xhr.responseType` as `arrayBuffer`
 
++ Syntax for downloading file
+  + task: download sound sample w/ `XMLHttpRequest` level 2
+  + load sound file: `function loadSoundFile(url) {...};`
+  + create new object for XHR2<a name="xhr"></a>: `var xhr = new XMLHttpRequest();`
+  + open connect to retrieve data: `xhr.open('GET', url, true);`
+  + set response type<a name="rspType"></a>: `xhr.responseType = 'arrayBuffer';`
+  + add event listener for complete downloading<a name="onload"></a>: `xhr.onload = function(e) { initSound(this.response); };`
+  + send request to server<a name="send"></a>: `xhr.send();`
 
++ Example: playing downloaded sound
+  + task:
+    + click button to download sound file
+    + send Ajax request and call `xhr.onload` callback after file arrived
+    + decode mp3 into memory and enable start/stop buttons
+    + click button to play and stop sound
+  + HTML snippet
+    + button to trigger download: `<button onclick="downloadSoundFile('http://.../song.mp3');"> Download ant play example sound. </button>`
+    + start to play: `<button onclick="playSound()" disabled>Start</button>`
+    + stop to play: `<button onclick=""stopSound()" disabled>Stop</button>`
+  + JavaScript snippet
+    + declare variables for WebAudio: `var context = new window.AudioContext(); var source = url; var audioBuffer = null;`
+    + stop playing sound: `function stopSound() { if (source) source.stop(); }`
+    + start to play sound: `function starSound() {...}`
+      + create a source node and set properties: `source = context.createBufferSource(); source.buffer = audioBuffer; source.loop = false;`
+      + connect source to speaker: `source.connect(context.destination);`
+      + play sound immediately: `source.start(0);`
+    + init sound sample: `function initSound(audioFile) {...}`
+      + decode mp3 file: `context.deccodeAudioData(audioFile, function(e) {...} function(e) { console.log('Error decoding file', e); });`
+      + log msg: `console.log("Sound decoded!");`
+      + set variable: `audioBuffer = buffer;`
+      + enable buttons once decoded: `var buttons = document.querySelectorAll('button'); button[1].disabled = false; button[2].disabled = false;`
+      + display msg: `alert("Binary file has been loaded and decoded, use play / stop buttons!");`
+    + download sound file: `function downloadSoundFile(url) {...}`
+      + create [new object](#xhr) for XHR2
+      + open connection: `function loadSoundFile(url) {...}`
+      + set response type: `xhr.responseType = 'arraybuffer';`
+      + add listener for download: `xhr.onload = function(e) { console.log("Song downloaded, decoding..."); initSound(this.response;); }`
+      + add listener for error: `xhr.onerror = function(e) { console.log("error downloading file"); }`
+      + [send request](#send)
+      + log msg: `console.log("Ajax request sent... wait until it downloads completely!");`
+
++ Monitoring w/ `progress` event
+  + XHR2 providing `progress` event attributes for monitoring data transfers
+  + the `ProgressEvent` interface: 7 events related to uploading/downloading files
+
+    <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 50vw;" cellspacing=0 cellpadding=5 border=1 align="center">
+      <caption style="font-size: 1.5em; margin: 0.2em;"><a href="https://xhr.spec.whatwg.org/#event-handlers">Uploading/Downloading Events in <code>ProgressEvent</code></a></caption>
+      <thead>
+      <tr style="font-size: 1.2em; vertical-align:middle;">
+        <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Attribute</th>
+        <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff; width:10%;">Type</th>
+        <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff; width:30%;">Explanation</th>
+      </thead>
+      <tbody>
+        <tr><td><code>onloadstart</code></td><td><code title="event-xhr-loadstart">loadstart</code></td><td>When the request starts.</td></tr>
+        <tr><td><strong><code>onprogress</code></strong></td><td><strong><code title="event-xhr-progress">progress</code></strong></  td><td><strong>While loading and sending data.</strong></td></tr>
+        <tr><td><code>onabort</code></td><td><code title="event-xhr-abort">abort</code></td><td>When the request has been aborted, either by invoking   the&nbsp;<code>abort() </code>method or navigating away from the page.</td></tr>
+        <tr><td><code>onerror</code></td><td><code title="event-xhr-error">error</code></td><td>When the request has failed.</td></tr>
+        <tr><td><code>onload</code></td><td><code title="event-xhr-load">load</code></td><td>When the request has successfully completed.</td></tr>
+        <tr><td><code>ontimeout</code></td><td><code title="event-xhr-timeout">timeout</code></td><td>When the author specified timeout has passed  before the request could complete.</td></tr>
+        <tr><td><code>onloadend</code></td><td><code title="event-xhr-loadend">loadend</code></td><td>When the request has completed, regardless of   whether or not it was successful.</td></tr>
+      </tbody>
+    </table><br>
+
++ Syntax for download progress
+  + create [new object](#xhr)
+  + open connection to get data<a name="get"></a>: `xhr.open('GET', url, true);`
+  + ...
+  + download progress: `xhr.onprogress = function(e) { // do sth. }`
+  + [send request](#send)
+
++ Syntax for upload progress
+  + create [new object](#xhr)
+  + open connection to post data<a name="post"></a>: `xhr.open('POST', url, true);`
+  + ...
+  + upload progress: <code>xhr.<span style="color: #ff0000; font-weight: bold;">upload</span>.onprogress</code>
+  + [send request](#send)
+
++ Progess values and the total file size
+  + properties of `progress` event
+    + `loaded`: the number if bytes downloaded and uploaded by the browser so far
+    + `total`: the file's size (in bytes)
+  + combining `<progress>` element to render an animated animated progress bar
+
++ Example: displaying progress bar
+  + tasks:
+    + associate the `value` and `max` attributes of the `<progress>` element w/ progress event
+    + reflect the actual proportions of the file downloaded
+  + HTML snippet: `<progress id="downloadProgress" value=0></progress>`
+  + JavaScript snippet
+    + access element: `var progress = document.querySelector('#downloadProgress');`
+    + download binary file: `function downloadSoundFile(url) {...}`
+    + create [new object](#xhr)
+    + open connection to [get data](#get)
+    + ...
+    + add progress event: `xhr.onprogress = function(e) { progress.value = e.loaded; progress.max = e.total; }`
+    + [send request](#send)
 
 
 
