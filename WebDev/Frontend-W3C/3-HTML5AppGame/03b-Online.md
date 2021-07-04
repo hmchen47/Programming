@@ -349,7 +349,7 @@ __Complete example: monitoring the download of a song file__
   + task: download sound sample w/ `XMLHttpRequest` level 2
   + load sound file: `function loadSoundFile(url) {...};`
   + create new object for XHR2<a name="xhr"></a>: `var xhr = new XMLHttpRequest();`
-  + open connect to retrieve data: `xhr.open('GET', url, true);`
+  + open connect w/ get request: `xhr.open('GET', url, true);`
   + set response type<a name="rspType"></a>: `xhr.responseType = 'arrayBuffer';`
   + add event listener for complete downloading<a name="onload"></a>: `xhr.onload = function(e) { initSound(this.response); };`
   + send request to server<a name="send"></a>: `xhr.send();`
@@ -411,14 +411,14 @@ __Complete example: monitoring the download of a song file__
 
 + Syntax for download progress
   + create [new object](#xhr)
-  + open connection to get data<a name="get"></a>: `xhr.open('GET', url, true);`
+  + open connection w/ get request<a name="get"></a>: `xhr.open('GET', url, true);`
   + ...
   + download progress: `xhr.onprogress = function(e) { // do sth. }`
   + [send request](#send)
 
 + Syntax for upload progress
   + create [new object](#xhr)
-  + open connection to post data<a name="post"></a>: `xhr.open('POST', url, true);`
+  + open connection w/ post request<a name="post"></a>: `xhr.open('POST', url, true);`
   + ...
   + upload progress: <code>xhr.<span style="color: #ff0000; font-weight: bold;">upload</span>.onprogress</code>
   + [send request](#send)
@@ -438,7 +438,7 @@ __Complete example: monitoring the download of a song file__
     + access element: `var progress = document.querySelector('#downloadProgress');`
     + download binary file: `function downloadSoundFile(url) {...}`
     + create [new object](#xhr)
-    + open connection to [get data](#get)
+    + open connection w/ [get request](#get)
     + ...
     + add progress event: `xhr.onprogress = function(e) { progress.value = e.loaded; progress.max = e.total; }`
     + [send request](#send)
