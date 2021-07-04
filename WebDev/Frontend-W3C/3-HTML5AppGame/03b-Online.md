@@ -642,7 +642,20 @@ The only difference between these two worked-examples is the `onprogress` listen
     + send [request w/ form](#sendForm)
 
 
+### 3.2.4 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+#### Suggested topics of discussion:
+
++ Did you hear about the [Fetch API](https://davidwalsh.name/fetch)? This APIs  is easier to use than XhR2, but monitoring progress is a bit trickier and will require the use of the streams API. Monitoring upload is not yet supported. See for example [this article](https://javascript.info/fetch-progress).
++ Did you note that using XHR2 for monitoring progress is really simple and efficient?  What is your experience? Please share ;)
++ How can we monitor the speed of an upload/download in bytes per second? What would you propose? Did you find any interesting resources on the Web that explain that?
 
 
+#### Optional projects:
+
++ If you know how to program server-side code, please make a small app that will upload files, monitor the progress of the upload, save the files server-side, and send back a message containing the URLs of the files. Better: create a Web page that displays links to the uploaded files.
++ Try to write an `assetLoader` function that will download a set of images and sound (maybe using the BufferUtility seen during Module 1), but this time with a progress bar. This could be useful for a game, or for a Web app that needs to load resources before starting.
 
 
