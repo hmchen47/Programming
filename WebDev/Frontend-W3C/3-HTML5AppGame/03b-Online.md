@@ -348,7 +348,7 @@ __Complete example: monitoring the download of a song file__
 + Syntax for downloading file
   + task: download sound sample w/ `XMLHttpRequest` level 2
   + load sound file: `function loadSoundFile(url) {...};`
-  + create new object for XHR2<a name="xhr"></a>: `var xhr = new XMLHttpRequest();`
+  + create new connection for XHR2<a name="xhr"></a>: `var xhr = new XMLHttpRequest();`
   + open connect w/ get request: `xhr.open('GET', url, true);`
   + set response type<a name="rspType"></a>: `xhr.responseType = 'arrayBuffer';`
   + add event listener for complete downloading<a name="onload"></a>: `xhr.onload = function(e) { initSound(this.response); };`
@@ -378,7 +378,7 @@ __Complete example: monitoring the download of a song file__
       + enable buttons once decoded: `var buttons = document.querySelectorAll('button'); button[1].disabled = false; button[2].disabled = false;`
       + display msg: `alert("Binary file has been loaded and decoded, use play / stop buttons!");`
     + download sound file: `function downloadSoundFile(url) {...}`
-      + create [new object](#xhr) for XHR2
+      + create [new connection](#xhr) for XHR2
       + open connection: `function loadSoundFile(url) {...}`
       + set response type: `xhr.responseType = 'arraybuffer';`
       + add listener for download: `xhr.onload = function(e) { console.log("Song downloaded, decoding..."); initSound(this.response;); }`
@@ -410,17 +410,17 @@ __Complete example: monitoring the download of a song file__
     </table><br>
 
 + Syntax for download progress
-  + create [new object](#xhr)
+  + create [new connection](#xhr)
   + open connection w/ get request<a name="get"></a>: `xhr.open('GET', url, true);`
   + ...
   + download progress: `xhr.onprogress = function(e) { // do sth. }`
   + [send request](#send)
 
 + Syntax for upload progress
-  + create [new object](#xhr)
+  + create [new connection](#xhr)
   + open connection w/ post request<a name="post"></a>: `xhr.open('POST', url, true);`
   + ...
-  + upload progress: <code>xhr.<span style="color: #ff0000; font-weight: bold;">upload</span>.onprogress</code>
+  + upload progress: <code>xhr.<span style="color: #ff0000; font-weight: bold;">upload</span>.onprogress = function(e) { // do sth. }</code>
   + [send request](#send)
 
 + Progess values and the total file size
@@ -437,7 +437,7 @@ __Complete example: monitoring the download of a song file__
   + JavaScript snippet
     + access element: `var progress = document.querySelector('#downloadProgress');`
     + download binary file: `function downloadSoundFile(url) {...}`
-    + create [new object](#xhr)
+    + create [new connection](#xhr)
     + open connection w/ [get request](#get)
     + ...
     + add progress event: `xhr.onprogress = function(e) { progress.value = e.loaded; progress.max = e.total; }`
@@ -464,7 +464,9 @@ Notice that the URL of the server is fake, so the request will fail. However, th
 
 Later on, we will show full examples of real working code with server-side PHP source, during the “File API, drag and drop and XHR2” lecture.
 
-Try [the example](https://jsbin.com/pidusap/edit) on JSBin:
+Try [the example on JSBin](https://jsbin.com/pidusap/edit):
+
+[Local Demo](src/03b-example03.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -519,17 +521,17 @@ __Explanations:__
 
 + _Line 18_: callback called when the user selects a file.
 + _Lines 19-20_: preparation of the XHR2 request.
-+ _Lines 27-30_: a FormData object is created (this will contain the (MIME) multipart form-data which will be sent by the POST request).
-+ _Line 30_: the request is sent, with the FormData object passed as a parameter (all data is sent).
-+ _Line 23_: when the file is completely uploaded, the onload listener is called and an alert message is displayed.
++ _Lines 27-30_: a `FormData` object is created (this will contain the (MIME) multipart form-data which will be sent by the `POST` request).
++ _Line 30_: the request is sent, with the `FormData` object passed as a parameter (all data is sent).
++ _Line 23_: when the file is completely uploaded, the `onload` listener is called and an alert message is displayed.
 
 
 #### Monitor the upload progress
 
 Here is a more user-friendly example. It is basically the same, but this time, we'll monitor the progress of the upload using a method similar to that used for monitoring file downloads:
 
-+ We use a `<progress>` element and its two attributes value and max.
-+ We also bind an event handler to the `progress` event that an XMLHttpRequest will trigger. The event has two properties: `loaded` and `total` that respectively correspond to the number of bytes that have been uploaded, and to the total number of bytes we need to upload (i.e., the file size).
++ We use a `<progress>` element and its two attributes `value` and `max`.
++ We also bind an event handler to the `progress` event that an `XMLHttpRequest` will trigger. The event has two properties: `loaded` and `total` that respectively correspond to the number of bytes that have been uploaded, and to the total number of bytes we need to upload (i.e., the file size).
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -550,7 +552,9 @@ Here is the code of such an event listener:
 <li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
 </ol></div><br>
 
-Try [the example on JSBin](https://jsbin.com/qedaja/edit?html,css,output):
+Try [the example on JSBin](https://jsbin.com/qedaja/edit?html,output):
+
+[Local Demo](src/03b-example04.html)
 
 Code from this example (nearly the same as previous example's code):
 
@@ -599,6 +603,43 @@ Code from this example (nearly the same as previous example's code):
 
 The only difference between these two worked-examples is the `onprogress` listener which updates the progress bar's `value` and `max` attributes.
 
+
+#### Notes for 3.2.3 Uploading files and monitoring progress
+
++ Syntax for uploading file w/ progress bar
+  + add listener for upload progress<a name="uploadProgress>: `xhr.upload.onprogress = function(e) {...};`
+  + number of bytes uploaded: `progress.value = e.loaded;`
+  + total number of bytes in the file: `progress.max = e.total;`
+
++ Example: uploading a selecting file
+  + tasks:
+    + callback on selecting a file
+    + create `FormData` object
+    + prepare XHR2 request and send w/ `FormData` object
+  + HTML snippet: `<input id="file" type="file" />`
+  + JavaScript snippet:
+    + access input element: `var fileInput = document.querySelector('#file');`
+    + add listener for change: `fileInput.onchange = function() {...}`
+    + create [new connection](#xhr)
+    + open connection w/ post request and FormData: `xhr.open('POST', 'upload.html');`
+    + alert msg after uploaded<a name="upComplete"></a>: `xhr.onload = function() { alert('Upload complete!'); }`
+    + create new data form and store file within<a name="form"></a>: `var form = new FormData(); form.append('file', fileInput.files[0]);`
+    + send request w/ form<a name="sendForm"></a>: `xhr.send(form);`
+
++ Example: uploading file w/ progress bar
+  + task: add progress bar for the previous example
+  + HTML snippet:
+    + input fields: `<input id="file" type="file" />`
+    + progress bar: `<progress id="progress" value=0></progress>`
+  + JavaScript snippet
+    + access input field and progree bar: `var fileInput = document.querySelector("#file"); progress = document.querySelector("#progree");`
+    + add input change listener: `fileInput.onchange = function() {...}`
+    + create [XHR2 request](#xhr)
+    + open connection: `xhr.open('POST', 'upload.html');`
+    + add listener for [upload progress](#uploadProgress)
+    + [alert msg after uploaded](#upComplete)
+    + create [new object and store file](#form)
+    + send [request w/ form](#sendForm)
 
 
 
