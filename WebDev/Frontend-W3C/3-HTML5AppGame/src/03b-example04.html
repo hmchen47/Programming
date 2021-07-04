@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML5 file upload with monitoring</title>
+  </head>
+
+  <body>
+     <h1>Example of Xhr2 file upload, with progress bar</h1>
+    Choose a file and wait a little until it is uploaded (on a fake server).
+    <p>
+    <input id="file" type="file" />
+    <br/><br />
+    Progress: <progress value = 0 id="progress"></progress>
+
+    <script>
+    var fileInput = document.querySelector('#file'),
+        progress = document.querySelector('#progress');
+
+    fileInput.onchange = function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'upload.html');
+
+        xhr.upload.onprogress = function(e) {
+            progress.value = e.loaded;
+            progress.max = e.total;
+        };
+        
+        xhr.onload = function() {
+            console.log('Upload complete!');
+        };
+
+        var form = new FormData();
+        form.append('file', fileInput.files[0]);
+
+        xhr.send(form);
+    };
+    </script>
+  </body>
+</html>
+
