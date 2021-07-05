@@ -329,6 +329,7 @@ Notice that we use some CSS to set aside some screen-space for the drop zone (no
   + HTML snippet:
     + ordered list and listed item elements w/ [drag](#drag)
     + element for drop zone: `<div ondragover="return false" ondrop="dropHandler(evt);">Drop your favorite fruits below: <ol id="droppedFruits"></ol></div>`
+  + CSS style for mouse hover item: `li.hover { border: 2px dashed #000; }`
   + JavaScript snippet
     + add drag handler: `function dragStartHandler(event) {...}`
       + log msg: `console.log('dragstart event, target: ' + event.target.innerHTML);`
@@ -344,7 +345,134 @@ Notice that we use some CSS to set aside some screen-space for the drop zone (no
       + add listed into page: `document.querySelector("#droppedFruits").appendChild(li);`
 
 
+### 3.3.4 A few words about data-* attributes
 
+Microdata is a powerful way to add structured data into HTML code, but HTML5 has also added the possibility of adding arbitrary data to an HTML element. For example, adding an attribute to specify the name of the photographer (or painter?) of a picture, or any kind of information that does not be fit within the regular attributes of the `<img>` element, like `alt`.
+
+Suppose you coded: <code>&lt;img src="photo.jpg" <span style="color: #ff0000;">photographer="Michel Buffa"</span> date="14July2020"&gt;</span></strong></code>?  It would __not__ be valid!
+
+However with HTML5 we may add attributes that start with data- followed by any string literal (WITH NO UPPERCASE) and it will be treated as a storage area for private data. This can later be accessed in your JavaScript code.
+
+Valid HTML5 code: <code>&lt;img src="photo.jpg" <span style="color: #ff0000;">data-photographer="Michel Buffa"</span> date="14July2020"&gt;</code>
+
+The reason for this addition is that, in a bid to keep the HTML code valid, some classic attributes like alt, rel and title have often been misused for storing arbitrary data. The `data-*` attributes of HTML5 are an "official" way to add arbitrary data to HTML elements that is also valid HTML code.
+
+The specification says: "Custom data attributes are intended to store custom data private to the page or application, for which there are no more appropriate attributes or elements."
+
+__Data attributes are meant to be used by JavaScript and eventually by CSS rules: embed initial values for some data, or use data- attributes instead of JavaScript variables for easier CSS mapping, etc.__
+
+
+#### JavaScript API: the `dataset` property
+
+Data attributes can be created and accessed using the `dataset` property of any HTML element.
+
+Here is an [online at JsBin](https://jsbin.com/yowimebawo/edit?html,css,js,output) example: 
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick= "window.open('https://bit.ly/3weljRr')"
+    src    = "https://bit.ly/2TGNyuR"
+    alt    = "Data attribute example 1"
+    title  = "Data attribute example 1"
+  />
+</figure>
+
+
+In this example, when you click on the sentence that starts with "John Says", the end of the sentence changes, and the values displayed are taken from data­-* attributes of the `<li>` element.
+
+HTML code from the example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"user"</span><span class="pln"> </span><strong><span class="atn">data-name</span><span class="pun">=</span><span class="atv">"John Resig"</span></strong><span class="pln"> </span><strong><span class="atn">data-city</span><span class="pun">=</span><span class="atv">"Boston"</span></strong><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="atn">&nbsp; &nbsp; <strong>data-lang</strong></span><strong><span class="pun">=</span><span class="atv">"js"</span></strong><span class="pln"> </span><strong><span class="atn">data-food</span><span class="pun">=</span><span class="atv">"Bacon"</span></strong><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;b&gt;</span><span class="pln">John says:</span><span class="tag">&lt;/b&gt;</span><span class="pln"> </span><span class="tag">&lt;span&gt;</span><span class="pln">Hello, how are you?</span><span class="tag">&lt;/span&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/li&gt;</span></li>
+</ol></div>
+
+We just defined four data‐ attributes. 
+
+JavaScript code from the example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;script&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">&nbsp; var</span><span class="pln"> user </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">"li"</span><span class="pun">)[</span><span class="lit">0</span><span class="pun">];</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">&nbsp; var</span><span class="pln"> pos </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> span </span><span class="pun">=</span><span class="pln"> user</span><span class="pun">.</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">"span"</span><span class="pun">)[</span><span class="lit">0</span><span class="pun">];</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">&nbsp; var</span><span class="pln"> phrases </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; {</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"city"</span><span class="pun">,</span><span class="pln"> prefix</span><span class="pun">:</span><span class="pln"> </span><span class="str">"I am from "</span><span class="pun">},</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; {</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"food"</span><span class="pun">,</span><span class="pln"> prefix</span><span class="pun">:</span><span class="pln"> </span><span class="str">"I like to eat "</span><span class="pun">},</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; {</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"lang"</span><span class="pun">,</span><span class="pln"> prefix</span><span class="pun">:</span><span class="pln"> </span><span class="str">"I like to program in "</span><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; ];</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; user</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="pln"> </span><span class="str">"click"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // Pick the first, second or third phrase</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> phrase </span><span class="pun">=</span><span class="pln"> phrases</span><span class="pun">[</span><span class="pln"> pos</span><span class="pun">++</span><span class="pln"> </span><span class="pun">%</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="pun">];</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // Use the .dataset property depending on the value of phrase.name</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // phrase.name is "city", "food" or "lang"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; span</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> phrase</span><span class="pun">.</span><span class="pln">prefix </span><span class="pun">+</span><span class="pln"> user</span><span class="pun">.</span><span class="pln">dataset</span><span class="pun">[</span><span class="pln"> phrase</span><span class="pun">.</span><span class="pln">name </span><span class="pun">];</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // could be replaces by old way..</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // span.innerHTML = phrase.prefix + user.getAttribute("data-" + phrase.name );</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; },</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+</ol></div>
+
+All data‐ attributes are accessed using the `dataset` property of the HTML element: in this example, `user.dataset[phrase.name]` is either `user.dataset.city`, `user.dataset.food`, or `user.dataset.lang`.
+
+
+#### Accessing CSS pseudo elements
+
+__Using CSS pseudo elements `::before` and `::after` with the `attr()` function to display the value of `data-*` attributes__
+
+This example shows how data-* attributes can be added on the fly by JavaScript code and accessed from a CSS rule using the `attr()` CSS function.
+
+Try the [online example at JsBin](https://jsbin.com/alunuk/6/edit). 
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open('https://bit.ly/3weljRr')"
+    src    = "https://bit.ly/3e47BdZ"
+    alt    = "Using CSS attr() function"
+    title  = "Using CSS attr() function"
+  />
+</figure>
+
+
+HTML code from this example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"100"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"25"</span><span class="tag">&gt;</span></li>
+</ol></div>
+
+This is just one of the new input types introduced by HTML5.
+
+JavaScript code from this example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;script&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> input </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'input'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">input</span><span class="pun">.</span><span class="pln">dataset</span><span class="pun">.</span><span class="pln">myvaluename </span><span class="pun">=</span><span class="pln"> input</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Set an initial value.</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">input</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'change'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">dataset</span><span class="pun">.</span><span class="pln">myvaluename </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">});</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+</ol></div>
+
+CSS code from this example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;style&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> input</span><span class="pun">::</span><span class="pln">after </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; color</span><span class="pun">:</span><span class="pln">red</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; content</span><span class="pun">:</span><strong><span class="pln"> attr</span><span class="pun">(</span><span class="pln">data</span><span class="pun">-</span><span class="pln">myvaluename</span><span class="pun">)</span></strong><span class="pln"> </span><span class="str">'/'</span><span class="pln"> attr</span><span class="pun">(</span><span class="pln">max</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; position</span><span class="pun">:</span><span class="pln"> relative</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; left</span><span class="pun">:</span><span class="pln"> </span><span class="lit">100px</span><span class="pun">;</span><span class="pln"> top</span><span class="pun">:</span><span class="pln"> </span><span class="pun">-</span><span class="lit">15px</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/style&gt;</span><span class="pln"> </span></li>
+</ol></div>
+
+The `attr()` function takes an attribute name as a parameter and returns its value. Here we used the name of the attribute we added on the fly.
 
 
 
