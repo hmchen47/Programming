@@ -1,0 +1,42 @@
+<!doctype html >
+<html>
+  <body>
+    <h1>Example of use of the data- attributes</h1>    
+    Please <u>click on sentence below</u> to change its end depending on embedded data-* attributes :<p>
+<li class="user" data-name="John Resig" data-city="Boston"
+     data-lang="js" data-food="Bacon">
+  <b>John says:</b> <span>Hello, how are you?</span>
+</li>
+ <p>The line above is coded in HTML like this:</p>
+    <pre>
+    &lt;li class="user" data-name="John Resig" data-city="Boston"
+     data-lang="js" data-food="Bacon"&gt;
+</pre>
+<pre>
+</pre>
+
+<script>
+var user = document.getElementsByTagName("li")[0];
+var pos = 0, span = user.getElementsByTagName("span")[0];
+var phrases = [
+  {name: "city", prefix: "I am from "},
+  {name: "food", prefix: "I like to eat "},
+  {name: "lang", prefix: "I like to program in "}
+];
+
+user.addEventListener( "click", function(){
+  // Pick the first, second or third phrase
+  var phrase = phrases[ pos++ % 3 ];
+  
+  
+  // Use the .dataset property depending on the value of phrase.name
+  // phrase.name is "city", "food" or "lang"
+  span.innerHTML = phrase.prefix + user.dataset[ phrase.name ];
+  
+  // could be replaces by old way..
+  // span.innerHTML = phrase.prefix + user.getAttribute("data-" + phrase.name );
+}, false);
+</script>
+</body>
+</html>
+
