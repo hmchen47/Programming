@@ -347,6 +347,9 @@ Notice that we use some CSS to set aside some screen-space for the drop zone (no
 
 ### 3.3.4 A few words about data-* attributes
 
+
+#### Arbitrary data in HTML elements
+
 Microdata is a powerful way to add structured data into HTML code, but HTML5 has also added the possibility of adding arbitrary data to an HTML element. For example, adding an attribute to specify the name of the photographer (or painter?) of a picture, or any kind of information that does not be fit within the regular attributes of the `<img>` element, like `alt`.
 
 Suppose you coded: <code>&lt;img src="photo.jpg" <span style="color: #ff0000;">photographer="Michel Buffa"</span> date="14July2020"&gt;</span></strong></code>?  It would __not__ be valid!
@@ -355,7 +358,7 @@ However with HTML5 we may add attributes that start with data- followed by any s
 
 Valid HTML5 code: <code>&lt;img src="photo.jpg" <span style="color: #ff0000;">data-photographer="Michel Buffa"</span> date="14July2020"&gt;</code>
 
-The reason for this addition is that, in a bid to keep the HTML code valid, some classic attributes like alt, rel and title have often been misused for storing arbitrary data. The `data-*` attributes of HTML5 are an "official" way to add arbitrary data to HTML elements that is also valid HTML code.
+The reason for this addition is that, in a bid to keep the HTML code valid, some classic attributes like `alt`, `rel` and `title` have often been misused for storing arbitrary data. The `data-*` attributes of HTML5 are an "official" way to add arbitrary data to HTML elements that is also valid HTML code.
 
 The specification says: "Custom data attributes are intended to store custom data private to the page or application, for which there are no more appropriate attributes or elements."
 
@@ -366,7 +369,9 @@ __Data attributes are meant to be used by JavaScript and eventually by CSS rules
 
 Data attributes can be created and accessed using the `dataset` property of any HTML element.
 
-Here is an [online at JsBin](https://jsbin.com/yowimebawo/edit?html,css,js,output) example: 
+Here is an [online at JsBin](https://jsbin.com/yowimebawo/edit?html,css,js,output) example:
+
+[Local Demo](src/03c-example03.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
@@ -416,16 +421,18 @@ JavaScript code from the example:
 <li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
 </ol></div>
 
-All data‐ attributes are accessed using the `dataset` property of the HTML element: in this example, `user.dataset[phrase.name]` is either `user.dataset.city`, `user.dataset.food`, or `user.dataset.lang`.
+All `data‐` attributes are accessed using the `dataset` property of the HTML element: in this example, `user.dataset[phrase.name]` is either `user.dataset.city`, `user.dataset.food`, or `user.dataset.lang`.
 
 
-#### Accessing CSS pseudo elements
+#### Accessing `data-` attributes from CSS pseudo elemets
 
 __Using CSS pseudo elements `::before` and `::after` with the `attr()` function to display the value of `data-*` attributes__
 
-This example shows how data-* attributes can be added on the fly by JavaScript code and accessed from a CSS rule using the `attr()` CSS function.
+This example shows how `data-*` attributes can be added on the fly by JavaScript code and accessed from a CSS rule using the `attr()` CSS function.
 
-Try the [online example at JsBin](https://jsbin.com/alunuk/6/edit). 
+Try the [online example at JsBin](https://jsbin.com/alunuk/6/edit).
+
+[Local Demo](src/03c-example04.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
@@ -473,6 +480,43 @@ CSS code from this example:
 </ol></div>
 
 The `attr()` function takes an attribute name as a parameter and returns its value. Here we used the name of the attribute we added on the fly.
+
+
+#### Notes for 3.3.4 A few words about data-* attributes
+
++ `data-*` attributes
+  + metadata: a powerful way to add structured data into HTML code
+  + HTML5 added the possibility of adding arbitrary data to an HTML element
+    + attributes starting w/ data- followed by any string literal (w/o uppercase)
+    + treated as a storage area for provate data
+  + some classic attributes, including `alt`, `rel` and `title`, misused for storing arbitrary data
+  + official way to add arbitrary data to HTML elements
+  + custom data attributes: intended to store customer data private to the page or application
+  + creating and accessing data attributes by the `dataset` property
+  + `attr()` function: taking an attribute name as a parameter and return its value
+  + examples:
+    + invalid: <code>&lt;img src="photo.jpg" <span style="color: #ff0000;">photographer="Michel Buffa"</span> date="14July2020"&gt;</span></strong></code>
+    + valid: <code>&lt;img src="photo.jpg" <span style="color: #ff0000;">data-photographer="Michel Buffa"</span> date="14July2020"&gt;</code>
+
++ Example: accessing dataset property
+  + task: access `data-` attributes w/ `dataset` property
+  + HTML snippet: `<li class="user" data-name="John Resig" data-city="Boston" data-lang="js" data-food="Bacon"><b>John says:</b> <span>Hello, how are you?</span></li>`
+  + JavaScript snippet:
+    + access elements: `var user = document.getElementsByTagName("li")[0]; var pos = 0, span = user.getElementsByTagName("span")[0];`
+    + declare variable for phrases: `var phrases = [ {name: "city", prefix: "I am from "}, {name: "food", prefix: "I like to eat "}, {name: "lang", prefix: "I like to program in "} ];`
+    + add click listener: `user.addEventListener("click", function() {...}, false);`
+      + pick a phrase: `var phrase = phrases[pos++ % 3];`
+      + access dataset property and display: `span.innerHTML = phrase.prefix + user.dataset[phrase.name];`
+      + access data attribute and display in old way: `span.innerHTML = phrase.prefix + user.getAttribute("data-" + phrase.name);`
+
++ Example: adding `data-` attributes w/ CSS
+  + task: using `attr()` in CSS to take an attribute name as a parameter and return its value
+  + HTML snippet: `<input type="range" min=0 max=100 value=25>`
+  + JavaScript snippet:
+    + access input element: `var input = document.querySelector("input");`
+    + set init value: `input.dataset.myvaluename = input.value;`
+    + add change listener: `input.addEventListener('change', function(e) { this.dataset.myvaluename = this.value; });`
+  + CSS snippet: <code>input::after { color: red; content: <strong style="color: red;">attr(data-myvaluename)</strong> '/' attr(max); position: relative; left: 100px; top: -15px; }</code>
 
 
 
