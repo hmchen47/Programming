@@ -130,12 +130,12 @@ In this script, the event handler will only display an alert showing the name of
     + get parent: `article.dataset.parent; // "cars"`
 
 + Example: dragable attribute and event handler
-  + HTML snippet:
+  + HTML snippet<a name="drag"></a>:
     + ordered list: `<ol ondragstart="dragStartHandler(evt)"> ... </ol>`
     + item apples: `<li draggable=true data-value="fruit-apple">Apples</li>`
     + item oranges: `<li draggable=true data-value="fruit-orange">Oranges</li>`
     + item pears: `<li draggable=true data-value="fruit-pear">Pears</li>`
-  + even handler: `function dragStartHandler(evt) { alert('dragstart event, target: ' + event.target.innerHTML); }`
+  + event handler: `function dragStartHandler(evt) { alert('dragstart event, target: ' + event.target.innerHTML); }`
 
 
 ### 3.3.3 Drop detection
@@ -144,7 +144,7 @@ Let's continue to develop the example. We show how to drag an element and detect
 
 #### Handling drop
 
-__Step #1: in the dragstart handler, copy a value in the drag and drop clipboard for later use__
+__Step #1: in the `dragstart` handler, copy a value in the drag and drop clipboard for later use__
 
 When a draggable `<li>` element is being dragged, in the `dragstart` handler [get the value of its data-value attribute](https://html5doctor.com/html5-custom-data-attributes/) and copy it to the "_drag and drop clipboard_" for later use.
 
@@ -174,9 +174,9 @@ Any visible HTML element may become a "drop zone"; if we attach an event listene
 <li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/div&gt;</span></li>
 </ol></div>
 
-Whenever the mouse is moving above a (any) drop zone, dragover events will fire. Accordingly, a large number of dragover events may need to be handled before the element is finally dropped. The ondragover handler is used to avoid propagating dragover events. This is done by returning the false value at line 1.
+Whenever the mouse is moving above a (any) drop zone, dragover events will fire. Accordingly, a large number of dragover events may need to be handled before the element is finally dropped. The `ondragover` handler is used to avoid propagating `dragover` events. This is done by returning the `false` value at _line 1_.
 
-__Step #3: write a drop handler, fetch content from the clipboard, and do something with it__
+__Step #3: write a `drop` handler, fetch content from the clipboard, and do something with it__
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> dropHandler</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
@@ -198,7 +198,7 @@ Typically, in the `drop` handler, we need to acquire data about the element that
 #### Complete example
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick= "window.open('https://bit.ly/3xiKFz7')"
     src    = "https://bit.ly/3e1Q6ej"
     alt    = "drag n drop fruits"
@@ -208,6 +208,8 @@ Typically, in the `drop` handler, we need to acquire data about the element that
 
 
 Try it in your browser below or [play with it at CodePen](https://codepen.io/w3devcampus/pen/YyzWKy):
+
+[Local Demo](src/03c-example02.html)
 
 Source code:
 
@@ -291,6 +293,56 @@ Notice that we use some CSS to set aside some screen-space for the drop zone (no
 <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> dashed </span><span class="com">#000;</span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 </ol></div>
+
+
+#### Notes for 3.3.3 Drop detection
+
++ Procedure to handle drop
+  1. in the `dragstart` handler, copy a value to in the drag and drop clipboard for later use
+  2. define a "drop zone"
+  3. write a `drop` handler, fetch content from the clipboard , and do something with it
+
++ Utilizing drag and drop clipboard
+  + get the value of the data-value attribute from the dragged element w/ `dragStart` handler
+  + copy the obtained value into "drag and drop clipboard"
+  + data as key/value pair
+  + example: `function dragStartHandler(evt) { evt.dataTransfer.setData("Fruit", evt.target.dataset.value); }`
+
++ Defining drop zone
+  + any visible element if `drop` event listener attached
+  + listen for `dragover` or `dragend` events and stop their propagation
+  + mouse moving over any drop zone triggering `dragover` event
+  + a few dragover events to be handled before the element finally dropped
+  + `ondragover` handler used to avoid propagating `dragover` events
+  + example: `<dic ondragover="return false" ondrop="dropHandler(event);">...</div>`
+
++ Processing fetched content w/ `drop` handler
+  + `drop` event triggered once the dragged element placed
+  + acquiring data from "drag and drop clipboard"
+  + example: `function dropHandler(evt) { var data = evt.dataTransfer.getData("Fruit"); // do sth. w/ the data }`
+
++ Example: handling drag and drop
+  + tasks
+    + define drop zone and prevent event propagation
+    + copy `data-value` of dragged element into drag'n'drop clipboard
+    + handle `drop` event to fetch data and add dropped-item as a listed item
+  + HTML snippet:
+    + ordered list and listed item elements w/ [drag](#drag)
+    + element for drop zone: `<div ondragover="return false" ondrop="dropHandler(evt);">Drop your favorite fruits below: <ol id="droppedFruits"></ol></div>`
+  + JavaScript snippet
+    + add drag handler: `function dragStartHandler(event) {...}`
+      + log msg: `console.log('dragstart event, target: ' + event.target.innerHTML);`
+      + copy dragged element into drag'n'drop clipboard: `event.dataTransfer.setData("Fruit", event.target.dataset.value);`
+    + add drop handler: `function dropHandler(event) {...}`
+      + log msg: `console.log('drop event, target: ' + event.target.innerHTML);`
+      + create listed item: `var li = document.createElement("li");`
+      + get data from drag'n'drop clipboard: `var data = event.dataTransfer,getData("Fruit");`
+      + check data as apples: `if (data === 'fruit-apple') { li.textContent = 'Apples'; }`
+      + check data as oranges: `else if (data === 'fruit-orange') { li.textContent = 'Orange'; }`
+      + check data as pears: `else if (data === 'fruit-pears') { li.textContext = 'Pears'; }`
+      + check data as other: `else { li.textContent = 'Unknown Fruit'; }`
+      + add listed into page: `document.querySelector("#droppedFruits").appendChild(li);`
+
 
 
 
