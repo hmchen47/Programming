@@ -63,6 +63,8 @@ In the above code, we made all of the `<li>` elements draggable, and we detect a
 
 Try the following interactive example in your browser (just click and drag one of the list items) or [play with it at CodePen](https://codepen.io/w3devcampus/pen/MaWKZb).
 
+[Local Demo](src/03c-example01.html)
+
 Screenshot:
 
 <figure style="margin: 0.5em; text-align: center;">
