@@ -43,9 +43,9 @@ We will start by presenting the API itself, and then we will focus on the partic
 [Transcript Download](https://bit.ly/2TEzEcC)
 
 
-#### Draggable attribute
+#### Draggable attribute and detection
 
-In order to make any visible element draggable, add the `draggable="true"` attribute to any visible HTML5 element. Notice that some elements are draggable by default, such as `<img>` elements. In order to detect a drag, add an event listener for the
+In order to make any visible element draggable, add the `draggable="true"` attribute to any visible HTML5 element. Notice that some elements are draggable by default, such as `<img>` elements.
 
 In order to detect a drag, add an event listener for the `dragstart` event:
 
@@ -57,9 +57,9 @@ In order to detect a drag, add an event listener for the `dragstart` event:
 <li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/ol&gt;</span></li>
 </ol></div>
 
-In the above code, we made all of the <li> elements draggable, and we detect a dragstart event occurring to any item within the ordered list: `<ol ondragstart="dragStarthandler(event)">`.
+In the above code, we made all of the `<li>` elements draggable, and we detect a dragstart event occurring to any item within the ordered list: `<ol ondragstart="dragStarthandler(event)">`.
 
-<p style="margin: 10px;">When you put an <code>ondragstart</code> handler on an element, each of its draggable children could fire the event! It's a sort of "inheritance of handlers"... In the above example, the handler is declared at the<code> &lt;ol&gt; level, so any subordinate</code>&nbsp;<code>&lt;li&gt;</code> element will fire the event.</p>
+<p style="margin: 10px; border: 1px solid; padding: 10px;">When you put an <code>ondragstart</code> handler on an element, each of its draggable children could fire the event! It's a sort of "inheritance of handlers"... In the above example, the handler is declared at the<code> &lt;ol&gt; level, so any subordinate</code>&nbsp;<code>&lt;li&gt;</code> element will fire the event.</p>
 
 Try the following interactive example in your browser (just click and drag one of the list items) or [play with it at CodePen](https://codepen.io/w3devcampus/pen/MaWKZb).
 
@@ -101,8 +101,38 @@ Complete code from the example:
 In this script, the event handler will only display an alert showing the name of the target element that launched the event. 
 
 
+#### Notes for 3.3.2 Drag detection
 
++ Draggable attribute
+  + making any visible elementdraggable w/ `true` value
+  + some elements draggable by default, such as `<img>`
+  + example: `<li dragable=true data-value="fruit-apple">Apple</li>`
 
++ `dragstart` event
+  + add listener to detect a drag
+  + `ondragstart` for HTML event handler
+  + inheritance of handler: each of its children triggering the event
+  + example: `<ol ondragstart="dragStartHandler(evt)"> ... </ol>`
 
++ [`data` attribute](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)
+  + storing extra info on standard elements w/o other hacks
+  + html syntax: `data` attribute: any attribute started w/ `data-`
+  + Javascrip access
+    + using `getAttribute()` w/ their full HTML name to read
+    + alternative: reading out via a `dataset` property
+  + example
+    + html: `<article id="electric-cars" data-column="3" data-index-numbser="12314" data-parent="cars">...</article>`
+    + access element: `const article = document.querySelector("#electric-cars");`
+    + get column: `article.dataset.columns; // "3"`
+    + get index number: `article.dataset.indexNumber; // "12314"`
+    + get parent: `article.dataset.parent; // "cars"`
+
++ Example: dragable attribute and event handler
+  + HTML snippet:
+    + ordered list: `<ol ondragstart="dragStartHandler(evt)"> ... </ol>`
+    + item apples: `<li draggable=true data-value="fruit-apple">Apples</li>`
+    + item oranges: `<li draggable=true data-value="fruit-orange">Oranges</li>`
+    + item pears: `<li draggable=true data-value="fruit-pear">Pears</li>`
+  + even handler: `function dragStartHandler(evt) { alert('dragstart event, target: ' + event.target.innerHTML); }`
 
 
