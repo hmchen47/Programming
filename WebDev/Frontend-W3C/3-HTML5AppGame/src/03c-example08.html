@@ -1,0 +1,20 @@
+!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Drag and drop</title>
+     <meta charset="utf-8">
+    <link rel="stylesheet" href="css/03c-example08.css">
+    <script src="js/03c-example08.js"></script>
+  </head>
+  <body>
+    <p id="text"><b>Drag and drop a text selection from this paragraph</b>. Drag and drop any part of this text to the drop zone. Notice in the code: there is no need for a dragstart handler in case of text selection: the text is added to the clipboard when dragged with a key/name equal to "text/plain". Just write a drop handler that will do an event.dataTransfert.getData("text/plain") and you are done!</p>
+  
+    <p class="notDraggable">This paragraph is not selectable, however. Look at the CSS in the source code.</p>
+
+    <div class="box" ondragover="return false" ondrop="drop(this, event)">
+    <p>Drop some text selection here.</p>
+    </div>
+    
+  </body>
+</html>
+
