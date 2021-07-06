@@ -1006,7 +1006,7 @@ In the drop handler, we just move the element from one part of the DOM tree to a
     + conatiners for good and bad browser drop zones
       + good: `<div class="box" ondragover="return false" ondrop="drop(this, eve,t)"><p>Good web browsers</p></div>`
       + bad: `<div class="box" ondragover="return false" ondrop="drop(this, eve,t)"><p>Bad web browsers</p></div>`
-  + CSS style: `.box { border: silver solid; width: 256px; height: 128px; margin: 10px; padding: 5px; float: left; }`
+  + CSS style<a name="boxStyle"></a>: `.box { border: silver solid; width: 256px; height: 128px; margin: 10px; padding: 5px; float: left; }`
   + JavaScript snippet
     + add drag handler: `function drag(target, evt) { evt.daatTransfer.setData("Text", target.id); }`
     + add drop handler: `function drop(target, evt) {...}`
@@ -1015,8 +1015,114 @@ In the drop handler, we just move the element from one part of the DOM tree to a
       + prevent default behavior: `evt.preventDefault();`
 
 
+### 3.3.8 Drag and drop a text selection
 
 
+#### Moving selected text to drop zone
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick= "window.open('https://bit.ly/3jPrsB2')"
+    src    = "https://bit.ly/3dN6QFG"
+    alt    = "drag and drop text selection"
+    title  = "drag and drop text selection"
+  />
+</figure>
+
+
+__There is no need to add a `dragstart` handler on an element that contains text.__ Any selected text is automatically added to the clipboard with a name/key equal to "text/plain". Just add a `drop` event handler on the drop zone and fetch the data from the clipboard using "text/plain" as the access key:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> drop</span><span class="pun">(</span><span class="pln">target</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;target</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">getData</span><span class="pun">(</span><strong><span class="str">'text/plain'</span></strong><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+</ol></div>
+
+
+#### Example: select some text and drag and drop the selection in the drop zone
+
+Try it in your browser below (select text, then drag and drop it into the drop zone) or [play with it at CodePen](https://codepen.io/w3devcampus/pen/vNYXyR):
+
+[Local Demo](src/03c-example08.html)
+
+Complete source code from the example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;html lang="en"&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">.</span><span class="pln">box </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="pln"> silver solid</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">256px</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">128px</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; padding</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5px</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">float</span><span class="pun">:</span><span class="pln"> left</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">.</span><span class="pln">notDraggable </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; user</span><span class="pun">-</span><span class="kwd">select</span><span class="pun">:</span><span class="pln"> none</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> drop</span><span class="pun">(</span><span class="pln">target</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;target</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">getData</span><span class="pun">(</span><span class="str">'text/plain'</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">};</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"text"</span><span class="tag">&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;b&gt;</span><span class="pln">Drag and drop a text selection from this paragraph</span><span class="tag">&lt;/b&gt;</span><span class="pln">. Drag and drop any</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; part of this text&nbsp;to </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; the drop zone. Notice in the code: there is no need for a dragstart handler in case of </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; text selection: </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; the text is added to the clipboard when dragged with a key/name equal to "text/plain". </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; Just write a </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drop handler that will do an event.dataTransfer.getData("text/plain") and you are </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; done!</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;/p&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"notDraggable"</span><span class="tag">&gt;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;This paragraph is not <g class="gr_ gr_29 gr-alert gr_gramm gr_run_anim Punctuation only-ins replaceWithoutSep" id="29" data-gr-id="29">selectable</g> however. Look at the CSS in the&nbsp;</span>source code.</li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/p&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"box"</span><span class="pln"> </span><span class="atn">ondragover</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="atv">"</span><span class="pln"> </span><span class="atn">ondrop</span><span class="pun">=</span><span class="atv">"</span><span class="pln">drop</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;p&gt;</span><span class="pln">Drop some text selection here.</span><span class="tag">&lt;/p&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/div&gt;</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+Here, we use a CSS trick to make the second paragraph non-selectable, by setting the `user-selected` property to none.
+
+In the next chapter, we will see how to drag and drop files!
+
+
+#### Notes for 3.3.8 Drag and drop a text selection
+
++ Moving selected text
+  + no need to add a `dragstart` handler on an element containing text
+  + selected text automatically added to the clipboard w/ a name/key equal to "text/plain"
+  + adding a `drop` event handler on the drop zone
+  + "text/plain" as the access key to fetch the data from the clipboard
+  + typical syntax: `function drop(target, event) { event.preventDefault(); target.innerHTML = event.dataTransfer.getData('text/plain'); }`
+
++ Example: moving selected text to the drop zone
+  + tasks:
+    + use a CSS trick to make a paragraph non-selectable
+    + move selected text to a drop zone
+  + HTML snippet:
+    + text not draggable: `<p class="notDraggable">This paragraph is not selectable ...</p>`
+    + container for drop zone: `<div class="box" ondragover="return false" ondrop="drop(this, event)"><p>Drop some text selectoin here.</p></div>`
+  + CSS style
+    + [box style](#boxStyle)
+    + style for not draggable: `.notDraggable { user-select: none; }`
+  + JavaScript snippet:
+    + add drop handler: `function drop(target, event) {...}`
+    + prevent default: `event.preventDefault();`
+    + display selected text: `target.innerHTML = event.dataTransfer.getData("text/plain");`
 
 
 
