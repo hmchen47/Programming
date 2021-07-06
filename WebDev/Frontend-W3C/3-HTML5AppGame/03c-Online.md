@@ -774,6 +774,105 @@ Complete source code (for clarity's sake, we put the CSS and JavaScript into a s
     + add [drop handler](#drop)
 
 
+### 3.3.6 The dropEffect property
+
+
+#### Feedback with the `dropEffect` property
+
+__More feedback using the `dropEffect` property: changing the cursor's shape__
+
+It is possible to change the cursor's shape during the drag process. The cursor will turn into a "copy", "move" or "link" icon, depending on the semantic of your drag and drop, when you enter a drop zone during a drag. For example, if you "copy" a fruit into the drop zone, as we did in the previous example, a "copy" cursor like the one below would be appropriate: (left diagram)
+
+If you are "moving" objects, this style of cursor would be appropriate: (middle diagram)
+
+And if you are making a "link" or a "shortcut", a cursor would be looking like this: (right diagram)
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://bit.ly/3ArXRDT" ismap target="_blank">
+    <img style="margin-left: 0em;" height=50
+      src   = "https://bit.ly/3hAxbYR"
+      alt   = "dropEffect"
+      title = "dropEffect"
+    >
+    <img style="margin-left: 1.0em;" height=50
+      src   = "https://bit.ly/36d0aN2"
+      alt   = "drop effect #2"
+      title = "drop effect #2"
+    >
+    <img style="margin-left: 1.0em;" height=50
+      src   = "https://bit.ly/3hjKr5b"
+      alt   = "drop effect #3"
+      title = "drop effect #3"
+    >
+  </a>
+</div>
+
+Alternatively, you could use any custom image/icon you like:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3ArXRDT')"
+    src    = "https://bit.ly/3hFqzZi"
+    alt    = "drop effect with image"
+    title  = "drop effect with image"
+  />
+</figure>
+
+
+To give this visual feedback, we use the `effectAllowed` and `dropEffect` properties of the `dataTransfer` object. To set one of the possible predefined cursors, we specify an effect in the `dragstart` handler, and we set the effect (to "move", "copy", etc.) in the `dragEnter` or `dragOver` handler.
+
+Here is an extract of the code we can add to the example we saw earlier:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> dragStartHandler</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="com">// Allow a "copy" cursor effect</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">effectAllowed </span><span class="pun">=</span><span class="pln"> </span><span class="str">'copy'</span><span class="pun">;</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">...</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+And here is where we can set the cursor to a permitted value:
+
+<ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> dragEnterHandler</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// change the cursor shape to a "+"</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">dropEffect </span><span class="pun">=</span><span class="pln"> </span><span class="str">'copy'</span><span class="pun">;</span></strong><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">...</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol><br>
+
+To set a custom image, we also do the following in the dragstart handler:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> dragStartHandler</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// allowed cursor effects</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">effectAllowed </span><span class="pun">=</span><span class="pln"> </span><span class="str">'copy'</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// Load and create an image</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> dragIcon </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'img'</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;dragIcon</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">'anImage.png'</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;dragIcon</span><span class="pun">.</span><span class="pln">width </span><span class="pun">=</span><span class="pln"> </span><span class="lit">100</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="com">// set the cursor to this image, with an offset in X, Y</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">setDragImage</span><span class="pun">(</span><span class="pln">dragIcon</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">10</span><span class="pun">);</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">...</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+#### Complete online example
+
+Here is the previous example (with apples, oranges, etc) that sets a "copy" cursor and a custom image. Try it in your browser below (start to drag and wait a few seconds for the image to be loaded. You might have to try twice before it works) or [play with it at CodePen](https://codepen.io/w3devcampus/pen/ZbEpEE):
+
+Here are the various possible values for cursor states (your browser will not necessarily support all of these; we noticed that copyMove, etc. had no effect with Chrome, for example). The values of "move", "copy", and "link" are widely supported.
+
+All possible values for `dropEffect` and `effectAllowed`:
+
++ __`dataTransfer.effectAllowed`__ can be set to the following values: `none`, `copy`, `copyLink`, `copyMove`, `link`, `linkMove`, `move`, `all`, and `uninitialized`.
++ __`dataTransfer.dropEffect`__ can take on one of the following values: `none`, `copy`, `link`, `move`.
+
+
+
 
 
 
