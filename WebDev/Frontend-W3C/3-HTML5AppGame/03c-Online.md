@@ -1125,5 +1125,19 @@ In the next chapter, we will see how to drag and drop files!
     + display selected text: `target.innerHTML = event.dataTransfer.getData("text/plain");`
 
 
+### 3.3.9 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+#### Suggested topics of discussion:
+
++ If you find interesting drag and drop examples on the Web, please share them in the forum.
++ What other example(s) would you like to be added to the course (drag and drop of files is covered in the next lesson)?
+
+
+#### Optional projects:
+
++ Code an illustrative drag and drop demo, and share it in the forum. For example, try to add something similar to the "what is your preferred fruit" or "what is your preferred browser" to a form.
++ Order a set of images by dragging and dropping them. A sort of picture gallery, you drag one picture (an <img> element) from its current position and drop it at another location in the gallery (a grid). In the meantime, the other pictures will have to move to give some room for the picture you dropped.
 
 
