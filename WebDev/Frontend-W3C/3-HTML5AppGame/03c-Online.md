@@ -130,7 +130,7 @@ In this script, the event handler will only display an alert showing the name of
     + get parent: `article.dataset.parent; // "cars"`
 
 + Example: dragable attribute and event handler
-  + HTML snippet<a name="drag"></a>:
+  + HTML snippet<a name="dragable"></a>:
     + ordered list: `<ol ondragstart="dragStartHandler(evt)"> ... </ol>`
     + item apples: `<li draggable=true data-value="fruit-apple">Apples</li>`
     + item oranges: `<li draggable=true data-value="fruit-orange">Oranges</li>`
@@ -327,14 +327,14 @@ Notice that we use some CSS to set aside some screen-space for the drop zone (no
     + copy `data-value` of dragged element into drag'n'drop clipboard
     + handle `drop` event to fetch data and add dropped-item as a listed item
   + HTML snippet:
-    + ordered list and listed item elements w/ [drag](#drag)
+    + ordered list and listed item elements w/ [drag](#dragable)
     + element for drop zone: `<div ondragover="return false" ondrop="dropHandler(evt);">Drop your favorite fruits below: <ol id="droppedFruits"></ol></div>`
   + CSS style for mouse hover item: `li.hover { border: 2px dashed #000; }`
   + JavaScript snippet
     + add drag handler: `function dragStartHandler(event) {...}`
       + log msg: `console.log('dragstart event, target: ' + event.target.innerHTML);`
       + copy dragged element into drag'n'drop clipboard: `event.dataTransfer.setData("Fruit", event.target.dataset.value);`
-    + add drop handler: `function dropHandler(event) {...}`
+    + add drop handler<a name="drop"></a>: `function dropHandler(event) {...}`
       + log msg: `console.log('drop event, target: ' + event.target.innerHTML);`
       + create listed item: `var li = document.createElement("li");`
       + get data from drag'n'drop clipboard: `var data = event.dataTransfer,getData("Fruit");`
@@ -530,7 +530,7 @@ The `attr()` function takes an attribute name as a parameter and returns its val
 [Transcript Download](https://bit.ly/36cfOs9)
 
 
-#### Visual feeback on draggable onject
+#### Visual feeback on draggable object and drop zone
 
 __Add visual feedback when you drag something, when the mouse enters a drop zone, etc.__
 
@@ -605,6 +605,8 @@ __Complete example with visual feedback on draggable objects and the drop zone__
 The following example shows how to use these events in a droppable zone. 
 
 Try it in your browser below or [directly at CodePen](https://codepen.io/w3devcampus/pen/ojNLEL):
+
+[Local Demo](src/03c-example05.html)
 
 Complete source code (for clarity's sake, we put the CSS and JavaScript into a single HTML page):
 
@@ -707,6 +709,69 @@ Complete source code (for clarity's sake, we put the CSS and JavaScript into a s
 <li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
 </ol></div>
+
+
+#### Notes for 3.3.5 Add visual feedback
+
++ Visual feedback for drag & drop
+  + scenarios
+    + when drag something
+    + when mouse enters a drop zone
+    + etc.
+  + associating CSS styling w/ the lifecycle of a drag and drop
+
++ Events related to draggable object
+  + `dragstart`:
+    + used on draggable elements
+    + used to get a value from the dragged element
+    + copying value to the clipboard
+    + good practice: visual feedback on draggable elements
+  + `dragend`:
+    + launched as the drag ended
+    + on a drop or if the user releases the mouse button outside a drop zone
+    + best practice: reset the style of the draggable object to default
+  + `dragenter`:
+    + binding the event to the drop zone
+    + occured when a dragged object enters a drop zone
+    + good practice: change the appearance of the drop zone
+  + `dragleave`:
+    + used in relation to the drop zone
+    + good practice: set appearance back to normal once leaving the drop zone
+  + `dragover`:
+    + generally bound to elements corresponding to a drop zone
+    + best practice: preventing the propagation of the event and the default behavior of the browser
+  + `drop`:
+    + on the drop zone and processing the the drop, such as getting the value from the clipboard, etc.
+    + good practice: reset the look of the drop zone to default
+
++ Example: visualizing the drag and drop
+  + HTML snippet: ordered list and listed item elements w/ [drag](#dragable) 
+  + CSS snippet: `.dragged { border: 2px dashed #000; background-color: green; }`
+  + JavaScrip snippet:
+    + add drag start handler<a name="dragStart"></a>: `function dragStartHandler(evt) {...}`
+      + change CSS class: `evt.target.style.opacity = "0.4"; evt.target.classList.add('dragged');`
+      + log msg: `console.log('dragstart event, target: ' + event.target);`
+      + copy to clipboard: `evt.dataTransfer.setData("Fruit", evt.target.dataset.value);`
+    + add drag end handler<a name="dragEnd"></a>: `function dragEndHandler(evt) {...}`
+      + log msg: `console.log("drag end");`
+      + set draggable object to default: `event.target.style.opacity = '1';`
+      + remove added CSS style: `evt.target.classList.remove('dragged');`
+
++ Example: visual feedback on draggable object and the drop zone
+  + HTML snippet:
+    + ordered list and listed item elements w/ [drag](#dragable)
+    + container for drop zone: `<div id="droppableZone" ondragenter="dragEnterHandler(evt)" ondrop="dropHandler(evt)" ondragover="dragOverHandler(evt)" ondragleave="dragLeaveHandler(evt)">Drop your favorite fruits below: <ol id="droppedFruits"></ol></div>`
+  + CSS styles
+    + container style: `div { height: 150px; width: 150px; float: left; border: 2px solid #666666; background-color: #ccc; ... }`
+    + dragged item: `.dragged { border: 2px dashed #000; background-color: green; }`
+    + drop zone when mouse over: `.draggedOver { border: 2px dashed #000; background-color: lightgreen; }`
+  + JavaScript snippet:
+    + add [drag start handler](#dragStart)
+    + add [drag end handler](#dragEnd)
+    + add drag leave handler<a name="dragLeave"></a>: `function dragLeaveHandler(evt) { console.log("Drag leave"); evt.target.classList.remove("draggedOver"); }`
+    + add drag enter handler<a name="dragEnter"></a>: `function dragEnterHandler(evt) { console.log("Drag enter"); evt.target.classList.add("draggedOver"); }`
+    + add drag over handler<a name="dragOver"></a>: `function dragOverHandler(evt) { console.log("Drag over a dropped zone"); evt.preventDefault(); }`
+    + add [drop handler](#drop)
 
 
 
