@@ -904,6 +904,7 @@ All possible values for `dropEffect` and `effectAllowed`:
   + ...
 
 
+
 ### 3.3.7 Drag and drop HTML elements
 
 
@@ -924,6 +925,8 @@ Normally, to make an element draggable, you must add the `draggable=true` attrib
 #### Example: move images as an HTML subtree
 
 Try this example (adapted from [braincracking.org](https://bit.ly/3ytA18W) (in French)) in your browser below or [play with it at CodePen](https://codepen.io/w3devcampus/pen/xwxEZg):
+
+[Local Demo](src/03c-example07.html)
 
 Code from the example:
 
@@ -978,6 +981,38 @@ Code from the example:
 The trick here is to only work on the DOM directly. We used a variant of the event handler proposed by the DOM API. This time, we used handlers with two parameters (the first parameter, `target`, is the element that triggered the event, and the second parameter is the event itself). In the `dragstart` handler we copy just the `id` of the element in the DOM (_line 15_).
 
 In the drop handler, we just move the element from one part of the DOM tree to another (under the `<div>` defined at _line 38_, that is the drop zone). This occurs at _line 18_ (get back the `id` from the clipboard), and _line 19_ (make it a child of the div. Consequently, it is no longer a child of the `<body>`, and indeed we have "moved" one `<img>` from its initial position to another location in the page).
+
+
+#### Notes for 3.3.7 Drag and drop HTML elements
+
++ Drag and drop HTML elements
+  + copy and past to/from the clipboard
+  + clipboard accessed through the `dataTransfer` property of the different evnets
+    + copy data into the clipboard: `event.dataTransfer.setData("Fruit", event.targte.daatset.value);`
+    + past data from the clipboard: `var data = event.dataTransfer.getData("Fruit");`
+  + `<img>` elements all draggable by default
+
++ Example: moving images as an HTML subtree
+  + tasks
+    + only work on the DOM directly
+    + move icon from child of `<body>` to child of selected container
+  + HTML snippet
+    + list of browser icons:
+      + Chrome: `<img src="https://.../chrome.png" id="cr" ondragstart="drag(this, event)" alt="Logo Chrome">`
+      + Firefox: `<img src="https://.../firefox.png" id="cr" ondragstart="drag(this, event)" alt="Logo Firefox">`
+      + IE: `<img src="https://.../ie.png" id="cr" ondragstart="drag(this, event)" alt="Logo IE">`
+      + Opera: `<img src="https://.../opera.png" id="cr" ondragstart="drag(this, event)" alt="Logo Opera">`
+      + Safari: `<img src="https://.../safari.png" id="cr" ondragstart="drag(this, event)" alt="Logo Safari">`
+    + conatiners for good and bad browser drop zones
+      + good: `<div class="box" ondragover="return false" ondrop="drop(this, eve,t)"><p>Good web browsers</p></div>`
+      + bad: `<div class="box" ondragover="return false" ondrop="drop(this, eve,t)"><p>Bad web browsers</p></div>`
+  + CSS style: `.box { border: silver solid; width: 256px; height: 128px; margin: 10px; padding: 5px; float: left; }`
+  + JavaScript snippet
+    + add drag handler: `function drag(target, evt) { evt.daatTransfer.setData("Text", target.id); }`
+    + add drop handler: `function drop(target, evt) {...}`
+      + retrieve selected icon from clipboard: `var id = evt.dataTransfer.getData("Text");`
+      + move icon to selected drop zone: `target.appendChild(document.getElementBuId(id));`
+      + prevent default behavior: `evt.preventDefault();`
 
 
 
