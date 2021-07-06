@@ -7,7 +7,7 @@
 ### 3.3.1 Introduction
 
 From [the W3C HTML 5.1 specification](https://www.w3.org/TR/html51/editing.html#dnd): 
->"the drag and drop API defines an event-based drag-and-drop mechanism, it does not define exactly what a drag-and-drop operation actually is".
+> "the drag and drop API defines an event-based drag-and-drop mechanism, it does not define exactly what a drag-and-drop operation actually is".
 
 We decided to present this API in a section about HTML5 client-side persistence, as it is very often used for dragging and dropping files. However, we will also address drag and drop of elements within an HTML document.
 
@@ -810,7 +810,7 @@ And if you are making a "link" or a "shortcut", a cursor would be looking like t
 Alternatively, you could use any custom image/icon you like:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick= "window.open('https://bit.ly/3ArXRDT')"
     src    = "https://bit.ly/3hFqzZi"
     alt    = "drop effect with image"
@@ -841,7 +841,7 @@ And here is where we can set the cursor to a permitted value:
 <li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 </ol><br>
 
-To set a custom image, we also do the following in the dragstart handler:
+To set a custom image, we also do the following in the `dragstart` handler:
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> dragStartHandler</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
@@ -864,12 +864,44 @@ To set a custom image, we also do the following in the dragstart handler:
 
 Here is the previous example (with apples, oranges, etc) that sets a "copy" cursor and a custom image. Try it in your browser below (start to drag and wait a few seconds for the image to be loaded. You might have to try twice before it works) or [play with it at CodePen](https://codepen.io/w3devcampus/pen/ZbEpEE):
 
+[Local Demo](src/03c-example06.html)
+
 Here are the various possible values for cursor states (your browser will not necessarily support all of these; we noticed that copyMove, etc. had no effect with Chrome, for example). The values of "move", "copy", and "link" are widely supported.
 
 All possible values for `dropEffect` and `effectAllowed`:
 
 + __`dataTransfer.effectAllowed`__ can be set to the following values: `none`, `copy`, `copyLink`, `copyMove`, `link`, `linkMove`, `move`, `all`, and `uninitialized`.
 + __`dataTransfer.dropEffect`__ can take on one of the following values: `none`, `copy`, `link`, `move`.
+
+
+#### Notes for 3.3.6 The dropEffect property
+
++ The `dropEffect` property
+  + changing the cursor's shape during the drag process
+  + turning cursor into a "copy", "move" or "link" icon, depending on the semantic of the drag and drop
+    + copy icon: copy an object into the drop zone
+    + moving icon: moving an object
+    + link icon: making a link or shortcut
+  + alternative: using any customized image/icon
+  + visual feedback:
+    + using the `effectAllowed` and `dropEffect` properties of the `dataTransfer` object
+    + specifying an effect in the `dragStart` handler by setting one of the possible predefined cursors
+    + specifying the effect (to "copy", "move", etc.) in the dragEnter` and `dragOver` handler
+
++ Possible values for `dropEffect` and `effectAllowed` properties
+  + `dataTransfer.effectAllowed`: `none`, `copy`, `copyLink`, `copyMove`, `link`, `linkMove`, `move`, `all`, `uninitialized`
+  + `dataTransfer.dropEffect`: `none`, `copy`, `linke`, `move`
+
++ Syntax of visual effect for drag and drop
+  + allow a copy cursor effect: `function dragStartHandler(evt) { evt.dataTransfer.effecctAllowed = 'copy'; ... }`
+  + change the cursor shape to a '+': `function dragEnterHandler(evt) { evt.dataTransfer.dropEffect = 'copy'; ... }`
+
++ Example: cumstomerized image
+  + add drag start handler: `function dragStartHandler(evt) {...}`
+  + allow cursor effect: `evt.daatTransfer.effectAllowed = 'copy';`
+  + load and create image: `var dragIcon = document.createElement('img'); dragIcon.src = 'anImage.png'; dragIcon.width = 100;`
+  + set the cursor to this image: `ent.dataTransfer.setDragImage(dragIcon, -10, -10);`
+  + ...
 
 
 
