@@ -904,6 +904,82 @@ All possible values for `dropEffect` and `effectAllowed`:
   + ...
 
 
+### 3.3.7 Drag and drop HTML elements
+
+
+#### Drag and drop images or any HTML element within a document
+
+We saw the main principles of HTML5 drag and drop in the previous sections. There are other interesting uses that differ in the way we copy and paste things to/from the clipboard. The clipboard is accessed through the `dataTransfer` property of the different events:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">setData</span><span class="pun">(</span><span class="str">"Fruit"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">dataset</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">...</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> data </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">getData</span><span class="pun">(</span><span class="str">"Fruit"</span><span class="pun">);</span></li>
+</ol></div>
+
+__`<img>` elements are all draggable by default!__
+
+Normally, to make an element draggable, you must add the `draggable=true` attribute. `<img>` elements are an exception: they are draggable by default! The next example shows how to drag and drop an image from one location in the document to another.
+
+#### Example: move images as an HTML subtree
+
+Try this example (adapted from [braincracking.org](https://bit.ly/3ytA18W) (in French)) in your browser below or [play with it at CodePen](https://codepen.io/w3devcampus/pen/xwxEZg):
+
+Code from the example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;html lang="en"&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">.</span><span class="pln">box </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="pln"> silver solid</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">256px</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">128px</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; padding</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5px</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">float</span><span class="pun">:</span><span class="pln"> left</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> drag</span><span class="pun">(</span><span class="pln">target</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; evt</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">setData</span><span class="pun">(</span><span class="str">"Text"</span><span class="pun">,</span><span class="pln"> target</span><span class="pun">.</span><span class="pln">id</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> drop</span><span class="pun">(</span><span class="pln">target</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> id </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">getData</span><span class="pun">(</span><span class="str">"Text"</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; target</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="pln">id</span><span class="pun">));</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// prevent default behavior</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; evt</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> Drag and drop browser images in a zone:</span><span class="tag">&lt;br/&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/ABiBCwZ.png"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"cr"</span><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="pln">drag</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">"Logo Chrome"</span><span class="tag">&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/n7xo93U.png"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"ff"</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="pln">drag</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">"Logo Firefox"</span><span class="tag">&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/ugUmuGQ.png"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"ie"</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="pln">drag</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">"Logo IE"</span><span class="tag">&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/jfrNErz.png"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"op"</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="pln">drag</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">"Logo Opera"</span><span class="tag">&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/gDJCG0l.png"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"sf"</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="pln">drag</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">"Logo Safari"</span><span class="tag">&gt;&lt;br/&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"box"</span><span class="pln"> </span><span class="atn">ondragover</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="atv">"</span><span class="pln"> </span><span class="atn">ondrop</span><span class="pun">=</span><span class="atv">"</span><span class="pln">drop</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;p&gt;</span><span class="pln">Good web browsers</span><span class="tag">&lt;/p&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;/div&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"box"</span><span class="pln"> </span><span class="atn">ondragover</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="atv">"</span><span class="pln"> </span><span class="atn">ondrop</span><span class="pun">=</span><span class="atv">"</span><span class="pln">drop</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;p&gt;</span><span class="pln">Bad web browsers</span><span class="tag">&lt;/p&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;/div&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+The trick here is to only work on the DOM directly. We used a variant of the event handler proposed by the DOM API. This time, we used handlers with two parameters (the first parameter, `target`, is the element that triggered the event, and the second parameter is the event itself). In the `dragstart` handler we copy just the `id` of the element in the DOM (_line 15_).
+
+In the drop handler, we just move the element from one part of the DOM tree to another (under the `<div>` defined at _line 38_, that is the drop zone). This occurs at _line 18_ (get back the `id` from the clipboard), and _line 19_ (make it a child of the div. Consequently, it is no longer a child of the `<body>`, and indeed we have "moved" one `<img>` from its initial position to another location in the page).
+
+
 
 
 
