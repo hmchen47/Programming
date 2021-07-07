@@ -30,6 +30,7 @@ We will start by presenting the API itself, and then we will focus on the partic
     + MDN article about [HTML Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API).
     + Medium article entitled "[How to Drag & Drop HTML Elements and Files using Javascript](https://bit.ly/3wfFqif)"
     + Nice [shopping cart demo](https://bit.ly/3xiKp36).
+  + ref: E. Bidelman and R. Andrew, [Using the HTML5 Drag and Drop API](https://web.dev/drag-and-drop/), 2020
  
 
 ### 3.3.2 Drag detection
