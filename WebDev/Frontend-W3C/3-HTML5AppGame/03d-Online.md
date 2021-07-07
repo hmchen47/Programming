@@ -117,18 +117,18 @@ __External resources__
     + dropping an image into an HTML page $\to$ open a new tab and display the image
     + dropping a mp3 file $\to$ open a new tab and start streaming the audio w/ a default player
   + two functions to prevent the default behavior of the browser
-    + not propagating the event: `event.stopPropagation();`
-    + preventing default behavior, in particular when droopping images or links: `event.preventDefault();`
+    + not propagating the event<a name="stopPropagation"></a>: `event.stopPropagation();`
+    + preventing default behavior, in particular when droopping images or links<a name="preventDefault"></a>: `event.preventDefault();`
   + best practice: add `eventPropagation` and `event.preventDefault` to handlers attached to the drop zone
     + the `stop` handler
     + the `dragOver` handler
   + ref: R. Gravelle, [Drag Files Into the Browser From the Desktop with HTML5](https://www.htmlgoodies.com/html5/drag-files-into-the-browser-from-the-desktop-with-html5/), 2012
 
 + Example: preventing default behavior
-  + add to drag over handler: `function dragOverHandler(event) {...}`
+  + add to drag over handler<a name="dragover"></a>: `function dragOverHandler(event) {...}`
     + not propagating the event: `event.stopPropagation();`
     + preventing default behavior, in particular when droopping images or links: `event.preventDefault();`
-  + add to drop handler: `function dropHandler(event) {...}`
+  + add to drop handler<a name="drop"></a>: `function dropHandler(event) {...}`
     + not propagating the event: `event.stopPropagation();`
     + preventing default behavior, in particular when droopping images or links: `event.preventDefault();`
 
@@ -160,6 +160,8 @@ __Example: drag and drop files to a drop zone, display file details in a list__
 
 
 Try the example below directly in your browser (just drag and drop files to the greyish drop zone), or [play with it at CodePen](https://codepen.io/w3devcampus/pen/JYjpqV?editors=111):
+
+[Local Demo](src/03d-example01.html)
 
 Complete source code from the example:
 
@@ -260,6 +262,38 @@ Note that:
 + _Lines 73-74_ create a `<li>` element. Its value is initialized with the file name of the current file in the collection, and added to the `<ol>` list.
 
 In principle, this example is very similar to the "fruit" examples we worked through earlier, except that this time we're working with files. _And when we work with files, it is important to prevent the browser's default behavior._
+
+
+#### Notes for 3.4.2 Drag and drop files in a drop zone
+
++ Example: moving files to drop zone w/ details
+  + tasks
+    + prevent the browser default behavior
+    + create listed items for the drop zone
+  + HTML  snippet:
+    + drop zone container: `<div id="droppableZone" ondragenter="dragEnterHandler(event)" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)" ondragleave="dragLeaveHandler(event)"> Drop Zone ...</div>`
+    + display zone: `<ol id="droppedFiles"</ol>`
+  + CSS style
+    + style for div container: `.div { height: 150px; width: 350px; float: left; ... }`
+    + style for dragged item: `.dragged { border: 2px dashed #000; background-color: green; }`
+    + style for drop zone w/ mouse over: `.draggedOver { border: 2px dashed #000; background-color: darkgreen; }`
+  + JavaScrip snippet
+    + add drag leave handler: `function dragLeaveHandler(evt) { console.log("Drag leave"); evt.target.classList.remove('draggedOver'); }`
+    + add drag enter handler: `function dragEnterHandler(evt) { console.log("Drag enter"); evt.target.classList.add('draggedOver'); }`
+    + add [drag over handler](#dragover)
+    + add drop handler: `function dropHandler(evt) {...}`
+      + log msg: `console.log('drop event');`
+      + do not propagate the event: `evt.stopPropagation();`
+      + prevent default behavior: `evt.preventDefault();`
+      + reset the visual look of drop zone: `evt.target.classList.remove('draggedOver');`
+      + get files from the clipboard: `var files = evt.dataTransfer.files; var filesLen = files.length; var filenames = "";`
+      + iterate on files and display filenames: `for (var i=0; i<fileLen; i++) {...}`
+        + create list item: `var li = document.createElement("li");`
+        + add item content: `li.textContent = files[i].name;`
+        + add the item to display: `document.querySelector("#droppedFiles").appendChild(li);`
+      + log msg: `console.log(files.length + 'file(s) have been dropped:\n' + filenames);`
+
+
 
 
 
