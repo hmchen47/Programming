@@ -11,11 +11,11 @@ In these lectures, we will learn how to _drag and drop_ files between the browse
 
 #### Moving files from desktop to browser
 
-__Drag and drop files from the desktop to the browser: the files property of the clipboard__
+__Drag and drop files from the desktop to the browser: the `files` property of the clipboard__
 
 The principle is the same as in the examples from the previous section (drag and drop basics), except that we do not need to worry about a `dragstart` handler. __Files will be dragged from the desktop, so the browser only has to copy their content from the clipboard__ and make it available in our JavaScript code.
 
-Indeed, __the main work will be done in the drop handler__, where we will use the files property of the `dataTransfer` object (aka the clipboard). This is where the browser will copy the files that have been dragged from the desktop. 
+Indeed, __the main work will be done in the drop handler__, where we will use the `files` property of the `dataTransfer` object (aka the clipboard). This is where the browser will copy the files that have been dragged from the desktop.
 
 This `files` object is the same one we saw in the chapter about the File API in the "HTML5 part 1" course: it is a collection of `file` objects >(sort of file descriptors). From each `file` object, we will be able to extract the name of the file, its type, size, last modification date, read it, etc.
 
@@ -91,6 +91,46 @@ __External resources__
 + Web.dev article: "[Using the HTML5 drag and drop API](https://web.dev/drag-and-drop/)"
 + HTML Goodies article: "[Drag Files Into the Browser From the Desktop with HTML5](https://bit.ly/2UqW41k)"
 
+
+#### Notes for 3.4.1 Introduction
+
++ Moving files from desktop and browser w/ the `files` property
+  + no `dragstart` handler required
+  + files dragged from the desktop
+  + browser only copying their contents from the clipboard
+  + main work done in the drop handler
+  + `files` property of the `dataTransfer` object used to copy the dragged files from the desktop
+  + `files` object: a collection of `file` objects
+  + `file` object able to extract the name of the file, type, size, last modificaton date, read it, etc.
+
++ Example: handling the drop event for dragged files
+  + add drop handler: `function dropHandler(evt) {...}`
+  + stop propagating event: `evt.stopPropagation();`
+  + prevent default behavior: `evt.preventDefault();`
+  + get the dropped files from the clipboard: `var files = evt.dataTransfer.files;`
+  + init filename: `var filename = "";`
+  + iterate to add filenames into string: `for (var i=0; i<files.length; i++) { filenames += '\n' + files[i].name; }`
+  + log msg to display filenames: `console.log(files.length + 'file(s) have been dropped:\n' + filenames);`
+
++ Prevent browser's deafult behavior
+  + default behavior
+    + dropping an image into an HTML page $\to$ open a new tab and display the image
+    + dropping a mp3 file $\to$ open a new tab and start streaming the audio w/ a default player
+  + two functions to prevent the default behavior of the browser
+    + not propagating the event: `event.stopPropagation();`
+    + preventing default behavior, in particular when droopping images or links: `event.preventDefault();`
+  + best practice: add `eventPropagation` and `event.preventDefault` to handlers attached to the drop zone
+    + the `stop` handler
+    + the `dragOver` handler
+  + ref: R. Gravelle, [Drag Files Into the Browser From the Desktop with HTML5](https://www.htmlgoodies.com/html5/drag-files-into-the-browser-from-the-desktop-with-html5/), 2012
+
++ Example: preventing default behavior
+  + add to drag over handler: `function dragOverHandler(event) {...}`
+    + not propagating the event: `event.stopPropagation();`
+    + preventing default behavior, in particular when droopping images or links: `event.preventDefault();`
+  + add to drop handler: `function dropHandler(event) {...}`
+    + not propagating the event: `event.stopPropagation();`
+    + preventing default behavior, in particular when droopping images or links: `event.preventDefault();`
 
 
 
