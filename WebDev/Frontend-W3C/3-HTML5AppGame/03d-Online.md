@@ -266,7 +266,7 @@ In principle, this example is very similar to the "fruit" examples we worked thr
 
 #### Notes for 3.4.2 Drag and drop files in a drop zone
 
-+ Example: moving files to drop zone w/ details
++ Example: moving files to drop zone w/ filenames
   + tasks
     + prevent the browser default behavior
     + create listed items for the drop zone
