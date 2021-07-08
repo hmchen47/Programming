@@ -234,6 +234,44 @@ __Explanations:__
 + When the form is submitted, a directory whose name is today's date is created, and the files located in the RecycleBin directory are moved to that directory. If it does not already exist, the directory will be created  (_lines 7-20_).
 
 
+#### Notes for 3.5.3 Serial approach
+
++ Example: server-side PHP code w/ serial approach
+
+  ```php
+  <?php
+  
+  if (isset($_POST['firstname']) && isset($_POST['lastname'])) {
+      echo $_POST['firstname'].' '.$_POST['lastname'].' uploaded file(s).<br />';
+  }
+  
+  if (isset($_POST['namesAllFiles']) && $_POST['namesAllFiles'] != "") {
+      $folderName = date("m.d.Y");
+      if (!is_dir('upload/'.$folderName)) {
+          mkdir('upload/'.$folderName);
+      }
+  
+      $filesName = explode("::", $_POST['namesAllFiles']);
+      for ($i=0; $i < count($filesName); $i++) {
+          copy('upload/RecycleBin/'.$filesName[$i], 'upload/'.$folderName.'/'.$filesName[$i]);
+          unlink('upload/RecycleBin/'.$filesName[$i]);
+          echo "$filesName[$i] uploaded<br />";
+      }
+  }
+  
+  $fn = (isset($_SERVER['HTTP_X_FILENAME']) ? $_SERVER['HTTP_X_FILENAME'] : false);
+  
+  if ($fn) {
+      if (!is_dir('upload/RecycleBin')) {
+          mkdir('upload/RecycleBin');
+      }
+      file_put_contents('upload/RecycleBin/'.$fn, file_get_contents('php://input'));
+      exit();
+  }
+  
+  ?>
+  ```
+
 ### 3.5.4 Package approach
 
 Let's use the previous two examples as a basis for two further examples:
