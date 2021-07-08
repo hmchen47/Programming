@@ -3,7 +3,6 @@
 
 ## 3.5 Forms and files
 
-
 ### 3.5.1 Introduction
 
 We had many questions about how to submit a form with regular input fields AND benefit from the HTML5 built-in validation AND upload files AND monitor the file upload progress with a progress bar.
@@ -63,6 +62,53 @@ __Packaged approach: send all form content, including files, only when the form 
 The difference between this and the first approach is that we are sending everything _at the same time_ using Ajax/JavaScript: the regular input field content and the selected files.
 
 The next page provides the source code of several examples, as well as the server-side PHP code.
+
+
+#### Notes for 3.5.1 Introduction
+
++ Uploading forms and files
+  + typical tasks
+    + submit a form w/ regular input fields
+    + benefit from the HTML5 built-in validation
+    + upload files
+    + monitor the file upload progress w/ a progress bar
+  + solutions
+    + typical: jQuery plugins
+    + alternative: only HTML5 APIs, easy, faster, and lower page weight
+  + typical design
+    + a regular HTML5 form
+    + the input fields for entering a name, address, age, etc.
+    + selecting and uploading multiple files
+  + approaches
+    + serial approach
+    + packaged approach
+
++ Serial approach
+  + uploading the files as soon as selected or dragged and dropped
+  + design
+    + an Ajax/XHR2
+    + a form w/ an `<input type=file multiple>` input field
+    + one or more `<progress>` elements for monitoring file uploads
+    + form w/ input fields of different types
+  + interactions
+    + user drag and drop files
+    + start being uploaded immediately
+    + form only sent all the fields valid
+  + example: Gmail's behavior
+    + commposing a message and adding an attachment
+    + attachments uploaded as soon as selected or dropped into the message window
+    + message only sent when the "send" button pressed
+    + empty fields w/ `required` attribute $\to$ error message $\to$ noy submitted
+    + server-side: join the files asynchronously uploaded w/ the resest of the form's value $\gets$ PHP code
+
++ Packaged approach
+  + send all form content, including files, only when the form is submitted
+  + design
+    + send all of the form's content at once w/ a single Ajax request $\to$ only one progress bar
+    + probably using multiple Ajax requests, not starting until the submit button clicked
+  + sending everything at the same time using Ajax/JavaScript, including the regular input field conetnt and the selected fields
+
+
 
 
 
