@@ -732,7 +732,7 @@ The parts that we have added are in bold. As you can see, all methods share the 
     + not in HTML5 spec.
     + only working for file selector
 
-+ Example: selecting image files and direccory
++ Example: selecting image files and directory
   + HTML snippet:
     + input button for choosing multiple files: `<input type="file" id="files" multiple onchange="handleFileSelect(event)"/>`
     + input button for a directory (Chrome only): `<input type="file" id="files" webkitdirectory onchange="handleFileSelect(event)"/>`
