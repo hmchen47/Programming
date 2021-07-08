@@ -98,13 +98,13 @@ The next page provides the source code of several examples, as well as the serve
     + commposing a message and adding an attachment
     + attachments uploaded as soon as selected or dropped into the message window
     + message only sent when the "send" button pressed
-    + empty fields w/ `required` attribute $\to$ error message $\to$ noy submitted
-    + server-side: join the files asynchronously uploaded w/ the resest of the form's value $\gets$ PHP code
+    + empty fields w/ `required` attribute &#36;\to&#36; error message &#36;\to&#36; noy submitted
+    + server-side: join the files asynchronously uploaded w/ the resest of the form's value &#36;\gets&#36; PHP code
 
 + Packaged approach
   + send all form content, including files, only when the form is submitted
   + design
-    + send all of the form's content at once w/ a single Ajax request $\to$ only one progress bar
+    + send all of the form's content at once w/ a single Ajax request &#36;\to&#36; only one progress bar
     + probably using multiple Ajax requests, not starting until the submit button clicked
   + sending everything at the same time using Ajax/JavaScript, including the regular input field conetnt and the selected fields
 
@@ -140,7 +140,7 @@ We made two examples that rely on the serial approach:
 We could have merged file selector + drag and drop, as we did in examples earlier in the course, but the code would have been longer and more difficult to follow.
 
 
-#### Uploading files w/ file selector
+#### File selector for uploading files
 
 __Example #1: auto-loading of the files, regular form submission, benefits of the HTML5 form validation system__
 
@@ -158,16 +158,20 @@ Example using a file selector (`<input type="file">`):
 
 Try the [online example at JSBin](https://jsbin.com/rozanow/edit?html,css,js,output) (this one does not have the PHP code running, but works anyway, even if the files are not uploaded - it "fakes the upload"). Look at the online example for the code and the following explanations.
 
+[Local Demo](src/03e-example01.html)
+
 In this example, the "send" button is disabled and becomes enabled as soon as all the files are completely uploaded. Also, note that the form is saved as the user types, by using localStorage. Accordingly, it can be restored on page reload, as in the example from the localStorage topic of the HTML5 Part 1 course.
 
 Note that the full working source code of this example corresponds to "example 1" in [the zip archive that contains all examples](https://bit.ly/3r0lP4O).
 
 
-#### Uploading files with drag and drop
+#### Drag and drop for uploading files
 
 __Example #2: similar example but using drag and drop instead of a file selector__
 
 Here is much the same code, but this time it uses drag and drop to collect the filenames, not an input field. [Try it at JSBin](https://jsbin.com/qijoza/edit?html,css,js,output) and look at the source code - there are plenty of comments.
+
+[Local Demo](src/03e-example02.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -188,33 +192,33 @@ This code is given "as is":
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&lt;?</span><span class="pln">php</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isset</span><span class="pun">(</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">'givenname'</span><span class="pun">])</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> isset</span><span class="pun">(</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">'familyname'</span><span class="pun">]))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;echo $_POST</span><span class="pun">[</span><span class="str">'givenname'</span><span class="pun">].</span><span class="str">' '</span><span class="pun">.</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">'familyname'</span><span class="pun">].</span><span class="str">' uploaded file(s).&lt;br /&gt;'</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isset</span><span class="pun">(</span><span class="pln">&#36;_POST</span><span class="pun">[</span><span class="str">'givenname'</span><span class="pun">])</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> isset</span><span class="pun">(</span><span class="pln">&#36;_POST</span><span class="pun">[</span><span class="str">'familyname'</span><span class="pun">]))</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;echo &#36;_POST</span><span class="pun">[</span><span class="str">'givenname'</span><span class="pun">].</span><span class="str">' '</span><span class="pun">.</span><span class="pln">&#36;_POST</span><span class="pun">[</span><span class="str">'familyname'</span><span class="pun">].</span><span class="str">' uploaded file(s).&lt;br /&gt;'</span><span class="pun">;</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isset</span><span class="pun">(</span><span class="pln">$_POST</span><span class="pun">[</span><span class="str">'namesAllFiles'</span><span class="pun">])</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> $_POST</span><span class="pun">[</span><span class="str">'namesAllFiles'</span><span class="pun">]</span><span class="pln"> </span><span class="pun">!=</span><span class="pln"> </span><span class="str">""</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; $folderName </span><span class="pun">=</span><span class="pln"> date</span><span class="pun">(</span><span class="str">"m.d.Y"</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">is_dir</span><span class="pun">(</span><span class="str">'upload/'</span><span class="pun">.</span><span class="pln">$folderName</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;mkdir</span><span class="pun">(</span><span class="str">'upload/'</span><span class="pun">.</span><span class="pln">$folderName</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isset</span><span class="pun">(</span><span class="pln">&#36;_POST</span><span class="pun">[</span><span class="str">'namesAllFiles'</span><span class="pun">])</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> &#36;_POST</span><span class="pun">[</span><span class="str">'namesAllFiles'</span><span class="pun">]</span><span class="pln"> </span><span class="pun">!=</span><span class="pln"> </span><span class="str">""</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &#36;folderName </span><span class="pun">=</span><span class="pln"> date</span><span class="pun">(</span><span class="str">"m.d.Y"</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">is_dir</span><span class="pun">(</span><span class="str">'upload/'</span><span class="pun">.</span><span class="pln">&#36;folderName</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;mkdir</span><span class="pun">(</span><span class="str">'upload/'</span><span class="pun">.</span><span class="pln">&#36;folderName</span><span class="pun">);</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> $filesName </span><span class="pun">=</span><span class="pln"> explode</span><span class="pun">(</span><span class="str">"::"</span><span class="pun">,</span><span class="pln"> $_POST</span><span class="pun">[</span><span class="str">'namesAllFiles'</span><span class="pun">]);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> $i </span><span class="pun">&lt;</span><span class="pln"> count</span><span class="pun">(</span><span class="pln">$filesName</span><span class="pun">);</span><span class="pln"> $i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; copy</span><span class="pun">(</span><span class="str">'upload/RecycleBin/'</span><span class="pun">.</span><span class="pln">$filesName</span><span class="pun">[</span><span class="pln">$i</span><span class="pun">],</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'upload/'</span><span class="pun">.</span><span class="pln">$folderName</span><span class="pun">.</span><span class="str">'/'</span><span class="pun">.</span><span class="pln">$filesName</span><span class="pun">[</span><span class="pln">$i</span><span class="pun">]);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; unlink</span><span class="pun">(</span><span class="str">'upload/RecycleBin/'</span><span class="pun">.</span><span class="pln">$filesName</span><span class="pun">[</span><span class="pln">$i</span><span class="pun">]);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; echo </span><span class="str">"$filesName[$i] uploaded&lt;br /&gt;"</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> &#36;filesName </span><span class="pun">=</span><span class="pln"> explode</span><span class="pun">(</span><span class="str">"::"</span><span class="pun">,</span><span class="pln"> &#36;_POST</span><span class="pun">[</span><span class="str">'namesAllFiles'</span><span class="pun">]);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">&#36;i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> &#36;i </span><span class="pun">&lt;</span><span class="pln"> count</span><span class="pun">(</span><span class="pln">&#36;filesName</span><span class="pun">);</span><span class="pln"> &#36;i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; copy</span><span class="pun">(</span><span class="str">'upload/RecycleBin/'</span><span class="pun">.</span><span class="pln">&#36;filesName</span><span class="pun">[</span><span class="pln">&#36;i</span><span class="pun">],</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'upload/'</span><span class="pun">.</span><span class="pln">&#36;folderName</span><span class="pun">.</span><span class="str">'/'</span><span class="pun">.</span><span class="pln">&#36;filesName</span><span class="pun">[</span><span class="pln">&#36;i</span><span class="pun">]);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; unlink</span><span class="pun">(</span><span class="str">'upload/RecycleBin/'</span><span class="pun">.</span><span class="pln">&#36;filesName</span><span class="pun">[</span><span class="pln">&#36;i</span><span class="pun">]);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; echo </span><span class="str">"&#36;filesName[&#36;i] uploaded&lt;br /&gt;"</span><span class="pun">;</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
 <li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">$fn </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isset</span><span class="pun">(</span><span class="pln">$_SERVER</span><span class="pun">[</span><span class="str">'HTTP_X_FILENAME'</span><span class="pun">])</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$_SERVER</span><span class="pun">[</span><span class="str">'HTTP_X_FILENAME'</span><span class="pun">]</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&#36;fn </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isset</span><span class="pun">(</span><span class="pln">&#36;_SERVER</span><span class="pun">[</span><span class="str">'HTTP_X_FILENAME'</span><span class="pun">])</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&#36;_SERVER</span><span class="pun">[</span><span class="str">'HTTP_X_FILENAME'</span><span class="pun">]</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$fn</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">&#36;fn</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">is_dir</span><span class="pun">(</span><span class="str">'upload/RecycleBin'</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; mkdir</span><span class="pun">(</span><span class="str">'upload/RecycleBin'</span><span class="pun">);</span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; file_put_contents</span><span class="pun">(</span><span class="str">'upload/RecycleBin/'</span><span class="pun">.</span><span class="pln">$fn</span><span class="pun">,</span><span class="pln">&nbsp; &nbsp; &nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; file_put_contents</span><span class="pun">(</span><span class="str">'upload/RecycleBin/'</span><span class="pun">.</span><span class="pln">&#36;fn</span><span class="pun">,</span><span class="pln">&nbsp; &nbsp; &nbsp;</span></li>
 <li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; file_get_contents</span><span class="pun">(</span><span class="str">'php://input'</span><span class="pun">));</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">exit</span><span class="pun">();</span></li>
 <li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
@@ -222,10 +226,14 @@ This code is given "as is":
 <li class="L0" style="margin-bottom: 0px;"><span class="pun">?&gt;</span></li>
 </ol></div>
 
+
+
 __Explanations:__
 
 + When files are first uploaded, they are stored in a directory called `upload/RecycleBin`. If it does not exist, this directory is created (_lines 22-32_).
 + When the form is submitted, a directory whose name is today's date is created, and the files located in the RecycleBin directory are moved to that directory. If it does not already exist, the directory will be created  (_lines 7-20_).
+
+
 
 
 
