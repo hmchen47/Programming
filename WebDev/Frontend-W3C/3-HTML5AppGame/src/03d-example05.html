@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Drag and drop</title>
+     <meta charset="utf-8">
+    <link rel="stylesheet" href="css/03d-example04.css">
+    <script src="js/03d-example04.js"></script>
+  </head>
+  <body>
+    <h2>Drop your files here!</h2>
+    <div id="droppableZone" ondragenter="dragEnterHandler(event)" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)" ondragleave="dragLeaveHandler(event)">
+      Drop zone
+      <ol id="droppedFiles"></ol>
+  </div>
+    <br/>
+    Uploading progress: <progress id="progress" value=0></progress>
+  <body>
+<html>
