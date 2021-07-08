@@ -753,7 +753,7 @@ The parts that we have added are in bold. As you can see, all methods share the 
 
 This time, let us mash-up a couple of examples. Let's combine the upload of files using XHR2, with progress monitoring (we worked on in the 3.2 lectures) with one of our drag and drop examples. To achieve this, we re-use the method calleduploadAllFilesUsingAjax() and add a <progress> element to the drag and drop example.
 
-Try this interactive example at JSBin (this example does not work on CodePen. We are using a fake remote server and it cancels the connection as soon as we try to connect):
+Try [this interactive example at JSBin](https://jsbin.com/conigekoda/edit) (this example does not work on CodePen. We are using a fake remote server and it cancels the connection as soon as we try to connect):
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
