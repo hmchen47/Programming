@@ -288,6 +288,7 @@ In principle, this example is very similar to the "fruit" examples we worked thr
       + reset the visual look of drop zone: `evt.target.classList.remove('draggedOver');`
       + get files from the clipboard: `var files = evt.dataTransfer.files; var filesLen = files.length; var filenames = "";`
       + iterate on files and display filenames: `for (var i=0; i<fileLen; i++) {...}`
+        + add filename to string: `filenames += '\n' + files[i].name;`
         + create list item: `var li = document.createElement("li");`
         + add item content: `li.textContent = files[i].name;`
         + add the item to display: `document.querySelector("#droppedFiles").appendChild(li);`
@@ -520,14 +521,14 @@ Above, we added the `readFilesAndDisplayPreview()` method detailed earlier. We c
 ### 3.4.4 Mixing drag and drop and input type=file
 
 
-#### Selecting image files and directory
+#### Input element with file type
 
 Let's go further and also add an `<input type="file">`
 
 The example below allows files to be selected using a file chooser or by drag  and dropping them, like in the screenshot below (the interactive example is a bit further down the page):
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick= "window.open('pagehttps://bit.ly/3AGoQLI')"
     src    = "https://bit.ly/2Vn00Rf"
     alt    = "example of file chooser and dir chooser"
@@ -536,7 +537,7 @@ The example below allows files to be selected using a file chooser or by drag  a
 </figure>
 
 
-In the above screenshot, which is derived from the example detailed later in this page, we selected some files using the first button (which is an `<input type="file" multiple.../>`),then we used the second button (which is an `<input type="file" webkitdirectory>`) to select a directory that contained 11 files. We then dragged and dropped some other images to the drop zone. Each time, thumbnails were displayed. Both methods (file selector or drag and drop) produced the same result.
+In the above screenshot, which is derived from the example detailed later in this page, we selected some files using the first button (which is an `<input type="file" multiple.../>`), then we used the second button (which is an `<input type="file" webkitdirectory>`) to select a directory that contained 11 files. We then dragged and dropped some other images to the drop zone. Each time, thumbnails were displayed. Both methods (file selector or drag and drop) produced the same result.
 
 __Idea: reuse the same code for reading image files and displaying thumbnails__
 
@@ -558,7 +559,7 @@ If you look (again) at the [very first example](https://codepen.io/w3devcampus/p
 <li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
 </ol></div>
 
-It calls readFilesAndDisplayPreview()at line 5! The same function with the same parameters is also used by [the example](https://codepen.io/w3devcampus/pen/XmWEMQ) that used drag and drop that we discussed on a previous page of this course. 
+It calls `readFilesAndDisplayPreview()` at line 5! The same function with the same parameters is also used by [the example](https://codepen.io/w3devcampus/pen/XmWEMQ) that used drag and drop that we discussed on a previous page of this course. 
 
 Let's mix both examples: add to our drag'n'drop example an`<input type="file">` element, and the above handler. This will allow us to select files either with drag'n'drop or by using a file selector.
 
@@ -568,6 +569,8 @@ Just for fun, we also added [an experimental "directory chooser"](https://www.yo
 #### Complete interactive example with source code
 
 Try it in your browser below (use all three functions: firstly using the file selector, secondly the directory selector, and finally to drag and drop image files into the drop zone), or [play with it at CodePen](https://codepen.io/w3devcampus/pen/BoavPb):
+
+[Local Demo](src/03d-example04.html)
 
 Complete source code:
 
@@ -717,7 +720,33 @@ Complete source code:
 The parts that we have added are in bold. As you can see, all methods share the same code for previewing the images.
 
 
+#### Notes for 3.4.4 Mixing drag and drop and input type=file
 
++ Handling multiple files
+  + selecting file(s) w/ drag and drop
+    + syntax:  `<input type="file" multiple ...>`
+    + selecting files either w/ drag'n'drop or by using a file selector
+    + applied to any modern browser
+  + selecting a directory containing multiple files
+    + syntax for Chrome: `<input type="file" webkitdirectory>`
+    + not in HTML5 spec.
+    + only working for file selector
+
++ Example: selecting image files and direccory
+  + HTML snippet:
+    + input button for choosing multiple files: `<input type="file" id="files" multiple onchange="handleFileSelect(event)"/>`
+    + input button for a directory (Chrome only): `<input type="file" id="files" webkitdirectory onchange="handleFileSelect(event)"/>`
+    + [drop zone container](#dropzone)
+  + CSS style for [div, dragged item, and dragged item over drop zone](#dropdisplaystyle)
+  + JavaScript snippet
+    + add [drag leave handler](#dragleave)
+    + add [drag enter handler](#dragenter)
+    + add [drag over handler](#dragover)
+    + add [drop handler and display filename](#drop&filename) w/ `readFilesAndDisplayPreview(files);`
+    + [read files and display thumbnail](#read&thumbnail)
+    + add change handler for selecting director: `function handleFileSelect(evt) {...}`
+      + decalare FileList object: `var files = evt.target.files;`
+      + display thumbnails within the director: `readFilesAndDisplayPreview(files);`
 
 
 
