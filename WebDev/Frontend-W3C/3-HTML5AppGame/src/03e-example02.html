@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>HTML5 File</title>
+</head>
+<body onload="retrieveValues();">
+  <p>This example uses drag'n'drop. File uploads start as soon as files have been dropped. Notice that a file cannot be dropped twice, and that the form content is saved as we type, using localStorage.</p>
+  
+	<form id="formUpload" name="formUpload" method="post" action="upload.php" enctype="multipart/form-data">
+  <label>Given name:  <input type="text" id="givenname" name="givenname" required/></label><br />
+          <label>Family name: <input type="text" id="familyname" name="familyname" required/></label><br />
+        		<input type="hidden" id="namesAllFiles" name="namesAllFiles"  />
+		Please drag'n'drop one or more pictures/files in the zone below:<br/>
+		<div id="filedrag" ondragover="dragOverHandler(event)" ondragleave="dragLeaveHandler(event)" ondrop="dropHandler(event)">
+			Drop files here
+			<ol id="droppedFiles"></ol>
+		</div>
+		<input type="submit" id="submitForm" value="Send"  onclick="sendForm(event)" disabled>
+	</form>
+	<div id="message"></div>		
+</body>
+</html>
+
