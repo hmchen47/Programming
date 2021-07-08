@@ -252,6 +252,8 @@ This time, we add the files to an HTML5 FormData object before sending XHR2 Ajax
 
 You can [try this example at JSBin](https://jsbin.com/quzohi/edit?html,css,js,output), and look at the source code and comments for details.
 
+[Local Demo](src/03e-example03.html)
+
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick= "window.open('https://bit.ly/3xt7jou')"
@@ -267,6 +269,8 @@ You can [try this example at JSBin](https://jsbin.com/quzohi/edit?html,css,js,ou
 __Example #4: uploading using drag and drop__
 
 [Try the example at JSBin](https://jsbin.com/xonemow/edit?html,css,output) and look at source code and comments.
+
+[Local Demo](src/03e-example04.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
