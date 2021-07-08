@@ -899,5 +899,22 @@ Instead of uploading all the files at once, it might be interesting to upload on
       + send XHR2 request: `xhr.send(form);`
 
 
+### 3.4.6 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please either post your comments/observations/questions or share your creations.
+
+
+#### Suggested topics of discussion:
+
++ Did you know that it was possible to gain control over the process of dragging a file out of a page, and dropping it onto the desktop (for example)?
+
+
+#### Optional projects:
+
++ If a user were to drag and drop the same file to a drop zone several times, this would be confusing. Try to modify some of the examples to avoid duplication (i.e.: not uploading the same file twice).
++ Try to modify the example that played a song loaded in memory, using Web Audio, for allowing a song file to be dragged and dropped.
++ Combine these topics with the talents you developed earlier, working with canvas: instead of a progress 'thermometer' to measure XHR2 upload progress, try modifying the appearance of the thumbnail to show the proportion of the graphic file as it is transferred (alternatively, if you have style-sheet skills, you could try this using CSS transitions).
+
+
 
 
