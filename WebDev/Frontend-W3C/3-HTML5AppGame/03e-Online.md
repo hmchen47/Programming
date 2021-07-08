@@ -113,15 +113,22 @@ The next page provides the source code of several examples, as well as the serve
 
 Please download all examples (authors: Michel Buffa, improvements and fixes by Vincent Mazenod): [Zip file containing all examples](https://bit.ly/3xw0Clq) (html + css + js + php + readmes)
 
-The examples can be tried online at JSBin (see in the following pagesà, but the upload is "faked". These online examples do not use a real server, but are useful for playing with the code and understanding how it works. You can try them and see uploads' progress, etc.
+[Local Demo 1](src/03e-forms_php_upload/upload1/upload.html)<br>
+[Local Demo 2](src/03e-forms_php_upload/upload2/upload.html)<br>
+[Local Demo 3](src/03e-forms_php_upload/upload3/upload.html)<br>
+[Local Demo 4](src/03e-forms_php_upload/upload4/upload.html)<br>
+[Local Demo 5](src/03e-forms_php_upload/upload5/upload.html)<br>
+
+The examples can be tried online at JSBin (see in the following pages, but the upload is "faked". These online examples do not use a real server, but are useful for playing with the code and understanding how it works. You can try them and see uploads' progress, etc.
 
 However, we also provide complete source code for these examples, including the server-side PHP code. The course is about HTML5, not PHP, so we provide this code "as is": it is only a few lines long per example, and has been tested with the latest version of PHP.  It should run out of the box with most WAMP, LAMP, and MAMP distributions (Apache / PHP).
 
 Unzip the archive and follow the included READMEs. These examples propose __different implementations of the two approaches__ presented in the previous lecture, and both with an `<input type=file>` and drag and drop.
 
-The HTML part of the examples is also using a technique, seen during the W3Cx HTML5 Coding Essentials course, that saves the input fields' content as you type, using LocalStorage. You can reload the page any time without losing what you typed. Initially, the examples all used a FormData object but at the time we encountered some incompatibilities with older versions of PHP, so we had to manually set a component of the HTTP header.
+The HTML part of the examples is also using a technique, seen during the W3Cx HTML5 Coding Essentials course, that saves the input fields' content as you type, using `LocalStorage`. You can reload the page any time without losing what you typed. Initially, the examples all used a FormData object but at the time we encountered some incompatibilities with older versions of PHP, so we had to manually set a component of the HTTP header.
 
 This part of the lesson is optional and is mainly useful for students who are also involved in the server side of the Web development.
+
 
 
 
