@@ -751,12 +751,14 @@ The parts that we have added are in bold. As you can see, all methods share the 
 
 ### 3.4.5 Files upload using Ajax/XHR2
 
-This time, let us mash-up a couple of examples. Let's combine the upload of files using XHR2, with progress monitoring (we worked on in the 3.2 lectures) with one of our drag and drop examples. To achieve this, we re-use the method calleduploadAllFilesUsingAjax() and add a <progress> element to the drag and drop example.
+This time, let us mash-up a couple of examples. Let's combine the upload of files using XHR2, with progress monitoring (we worked on in the 3.2 lectures) with one of our drag and drop examples. To achieve this, we re-use the method `calleduploadAllFilesUsingAjax()` and add a `<progress>` element to the drag and drop example.
 
 Try [this interactive example at JSBin](https://jsbin.com/conigekoda/edit) (this example does not work on CodePen. We are using a fake remote server and it cancels the connection as soon as we try to connect):
 
+[Local Demo](src/03d-example05.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick= "window.open('https://bit.ly/2TOjVbd')"
     src    = "https://bit.ly/3qRxzpW"
     alt    = "example that uses drag'n'drop and a progress element for monitoring the ajax upload of the files"
@@ -874,6 +876,27 @@ We build (_line 75_) an object of type `FormData` (this comes from the standard 
 Instead of uploading all the files at once, it might be interesting to upload one file at a time with visual feedback, such as: "uploading file MichaelJackson.jpg.....". We will leave this exercise up to you.
 
 
+#### Notes for 3.4.5 Files upload using Ajax/XHR2
+
++ Example: uploading files w/ Ajax/HR2
+  + tasks:
+    + reuse `calleduploadAllFilesUsingAjax()`
+    + add a progress element totthe drag and drop
+  + HTML snippet:
+    + [drop zone container](#dropzone)
+    + progress bar: `<progress id="progress"></progress>`
+  + JavaScript snippet
+    + add [drag leave handler](#dragleave)
+    + add [drag enter handler](#dragenter)
+    + add [drag over handler](#dragover)
+    + add [drop handler and display filename](#drop&filename) w/ `uploadAllFilesUsingAjax(files);`
+    + upload files w/ Ajax: `function uploadAllFilesUsingAjax(files) {...}`
+      + create XHR2 request: `var xhr = new XMLHttpRequest();`
+      + open connection w/ POS request: `xhr.open('POST', 'upload.html');`
+      + add progress listener for upload: `xhr.upload.onprogress = function(e) { progress.value = e.loaded; progress.max = e.total; };`
+      + add upload listener: `xhr.onload = function() {alert('Upload complete~'); }`
+      + add file name to drop zone: `var form = new FormData(); for (var i=0; i<files.length; i++) { form.append('file', files[i]); }`
+      + send XHR2 request: `xhr.send(form);`
 
 
 
