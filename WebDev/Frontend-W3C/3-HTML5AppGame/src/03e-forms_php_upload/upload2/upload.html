@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>HTML5 File</title>
+	<script src="upload.js"></script>
+	<link rel="stylesheet" href="upload.css"></script>
+</head>
+<body onload="retrieveValues();">
+	<form id="formUpload" name="formUpload" method="post" action="upload.php" enctype="multipart/form-data">
+		FirstName : <input type="text" id="firstname" name="firstname" required/><br />
+		LastName : <input type="text" id="lastname" name="lastname" required/><br />
+		<input type="hidden" id="namesAllFiles" name="namesAllFiles"  />
+		Please drag'n'drop one or more pictures/files in the zone below:<br/>
+		<div id="filedrag" ondragover="dragOverHandler(event)" ondragleave="dragLeaveHandler(event)" ondrop="dropHandler(event)">
+			Drop files here
+			<ol id="droppedFiles"></ol>
+		</div>
+		<input type="submit" id="submitForm" value="Send"  onclick="sendForm(event)" disabled>
+	</form>
+	<div id="message"></div>		
+</body>
+</html>
