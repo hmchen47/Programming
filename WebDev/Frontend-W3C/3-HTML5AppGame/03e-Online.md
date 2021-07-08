@@ -424,6 +424,14 @@ This code is given "as is". The principle is the same as with the examples given
   ```
 
 
+### 3.5.5 Discussion
+
+Here is the discussion forum for this part of the course.
+
+#### Suggested topics of discussion:
+
++ The given examples come with PHP code. If you adapt them to work with another server side languages, please share!
++ There are many possible improvements to the provided examples in the client code: monitoring the speed of upload/downloads, canceling an upload, etc. The examples are given "as is"... if you improve them, as usual, share them in the forum!
 
 
 
