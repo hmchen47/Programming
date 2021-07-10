@@ -133,7 +133,7 @@ Let's quickly look at the main concepts of IndexedDB, as we will go into detail 
 
 #### Detailed overview
 
-__IndexedDB databases store key-value pairs.__ The values can be complex structured objects (hint: think in terms of JSON objects), and keys can be properties of those objects. You can create indexes that use any property of the objects for faster searching, as well as ordering results.
+<strong style="color: red;">IndexedDB databases store key-value pairs.</strong> The values can be complex structured objects (hint: think in terms of JSON objects), and keys can be properties of those objects. You can create indexes that use any property of the objects for faster searching, as well as ordering results.
 
 Example of data (we reuse a sample from this MDN tutorial: "[Using IndexedDB](https://developer.mozilla.org/en-US/docs/IndexedDB/Using_IndexedDB)"):
 
@@ -147,7 +147,7 @@ Example of data (we reuse a sample from this MDN tutorial: "[Using IndexedDB](ht
 
 Where `customerData` is an array of  "customers", each customer having several properties: `ssn` for the social security number, a `name`, an `age` and an `email` address.
 
-__IndexedDB is built on a transactional database model.__ Everything you do in IndexedDB happens in [the context of a transaction](https://developer.mozilla.org/en-US/docs/IndexedDB/Basic_Concepts_Behind_IndexedDB#gloss_transaction). The IndexedDB API provides lots of objects that represent indexes, tables, cursors, and so on, but each is tied to a particular transaction. Thus, you cannot execute commands or open cursors outside a transaction.
+<strong style="color: red;">IndexedDB is built on a transactional database model.</strong> Everything you do in IndexedDB happens in [the context of a transaction](https://developer.mozilla.org/en-US/docs/IndexedDB/Basic_Concepts_Behind_IndexedDB#gloss_transaction). The IndexedDB API provides lots of objects that represent indexes, tables, cursors, and so on, but each is tied to a particular transaction. Thus, you cannot execute commands or open cursors outside a transaction.
 
 Example of a transaction:
 
@@ -182,30 +182,146 @@ _Transactions auto-commit, and cannot be committed manually._
 
 This transaction model is really useful when you consider what might happen if a user opened two instances of your web app in two different tabs simultaneously. Without transactional operations, the two instances might stomp all over each others' modifications. 
 
-__The IndexedDB API is mostly asynchronous.__ The API doesn't give you data by returning values; instead, you have to pass a callback function. You don't "store" a value in the database, or "retrieve" a value out of the database through synchronous means. Instead, you "request" that a database operation happens. You are notified by a DOM event when the operation finishes, and the type of event lets you know if the operation succeeded or failed. This may sound a little complicated at first, but there are some sanity measures baked-in. After all, you are a JavaScript programmer, aren't you? ;-)
+<strong style="color: red;">The IndexedDB API is mostly asynchronous.</strong> The API doesn't give you data by returning values; instead, you have to pass a callback function. You don't "store" a value in the database, or "retrieve" a value out of the database through synchronous means. Instead, you "request" that a database operation happens. You are notified by a DOM event when the operation finishes, and the type of event lets you know if the operation succeeded or failed. This may sound a little complicated at first, but there are some sanity measures baked-in. After all, you are a JavaScript programmer, aren't you? ;-)
 
 So, please review the previous code extracts noting: `transaction.oncomplete`, `transaction.onerror`, `request.onsuccess`, etc.
 
-__IndexedDB uses requests all over the place.__ Requests are objects that receive the success or failure DOM events mentioned previously. They have `onsuccess` and `onerror` properties, and you can call `addEventListener()` and `removeEventListener()` on them. They also have `readyState`, `result`, and `errorCode` properties which advise the status of a request.
+<strong style="color: red;">IndexedDB uses requests all over the place.</strong> Requests are objects that receive the success or failure DOM events mentioned previously. They have `onsuccess` and `onerror` properties, and you can call `addEventListener()` and `removeEventListener()` on them. They also have `readyState`, `result`, and `errorCode` properties which advise the status of a request.
 
 The `result` property is particularly magical, as it can be many different things, depending on how the request was generated (for example, an `IDBCursor` instance, or the key for a value that you just inserted into the database). We will see this in detail during a future lecture: "Using IndexedDB".
 
-__IndexedDB uses DOM events to notify you when results are available.__ DOM events always have a `type` property (in IndexedDB, it is most commonly set to "`success`" or "`error`"). DOM events also have a `target` property that shows where the event is headed. In most cases, the `target` of an event is the `IDBRequest` object that was generated as a result of doing some database operation. Success events don't bubble up and they can't be cancelled. Error events, on the other hand, do bubble, and can be cancelled. This is quite important, as error events abort the transaction, unless they are cancelled.
+<strong style="color: red;">IndexedDB uses DOM events to notify you when results are available.</strong> DOM events always have a `type` property (in IndexedDB, it is most commonly set to "`success`" or "`error`"). DOM events also have a `target` property that shows where the event is headed. In most cases, the `target` of an event is the `IDBRequest` object that was generated as a result of doing some database operation. Success events don't bubble up and they can't be cancelled. Error events, on the other hand, do bubble, and can be cancelled. This is quite important, as error events abort the transaction, unless they are cancelled.
 
-__IndexedDB is object-oriented.__ IndexedDB is not a relational database, which has tables with collections of rows and columns. This important and fundamental difference affects the way you design and build your applications. IndexedDB is an Object Store!
+<strong style="color: red;">IndexedDB is object-oriented.</strong> IndexedDB is not a relational database, which has tables with collections of rows and columns. This important and fundamental difference affects the way you design and build your applications. IndexedDB is an Object Store!
 
 In a traditional relational data store, you would have a table that stores a collection of rows of data and columns of named types of data. IndexedDB, on the other hand, requires you to create an object store for a type of data and simply persist JavaScript objects to that store. Each object store can have a collection of indexes (corresponding to the properties of the JavaScript object you store in the store) that enable efficient querying and iteration.
 
-__IndexedDB does not use Structured Query Language (SQL).__ It phrases a query in terms of an index, that produces a cursor, which you use to iterate through the result set. If you are not familiar with NoSQL systems, read [the Wikipedia article on NoSQL](https://en.wikipedia.org/wiki/NoSQL).
+<strong style="color: red;">IndexedDB does not use Structured Query Language (SQL).</strong> It phrases a query in terms of an index, that produces a cursor, which you use to iterate through the result set. If you are not familiar with NoSQL systems, read [the Wikipedia article on NoSQL](https://en.wikipedia.org/wiki/NoSQL).
 
-__IndexedDB adheres to a same-origin policy.__ An origin consists of the domain, the application layer protocol, and the port of a URL of the document where the script is being executed. Each origin has its own associated set of databases. Every database has a name that identifies it within an origin. Think of it as: "an application + a Database".
+<strong style="color: red;">IndexedDB adheres to a same-origin policy.</strong> An origin consists of the domain, the application layer protocol, and the port of a URL of the document where the script is being executed. Each origin has its own associated set of databases. Every database has a name that identifies it within an origin. Think of it as: "an application + a Database".
 
 The concept of "same origin" is defined by the combination of all three components mentioned earlier (domain, protocol, port). For example, an app in a page with the URL `https://www.example.com/app/`, and a second app at `https://www.example.com/dir/`, may both access the same IndexedDB database because they have the same origin (https, example.com, and 80). Whereas apps at `https://www.example.com:8080/dir/` (different port) or `https://www.example.com/dir/` (different protocol), do not satisfy the same origin criteria (port or protocol differ from `https://www.example.com`)
 
 See this article from MDN about the [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) for further details and examples.
 
 
+#### Notes for 3.6.2 Concepts (part 2)
 
++ Main concepts of IndexedDB
+  + store and retrive objects indexed by a key
+  + transaction: changes to the databases
+  + same-origin policy: only accessing data within the same domain, not able to access across domains
+  + extensive use of an asynchronous API: most processing done in callback functions
+
++ Keypath
+  + a must-have property defined by object stores
+  + equivalent to Primary key in relational database
+  + unique
+  + able to be explicit (ssn) or implicit (auto-incremented primary key in SQL) 
+  + implicit KeyPath: not appeared in the stored objects themselves
+  + stored objects w/o a rigidly defined schema
+  + only key to be shared, other keys probably varying btw stored objects
+  + example: `{firstName: 'Michel', lastName: 'Buffa', ssn: "1122334455"}` $\to$ ssn as Keypath
+
++ Indexes
+  + stored object able to have one or more indexes $\to$ faster searching
+  + a common concept in database
+  + unique or non-unique
+  + making lookup possible using any arbitrary property of the store objects
+  + speeding up object retrieval and allowing multi-criteria searches
+  + possible to have non unique indexes $\to$ all matching objects
+  + example: "lastName" property of each person as an index $\to$ make search faster for some persons by "lastName"
+
++ Transaction
+  + transactional database: ensuring concurrent access to data not compromised
+  + using "locking system" to prevent compromising
+  + scenarios to lock system
+    + multiple tabs opened on the same WebApp (same domain)
+    + multiple apps running "out of traditional browser" (game console, windows desktop, etc.)
+
++ key-value pairs
+  + IndexedDB storing key=value pairs
+  + values: complex objects (think of JSON objects)
+  + keys: properties of the objects
+  + creating indexes w/ any property of the objects for faster searching and ordering results
+  + example: 
+    + declare key-value pairs: `const customerData = [{ ssn: "444-44-4444", name: "Bill", age: 35, email: "bill@company.com" }, { ssn: "555-55-5555", name: "Donna", age: 32, email="donna@home.org" }];`
+    + `customerData`: an array of "customers"
+    + customer properties: `ssn` for social security number, a `name`, an `age` and an `email` address
+
++ IndexedDB and transaltion model
+  + IndexedDB built on a transactional database model
+  + operations in IndexedDB $\to$ operated in the context of a transaction
+  + IndexedDB API provideing lots of objects represting indexes, tables, cursors, etc.
+  + API tied to a particular transaction
+  + unable to execute commands or open cursors outside a transaction
+  + transaction committed automatically, unable to committ manually
+  + useful when considering what might happen if a user opened two of the web app in two different tabs simultaneously
+
++ Typical syntax of a transaction
+  + open a transaction for reading and writing  on the DB "customer": `var transaction = db.transaction("customers", "readwrite");`
+  + add complete listener: `transaction.oncomplete = function(evt) { alert("All done!"); };`
+  + add error listener: `transaction.onerror = function(evt) { // error handling };`
+  + access data: `var objectStore = transaction.objectStore("costomers");`
+  + iterate through to add data: `for (var i in customerData) {...}`
+    + add data: `var request = objectStore.add(customerData[i]);`
+    + add success listener: `request.onsuccess = function(evt) { // evt.target.result === customerData[i].ssn };`
+
++ IndexedDB API and asynchronous
+  + most IndexedDB API asynchronous
+  + API not providing returned data but passed a callback function
+  + not "store" a value or "retrieve" a value out of the database but "request" that a datbase operation happens
+  + database system notifying caller via a DOM event once operation done
+  + the type of event specifying the success or failure of the operation
+  + examples: `transaction.oncomplete`, `transaction.onsuccess`, `request.onerror`, etc.
+
++ IndexedDB and requests
+  + requests:
+    + objects receiving the success or failure DOM events
+    + `onsuccess` and `onerror` properties
+  + using `addEventListener()` and `removeEventListener()` to add and remove listeners
+  + status of a request: `readyState`, `result`, and `errorCode`
+  + meaning of `result` depending on how the request eas generated, e.g., `IDBCursor` instance or the key for a value
+
++ IndexedDB and DOM events
+  + IndexedDB using DOM events to notify browser when results available
+  + properties of event
+    + `type`: always presented, possible values `success` or `error`
+    + `target`: showing where the event is headed
+  + `IDBRequest` object:
+    + the most common value of the `target` of an event
+    + generated as a result of doing some database operation
+  + success events: neither bubbled up nor cancelled
+  + error events:
+    + both bubbled and able to be cancelled
+    + abort the transaction, unless cancelled
+
++ IndexedDB and object-oriented
+  + IndexedDB:
+    + object-oriented, not a relational database
+    + a Object Store
+    + creating an object store for a type of data
+    + simply persist JavaScript objects to that store
+    + object store w/ a collection of indexes to enable efficient querying and iteration
+    + indexes: corresponding to the properties of the JavaScript object stored in the store
+  + relational database:
+    + tables w/ rows and columns
+    + having a table to store a collection of rows and columns of named types of data
+    + using SQL for query
+  + fundamental difference to affect the way to design and build applications
+
++ Same-origin policy
+  + a origin consists of the domain, the application layer protocol, and the port of a URL of the document
+  + script exected within the document
+  + IndexedDB adheres to a same-origin policy
+  + each origin associated to its own set of databases
+  + every database having a name to identify itself within the originn
+  + concept of "same origin": the combination of all three components, domain, protocol, and port
+  + example:
+    + an app in page w/ the URL, `https://www.example.com/app/`
+    + a second app at `https://www.example.com/dir`
+    + booth apps accessing the same IndexedDB batabase $\gets$ the same origin, `https`, `example.com`, and `80`
+    + apps at `https://www.example.com:8080/dir` (different port) or `http://www.example.com/dir/` (different protocol) $\to$ not the same origin
 
 
 
