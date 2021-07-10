@@ -324,5 +324,139 @@ See this article from MDN about the [same-origin policy](https://developer.mozil
     + apps at `https://www.example.com:8080/dir` (different port) or `http://www.example.com/dir/` (different protocol) $\to$ not the same origin
 
 
+### 3.6.3 Definitions
+
+These definitions come from the W3C specification. Please read this page to familiarize yourself with the terms.
+
+#### Database
+
++ Each [origin](https://www.w3.org/TR/IndexedDB/#dfn-origin) (you may consider as "each application") has an associated set of [databases](https://www.w3.org/TR/IndexedDB/#dfn-database). A database comprises one or more [object stores](https://www.w3.org/TR/IndexedDB/#dfn-object-store) which hold the data stored in the database.
++ Every database has a _name_ that identifies it within a specific origin. The name can be any string value, including the empty string, and stays constant for the lifetime of the database.
++ Each database also has a current version. When a database is first created, its [version](https://www.w3.org/TR/IndexedDB/#dfn-version) is 0, if not specified otherwise.  Each database can only have one version at any given time. A database can't exist in multiple versions at once.
++ The act of opening a database creates _a connection_. There may be multiple [connections](https://www.w3.org/TR/IndexedDB/#dfn-connection) to a given database at any given time.
+
+
+#### Object store
+
++ An object store is the mechanism by which data is stored in the database. 
++ Every object store has _a name_. The name is unique within the database to which it belongs.
++ The object store persistently holds records (JavaScript objects), which are key-value pairs. One of these keys is  a kind of "primary key" in the SQL database sense. This "key" is a property that every object in the datastore must contain. Values in the object store are structured, but this structure may vary between objects (i.e., if we store persons in a database, and use the email as "the key all objects must define", some may have first name and last name, others may have an address or no address at all, etc.)
++ Records within an object store are sorted according to [keys](https://developer.mozilla.org/en-US/docs/IndexedDB/Basic_Concepts_Behind_IndexedDB#gloss_key), in ascending order.
++ Optionally, an object store may also have a [key generator](https://www.w3.org/TR/IndexedDB/#dfn-key-generator) and a [key path](https://www.w3.org/TR/IndexedDB/#dfn-object-store-key-path). If the object store has a key path, it is said to use in-line keys. Otherwise, it is said to use _out-of-line keys_.
++ The object store can derive [the key](https://www.w3.org/TR/IndexedDB/#key-construct) from one of three sources:
+  + A key generator. A key generator generates a monotonically increasing number every time a key is needed. This is somewhat similar to auto-incremented primary keys in a SQL database.
+  + Keys can be derived via a key path.
+  + Keys can also be explicitly specified when [a value](https://www.w3.org/TR/IndexedDB/#value-construct) is stored in the object store.s
+
+Further details will be given in the next chapter "Using IndexedDB".
+
+#### Version
+
++ When a database is first created, its version is the integer 0. Each database has one version at a time; a database can't exist in multiple versions at once.
++ The only way to change the version is by opening it with a higher version number than the current one. This will start a `versionchange` transaction and fire an upgradeneeded event. The only place where the schema of the database can be updated is inside the handler of that event.
+
+This definition describes [the most recent specification](https://w3c.github.io/IndexedDB/), which is only implemented in up-to-date browsers. Old browsers implemented the now deprecated and removed `IDBDatabase.setVersion()` method.
+
+#### Transaction
+
+From the specification: 
+
+>"A transaction is used to interact with the data in a database. Whenever data is read or written to the database, this is done by using a transaction.
+
+> All transactions are created through a connection, which is the transaction's connection. The transaction has a mode (read, readwrite or versionchange) that determines which types of interactions can be performed upon that transaction. The mode is set when the transaction is created and remains fixed for the life of the transaction. The transaction also has a scope that determines the object stores with which the transaction may interact."_
+
+A transaction in IndexedDB is similar to a transaction in a SQL database. It defines: "_An atomic and durable set of data-access and data-modification operations_". Either all operations succeed or all fail. 
+
+A database connection can have several active transactions associated with it at a time, but these write transactions cannot have overlapping [scopes](https://developer.mozilla.org/en-US/docs/IndexedDB/Basic_Concepts_Behind_IndexedDB#scope) (_they cannot work on the same data at the same time_). The scope of a transaction, which is defined at creation time, determines which concurrent transactions can read or write the same data (multiple reads can occur, while writes will be sequential, only one at a time), and remains constant for the lifetime of the transaction.
+
+So, for example, if a database connection already has a writing transaction with a scope that covers only the `flyingMonkey` object store, you can start a second transaction with a scope of the `unicornCentaur` and `unicornPegasus` object stores. As for reading transactions, you can have several of them, and they may even overlap. A "`versionchange`" transaction never runs concurrently with other transactions (reminder: we usually use such transactions when we create the object store or when we modify the schema).
+
+Generally speaking, the above requirements mean that "`readwrite`" transactions which have overlapping scopes always run in the order they were [created](https://www.w3.org/TR/IndexedDB/#dfn-transaction-create), and never run in parallel. A "`versionchange`" transaction is automatically created when a database version number is provided that is greater than the current database version. This transaction will be active inside the `onupgradeneeded` event handler, allowing the creation of new object stores and [indexes](https://www.w3.org/TR/IndexedDB/#dfn-index).
+
+#### Request
+
+The operation by which reading and writing on a database is done. Every request represents one read or one write operation. Requests are always run within a transaction. The example below adds a customer to the object store named "customers".
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Use the transaction to add data...</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> objectStore </span><span class="pun">=</span><span class="pln"> transaction</span><span class="pun">.</span><span class="pln">objectStore</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> customerData</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="kwd">var</span><span class="pln"> request </span><span class="pun">=</span><span class="pln"> objectStore</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">customerData</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>request</strong></span><strong><span class="pun">.</span><span class="pln">onsuccess </span></strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// event.target.result == customerData[i].ssn</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+#### Index
+
+It is sometimes useful to retrieve [records](https://www.w3.org/TR/IndexedDB/#dfn-record) from an object store through means other than their key.
+
+An index allows the user to look up records in an object store using the properties of the values in the object store's records. Indexes are a common concept in databases. Indexes can speed up object retrieval and allow multi-criteria searches. For example, if you store persons in your object store, and add an index on the "email" property of each person, then searching for some person using his/her email address will be much faster.
+
+An index is a specialized persistent key-value storage and has a _referenced_ object store. For example, with our "persons" object store, that is the referenced data store. Then, a reference store may have an index store associated with it, that contains indexes which map email values to key values in the reference store (for example).
+
+An index is _a list of records_ which holds the data stored in the index. The records in an index are automatically populated whenever records in [the referenced object store](https://www.w3.org/TR/IndexedDB/#dfn-referenced) are inserted, updated or deleted. There may be several indexes referencing the same object store, in which case changes to the object store cause all such indexes to update.
+
+An index contains a _unique flag_. When this flag is set to `true`, the index enforces the rule that no two records in the index may have the same key. If a user attempts to insert or modify a record in the index's referenced object store, such that an indexed attribute's value already exists in an index, then the attempted modification to the object store fails.
+
+#### Key and values
+
+__Key__
+
+A data value by which stored values are organized and retrieved in the object store. The object store can derive the key from one of three sources: [a key generator](https://mzl.la/3wrd84w), [a key path](https://mzl.la/3AOMpSF), and an explicitly specified value.
+
+The key must be of a data type that has a number that is greater than the one before. Each record in an object store must have a key that is unique within the same store, so you cannot have multiple records with the same key in a given object store.
+
+__A key can be one of the following types: [string](https://mzl.la/3yL8z6w), [date](https://mzl.la/3htBJBt), float, and [array](https://mzl.la/3AHZahU).__ For arrays, the key can range from an empty value to infinity. And you can include an array within an array.
+
+Alternatively, you can also look up records in an object store using [an index](https://developer.mozilla.org/en-US/docs/IndexedDB/Basic_Concepts_Behind_IndexedDB#gloss_index).
+
+__Key generator__
+
+A mechanism for producing new keys in an ordered sequence. If an object store does not have a key generator, then the application must provide keys for records being stored. Similar to auto-generated primary keys in SQL databases.
+
+__In-line key__
+
+A key that is stored as part of the stored value. Example: the email of a person or a student number in an object representing a student in a student store. It is found using a key path. An in-line key could be generated using a generator. After the key has been generated, it can then be stored in the value using the key path, or it can also be used as a key.
+
+__Out-of-line key__
+
+A key that is stored separately from the value being stored, for instance, an auto-incremented id that is not part of the object. Example: you store persons `{name:Buffa, firstName:Michel}` and `{name:Forgue, firstName: Marie}`, each will have a key (think of it as a primary key, an id...) that can be auto-generated or specified, but that is not part of the object stored.
+
+__Key path__
+
+Defines where the browser should extract the key from a value in the object store or index. __A valid key path can include one of the following: an empty string, a JavaScript identifier, or multiple JavaScript identifiers separated by periods. <font style="color: red;">It cannot include spaces.</font>__
+
+__Value__
+
+Each record has a value, which could include anything that can be expressed in JavaScript, including: [boolean](https://mzl.la/3ARyQlJ), [number](https://mzl.la/2TUEbb2), [string](https://mzl.la/3yL8z6w), [date](https://mzl.la/3htBJBt), [object](https://mzl.la/36sICN4), [array](https://mzl.la/3AHZahU), [regexp](https://mzl.la/3hygZby), [undefined](https://mzl.la/3k4AZnT), and null.
+
+When an object or an array is stored, the properties and values in that object or array can also be anything that is a valid value.
+
+Blobs and files can be stored, (supported by all major browsers, IE > 9). The example in the next chapter stores images using blobs.
+
+
+#### Range and scope
+
+__Scope__
+
+The set of object stores and indexes to which a transaction applies. The scopes of read-only transactions can overlap and execute at the same time. On the other hand, the scopes of writing transactions cannot overlap. You can still start several transactions with the same scope at the same time, but they just queue up and execute one after another.
+
+__Cursor__
+
+A mechanism for iterating over multiple records within a _key range_. The cursor has a source defining which index or object store it is iterating. It has a position within the range, and retrieves records sequentially according to the value of their keys in either increasing or decreasing order. For the reference documentation on cursors, see [IDBCursor](https://mzl.la/36pVALu).
+
+__Key range__
+
+A continuous interval over some data type used for keys. Records can be retrieved from object stores and indexes using keys or a range of keys. You can limit or filter the range using lower and upper bounds. For example, you can iterate over all the values of a key between x and y.
+
+For the reference documentation on key range, see [IDBKeyRange](https://mzl.la/2VviZsP).
+
+
+
+
+
+
 
 
