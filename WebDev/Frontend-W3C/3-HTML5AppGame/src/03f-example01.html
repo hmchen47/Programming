@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title>IndexedDB example 1</title>
+  <!-- <link rel="stylesheet" href="css/03f-example01.css"> -->
+  <script src="js/03f-example01.js"></script>
+</head>
+<body>
+  This example proposes only one single JavaScript function for:
+  <ul>
+    <li>Creating a Database, for storing customers (a customer has a social security number (property "ssn"), a name, an age and an email)</li>
+    <li>Creating an object store in that dataBase,</li>
+    <li>Specifying a keyPath (a property in the objects stored that will act as a Primary Key, in our case the social security number),</li>
+    <li>Adding two indexes for faster retrievals (one on the name, on on the email property of each object),</li>
+    <li>Populating the dataBase with three entries.</li>
+  </ul>
+  <p>Press the following button for calling the createDatabase() JavaScript function. Then look at the debugging console (with Chrome: F12 + Resources tab)</p>
+  <button onclick="createDatabase();">Create CustomerDB database</button>
+  
+</body>
+</html>
+
