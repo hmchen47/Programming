@@ -912,5 +912,253 @@ In the following pages, we will explain how to insert, search, remove, and updat
     + `readonly`: concurrent read transactions allowed
 
 
+### 3.6.7 Inserting data
+
+#### Live coding video: using IndexedDB (part 2)
+
+<a href="https://edx-video.net/W3CHTM52/W3CHTM52T415-V003300_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript Download](https://bit.ly/3r1f1DM)
+
+
+#### Basic procedure
+
+__Example #1: basic steps__
+
+[Online example at JSBin](https://jsbin.com/jukifo):
+
+Execute this example and look at the IndexedDB object store content from the Chrome dev tools (F12 or cmd-alt-i). One more customer should have been added.
+
+__Be sure to click on the "create database" button before clicking the "insert new customer" button.__
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3wzccej')"
+    src    = "https://bit.ly/2UIkS4L"
+    alt    = "example on JsBin for inserting data in IndexedDB"
+    title  = "example on JsBin for inserting data in IndexedDB"
+  />
+</figure>
+
+
+The next screenshot shows the IndexedDB object store in Chrome dev. tools (use the "Resources" tab). Clicking the "Create CustomerDB" database creates or opens the database, and clicking "Add a new Customer" button adds a customer named "Michel Buffa" into the object store:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3wzccej')"
+    src    = "https://bit.ly/3ARYpmA"
+    alt    = "Devtools show that a new customer named Michel Buffa has been inserted"
+    title  = "Devtools show that a new customer named Michel Buffa has been inserted"
+  />
+</figure>
+
+
+__Code from the example, explanations:__
+
+We just added a single function into the example from the previous section - the function `AddACustomer()` that adds one customer:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="pun">{</span><span class="pln"> ssn</span><span class="pun">:</span><span class="pln"> </span><span class="str">"123-45-6789"</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Michel Buffa"</span><span class="pun">,</span><span class="pln"> age</span><span class="pun">:</span><span class="pln"> </span><span class="lit">47</span><span class="pun">,</span><span class="pln"> email</span><span class="pun">:</span></strong><span class="pln">&nbsp; &nbsp;</span><strong><span class="str">"buffa@i3s.unice.fr"</span><span class="pln"> </span><span class="pun">}</span></strong></li>
+</ol></div>
+
+Here is the complete source code of the `addACustomer` function:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> addACustomer</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1 - get a transaction on the "customers" object store</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// in readwrite, as we are going to insert a new object </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> transaction </span><span class="pun">=</span><span class="pln"> db</span><span class="pun">.</span><span class="pln">transaction</span><span class="pun">([</span><span class="str">"customers"</span><span class="pun">],</span><span class="pln"> </span><span class="str">"readwrite"</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Do something when all the data is added to the database.</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// This callback is called after transaction has been completely </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// executed (committed)</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;transaction</span><span class="pun">.</span><span class="pln">oncomplete </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">"All done!"</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;};</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// This callback is called in case of error (rollback) </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;transaction</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"transaction.onerror errcode="</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">error.name</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;};</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// 2 - Init the transaction on the objectStore</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> objectStore </span><span class="pun">=</span><span class="pln"> transaction</span><span class="pun">.</span><span class="pln">objectStore</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// 3 - Get a request from the transaction for adding a new object </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> request </span><span class="pun">=</span><span class="pln"> objectStore</span><span class="pun">.</span><span class="pln">add</span><span class="pun">({</span><span class="pln"> ssn</span><span class="pun">:</span><span class="pln"> </span><span class="str">"123-45-6789"</span><span class="pun">,</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Michel Buffa"</span><span class="pun">,</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;age</span><span class="pun">:</span><span class="pln"> </span><span class="lit">47</span><span class="pun">,</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;email</span><span class="pun">:</span><span class="pln"> </span><span class="str">"buffa@i3s.unice.fr"</span><span class="pln"> </span><span class="pun">});</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// The insertion was ok</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;request</span><span class="pun">.</span><span class="pln">onsuccess </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Customer with ssn= "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result </span><span class="pun">+</span><span class="pln"> </span><span class="str">" </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; added."</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;};</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// the insertion led to an error (object already in the store, </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// for example) </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;request</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"request.onerror, could not insert customer, </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; errcode = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">error.name</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;};</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+Explanations:
+
+In the code above, _lines 4, 19 and 22_ show the main calls you have to perform in order to add a new object to the store:
+
+1. Create a transaction.
+1. Map the transaction onto the object store.
+1. Create an "add" request that will take part in the transaction.
+
+The different callbacks are in _lines 9 and 14_ for the transaction, and in _lines 28 and 35_ for the request.
+
+You may have several requests for the same transaction. Once all requests have finished, the `transaction.oncomplete` callback is called. In any other case the `transaction.onerror` callback is called, and the datastore remains unchanged.
+
+Here is the trace from the dev tools console:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3wzccej')"
+    src    = "https://bit.ly/36vbqV6"
+    alt    = "Trace from the devtools console"
+    title  = "Trace from the devtools console"
+  />
+</figure>
+
+
+#### Data from a form
+
+__Example #2: adding a form and validating inputs__
+
+Online example available at JSBin:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3wzccej')"
+    src    = "https://bit.ly/3hXL4R4"
+    alt    = "a form has been added to the previous example, for creating a new customer"
+    title  = "a form has been added to the previous example, for creating a new customer"
+  />
+</figure>
+
+
+You can try this example by following these steps:
+
+1. Press first the "Create database" button
+2. then add a new customer using the form
+3. click the "add a new Customer" button
+4. then press F12 or cmd-alt-i to use the Chrome dev tools and inspect the IndexedDB store content. Sometimes it is necessary to refresh the view (right click on IndexedDB/refresh), and sometimes it is necessary to close/open the dev. tools to have a view that shows the changes (press F12 or cmd-alt-i twice). Chrome dev. tools are a bit strange from time to time.
+
+This time, we added some tests for checking that the database is open before trying to insert an element, and we added a small form for entering a new customer.
+
+Notice that the insert will fail and display an alert with an error message if:
+
++ The `ssn` is already present in the database. This property has been declared as the keyPath (a sort of primary key) in the object store schema, and <u>it should be unique</u>: `db.createObjectStore("customers", { keyPath: "ssn" });`
++ The `email` address is already present in the object store. Remember that in our schema, the `email` property is an index that we declared as unique: `objectStore.createIndex("email", "email", { unique: true });`
++ Try to insert the same customer twice, or different customers with the same `ssn`. An alert like this should pop up:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open('https://bit.ly/3wzccej')"
+    src    = "https://bit.ly/3r4dtsX"
+    alt    = "insert error"
+    title  = "insert error"
+  />
+</figure>
+
+
+__Here is the updated version of the HTML code of this example:__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;fieldset&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; SSN: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"ssn"</span><span class="pln"> </span><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"444-44-4444"</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; required</span><span class="tag">/&gt;&lt;br&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; Name: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"name"</span><span class="tag">/&gt;&lt;br&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; Age: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"age"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"1"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"100"</span><span class="tag">/&gt;&lt;br&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; Email:</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"email"</span><span class="tag">/&gt;</span><span class="pln"> reminder, email must be </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;unique (we declared it as a "unique" index)</span><span class="tag">&lt;br&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/fieldset&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><strong><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">addACustomer</span><span class="pun">();</span><span class="atv">"</span></strong><span class="tag">&gt;</span><span class="pln">Add a new Customer</span><span class="tag">&lt;/button&gt;</span></li>
+</ol></div>
+
+__And here is the new version of the `addACustomer()` JavaScript function:__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> addACustomer</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">db </span><span class="pun">===</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">'Database must be opened, please click the Create </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CustomerDB Database first'</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">return</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> transaction </span><span class="pun">=</span><span class="pln"> db</span><span class="pun">.</span><span class="pln">transaction</span><span class="pun">([</span><span class="str">"customers"</span><span class="pun">],</span><span class="pln"> </span><span class="str">"readwrite"</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Do something when all the data is added to the database.</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;transaction</span><span class="pun">.</span><span class="pln">oncomplete </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"All done!"</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;transaction</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"transaction.onerror errcode="</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">error.name</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> objectStore </span><span class="pun">=</span><span class="pln"> transaction</span><span class="pun">.</span><span class="pln">objectStore</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// adds the customer data</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> newCustomer</span><span class="pun">={};</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;newCustomer</span><span class="pun">.</span><span class="pln">ssn </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#ssn"</span><span class="pun">).</span><span class="pln">value</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;newCustomer</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#name"</span><span class="pun">).</span><span class="pln">value</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;newCustomer</span><span class="pun">.</span><span class="pln">age </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#age"</span><span class="pun">).</span><span class="pln">value</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;newCustomer</span><span class="pun">.</span><span class="pln">email </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#email"</span><span class="pun">).</span><span class="pln">value</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">'adding customer ssn='</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> newCustomer</span><span class="pun">.</span><span class="pln">ssn</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> request </span><span class="pun">=</span><span class="pln"> objectStore</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">newCustomer</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;request</span><span class="pun">.</span><span class="pln">onsuccess </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Customer with ssn= "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result </span><span class="pun">+</span><span class="pln"> </span><span class="str">" </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; added."</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; request</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">"request.onerror, could not insert customer, errcode = "</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">error.name&nbsp;</span><span class="pun">+</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="str">". Certainly either the ssn or the email is already </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;present in the Database"</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+It is also possible to shorten the code of the above function by chaining the different operations using the "." operator (getting a transaction from the db, opening the store, adding a new customer, etc.).
+
+Here is the short version:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> request </span><span class="pun">=</span><span class="pln"> db</span><span class="pun">.</span><span class="pln">transaction</span><span class="pun">([</span><span class="str">"customers"</span><span class="pun">],</span><span class="pln"> </span><span class="str">"readwrite"</span><span class="pun">)</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">.</span><span class="pln">objectStore</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">)</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">newCustomer</span><span class="pun">);</span></li>
+</ol></div>
+
+The above code does not perform all the tests, but you may encounter such a way of coding (!).
+
+Also, note that it works if you try to insert empty data:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3wzccej')"
+    src    = "https://bit.ly/3AReGYN"
+    alt    = "devtools show that inserting blank data works"
+    title  = "devtools show that inserting blank data works"
+  />
+</figure>
+
+
+Indeed, entering an empty value for the keyPath or for indexes is a valid value (in the IndexedDB sense). In order to avoid this, you should add more JavaScript code. We will let you do this as an exercise.
+
 
 
