@@ -878,7 +878,7 @@ A common practice, while learning how IndexedDB works, is to type this command i
 
 Explicit use of a transaction is necessary:
 
-<p style="text-align: center; border: 1px solid; color: red; margin: 10px; padding: 10px;"><strong>All operations in the database should occur within a transaction!</strong></p>
+<p style="text-align: center; border: 1px solid; margin: 10px; padding: 10px;"><strong style="color: red;">All operations in the database should occur within a transaction!</strong></p>
 
 While the creation of the database occurred in a transaction that ran "under the hood" without explicit use of the "transaction" keyword, __for adding/removing/updating/retrieving data, explicit use of a transaction is required.__
 
@@ -896,6 +896,20 @@ Transactions, when created, must have a mode set that is either `readonly`, `rea
 
 In the following pages, we will explain how to insert, search, remove, and update data. A final example that merges all examples together will also be shown at the end of this section.
 
+
+#### Notes for 3.6.6 Working with data
+
++ Transaction w/ data
+  + all operations in the database happened within a transaction
+  + implicit transactions during the creation of the database
+  + explicit transactions for adding/removing/updating/retrieving data
+  + generating a transaction object from the database:
+    + indicating which object store associated
+    + specifying and access mode
+  + syntax: `var transaction = db.transaction(["objStoreName", ...], mode);`
+    + `mode`: either `readonly`, `readwrite`, or `versionchange`
+    + `versionchange`: only for creating a new database or for modifying its schemas
+    + `readonly`: concurrent read transactions allowed
 
 
 
