@@ -262,8 +262,8 @@ See this article from MDN about the [same-origin policy](https://developer.mozil
   + open a transaction for reading and writing  on the DB "customer": `var transaction = db.transaction("customers", "readwrite");`
   + add complete listener: `transaction.oncomplete = function(evt) { alert("All done!"); };`
   + add error listener: `transaction.onerror = function(evt) { // error handling };`
-  + access data: `var objectStore = transaction.objectStore("costomers");`
-  + iterate through to add data: `for (var i in customerData) {...}`
+  + access data<a name="objStore"></a>: `var objectStore = transaction.objectStore("costomers");`
+  + iterate through to add data<a name="addData"></a>: `for (var i in customerData) {...}`
     + add data: `var request = objectStore.add(customerData[i]);`
     + add success listener: `request.onsuccess = function(evt) { // evt.target.result === customerData[i].ssn };`
 
@@ -353,7 +353,7 @@ Further details will be given in the next chapter "Using IndexedDB".
 #### Version
 
 + When a database is first created, its version is the integer 0. Each database has one version at a time; a database can't exist in multiple versions at once.
-+ The only way to change the version is by opening it with a higher version number than the current one. This will start a `versionchange` transaction and fire an upgradeneeded event. The only place where the schema of the database can be updated is inside the handler of that event.
++ The only way to change the version is by opening it with a higher version number than the current one. This will start a `versionchange` transaction and fire an `upgradeneeded` event. The only place where the schema of the database can be updated is inside the handler of that event.
 
 This definition describes [the most recent specification](https://w3c.github.io/IndexedDB/), which is only implemented in up-to-date browsers. Old browsers implemented the now deprecated and removed `IDBDatabase.setVersion()` method.
 
@@ -363,7 +363,7 @@ From the specification:
 
 >"A transaction is used to interact with the data in a database. Whenever data is read or written to the database, this is done by using a transaction.
 
-> All transactions are created through a connection, which is the transaction's connection. The transaction has a mode (read, readwrite or versionchange) that determines which types of interactions can be performed upon that transaction. The mode is set when the transaction is created and remains fixed for the life of the transaction. The transaction also has a scope that determines the object stores with which the transaction may interact."_
+> All transactions are created through a connection, which is the transaction's connection. The transaction has a mode (`read`, `readwrite` or `versionchange`) that determines which types of interactions can be performed upon that transaction. The mode is set when the transaction is created and remains fixed for the life of the transaction. The transaction also has a scope that determines the object stores with which the transaction may interact."
 
 A transaction in IndexedDB is similar to a transaction in a SQL database. It defines: "_An atomic and durable set of data-access and data-modification operations_". Either all operations succeed or all fail. 
 
@@ -445,16 +445,177 @@ The set of object stores and indexes to which a transaction applies. The scopes 
 
 __Cursor__
 
-A mechanism for iterating over multiple records within a _key range_. The cursor has a source defining which index or object store it is iterating. It has a position within the range, and retrieves records sequentially according to the value of their keys in either increasing or decreasing order. For the reference documentation on cursors, see [IDBCursor](https://mzl.la/36pVALu).
+A mechanism for iterating over multiple records within a _key range_. The cursor has a source defining which index or object store it is iterating. It has a position within the range, and retrieves records sequentially according to the value of their keys in either increasing or decreasing order. For the reference documentation on cursors, see [IDBCursor](https://mzl.la/3yLHGiR).
 
 __Key range__
 
 A continuous interval over some data type used for keys. Records can be retrieved from object stores and indexes using keys or a range of keys. You can limit or filter the range using lower and upper bounds. For example, you can iterate over all the values of a key between x and y.
 
-For the reference documentation on key range, see [IDBKeyRange](https://mzl.la/2VviZsP).
+For the reference documentation on key range, see [IDBKeyRange](https://mzl.la/3r3iLVh).
 
 
+#### Notes for 3.6.3 Definitions
 
++ Database
+  + each origin w/ an associated set of database
+  + a database comprises one or more object stores
+  + name of a database
+    + used to identifY a databas within a specific origin
+    + any string value, including the empty string
+    + remaining constant for the lifetime of the database
+  + version of a database
+    + current version as a property of the database
+    + version 0: default value when a database created
+    + only one version at any given time
+  + connection
+    + created as a database open
+    + multiple connects existed for a given database at any given time
+
++ Object store
+  + the mechanism by which data is stored in the datbase
+  + name of object store
+    + must have property
+    + unique within the database to which it belongs
+  + records (JavaScript objects)
+    + key-value pairs persistently held
+    + one of these keys as a kind of "primary key" in the SQL database sense
+    + key: a property that every object in the datastore must contain
+    + values: structured but probably varied bte objects
+    + example: person contacts in database, email as "the key all objects must define", some amy have first name and last name. others may have abn address or no address at all
+    + stored according to keys, in ascending order, within an object store
+  + probably having a key generator and a key path
+    + in-line keys: datastore w/ a key path
+    + out-of-line keys: datastore w/o a key path
+  + able to derive the key from
+    + key generator: a monotonically increasing number every time a key needed, similar to auto-incremented primary keys in a SQL database
+    + a key path
+    + explicitly specified when a value is stored in the object stores
+
++ Version
+  + version 0: a database first created
+  + one version ar a time
+  + no multiple versions existed at once
+  + changing the the version by opening it w/ a higher version number tha the current one
+  + syntax: starting a `versionchange` transaction and triggering an `upgradeneeded` event
+  + the handler of the event: only place to update the schema of the database
+  + `IDBDatabase.setVersion()` method deprecated
+
++ Transaction
+  + an atomic and durable set of data-access and data-modification operation
+  + used to interact w/ the data in a database
+  + data read and written to the datbase done by using a transaction
+  + mode:
+    + type: `read`, `readwrite`, or `versionchange`
+    + determining which types of interaction performed upon that transaction
+    + set when transaction created amd remain fixed for the life of the transaction
+  + a transaction in IndexedDB similar to a transaction in a SQL database
+  + all succeed or all fail within all operations of a transaction
+  + connection
+    + transaction created through a connection
+    + allowing multiple active transaltions associated w/ a connection at a time
+  + scope
+    + defined at creation time
+    + determining the object stores w/ which the transaction may interact
+    + determining which concurrent transactions can read or write the same data
+    + write transactions unable to have overlapping scope. i.e., working on the same data at the same time
+    + multiple reads allowed at the same time while writes in sequence, only one at a timeoverlapped
+    + a `versionchange` transaction
+      + never runs concurrently w/ other transactions
+      + automatically created when a database w/ higher version number is provided
+      + transaction activated inside the `onupgradeneeded` event handler, allowing the creation of new object stores and indexes
+    + `readwrite` transactions w/ overlapped scopes always run in the order they were created and never run in parallel
+  + example:
+    + existing a writing transaction in a database connection
+    + scope of the transaction covering only the `flyingMonkey` object store
+    + starting a second transaction w/ a scope of the `unicornCentaur` and `unicornPegasus` object stores
+    + allowing several reading transactions and probably 
+
++ Request
+  + issued as the reading and writing on a database done
+  + represeting one read or one write operation
+  + always run within a transaction
+  + example: add a customer to the object store named "customers"
+    + [access data](#objStore)
+    + iterate through to [add data](#addData)
+
++ Index
+  + sometimes useful to retrieve records from an object store through means their than their key
+    + allowing the user to look up records in an object store by using the properties of the values inb the object store's records
+    + able to speed up object retrieval and allow multi-criteria
+  + a specialized persistent key-value storage
+    + having a referenced object store
+    + reference store probably w/ an index store associated w/ it
+  + a list of records holding the data stored in the index
+    + records in an index automatically populated whenever records in the referenced object store are inserted, updated or deleted
+    + several indexes referencing the same object store $\to$ changes to the object store causing all such indexes to update
+  + containing a unique flag set to `true`
+    + no two records in the index w/ the same key
+    + failed if attempt to insert or modify a record in the index's referenced object store
+  + example: storing persons in object store
+    + adding an index on the "email" property of each person $\implies$ searching for some person using his/her email address much faster
+    + "persons" as the referenced object store
+    + reference store containing indexes which map email values to key values in the reference store
+
++ Key
+  + a data value by which stored values are organized and retrieved in the object store
+  + key derived from one of the sources
+    + a key generator
+    + a key path
+    + explicitly specified value
+  + key w/ a data type having a number greater than the one before
+  + each record in an object store must have a unique key within the same store
+  + types of key
+    + string
+    + date
+    + array: ranging from an empty in an object store using an index
+  
++ Key generator
+  + a mechanism for producing new key in an ordered sequence
+  + an object store w/o a key generator $\to$ application must provide keys for records being stored
+  + similar to auto-generated primary keys in SQL databases
+
++ In-line key
+  + a key stored as part of of the stored 
+  + found using a key path
+  + probably generated using a generator
+  + stored in the value using the key path or used as a key once generated
+  + example: the email of a person or a student number in an object representing a student in a student store
+
++ Out-of-line key
+  + a key stored separately from the value being store
+  + an auto-incremental id not part of the 
+
++ Key path
+  + where the browser should extract the key from a value in the object store or index
+  + valid key path including one of
+    + an empty string
+    + a JavaScript identifier
+    + multiple JavaScript identifiers separated by period w/o spaces
+
++ Value
+  + each record w/ a value
+  + anything abel to be expresseds in JavaScript, including, boolean, number, string, date, object, array, regexp, undefined and null
+  + object/array: the properties and values in it able to be anything but valid
+  + blog and files support by all major browsers, IE > 9
+
++ Scope
+  + the set of object stores and indexes to which a transaction applies
+  + read-only transactions: able to overlap and execute at the same time
+  + writing transaction:
+    + unable to overlap
+    + multiple transactions w/ same scope at the same time allowed but queue up and execute in sequence
+
++ Cursor
+  + a mechanism for iterating over multiple records within a key range
+  + existing a source defining which index or object store it is iterating
+  + having a position within the range
+  + retrieving records sequentially according to the value of their keys in descending or ascending way
+
++ Key range
+  + a continuous interval over some data type used for keys
+  + retrieving records via object stores and indexes using keys or a range of keys
+  + able to limit and filter the range using lower and upper bounds
+  + example: iterate over all values of a key btw x and y
 
 
 
