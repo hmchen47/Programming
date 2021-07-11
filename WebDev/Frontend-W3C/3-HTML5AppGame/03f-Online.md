@@ -245,7 +245,7 @@ See this article from MDN about the [same-origin policy](https://developer.mozil
   + keys: properties of the objects
   + creating indexes w/ any property of the objects for faster searching and ordering results
   + example: 
-    + declare key-value pairs: `const customerData = [{ ssn: "444-44-4444", name: "Bill", age: 35, email: "bill@company.com" }, { ssn: "555-55-5555", name: "Donna", age: 32, email="donna@home.org" }];`
+    + declare key-value pairs<a name="cxData"></a>: `const customerData = [{ ssn: "444-44-4444", name: "Bill", age: 35, email: "bill@company.com" }, { ssn: "555-55-5555", name: "Donna", age: 32, email="donna@home.org" }];`
     + `customerData`: an array of "customers"
     + customer properties: `ssn` for social security number, a `name`, an `age` and an `email` address
 
@@ -656,6 +656,8 @@ Additional information is available on these Web sites. Take a look at these!
 
 Our [online example at JSBin](https://jsbin.com/govuci) shows how to create and populate an object store named "CustomerDB". This example should work on both mobile and desktop versions of all major post-2012 browsers.
 
+[Local Demo](src/03f-example01.html)
+
 We suggest that you follow what is happening using Google Chrome's developer tools. Other browsers offer equivalent means for debugging Web applications that use IndexedDB.
 
 With Chrome, please open the JSBin example and activate the Developer tool console (F12 or cmd-alt-i). Open the JavaScript and HTML tabs on JSBin.
@@ -828,7 +830,48 @@ A common practice, while learning how IndexedDB works, is to type this command i
 </div>
 
 
+#### Notes for 3.6.5 Creating and deleting a database
 
++ Creating database
+  + mainly based on Chrome but other browsers w/ equivalent means for debugging
+  + executing app to create an IndexedDB w/ name = "customers"
+  + calling `createDB()` function to create a datbase
+    + creating a new IndexedDB database and an object store in it
+    + inserting two JS objects
+  + checking w/ devtools > Application > IndexedDB to show the IndexedDB database, object store and data
+  + syntax to create database: `var request = indexedDB.open(dbName, verNo);`
+    + no `verNo` $\to$ entering the `onupgradeneeded` callback where the database actually is created
+    + `verNo` existed $\to$ calling `request.onsuccess` callback to add/remove/search data
+  + `onupgradeneeded` callback
+    + triggered on a create database request
+    + always in a default transaction
+    + unable to overlap w/ another transaction at the same time
+  + best practice: declare a variable to store the database $\gets$ the DOM event result attribute = the database
+
++ Example: creating database
+  + tasks:
+    + create db via DOM event
+    + create object store and primary key w/ SSN
+    + create indexes on `email` and `name`
+    + populate the db
+  + declare the db connection to initialize: `var db;`
+  + create db: `function createDatabase() {...}`
+  + display not support msg: `if (!window.indexedDB) { alert("Your browser does not support a stable version of IndexedDB") }`
+  + declare [cuntomer data](#cxData)
+  + set db name: `var dbName = "CustomerDB";`
+  + create db: `var request = indexedDB.open(dbName, 2);`
+  + add error handle for creating db: `request.onerror = function(evt) { console.log("request.onerror errcode= " + event.target.error.name); }`
+  + add upgrade handler: `request.onupgradeneeded = function(evt) {...}`
+    + log msg: `console.log("request.onupgradeneeded, we are creating a new version of the DB");`
+    + get db from event: `db = evt.target.result;`
+    + create object store to fold info: `var objStore = db.createObjectStore("customer", {keyPath: "ssn"});`
+    + create index: `objStore.createIndex("email", "email", {unique: true});`
+    + populate db by storing values in object store: `for (var i in customerData) { objStore.add(customerData[i]); }`
+  + add success handler: `function = function(evt) { console.log("request.onsuccess, database opened, now we can add/remove/look up for data in it!"); db = ent.target.result; }`
+
++ Deleting the database
+  + syntax: `indexedDB.deleteDatabase("dbName");`
+  + common practice for learner: execute the command in devtools > console
 
 
 
