@@ -874,6 +874,29 @@ A common practice, while learning how IndexedDB works, is to type this command i
   + common practice for learner: execute the command in devtools > console
 
 
+### 3.6.6 Working with data
+
+Explicit use of a transaction is necessary:
+
+<p style="text-align: center; border: 1px solid; color: red; margin: 10px; padding: 10px;"><strong>All operations in the database should occur within a transaction!</strong></p>
+
+While the creation of the database occurred in a transaction that ran "under the hood" without explicit use of the "transaction" keyword, __for adding/removing/updating/retrieving data, explicit use of a transaction is required.__
+
+We generate a transaction object from the database, indicate with which object store the transaction will be associated, and specify an access mode .
+
+Source code example for creating a transaction associated with the object store named "customers":
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="kwd">var</span><span class="pln"> transaction </span><span class="pun">=</span><span class="pln"> db</span><span class="pun">.</span><span class="pln">transaction</span><span class="pun">([</span><span class="str">"customers"</span><span class="pun">],</span><span class="pln"> </span><span class="str">"readwrite"</span><span class="pun">);</span></strong><span class="pln"> </span><span class="com">// or "read"...</span></li>
+</ol></div>
+
+Transactions, when created, must have a mode set that is either `readonly`, `readwrite` or `versionchange` (this last mode is only for creating a new database or for modifying its schemas: i.e. changing the primary key or the indexes).
+
+<p style="margin: 10px; padding: 10px; border: 1px solid">When you can, use&nbsp;readonly mode. Concurrent read transactions will become possible.</p>
+
+In the following pages, we will explain how to insert, search, remove, and update data. A final example that merges all examples together will also be shown at the end of this section.
+
+
 
 
 
