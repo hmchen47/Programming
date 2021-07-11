@@ -618,6 +618,28 @@ For the reference documentation on key range, see [IDBKeyRange](https://mzl.la/3
   + example: iterate over all values of a key btw x and y
 
 
+### 3.6.4 Using IndexedDB
+
+This page and the following one, entitled "Using IndexedDB", provide simple examples for creating, adding, removing, updating, and searching data in an IndexedDB database. They explain the basic steps to perform such common operations, while explaining the programming principles behind IndexedDB.
+
+#### Contents of using IndexedDB
+
+__In the "Using IndexedDB" pages of this course, you will learn about:__
+
++ Creating and populating a database
++ Working with data
++ Using transactions
++ Inserting, deleting, updating and getting data
++ Creating and populating a database
+
+#### External resources
+
+Additional information is available on these Web sites. Take a look at these!
+
++ MDN's documentation on "[Using IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB)"
++ [Storing images and files in IndexedDB](http://robertnyman.com/2012/03/06/storing-images-and-files-in-indexeddb/)
++ [Working with IndexedDB](https://developers.google.com/web/ilt/pwa/working-with-indexeddb)
++ [How to view IndexedDB content in Firefox](https://stackoverflow.com/questions/9846013/how-to-view-indexeddb-content-in-firefox)
 
 
 
