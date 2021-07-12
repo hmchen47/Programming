@@ -1178,13 +1178,13 @@ Indeed, entering an empty value for the keyPath or for indexes is a valid value 
     + init transaction on the ObjectStore
     + get request from the transaction for adding a new object
   + add a customer<a name="addCx"></a>: `function addACustomer() {...}`
-  + create a transaction: `var transaction = db.transaction(["customers"], "readwrite");`
-  + add transaction complete handler: `transaction.oncomplete = function() { alert("All done!"); }`
-  + add transaction error handler: `transaction.onerror = function(evt) { console.log("transaction.onerror errcode = " + evt.target.error.name); }`
-  + init transaction: `var objStore = transaction.objectStore("customers");`
+  + create a transaction<a name="transaction"></a>: `var transaction = db.transaction(["customers"], "readwrite");`
+  + add transaction complete handler<a name="transComplete"></a>: `transaction.oncomplete = function() { alert("All done!"); }`
+  + add transaction error handler<a name="transErr"></a>: `transaction.onerror = function(evt) { console.log("transaction.onerror errcode = " + evt.target.error.name); }`
+  + init transaction<a name="initTrans"></a>: `var objStore = transaction.objectStore("customers");`
   + add new object and get request: `var request = objStore.add({ ssn: "123-45-6789", name: "Michel Buffa", age: 47, email: "buffa@i3s.unice.fr" });`
-  + add request success handler: `request.onsuccess = function(evt) { console.log("Customer with ssn = " + evt.target.result + "added!"); }`
-  + add request error handler: `request.onerror = function(evt) { console.log("request.onerror, could not insert customer, errcode = " + evt.target.error.name); }`
+  + add request success handler<a name="reqSuccess"></a>: `request.onsuccess = function(evt) { console.log("Customer with ssn = " + evt.target.result + "added!"); }`
+  + add request error handler<a name="reqErr"></a>: `request.onerror = function(evt) { console.log("request.onerror, could not insert customer, errcode = " + evt.target.error.name); }`
 
 + Example: adding data to DB from a form
   + process
@@ -1206,7 +1206,7 @@ Indeed, entering an empty value for the keyPath or for indexes is a valid value 
     + new customer button: `<button onclick="addACustomer();">Add a new Customer</button>`
   + JavaScript snippet
     + [add a customer](#addCx) w/ additional steps
-    + check db open: `if (db === null) { alert"Database must be opened, please click the Create CustomerDB Database first"); }`
+    + check the connection to db<a name="connChk"></a>: `if (db === null) { alert"Database must be opened, please click the Create CustomerDB Database first"); return; }`
     + get customer data from input fields: `var newCustomer = ();`
       + ssn: `newCustomer.ssn = document.queryelector("#ssn");.value;`
       + name: `newCustomer.name = document.queryelector("#name");.value;`
@@ -1230,8 +1230,10 @@ Indeed, entering an empty value for the keyPath or for indexes is a valid value 
 
 Let's move to the next [online example at JSBin](https://jsbin.com/bavifa):
 
+[Local Demo](src/03f-example04.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open('https://bit.ly/3z0X8rN')"
     src    = "https://bit.ly/3AReGYN"
     alt    = "devtools show that a customer has been removed once clicked on the remove customer button"
@@ -1298,6 +1300,38 @@ It is also possible to shorten the code of the above function a lot by concatena
 <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">.</span><span class="pln">objectStore</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">)</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">.</span><span class="kwd">delete</span><span class="pun">(</span><span class="str">"444-44-4444"</span><span class="pun">);</span></li>
 </ol></div>
+
+
+#### Notes for 3.6.8 Removing data
+
++ Example: removing data
+  + procedure
+    + click "create database button" to ensure the open of the existing database
+    + use devtools to check the customer w/ `ssn=444-44-4444`, if not existed, add the customer from the input forms
+    + refresh IndexedDB in devtools to observe the customer
+    + click the "Remove the customer" button and observe the data object in devtools after refreshing
+  + JavaScript snippet: `function removeCustomer() {...}`
+    + check [the connection to db](#connChk)
+    + create [transaction](#transaction)
+    + add [transaction complete handler](#transComplete)
+    + add [transaction error handler](#transErr)
+    + [init transaction](#initTrans)
+    + dispaly msg: `alert('removing customer ssn=444-44-4444');`
+    + create request to delete selected customer: `var request = objStore.delete("444-44-4444");`
+    + add request success handler: `request.onsuccess = function(evt) { console.log("Customer removed!"); }`
+    + add request error handler: `request.onerror = function(evt) { alert("request.onerror, could not remove customer, errcode = " + evt.target.error.name + ". The ssn does not exist in the Database"); }`
+  + JavaScript snippet: short version
+
+    ```js
+    var request = db.transaction(["customers"], "readwrite")
+      .objectStore("customers")
+      .delete("444-44-4444");
+    ```
+
+
+
+
+
 
 
 
