@@ -1430,7 +1430,364 @@ The update occurs at _line 28_.
   + display update info: `alert('updating customer ssn=' + customerToUpdate.ssn);`
   + modify data to get request: `var request = objStore.put(customerToUpdate);`
   + add request success handler: `request.onsuccess = function(evt) { console.log("Customer updated."); }`
-  + add request error handler: `request.onerror = function(evt) { alert("request.onerror, could not update customer, errcode= " + evt.target.errror.anme + ". The ssn is not in the Database"); }`
+  + add request error handler: `request.onerror = function(evt) { alert("request.onerror, could not update customer, errcode= " + evt.target.error.name + ". The ssn is not in the Database"); }`
+
+
+### 3.6.10 Getting data
+
+There are several ways to retrieve data from a data store.
+
+#### First method: getting data when we know its key
+
+The simplest function from the API is the request.get(key) function. It retrieves an object when we know its key/keypath.
+
+[Online example at JSBin](https://jsbin.com/saquru):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick= "window.open('https://bit.ly/36tlRZv')"
+    src    = "https://bit.ly/36tlRZv"
+    alt    = "Getting data from IndexedDB, first enter a ssn, then press the search button"
+    title  = "Getting data from IndexedDB, first enter a ssn, then press the search button"
+  />
+</figure>
+
+
+If the ssn exists in the object store, then the results are displayed in the form itself (the code that gets the results and that updates the form is in the request.onsuccess callback).
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick= "window.open('https://bit.ly/36tlRZv')"
+    src    = "https://bit.ly/3ANR9Ii"
+    alt    = "Form updated with data retrieved"
+    title  = "Form updated with data retrieved"
+  />
+</figure>
+
+
+Here is the code added to that example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> searchACustomer</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">db </span><span class="pun">===</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">'Database must be opened first, please click the Create </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CustomerDB Database first'</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">return</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> transaction </span><span class="pun">=</span><span class="pln"> db</span><span class="pun">.</span><span class="pln">transaction</span><span class="pun">([</span><span class="str">"customers"</span><span class="pun">],</span><span class="pln"> </span><span class="str">"readwrite"</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Do something when all the data is added to the database.</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;transaction</span><span class="pun">.</span><span class="pln">oncomplete </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"All done!"</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;transaction</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"transaction.onerror errcode="</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">error.name</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> objectStore </span><span class="pun">=</span><span class="pln"> transaction</span><span class="pun">.</span><span class="pln">objectStore</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Init a customer object with just the ssn property initialized </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// from the form</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">var</span><span class="pln"> customerToSearch</span><span class="pun">={};</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>customerToSearch</strong></span><strong><span class="pun">.</span><span class="pln">ssn </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#ssn"</span><span class="pun">).</span><span class="pln">value</span><span class="pun">;</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">'Looking for customer ssn='</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> customerToSearch</span><span class="pun">.</span><span class="pln">ssn</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Look for the customer corresponding to the ssn in the object </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// store</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">var</span><span class="pln"> request </span><span class="pun">=</span><span class="pln"> objectStore</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="pln">customerToSearch</span><span class="pun">.</span><span class="pln">ssn</span><span class="pun">);</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;request</span><span class="pun">.</span><span class="pln">onsuccess </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>console</strong></span><strong><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Customer found"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">.</span><span class="pln">name</span><span class="pun">);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#name"</span><span class="pun">).</span><span class="pln">value</span><span class="pun">=</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">.</span><span class="pln">name</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#age"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">.</span><span class="pln">age</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#email"</span><span class="pun">).</span><span class="pln">value</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">.</span><span class="pln">email</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;request</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">"request.onerror, could not find customer, errcode = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">error.name&nbsp;</span><span class="pun">+</span><span class="pln"> </span><span class="str">".</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The ssn is not in the Database"</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+The search is inititated at _line 30_, and the callback in the case of success is `request.onsuccess`, _lines 32-38_. `event.target` with result as the retrieved object (_lines 33 to 36_).
+
+Well, this is a lot of code, isn't it? We can considerably abbreviate this function (though, admittedly it won't take care of all possible errors). Here is the shortened version:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> searchACustomerShort</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; db</span><span class="pun">.</span><span class="pln">transaction</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">).</span><span class="pln">objectStore</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">)</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#ssn"</span><span class="pun">).</span><span class="pln">value</span><span class="pun">).</span><span class="pln">onsuccess </span><span class="pun">=</span><span class="pln">&nbsp; &nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp;function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#name"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">.</span><span class="pln">name</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#age"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">.</span><span class="pln">age</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#email"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">.</span><span class="pln">email</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}; // end of onsuccess callback</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+You can try it on JSBin: this [version of the online example using this shortened version](https://jsbin.com/rifate) (the function is at the end of the JavaScript code):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> searchACustomerShort</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">db </span><span class="pun">===</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">'Database must be opened first, please click the Create </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CustomerDB Database first'</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">return</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;db</span><span class="pun">.</span><span class="pln">transaction</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">).</span><span class="pln">objectStore</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">)</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#ssn"</span><span class="pun">).</span><span class="pln">value</span><span class="pun">)</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp;.</span><span class="pln">onsuccess </span><span class="pun">=</span><span class="pln">&nbsp; </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp;function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#name"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">.</span><span class="pln">name</span><span class="pun">;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#age"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">.</span><span class="pln">age</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#email"</span><span class="pun">).</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">.</span><span class="pln">email</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+__Explanations:__
+
++ Since there's only one object store, you can avoid passing a list of object stores that you need in your transaction and just pass the name as a string (_line 8_),
++ We are only reading from the database, so we don't need a "readwrite" transaction. Calling transaction() with no mode specified gives a "`readonly`" transaction (_line 8_),
++ We don't actually save the request object to a variable. Since the DOM event has the request as its target we can use the event to get to the result property (_line 9_).
+
+
+#### Second method: getting more than one piece of data
+
+__Getting all of the data from the datastore: using <u>a cursor</u>__
+
+Using `get()` requires that you know which key you want to retrieve. If you want to step through all the values in your object store, or just between those in a certain range, then you must use _a cursor_.
+
+Here's what it looks like:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> listAllCustomers</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> objectStore </span><span class="pun">=</span><span class="pln">&nbsp; &nbsp; </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;db</span><span class="pun">.</span><span class="pln">transaction</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">).</span><span class="pln">objectStore</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>objectStore</strong></span><strong><span class="pun">.</span><span class="pln">openCursor</span><span class="pun">().</span><span class="pln">onsuccess </span></strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// we enter this callback for each object in the store</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="com">// The result is the cursor itself</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong><span class="kwd">var</span><span class="pln"> cursor </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">;</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">cursor</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">"Name for SSN "</span><span class="pln"> </span><span class="pun">+</span><strong><span class="pln"> cursor</span><span class="pun">.</span><span class="pln">key </span></strong><span class="pun">+</span><span class="pln"> </span><span class="str">" is "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>cursor</strong></span><strong><span class="pun">.</span><span class="pln">value</span><span class="pun">.</span><span class="pln">name</span></strong><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Calling continue on the cursor will&nbsp;result in&nbsp;this callback </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp;//&nbsp;being called&nbsp;</span>again if there are other objects in the store</li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong>cursor</strong></span><strong><span class="pun">.</span><span class="kwd">continue</span><span class="pun">();</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">"No more entries!"</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span><span class="pln"> </span><span class="com">// end of onsuccess...</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span><span class="com">// end of listAllCustomers()</span></li>
+</ol></div>
+
+You can try this [example on JSBin](https://jsbin.com/xetumu).
+
+It adds a button to our application. Clicking on it will display a set of alerts, each showing details of an object in the object store:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick= "window.open('https://bit.ly/36tlRZv')"
+    src    = "https://bit.ly/3ANR9Ii"
+    alt    = "Screenshot with a 'list all customers button' and an alert showing one of them"
+    title  = "Screenshot with a 'list all customers button' and an alert showing one of them"
+  />
+</figure>
+
+
+The `openCursor()` function can take several (optional) arguments.
+
++ First, you can limit the range of items that are retrieved by using a key range object - we'll get to that in a minute.
++ Second, you can specify the direction that you want to iterate.
+
+In the above example, we're iterating over all objects in ascending order. The `onsuccess` callback for cursors is a little special. __The cursor object itself is the `result` property of the request__ (above we're using the shorthand, so it's `event.target.result`). Then __the actual key and value can be found on the key and value properties of the cursor object__. If you want to keep going, then you have to call `cursor.continue()` on the cursor.
+
+When you've reached the end of the data (or if there were no entries that matched your `openCursor()` request) you still get a `success` callback, but the result property is undefined.
+
+One common pattern with cursors is to retrieve all objects in an object store and add them to an array, like this:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> listAllCustomersArray</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> objectStore </span><span class="pun">=</span><span class="pln">&nbsp; &nbsp; </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; db</span><span class="pun">.</span><span class="pln">transaction</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">).</span><span class="pln">objectStore</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="kwd">var</span><span class="pln"> customers </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span><span class="pln"> </span><span class="com">// the array of customers that will hold </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // results</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; objectStore</span><span class="pun">.</span><span class="pln">openCursor</span><span class="pun">().</span><span class="pln">onsuccess </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="kwd">var</span><span class="pln"> cursor </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">cursor</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; customers</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">cursor</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span><span class="pln"> </span><span class="com">// add a customer in the </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // array</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; cursor</span><span class="pun">.</span><span class="kwd">continue</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">"Got all customers: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> customers</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pun">};</span><span class="pln"> </span><span class="com">// end of onsuccess</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span><span class="com">// end of listAllCustomersArray()</span></li>
+</ol></div>
+
+You can try [this version on JSBin](https://jsbin.com/bitoqa).
+
+__Getting data using an index__
+
+Storing customer data using the `ssn` as a key is logical since the `ssn` uniquely identifies an individual. If you need to look up a customer by `name`, however, you'll need to iterate over every `ssn` in the database until you find the right one.
+
+Searching in this fashion would be very slow. So instead we _use an index_.
+
+Remember that we defined two indexes in our data store:
+
+1. one on the `name` (non-unique) and
+2. one on the `email` properties (unique).
+
+Here is a function that examines by `name` the person-objects in the object store, and returns the first one it finds with a name equal to "Bill":
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> getCustomerByName</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">db </span><span class="pun">===</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">'Database must be opened first, please click the Create </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CustomerDB Database first'</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">return</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> objectStore </span><span class="pun">=</span><span class="pln">&nbsp; &nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; db</span><span class="pun">.</span><span class="pln">transaction</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">).</span><span class="pln">objectStore</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong><span class="kwd">var</span><span class="pln"> index </span><span class="pun">=</span><span class="pln"> objectStore</span><span class="pun">.</span><span class="pln">index</span><span class="pun">(</span><span class="str">"name"</span><span class="pun">);</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>index</strong></span><strong><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="str">"Bill"</span><span class="pun">).</span><span class="pln">onsuccess </span></strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">"Bill's SSN is "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><strong><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">.</span><span class="pln">ssn </span></strong><span class="pun">+</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="str">" his email is "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><strong><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">.</span><span class="pln">email</span></strong><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+The search by index occurs at _lines 11 and 13_: _line 11_ creates an "index" object that corresponds to the "name" property. _Line 13_ calls the `get()` method on this index-object to retrieve all of the person-objects from the dataStore which have a name equal to "Bill".
+
+[Online example](https://jsbin.com/gituxa) you can try at JsBin
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick= "window.open('https://bit.ly/36tlRZv')"
+    src    = "https://bit.ly/3r6igKr"
+    alt    = "retrieving data using an index. The screenshot shows a button 'look for all customers named Bill', and shows an alert with the result."
+    title  = "retrieving data using an index. The screenshot shows a button 'look for all customers named Bill', and shows an alert with the result."
+  />
+</figure>
+
+
+The above example retrieves only the first object that has a name/index with the value="Bill". Notice that there are two "Bill"s in the object store.
+
+__Retrieving more than one result when using an index__
+
+In order to get all the "Bills", once again we have to use _a cursor_.
+
+When we work with indexes, we can open two different types of cursors on indexes:
+
+1. __A normal cursor__ which maps the index property to the object in the object store, or,
+2. __A key cursor__ which maps the index property to the key used to store the object in the object store.
+
+The differences are illustrated below.
+
+Normal cursor:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="pln">index</span><span class="pun">.</span><span class="pln" style="color: #ff0000;">openCursor</span><span class="pun"><span style="color: #ff0000;">()</span>.</span><span class="pln">onsuccess </span></strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><strong><span class="kwd">var</span><span class="pln"> cursor </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">;</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">cursor</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// cursor.key is a name, like "Bill", and <strong><span style="color: #ff0000;">cursor.value is the </span></strong></span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; // <span style="color: #ff0000;"><strong>whole object.</strong></span></span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">"Name: "</span><span class="pln"> </span><span class="pun">+</span><strong><span class="pln"> cursor</span><span class="pun">.</span><span class="pln">key </span></strong><span class="pun">+</span><span class="pln"> </span><span class="str">", SSN: "</span><span class="pln"> </span><span class="pun">+</span><span style="color: #ff0000;"><strong><span class="pln"> cursor</span><span class="pun">.</span><span class="pln">value</span><span class="pun">.</span><span class="pln">ssn </span></strong></span><span class="pun">+</span><span class="pln"> </span><span class="str">", </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;email: "</span><span class="pln"> </span><span class="pun">+</span><strong><span class="pln"> cursor</span><span class="pun">.</span><span class="pln">value</span><span class="pun">.</span><span class="pln">email</span></strong><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>cursor</strong></span><strong><span class="pun">.</span><span class="kwd">continue</span><span class="pun">();</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+</ol></div>
+
+Key cursor:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="pln">index</span><span class="pun">.</span><span class="pln" style="color: #ff0000;">openKeyCursor</span><span class="pun">().</span><span class="pln">onsuccess </span></strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> cursor </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">cursor</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com"><span style="color: #ff0000;">//</span> <span style="color: #ff0000;">cursor.key is a name, like "Bill",<strong> and cursor.value is the </strong></span></span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com" style="color: #ff0000;"><strong>&nbsp; &nbsp; &nbsp;</strong>//<strong> SSN (the key)</strong>.</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// No way to directly get the rest of the stored object.</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">"Name: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> cursor</span><span class="pun">.</span><span class="pln">key </span><span class="pun">+</span><span class="pln"> </span><span class="str">", "</span><span class="pln">SSN</span><span class="pun">:</span><span class="pln"> </span><span class="str">" + <strong>cursor.value</strong>);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp;cursor.continue();</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp;}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="str">};</span></li>
+</ol></div>
+
+Can you see the difference? 
+
+You can try [an online example at JSBin](https://jsbin.com/kubuwof) that uses the above methods:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick= "window.open('https://bit.ly/36tlRZv')"
+    src    = "https://bit.ly/36waTCl"
+    alt    = "getting data using index. The screenshot shows two buttons: one for getting one single data and one for getting all data, using indexes"
+    title  = "getting data using index. The screenshot shows two buttons: one for getting one single data and one for getting all data, using indexes"
+  />
+</figure>
+
+
+How to try this example:
+
+1. Press the create/Open CustomerDB database,
+2. Add some more customers,
+3. Then press the last button "look for all customers with name=Bill ...". This will iterate over all the customers in the object store whose name is equal to "Bill". There should be two "Bills", if this is not the case, add two customers with a name equal to "Bill", then press the last button again.
+
+Source code extract from this example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> getAllCustomersByName</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">db </span><span class="pun">===</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">'Database must be opened first, please click the Create </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CustomerDB Database first'</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">return</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> objectStore </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;db</span><span class="pun">.</span><span class="pln">transaction</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">).</span><span class="pln">objectStore</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong><span class="kwd">var</span><span class="pln"> index </span><span class="pun">=</span><span class="pln"> objectStore</span><span class="pun">.</span><span class="pln">index</span><span class="pun">(</span><span class="str">"name"</span><span class="pun">);</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Only match "Bill"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong><span class="kwd">var</span><span class="pln"> singleKeyRange </span><span class="pun">=</span><span class="pln"> </span><span class="typ">IDBKeyRange</span><span class="pun">.</span><span class="pln">only</span><span class="pun">(</span><span class="str">"Bill"</span><span class="pun">);</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>index</strong></span><strong><span class="pun">.</span><span class="pln">openCursor</span><span class="pun">(</span><span class="pln">singleKeyRange</span><span class="pun">).</span><span class="pln">onsuccess </span></strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> cursor </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">cursor</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// cursor.key is a name, like "Bill", and cursor.value is the </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; // whole object.</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">"Name: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> cursor</span><span class="pun">.</span><span class="pln">key </span><span class="pun">+</span><span class="pln"> </span><span class="str">", SSN: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> cursor</span><span class="pun">.</span><span class="pln">value</span><span class="pun">.</span><span class="pln">ssn</span><span class="pln">&nbsp;</span><span class="str">", </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+ email: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> cursor</span><span class="pun">.</span><span class="pln">value</span><span class="pun">.</span><span class="pln">email</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; cursor</span><span class="pun">.</span><span class="kwd">continue</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
 
 
 
