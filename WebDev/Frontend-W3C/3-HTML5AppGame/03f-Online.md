@@ -864,8 +864,8 @@ A common practice, while learning how IndexedDB works, is to type this command i
   + add upgrade handler: `request.onupgradeneeded = function(evt) {...}`
     + log msg: `console.log("request.onupgradeneeded, we are creating a new version of the DB");`
     + get db from event: `db = evt.target.result;`
-    + create object store to fold info: `var objStore = db.createObjectStore("customer", {keyPath: "ssn"});`
-    + create index: `objStore.createIndex("email", "email", {unique: true});`
+    + create object store and keyPath: `var objStore = db.createObjectStore("customers", {keyPath: "ssn"});`
+    + declare a property as an index<a name="emailIdx"></a>: `objStore.createIndex("email", "email", {unique: true});`
     + populate db by storing values in object store: `for (var i in customerData) { objStore.add(customerData[i]); }`
   + add success handler: `function = function(evt) { console.log("request.onsuccess, database opened, now we can add/remove/look up for data in it!"); db = ent.target.result; }`
 
@@ -929,12 +929,14 @@ __Example #1: basic steps__
 
 [Online example at JSBin](https://jsbin.com/jukifo):
 
+[Local Demo](src/03f-example02.html)
+
 Execute this example and look at the IndexedDB object store content from the Chrome dev tools (F12 or cmd-alt-i). One more customer should have been added.
 
 __Be sure to click on the "create database" button before clicking the "insert new customer" button.__
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open('https://bit.ly/3wzccej')"
     src    = "https://bit.ly/2UIkS4L"
     alt    = "example on JsBin for inserting data in IndexedDB"
@@ -946,7 +948,7 @@ __Be sure to click on the "create database" button before clicking the "insert n
 The next screenshot shows the IndexedDB object store in Chrome dev. tools (use the "Resources" tab). Clicking the "Create CustomerDB" database creates or opens the database, and clicking "Add a new Customer" button adds a customer named "Michel Buffa" into the object store:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open('https://bit.ly/3wzccej')"
     src    = "https://bit.ly/3ARYpmA"
     alt    = "Devtools show that a new customer named Michel Buffa has been inserted"
@@ -1035,10 +1037,12 @@ Here is the trace from the dev tools console:
 
 __Example #2: adding a form and validating inputs__
 
-Online example available at JSBin:
+[Online example](https://jsbin.com/jayida) available at JSBin:
+
+[Local Demo](src/03f-example03.html)
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open('https://bit.ly/3wzccej')"
     src    = "https://bit.ly/3hXL4R4"
     alt    = "a form has been added to the previous example, for creating a new customer"
@@ -1149,7 +1153,7 @@ The above code does not perform all the tests, but you may encounter such a way 
 Also, note that it works if you try to insert empty data:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open('https://bit.ly/3wzccej')"
     src    = "https://bit.ly/3AReGYN"
     alt    = "devtools show that inserting blank data works"
@@ -1159,6 +1163,68 @@ Also, note that it works if you try to insert empty data:
 
 
 Indeed, entering an empty value for the keyPath or for indexes is a valid value (in the IndexedDB sense). In order to avoid this, you should add more JavaScript code. We will let you do this as an exercise.
+
+
+#### Notes for 3.6.7 Inserting data
+
++ Typical procedure to inset data
+  + create a transaction
+  + map the transaction to onto the object store
+  + create an "add" request that will take part in the transaction
+
++ Example: basic steps
+  + tasks
+    + get a transaction on the "customer" object store in readwrite mode
+    + init transaction on the ObjectStore
+    + get request from the transaction for adding a new object
+  + add a customer<a name="addCx"></a>: `function addACustomer() {...}`
+  + create a transaction: `var transaction = db.transaction(["customers"], "readwrite");`
+  + add transaction complete handler: `transaction.oncomplete = function() { alert("All done!"); }`
+  + add transaction error handler: `transaction.onerror = function(evt) { console.log("transaction.onerror errcode = " + evt.target.error.name); }`
+  + init transaction: `var objStore = transaction.objectStore("customers");`
+  + add new object and get request: `var request = objStore.add({ ssn: "123-45-6789", name: "Michel Buffa", age: 47, email: "buffa@i3s.unice.fr" });`
+  + add request success handler: `request.onsuccess = function(evt) { console.log("Customer with ssn = " + evt.target.result + "added!"); }`
+  + add request error handler: `request.onerror = function(evt) { console.log("request.onerror, could not insert customer, errcode = " + evt.target.error.name); }`
+
++ Example: adding data to DB from a form
+  + process
+    + press the "Create database button" first
+    + add a new customer using the form
+    + click the "add a new Customer" button
+    + use devtools to inspect the IndexedDB store contents (refresh or close/open the devtools probably required)
+  + good practice: checking the database open before interting an element
+  + validation for inserting data and alert w/ error message
+    + `ssn` existed: the property declared as the keyPath (kind of primary key) in the object store schema and __unique__
+    + `email` address existed: the propert declared as an index and unique
+    + same customer inserted twice or duplicated SSN $\to$ customized alert message
+  + HTML snippet
+    + group of input forms: `<fieldset>...</fieldset>`
+    + SSN filed: `SSN: <input type="text" id="ssn" placeholder="444-44-4444" required/><br/>`
+    + Name field: `Name: <input type="text" id="name"/> <br/>`
+    + Age field: `Age: <input type="number" id="age" min=1 max=100 /></br>`
+    + Email field: `Email: <input type="text" id="email"/> reminder, email must unique (declared as a "unique" index)<br/>`
+    + new customer button: `<button onclick="addACustomer();">Add a new Customer</button>`
+  + JavaScript snippet
+    + [add a customer](#addCx) w/ additional steps
+    + check db open: `if (db === null) { alert"Database must be opened, please click the Create CustomerDB Database first"); }`
+    + get customer data from input fields: `var newCustomer = ();`
+      + ssn: `newCustomer.ssn = document.queryelector("#ssn");.value;`
+      + name: `newCustomer.name = document.queryelector("#name");.value;`
+      + age: `newCustomer.age = document.queryelector("#age");.value;`
+      + email: `newCustomer.ssn = document.queryelector("#email");.value;`
+      + display msg: `alert('adding customer ssn=" + newCustomer.ssn);`
+    + add new customer and get request: `var request = objStore.add(newCustomer);`
+    + add request error handler: `request.onerror = function(evt) { console.log("request.onerror, could not insert customer, errcode = " + evt.target.error.name + ". Certainly either the ssn or the email is already present in the Database"); }`
+  + JavaScript snippet - short version:
+    + entering empty value for thekeyPath or for index $\to$ valid value (in the IndexedDB sense)
+    + to avoid empty value $\to$ comprehensive version preferred
+
+    ```js
+    var request = db.transaction(["customers"], "readwrite")
+      .objectStore("customers")
+      .add(newCustomer);
+    ```
+
 
 
 
