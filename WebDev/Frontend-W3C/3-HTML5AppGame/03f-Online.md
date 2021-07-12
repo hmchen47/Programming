@@ -1181,7 +1181,7 @@ Indeed, entering an empty value for the keyPath or for indexes is a valid value 
   + create a transaction<a name="transaction"></a>: `var transaction = db.transaction(["customers"], "readwrite");`
   + add transaction complete handler<a name="transComplete"></a>: `transaction.oncomplete = function() { alert("All done!"); }`
   + add transaction error handler<a name="transErr"></a>: `transaction.onerror = function(evt) { console.log("transaction.onerror errcode = " + evt.target.error.name); }`
-  + init transaction<a name="initTrans"></a>: `var objStore = transaction.objectStore("customers");`
+  + init to get object store<a name="initTrans"></a>: `var objStore = transaction.objectStore("customers");`
   + add new object and get request: `var request = objStore.add({ ssn: "123-45-6789", name: "Michel Buffa", age: 47, email: "buffa@i3s.unice.fr" });`
   + add request success handler<a name="reqSuccess"></a>: `request.onsuccess = function(evt) { console.log("Customer with ssn = " + evt.target.result + "added!"); }`
   + add request error handler<a name="reqErr"></a>: `request.onerror = function(evt) { console.log("request.onerror, could not insert customer, errcode = " + evt.target.error.name); }`
@@ -1335,8 +1335,10 @@ We used `request.add(object)` to add a new customer and `request.delete(keypath)
 
 [Online example at JSBin](https://jsbin.com/zugowe):
 
+[Local Demo](src/03f-example05.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open('https://bit.ly/36wbbJw')"
     src    = "https://bit.ly/3AUTq4B"
     alt    = "devtools show a customer being updated in IndexedDB"
@@ -1350,7 +1352,7 @@ The above screenshot shows how we added an empty customer with `ssn=""`, (we jus
 Now, we fill the `name`, `age` and `email` input fields to update the object with ssn="" and click on the "update data about an existing customer" button. This updates the data in the object store, as shown in this screenshot:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open('https://bit.ly/36wbbJw')"
     src    = "https://bit.ly/3xwAuaa"
     alt    = "devtools show updated customer"
@@ -1404,6 +1406,31 @@ Here is the new code added to our example:
 </ol></div>
 
 The update occurs at _line 28_.
+
+
+#### Notes for 3.6.9 Modifying data
+
++ Typical syntax for adding/deleting data
+  + add new object: `request.add(object);`
+  + remove a existing object: `request.delete(keypath);`
+  + modify data from an object store w/ IndexedDB: `request.put(keypath);`
+
++ Example: modifying data
+  + update a customer: `function updateACustomer() {...}`
+  + check [the connection to db](#connChk)
+  + create [transaction](#transaction)
+  + add [transaction complete handler](#transComplete)
+  + add [transaction error handler](#transErr)
+  + [init transaction to get object store](#initTrans)
+  + set customer values for modifying: `var customerUpdate={};`
+    + update snn from form: `customerToUpdate.ssn = document.querySelector("#ssn").value;`
+    + update name from form: `customerToUpdate.name = document.querySelector("#name").value;`
+    + update age from form: `customerToUpdate.name = document.querySelector("#age").value;`
+    + update email from form: `customerToUpdate.name = document.querySelector("#email").value;`
+  + display update info: `alert('updating customer ssn=' + customerToUpdate.ssn);`
+  + modify data to get request: `var request = objStore.put(customerToUpdate);`
+  + add request success handler: `request.onsuccess = function(evt) { console.log("Customer updated."); }`
+  + add request error handler: `request.onerror = function(evt) { alert("request.onerror, could not update customer, errcode= " + evt.target.errror.anme + ". The ssn is not in the Database"); }`
 
 
 
