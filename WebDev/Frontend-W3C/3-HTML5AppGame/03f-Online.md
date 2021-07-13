@@ -1922,7 +1922,7 @@ Source code extract from this example:
 ### 3.6.11 Limiting the range of values in a cursor
 
 
-#### Value range in cursor
+#### Range and direction of cursor
 
 How to specify the range and direction of cursors with IndexedDB?
 
@@ -1963,6 +1963,8 @@ Adapted from an example on gitHub, today no more available ([original URL](https
 
 Try [the online example at JsBin](https://jsbin.com/lawaju/edit) (enter "Gaming", "Batman" etc. as key range values):
 
+[Local Demo](src/03f-example12.html)
+
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://bit.ly/3hCgEER" ismap target="_blank">
     <img style="margin: 0.1em;" height=350
@@ -1979,8 +1981,23 @@ Try [the online example at JsBin](https://jsbin.com/lawaju/edit) (enter "Gaming"
 </div>
 
 
+#### Notes for 3.6.11 Limiting the range of values in a cursor
 
++ `IDBKeyRange` object
+  + MDN Web Doc: [Specifying the range and direction of cursors](https://mzl.la/3xF01xV)
+  + abbreviation of "IndexedDB Key Range"
+  + passed as the 1st argument of `openCursor()` and `openKeyCursor()`
+  + specifying the bounds of the data looking for
+  + methods: `upperBound()` or `lowerBound()`
+  + the bound probably "closed" (including the given value(s)) or "open" (excluding the given value(s))
 
++ Example: range of cursor
+  + declare range for only one value: `var singleKeyRange = IDBKeyRange.only("Donna");`
+  + set lower bound: `var lowerBoundKeyRange = IDBKeyRange.lowerBound("Bill");`
+  + set open lower bound: `var lowerBoundOpenKeyRange = IDBKeyRange.lowerBound("Bill", true);`
+  + set open upper bound: `var upperBoundOpenKeyRange = IDBKeyRange.upperBound("Donna", true);`
+  + set close lower and open upper bounds: `var boundKeyRange = IDBKeyRange.bound("Bill", "Donna", false, true);`
+  + add cursor success handler: `index.openCursor(boundKeyRange).onsuccess = fucntion(evt) { var cursor = evt.target.result; if (cursor) { //do sth.; cursor.continue(); }};`
 
 
 
