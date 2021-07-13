@@ -355,13 +355,13 @@ __Complete example: monitoring the download of a song file__
   + send request to server<a name="send"></a>: `xhr.send();`
 
 + Example: playing downloaded sound
-  + task:
+  + tasks:
     + click button to download sound file
     + send Ajax request and call `xhr.onload` callback after file arrived
     + decode mp3 into memory and enable start/stop buttons
     + click button to play and stop sound
   + HTML snippet
-    + button to trigger download: `<button onclick="downloadSoundFile('http://.../song.mp3');"> Download ant play example sound. </button>`
+    + button to trigger download: `<button onclick="downloadSoundFile('http://.../song.mp3');"> Download and play example sound. </button>`
     + start to play: `<button onclick="playSound()" disabled>Start</button>`
     + stop to play: `<button onclick=""stopSound()" disabled>Stop</button>`
   + JavaScript snippet
@@ -372,7 +372,7 @@ __Complete example: monitoring the download of a song file__
       + connect source to speaker: `source.connect(context.destination);`
       + play sound immediately: `source.start(0);`
     + init sound sample: `function initSound(audioFile) {...}`
-      + decode mp3 file: `context.deccodeAudioData(audioFile, function(e) {...} function(e) { console.log('Error decoding file', e); });`
+      + decode mp3 file: `context.deccodeAudioData(audioFile, function(buffer) {...}, function(e) { console.log('Error decoding file', e); });`
       + log msg: `console.log("Sound decoded!");`
       + set variable: `audioBuffer = buffer;`
       + enable buttons once decoded: `var buttons = document.querySelectorAll('button'); button[1].disabled = false; button[2].disabled = false;`
@@ -381,7 +381,7 @@ __Complete example: monitoring the download of a song file__
       + create [new connection](#xhr) for XHR2
       + open connection: `function loadSoundFile(url) {...}`
       + set response type: `xhr.responseType = 'arraybuffer';`
-      + add listener for download: `xhr.onload = function(e) { console.log("Song downloaded, decoding..."); initSound(this.response;); }`
+      + add listener for download: `xhr.onload = function(e) { console.log("Song downloaded, decoding..."); initSound(this.response); }`
       + add listener for error: `xhr.onerror = function(e) { console.log("error downloading file"); }`
       + [send request](#send)
       + log msg: `console.log("Ajax request sent... wait until it downloads completely!");`
