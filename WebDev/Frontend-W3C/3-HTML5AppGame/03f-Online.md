@@ -2000,6 +2000,26 @@ Try [the online example at JsBin](https://jsbin.com/lawaju/edit) (enter "Gaming"
   + add cursor success handler: `index.openCursor(boundKeyRange).onsuccess = fucntion(evt) { var cursor = evt.target.result; if (cursor) { //do sth.; cursor.continue(); }};`
 
 
+### 3.6.12 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please post your comments/observations/questions and share your creations.
+
+
+#### Suggested topics of discussion:
+
++ IndexedDB is certainly the most complex API presented in this course. However, using it is rather simple once you've climbed the learning curve. If you have prior experience with databases, can you tell your feelings in the forum?
++ If you found handy tools for using IndexedDB, or other external tutorials and examples, please share!
+
+
+#### Optional projects:
+
++ Start from the examples provided in the IndexedDB course and adapt them in order to manage a database of the HTML5 interactive examples (also provided in this course). For example, objects stores in the datastore may be composed of:
+  + the jsbin.com URL of the example,
+  + a description,
+  + the name of the week in which the example has been presented, and,
+  + the name of the lesson in the chapter,
+  + eventually, a screenshot for the example (URL, or if you are a bit of a geek, image content).
++ Produce an HTML page which contains your application. When loaded, it must populate the indexedDB database with at least 10 different examples, and display them in a table or in a list. The GUI must also provide a search form for retrieving all the examples from a given chapter. 
 
 
 
