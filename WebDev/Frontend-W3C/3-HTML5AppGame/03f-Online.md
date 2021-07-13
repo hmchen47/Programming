@@ -1919,6 +1919,71 @@ Source code extract from this example:
     + retrieve next object: `custor.continue();`
 
 
+### 3.6.11 Limiting the range of values in a cursor
+
+
+#### Value range in cursor
+
+How to specify the range and direction of cursors with IndexedDB?
+
+It is possible to use a special object called IDBKeyRange, for "IndexedDB Key Range", and pass it as the first argument to `openCursor()` or `openKeyCursor()`. We can specify the bounds of the data we are looking for, by using methods such as upperBound() or lowerBound(). The bound may be "closed" (i.e., the key range includes the given value(s)) or "open" (i.e., the key range does not include the given value(s)). 
+
+Let's look at some examples ([adapted from this MDN article](https://mzl.la/2VyUJG5)):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Only match "Donna"</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> singleKeyRange </span><span class="pun">=</span><span class="pln"> </span><span class="typ">IDBKeyRange</span><span class="pun">.</span><span class="pln">only</span><span class="pun">(</span><span class="str">"Donna"</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">// Match anything past "Bill", including "Bill"</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> lowerBoundKeyRange </span><span class="pun">=</span><span class="pln"> </span><span class="typ">IDBKeyRange</span><span class="pun">.</span><span class="pln">lowerBound</span><span class="pun">(</span><span class="str">"Bill"</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="com">// Match anything past "Bill", but don't include "Bill"</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> lowerBoundOpenKeyRange </span><span class="pun">=</span><span class="pln"> </span><span class="typ">IDBKeyRange</span><span class="pun">.</span><span class="pln">lowerBound</span><span class="pun">(</span><span class="str">"Bill"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="com">// Match anything up to, but not including, "Donna"</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> upperBoundOpenKeyRange </span><span class="pun">=</span><span class="pln"> </span><span class="typ">IDBKeyRange</span><span class="pun">.</span><span class="pln">upperBound</span><span class="pun">(</span><span class="str">"Donna"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// Match anything between "Bill" and "Donna", but not including "Donna"</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> boundKeyRange </span><span class="pun">=</span><span class="pln"> </span><span class="typ">IDBKeyRange</span><span class="pun">.</span><span class="pln">bound</span><span class="pun">(</span><span class="str">"Bill"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Donna"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="com">// To use one of the key ranges, pass it in as the first argument of openCursor()/openKeyCursor()</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">index</span><span class="pun">.</span><span class="pln">openCursor</span><span class="pun">(</span><span class="pln">boundKeyRange</span><span class="pun">).</span><span class="pln">onsuccess </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> cursor </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">cursor</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // Do something with the matches.</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; cursor</span><span class="pun">.</span><span class="kwd">continue</span><span class="pun">();</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+</ol></div>
+
+
+#### Complete example
+
+Adapted from an example on gitHub, today no more available ([original URL](https://bit.ly/2U5JeWk)):
+
+Try [the online example at JsBin](https://jsbin.com/lawaju/edit) (enter "Gaming", "Batman" etc. as key range values):
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://bit.ly/3hCgEER" ismap target="_blank">
+    <img style="margin: 0.1em;" height=350
+      src   = "https://bit.ly/3yWrg7g"
+      alt   = "Example of use of IdbKeyRange"
+      title = "Example of use of IdbKeyRange"
+    >
+    <img style="margin: 0.1em;" height=350
+      src   = "https://bit.ly/3hxNEhz"
+      alt   = "IDBKeyRange in action"
+      title = "IDBKeyRange in action"
+    >
+  </a>
+</div>
+
+
+
+
+
+
+
 
 
 
