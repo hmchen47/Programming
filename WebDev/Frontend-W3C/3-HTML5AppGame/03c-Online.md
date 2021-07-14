@@ -747,12 +747,12 @@ Complete source code (for clarity's sake, we put the CSS and JavaScript into a s
     + good practice: reset the look of the drop zone to default
 
 + Example: visualizing the drag and drop
-  + HTML snippet: ordered list and listed item elements w/ [drag](#draggable) 
+  + HTML snippet: ordered list and listed item elements w/ [drag](#draggable)
   + CSS snippet: `.dragged { border: 2px dashed #000; background-color: green; }`
   + JavaScrip snippet:
     + add drag start handler<a name="dragStart"></a>: `function dragStartHandler(evt) {...}`
       + change CSS class: `evt.target.style.opacity = "0.4"; evt.target.classList.add('dragged');`
-      + log msg: `console.log('dragstart event, target: ' + event.target);`
+      + log msg: `console.log('dragstart event, target: ' + evt.target);`
       + copy to clipboard: `evt.dataTransfer.setData("Fruit", evt.target.dataset.value);`
     + add drag end handler<a name="dragEnd"></a>: `function dragEndHandler(evt) {...}`
       + log msg: `console.log("drag end");`
