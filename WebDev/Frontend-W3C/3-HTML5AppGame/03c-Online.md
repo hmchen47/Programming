@@ -31,7 +31,7 @@ We will start by presenting the API itself, and then we will focus on the partic
     + Medium article entitled "[How to Drag & Drop HTML Elements and Files using Javascript](https://bit.ly/3wfFqif)"
     + Nice [shopping cart demo](https://bit.ly/3xiKp36).
   + ref: E. Bidelman and R. Andrew, [Using the HTML5 Drag and Drop API](https://web.dev/drag-and-drop/), 2020
- 
+
 
 ### 3.3.2 Drag detection
 
@@ -107,9 +107,9 @@ In this script, the event handler will only display an alert showing the name of
 #### Notes for 3.3.2 Drag detection
 
 + Draggable attribute
-  + making any visible elementdraggable w/ `true` value
+  + making any visible element draggable w/ `true` value
   + some elements draggable by default, such as `<img>`
-  + example: `<li dragable=true data-value="fruit-apple">Apple</li>`
+  + example: `<li draggable=true data-value="fruit-apple">Apple</li>`
 
 + `dragstart` event
   + add listener to detect a drag
@@ -130,13 +130,13 @@ In this script, the event handler will only display an alert showing the name of
     + get index number: `article.dataset.indexNumber; // "12314"`
     + get parent: `article.dataset.parent; // "cars"`
 
-+ Example: dragable attribute and event handler
-  + HTML snippet<a name="dragable"></a>:
++ Example: draggable attribute and event handler
+  + HTML snippet<a name="draggable"></a>:
     + ordered list: `<ol ondragstart="dragStartHandler(evt)"> ... </ol>`
     + item apples: `<li draggable=true data-value="fruit-apple">Apples</li>`
     + item oranges: `<li draggable=true data-value="fruit-orange">Oranges</li>`
     + item pears: `<li draggable=true data-value="fruit-pear">Pears</li>`
-  + event handler: `function dragStartHandler(evt) { alert('dragstart event, target: ' + event.target.innerHTML); }`
+  + event handler: `function dragStartHandler(evt) { alert('dragstart event, target: ' + evt.target.innerHTML); }`
 
 
 ### 3.3.3 Drop detection
@@ -328,7 +328,7 @@ Notice that we use some CSS to set aside some screen-space for the drop zone (no
     + copy `data-value` of dragged element into drag'n'drop clipboard
     + handle `drop` event to fetch data and add dropped-item as a listed item
   + HTML snippet:
-    + ordered list and listed item elements w/ [drag](#dragable)
+    + ordered list and listed item elements w/ [drag](#draggable)
     + element for drop zone: `<div ondragover="return false" ondrop="dropHandler(evt);">Drop your favorite fruits below: <ol id="droppedFruits"></ol></div>`
   + CSS style for mouse hover item: `li.hover { border: 2px dashed #000; }`
   + JavaScript snippet
@@ -746,7 +746,7 @@ Complete source code (for clarity's sake, we put the CSS and JavaScript into a s
     + good practice: reset the look of the drop zone to default
 
 + Example: visualizing the drag and drop
-  + HTML snippet: ordered list and listed item elements w/ [drag](#dragable) 
+  + HTML snippet: ordered list and listed item elements w/ [drag](#draggable) 
   + CSS snippet: `.dragged { border: 2px dashed #000; background-color: green; }`
   + JavaScrip snippet:
     + add drag start handler<a name="dragStart"></a>: `function dragStartHandler(evt) {...}`
@@ -760,7 +760,7 @@ Complete source code (for clarity's sake, we put the CSS and JavaScript into a s
 
 + Example: visual feedback on draggable object and the drop zone
   + HTML snippet:
-    + ordered list and listed item elements w/ [drag](#dragable)
+    + ordered list and listed item elements w/ [drag](#draggable)
     + container for drop zone: `<div id="droppableZone" ondragenter="dragEnterHandler(evt)" ondrop="dropHandler(evt)" ondragover="dragOverHandler(evt)" ondragleave="dragLeaveHandler(evt)">Drop your favorite fruits below: <ol id="droppedFruits"></ol></div>`
   + CSS styles
     + container style: `div { height: 150px; width: 150px; float: left; border: 2px solid #666666; background-color: #ccc; ... }`
@@ -891,7 +891,7 @@ All possible values for `dropEffect` and `effectAllowed`:
 
 + Possible values for `dropEffect` and `effectAllowed` properties
   + `dataTransfer.effectAllowed`: `none`, `copy`, `copyLink`, `copyMove`, `link`, `linkMove`, `move`, `all`, `uninitialized`
-  + `dataTransfer.dropEffect`: `none`, `copy`, `linke`, `move`
+  + `dataTransfer.dropEffect`: `none`, `copy`, `link`, `move`
 
 + Syntax of visual effect for drag and drop
   + allow a copy cursor effect: `function dragStartHandler(evt) { evt.dataTransfer.effecctAllowed = 'copy'; ... }`
