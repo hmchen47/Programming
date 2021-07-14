@@ -607,11 +607,11 @@ The only difference between these two worked-examples is the `onprogress` listen
 #### Notes for 3.2.3 Uploading files and monitoring progress
 
 + Syntax for uploading file w/ progress bar
-  + add listener for upload progress<a name="uploadProgress>: `xhr.upload.onprogress = function(e) {...};`
+  + add listener for upload progress<a name="uploadProgress"></a>: `xhr.upload.onprogress = function(e) {...};`
   + number of bytes uploaded: `progress.value = e.loaded;`
   + total number of bytes in the file: `progress.max = e.total;`
 
-+ Example: uploading a selecting file
++ Example: uploading a selected file
   + tasks:
     + callback on selecting a file
     + create `FormData` object
@@ -632,7 +632,7 @@ The only difference between these two worked-examples is the `onprogress` listen
     + input fields: `<input id="file" type="file" />`
     + progress bar: `<progress id="progress" value=0></progress>`
   + JavaScript snippet
-    + access input field and progree bar: `var fileInput = document.querySelector("#file"); progress = document.querySelector("#progree");`
+    + access input field and progree bar: `var fileInput = document.querySelector("#file"); progress = document.querySelector("#progress");`
     + add input change listener: `fileInput.onchange = function() {...}`
     + create [XHR2 request](#xhr)
     + open connection: `xhr.open('POST', 'upload.html');`
