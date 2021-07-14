@@ -299,9 +299,11 @@ Notice that we use some CSS to set aside some screen-space for the drop zone (no
 #### Notes for 3.3.3 Drop detection
 
 + Procedure to handle drop
-  1. in the `dragstart` handler, copy a value to in the drag and drop clipboard for later use
-  2. define a "drop zone"
-  3. write a `drop` handler, fetch content from the clipboard , and do something with it
+  <ol style="list-style-type: decimal;">
+    <li> in the `dragstart` handler, copy a value in the drag and drop clipboard for later use</li>
+    <li> define a "drop zone"</li>
+    <li> write a <code>drop</code> handler, fetch content from the clipboard , and do something with it</li>
+  </ol>
 
 + Utilizing drag and drop clipboard
   + get the value of the data-value attribute from the dragged element w/ `dragStart` handler
@@ -313,9 +315,9 @@ Notice that we use some CSS to set aside some screen-space for the drop zone (no
   + any visible element if `drop` event listener attached
   + listen for `dragover` or `dragend` events and stop their propagation
   + mouse moving over any drop zone triggering `dragover` event
-  + a few dragover events to be handled before the element finally dropped
+  + a few `dragover` events to be handled before the element finally dropped
   + `ondragover` handler used to avoid propagating `dragover` events
-  + example: `<dic ondragover="return false" ondrop="dropHandler(event);">...</div>`
+  + example: `<div ondragover="return false" ondrop="dropHandler(event);">...</div>`
 
 + Processing fetched content w/ `drop` handler
   + `drop` event triggered once the dragged element placed
@@ -338,7 +340,7 @@ Notice that we use some CSS to set aside some screen-space for the drop zone (no
     + add drop handler<a name="drop"></a>: `function dropHandler(event) {...}`
       + log msg: `console.log('drop event, target: ' + event.target.innerHTML);`
       + create listed item: `var li = document.createElement("li");`
-      + get data from drag'n'drop clipboard: `var data = event.dataTransfer,getData("Fruit");`
+      + get data from drag'n'drop clipboard: `var data = event.dataTransfer.getData("Fruit");`
       + check data as apples: `if (data === 'fruit-apple') { li.textContent = 'Apples'; }`
       + check data as oranges: `else if (data === 'fruit-orange') { li.textContent = 'Orange'; }`
       + check data as pears: `else if (data === 'fruit-pears') { li.textContext = 'Pears'; }`
