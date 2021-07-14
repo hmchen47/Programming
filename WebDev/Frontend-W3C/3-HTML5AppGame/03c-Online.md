@@ -881,14 +881,14 @@ All possible values for `dropEffect` and `effectAllowed`:
 + The `dropEffect` property
   + changing the cursor's shape during the drag process
   + turning cursor into a "copy", "move" or "link" icon, depending on the semantic of the drag and drop
-    + copy icon: copy an object into the drop zone
+    + copy icon: copying an object into the drop zone
     + moving icon: moving an object
     + link icon: making a link or shortcut
   + alternative: using any customized image/icon
   + visual feedback:
     + using the `effectAllowed` and `dropEffect` properties of the `dataTransfer` object
     + specifying an effect in the `dragStart` handler by setting one of the possible predefined cursors
-    + specifying the effect (to "copy", "move", etc.) in the dragEnter` and `dragOver` handler
+    + specifying the effect (to "copy", "move", etc.) in the `dragEnter` and `dragOver` handlers
 
 + Possible values for `dropEffect` and `effectAllowed` properties
   + `dataTransfer.effectAllowed`: `none`, `copy`, `copyLink`, `copyMove`, `link`, `linkMove`, `move`, `all`, `uninitialized`
@@ -900,9 +900,9 @@ All possible values for `dropEffect` and `effectAllowed`:
 
 + Example: cumstomerized image
   + add drag start handler: `function dragStartHandler(evt) {...}`
-  + allow cursor effect: `evt.daatTransfer.effectAllowed = 'copy';`
+  + allow cursor effect: `evt.dataTransfer.effectAllowed = 'copy';`
   + load and create image: `var dragIcon = document.createElement('img'); dragIcon.src = 'anImage.png'; dragIcon.width = 100;`
-  + set the cursor to this image: `ent.dataTransfer.setDragImage(dragIcon, -10, -10);`
+  + set the cursor to this image: `evt.dataTransfer.setDragImage(dragIcon, -10, -10);`
   + ...
 
 
@@ -990,7 +990,7 @@ In the drop handler, we just move the element from one part of the DOM tree to a
 + Drag and drop HTML elements
   + copy and past to/from the clipboard
   + clipboard accessed through the `dataTransfer` property of the different evnets
-    + copy data into the clipboard: `event.dataTransfer.setData("Fruit", event.targte.daatset.value);`
+    + copy data into the clipboard: `event.dataTransfer.setData("Fruit", event.targte.dataset.value);`
     + past data from the clipboard: `var data = event.dataTransfer.getData("Fruit");`
   + `<img>` elements all draggable by default
 
@@ -1010,7 +1010,7 @@ In the drop handler, we just move the element from one part of the DOM tree to a
       + bad: `<div class="box" ondragover="return false" ondrop="drop(this, eve,t)"><p>Bad web browsers</p></div>`
   + CSS style<a name="boxStyle"></a>: `.box { border: silver solid; width: 256px; height: 128px; margin: 10px; padding: 5px; float: left; }`
   + JavaScript snippet
-    + add drag handler: `function drag(target, evt) { evt.daatTransfer.setData("Text", target.id); }`
+    + add drag handler: `function drag(target, evt) { evt.dataTransfer.setData("Text", target.id); }`
     + add drop handler: `function drop(target, evt) {...}`
       + retrieve selected icon from clipboard: `var id = evt.dataTransfer.getData("Text");`
       + move icon to selected drop zone: `target.appendChild(document.getElementBuId(id));`
