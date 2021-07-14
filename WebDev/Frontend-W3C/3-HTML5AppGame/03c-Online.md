@@ -295,7 +295,6 @@ Notice that we use some CSS to set aside some screen-space for the drop zone (no
 <li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 </ol></div>
 
-
 #### Notes for 3.3.3 Drop detection
 
 + Procedure to handle drop
@@ -489,9 +488,9 @@ The `attr()` function takes an attribute name as a parameter and returns its val
 
 + `data-*` attributes
   + metadata: a powerful way to add structured data into HTML code
-  + HTML5 added the possibility of adding arbitrary data to an HTML element
-    + attributes starting w/ data- followed by any string literal (w/o uppercase)
-    + treated as a storage area for provate data
+  + HTML5 adding the possibility of adding arbitrary data to an HTML element
+    + attributes starting w/ `data-` followed by any string literal (w/o uppercase)
+    + treated as a storage area for private data
   + some classic attributes, including `alt`, `rel` and `title`, misused for storing arbitrary data
   + official way to add arbitrary data to HTML elements
   + custom data attributes: intended to store customer data private to the page or application
