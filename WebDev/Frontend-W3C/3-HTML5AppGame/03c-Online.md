@@ -1001,13 +1001,13 @@ In the drop handler, we just move the element from one part of the DOM tree to a
   + HTML snippet
     + list of browser icons:
       + Chrome: `<img src="https://.../chrome.png" id="cr" ondragstart="drag(this, event)" alt="Logo Chrome">`
-      + Firefox: `<img src="https://.../firefox.png" id="cr" ondragstart="drag(this, event)" alt="Logo Firefox">`
-      + IE: `<img src="https://.../ie.png" id="cr" ondragstart="drag(this, event)" alt="Logo IE">`
-      + Opera: `<img src="https://.../opera.png" id="cr" ondragstart="drag(this, event)" alt="Logo Opera">`
-      + Safari: `<img src="https://.../safari.png" id="cr" ondragstart="drag(this, event)" alt="Logo Safari">`
-    + conatiners for good and bad browser drop zones
-      + good: `<div class="box" ondragover="return false" ondrop="drop(this, eve,t)"><p>Good web browsers</p></div>`
-      + bad: `<div class="box" ondragover="return false" ondrop="drop(this, eve,t)"><p>Bad web browsers</p></div>`
+      + Firefox: `<img src="https://.../firefox.png" id="ff" ondragstart="drag(this, event)" alt="Logo Firefox">`
+      + IE: `<img src="https://.../ie.png" id="ie" ondragstart="drag(this, event)" alt="Logo IE">`
+      + Opera: `<img src="https://.../opera.png" id="op" ondragstart="drag(this, event)" alt="Logo Opera">`
+      + Safari: `<img src="https://.../safari.png" id="sf" ondragstart="drag(this, event)" alt="Logo Safari">`
+    + containers for good and bad browser drop zones
+      + good: `<div class="box" ondragover="return false" ondrop="drop(this, event)"><p>Good web browsers</p></div>`
+      + bad: `<div class="box" ondragover="return false" ondrop="drop(this, event)"><p>Bad web browsers</p></div>`
   + CSS style<a name="boxStyle"></a>: `.box { border: silver solid; width: 256px; height: 128px; margin: 10px; padding: 5px; float: left; }`
   + JavaScript snippet
     + add drag handler: `function drag(target, evt) { evt.dataTransfer.setData("Text", target.id); }`
