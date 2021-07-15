@@ -272,7 +272,7 @@ In principle, this example is very similar to the "fruit" examples we worked thr
     + create listed items for the drop zone
   + HTML snippet:
     + drop zone container<a name="dropzone"></a>: `<div id="droppableZone" ondragenter="dragEnterHandler(event)" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)" ondragleave="dragLeaveHandler(event)"> Drop Zone ...</div>`
-    + display zone<a name="displayzone"></a>: `<ol id="droppedFiles"</ol>`
+    + display zone<a name="displayzone"></a>: `<ol id="droppedFiles"></ol>`
   + CSS style<a name="dropdisplaystyle"></a>
     + style for div container: `.div { height: 150px; width: 350px; float: left; ... }`
     + style for dragged item: `.dragged { border: 2px dashed #000; background-color: green; }`
