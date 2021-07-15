@@ -98,7 +98,7 @@ __External resources__
   + no `dragstart` handler required
   + files dragged from the desktop
   + browser only copying their contents from the clipboard
-  + main work done in the drop handler
+  + main work done in the `drop` handler
   + `files` property of the `dataTransfer` object used to copy the dragged files from the desktop
   + `files` object: a collection of `file` objects
   + `file` object able to extract the name of the file, type, size, last modificaton date, read it, etc.
@@ -118,19 +118,19 @@ __External resources__
     + dropping a mp3 file $\to$ open a new tab and start streaming the audio w/ a default player
   + two functions to prevent the default behavior of the browser
     + not propagating the event<a name="stopPropagation"></a>: `event.stopPropagation();`
-    + preventing default behavior, in particular when droopping images or links<a name="preventDefault"></a>: `event.preventDefault();`
-  + best practice: add `eventPropagation` and `event.preventDefault` to handlers attached to the drop zone
-    + the `stop` handler
+    + preventing default behavior, in particular when dropping images or links<a name="preventDefault"></a>: `event.preventDefault();`
+  + best practice: add `event.stopPropagation` and `event.preventDefault` to handlers attached to the drop zone
+    + the `drop` handler
     + the `dragOver` handler
-  + ref: R. Gravelle, [Drag Files Into the Browser From the Desktop with HTML5](https://www.htmlgoodies.com/html5/drag-files-into-the-browser-from-the-desktop-with-html5/), 2012
+  + ref: R. Gravelle, [Drag Files Into the Browser From the Desktop with HTML5](https://bit.ly/2UjkWYV), 2012
 
 + Example: preventing default behavior
   + add to drag over handler<a name="dragover"></a>: `function dragOverHandler(event) {...}`
     + not propagating the event: `event.stopPropagation();`
-    + preventing default behavior, in particular when droopping images or links: `event.preventDefault();`
+    + preventing default behavior, in particular when dropping images or links: `event.preventDefault();`
   + add to drop handler<a name="drop"></a>: `function dropHandler(event) {...}`
     + not propagating the event: `event.stopPropagation();`
-    + preventing default behavior, in particular when droopping images or links: `event.preventDefault();`
+    + preventing default behavior, in particular when dropping images or links: `event.preventDefault();`
 
 
 ### 3.4.2 Drag and drop files in a drop zone
