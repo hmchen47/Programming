@@ -744,9 +744,9 @@ The parts that we have added are in bold. As you can see, all methods share the 
     + add [drag over handler](#dragover)
     + add [drop handler and display filename](#drop&filename) w/ `readFilesAndDisplayPreview(files);`
     + [read files and display thumbnail](#read&thumbnail)
-    + add change handler for selecting director: `function handleFileSelect(evt) {...}`
+    + add change handler for selecting directory: `function handleFileSelect(evt) {...}`
       + decalare FileList object: `var files = evt.target.files;`
-      + display thumbnails within the director: `readFilesAndDisplayPreview(files);`
+      + display thumbnails within the directory: `readFilesAndDisplayPreview(files);`
 
 
 ### 3.4.5 Files upload using Ajax/XHR2
