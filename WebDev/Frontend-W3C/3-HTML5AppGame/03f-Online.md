@@ -64,7 +64,7 @@ Much of this chapter either builds on or is an adaptation of articles posted on 
 
 #### Notes for 3.6.1 Concepts (part 1)
 
-+ IndexedDB
++ IndexedDB overview
   + a front end NoSQL database
   + an alternative to the WebSQL Database, deprecated by 2010-11-18
     + WebSQL Database:
@@ -77,7 +77,7 @@ Much of this chapter either builds on or is an adaptation of articles posted on 
   + databases
     + Object Stores
     + w/ a name and attached to a "domain"
-  + sharing features of full SQL databases (transactions, indexes, ,,,) and of `LocalStorage` (key=value pairs)
+  + sharing features of full SQL databases (transactions, indexes, ...) and of `LocalStorage` (key-value pairs)
   + values: fill JavaScript objects
   + indexing system based on object properties for faster retrieval and search
   + example: `{firstName: 'Michel', lastName: 'Buffa'}`
