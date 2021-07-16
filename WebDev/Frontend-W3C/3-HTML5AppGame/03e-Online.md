@@ -3,6 +3,7 @@
 
 ## 3.5 Forms and files
 
+
 ### 3.5.1 Introduction
 
 We had many questions about how to submit a form with regular input fields AND benefit from the HTML5 built-in validation AND upload files AND monitor the file upload progress with a progress bar.
@@ -98,8 +99,8 @@ The next page provides the source code of several examples, as well as the serve
     + commposing a message and adding an attachment
     + attachments uploaded as soon as selected or dropped into the message window
     + message only sent when the "send" button pressed
-    + empty fields w/ `required` attribute &#36;\to&#36; error message &#36;\to&#36; noy submitted
-    + server-side: join the files asynchronously uploaded w/ the resest of the form's value &#36;\gets&#36; PHP code
+    + empty fields w/ `required` attribute &#36;\to&#36; error message &#36;\to&#36; not submitted
+    + server-side: join the files asynchronously uploaded w/ the rest of the form's value &#36;\gets&#36; PHP code
 
 + Packaged approach
   + send all form content, including files, only when the form is submitted
