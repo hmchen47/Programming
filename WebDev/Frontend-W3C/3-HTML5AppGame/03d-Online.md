@@ -881,7 +881,7 @@ Instead of uploading all the files at once, it might be interesting to upload on
 + Example: uploading files w/ Ajax/HR2
   + tasks:
     + reuse `calleduploadAllFilesUsingAjax()`
-    + add a progress element totthe drag and drop
+    + add a progress element to the drag and drop
   + HTML snippet:
     + [drop zone container](#dropzone)
     + progress bar: `<progress id="progress"></progress>`
@@ -892,9 +892,9 @@ Instead of uploading all the files at once, it might be interesting to upload on
     + add [drop handler and display filename](#drop&filename) w/ `uploadAllFilesUsingAjax(files);`
     + upload files w/ Ajax: `function uploadAllFilesUsingAjax(files) {...}`
       + create XHR2 request: `var xhr = new XMLHttpRequest();`
-      + open connection w/ POS request: `xhr.open('POST', 'upload.html');`
+      + open connection w/ post request: `xhr.open('POST', 'upload.html');`
       + add progress listener for upload: `xhr.upload.onprogress = function(e) { progress.value = e.loaded; progress.max = e.total; };`
-      + add upload listener: `xhr.onload = function() {alert('Upload complete~'); }`
+      + add upload listener: `xhr.onload = function() { alert('Upload complete!'); }`
       + add file name to drop zone: `var form = new FormData(); for (var i=0; i<files.length; i++) { form.append('file', files[i]); }`
       + send XHR2 request: `xhr.send(form);`
 
