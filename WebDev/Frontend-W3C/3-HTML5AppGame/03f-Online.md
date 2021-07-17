@@ -239,8 +239,8 @@ See this article from MDN about the [same-origin policy](https://developer.mozil
     + multiple tabs opened on the same WebApp (same domain)
     + multiple apps running "out of traditional browser" (game console, windows desktop, etc.)
 
-+ key-value pairs
-  + IndexedDB storing key=value pairs
++ Key-value pairs
+  + IndexedDB storing key-value pairs
   + values: complex objects (think of JSON objects)
   + keys: properties of the objects
   + creating indexes w/ any property of the objects for faster searching and ordering results
@@ -252,11 +252,11 @@ See this article from MDN about the [same-origin policy](https://developer.mozil
 + IndexedDB and transaltion model
   + IndexedDB built on a transactional database model
   + operations in IndexedDB $\to$ operated in the context of a transaction
-  + IndexedDB API provideing lots of objects represting indexes, tables, cursors, etc.
+  + IndexedDB API providing lots of objects representing indexes, tables, cursors, etc.
   + API tied to a particular transaction
   + unable to execute commands or open cursors outside a transaction
   + transaction committed automatically, unable to committ manually
-  + useful when considering what might happen if a user opened two of the web app in two different tabs simultaneously
+  + useful when considering what might happen if a user opened two of the web apps in two different tabs simultaneously
 
 + Typical syntax of a transaction
   + open a transaction for reading and writing  on the DB "customer": `var transaction = db.transaction("customers", "readwrite");`
@@ -281,7 +281,7 @@ See this article from MDN about the [same-origin policy](https://developer.mozil
     + `onsuccess` and `onerror` properties
   + using `addEventListener()` and `removeEventListener()` to add and remove listeners
   + status of a request: `readyState`, `result`, and `errorCode`
-  + meaning of `result` depending on how the request eas generated, e.g., `IDBCursor` instance or the key for a value
+  + meaning of `result` depending on how the request was generated, e.g., `IDBCursor` instance or the key for a value
 
 + IndexedDB and DOM events
   + IndexedDB using DOM events to notify browser when results available
@@ -315,7 +315,7 @@ See this article from MDN about the [same-origin policy](https://developer.mozil
   + script exected within the document
   + IndexedDB adheres to a same-origin policy
   + each origin associated to its own set of databases
-  + every database having a name to identify itself within the originn
+  + every database having a name to identify itself within the origin
   + concept of "same origin": the combination of all three components, domain, protocol, and port
   + example:
     + an app in page w/ the URL, `https://www.example.com/app/`
