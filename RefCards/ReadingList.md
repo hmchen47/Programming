@@ -52,6 +52,12 @@
   + [Building Web Applications in Django](https://www.coursera.org/learn/django-build-web-apps)
   + [Django Features and Libraries](https://www.coursera.org/learn/django-features-libraries)
   + [Using JavaScript, JQuery, and JSON in Django](https://www.coursera.org/learn/django-javascript-jquery-json)
++ IndexedDB
+  + [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
+  + [IndexedDB key characteristics and basic terminology](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Basic_Terminology)
+  + [Using IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+  + [W3C Indexed Database API](https://www.w3.org/TR/IndexedDB/)
+  + R. Dabler, [Getting Started with Persistent Offline Storage with IndexedDB](https://bit.ly/3hoTemr)
 
 
 ## Python
