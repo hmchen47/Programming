@@ -270,7 +270,7 @@ See this article from MDN about the [same-origin policy](https://developer.mozil
 + IndexedDB API and asynchronous
   + most IndexedDB API asynchronous
   + API not providing returned data but passed a callback function
-  + not "store" a value or "retrieve" a value out of the database but "request" that a datbase operation happens
+  + not "store" a value or "retrieve" a value out of the database but "request" that a database operation happens
   + database system notifying caller via a DOM event once operation done
   + the type of event specifying the success or failure of the operation
   + examples: `transaction.oncomplete`, `transaction.onsuccess`, `request.onerror`, etc.
@@ -460,7 +460,7 @@ For the reference documentation on key range, see [IDBKeyRange](https://mzl.la/3
   + each origin w/ an associated set of database
   + a database comprises one or more object stores
   + name of a database
-    + used to identifY a databas within a specific origin
+    + used to identify a databas within a specific origin
     + any string value, including the empty string
     + remaining constant for the lifetime of the database
   + version of a database
@@ -472,7 +472,7 @@ For the reference documentation on key range, see [IDBKeyRange](https://mzl.la/3
     + multiple connects existed for a given database at any given time
 
 + Object store
-  + the mechanism by which data is stored in the datbase
+  + the mechanism by which data is stored in the database
   + name of object store
     + must have property
     + unique within the database to which it belongs
@@ -480,8 +480,8 @@ For the reference documentation on key range, see [IDBKeyRange](https://mzl.la/3
     + key-value pairs persistently held
     + one of these keys as a kind of "primary key" in the SQL database sense
     + key: a property that every object in the datastore must contain
-    + values: structured but probably varied bte objects
-    + example: person contacts in database, email as "the key all objects must define", some amy have first name and last name. others may have abn address or no address at all
+    + values: structured but probably varied btw objects
+    + example: person contacts in database, email as "the key all objects must define", some may have first name and last name. others may have an address or no address at all
     + stored according to keys, in ascending order, within an object store
   + probably having a key generator and a key path
     + in-line keys: datastore w/ a key path
@@ -495,7 +495,7 @@ For the reference documentation on key range, see [IDBKeyRange](https://mzl.la/3
   + version 0: a database first created
   + one version ar a time
   + no multiple versions existed at once
-  + changing the the version by opening it w/ a higher version number tha the current one
+  + changing the version by opening it w/ a higher version number tha the current one
   + syntax: starting a `versionchange` transaction and triggering an `upgradeneeded` event
   + the handler of the event: only place to update the schema of the database
   + `IDBDatabase.setVersion()` method deprecated
@@ -503,11 +503,11 @@ For the reference documentation on key range, see [IDBKeyRange](https://mzl.la/3
 + Transaction
   + an atomic and durable set of data-access and data-modification operation
   + used to interact w/ the data in a database
-  + data read and written to the datbase done by using a transaction
+  + data read and written to the database done by using a transaction
   + mode:
     + type: `read`, `readwrite`, or `versionchange`
     + determining which types of interaction performed upon that transaction
-    + set when transaction created amd remain fixed for the life of the transaction
+    + set when transaction created and remain fixed for the life of the transaction
   + a transaction in IndexedDB similar to a transaction in a SQL database
   + all succeed or all fail within all operations of a transaction
   + connection
@@ -518,7 +518,7 @@ For the reference documentation on key range, see [IDBKeyRange](https://mzl.la/3
     + determining the object stores w/ which the transaction may interact
     + determining which concurrent transactions can read or write the same data
     + write transactions unable to have overlapping scope. i.e., working on the same data at the same time
-    + multiple reads allowed at the same time while writes in sequence, only one at a timeoverlapped
+    + multiple reads allowed at the same time while writes in sequence, only one at a time overlapped
     + a `versionchange` transaction
       + never runs concurrently w/ other transactions
       + automatically created when a database w/ higher version number is provided
@@ -528,7 +528,7 @@ For the reference documentation on key range, see [IDBKeyRange](https://mzl.la/3
     + existing a writing transaction in a database connection
     + scope of the transaction covering only the `flyingMonkey` object store
     + starting a second transaction w/ a scope of the `unicornCentaur` and `unicornPegasus` object stores
-    + allowing several reading transactions and probably 
+    + allowing several reading transactions and probably overlapped
 
 + Request
   + issued as the reading and writing on a database done
@@ -539,8 +539,8 @@ For the reference documentation on key range, see [IDBKeyRange](https://mzl.la/3
     + iterate through to [add data](#addData)
 
 + Index
-  + sometimes useful to retrieve records from an object store through means their than their key
-    + allowing the user to look up records in an object store by using the properties of the values inb the object store's records
+  + sometimes useful to retrieve records from an object store through their means than their keys
+    + allowing the user to look up records in an object store by using the properties of the values in the object store's records
     + able to speed up object retrieval and allow multi-criteria
   + a specialized persistent key-value storage
     + having a referenced object store
@@ -582,8 +582,8 @@ For the reference documentation on key range, see [IDBKeyRange](https://mzl.la/3
   + example: the email of a person or a student number in an object representing a student in a student store
 
 + Out-of-line key
-  + a key stored separately from the value being store
-  + an auto-incremental id not part of the 
+  + a key stored separately from the value being stored
+  + an auto-incremental `id` not part of the key
 
 + Key path
   + where the browser should extract the key from a value in the object store or index
@@ -594,9 +594,9 @@ For the reference documentation on key range, see [IDBKeyRange](https://mzl.la/3
 
 + Value
   + each record w/ a value
-  + anything abel to be expresseds in JavaScript, including, boolean, number, string, date, object, array, regexp, undefined and null
+  + anything abel to be expressed in JavaScript, including, boolean, number, string, date, object, array, regexp, undefined and null
   + object/array: the properties and values in it able to be anything but valid
-  + blog and files support by all major browsers, IE > 9
+  + blog and files supported by all major browsers, IE > 9
 
 + Scope
   + the set of object stores and indexes to which a transaction applies
@@ -835,7 +835,7 @@ A common practice, while learning how IndexedDB works, is to type this command i
 + Creating database
   + mainly based on Chrome but other browsers w/ equivalent means for debugging
   + executing app to create an IndexedDB w/ name = "customers"
-  + calling `createDB()` function to create a datbase
+  + calling `createDB()` function to create a database
     + creating a new IndexedDB database and an object store in it
     + inserting two JS objects
   + checking w/ devtools > Application > IndexedDB to show the IndexedDB database, object store and data
