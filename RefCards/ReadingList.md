@@ -58,6 +58,10 @@
   + [Using IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB)
   + [W3C Indexed Database API](https://www.w3.org/TR/IndexedDB/)
   + R. Dabler, [Getting Started with Persistent Offline Storage with IndexedDB](https://bit.ly/3hoTemr)
+  + MDN's documentation on "[Using IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB)"
+  + [Storing images and files in IndexedDB](http://robertnyman.com/2012/03/06/storing-images-and-files-in-indexeddb/)
+  + [Working with IndexedDB](https://developers.google.com/web/ilt/pwa/working-with-indexeddb)
+  + [How to view IndexedDB content in Firefox](https://stackoverflow.com/questions/9846013/how-to-view-indexeddb-content-in-firefox)
 
 
 ## Python
