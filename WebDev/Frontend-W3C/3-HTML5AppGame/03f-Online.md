@@ -1178,7 +1178,7 @@ Indeed, entering an empty value for the keyPath or for indexes is a valid value 
     + init transaction on the ObjectStore
     + get request from the transaction for adding a new object
   + add a customer<a name="addCx"></a>: `function addACustomer() {...}`
-  + create a transaction<a name="transaction"></a>: `var transaction = db.transaction(["customers"], "readwrite");`
+  + create a transaction<a name="transactionRW"></a>: `var transaction = db.transaction(["customers"], "readwrite");`
   + add transaction complete handler<a name="transComplete"></a>: `transaction.oncomplete = function() { alert("All done!"); }`
   + add transaction error handler<a name="transErr"></a>: `transaction.onerror = function(evt) { console.log("transaction.onerror errcode = " + evt.target.error.name); }`
   + init to get object store<a name="initTrans"></a>: `var objStore = transaction.objectStore("customers");`
@@ -1208,10 +1208,10 @@ Indeed, entering an empty value for the keyPath or for indexes is a valid value 
     + [add a customer](#addCx) w/ additional steps
     + check the connection to db<a name="connChk"></a>: `if (db === null) { alert("Database must be opened, please click the Create CustomerDB Database first"); return; }`
     + get customer data from input fields: `var newCustomer = ();`
-      + ssn: `newCustomer.ssn = document.queryelector("#ssn");.value;`
-      + name: `newCustomer.name = document.queryelector("#name");.value;`
-      + age: `newCustomer.age = document.queryelector("#age");.value;`
-      + email: `newCustomer.ssn = document.queryelector("#email");.value;`
+      + ssn: `newCustomer.ssn = document.queryelector("#ssn").value;`
+      + name: `newCustomer.name = document.queryelector("#name").value;`
+      + age: `newCustomer.age = document.queryelector("#age").value;`
+      + email: `newCustomer.ssn = document.queryelector("#email").value;`
       + display msg: `alert('adding customer ssn=" + newCustomer.ssn);`
     + add new customer and get request: `var request = objStore.add(newCustomer);`
     + add request error handler: `request.onerror = function(evt) { console.log("request.onerror, could not insert customer, errcode = " + evt.target.error.name + ". Certainly either the ssn or the email is already present in the Database"); };`
@@ -1310,9 +1310,9 @@ It is also possible to shorten the code of the above function a lot by concatena
     + use devtools to check the customer w/ `ssn=444-44-4444`, if not existed, add the customer from the input forms
     + refresh IndexedDB in devtools to observe the customer
     + click the "Remove the customer" button and observe the data object in devtools after refreshing
-  + JavaScript snippet: `function removeCustomer() {...}`
+  + JavaScript snippet: `function removeACustomer() {...}`
     + check [the connection to db](#connChk)
-    + create [transaction](#transaction)
+    + create [a transaction](#transactionRW)
     + add [transaction complete handler](#transComplete)
     + add [transaction error handler](#transErr)
     + [init transaction](#initTrans)
