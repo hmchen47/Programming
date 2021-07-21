@@ -24,12 +24,12 @@ To sum up:
 ### Notes for 3.7 Conclusion on client-side persistence
 
 + Scenarios for different techniques
-  + IndexDB: 
-    + working on transactiona, e.g., protecting data against concurrent access etc.
+  + IndexedDB: 
+    + working on transactions, e.g., protecting data against concurrent access etc.
     + some searches on a large amount of data w/ indexes
   + localStorage/sessionStorage
     + storing simple strings or JSON objects
-    + examples: HTML form content as typed, a game's high-score, preferences of an application, etc.
+    + examples: HTML form content as type, a game's high-score, preferences of an application, etc.
   + File API and XHR2: manipulating files (read or download/upload)
   + FileSystem and a FileWrite API
     + manipulating a file system
