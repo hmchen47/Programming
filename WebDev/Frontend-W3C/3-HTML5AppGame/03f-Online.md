@@ -856,18 +856,18 @@ A common practice, while learning how IndexedDB works, is to type this command i
     + populate the db
   + declare the db connection to initialize: `var db;`
   + create db: `function createDatabase() {...}`
-  + display not support msg: `if (!window.indexedDB) { alert("Your browser does not support a stable version of IndexedDB") }`
+  + display unsupported msg: `if (!window.indexedDB) { alert("Your browser does not support a stable version of IndexedDB"); }`
   + declare [cuntomer data](#cxData)
   + set db name: `var dbName = "CustomerDB";`
-  + create db: `var request = indexedDB.open(dbName, 2);`
-  + add error handle for creating db: `request.onerror = function(evt) { console.log("request.onerror errcode= " + event.target.error.name); }`
+  + create db to get request: `var request = indexedDB.open(dbName, 2);`
+  + add error handle for creating db: `request.onerror = function(evt) { console.log("request.onerror errcode= " + evt.target.error.name); }`
   + add upgrade handler: `request.onupgradeneeded = function(evt) {...}`
     + log msg: `console.log("request.onupgradeneeded, we are creating a new version of the DB");`
     + get db from event: `db = evt.target.result;`
     + create object store and keyPath: `var objStore = db.createObjectStore("customers", {keyPath: "ssn"});`
     + declare a property as an index<a name="emailIdx"></a>: `objStore.createIndex("email", "email", {unique: true});`
     + populate db by storing values in object store: `for (var i in customerData) { objStore.add(customerData[i]); }`
-  + add success handler: `function = function(evt) { console.log("request.onsuccess, database opened, now we can add/remove/look up for data in it!"); db = ent.target.result; }`
+  + add success handler: `request.onsuccess = function(evt) { console.log("request.onsuccess, database opened, now we can add/remove/look up for data in it!"); db = ent.target.result; }`
 
 + Deleting the database
   + syntax: `indexedDB.deleteDatabase("dbName");`
