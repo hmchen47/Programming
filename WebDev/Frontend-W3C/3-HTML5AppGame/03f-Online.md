@@ -1816,7 +1816,7 @@ Source code extract from this example:
   + add [transaction error handler](#transErr)
   + [init transaction to get object store](#initTrans)
   + init a customer w/ ssn: `var customerToSearch={}; customerToSearch.ssn = document.querySelector("#ssn").value;`
-  + display msg for search: `alert"looking for customer ssn=' + customerToSearch.ssn);`
+  + display msg for search: `alert('looking for customer ssn=' + customerToSearch.ssn);`
   + search for the customer w/ given ssn: `var request = objStore.get(customerToSearch.ssn);`
   + add request success handler: `request.onsuccess = function(evt) {...};`
     + log msg: `console.log("Customer found" + evt.target.result.name);`
@@ -1838,7 +1838,7 @@ Source code extract from this example:
     }
 
     db.transaction("customer").objectStore("customer")
-      .get(document.querySelector(#ssn").value)
+      .get(document.querySelector("#ssn").value)
       .onsuccess = function(evt) {
         document.querySelector("#name").value = evt.target.result.name;
         document.querySelector("#age").value = evt.target.result.age;
@@ -1850,12 +1850,12 @@ Source code extract from this example:
 + Searching for multiple objects
   + getting all of the data from the datastore using a `cursor`
   + [cursor](https://javascript.info/indexeddb#cursors)
-    + a special object traversing the object storage, given a query, and returning one key/vaalue at a time, thus savinf memory
+    + a special object traversing the object storage, given a query, and returning one key/value at a time, thus saving memory
     + walking through the store in key order (ascending by default) as an object store stored internally by key
     + syntax: `let request = store.openCursor(query, [direction]);`
       + `query`: a key or key range, same as for `getAll`
       + `direction` (optional): 
-        + `"next"`: the default, the cursor walsk up from the record w/ the lowest key
+        + `"next"`: the default, the cursor walks up from the record w/ the lowest key
         + `"prev"`: the reverse order, down from the record w/ the biggest key
         + `"nextunique"`, `"prevunique"`: same as above, but skip records w/ the same key 
   + `get()` requiring which key to retrieve
@@ -1891,7 +1891,7 @@ Source code extract from this example:
   + search data via key: `function getCustomerByName() {...}`
   + get [object store w/ transaction](#transObjStore)
   + get index: `var index = objStore.index("name");`
-  + add cursor success handler: `index.get("Bill").onsuccess = fucntion(evt) { alert("Bill's SSN is " + evt.target.result.ssn + "his email is " + event.target.result.email); };`
+  + add cursor success handler: `index.get("Bill").onsuccess = fucntion(evt) { alert("Bill's SSN is " + evt.target.result.ssn + "his email is " + evt.target.result.email); };`
 
 + Types of cursors on indexes
   + __normal cursor__: mapping the index property to the object in the object store
@@ -1908,7 +1908,7 @@ Source code extract from this example:
   + check cursor existence: `if (cursor) { alert("Name: " + cursor.key + ", SSN: " + cursor.value); cursor.continue(); }`
 
 + Example: searching w/ index
-  + search all customer by name: `function searchAllCustomersdByName() {...}`
+  + search all customer by name: `function searchAllCustomersByName() {...}`
   + check [the connection to db](#connChk)
   + create [transaction](#transaction)
   + create index: `var index = objStore.index("name");`
@@ -1916,7 +1916,7 @@ Source code extract from this example:
   + add cursor success handler: `index.openCursor(singleKeyRange).onsuccess = function(evt) {...};`
     + get [cursor as the event result](#cursor)
     + check cursor existence: `alert("Name: " + cursor.key + ", SSN: " + cursor.value.ssn + ", email: " + cursor.value.email);`
-    + retrieve next object: `custor.continue();`
+    + retrieve next object: `customer.continue();`
 
 
 ### 3.6.11 Limiting the range of values in a cursor
