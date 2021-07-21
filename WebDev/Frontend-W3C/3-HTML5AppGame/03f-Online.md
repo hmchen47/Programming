@@ -1169,12 +1169,12 @@ Indeed, entering an empty value for the keyPath or for indexes is a valid value 
 
 + Typical procedure to inset data
   + create a transaction
-  + map the transaction to onto the object store
+  + map the transaction onto the object store
   + create an "add" request that will take part in the transaction
 
 + Example: basic steps
   + tasks
-    + get a transaction on the "customer" object store in readwrite mode
+    + get a transaction on the "customer" object store in `readwrite` mode
     + init transaction on the ObjectStore
     + get request from the transaction for adding a new object
   + add a customer<a name="addCx"></a>: `function addACustomer() {...}`
@@ -1188,14 +1188,14 @@ Indeed, entering an empty value for the keyPath or for indexes is a valid value 
 
 + Example: adding data to DB from a form
   + process
-    + press the "Create database button" first
+    + press the "Create database" button first
     + add a new customer using the form
     + click the "add a new Customer" button
     + use devtools to inspect the IndexedDB store contents (refresh or close/open the devtools probably required)
   + good practice: checking the database open before interting an element
-  + validation for inserting data and alert w/ error message
+  + validation for inserting data and alerting w/ error message
     + `ssn` existed: the property declared as the keyPath (kind of primary key) in the object store schema and __unique__
-    + `email` address existed: the propert declared as an index and unique
+    + `email` address existed: the property declared as an index and unique
     + same customer inserted twice or duplicated SSN $\to$ customized alert message
   + HTML snippet
     + group of input forms: `<fieldset>...</fieldset>`
@@ -1206,7 +1206,7 @@ Indeed, entering an empty value for the keyPath or for indexes is a valid value 
     + new customer button: `<button onclick="addACustomer();">Add a new Customer</button>`
   + JavaScript snippet
     + [add a customer](#addCx) w/ additional steps
-    + check the connection to db<a name="connChk"></a>: `if (db === null) { alert"Database must be opened, please click the Create CustomerDB Database first"); return; }`
+    + check the connection to db<a name="connChk"></a>: `if (db === null) { alert("Database must be opened, please click the Create CustomerDB Database first"); return; }`
     + get customer data from input fields: `var newCustomer = ();`
       + ssn: `newCustomer.ssn = document.queryelector("#ssn");.value;`
       + name: `newCustomer.name = document.queryelector("#name");.value;`
