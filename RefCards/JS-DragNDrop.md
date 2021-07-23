@@ -13,4 +13,35 @@
   + ref: E. Bidelman and R. Andrew, [Using the HTML5 Drag and Drop API](https://web.dev/drag-and-drop/), 2020
 
 
+## `data-*` Attribute
+
++ [`data` attribute](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)
+  + storing extra info on standard elements w/o other hacks
+  + html syntax: `data` attribute: any attribute started w/ `data-`
+  + Javascrip access
+    + using `getAttribute()` w/ their full HTML name to read
+    + alternative: reading out via a `dataset` property
+
+
+
+
+## Drag Detection
+
++ [Draggable attribute](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-332-drag-detection)
+  + making any visible element draggable w/ `true` value
+  + some elements draggable by default, such as `<img>`
+  + example: `<li draggable=true data-value="fruit-apple">Apple</li>`
+
++ [`dragstart` event](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-332-drag-detection)
+  + add listener to detect a drag
+  + `ondragstart` for HTML event handler
+  + inheritance of handler: each of its children triggering the event
+  + example: `<ol ondragstart="dragStartHandler(evt)"> ... </ol>`
+
++ Example: [draggable attribute and event handler](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-332-drag-detection)
+
+
+
+
+## 
 
