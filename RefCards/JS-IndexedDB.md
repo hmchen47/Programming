@@ -507,8 +507,7 @@
 
 
 
-## Retrieving Multiple Records
-
+## Retrieving Multiple Records and Range
 
 + [Types of cursors on indexes](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-3610-getting-data)
   + __normal cursor__: mapping the index property to the object in the object store
@@ -526,6 +525,16 @@
 
 + Example: [searching w/ index](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-3610-getting-data)
 
+
++ [`IDBKeyRange` object](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-3611-limiting-the-range-of-values-in-a-cursor)
+  + MDN Web Doc: [Specifying the range and direction of cursors](https://mzl.la/3xF01xV)
+  + abbreviation of "IndexedDB Key Range"
+  + passed as the 1st argument of `openCursor()` and `openKeyCursor()`
+  + specifying the bounds of the data looking for
+  + methods: `upperBound()` or `lowerBound()`
+  + the bound probably "closed" (including the given value(s)) or "open" (excluding the given value(s))
+
++ Example: [range of cursor](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-3611-limiting-the-range-of-values-in-a-cursor)
 
 
 
