@@ -136,4 +136,34 @@
 
 
 
+## The `dropEffect` Property
+
++ [The `dropEffect` property](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-336-the-dropeffect-property)
+  + changing the cursor's shape during the drag process
+  + turning cursor into a "copy", "move" or "link" icon, depending on the semantic of the drag and drop
+    + copy icon: copying an object into the drop zone
+    + moving icon: moving an object
+    + link icon: making a link or shortcut
+  + alternative: using any customized image/icon
+  + visual feedback:
+    + using the `effectAllowed` and `dropEffect` properties of the `dataTransfer` object
+    + specifying an effect in the `dragStart` handler by setting one of the possible predefined cursors
+    + specifying the effect (to "copy", "move", etc.) in the `dragEnter` and `dragOver` handlers
+
++ [Possible values for `dropEffect` and `effectAllowed` properties](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-336-the-dropeffect-property)
+  + `dataTransfer.effectAllowed`: `none`, `copy`, `copyLink`, `copyMove`, `link`, `linkMove`, `move`, `all`, `uninitialized`
+  + `dataTransfer.dropEffect`: `none`, `copy`, `link`, `move`
+
++ [Syntax of visual effect for drag and drop](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-336-the-dropeffect-property)
+  + allow a copy cursor effect: `function dragStartHandler(evt) { evt.dataTransfer.effecctAllowed = 'copy'; ... }`
+  + change the cursor shape to a '+': `function dragEnterHandler(evt) { evt.dataTransfer.dropEffect = 'copy'; ... }`
+
++ Example: [customerized image](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-336-the-dropeffect-property)
+  + add drag start handler: `function dragStartHandler(evt) {...}`
+  + allow cursor effect: `evt.dataTransfer.effectAllowed = 'copy';`
+  + load and create image: `var dragIcon = document.createElement('img'); dragIcon.src = 'anImage.png'; dragIcon.width = 100;`
+  + set the cursor to this image: `evt.dataTransfer.setDragImage(dragIcon, -10, -10);`
+  + ...
+
+
 
