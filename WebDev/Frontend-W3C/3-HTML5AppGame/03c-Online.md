@@ -898,7 +898,7 @@ All possible values for `dropEffect` and `effectAllowed`:
   + allow a copy cursor effect: `function dragStartHandler(evt) { evt.dataTransfer.effecctAllowed = 'copy'; ... }`
   + change the cursor shape to a '+': `function dragEnterHandler(evt) { evt.dataTransfer.dropEffect = 'copy'; ... }`
 
-+ Example: cumstomerized image
++ Example: customerized image
   + add drag start handler: `function dragStartHandler(evt) {...}`
   + allow cursor effect: `evt.dataTransfer.effectAllowed = 'copy';`
   + load and create image: `var dragIcon = document.createElement('img'); dragIcon.src = 'anImage.png'; dragIcon.width = 100;`
