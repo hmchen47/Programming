@@ -172,7 +172,7 @@
 
 + Example: [server-side PHP code w/ serial approach](../WebDev/Frontend-W3C/3-HTML5AppGame/03e-Online.md#notes-for-353-serial-approach)
 
-## Package Approach for Upload
+## Packaged Approach for Upload
 
 
 + [Packaged approach](../WebDev/Frontend-W3C/3-HTML5AppGame/03e-Online.md)
