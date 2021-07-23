@@ -71,6 +71,32 @@
 
 
 
+## Creation and Deletion IDB
+
++ [Creating database](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-365-creating-and-deleting-a-database)
+  + mainly based on Chrome but other browsers w/ equivalent means for debugging
+  + executing app to create an IndexedDB w/ name = "customers"
+  + calling `createDB()` function to create a database
+    + creating a new IndexedDB database and an object store in it
+    + inserting two JS objects
+  + checking w/ devtools > Application > IndexedDB to show the IndexedDB database, object store and data
+  + syntax to create database: `var request = indexedDB.open(dbName, verNo);`
+    + no `verNo` $\to$ entering the `onupgradeneeded` callback where the database actually is created
+    + `verNo` existed $\to$ calling `request.onsuccess` callback to add/remove/search data
+  + `onupgradeneeded` callback
+    + triggered on a create database request
+    + always in a default transaction
+    + unable to overlap w/ another transaction at the same time
+  + best practice: declare a variable to store the database $\gets$ the DOM event result attribute = the database
+
++ Example: [creating database](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-365-creating-and-deleting-a-database)
+
++ [Deleting the database](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-365-creating-and-deleting-a-database)
+  + syntax: `indexedDB.deleteDatabase("dbName");`
+  + common practice for learner: execute the command in devtools > console
+
+
+
 ## Object Stores
 
 + [Object store](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-363-definitions)
