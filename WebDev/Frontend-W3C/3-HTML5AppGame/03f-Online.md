@@ -1887,11 +1887,11 @@ Source code extract from this example:
 + Example: getting data using an index
   + tasks:
     + create an `index` object corresponding to the "name" property
-    + `get` method on the index-object to retrieve the person's object from the oobject store
+    + `get` method on the index-object to retrieve the person's object from the object store
   + search data via key: `function getCustomerByName() {...}`
   + get [object store w/ transaction](#transObjStore)
   + get index: `var index = objStore.index("name");`
-  + add cursor success handler: `index.get("Bill").onsuccess = fucntion(evt) { alert("Bill's SSN is " + evt.target.result.ssn + "his email is " + evt.target.result.email); };`
+  + add cursor success handler: `index.get("Bill").onsuccess = function(evt) { alert("Bill's SSN is " + evt.target.result.ssn + "his email is " + evt.target.result.email); };`
 
 + Types of cursors on indexes
   + __normal cursor__: mapping the index property to the object in the object store
