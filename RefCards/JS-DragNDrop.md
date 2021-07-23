@@ -238,6 +238,15 @@
     + display zone<a name="displayzone"></a>: `<ol id="droppedFiles"></ol>`
 
 
+## Image Files and Thumbnails
+
++ Example: [reading the image files and displaying the thumbnails](../WebDev/Frontend-W3C/3-HTML5AppGame/03d-Online.md#notes-for-343-images-with-thumbnails)
+  + tasks:
+    + skip non-image files w/ file type
+    + create and initialize the thumbnail
+
++ Example: [drag'n'drop image files and displaying ](../WebDev/Frontend-W3C/3-HTML5AppGame/03d-Online.md#notes-for-343-images-with-thumbnails)
+
 
 
 
