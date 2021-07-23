@@ -457,6 +457,77 @@
 + Example: [modifying data](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-369-modifying-data)
 
 
+## Retrieving Record
+
++ [Typical syntax for adding/deleting/modifying/retrieving data](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-3610-getting-data)
+  + assign request: `var request = objectStore.get(keyPath);`
+  + assign index: `var index = onjectStore.index(key);`
+  + add new object: `request.add(object);`
+  + remove a existing object: `request.delete(keypath);`
+  + modify data from an object store w/ IndexedDB: `request.put(keypath);`
+  + retrieve/search object w/ keyPath: `request.get(keyPath);`
+  + search object w/ index: `index.get(key);`
+
++ Example: [retrieving/searching data w/ key](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-3610-getting-data)
+
++ Example: retrieving/searching data w/ key - short version
+  + only one object store $\to$ not required to passing a list of object stores in transaction
+  + read only: no need for "readwrite" transaction but default "readonly`
+  + no request object required
+
++ [Searching for multiple objects](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-3610-getting-data)
+  + getting all of the data from the datastore using a `cursor`
+  + [cursor](https://javascript.info/indexeddb#cursors)
+    + a special object traversing the object storage, given a query, and returning one key/value at a time, thus saving memory
+    + walking through the store in key order (ascending by default) as an object store stored internally by key
+    + syntax: `let request = store.openCursor(query, [direction]);`
+      + `query`: a key or key range, same as for `getAll`
+      + `direction` (optional): 
+        + `"next"`: the default, the cursor walks up from the record w/ the lowest key
+        + `"prev"`: the reverse order, down from the record w/ the biggest key
+        + `"nextunique"`, `"prevunique"`: same as above, but skip records w/ the same key 
+  + `get()` requiring which key to retrieve
+  + using a `cursor` object to step through all the values or a certain range in object
+  + searching data via keyPath
+    + the `onsuccess` callback for cursor and let `var cursor = evt.target.result;`
+    + the `cursor` object = the result property of the request
+    + the actual key and value able to be found on the key and value properties of the cursor object
+    + call `cursor.continue()` to get the next object if required
+    + reach end of the the data $\to$ get a `success` callback but w/ `result` property undefined
+
++ Example: [retriving/searching more data](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-3610-getting-data)
+
++ Example: [retrieving/searching more data and storing in array](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-3610-getting-data)
+
++ Example: [getting data using an index](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-3610-getting-data)
+  + tasks:
+    + create an `index` object corresponding to the "name" property
+    + `get` method on the index-object to retrieve the person's object from the object store
+
+
+
+
+## Retrieving Multiple Records
+
+
++ [Types of cursors on indexes](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-3610-getting-data)
+  + __normal cursor__: mapping the index property to the object in the object store
+  + __key cursor__: mapping the index property to the key used to store the object in the object store
+
++ [ for normal cursor](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-3610-getting-data)
+  + add cursor success handler: `index.openCursor().onsuccess = function(evt) {...}`
+  + get cursor: `var cursor = evt.target.result;`
+  + check cursor existence: `if (cursor) { alert("Name: " + cursor.key + ", SSN: " + cursor.value.ssn + ", email: " + cursor.value.email); cursor.continue(); }`
+
++ [Syntax for key cursor](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-3610-getting-data)
+  + add key cursor success handler: `index.openKeyCursor().onsuccess = function(evt) {...}`
+  + get cursor: `var cursor = evt.target.result;`
+  + check cursor existence: `if (cursor) { alert("Name: " + cursor.key + ", SSN: " + cursor.value); cursor.continue(); }`
+
++ Example: [searching w/ index](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-3610-getting-data)
+
+
+
 
 
 
