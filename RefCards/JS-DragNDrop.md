@@ -43,5 +43,41 @@
 
 
 
-## 
+## Drop Detection
+
++ [Procedure to handle drop](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-333-drop-detection)
+  <ol style="list-style-type: decimal;">
+    <li> in the `dragstart` handler, copy a value in the drag and drop clipboard for later use</li>
+    <li> define a "drop zone"</li>
+    <li> write a <code>drop</code> handler, fetch content from the clipboard , and do something with it</li>
+  </ol>
+
++ [Utilizing drag and drop clipboard](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-333-drop-detection)
+  + get the value of the data-value attribute from the dragged element w/ `dragStart` handler
+  + copy the obtained value into "drag and drop clipboard"
+  + data as key/value pair
+  + example: `function dragStartHandler(evt) { evt.dataTransfer.setData("Fruit", evt.target.dataset.value); }`
+
++ [Defining drop zone](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-333-drop-detection)
+  + any visible element if `drop` event listener attached
+  + listen for `dragover` or `dragend` events and stop their propagation
+  + mouse moving over any drop zone triggering `dragover` event
+  + a few `dragover` events to be handled before the element finally dropped
+  + `ondragover` handler used to avoid propagating `dragover` events
+  + example: `<div ondragover="return false" ondrop="dropHandler(event);">...</div>`
+
++ [Processing fetched content w/ `drop` handler](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-333-drop-detection)
+  + `drop` event triggered once the dragged element placed
+  + acquiring data from "drag and drop clipboard"
+  + example: `function dropHandler(evt) { var data = evt.dataTransfer.getData("Fruit"); // do sth. w/ the data }`
+
++ Example: [handling drag and drop](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-333-drop-detection)
+  + tasks
+    + define drop zone and prevent event propagation
+    + copy `data-value` of dragged element into drag'n'drop clipboard
+    + handle `drop` event to fetch data and add dropped-item as a listed item
+
+
+
+
 
