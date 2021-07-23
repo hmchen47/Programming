@@ -196,6 +196,36 @@
     + move selected text to a drop zone
 
 
+## Files Drag and Drop
+
++ [Moving files from desktop and browser w/ the `files` property](../WebDev/Frontend-W3C/3-HTML5AppGame/03d-Online.md#notes-for-341-introduction)
+  + no `dragstart` handler required
+  + files dragged from the desktop
+  + browser only copying their contents from the clipboard
+  + main work done in the `drop` handler
+  + `files` property of the `dataTransfer` object used to copy the dragged files from the desktop
+  + `files` object: a collection of `file` objects
+  + `file` object able to extract the name of the file, type, size, last modificaton date, read it, etc.
+
++ Example: [handling the drop event for dragged files](../WebDev/Frontend-W3C/3-HTML5AppGame/03d-Online.md#notes-for-341-introduction)
+
+
+## Prevent Default Behavior
+
++ [Prevent browser's deafult behavior](../WebDev/Frontend-W3C/3-HTML5AppGame/03d-Online.md#notes-for-341-introduction)
+  + default behavior
+    + dropping an image into an HTML page $\to$ open a new tab and display the image
+    + dropping a mp3 file $\to$ open a new tab and start streaming the audio w/ a default player
+  + two functions to prevent the default behavior of the browser
+    + not propagating the event<a name="stopPropagation"></a>: `event.stopPropagation();`
+    + preventing default behavior, in particular when dropping images or links<a name="preventDefault"></a>: `event.preventDefault();`
+  + best practice: add `event.stopPropagation` and `event.preventDefault` to handlers attached to the drop zone
+    + the `drop` handler
+    + the `dragOver` handler
+  + ref: R. Gravelle, [Drag Files Into the Browser From the Desktop with HTML5](https://bit.ly/2UjkWYV), 2012
+
++ Example: [preventing default behavior](../WebDev/Frontend-W3C/3-HTML5AppGame/03d-Online.md#notes-for-341-introduction)
+
 
 
 
