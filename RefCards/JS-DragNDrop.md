@@ -181,6 +181,20 @@
     + move icon from child of `<body>` to child of selected container
 
 
+## Text Drag and Drop
+
++ [Moving selected text](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-338-drag-and-drop-a-text-selection)
+  + no need to add a `dragstart` handler on an element containing text
+  + selected text automatically added to the clipboard w/ a name/key equal to "text/plain"
+  + adding a `drop` event handler on the drop zone
+  + "text/plain" as the access key to fetch the data from the clipboard
+  + typical syntax: `function drop(target, event) { event.preventDefault(); target.innerHTML = event.dataTransfer.getData('text/plain'); }`
+
++ Example: [moving selected text to the drop zone](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-338-drag-and-drop-a-text-selection)
+  + tasks:
+    + use a CSS trick to make a paragraph non-selectable
+    + move selected text to a drop zone
+
 
 
 
