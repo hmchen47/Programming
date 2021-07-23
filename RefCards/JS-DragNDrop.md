@@ -97,6 +97,43 @@
 
 
 
-## 
+## Visual Feedback
+
++ [Visual feedback for drag & drop](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-335-add-visual-feedback)
+  + scenarios
+    + when drag something
+    + when mouse enters a drop zone
+    + etc.
+  + associating CSS styling w/ the lifecycle of a drag and drop
+
++ [Events related to draggable object](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-335-add-visual-feedback)
+  + `dragstart`:
+    + used on draggable elements
+    + used to get a value from the dragged element
+    + copying value to the clipboard
+    + good practice: visual feedback on draggable elements
+  + `dragend`:
+    + launched as the drag ended
+    + on a drop or if the user releases the mouse button outside a drop zone
+    + best practice: reset the style of the draggable object to default
+  + `dragenter`:
+    + binding the event to the drop zone
+    + occurred when a dragged object enters a drop zone
+    + good practice: change the appearance of the drop zone
+  + `dragleave`:
+    + used in relation to the drop zone
+    + good practice: set appearance back to normal once leaving the drop zone
+  + `dragover`:
+    + generally bound to elements corresponding to a drop zone
+    + best practice: preventing the propagation of the event and the default behavior of the browser
+  + `drop`:
+    + on the drop zone and processing the the drop, such as getting the value from the clipboard, etc.
+    + good practice: reset the look of the drop zone to default
+
++ Example: [visualizing the drag and ](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-335-add-visual-feedback)
+
++ Example: [visual feedback on draggable object and the drop zone](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-335-add-visual-feedback)
+
+
 
 
