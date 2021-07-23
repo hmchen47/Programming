@@ -248,6 +248,10 @@
 + Example: [drag'n'drop image files and displaying ](../WebDev/Frontend-W3C/3-HTML5AppGame/03d-Online.md#notes-for-343-images-with-thumbnails)
 
 
+## Uploading Files
+
++ Example: [uploading files w/ Ajax/HR2](../WebDev/Frontend-W3C/3-HTML5AppGame/03d-Online.md#notes-for-345-files-upload-using-ajaxxhr2)
+
 
 
 
