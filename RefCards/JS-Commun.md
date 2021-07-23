@@ -54,7 +54,7 @@
   + add event listener for complete downloading<a name="onload"></a>: `xhr.onload = function(e) { initSound(this.response); };`
   + send request to server<a name="send"></a>: `xhr.send();`
 
-+ [Example: playing downloaded sound](../WebDev/Frontend-W3C/3-HTML5AppGame/03b-Online.md#notes-for-322-ajaxxhr2-and-binary-files)
++ Example: [playing downloaded sound](../WebDev/Frontend-W3C/3-HTML5AppGame/03b-Online.md#notes-for-322-ajaxxhr2-and-binary-files)
   + tasks:
     + click button to download sound file
     + send Ajax request and call `xhr.onload` callback after file arrived
@@ -107,8 +107,23 @@
     + `total`: the file's size (in bytes)
   + combining `<progress>` element to render an animated animated progress bar
 
-+ [Example: displaying progress bar](../WebDev/Frontend-W3C/3-HTML5AppGame/03b-Online.md#notes-for-322-ajaxxhr2-and-binary-files)
++ Example: [displaying progress bar](../WebDev/Frontend-W3C/3-HTML5AppGame/03b-Online.md#notes-for-322-ajaxxhr2-and-binary-files)
   + tasks:
     + associate the `value` and `max` attributes of the `<progress>` element w/ progress event
     + reflect the actual proportions of the file downloaded
+
+
++ [Syntax for uploading file w/ progress bar](../WebDev/Frontend-W3C/3-HTML5AppGame/03b-Online.md#notes-for-323-uploading-files-and-monitoring-progress)
+  + add listener for upload progress<a name="uploadProgress"></a>: `xhr.upload.onprogress = function(e) {...};`
+  + number of bytes uploaded: `progress.value = e.loaded;`
+  + total number of bytes in the file: `progress.max = e.total;`
+
++ Example: [uploading a selected file](../WebDev/Frontend-W3C/3-HTML5AppGame/03b-Online.md#notes-for-323-uploading-files-and-monitoring-progress)
+  + tasks:
+    + callback on selecting a file
+    + create `FormData` object
+    + prepare XHR2 request and send w/ `FormData` object
+
++ Example: [uploading file w/ progress bar](../WebDev/Frontend-W3C/3-HTML5AppGame/03b-Online.md#notes-for-323-uploading-files-and-monitoring-progress)
+  + task: add progress bar for the previous example
 
