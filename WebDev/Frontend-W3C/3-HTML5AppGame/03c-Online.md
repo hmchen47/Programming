@@ -734,7 +734,7 @@ Complete source code (for clarity's sake, we put the CSS and JavaScript into a s
     + best practice: reset the style of the draggable object to default
   + `dragenter`:
     + binding the event to the drop zone
-    + occured when a dragged object enters a drop zone
+    + occurred when a dragged object enters a drop zone
     + good practice: change the appearance of the drop zone
   + `dragleave`:
     + used in relation to the drop zone
