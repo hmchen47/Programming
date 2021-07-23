@@ -22,7 +22,25 @@
     + using `getAttribute()` w/ their full HTML name to read
     + alternative: reading out via a `dataset` property
 
++ [`data-*` attributes](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-334-a-few-words-about-data--attributes)
+  + metadata: a powerful way to add structured data into HTML code
+  + HTML5 adding the possibility of adding arbitrary data to an HTML element
+    + attributes starting w/ `data-` followed by any string literal (w/o uppercase)
+    + treated as a storage area for private data
+  + some classic attributes, including `alt`, `rel` and `title`, misused for storing arbitrary data
+  + official way to add arbitrary data to HTML elements
+  + custom data attributes: intended to store customer data private to the page or application
+  + creating and accessing data attributes by the `dataset` property
+  + `attr()` function: taking an attribute name as a parameter and return its value
+  + examples:
+    + invalid: <code>&lt;img src="photo.jpg" <span style="color: #ff0000;">photographer="Michel Buffa"</span> date="14July2020"&gt;</span></strong></code>
+    + valid: <code>&lt;img src="photo.jpg" <span style="color: #ff0000;">data-photographer="Michel Buffa"</span> date="14July2020"&gt;</code>
 
++ Example: [accessing dataset property](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-334-a-few-words-about-data--attributes)
+  + task: access `data-` attributes w/ `dataset` property
+
++ Example: [adding `data-` attributes w/ CSS](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-334-a-few-words-about-data--attributes)
+  + task: using `attr()` in CSS to take an attribute name as a parameter and return its value
 
 
 ## Drag Detection
@@ -79,5 +97,6 @@
 
 
 
+## 
 
 
