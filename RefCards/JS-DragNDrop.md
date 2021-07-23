@@ -227,6 +227,19 @@
 + Example: [preventing default behavior](../WebDev/Frontend-W3C/3-HTML5AppGame/03d-Online.md#notes-for-341-introduction)
 
 
+## Drop Zone
+
++ Example: [moving files to drop zone w/ filenames](../WebDev/Frontend-W3C/3-HTML5AppGame/03d-Online.md#notes-for-342-drag-and-drop-files-in-a-drop-zone)
+  + tasks
+    + prevent the browser default behavior
+    + create listed items for the drop zone
+  + HTML snippet:
+    + drop zone container<a name="dropzone"></a>: `<div id="droppableZone" ondragenter="dragEnterHandler(event)" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)" ondragleave="dragLeaveHandler(event)"> Drop Zone ...</div>`
+    + display zone<a name="displayzone"></a>: `<ol id="droppedFiles"></ol>`
+
+
+
+
 
 
 
