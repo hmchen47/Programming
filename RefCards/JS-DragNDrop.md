@@ -166,4 +166,23 @@
   + ...
 
 
+## HTML Elements for Drag and Drop
+
++ [Drag and drop HTML elements](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-337-drag-and-drop-html-elements)
+  + copy and past to/from the clipboard
+  + clipboard accessed through the `dataTransfer` property of the different evnets
+    + copy data into the clipboard: `event.dataTransfer.setData("Fruit", event.targte.dataset.value);`
+    + past data from the clipboard: `var data = event.dataTransfer.getData("Fruit");`
+  + `<img>` elements all draggable by default
+
++ Example: [moving images as an HTML subtree](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-337-drag-and-drop-html-elements)
+  + tasks
+    + only work on the DOM directly
+    + move icon from child of `<body>` to child of selected container
+
+
+
+
+
+
 
