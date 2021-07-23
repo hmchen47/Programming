@@ -296,6 +296,18 @@
     + starting a second transaction w/ a scope of the `unicornCentaur` and `unicornPegasus` object stores
     + allowing several reading transactions and probably overlapped
 
++ [Transaction w/ data](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-366-working-with-data)
+  + all operations in the database happened within a transaction
+  + implicit transactions during the creation of the database
+  + explicit transactions for adding/removing/updating/retrieving data
+  + generating a transaction object from the database:
+    + indicating which object store associated
+    + specifying and access mode
+  + syntax: `var transaction = db.transaction(["objStoreName", ...], mode);`
+    + `mode`: either `readonly`, `readwrite`, or `versionchange`
+    + `versionchange`: only for creating a new database or for modifying its schemas
+    + `readonly`: concurrent read transactions allowed
+
 
 
 
@@ -407,6 +419,45 @@
   + retrieving records via object stores and indexes using keys or a range of keys
   + able to limit and filter the range using lower and upper bounds
   + example: iterate over all values of a key btw x and y
+
+
+
+## Inserting, Removing and Modifying Records
+
++ [Typical procedure to inset data](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-367-inserting-data)
+  + create a transaction
+  + map the transaction onto the object store
+  + create an "add" request that will take part in the transaction
+
++ Example: [basic steps](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-367-inserting-data)
+  + tasks
+    + get a transaction on the "customer" object store in `readwrite` mode
+    + init transaction on the ObjectStore
+    + get request from the transaction for adding a new object
+
++ Example: [adding data to DB from a form](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-367-inserting-data)
+  + process
+    + press the "Create database" button first
+    + add a new customer using the form
+    + click the "add a new Customer" button
+    + use devtools to inspect the IndexedDB store contents (refresh or close/open the devtools probably required)
+  + good practice: checking the database open before interting an element
+  + validation for inserting data and alerting w/ error message
+    + `ssn` existed: the property declared as the keyPath (kind of primary key) in the object store schema and __unique__
+    + `email` address existed: the property declared as an index and unique
+    + same customer inserted twice or duplicated SSN $\to$ customized alert message
+
++ Example: [removing data](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-368-removing-data)
+  + procedure
+    + click "create database button" to ensure the open of the existing database
+    + use devtools to check the customer w/ `ssn=444-44-4444`, if not existed, add the customer from the input forms
+    + refresh IndexedDB in devtools to observe the customer
+    + click the "Remove the customer" button and observe the data object in devtools after refreshing
+
++ Example: [modifying data](../WebDev/Frontend-W3C/3-HTML5AppGame/03f-Online.md#notes-for-369-modifying-data)
+
+
+
 
 
 
