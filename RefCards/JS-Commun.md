@@ -127,3 +127,59 @@
 + Example: [uploading file w/ progress bar](../WebDev/Frontend-W3C/3-HTML5AppGame/03b-Online.md#notes-for-323-uploading-files-and-monitoring-progress)
   + task: add progress bar for the previous example
 
+
+## Upload Files
+
++ [Uploading forms and files](../WebDev/Frontend-W3C/3-HTML5AppGame/03e-Online.md)
+  + typical tasks
+    + submit a form w/ regular input fields
+    + benefit from the HTML5 built-in validation
+    + upload files
+    + monitor the file upload progress w/ a progress bar
+  + solutions
+    + typical: jQuery plugins
+    + alternative: only HTML5 APIs, easy, faster, and lower page weight
+  + typical design
+    + a regular HTML5 form
+    + the input fields for entering a name, address, age, etc.
+    + selecting and uploading multiple files
+  + approaches
+    + serial approach
+    + packaged approach
+
++ Example: [uploading files w/ Ajax/HR2 & DnD](../WebDev/Frontend-W3C/3-HTML5AppGame/03d-Online.md#notes-for-345-files-upload-using-ajaxxhr2)
+
+
+## Serial Approach for Upload
+
++ [Serial approach](../WebDev/Frontend-W3C/3-HTML5AppGame/03e-Online.md)
+  + uploading the files as soon as selected or dragged and dropped
+  + design
+    + an Ajax/XHR2
+    + a form w/ an `<input type=file multiple>` input field
+    + one or more `<progress>` elements for monitoring file uploads
+    + form w/ input fields of different types
+  + interactions
+    + user drag and drop files
+    + start being uploaded immediately
+    + form only sent all the fields valid
+  + example: Gmail's behavior
+    + commposing a message and adding an attachment
+    + attachments uploaded as soon as selected or dropped into the message window
+    + message only sent when the "send" button pressed
+    + empty fields w/ `required` attribute &#36;\to&#36; error message &#36;\to&#36; not submitted
+    + server-side: join the files asynchronously uploaded w/ the rest of the form's value &#36;\gets&#36; PHP code
+
+
+## Package Approach for Upload
+
+
++ [Packaged approach](../WebDev/Frontend-W3C/3-HTML5AppGame/03e-Online.md)
+  + send all form content, including files, only when the form is submitted
+  + design
+    + send all of the form's content at once w/ a single Ajax request &#36;\to&#36; only one progress bar
+    + probably using multiple Ajax requests, not starting until the submit button clicked
+  + sending everything at the same time using Ajax/JavaScript, including the regular input field conetnt and the selected fields
+
+
+
