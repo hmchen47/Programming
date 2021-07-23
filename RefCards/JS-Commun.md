@@ -170,6 +170,7 @@
     + empty fields w/ `required` attribute &#36;\to&#36; error message &#36;\to&#36; not submitted
     + server-side: join the files asynchronously uploaded w/ the rest of the form's value &#36;\gets&#36; PHP code
 
++ Example: [server-side PHP code w/ serial approach](../WebDev/Frontend-W3C/3-HTML5AppGame/03e-Online.md#notes-for-353-serial-approach)
 
 ## Package Approach for Upload
 
