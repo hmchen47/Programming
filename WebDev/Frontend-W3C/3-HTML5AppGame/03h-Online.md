@@ -278,8 +278,8 @@ The above code handles file drops in a drop zone. What are _lines 12-13_ and _16
   d. using SQL for manipulating data<br>
   e. a transactional object store in which you can store JavaScript objects<br>
 
-  Ams: <br>
-  Explanation: 
+  Ams: bce<br>
+  Explanation: IndexedDB is a transactional database which supports indexes. Each database can contain object stores. IndexedDB is an indexed table system and therefore designed to manage concurrent access to data.
 
 
 16. We're only interested in high-value transactions...
@@ -290,8 +290,8 @@ The above code handles file drops in a drop zone. What are _lines 12-13_ and _16
   b. an atomic set of data-access and data-modification operations against a particular database. Either they all succeed or all fail.<br>
   c. a name we give to an operation that manipulates data in the database.<br>
 
-  Ams: <br>
-  Explanation: 
+  Ams: b<br>
+  Explanation: IndexedDB is a transactional database which supports indexes. Each database can contain object stores. IndexedDB is an indexed table system and therefore designed to manage concurrent access to data.
 
 
 17. All together now
@@ -301,8 +301,8 @@ The above code handles file drops in a drop zone. What are _lines 12-13_ and _16
   a. The transaction<br>
   b. The request<br>
 
-  Ams: <br>
-  Explanation: 
+  Ams: a<br>
+  Explanation: The transaction is the mechanism that prevents data from being corrupted during concurrent access, in particular when multiple write operations occur.
 
 
 18. Any last requests?
@@ -312,8 +312,8 @@ The above code handles file drops in a drop zone. What are _lines 12-13_ and _16
   a. Asynchronous<br>
   b. Synchronous<br>
 
-  Ams: <br>
-  Explanation: 
+  Ams: a<br>
+  Explanation: All requests are always asynchronous. Results or errors are processed in callback functions.
 
 
 19. Always transactional?
@@ -323,8 +323,8 @@ The above code handles file drops in a drop zone. What are _lines 12-13_ and _16
   a. are completed within a transaction<br>
   b. can be done without a transaction, for better performance<br>
 
-  Ams: <br>
-  Explanation: 
+  Ams: a<br>
+  Explanation: All requests take place in a transaction.
 
 
 20. Here is my Id
@@ -335,8 +335,8 @@ Each IndexedDB database must have...
   b. a name and a version<br>
   c. a name<br>
 
-  Ams: <br>
-  Explanation: 
+  Ams: b<br>
+  Explanation: Each indexedDB database must have a name and a version.
 
 
 <hr>
@@ -391,24 +391,24 @@ __Source code for the next 3 questions (21, 22 and 23)__
 
 What is the name of the database we create/open? Enter exactly the right name.
 
-  Ams: <br>
-  Explanation: 
+  Ams: MyCustomers<br>
+  Explanation: The database name is at line 14. It is MyCustomers.
 
 
 22. Who are they?
 
   What is the name of the object store? Enter exactly the right name.
 
-  Ams: <br>
-  Explanation: 
+  Ams: customers<br>
+  Explanation: The object store name is at line 23. It is customers.
 
 
 23. KeyPath?
 
   What is the name of the keypath (equivalent to primary key)? Enter exactly the right name.
 
-  Ams: <br>
-  Explanation: 
+  Ams: ssn<br>
+  Explanation: The keypath is the social security number ssn, occuring at line 23.
 
 
 24. Index me please!
@@ -418,30 +418,28 @@ What is the name of the database we create/open? Enter exactly the right name.
   a. A faster means of looking for data using a property of the objects (looking for a person by email will be much faster if email is indexed)<br>
   b. If a stored object has a property named "index" then we can use it to gain faster access to the object, using a means other than the keypath<br>
 
-  Ams: <br>
-  Explanation: 
+  Ams: a<br>
+  Explanation: An index allows the user to look up records in an object store using the properties of the values in the object store's records. Indexes are a common concept in databases. They can speed up object retrieval and allow multi-criterion searches. For example, it will be much quicker to find a particular person by email if you store persons in your object store, and add an index on the "email" property of each person.
 
 
 25. Multiple me?
 
-  If we have multiple objects which hold the same value for some property, eg: favoriteColor="green", can we index that property? (Yes/No)
+  If we have multiple objects which hold the same value for some property, eg: `favoriteColor="green"`, can we index that property? (Yes/No)
 
-  Ams: <br>
-  Explanation: 
+  Ams: Yes<br>
+  Explanation: Yes! This is the case for the "name" index in the previous source code. KeyPath, on the other hand, must be unique.
 
 
 26. Multiple results how to...
 
-When we look for objects and get a collection of results, how can we iterate over this result?
+  When we look for objects and get a collection of results, how can we iterate over this result?
 
   a. Result is a JavaScript object. We can iterate on the array like we do on any JavaScript array.<br>
   b. Using a cursor<br>
   c. Using an index<br>
 
-  Ams: <br>
-  Explanation: 
-
-
+  Ams: b<br>
+  Explanation: A cursor is the mechanism for iterating over multiple records within a key range. The cursor has a source that indicates which index or object store it is currently presenting. It has a position within the range, and moves in a direction that is increasing or decreasing in the order of record keys.
 
 
 
