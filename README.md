@@ -642,6 +642,77 @@ This repository tracks my learning on different programming languages.
   </tr>
 
 
+  <!-- Ajax/XHR2 Connunication -->
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan=2 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Ajax/ XHR2 Communication </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Commun.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Commun.md#ajax-and-xhr2"> Ajax & XHR2 </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Commun.md#transfering-binary-files"> Binary Files </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Commun.md#monitoring-progress"> Progress </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Commun.md#upload-files"> Upload Files </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Commun.md#serial-approach-for-upload"> Serial Approach </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Commun.md#packaged-approach-for-upload"> Packaged Approach </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Commun.md#">  </a> </td>
+  </tr>
+
+
+  <!-- Drag and Drop -->
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan=3 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Drag and Drop </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DragNDrop.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DragNDrop.md#data--attribute"> <code>data-*</code> Attribute </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DragNDrop.md#drag-detection"> Drag Detection </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DragNDrop.md#drop-detection"> Drop Detection </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DragNDrop.md#visual-feedback"> Visual Feedback </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DragNDrop.md#the-dropeffect-property"> <code>dropEffect</code> Property </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DragNDrop.md#html-elements-for-drag-and-drop"> HTML Elements </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DragNDrop.md#text-drag-and-drop"> Text </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DragNDrop.md#files-drag-and-drop"> Files </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DragNDrop.md#prevent-default-behavior"> Default Prevention </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DragNDrop.md#drop-zone"> Drop Zone </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-DragNDrop.md#image-files-and-thumbnails"> Images </a> </td>
+  </tr>
+
+
+  <!-- IndexedDB -->
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan=5 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> IndexedDB </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#concepts"> Concepts </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#creation-and-deletion-idb"> Creation & Deletion DB </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#object-stores"> Object Stores </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#version"> Version </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#key"> Key </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#keypath"> KeyPath </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#values"> Values </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#indexes"> Indexes </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#transaction"> Transaction </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#scope"> Scope </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#request"> Request </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#asynchronous-idb-api"> Asynchronous API </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#object-oriented"> Object-Oriented </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#same-origin-policy"> Same-Origin Policy </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#cursor"> Cursor </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#">  </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#inserting-removing-and-modifying-records"> Insertion/Deletion/Modification Data </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#retrieving-record"> Retrieving Record </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#retrieving-multiple-records-and-range"> Retrieving Multiple Records </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#">  </a> </td>
+  </tr>
+
   <!-- GeoLocation API -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan=2 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Geolocation APIs </th>
