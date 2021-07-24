@@ -612,12 +612,12 @@ The only difference between these two worked-examples is the `onprogress` listen
   + total number of bytes in the file: `progress.max = e.total;`
 
 + `FormData` object
-  + uploading one or more files to an HTTP seerver
+  + uploading one or more files to an HTTP server
   + a container for parts in the multipart data sent by aan XHR2 POST request
-  + synatx: `var data = new FormData(form);`
+  + syntax: `var data = new FormData(form);`
     + `form`: the HTML form
-    + `data`: containg all the input field's values
-  + adding files: `data.append(name, valuye);`
+    + `data`: containing all the input field's values
+  + adding files: `data.append(name, value);`
 
 + Example: uploading selected file(s)
   + tasks:
