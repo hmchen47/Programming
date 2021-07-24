@@ -299,7 +299,7 @@ Notice that we use some CSS to set aside some screen-space for the drop zone (no
 
 + Procedure to handle drop
   <ol style="list-style-type: decimal;">
-    <li> in the `dragstart` handler, copy a value in the drag and drop clipboard for later use</li>
+    <li> in the <code>dragstart</code> handler, copy a value in the drag and drop clipboard for later use</li>
     <li> define a "drop zone"</li>
     <li> write a <code>drop</code> handler, fetch content from the clipboard , and do something with it</li>
   </ol>

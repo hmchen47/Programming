@@ -65,7 +65,7 @@
 
 + [Procedure to handle drop](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-333-drop-detection)
   <ol style="list-style-type: decimal;">
-    <li> in the `dragstart` handler, copy a value in the drag and drop clipboard for later use</li>
+    <li> in the <code>dragstart</code> handler, copy a value in the drag and drop clipboard for later use</li>
     <li> define a "drop zone"</li>
     <li> write a <code>drop</code> handler, fetch content from the clipboard , and do something with it</li>
   </ol>
@@ -92,7 +92,7 @@
 + Example: [handling drag and drop](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-333-drop-detection)
   + tasks
     + define drop zone and prevent event propagation
-    + copy `data-value` of dragged element into drag'n'drop clipboard
+    + copy `data-value` of dragged element into  drag'n'drop clipboard
     + handle `drop` event to fetch data and add dropped-item as a listed item
 
 
@@ -159,11 +159,6 @@
   + change the cursor shape to a '+': `function dragEnterHandler(evt) { evt.dataTransfer.dropEffect = 'copy'; ... }`
 
 + Example: [customerized image](../WebDev/Frontend-W3C/3-HTML5AppGame/03c-Online.md#notes-for-336-the-dropeffect-property)
-  + add drag start handler: `function dragStartHandler(evt) {...}`
-  + allow cursor effect: `evt.dataTransfer.effectAllowed = 'copy';`
-  + load and create image: `var dragIcon = document.createElement('img'); dragIcon.src = 'anImage.png'; dragIcon.width = 100;`
-  + set the cursor to this image: `evt.dataTransfer.setDragImage(dragIcon, -10, -10);`
-  + ...
 
 
 ## HTML Elements for Drag and Drop
