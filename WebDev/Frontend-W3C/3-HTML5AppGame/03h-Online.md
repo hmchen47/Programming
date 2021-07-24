@@ -202,8 +202,8 @@ __Source file for the next question (7)__
   a. The image will be displayed in another tab or replace the current page, it depends on the browser. A media file will be played with a default player in the middle of a new page, etc.<br>
   b. Nothing<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: Dropping a media file usually results in the browser displaying it or playing it with a default player.
 
 
 <hr>
@@ -248,21 +248,21 @@ __Source code for the next 2 questions (13 and 14)__
 
 13. Please stop. I said stop!
 
-The above code handles file drops in a drop zone. What are lines 12-13 and 16-17 useful for?
+The above code handles file drops in a drop zone. What are _lines 12-13_ and _16-17_ useful for?
 
   a. By default the browser would display/play media files in a new window/tab. They prevent the browser's default behavior, and stop the propagation of the event to the parents of the drop zone element.<br>
   b. They are just here for performance reasons, if we omit them the application will still work.<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: We prevent the browser default behavior in the drop and dragover handlers, otherwise when we drop a media file (an image, an audio or video file), the browser will display/play it in a new window/tab. We also stop the propagation for performance reasons, because when we move a dragged object it will raise many events to the parents of the drop zone element.
 
 
 14. Files or files?
 
   When we work with an `<input type="file">` input field, the selected files can be obtained in the files property of the field DOM object. Is this the same kind of object we have in `event.dataTransfer.files`? (Yes/No)
 
-  Ans: <br>
-  Explanation: 
+  Ans: Yes<br>
+  Explanation: Yes, we obtain a collection of file descriptors. If we drop images, for example, or if we select them using an input type="file", we will be able to process them with the same function.
 
 
 
