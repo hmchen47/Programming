@@ -37,6 +37,110 @@ You need to unarchive it in the Web server htdocs directory of your WAMP/MAMP/LA
 </figure>
 
 
+### 4.2.2 Introduction
+
+Web components provide a standard way to build your own widgets/components using similar methods to those used by browser developers to construct the `<video>`, `<audio>`, and `<input type="date">` elements, for example.Web components logo
+
+Web components enable you to use custom HTML elements in your HTML documents, that render as complex widgets: a better-looking calendar, an input text with vocal recognition, a nice chart, etc.
+
+Let's start with an example! This code...:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;x-gif</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://i.imgur.com/iKXH4E2.gif"</span><span class="pln"> </span><span class="atn">ping-pong</span><span class="tag">&gt;&lt;/x-gif&gt;</span></li>
+</ol></div>
+
+... renders an animated GIF, and it loops forever in ping-pong mode: the order of the animation is reversed when the last image is reached and again when the animation goes back to the first image.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://geelen.github.io/x-gif/#/https://i.imgur.com/iKXH4E2.gif')"
+    src    = "https://bit.ly/3eS1Hgg"
+    alt    = "animated gif in a page"
+    title  = "animated gif in a page"
+  />
+</figure>
+
+Click on the image to run the animated GIF  demo, or visit [this Web site](https://geelen.github.io/x-gif/#/https://i.imgur.com/iKXH4E2.gif).
+
+If you look at the source of the demo page, you note the following at the top of the page:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"import"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"dist/x-gif.html"</span><span class="tag">&gt;</span></li>
+</ol></div>
+
+It's called an "HTML import". If your browser supports _HTML imports_, you can now import _another HTML document_, that will come with its own HTML, CSS, and JavaScript code-base, into your HTML page . The code for the animated GIF player, rendered when the browser encounters _the custom HTML element_ `<x-gif>`,  is located in the imported HTML file (and this HTML file can in turn include or define CSS and JavaScript content).
+
+Even more impressive: if you use the devtools or the right click context menu to view the source of the page, you will not see the DOM of this animated GIF player:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3iMBUXQ')"
+    src    = "https://bit.ly/3xZ2G5M"
+    alt    = "shadow root of the x-gif web component"
+    title  = "shadow root of the x-gif web component"
+  />
+</figure>
+
+_...and your document will still be valid_. Looking at the source code or at the DOM with the devtool's inspector will not reveal the source code (HTML/JavaScript/CSS) used for creating it.
+
+
+#### Web components availability
+
+There are already hundreds of Web components made by others that you can use. On the webcomponents.org Web site, you will find lots of them. Usually, you need to import the HTML file that defines the components you want to use, and [maybe also a polyfill](https://www.webcomponents.org/polyfills) if you want to use them with browsers that do not yet support Web Components.
+
+_Example:_ let's go to the the [Web Components Web site](https://www.webcomponents.org/).
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3iMBUXQ')"
+    src    = "https://bit.ly/36ZseUA"
+    alt    = "The webcomponents.org home page"
+    title  = "The webcomponents.org home page"
+  />
+</figure>
+
+
+We then search for Web components tagged with the "voice" tag and find input fields with voice recognition, and a text area that could vocalize the text:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3iMBUXQ')"
+    src    = "https://bit.ly/3x3Ij60"
+    alt    = "Results for a search on "voice""
+    title  = "Results for a search on "voice""
+  />
+</figure>
+
+
+Now, please try a [demonstration of this component](https://zenorocha.github.io/voice-elements)!
+
+As you see, re-using Web components is easy :-)
+
+Notice that Google, with its [Polymer project](https://www.polymer-project.org/) and Mozilla, with its [X-Tag library](https://x-tag.github.io/), also offer huge sets of components for creating rich UIs with a common look and feel.
+
+
+#### Current support
+
+__Web components are built on four different APIS__
+
+In this lesson, we are talking about "Web components". Note that this is not a single API - rather it's what we call an "umbrella API", __built on top of 4 W3C specifications__, which are going to be detailed in subsequent lessons.
+
+The main W3C Web Components resource is on [GitHub](https://github.com/w3c/webcomponents):
+
+1. [The HTML Templates specification](https://www.w3.org/TR/html-templates/)
+2. [The Shadow DOM specification](https://www.w3.org/TR/shadow-dom/) (Working Group Note, part of the DOM specification) - see also this MDN's documentation "[Using shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM)"
+3. The Custom Elements specification is being incorporated into the W3C DOM specification and the WHATWG DOM Standard, the W3C HTML specification and the WHATWG HTML Standard, and other relevant specifications. Please check the W3C [Web Components repository](https://github.com/w3c/webcomponents/) for continuing discussions about this subject.
+4. [The HTML Imports specification](https://w3c.github.io/webcomponents/spec/imports/) (HTML imports have been deprecated, see further material in this chapter)
+
+You can check the current support for these APIs here: [Microsoft Edge's Web Components](https://bit.ly/3zyCIXi) and on [CanIuse](https://www.caniuse.com/):
+
++ HTML templates are supported by nearly all modern browsers, including mobile browsers (see also this support table [online](https://caniuse.com/#feat=template)).
++ Shadow DOM v1 is supported by Chrome and Opera, and FireFox/Safari offers partial support (see also [online](https://caniuse.com/#feat=shadowdomv1)).
++ Custom Elements is supported by Chrome and Opera, and FireFox/Safari offers partial support. Edge is implementing them (see also [online](https://caniuse.com/#feat=custom-elementsv1)).
++ HTML Imports is deprecated, but can be used with polyfills . A new way to import Web Components using JavaScript imports is under consideration. More about that in the "HTML imports" material later on.
+
+HTML imports have been replaced by a more standard way involving JavaScript imports (see [discussions](https://bit.ly/36X9wN8)).
+
 
 
 
