@@ -107,11 +107,18 @@
     + `total`: the file's size (in bytes)
   + combining `<progress>` element to render an animated animated progress bar
 
++ [`FormData` object](../WebDev/Frontend-W3C/3-HTML5AppGame/03b-Online.md#notes-for-323-uploading-files-and-monitoring-progress)
+  + uploading one or more files to an HTTP seerver
+  + a container for parts in the multipart data sent by aan XHR2 POST request
+  + synatx: `var data = new FormData(form);`
+    + `form`: the HTML form
+    + `data`: containg all the input field's values
+  + adding files: `data.append(name, valuye);`
+
 + Example: [displaying progress bar](../WebDev/Frontend-W3C/3-HTML5AppGame/03b-Online.md#notes-for-322-ajaxxhr2-and-binary-files)
   + tasks:
     + associate the `value` and `max` attributes of the `<progress>` element w/ progress event
     + reflect the actual proportions of the file downloaded
-
 
 + [Syntax for uploading file w/ progress bar](../WebDev/Frontend-W3C/3-HTML5AppGame/03b-Online.md#notes-for-323-uploading-files-and-monitoring-progress)
   + add listener for upload progress<a name="uploadProgress"></a>: `xhr.upload.onprogress = function(e) {...};`
@@ -129,7 +136,7 @@
   + task: add progress bar for the previous example
 
 
-## Upload Files
+## Upload Files with HTML Form
 
 + [Uploading forms and files](../WebDev/Frontend-W3C/3-HTML5AppGame/03e-Online.md)
   + typical tasks
