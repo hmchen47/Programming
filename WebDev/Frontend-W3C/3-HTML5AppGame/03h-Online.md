@@ -138,8 +138,8 @@ __Source file for the next question (7)__
 
   We would like to drag the list items from the above code. Is it going to work? (let's assume that the dragstart event listener is ok). (No/Yes)
 
-  Ans: <br>
-  Examplantion:
+  Ans: No<br>
+  Examplantion: You must add the `draggable="true"` attribute to all list items to be able to use them in a Drag and Drop operation.
 
 
 8. Where is my clipboard?
@@ -149,13 +149,15 @@ __Source file for the next question (7)__
   a. we need to explicitly copy the data we want to process later (when we drop the object...) into the drag and drop clipboard.<br>
   b. it is automatically copied onto the drag and drop clipboard.<br>
 
-  Ans: <br>
+  Ans: a<br>
   Examplantion:
+    + In the `dragstart` handler, when a draggable element has been dragged, we need to copy some data related to the dragged object to the drag and drop clipboard for later use.
+    + When a value is copied to this clipboard, a key/name must be given. Data copied to the clipboard is associated with this name. Using this name, we can get back the data when the object is dropped, in the drop event handler.
 
 
 9. Visual feedback
 
-How can we add visual feedback when dragging and dropping elements (this inludes also "when the mouse cursor goes over elements while dragging")? (3 correct answers.)
+  How can we add visual feedback when dragging and dropping elements (this inludes also "when the mouse cursor goes over elements while dragging")? (3 correct answers.)
 
   a. We should change the CSS style of draggable elements when the mouse cursor goes over them<br>
   b. The above is not necessary: the draggable elements are highlighted automatically when the mouse cursor goes over them<br>
@@ -163,8 +165,8 @@ How can we add visual feedback when dragging and dropping elements (this inludes
   d. We can customize the mouse cursor in drag and drop related listeners,<br>
   e. The `droppable=true` attribute, when added to a drop zone, automatically highlights the element when the cursor enters its area, while dragging an element.<br>
 
-  Ans: <br>
-  Examplantion:
+  Ans: acd<br>
+  Examplantion: All answers are true except those which claim that elements are automatically highlighted when the mouse cursor hovers over them. In the course, we listened to for all sorts of events related to drag and drop: `dragstart`, `drop`, `dragenter`, `dragleave`, `dragover`... and in the corresponding listeners we changed the appearance of the mouse cursor and varied the CSS properties of the elements. The cursor can be modified using the `event.dataTransfer.effectAllowed` and `event.dataTransfer.dropEffect` and `event.dataTransfer.setDragImage` methods, in listeners.
 
 
 10. Image drag
@@ -175,8 +177,8 @@ How can we add visual feedback when dragging and dropping elements (this inludes
   b. `img` HTML elements are all draggable by default - there is no need to add a `draggable="true"` attribute<br>
   c. There is no need to use a `dragstart` event listener on`<img>` elements, in order to move them (using drag and drop) from one location to another within a document<br>
 
-  Ans: <br>
-  Examplantion:
+  Ans: b<br>
+  Examplantion: Images are draggable by default.
 
 
 11. Drag and drop a text selection
@@ -184,11 +186,11 @@ How can we add visual feedback when dragging and dropping elements (this inludes
   What is unique about dragging and dropping a text selection?
 
   a. The text in the selection is automatically copied to the drag and drop clipboard, with the key "text/plain", so there is no need for a `dragstart` event handler<br>
-  b. We need to get the selection in the dragstart event handler and copy the text to the clipboard with a key equal to "text/plain"<br>
+  b. We need to get the selection in the `dragstart` event handler and copy the text to the clipboard with a key equal to "text/plain"<br>
   c. We need to wrap `<span draggable=true>...</span>` around the selected text<br>
 
-  Ans: <br>
-  Examplantion:
+  Ans: a<br>
+  Examplantion: There is no need to add a `dragstart` handler on an element that contains text. Any selected text is automatically added to the clipboard with a name/key equal to "text/plain". Add a drop event handler on the drop zone and fetch the data from the clipboard using "text/plain" as the access key.
 
 
 
