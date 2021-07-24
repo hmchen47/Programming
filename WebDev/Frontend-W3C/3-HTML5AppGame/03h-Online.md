@@ -121,6 +121,75 @@ JavaScript:
   Explanation: A `FormData` object is a container for parts in the multipart data that will be sent by an XHR2 POST request. If we create the `FormData` like this: `var data = new FormData(form);` where `form` is the HTML form, then `data` will contain all the input fields' values. We can add files to this object using the `data.append(name, value)` method.
 
 
+### 3.8.2 Drag and Drop (7-11)
+
+__Source file for the next question (7)__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;ol</span><span class="pln"> </span><span class="atn">ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragStartHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">data-value</span><span class="pun">=</span><span class="atv">"fruit-apple"</span><span class="tag">&gt;</span><span class="pln">Apples</span><span class="tag">&lt;/li&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">data-value</span><span class="pun">=</span><span class="atv">"fruit-orange"</span><span class="tag">&gt;</span><span class="pln">Oranges</span><span class="tag">&lt;/li&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">data-value</span><span class="pun">=</span><span class="atv">"fruit-pear"</span><span class="tag">&gt;</span><span class="pln">Pears</span><span class="tag">&lt;/li&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/ol&gt;</span></li>
+</ol></div>
+
+
+7. Drag me or drag me not...
+
+  We would like to drag the list items from the above code. Is it going to work? (let's assume that the dragstart event listener is ok). (No/Yes)
+
+  Ans: <br>
+  Examplantion:
+
+
+8. Where is my clipboard?
+
+  When we drag an object from the DOM (an HTML element)...
+
+  a. we need to explicitly copy the data we want to process later (when we drop the object...) into the drag and drop clipboard.<br>
+  b. it is automatically copied onto the drag and drop clipboard.<br>
+
+  Ans: <br>
+  Examplantion:
+
+
+9. Visual feedback
+
+How can we add visual feedback when dragging and dropping elements (this inludes also "when the mouse cursor goes over elements while dragging")? (3 correct answers.)
+
+  a. We should change the CSS style of draggable elements when the mouse cursor goes over them<br>
+  b. The above is not necessary: the draggable elements are highlighted automatically when the mouse cursor goes over them<br>
+  c. We can listen to the `dragstart`, `dragend`, `dragover`, `dragenter`, `dragleave` events (by adding listeners to the HTML element that is a drop zone), and change some CSS values styling the drop zone<br>
+  d. We can customize the mouse cursor in drag and drop related listeners,<br>
+  e. The `droppable=true` attribute, when added to a drop zone, automatically highlights the element when the cursor enters its area, while dragging an element.<br>
+
+  Ans: <br>
+  Examplantion:
+
+
+10. Image drag
+
+  Which of the following statements is true?
+
+  a. If the image `src` attribute value is an external URL, it's not possible to drag and drop the image<br>
+  b. `img` HTML elements are all draggable by default - there is no need to add a `draggable="true"` attribute<br>
+  c. There is no need to use a `dragstart` event listener on`<img>` elements, in order to move them (using drag and drop) from one location to another within a document<br>
+
+  Ans: <br>
+  Examplantion:
+
+
+11. Drag and drop a text selection
+
+  What is unique about dragging and dropping a text selection?
+
+  a. The text in the selection is automatically copied to the drag and drop clipboard, with the key "text/plain", so there is no need for a `dragstart` event handler<br>
+  b. We need to get the selection in the dragstart event handler and copy the text to the clipboard with a key equal to "text/plain"<br>
+  c. We need to wrap `<span draggable=true>...</span>` around the selected text<br>
+
+  Ans: <br>
+  Examplantion:
+
 
 
 
