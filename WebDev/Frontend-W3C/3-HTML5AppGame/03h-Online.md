@@ -16,8 +16,8 @@
   d. Progress monitoring for uploads and downloads is now possible without polling the server<br>
   e. Native support for multimedia files<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: bcd<br>
+  Explanation: XHR2 improvements include: New, easier to use syntax, Encoding / decoding of binary files performed directly by the browser, Progress monitoring for uploads and downloads is possible without querying the server.
 
 
 <hr>
@@ -47,8 +47,9 @@ __Source code for the next question (2)__
   a. It indicates that we want the browser to decode into some binary format, the text-encoded data received from the server.<br>
   b. arrayBuffer is the name of the variable where the requested data will be stored.<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: With XHR2, you can ask the browser to decode the file you send/receive natively. To do this, when you use an `XMLHttpRequest` to send or receive a file, you need to specify the type of file with a value equal to `arrayBuffer`.
+
 
 
 <hr>
@@ -88,36 +89,38 @@ JavaScript:
 
   What would you write instead of the AAA placeholder in the above code? Use lowercase letters please.
 
-  Ans: <br>
-  Explanation: 
+  Ans: `onprogress`<br>
+  Explanation: `xhr.onprogress` is the correct answer. For an upload it would have been `xhr.upload.onprogress`
 
 
 4. Fill in the blank (2/3)
 
   What would you write instead of the BBB placeholder in the above code? Use lowercase letters please.
 
-  Ans: <br>
-  Explanation: 
+  Ans: `loaded`<br>
+  Explanation: The `loaded` property of the progress event is the correct answer.
 
 
 5. Fill in the blank (3/3)
 
   What would you write instead of the CCC placeholder in the above code? Use lowercase letters please.
 
-  Ans: <br>
-  Explanation: 
+  Ans: `total`<br>
+  Explanation: The `total` property of the progress event is the correct answer.
 
 
 6. Give me a bag to put all these parts together!
 
   What object, introduced during the course, is used when sending a multipart form?
 
-  a. The serializeArray(form) function<br>
-  b. The FormData object type<br>
-  c. The arrayBuffer type<br>
+  a. The `serializeArray(form)` function<br>
+  b. The `FormData` object type<br>
+  c. The `arrayBuffer` type<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: A `FormData` object is a container for parts in the multipart data that will be sent by an XHR2 POST request. If we create the `FormData` like this: `var data = new FormData(form);` where `form` is the HTML form, then `data` will contain all the input fields' values. We can add files to this object using the `data.append(name, value)` method.
+
+
 
 
 
