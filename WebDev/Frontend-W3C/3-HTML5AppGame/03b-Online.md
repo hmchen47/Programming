@@ -611,9 +611,10 @@ The only difference between these two worked-examples is the `onprogress` listen
   + number of bytes uploaded: `progress.value = e.loaded;`
   + total number of bytes in the file: `progress.max = e.total;`
 
-+ Example: uploading a selected file
++ Example: uploading selected file(s)
+  + using a `FormData` object for uploading one or more files to an HTTP seerver
   + tasks:
-    + callback on selecting a file
+    + callback on selecting file(s)
     + create `FormData` object
     + prepare XHR2 request and send w/ `FormData` object
   + HTML snippet: `<input id="file" type="file" />`

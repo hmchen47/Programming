@@ -118,9 +118,10 @@
   + number of bytes uploaded: `progress.value = e.loaded;`
   + total number of bytes in the file: `progress.max = e.total;`
 
-+ Example: [uploading a selected file](../WebDev/Frontend-W3C/3-HTML5AppGame/03b-Online.md#notes-for-323-uploading-files-and-monitoring-progress)
++ Example: [uploading selected file(s)](../WebDev/Frontend-W3C/3-HTML5AppGame/03b-Online.md#notes-for-323-uploading-files-and-monitoring-progress)
+  + using a `FormData` object for uploading one or more files to an HTTP seerver
   + tasks:
-    + callback on selecting a file
+    + callback on selecting file(s)
     + create `FormData` object
     + prepare XHR2 request and send w/ `FormData` object
 
