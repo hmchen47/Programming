@@ -266,6 +266,180 @@ The above code handles file drops in a drop zone. What are _lines 12-13_ and _16
 
 
 
+### 3.8.4 IndexedDB (15-26)
+
+15. What is IndexedDB?
+
+  IndexedDB is: (3 correct answers.)
+
+  a. a relational database located in the browser<br>
+  b. an indexed table system<br>
+  c. designed for managing concurrent access to data<br>
+  d. using SQL for manipulating data<br>
+  e. a transactional object store in which you can store JavaScript objects<br>
+
+  Ams: <br>
+  Explanation: 
+
+
+16. We're only interested in high-value transactions...
+
+  A transaction is:
+
+  a. a term used when we store money in a database and transfer it from one account to another, for example.<br>
+  b. an atomic set of data-access and data-modification operations against a particular database. Either they all succeed or all fail.<br>
+  c. a name we give to an operation that manipulates data in the database.<br>
+
+  Ams: <br>
+  Explanation: 
+
+
+17. All together now
+
+  What particular object related to IndexedDB manages concurrent access to data?
+
+  a. The transaction<br>
+  b. The request<br>
+
+  Ams: <br>
+  Explanation: 
+
+
+18. Any last requests?
+
+  IndexedDB requests for creating, updating, deleting or searching data are:
+
+  a. Asynchronous<br>
+  b. Synchronous<br>
+
+  Ams: <br>
+  Explanation: 
+
+
+19. Always transactional?
+
+  IndexedDB requests for creating, updating, deleting or searching data:
+
+  a. are completed within a transaction<br>
+  b. can be done without a transaction, for better performance<br>
+
+  Ams: <br>
+  Explanation: 
+
+
+20. Here is my Id
+
+Each IndexedDB database must have...
+
+  a. data in it<br>
+  b. a name and a version<br>
+  c. a name<br>
+
+  Ams: <br>
+  Explanation: 
+
+
+<hr>
+
+__Source code for the next 3 questions (21, 22 and 23)__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> db</span><span class="pun">;</span><span class="pln">&nbsp;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> createDatabase</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">(!</span><span class="pln">window</span><span class="pun">.</span><span class="pln">indexedDB</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;window</span><span class="pun">.</span><span class="pln">alert</span><span class="pun">(</span><span class="str">"Your browser does not support a stable version </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;of IndexedDB"</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> customerData </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"> ssn</span><span class="pun">:</span><span class="pln"> </span><span class="str">"444-44-4444"</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Bill"</span><span class="pun">,</span><span class="pln"> age</span><span class="pun">:</span><span class="pln"> </span><span class="lit">35</span><span class="pun">,</span><span class="pln"> email</span><span class="pun">:</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"bill@company.com"</span><span class="pln"> </span><span class="pun">},</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">{</span><span class="pln"> ssn</span><span class="pun">:</span><span class="pln"> </span><span class="str">"555-55-5555"</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Donna"</span><span class="pun">,</span><span class="pln"> age</span><span class="pun">:</span><span class="pln"> </span><span class="lit">32</span><span class="pun">,</span><span class="pln"> email</span><span class="pun">:</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"donna@home.org"</span><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">];</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;n&nbsp;</span><span class="pun">=</span><span class="pln"> </span><span class="str">"MyCustomers"</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun"></span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> request </span><span class="pun">=</span><span class="pln"> indexedDB</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(n</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; request</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"request.onerror"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">errorCode</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; request</span><span class="pun">.</span><span class="pln">onupgradeneeded </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; db </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> objectStore </span><span class="pun">=</span><span class="pln"> db</span><span class="pun">.</span><span class="pln">createObjectStore</span><span class="pun">(</span><span class="str">"customers"</span><span class="pun">,</span><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span><span class="pln"> keyPath</span><span class="pun">:</span><span class="pln"> </span><span class="str">"ssn"</span><span class="pln"> </span><span class="pun">});</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; objectStore</span><span class="pun">.</span><span class="pln">createIndex</span><span class="pun">(</span><span class="str">"name"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"name"</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> unique</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pln"> </span><span class="pun">});</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; objectStore</span><span class="pun">.</span><span class="pln">createIndex</span><span class="pun">(</span><span class="str">"email"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"email"</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> unique</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pln"> </span><span class="pun">});</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Store values in the newly created objectStore.</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> customerData</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; objectStore</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">customerData</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span><span class="pln"> </span><span class="com">// end of request.onupgradeneeded</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; request</span><span class="pun">.</span><span class="pln">onsuccess </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"request.onsuccess, database opened, now we can add</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; / remove / look for data in it!"</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// The result is the database itself</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;db </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result</span><span class="pun">;</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span><span class="com">// end of function createDatabase</span></li>
+</ol></div>
+
+21. Database name?
+
+What is the name of the database we create/open? Enter exactly the right name.
+
+  Ams: <br>
+  Explanation: 
+
+
+22. Who are they?
+
+  What is the name of the object store? Enter exactly the right name.
+
+  Ams: <br>
+  Explanation: 
+
+
+23. KeyPath?
+
+  What is the name of the keypath (equivalent to primary key)? Enter exactly the right name.
+
+  Ams: <br>
+  Explanation: 
+
+
+24. Index me please!
+
+  What is an index?
+
+  a. A faster means of looking for data using a property of the objects (looking for a person by email will be much faster if email is indexed)<br>
+  b. If a stored object has a property named "index" then we can use it to gain faster access to the object, using a means other than the keypath<br>
+
+  Ams: <br>
+  Explanation: 
+
+
+25. Multiple me?
+
+  If we have multiple objects which hold the same value for some property, eg: favoriteColor="green", can we index that property? (Yes/No)
+
+  Ams: <br>
+  Explanation: 
+
+
+26. Multiple results how to...
+
+When we look for objects and get a collection of results, how can we iterate over this result?
+
+  a. Result is a JavaScript object. We can iterate on the array like we do on any JavaScript array.<br>
+  b. Using a cursor<br>
+  c. Using an index<br>
+
+  Ams: <br>
+  Explanation: 
 
 
 
