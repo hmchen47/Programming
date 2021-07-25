@@ -186,5 +186,107 @@ HTML imports have been replaced by a more standard way involving JavaScript impo
     + HTML imports deprecated but able to be used polyfill
 
 
+### 4.2.3 HTML templates
+
+#### Live coding video: HTML templates
+
+<a href="https://edx-video.net/W3CHTM52/W3CHTM52T415-V002900_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript Download](https://bit.ly/2V5d25z)
+
+HTML templates are an important building-block of Web components. When you use a custom element like `<x-gif....>`, the browser will (before rendering the document) clone and add  some HTML/CSS/JS code to your document, thanks to the HTML template API that is used behind the scenes.
+
+HTML templates define fragments of code (HTML, JavaScript and CSS styles) that can be reused.
+
+These parts of code are _inert_ (i.e., CSS will not be applied, JavaScript will not be executed, images will not be loaded, videos will not be played, etc.) until the template is used.
+
+Here is an example of code that defines a template:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;template</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"mytemplate"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">""</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">"great image"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"comment"</span><span class="tag">&gt;&lt;/div&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/template&gt;</span></li>
+</ol></div>
+
+Note that it's ok to have the src attribute empty here, we will initialize it when the template is activated.
+
+
+#### To use a template, clone its content!
+
+A template has "content" (the lines of code between `<template>` and `</template>`), and to manipulate it we use the DOM API and the content attribute of the DOM node that corresponds to a given template (line 3 of the source code example below).
+
+In order to use a template's content, we clone it using the `document.importNode(templateContent, true)` method, where the node is the template's content and true means "deep copy" the content.
+
+A template is typically used like this:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#mytemplate'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">// Populate the src at runtime.</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">t</span><span class="pun">.</span><span class="pln">content</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'img'</span><span class="pun">).</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">'https://webcomponents.github.io/img/logo.svg'</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="com">// Clone the template, sort of "instantiation"!</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> clone </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">importNode</span><span class="pun">(</span><span class="pln">t</span><span class="pun">.</span><span class="pln">content</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">clone</span><span class="pun">);</span></li>
+</ol></div>
+
+__Explanations:__
+
++ In this example, _line 1_ assigns the DOM node corresponding to the template we defined to variable `t`.
++ `t.content` (_line 3_) is the root of the subtree in the template (in other words, the lines of HTML code inside the `template element`)
++ Note that we set the value of the `src` attribute of the image inside the template at _line 3_, using a CSS selector on the template's content.
++ _Lines 5 and 6_ clone the template's content and add it to the `<body>` of the document.
+
+
+#### Example
+
+Here is an [online example at JSBin](https://jsbin.com/dozele/edit) that uses exactly the code presented:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3eR8M0w')"
+    src    = "https://bit.ly/3zudjxM"
+    alt    = "template use"
+    title  = "template use"
+  />
+</figure>
+
+
+And here is the complete source code...
+
+The HTML part:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;template</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"mytemplate"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">""</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">"great image"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"comment"</span><span class="tag">&gt;</span><span class="pln">hello</span><span class="tag">&lt;/div&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/template&gt;</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">instantiate</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Instantiate the template</span><span class="tag">&lt;/button&gt;&lt;br&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+</ol></div>
+
+The JavaScript part:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> instantiate</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="kwd">var</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#mytemplate'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="com">// Populate the src at runtime.</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; t</span><span class="pun">.</span><span class="pln">content</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'img'</span><span class="pun">).</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="str">'https://webcomponents.github.io/img/logo.svg'</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="kwd">var</span><span class="pln"> clone </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">importNode</span><span class="pun">(</span><span class="pln">t</span><span class="pun">.</span><span class="pln">content</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">clone</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+
+
+
+
 
 
