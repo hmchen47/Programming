@@ -39,7 +39,7 @@ You need to unarchive it in the Web server htdocs directory of your WAMP/MAMP/LA
 
 ### 4.2.2 Introduction
 
-Web components provide a standard way to build your own widgets/components using similar methods to those used by browser developers to construct the `<video>`, `<audio>`, and `<input type="date">` elements, for example.Web components logo
+Web components provide a standard way to build your own widgets/components using similar methods to those used by browser developers to construct the `<video>`, `<audio>`, and `<input type="date">` elements, for example.
 
 Web components enable you to use custom HTML elements in your HTML documents, that render as complex widgets: a better-looking calendar, an input text with vocal recognition, a nice chart, etc.
 
@@ -86,12 +86,12 @@ _...and your document will still be valid_. Looking at the source code or at the
 
 #### Web components availability
 
-There are already hundreds of Web components made by others that you can use. On the webcomponents.org Web site, you will find lots of them. Usually, you need to import the HTML file that defines the components you want to use, and [maybe also a polyfill](https://www.webcomponents.org/polyfills) if you want to use them with browsers that do not yet support Web Components.
+There are already hundreds of Web components made by others that you can use. On the [webcomponents.org](https://www.webcomponents.org/) Web site, you will find lots of them. Usually, you need to import the HTML file that defines the components you want to use, and [maybe also a polyfill](https://www.webcomponents.org/polyfills) if you want to use them with browsers that do not yet support Web Components.
 
 _Example:_ let's go to the the [Web Components Web site](https://www.webcomponents.org/).
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open('https://bit.ly/3iMBUXQ')"
     src    = "https://bit.ly/36ZseUA"
     alt    = "The webcomponents.org home page"
@@ -103,7 +103,7 @@ _Example:_ let's go to the the [Web Components Web site](https://www.webcomponen
 We then search for Web components tagged with the "voice" tag and find input fields with voice recognition, and a text area that could vocalize the text:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open('https://bit.ly/3iMBUXQ')"
     src    = "https://bit.ly/3x3Ij60"
     alt    = "Results for a search on "voice""
@@ -140,6 +140,50 @@ You can check the current support for these APIs here: [Microsoft Edge's Web Com
 + HTML Imports is deprecated, but can be used with polyfills . A new way to import Web Components using JavaScript imports is under consideration. More about that in the "HTML imports" material later on.
 
 HTML imports have been replaced by a more standard way involving JavaScript imports (see [discussions](https://bit.ly/36X9wN8)).
+
+
+#### Notes for 4.2.2 Introduction
+
++ Web components
+  + a standard way to build customer own widget/components
+  + using similar methdos to those used by browser developers to construct the `<video>`, `<audio>` and `<input type="date">` elements
+  + enabling to use custom HTML elements in HTML documents
+  + rendering as complex widgets, such as a better-looking calendar, an input text w/ vocal recognition, a nice chart. etc.
+  + [X-Tag library](https://x-tag.github.io/): a lightweight, power-packed Wen Components library
+  + example: `<x-gif src="https://i.imgur.com/iKXH4E2.gif" ping-pong></x-fig>`
+    + rendering an animated gif
+    + looping forever in ping-pong mode
+    + reversed order of the animation when the last image reached
+    + playing again when the animation foes back to the 1st image
+
++ HTML import
+  + syntax: `<link rel="import" href="dist/x-gif.html>`
+  + importing another HTML document
+  + including its own HTML, CSS, and JavaScript code-base into the page
+  + the code for the animated GIF player located in the import HTML file
+  + GIF player rendered when the browser encounters the custom HTML element `<x-fig>`
+  + imported HTML file 
+    + probably including or defining CSS and JavaScript content
+    + no DOM for the animated GIF player
+    + unable to view the source code (HTML/CSS/JS) used for creating it
+
++ Web components availability
+  + great collection: [webcomponents.org](https://www.webcomponents.org/)
+  + importing the HTML file defining the components used
+  + probably importing a polyfill to use them in browsers w/o Web Components supported
+  + searching for Web components tagged w/ keywords
+
++ W3C standard in 2021
+  + four different APIs
+    + [the HTML Templates specification](https://www.w3.org/TR/html-templates/)
+    + [the Shadow DOM specification](https://www.w3.org/TR/shadow-dom/) and [Using shadow DOM](https://mzl.la/2Vc2mly)
+    + the Custom Elements specification and W3C [Wen Components repository](https://github.com/w3c/webcomponents/)
+    + [the HTML Imports specification](https://w3c.github.io/webcomponents/spec/imports/)
+  + current support for these APIs: [MS Edge's Wen Components](https://bit.ly/372rZIc) and [CanIUse](https://www.caniuse.com/)
+    + [HTML Template support in CanIuse](https://caniuse.com/#feat=template)
+    + []Shadow DOM v1 in CanIuse](https://caniuse.com/shadowdomv1)
+    + [Custom Elements in CanIuse](https://caniuse.com/custom-elementsv1)
+    + HTML imports deprecated but able to be used polyfill
 
 
 
