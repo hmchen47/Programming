@@ -245,8 +245,10 @@ __Explanations:__
 
 Here is an [online example at JSBin](https://jsbin.com/dozele/edit) that uses exactly the code presented:
 
+[Local Demo](src/04b-example01.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick= "window.open('https://bit.ly/3eR8M0w')"
     src    = "https://bit.ly/3zudjxM"
     alt    = "template use"
@@ -326,6 +328,154 @@ The JavaScript part:
   + populate the src at runtime: `t.content.querySelector('img').src = 'https://webcomponents.github.io/img/log.svg'`
   + clone the template: `var clone = document.importNode(t.content, true); document.body.appendChild(clone);`
 
+
+### 4.2.4 Shadow DOM
+
+#### Live Coding Video: Shadow DOM
+
+<a href="https://edx-video.net/W3CHTM52/W3CHTM52T415-V003000_DTH.mp4" target="_BLANK">
+  <img style="margin-left: 2em;" src="https://bit.ly/2JtB40Q" alt="lecture video" width=150/>
+</a><br/><br/>
+
+[Transcript Download](https://bit.ly/3eXRTkY)
+
+The Shadow DOM API provides DOM encapsulation: it serves to hide what is not necessary to see!
+
+<div style="margin: 10px; padding: 10px; border: 1px solid;">If you are new to programming or object-oriented terminology you may find these references a helpful start:<br><ol>
+<li><a href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)" target="_blank">Wikipedia offers a description</a>&nbsp;especially of the "information hiding" aspect</li>
+<li>MDN offers a <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects" target="_blank">tutorial in programming JavaScript objects</a></li>
+</ol></div>
+
+It is not obvious but the Shadow DOM API is already used by browsers' developers for `<audio>` or `<video>` elements, and also for the new `<input type="date">, <input type="color">` elements, etc.
+
+<div  style="margin: 10px; padding: 10px; border: 1px solid;">
+  <p style="color: red;"><strong>The three rules of Shadow DOM:</strong></p>
+  <ol style="item-style-type: decimal;">
+    <li>With Shadow DOM, elements are associated with&nbsp;a new kind of node:&nbsp;<em>a shadow root</em>.</li>
+    <li>An element that has a shadow root associated with it is called&nbsp;<em>a shadow host</em>.</li>
+    <li><i>The content of a shadow host isn’t rendered; the content of the shadow root is rendered instead.</i></li>
+  </ol>
+</div>
+
+NB: Because other browsers do not offer the tool-set, all of the examples we discuss on this subject use Google Chrome or Chromium.
+
+
+#### Example using the Shadow DOM: the `<video>` element
+
+Let's have a look at a simple `<video>` element.
+
+Open this [JSBin example](https://jsbin.com/mojoqaw/edit?html,output) in your browser, and fire up the devtools console (F12 on Windows/Linux, Cmd-Alt-i on Mac OS):
+
+Click on the "Elements" tab in the devtools, or use the magnifying glass and click on the video, to look at the the DOM view of the video element. You will see the exact HTML code that is in this example, but you cannot see the elements that compose the control bar. You don't have access to the play button, etc.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3ryQDd8')"
+    src    = "https://bit.ly/3y6mELT"
+    alt    = "devtools2"
+    title  = "devtools2"
+  />
+</figure>
+
+
+Let's take a look behind the scenes, and see the Shadow DOM associated with the `<video>` element.
+
+First, click on the Settings icon (three vertical dots) and select Settings in the drop down menu: (left diagram)
+
+Then scroll down until you see the "Show user agent shadow DOM" option and check it. Close the panel. (right diagram)
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://bit.ly/3ryQDd8" ismap target="_blank">
+    <img style="margin: 0.1em;" height=200
+      src   = "https://bit.ly/3y6mELT"
+      alt   = "shadow dom in devtools 1"
+      title = "shadow dom in devtools 1"
+    >
+    <img style="margin: 0.1em;" height=200
+      src   = "https://bit.ly/3BKSro7"
+      alt   = "Show shadow dom option in devtoops"
+      title = "Show shadow dom option in devtoops"
+    >
+  </a>
+</div>
+
+
+Now, look for the video element again and within the DOM view you should see something new: (left diagram)
+
+Open this shadow root by clicking on it, and move the mouse pointer over the different elements: (right diagram)
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://bit.ly/3ryQDd8" ismap target="_blank">
+    <img style="margin: 0.1em;" height=150
+      src   = "https://bit.ly/3kYsewf"
+      alt   = "devtools5 4"
+      title = "devtools5 4"
+    >
+    <img style="margin: 0.1em;" height=200
+      src   = "https://bit.ly/3eXZvEa"
+      alt   = "devtools5"
+      title = "devtools5"
+    >
+  </a>
+</div>
+
+
+Chrome developers are already using the shadow DOM to define their own Web Components, such as `<video>` or `<audio>` elements! And they use the Shadow DOM to hide the internal plumbing.
+
+Furthermore, there is a kind of "boundary" around the `<video>` element, so that external CSS cannot interfere. The content of the `<video>` element is sandboxed (protected from external CSS selectors, for example, or cannot be accessed using `document.querySelector()`, nor inspected by default, using a DOM inspector). Find further reading on the [concept of sandboxing](https://en.wikipedia.org/wiki/Sandbox_(computer_security)).
+
+<p style="margin: 10px; padding: 10px; border: 1px solid;">Browser developers have been using Web Components for a while, and now it's available to every Web developer!</p>
+
+#### Another simple example
+
+Let's have a look at a very simple example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;div&gt;</span><span class="pln">Hello this is not rendered!</span><span class="tag">&lt;/div&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // the div is the Shadow Host. Its content will not be rendered</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> host </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'div'</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // Create the shadow ROOT, the root node of the shadow DOM</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // using mode:open makes it available, mode:close would return null</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; const</span><span class="pln"> shadowRoot </span><span class="pun">=</span><span class="pln"> host</span><span class="pun">.</span><span class="pln">attachShadow</span><span class="pun">({</span><span class="pln">mode</span><span class="pun">:</span><span class="pln"> </span><span class="str">'open'</span><span class="pun">});</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // insert something into the shadow DOM, this will be rendered</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; shadowRoot</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">'&lt;h1&gt;Hello Shadow DOM&lt;/h1&gt;'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Could also use appendChild().</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span><span class="pln"> </span></li>
+</ol></div>
+
+_Lines 8 and 11_ show how to associate a shadow root with an existing HTML element. In this example, the `<div>` defined at line 1 is a shadow host, and it is associated with the shadow root which contains three words of text (_line 11_).
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick= "window.open('https://bit.ly/3ryQDd8')"
+    src    = "https://bit.ly/371LDEh"
+    alt    = "Shadow DOM simple example"
+    title  = "Shadow DOM simple example"
+  />
+</figure>
+
+
+This example illustrates the three rules of the shadow DOM. Let's look at them again:
+
+__The three rules of Shadow DOM:__
+
+1. With Shadow DOM, elements are associated with a new kind of node: a shadow root.
+2. An element in the HTML which has a shadow root associated with it is called a shadow host.
+3. The content of a shadow host doesn’t appear; the content of the shadow root is rendered instead.
+
+And indeed, the above example (try [the online version here at JSBin](https://jsbin.com/peyuxuq/edit?html,console,output)) renders the content of the shadow root, not the content of the button. In the online example, try to change the text of the div (_line 1_), and you will notice that nothing changes. Then modify the text at line 11 and observe the result
+
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick= "window.open('https://bit.ly/3ryQDd8')"
+    src    = "https://bit.ly/3rze7yR"
+    alt    = "Shadow DOM: the shadow root is rendered instead of the shadow host content"
+    title  = "Shadow DOM: the shadow root is rendered instead of the shadow host content"
+  />
+</figure>
 
 
 
