@@ -339,6 +339,9 @@ The JavaScript part:
 
 [Transcript Download](https://bit.ly/3eXRTkY)
 
+
+#### Overview of Shadow DOM API
+
 The Shadow DOM API provides DOM encapsulation: it serves to hide what is not necessary to see!
 
 <div style="margin: 10px; padding: 10px; border: 1px solid;">If you are new to programming or object-oriented terminology you may find these references a helpful start:<br><ol>
@@ -366,6 +369,8 @@ Let's have a look at a simple `<video>` element.
 
 Open this [JSBin example](https://jsbin.com/mojoqaw/edit?html,output) in your browser, and fire up the devtools console (F12 on Windows/Linux, Cmd-Alt-i on Mac OS):
 
+[Local Demo](src/04b-example02.html)
+
 Click on the "Elements" tab in the devtools, or use the magnifying glass and click on the video, to look at the the DOM view of the video element. You will see the exact HTML code that is in this example, but you cannot see the elements that compose the control bar. You don't have access to the play button, etc.
 
 <figure style="margin: 0.5em; text-align: center;">
@@ -387,7 +392,7 @@ Then scroll down until you see the "Show user agent shadow DOM" option and check
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://bit.ly/3ryQDd8" ismap target="_blank">
     <img style="margin: 0.1em;" height=200
-      src   = "https://bit.ly/3y6mELT"
+      src   = "https://bit.ly/3x7mdQr"
       alt   = "shadow dom in devtools 1"
       title = "shadow dom in devtools 1"
     >
@@ -467,6 +472,7 @@ __The three rules of Shadow DOM:__
 
 And indeed, the above example (try [the online version here at JSBin](https://jsbin.com/peyuxuq/edit?html,console,output)) renders the content of the shadow root, not the content of the button. In the online example, try to change the text of the div (_line 1_), and you will notice that nothing changes. Then modify the text at line 11 and observe the result
 
+[Local Demo](src/04b-example03.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
@@ -476,6 +482,47 @@ And indeed, the above example (try [the online version here at JSBin](https://js
     title  = "Shadow DOM: the shadow root is rendered instead of the shadow host content"
   />
 </figure>
+
+
+#### Notes for 4.2.4 Shadow DOM
+
++ Shadow DOM API
+  + providing DOM encapsulation
+  + serving to hide what is not necessary to see
+  + already use dby browsers's developers for
+    + `<audio>` or `<video>` elements
+    + `<input type="date">`, `<input type="color">` elements
+    + etc.
+  + rules
+    + __shadow root:__ elements associated w/ a new kind of node w/ Shadow DOM
+    + __shadow host:__ element w/ a shadow root w/ it
+    + the content of a shadow host isn't rendered; the content of the shadow root is rendered instead
+  + ref: object-oriented technology
+    + [information hiding in Wikipedia](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming))
+    + [Introducing JavaScript objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects), MDN Web Docs
+
++ `<video>` element as Shadow DOM
+  + observation in Chrome:
+    + looking at the DOM view of the video element
+    + devtools > Elements or using the magnifying glass and click on the video
+  + unable to see the elements composing the control bar
+  + enabling the Shadow DOM associated w/ the `<video>` element
+    + Setting icon > enable 'Show user agent shadow DOM'
+    + observing video element again
+    + within the DOM view to observe the hidden elements (control components)
+  + boundary around of the `<video>` elements
+    + external CSS unable to interfer
+    + content of the `<video>` element sandboxed
+    + protected from external CSS selectors
+    + unable to be accessed using `document.querySelector()`
+    + nor inspected by default w/ a DOM inspector
+
++ Example: shadow DOM
+  + task: associate a shadow root w/ an existing HTML element
+  + HTML snippet: `<div>Hello this is nor rendered~</div>`
+  + access element: `var host = document.querySelector('div');`
+  + create shadow root: `const shadowRoot = host.attachShadow({mode: 'open'});`
+  + insert sth, into the Shadow DOM: `shadowRoot.innerHTML = '<h1>Hello Shadow DOM</h1>';`
 
 
 
