@@ -1,8 +1,6 @@
 # Module 4: Web components and other HTML5 APIs section
 
-
 ## 4.2 Web Components
-
 
 ### 4.2.1 Web components in video
 
@@ -196,6 +194,9 @@ HTML imports have been replaced by a more standard way involving JavaScript impo
 
 [Transcript Download](https://bit.ly/2V5d25z)
 
+
+#### Overview of HTML Templates
+
 HTML templates are an important building-block of Web components. When you use a custom element like `<x-gif....>`, the browser will (before rendering the document) clone and add  some HTML/CSS/JS code to your document, thanks to the HTML template API that is used behind the scenes.
 
 HTML templates define fragments of code (HTML, JavaScript and CSS styles) that can be reused.
@@ -216,7 +217,7 @@ Note that it's ok to have the src attribute empty here, we will initialize it wh
 
 #### To use a template, clone its content!
 
-A template has "content" (the lines of code between `<template>` and `</template>`), and to manipulate it we use the DOM API and the content attribute of the DOM node that corresponds to a given template (line 3 of the source code example below).
+A template has "content" (the lines of code between `<template>` and `</template>`), and to manipulate it we use the DOM API and the content attribute of the DOM node that corresponds to a given template (_line_ 3 of the source code example below).
 
 In order to use a template's content, we clone it using the `document.importNode(templateContent, true)` method, where the node is the template's content and true means "deep copy" the content.
 
@@ -284,8 +285,46 @@ The JavaScript part:
 </ol></div>
 
 
+#### Notes for 4.2.3 HTML templates
 
++ HTML template
+  + an important building-block of Web Components
+  + browser going to clone and add some HTML/CSS/JS code to the document
+  + defining fragment of code (HTML, CSS style and JS) for reuse
+  + the fragment of code __inert__ until the template is used
+    + CSS not applied
+    + JS not executed
+    + images not loaded
+    + video not played
+    + etc.
+  + content
+    + the lines of code btw `<template>` and `</template>`
+    + using DOM API to manipulate
+    + the content attribute of the DOM node corresponding to a given template
 
++ Example: define a template
+
+  ```html
+  <template id="mytemplate>
+    <img src="xyz.png" alt="an image">
+    <div class="comment"></div>
+  </template>
+  ```
+
++ Cloning contents
+  + using the `document.importNode(templateContent, deepCopy)` method
+  + node: the template's content
+  + `deepCopy`: deep copy the content
+
++ Example: typical template
+  + tasks
+    + assign the DOM node corresponding to the template
+    + `t.content`: the root of the subtree in the template
+    + set image `src` attribute
+    + clone the template's content and add to page
+  + access template: `var t = document.querySelector('#mytemplate');`
+  + populate the src at runtime: `t.content.querySelector('img').src = 'https://webcomponents.github.io/img/log.svg'`
+  + clone the template: `var clone = document.importNode(t.content, true); document.body.appendChild(clone);`
 
 
 
