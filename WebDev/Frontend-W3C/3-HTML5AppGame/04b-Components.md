@@ -561,8 +561,10 @@ The JavaScript part:
 
 [Online example at JSBin](https://jsbin.com/quguwa/edit?html,js,output):
 
+[Local Demo](src/04b-example04.html)
+
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick= "window.open('https://bit.ly/3y6ZcOL')"
     src    = "https://bit.ly/36ZVR8c"
     alt    = "shadow dom 3"
@@ -580,6 +582,8 @@ NB a little bit of French squeezed past our filters. "Instanciate" in French (an
 The CSS inside the template will not affect any other H1 elements on the page. This CSS rule (_lines 2-4_ in the HTML part) will only apply to the template's content, with no side-effects on other elements outside. 
 
 Look at [this example at JSBin](https://jsbin.com/jopabat/edit?html,css,js,output) that uses two H1s in the document: one is associated  with a shadow root (defined in a template with an embedded CSS that selects H1 elements and makes them white on red); whereas the other is located in the body of the document and is not affected by the CSS within the Web Component.
+
+[Local Demo](src/04b-example05.html)
 
 The HTML part:
 
@@ -603,7 +607,7 @@ We added a new H1 at _line 11_.
 And here is the result:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick= "window.open('https://bit.ly/3y6ZcOL')"
     src    = "https://bit.ly/3eWYUm8"
     alt    = "shadow dom 4"
@@ -622,7 +626,7 @@ h1 {
 And you should see something like that:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick= "window.open('https://bit.ly/3y6ZcOL')"
     src    = "https://bit.ly/2VgJT7p"
     alt    = "The global CSS rule will affect the H1 in the body of the document, not the one in the shadow DOM."
@@ -632,5 +636,41 @@ And you should see something like that:
 
 
 In which the "regular" CSS rule changed the color of the H1 located in the body of the document, not the color of the H1 encapsulated in the Shadow DOM.
+
+#### Notes for 4.2.5 Shadow DOM: encapsulate code
+
++ Encapsulating code
+  + mixing the templates and the shadow DOM
+    + possible to hide a template's content by embedding it in the shadow root
+    + encapsulating CSS and/or JS code $\to$ affect only the content of the shadow root
+    + external CSS not able to apply inside the shadow root
+  + the content of a widget:
+    + hidden in a shadow root
+    + protected from external CSS, JS snippets, etc.
+  + CSS inside the template not affected any other elements on the page
+  + CSS rule only applying to the template's content w/ no side-effect on other elements outside
+
++ Example: mixing templates and shadow DOM
+  + tasks
+    + the content shown as the shadow root + the styles applied
+    + styles applied those defined in the template's content
+  + HTML template<a name="h1Template"></a>:
+    + declare template: `<template id="mytemplate">...</template>`
+    + declare CSS style: `<style> h1 { color: white; background: red; } </style>`
+    + heading: `<h1> This is a shadowed H1 </h1>`
+  + JavaScript snippet:
+    + instanciate (instantiate in English) the template: `var t = document.querySelector("#mytemplate"`);`
+    + create a root node under H! title: `var host = document.querySelector("#withShadowDom"); const shadowRoot = host.attachShadow({mode: 'open'});`
+    + insert sth into the shadow DOM, going to be rendered: `shadowRoot.appendChild(document.importNode(t.content, true));`
+
++ Example: differentiating the template and noremal elements
+  + [HTTP template](#h1Template)
+  + HTML snippet:
+    + main body: `<body>...</body>`
+    + title will be replaced: `<h1 id="withShadowDom">This is a text header</h1>`
+    + title will not be replaced: `<h1>Normal header with no shadow DOM associated.<h1>`
+
+
+
 
 
