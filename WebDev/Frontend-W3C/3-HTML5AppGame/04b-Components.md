@@ -525,4 +525,112 @@ And indeed, the above example (try [the online version here at JSBin](https://js
   + insert sth, into the Shadow DOM: `shadowRoot.innerHTML = '<h1>Hello Shadow DOM</h1>';`
 
 
+### 4.2.5 Shadow DOM: encapsulate code
+
+By mixing templates and the shadow DOM, it is possible to hide a template's content by embedding it in the shadow root. In this scenario, it's easy to encapsulate CSS styles and/or JavaScript code so that it will affect only the content of the shadow root. Conversely, external CSS will not apply inside the shadow root.
+
+This is an important feature: the content of a new "widget" that is hidden in a shadow root is protected from external CSS, scripts, etc.
+
+#### An example that mixes templates and shadow DOM
+
+HTML part:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;template</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"mytemplate"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;style&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp; h1 </span><span class="pun">{</span><span class="pln">color</span><span class="pun">:</span><span class="pln">white</span><span class="pun">;</span><span class="pln"> background</span><span class="pun">:</span><span class="pln">red</span><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;/style&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;h1&gt;</span><span class="pln">This is a shadowed H1</span><span class="tag">&lt;/h1&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/template&gt;</span></li>
+</ol></div>
+
+The JavaScript part:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Instanciate the template</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#mytemplate'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">// Create a root node under our H1 title</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> host </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#withShadowDom'</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">const</span><span class="pln"> shadowRoot </span><span class="pun">=</span><span class="pln"> host</span><span class="pun">.</span><span class="pln">attachShadow</span><span class="pun">({</span><span class="pln">mode</span><span class="pun">:</span><span class="pln"> </span><span class="str">'open'</span><span class="pun">});</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="com">// insert something into the shadow DOM, this will be rendered</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">shadowRoot</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">importNode</span><span class="pun">(</span><span class="pln">t</span><span class="pun">.</span><span class="pln">content</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">));</span><span class="pln"> </span></li>
+</ol></div>
+
+[Online example at JSBin](https://jsbin.com/quguwa/edit?html,js,output):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3y6ZcOL')"
+    src    = "https://bit.ly/36ZVR8c"
+    alt    = "shadow dom 3"
+    title  = "shadow dom 3"
+  />
+</figure>
+
+
+Note that once again, the content shown is the shadow root + the styles applied. The styles applied are those defined _in the template's content_ that has been cloned and put inside the shadow root.
+
+NB a little bit of French squeezed past our filters. "Instanciate" in French (and other languages) means "Instantiate" in English. We hope you'll translate, as appropriate; but if you seek definitions or use the word in web-searches, then the English spelling will help!
+
+#### Internal CSS does not apply outside the template/shadow DOM
+
+The CSS inside the template will not affect any other H1 elements on the page. This CSS rule (_lines 2-4_ in the HTML part) will only apply to the template's content, with no side-effects on other elements outside. 
+
+Look at [this example at JSBin](https://jsbin.com/jopabat/edit?html,css,js,output) that uses two H1s in the document: one is associated  with a shadow root (defined in a template with an embedded CSS that selects H1 elements and makes them white on red); whereas the other is located in the body of the document and is not affected by the CSS within the Web Component.
+
+The HTML part:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;template</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"mytemplate"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;style&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp; h1 </span><span class="pun">{</span><span class="pln">color</span><span class="pun">:</span><span class="pln">white</span><span class="pun">;</span><span class="pln"> background</span><span class="pun">:</span><span class="pln">red</span><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;/style&gt;</span><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;h1&gt;</span><span class="pln">This is a shadowed H1</span><span class="tag">&lt;/h1&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/template&gt;</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;h1</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"withShadowDom"</span><span class="tag">&gt;</span><span class="pln">This is a text header</span><span class="tag">&lt;/h1&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="tag">&lt;h1&gt;</span><span class="pln">Normal header with no shadow DOM associated.</span><span class="tag">&lt;/h1&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+</ol></div>
+
+We added a new H1 at _line 11_. 
+
+And here is the result:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3y6ZcOL')"
+    src    = "https://bit.ly/3eWYUm8"
+    alt    = "shadow dom 4"
+    title  = "shadow dom 4"
+  />
+</figure>
+
+The second H1 is not affected by the CSS defined in the template used by the first H1. Try to add this CSS rule to this example :
+
+```css
+h1 {
+  color: green;
+}
+```
+
+And you should see something like that:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3y6ZcOL')"
+    src    = "https://bit.ly/2VgJT7p"
+    alt    = "The global CSS rule will affect the H1 in the body of the document, not the one in the shadow DOM."
+    title  = "The global CSS rule will affect the H1 in the body of the document, not the one in the shadow DOM."
+  />
+</figure>
+
+
+In which the "regular" CSS rule changed the color of the H1 located in the body of the document, not the color of the H1 encapsulated in the Shadow DOM.
+
 
