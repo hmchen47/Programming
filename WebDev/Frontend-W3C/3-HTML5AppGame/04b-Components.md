@@ -671,6 +671,53 @@ In which the "regular" CSS rule changed the color of the H1 located in the body 
     + title will not be replaced: `<h1>Normal header with no shadow DOM associated.<h1>`
 
 
+### 4.2.6 Shadow DOM: insert content
+
+Let's see how to insert content from the host element within the Shadow DOM using slots.
+
+It is possible to define a part of the template into which external HTML content will be "injected". For this, we use the `<slot>...</slot>` element, as shown below:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;template</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"mytemplate"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;h1</span><span class="pln"> </span><span class="atn">part</span><span class="pun">=</span><span class="atv">'heading'</span><span class="tag">&gt;</span><span class="pln">This is a shadowed H1</span><span class="tag">&lt;/h1&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;p</span><span class="pln"> </span><span class="atn">part</span><span class="pun">=</span><span class="atv">"paragraph"</span><span class="tag">&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &nbsp; &nbsp; &lt;slot</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"my-text"</span><span class="tag">&gt;</span><span class="pln">My default text</span><span class="tag">&lt;/slot&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;/p&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/template&gt;</span><span class="pln"> </span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h1</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myWidget"</span><span class="tag">&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;span</span><span class="pln"> </span><span class="atn">slot</span><span class="pun">=</span><span class="atv">"my-text"</span><span class="tag">&gt;</span><span class="pln">Injected content using slot elem</span><span class="tag">&lt;/span&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/h1&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+</ol></div>
+
+__Explanations:__
+
++ Look at _line 4_, this is the "injection point"'!
++ And _line 10_ is the content which will be injected into the template code. So, when the classic template instantiation and its addition to a shadow host node in the page is done, the HTML produced will contain "Injected Content" instead of <slot mname="my-text"></slot>.
+
+See [the complete online example at JSBin](https://jsbin.com/jepucoz/edit?html,js,output):
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/371mqtG')"
+    src    = "https://bit.ly/2UXgH5N"
+    alt    = "Content injection in HTML templates using slot elements"
+    title  = "Content injection in HTML templates using slot elements"
+  />
+</figure>
+
+#### External resources
+
++ An MDN article on "[Using templates and slots](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots)"
++ Medium articles:
+  + "[Add Flexibility to Web Components With Slots](https://bit.ly/3i9PPZc)"
+  + "[Creating Web Components — Templates and Slots](https://bit.ly/2ULQgjv)"
+
+
+
+
 
 
 
