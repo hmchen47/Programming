@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Shadom DOM and HTML template example</title>
+  <!-- polyfill for web components -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.0.2/webcomponents-bundle.js"></script>
+  <link rel="stylesheet" href="css/04b-example05.css">
+  <script src="js/04b-example05.js"></script>
+</head>
+
+<body>
+<template id="mytemplate">
+  <style>
+    h1 {color:white; background:red}
+    </style> 
+  <h1>This is a shadowed H1</h1>
+</template> 
+    
+  Beware, this example that shows CSS encapsulation, will not work if your browser does not support natively the Shadow DOM and HTML templates. The Polyfill does not emulate this feature!<p>
+  The CSS in the template, that says that all H1s should be white on red, does not affect the H1 that is in the body of the document.
+  <h1 id="withShadowDom">This is sdfsdfsfda text header</h1>
+  
+  <h1>Normal header with no shadow DOM associated.</h1>
+</body>
+</html>
+
