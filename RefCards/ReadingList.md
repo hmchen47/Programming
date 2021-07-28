@@ -64,8 +64,10 @@
   + [How to view IndexedDB content in Firefox](https://stackoverflow.com/questions/9846013/how-to-view-indexeddb-content-in-firefox)
 + Web Components
   + [Using templates and slots](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots)
-  + "[Add Flexibility to Web Components With Slots](https://bit.ly/3i9PPZc)"
-  + "[Creating Web Components — Templates and Slots](https://bit.ly/2ULQgjv)"
+  + [Add Flexibility to Web Components With Slots](https://bit.ly/3i9PPZc)
+  + [Creating Web Components — Templates and Slots](https://bit.ly/2ULQgjv)
+  + [Using Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
+  + [Custom Elements v1: Reusable Web Components](https://developers.google.com/web/fundamentals/web-components/customelements)
   
 
 
