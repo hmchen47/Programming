@@ -836,11 +836,13 @@ __Explanations:__
 + _Line 5_: we use this particular selector for safety. It means "select the element only in the HTML of the document that is attached to this JavaScript. Web Components might be included in other HTML pages, as we will see in the next pages of this course. A good practice is to select elements only in the HTML page of the Web Component, not in the document that will import the Web Component.
 + _Line 7_: definition of the Web Component class attached to the custom element `<my-widget>`
 + _Lines 8-17_:  the constructor definition for the class always starts by calling super() so that the correct prototype chain is established. Inside the constructor, we define all the functionality the element will have. Very often this starts by cloning a template in the Shadow DOM.
-+ _Lines 22_: registration of a new custom element named `<my-widget>`. When the browser encounters `<my-widget>` within an HTML document, it will create an instance of the MyWidget class and render the shadow DOM of the Web Component.
++ _Lines 22_: registration of a new custom element named `<my-widget>`. When the browser encounters `<my-widget>` within an HTML document, it will create an instance of the `MyWidget` class and render the shadow DOM of the Web Component.
 
 #### Full example
 
-Now, we can use the newly created element and inject content.  The template used here is the last one we studied in a previous lesson about HTML templates. Check the [full example online at JSBin](https://jsbin.com/cacuvuf/edit?html,js,console,output): 
+Now, we can use the newly created element and inject content.  The template used here is the last one we studied in a previous lesson about HTML templates. Check the [full example online at JSBin](https://jsbin.com/cacuvuf/edit?html,js,console,output):
+
+[Local Demo](src/04b-example07.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -859,6 +861,51 @@ This lesson is only an introduction to custom elements. Here are a few pointers 
 + MDN article: [Using Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
 + From Google devs: [Custom Elements v1: Reusable Web Components](https://developers.google.com/web/fundamentals/web-components/customelements)
 
+
+#### Notes for 4.2.7 HTML Custom elements
+
++ HTML costom elements
+  + another API described as HTML Web components
+  + extending HTML b y defining new elements
+  + telling the browser how to render them
+  + basic syntax: `customElement.define('my--widget', MyWidget);`
+  + constraints
+    + containing a dash in the element's new name, e.g., `<my-calendar>`, `<app-list>`, etc.
+    + `MyWidget`: a JS class object defining the behavior
+    + optional 3rd parameter: a JS object containing an extended property, specifying the built-in element inherited
+  + `document.currentScript` syntax
+    + selecting the "local document", the one corresponding to the page to avoid ambiguity of multiple WebComponents files
+    + `var localDoc = document.currentScript.ownerDocument`: select the document only in the HTML of document attached to the JavaScript
+    + Web components probably included in other HTMLpages
+    + good practice: selecting elements only in the HTML page of the Web Component, not in the document that will import the Web Component
+  + registration of a new custom element named `<my-widget>`
+    + syntax: `customElements.define('my-widget', MyWidget);`
+    + when the browser encounters `<my-widget>` within an HTML document, it will create an instance of the `MyWidget` class and render the shadow DOM of the Web Component
+
++ Example: custom elements
+  + HTML snippet in body part:
+    + custom element: `<my-widget>...</my-widget>`
+    + title slot: `<span slot='my-text'>Title injected</span>`
+    + paragraph slot: `<span slot="my-paragraph'>Paragraph injected</span>`
+  + HTML template: `<template id="mytemplate">...</template>`
+    + CSS style: `<style>h1 { color: white; background: red; }</style>`
+    + H1 element: `<h1> <slot name="my-title">My default text</slot> </h1>`
+    + paragraph element: `<p> <slot name="my-paragraph">My default text</slot> </p>`
+  + JavaScript snippet
+    + get local document: `var local Doc = document.currentScript.ownerDocument;`
+    + define the Web Component class attached tot he custom element `<my-widget>`: `class MyWidget extends HTMLElement {...}`
+    + constructor: `constructor() {...}`
+      + mandator statement to establish the correct prototype chain: `super();`
+      + declare shadow root: `const shadowRoot = this.attachShadow({mode: 'open'});`
+      + instantiate template: `let t = localDoc.querySelector("#mytemplate");`
+      + add to the shadow DOM: `shadowRoot.appendChild(document.importNode(t.content, true));`
+    + exception handler: `try {...} catch(error) { console.log(error); }`
+      + define the custom element to the browser: `customElements.define('my-widget', MyWidget);`
+      + log msg: `console.log('Element defined');`
+
++ Resource:
+  + [Using Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
+  + [Custom Elements v1: Reusable Web Components](https://developers.google.com/web/fundamentals/web-components/customelements)
 
 
 
