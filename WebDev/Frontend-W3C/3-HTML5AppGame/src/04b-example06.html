@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Shadow DOM content injection example</title>
+  <!-- polyfill for web components -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.20/webcomponents.js"></script>
+  <link rel="stylesheet" href="css/04b-example06.css">
+  <script src="js/04b-example06.js"></script>
+</head>
+<template id="mytemplate">
+  <h1 >This is a shadowed H1</h1>
+  <p>
+    <slot name="my-text">My default text</slot>
+  </p>
+</template> 
+
+<body>
+  <h1 id="myWidget">
+    <span slot="my-text">Injected content using slot elem</span>
+  </h1>
+</body>
+</html>
+
