@@ -910,7 +910,7 @@ This lesson is only an introduction to custom elements. Here are a few pointers 
 
 ### 4.2.8 HTML Imports
 
-__***** Important note ****__
+__\*\*\*\*\* Important note \*\*\*\*\*__
 
 As of 2020, HTML imports have been dropped, and there is no clear replacing solution. While you can use polyfills to use existing WebComponents that use them (like the ones from section 4.2.1 - the component that displays animated GIFs, or the voice component), we propose some ways to import WebComponents using JavaScript in the next part of this chapter.
 
@@ -926,8 +926,8 @@ So... is there a replacement for HTML imports today? The answer is clearly NO. B
 
 Here is where we are:
 
-+ __RECOMMENDED:__ There is a polyfill for HTML imports that works very well. Just include it and your code that use HTML imports will work out of the box on recent browsers (see ref.). We use it on our own applications and it works 100% with cascading imports, imports created dynamically, etc. Very solid.
-+ __RECOMMENDED:__ The above polyfill is also integrated in the "Web Component polyfill" that will also emulate other Web Components features (see [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)). It is  the one used in the course's examples. This "global" polyfill has been made to make apps that use Web Components cross-browser compatible. If you have old Web Components code that use the version 0 of the APIs, you can use its v0 branch and your old code will work on modern browsers . There are also other alternative polyfills for each feature, like AshleyScirra’s  but we haven't tried these...
++ __RECOMMENDED:__ There is a polyfill for HTML imports that works very well. Just include it and your code that use HTML imports will work out of the box on recent browsers (see [ref.](https://github.com/webcomponents/html-imports#dynamic-imports)). We use it on our own applications and it works 100% with cascading imports, imports created dynamically, etc. Very solid.
++ __RECOMMENDED:__ The above polyfill is also integrated in the "Web Component polyfill" that will also emulate other Web Components features (see [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)). It is  the one used in the course's examples. This "global" polyfill has been made to make apps that use Web Components cross-browser compatible. If you have old Web Components code that use the version 0 of the APIs, you can use its v0 branch and your old code will work on modern browsers . There are also other alternative polyfills for each feature, like [AshleyScirra’s](https://github.com/AshleyScirra/html-imports-polyfill)  but we haven't tried these...
 + __WORKS BUT REQUIRES EXTRA WORK:__ You can bundle the code of your Web Components into a single JavaScript file, using bundlers like [webpack](https://webpack.js.org/) or [parcel](https://parceljs.org/), then use JavaScript modules (`<script type="module" src=...>`).  This is what the Polymer 3 Web Component framework dev team did when they had to remove HTML imports.
 + __MAYBE A FUTURE STANDARD WAY?__ There is a lot of debate in W3C about future "HTML modules" that would do something close to HTML imports did, but while this topic has been under discussion since 2017, it's still not even in a specification. See [the discussion](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/HTML-Imports-and-ES-Modules.md).
 
@@ -961,6 +961,51 @@ You could create a `my-widget.html` file, add the HTML template and the JavaScri
 #### External resource
 
 + MDN's documentation: [HTML Imports](https://developer.mozilla.org/en-US/docs/Web/Web_Components/HTML_Imports)
+
+
+#### Notes for 4.2.8 HTML Imports
+
++ Replacement of HTML imports
+  + dropped since 202 and no clear replacement
+  + implemented only by Google Chrome but obsoleted since Chrome 73
+  + many web sites still using them, including YouTube
+  + possible replacement solutions:
+    + a polyfill for HTML imports (RECOMMENDED)
+      + including polyfill into the code $\to$ working out of the box on recent browser
+      + using it on applications
+      + working 100% w/ cascading imports, imports created dynamically, etc.
+    + integrating polyfill in the "Web Component polyfill" (RECOMMENDED)
+      + emulating other Web Components features
+      + the "global" polyfill made to make apps using Web Components cross-browser compatible
+      + old Web Components code using the version 0 of the APIs $\to$ using its v0 branch and old code working on modern browsers
+    + bundling the code of Web Components into a single JS file (WORKING BUT EXTRA WORK REQUIRD)
+      + using bundler, like [webpack](https://webpack.js.org/) or [parcel](https://parceljs.org/)
+      + besides, using JS modules, `<script type="module" src=...>`
+      + a.k.a. Polymer 3 Web Component framework
+    + HTML modules: under discussion since 2017
+
++ HTML imports
+  + simplest API from Web components
+  + syntax: `<link rel="import" href="your_html_file">`
+  + importing all the html/css/js code to define a Web component
+    + similar to including CSS in the page
+    + package components into an HTML page and import it
+
++ Example: html imports
+  + tasks:
+    + the importation of the HTML, CSS, and JS code odf new components
+    + `myComponents.html` probably containing
+      + HTML+JS+CSS code defining templates
+      + attachment to a shadow host, CSS
+      + registering oof new custom HTML elements
+  + HTML head part: `<link rel="import" href="components/myComponents.html">`
+  + HTML body part: 
+    + add widget: `<my-widget>...</my-widget>`
+    + title slot: `<span slot="my-title">Title injected</span>`
+    + paragraph slot: `<span slot="my-paragraph">Paragraph injected</span>`
+
+
+
 
 
 
