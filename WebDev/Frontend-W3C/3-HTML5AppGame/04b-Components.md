@@ -741,6 +741,124 @@ See [the complete online example at JSBin](https://jsbin.com/jepucoz/edit?html,j
     + "[Creating Web Components — Templates and Slots](https://bit.ly/2ULQgjv)"
 
 
+### 4.2.7 HTML Custom elements
+
+#### Custom elements
+
+HTML Custom Elements is another API described as HTML Web components. It allows you to extend HTML by defining new elements, and to tell the browser how to render them.
+
+Basic usage:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">customElements</span><span class="pun">.</span><span class="pln">define</span><span class="pun">(</span><span class="str">'my-widget'</span><span class="pun">,</span><span class="pln"> </span><span class="typ">MyWidget</span><span class="pun">);</span></li>
+</ol></div>
+
+This is done using JavaScript and there are some constraints:
+
+1. The element's new name should have a dash (ex: `<my-calendar>`, `<app-list>`, etc.)
+2. The second parameter is a JavaScript class object that defines the behavior of the element. See further examples.
+
+Optionally, a third parameter can be used: a JavaScript object containing an extends property, which specifies the built-in element your element inherits from if any:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">customElements</span><span class="pun">.</span><span class="pln">define</span><span class="pun">(</span><span class="str">'my-widget'</span><span class="pun">,</span><span class="pln"> </span><span class="typ">MyWidget</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">extends</span><span class="pun">:</span><span class="pln"> </span><span class="str">'p'</span><span class="pln"> </span><span class="pun">});</span></li>
+</ol></div>
+
+"Inheritance" is another aspect of object-oriented programming. If it is new to you, please see earlier reference material.
+
+Here is an example which defines a new element named <my-widget>, that will render as an instance of a template with a shadow DOM:
+
+HTML code for the use of the custom element:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;body&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;my-widget&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;span</span><span class="pln"> </span><span class="atn">slot</span><span class="pun">=</span><span class="atv">"my-title"</span><span class="tag">&gt;</span><span class="pln">Title injected</span><span class="tag">&lt;/span&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;&lt;span</span><span class="pln"> </span><span class="atn">slot</span><span class="pun">=</span><span class="atv">"my-paragraph"</span><span class="tag">&gt;</span><span class="pln">Paragraph injected</span><span class="tag">&lt;/span&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/my-widget&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+</ol></div>
+
+Look at lines 2 and 5...
+
+HTML code for the declaration of the template (the same as in one of the previous examples):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;template</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"mytemplate"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;style&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; h1 </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; color</span><span class="pun">:</span><span class="pln">white</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; background</span><span class="pun">:</span><span class="pln">red</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;/style&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;h1&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;slot</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"my-title"</span><span class="tag">&gt;</span><span class="pln">My default text</span><span class="tag">&lt;/slot&gt;</span><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;/h1&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;p&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;slot</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"my-paragraph"</span><span class="tag">&gt;</span><span class="pln">My default text&lt;/slot</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;/p&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/template&gt;</span></li>
+</ol></div>
+
+JavaScript code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// TIP : use "document.currentScript" here to select</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="com">// the "local document", the one corresponding to this page.</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// this may avoid problems when multiple WebComponents files</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="com">// are inserted in the same document. See below...</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> localDoc </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">currentScript</span><span class="pun">.</span><span class="pln">ownerDocument</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">class</span><span class="pln"> </span><span class="typ">MyWidget</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">HTMLElement</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; constructor</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; super</span><span class="pun">(); // mandatory</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; const</span><span class="pln"> shadowRoot </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">attachShadow</span><span class="pun">({</span><span class="pln">mode</span><span class="pun">:</span><span class="pln"> </span><span class="str">'open'</span><span class="pun">});</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // instanciate template</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; let</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> localDoc</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#mytemplate'</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // add it to the shadow DOM</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; shadowRoot</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">importNode</span><span class="pun">(</span><span class="pln">t</span><span class="pun">.</span><span class="pln">content</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">));</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; }</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // Define the custom element to the browser</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>customElements</strong></span><strong><span class="pun">.</span><span class="pln">define</span><span class="pun">(</span><span class="str">'my-widget'</span><span class="pun">,</span><span class="pln"> </span><span class="typ">MyWidget</span><span class="pun">);</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Element defined"</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="pln">error</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">error</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+__Explanations:__
+
++ _Line 5_: we use this particular selector for safety. It means "select the element only in the HTML of the document that is attached to this JavaScript. Web Components might be included in other HTML pages, as we will see in the next pages of this course. A good practice is to select elements only in the HTML page of the Web Component, not in the document that will import the Web Component.
++ _Line 7_: definition of the Web Component class attached to the custom element `<my-widget>`
++ _Lines 8-17_:  the constructor definition for the class always starts by calling super() so that the correct prototype chain is established. Inside the constructor, we define all the functionality the element will have. Very often this starts by cloning a template in the Shadow DOM.
++ _Lines 22_: registration of a new custom element named `<my-widget>`. When the browser encounters `<my-widget>` within an HTML document, it will create an instance of the MyWidget class and render the shadow DOM of the Web Component.
+
+#### Full example
+
+Now, we can use the newly created element and inject content.  The template used here is the last one we studied in a previous lesson about HTML templates. Check the [full example online at JSBin](https://jsbin.com/cacuvuf/edit?html,js,console,output): 
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3i8fCRx')"
+    src    = "https://bit.ly/37bLjml"
+    alt    = "Custom element full example at JsBin"
+    title  = "Custom element full example at JsBin"
+  />
+</figure>
+
+
+#### External resources
+
+This lesson is only an introduction to custom elements. Here are a few pointers for learners who would like to see how a custom element can inherit from another custom element.
+
++ MDN article: [Using Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
++ From Google devs: [Custom Elements v1: Reusable Web Components](https://developers.google.com/web/fundamentals/web-components/customelements)
+
 
 
 
