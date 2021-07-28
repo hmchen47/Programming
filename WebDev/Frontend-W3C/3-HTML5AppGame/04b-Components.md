@@ -908,5 +908,59 @@ This lesson is only an introduction to custom elements. Here are a few pointers 
   + [Custom Elements v1: Reusable Web Components](https://developers.google.com/web/fundamentals/web-components/customelements)
 
 
+### 4.2.8 HTML Imports
+
+__***** Important note ****__
+
+As of 2020, HTML imports have been dropped, and there is no clear replacing solution. While you can use polyfills to use existing WebComponents that use them (like the ones from section 4.2.1 - the component that displays animated GIFs, or the voice component), we propose some ways to import WebComponents using JavaScript in the next part of this chapter.
+
+HTML imports have been implemented so far only by Google Chrome. But Google announced that this feature is obsolete since Chrome 73. Although it may still work in some browsers, its use is discouraged since it could be removed at any time. Try to avoid using it!
+
+The reason other browser vendors did not agree to implement them is the merge of ES6 imports and modules. Mozilla, for example, do not want to re-implement something that existed for its main features, covered by ES6 modules (read this [discussion about HTML imports](https://hacks.mozilla.org/2015/06/the-state-of-web-components/)).
+
+When we created this course, Web Components were a hot topic and imports were the only way to reuse external components. Many Web sites still use them, such as YouTube. And Google itself is struggling to replace them, as there is no easy way today to do something 100% equivalent to what HTML imports does today.
+
+There is also an interesting [discussion on the Chromium-dev mailing list](https://groups.google.com/a/chromium.org/forum/#!msg/blink-dev/h-JwMiPUnuU/sl79aLoLBQAJ) about how HTML imports should be replaced, and about what you can do today to keep your applications working (you will note that I'm part of this discussion too ;-) ).
+
+So... is there a replacement for HTML imports today? The answer is clearly NO. But __there are ways to still use HTML imports__ or to use a more complicated "JavaScript bundler". Also, the people at W3C working on Web Components talk a lot about a future "HTML module" that would do something similar to HTML imports, but this is not even in a specification yet...
+
+Here is where we are:
+
++ __RECOMMENDED:__ There is a polyfill for HTML imports that works very well. Just include it and your code that use HTML imports will work out of the box on recent browsers (see ref.). We use it on our own applications and it works 100% with cascading imports, imports created dynamically, etc. Very solid.
++ __RECOMMENDED:__ The above polyfill is also integrated in the "Web Component polyfill" that will also emulate other Web Components features (see [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)). It is  the one used in the course's examples. This "global" polyfill has been made to make apps that use Web Components cross-browser compatible. If you have old Web Components code that use the version 0 of the APIs, you can use its v0 branch and your old code will work on modern browsers . There are also other alternative polyfills for each feature, like AshleyScirra’s  but we haven't tried these...
++ __WORKS BUT REQUIRES EXTRA WORK:__ You can bundle the code of your Web Components into a single JavaScript file, using bundlers like [webpack](https://webpack.js.org/) or [parcel](https://parceljs.org/), then use JavaScript modules (`<script type="module" src=...>`).  This is what the Polymer 3 Web Component framework dev team did when they had to remove HTML imports.
++ __MAYBE A FUTURE STANDARD WAY?__ There is a lot of debate in W3C about future "HTML modules" that would do something close to HTML imports did, but while this topic has been under discussion since 2017, it's still not even in a specification. See [the discussion](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/HTML-Imports-and-ES-Modules.md).
+
+__If you want to know what HTML Imports were about...__
+
+HTML Imports is the simplest API from Web components :-)
+
+Add a `<link rel="import" href="your_html_file">` and all the html/css/js code, that defines a Web component you plan to use, will be imported:
+
++ It is similar to including CSS in your page!
++ Package your components into an HTML page (can include CSS, JS, etc) and import it!
+
+It is as simple as:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;head&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;<strong> &lt;link</strong></span><strong><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"import"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"components/myComponents.html"</span><span class="tag">&gt;</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;my-widget&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;span</span><span class="pln"> </span><span class="atn">slot</span><span class="pun">=</span><span class="atv">"my-title"</span><span class="tag">&gt;</span><span class="pln">Title injected</span><span class="tag">&lt;/span&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;span</span><span class="pln"> </span><span class="atn">slot</span><span class="pun">=</span><span class="atv">"my-paragraph"</span><span class="tag">&gt;</span><span class="pln">Paragraph injected</span><span class="tag">&lt;/span&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;/my-widget&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+</ol></div>
+
+Look at _line 2_: this is where the importation of the HTML, CSS and JS code of new "components" is done. The HTML+JS+CSS code that defines templates, attachment to a shadow host, CSS, and registering of new custom HTML elements is located in `myComponents.html`.
+
+You could create a `my-widget.html` file, add the HTML template and the JavaScript code to that file, and import `my-widget.html` into your document and use `<my-widget>...</my-widget>` from the last lesson directly!
+
+#### External resource
+
++ MDN's documentation: [HTML Imports](https://developer.mozilla.org/en-US/docs/Web/Web_Components/HTML_Imports)
+
 
 
