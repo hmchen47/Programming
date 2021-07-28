@@ -62,6 +62,11 @@
   + [Storing images and files in IndexedDB](http://robertnyman.com/2012/03/06/storing-images-and-files-in-indexeddb/)
   + [Working with IndexedDB](https://developers.google.com/web/ilt/pwa/working-with-indexeddb)
   + [How to view IndexedDB content in Firefox](https://stackoverflow.com/questions/9846013/how-to-view-indexeddb-content-in-firefox)
++ Web Components
+  + [Using templates and slots](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots)
+  + "[Add Flexibility to Web Components With Slots](https://bit.ly/3i9PPZc)"
+  + "[Creating Web Components — Templates and Slots](https://bit.ly/2ULQgjv)"
+  
 
 
 ## Python
