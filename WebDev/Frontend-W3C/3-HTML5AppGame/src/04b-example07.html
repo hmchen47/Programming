@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Custom element example</title>
+  <!-- polyfill for web components -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.0.2/webcomponents-bundle.js"></script>
+  </head>
+<body>
+  
+<template id="mytemplate">
+  <style>
+    h1 {
+      color:white;
+      background:red;
+    }
+    </style>
+    <h1>
+       <slot name="my-title">My default text</slot>    
+    </h1>
+    <p>
+       <slot name="my-paragraph">My default text</slot
+    </p>
+</template>
+
+  <my-widget>
+       <span slot="my-title">Title injected</span>
+       <span slot="my-paragraph">Paragraph injected</span>
+  </my-widget>
+</body>
+
