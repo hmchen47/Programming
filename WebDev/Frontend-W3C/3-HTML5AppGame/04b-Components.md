@@ -699,6 +699,8 @@ __Explanations:__
 
 See [the complete online example at JSBin](https://jsbin.com/jepucoz/edit?html,js,output):
 
+[Local Demo](src/04b-example06.html)
+
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
     onclick= "window.open('https://bit.ly/371mqtG')"
@@ -715,6 +717,28 @@ See [the complete online example at JSBin](https://jsbin.com/jepucoz/edit?html,j
   + "[Add Flexibility to Web Components With Slots](https://bit.ly/3i9PPZc)"
   + "[Creating Web Components — Templates and Slots](https://bit.ly/2ULQgjv)"
 
+
+#### Notes for 4.2.6 Shadow DOM: insert content
+
++ Inserting content
+  + injection point defined in header part: `<slot name="my-text>...</slot>`
+  + injected content defined in body part: `<span slot="my-text">...</span>`
+  + when the classic template instantiation and its addition to a shadow host node in the page is done, the HTML produced will "Injected Content" instead of
+
++ Example: inserting content
+  + template snippet: `<template id="mytemplate">...</template>`
+    + H1 title: `<h1 part="heading">This is a shadow H1</h1>`
+    + paragraph contents: `<p par="paragraph">...</p>`
+    + injection point: `<slot name="my-text">My default text</slot>`
+  + body contents: `<body>...</body>`
+    + h1 title: `<h1 id="myWidget">...<h1>`
+    + span element injected into the template code: `<span slot="my-text">Injected content using slot elem</span>`
+
++ Resources:
+  + [Using templates and slots](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots)
+  + Medium articles:
+    + "[Add Flexibility to Web Components With Slots](https://bit.ly/3i9PPZc)"
+    + "[Creating Web Components — Templates and Slots](https://bit.ly/2ULQgjv)"
 
 
 
