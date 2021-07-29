@@ -1128,4 +1128,39 @@ __Explanations:__
     ```
 
 
+### 4.2.10 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please post your comments/observations/questions and share your creations.
+
+#### Suggested topics of discussion:
+
++ If you've followed the course, then you've visited the [webcomponents.org](https://www.webcomponents.org/) Web site and browsed some Web components galleries. Did you find any super cool components? Did you try them? Please share your findings in the forum!
++ What Web component would you like to use and could not find out of the box?
+
+
+#### Optional projects:
+
++ Try-out [these WebAudio control widgets that look incredibly good](https://github.com/g200kg/webaudio-controls) (I used them with my Guitar Amp Simulator). And use them in your audio player or other applications that would look cool with rotating knobs, switches, LEDs, etc.
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/2TEEyXa" ismap target="_blank">
+      <img style="margin: 0.1em;" height=150
+        src   = "https://bit.ly/377gOhA"
+        alt   = "web audio controls"
+        title = "web audio controls"
+      >
+      <img style="margin: 0.1em;" height=150
+        src   = "https://bit.ly/3l60vcW"
+        alt   = "guitar amp sim with web components"
+        title = "guitar amp sim with web components"
+      >
+    </a>
+  </div>
+
++ Try making your own Web component! For example: an enhanced audio player that uses Web Audio. 
++ How about building a`<gamepad-tester>` component which will display progress bars and the states of the different buttons/joysticks - reuse the example from the course! I couldn't find any Web component like this! Another challenge ;)
++ Try writing a small tutorial about reusing and customizing a super cool Web component you have found!
+
+
+
 
