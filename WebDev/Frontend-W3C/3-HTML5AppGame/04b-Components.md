@@ -978,7 +978,7 @@ You could create a `my-widget.html` file, add the HTML template and the JavaScri
       + emulating other Web Components features
       + the "global" polyfill made to make apps using Web Components cross-browser compatible
       + old Web Components code using the version 0 of the APIs $\to$ using its v0 branch and old code working on modern browsers
-    + bundling the code of Web Components into a single JS file (WORKING BUT EXTRA WORK REQUIRD)
+    + bundling the code of Web Components into a single JS file (WORKING BUT EXTRA WORK REQUIRED)
       + using bundler, like [webpack](https://webpack.js.org/) or [parcel](https://parceljs.org/)
       + besides, using JS modules, `<script type="module" src=...>`
       + a.k.a. Polymer 3 Web Component framework
@@ -1009,7 +1009,7 @@ You could create a `my-widget.html` file, add the HTML template and the JavaScri
 
 In the previous section, we said that the proposed way to import Web Components, the so-called HTML Imports API, has been removed from the standard. So.... how can you define a complete Web Component (HTML, CSS, JavaScript) and use it in a HTML page or within the HTML of another component?
 
-Well, if you want to rely only on the Web languages (HTML/CSS/JS), you will have to embed the HTML template part of your component, the CSS part for the styling of your component, in the JavaScript part of your component. Then, you will be able to include the JavaScript that defines your Web Component, as a regular JavaScript file, using <script src="yourComponent.js"></script> or using the new EcmaScript import statement and import the file as a ES Module.
+Well, if you want to rely only on the Web languages (HTML/CSS/JS), you will have to embed the HTML template part of your component, the CSS part for the styling of your component, in the JavaScript part of your component. Then, you will be able to include the JavaScript that defines your Web Component, as a regular JavaScript file, using `<script src="yourComponent.js"></script>` or using the new EcmaScript import statement and import the file as a ES Module.
 
 Here is an example :
 
@@ -1037,36 +1037,38 @@ __Explanations:__
 
 And here is the code of the Web Component (in `./mycomponent/index.js`):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">customElements</span><span class="pun">.</span><span class="pln">define</span><span class="pun">(</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">"my-component"</span><span class="pun">,</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">HTMLElement</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; constructor</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; super</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">root </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">attachShadow</span><span class="pun">({</span><span class="pln"> mode</span><span class="pun">:</span><span class="pln"> </span><span class="str"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax_SVG" id="MathJax-Element-1-Frame" tabindex="0" role="application" aria-label="o p e n" haslabel="true" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" class="mjx-svg-math" data-semantic-complexity="14" width="4.775ex" height="1.847ex" viewBox="0 -510.8 2056 795.4" role="img" focusable="false" style="vertical-align: -0.661ex;"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><g class="mjx-svg-mrow"><g class="mjx-svg-mstyle" data-semantic-type="infixop" data-semantic-role="implicit" data-semantic-id="7" data-semantic-children="0,1,2,3" data-semantic-content="4,5,6" data-semantic-complexity="14"><g class="mjx-svg-mrow"><g class="mjx-svg-mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-id="0" data-semantic-parent="7" data-semantic-complexity="1"><use xlink:href="https://courses.edx.org/xblock/block-v1:W3Cx+HTML5.2x+2T2020a+type@vertical+block@0ca800ab73d74d1ab94af82a6336cf73?show_title=0&amp;show_bookmark_button=0&amp;recheck_access=1&amp;view=student_view#MJMATHI-6F"></use></g><g class="mjx-svg-mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="4" data-semantic-parent="7" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-complexity="1"></g><g class="mjx-svg-mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-id="1" data-semantic-parent="7" data-semantic-complexity="1" transform="translate(485,0)"><use xlink:href="https://courses.edx.org/xblock/block-v1:W3Cx+HTML5.2x+2T2020a+type@vertical+block@0ca800ab73d74d1ab94af82a6336cf73?show_title=0&amp;show_bookmark_button=0&amp;recheck_access=1&amp;view=student_view#MJMATHI-70"></use></g><g class="mjx-svg-mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="5" data-semantic-parent="7" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-complexity="1"></g><g class="mjx-svg-mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-id="2" data-semantic-parent="7" data-semantic-complexity="1" transform="translate(989,0)"><use xlink:href="https://courses.edx.org/xblock/block-v1:W3Cx+HTML5.2x+2T2020a+type@vertical+block@0ca800ab73d74d1ab94af82a6336cf73?show_title=0&amp;show_bookmark_button=0&amp;recheck_access=1&amp;view=student_view#MJMATHI-65"></use></g><g class="mjx-svg-mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="6" data-semantic-parent="7" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-complexity="1"></g><g class="mjx-svg-mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-id="3" data-semantic-parent="7" data-semantic-complexity="1" transform="translate(1455,0)"><use xlink:href="https://courses.edx.org/xblock/block-v1:W3Cx+HTML5.2x+2T2020a+type@vertical+block@0ca800ab73d74d1ab94af82a6336cf73?show_title=0&amp;show_bookmark_button=0&amp;recheck_access=1&amp;view=student_view#MJMATHI-6E"></use></g></g></g></g></g></svg></span><script type="math/asciimath" id="MathJax-Element-1">open</script></span><span class="pln"> </span><span class="pun">});</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">getAttribute</span><span class="pun">(</span><span class="str"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax_SVG" id="MathJax-Element-2-Frame" tabindex="0" role="application" aria-label="n a m e" haslabel="true" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" class="mjx-svg-math" data-semantic-complexity="14" width="5.748ex" height="1.453ex" viewBox="0 -510.8 2475 625.8" role="img" focusable="false" style="vertical-align: -0.267ex;"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><g class="mjx-svg-mrow"><g class="mjx-svg-mstyle" data-semantic-type="infixop" data-semantic-role="implicit" data-semantic-id="7" data-semantic-children="0,1,2,3" data-semantic-content="4,5,6" data-semantic-complexity="14"><g class="mjx-svg-mrow"><g class="mjx-svg-mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-id="0" data-semantic-parent="7" data-semantic-complexity="1"><use xlink:href="https://courses.edx.org/xblock/block-v1:W3Cx+HTML5.2x+2T2020a+type@vertical+block@0ca800ab73d74d1ab94af82a6336cf73?show_title=0&amp;show_bookmark_button=0&amp;recheck_access=1&amp;view=student_view#MJMATHI-6E"></use></g><g class="mjx-svg-mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="4" data-semantic-parent="7" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-complexity="1"></g><g class="mjx-svg-mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-id="1" data-semantic-parent="7" data-semantic-complexity="1" transform="translate(600,0)"><use xlink:href="https://courses.edx.org/xblock/block-v1:W3Cx+HTML5.2x+2T2020a+type@vertical+block@0ca800ab73d74d1ab94af82a6336cf73?show_title=0&amp;show_bookmark_button=0&amp;recheck_access=1&amp;view=student_view#MJMATHI-61"></use></g><g class="mjx-svg-mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="5" data-semantic-parent="7" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-complexity="1"></g><g class="mjx-svg-mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-id="2" data-semantic-parent="7" data-semantic-complexity="1" transform="translate(1130,0)"><use xlink:href="https://courses.edx.org/xblock/block-v1:W3Cx+HTML5.2x+2T2020a+type@vertical+block@0ca800ab73d74d1ab94af82a6336cf73?show_title=0&amp;show_bookmark_button=0&amp;recheck_access=1&amp;view=student_view#MJMATHI-6D"></use></g><g class="mjx-svg-mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="6" data-semantic-parent="7" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-complexity="1"></g><g class="mjx-svg-mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-id="3" data-semantic-parent="7" data-semantic-complexity="1" transform="translate(2008,0)"><use xlink:href="https://courses.edx.org/xblock/block-v1:W3Cx+HTML5.2x+2T2020a+type@vertical+block@0ca800ab73d74d1ab94af82a6336cf73?show_title=0&amp;show_bookmark_button=0&amp;recheck_access=1&amp;view=student_view#MJMATHI-65"></use></g></g></g></g></g></svg></span><script type="math/asciimath" id="MathJax-Element-2">name</script></span><span class="pun">); // get the "name" attribute value</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; connectedCallback</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // called when the component is added to the DOM of its host</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // css+html</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">css </span><span class="pun">=</span><span class="pln"> </span><span class="str">`</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; #div_menu {</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border : 1px solid black;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; h1 {</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color: red;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; `</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">html </span><span class="pun">=</span><span class="pln"> </span><span class="str">`</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id='div_menu'&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h1&gt;${this.name}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; `</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">root</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;style&gt;${this.css}&lt;/style&gt;&lt;div id='wrapper'&gt;${this.html}&lt;/div&gt;"</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">}</span>);</li>
-</ol></div>
+```js
+customElements.define(
+    "my-component",
+    class extends HTMLElement {
+        constructor() {
+            super();
+            this.root = this.attachShadow({ mode: 'open'});
+            this.name = this.getAttribute(name); // get the "name" attribute value
+        }
+
+        connectedCallback() {
+            // called when the component is added to the DOM of its host
+            // css+html
+            this.css = `
+                #div_menu {
+                    border : 1px solid black;
+                }
+                h1 {
+                    color: red;
+                }
+            `;
+            this.html = `
+                <div id='div_menu'>
+                    <h1>${this.name}
+                </div>
+            `;
+            this.root.innerHTML = "<style>${this.css}</style><div id='wrapper'>${this.html}</div>";
+        } //connectedCallback
+    } // class extends HTMLElement
+);
+```
+
 
 __Explanations:__
 
@@ -1074,6 +1076,56 @@ __Explanations:__
 + _Line 10_: we used the connectedCallback method that is called automatically when  the component is created and connected to the DOM of its host. In this method we use JavaScript template literals to embed the [HTML template](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) of the component and its CSS associated style in the class properties this.html and this.css. This is a convenient way to define in a single line both the HTML and the CSS for the component (this is done in _line 26_).
 + Of course, we could have defined a more complex component. This simple example shows how we can embed the CSS and HTML template in the JavaScript code of the component.
 
+
+#### Notes for 4.2.9 Web Components as JavaScript Modules
+
++ JavaScrip modules as Web components
+  + HTML Imports APIs removed from standard
+  + solution: embedding in the JavaScript part of you components
+    + the HTML templaste part of the components
+    + the CSS part for the styling of the component
+  + able to include the JavaScript as a regular JavaScript file, using 
+    + `<script src="yourComponent.js"></script>`
+    + the new EcmaScript import statement and import the file as a ES Module
+  + `customElement.define`
+
++ Example: the host html page importing and instantiating the Web Components
+  + HTML snippet: `index.html`
+    + import the Web Component in a single JS file: `<script type="module" src="./mycomponent/index.js"></script>`
+    + add Web component w/ its custom HTML tag: `<my-component name="Michel Buffa"></my-component> <my-component name="Mrie-Claire Forgue"></my=component>`
+  + JavaScript snippet: `./mycomponent/index.js`
+
+    ```js
+    customElements.define(
+        "my-component",
+        class extends HTMLElement {
+            constructor() {
+                super();
+                this.root = this.attachShadow({ mode: 'open'});
+                this.name = this.getAttribute(name); // get the "name" attribute value
+            }
+
+            connectedCallback() {
+                // called when the component is added to the DOM of its host
+                // css+html
+                this.css = `
+                    #div_menu {
+                        border : 1px solid black;
+                    }
+                    h1 {
+                        color: red;
+                    }
+                `;
+                this.html = `
+                    <div id='div_menu'>
+                        <h1>${this.name}
+                    </div>
+                `;
+                this.root.innerHTML = "<style>${this.css}</style><div id='wrapper'>${this.html}</div>";
+            } //connectedCallback
+        } // class extends HTMLElement
+    );
+    ```
 
 
 
