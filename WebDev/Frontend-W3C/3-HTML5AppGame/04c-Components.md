@@ -8,7 +8,7 @@
 
 In the browser, 'normal' JavaScript code is run in a single thread (a thread is a light-weight CPU process, see [this Wikipedia page for details](https://en.wikipedia.org/wiki/Thread_(computing))). This means that the browser GUI, the JavaScript, and other tasks are competing for processor time. If you run an intensive CPU task, everything else is _blocked_, including the user interface. You have no doubt observed something like this during your Web browsing experiences:
 
-With Internet Explorer Or maybe:
+With Internet  (left diagram) Or maybe (right diagram):
 
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://bit.ly/3zNVry0" ismap target="_blank">
@@ -32,7 +32,9 @@ Terminology check: if the terms background and foreground and the concept of mul
 
 #### An example that does not use Web Workers
 
-This example will block the user interface unless you close the tab. [Try it at JSBin](https://jsbin.com/qipegi/edit?html,output) but DO NOT CLICK ON THE BUTTON unless you are prepared to kill your browser/tab, because this routine will consume 100% of CPU time, completely blocking the user interface: 
+This example will block the user interface unless you close the tab. [Try it at JSBin](https://jsbin.com/qipegi/edit?html,output) but DO NOT CLICK ON THE BUTTON unless you are prepared to kill your browser/tab, because this routine will consume 100% of CPU time, completely blocking the user interface:
+
+[Local Demo](src/04c-example01.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -102,6 +104,57 @@ There are two different kinds of Web Workers described in the specification:
 + Browser support:
   + [Web Workers' feature on CanIUse](https://caniuse.com/#feat=webworkers)
   + [Shared Web Workers on CanIUse](https://caniuse.com/#feat=sharedworkers) (not studied)
+
+
+#### Notes for 4.3.1 Introduction
+
++ Threads in browser
+  + normal JS code: a single thread
+  + competing for processor time: the browser GUI, the JavaScript, and other tasks
+  + intensive CPU task $\implies$ everything else blocked
+  + solution:
+    + running certain CPU-intensive tasks in separate threads from the one managing the graphical user interface
+    + performing computationally intensive tasks in one or mroe background threads
+    + using the HTML Web Workers
+    + Web Workers = CPU threads, in JavaScript
+
++ Example: intensive task w/o Web Workers - bad JS programming
+  + compute Prime: `function computePrime() {...}`
+  + init iterative variable: `var n =1;`
+  + loop to get  (infinite loop): `search: while (true) {...}`
+    + increase iterative variable: `n += 1;`
+    + iterate to check prime number: `for (var i=2; i<=Math.sqrt(n); i+=1) {if (n%i ==0) continue search; }`
+    + display the prime number: `document.getElementById('result').textContent = n;`
+  + add button click handler: `document.querySelector("#startButton").addEventListener('click', computePrime);`
+
++ Thread safety
+  + a common problem when programming w/ multiple threads
+  + several concurrent tasks share the same resources at the same time
+  + modifying the value pf a variable while another one is reading it $\to$ probably result in some strange behavior
+  + solution: Web Worker
+    + carefully controlled communication points w/ other threads
+    + very hard to cause concurrency problems
+    + no access in worker to non-thread safe components or to the DOM
+    + passing specific data into and out of a thread through serialized objects
+    + the separate threads share different copies
+
++ Types of web workers
+  + dedicated Web Works
+    + threads dedicated to one single page/tab
+    + example
+      + a page w/ a given URL running a Web Worker that counts in the background 1-2-3-etc.
+      + duplicated the Web Worker if opening the same URL in two different tabs
+      + each independent thread starts counting from 1 at startup time
+  + shared Web Worker
+    + threads probably shared btw different pages of tabs on the same client/browser
+    + theads able to communicate, exchange message, etc.
+    + example:
+      + a shared worker counting in the back grpound 1-2-3- etc.
+      + communicating its current value
+    + all the pages/tabs sharing its communication channel $\to$ display the same value
+    + refreshing each of the pages $\to$ displaying the same value as each other
+    + conforing to the "same-origin" policy
+    + not supported by major browsers
 
 
 
