@@ -271,7 +271,7 @@ The JavaScript code of the worker (worker0.js):
 
 __Use case #4: handling errors__
 
-The parent page can handle errors that may occur inside its workers, by listening for an onError event from a worker object:
+The parent page can handle errors that may occur inside its workers, by listening for an `onError` event from a worker object:
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> worker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Worker</span><span class="pun">(</span><span class="str">'worker.js'</span><span class="pun">);</span></li>
@@ -286,6 +286,43 @@ The parent page can handle errors that may occur inside its workers, by listenin
 </ol></div>
 
 See also the section "how to debug Web Workers" on next page.
+
+
+#### Notes for 4.3.2 Use cases
+
++ Creating workers from script
+  + HTML5 Web Worker API: providing the Worker JS interface for loading and executing a script in the background, in different thread from the UI
+  + syntax: `var worker = new Worker("worker0.js");`
+  + more than one worker probably created/loaded by a parenet page
+
++ Using "messages" to manage a worker
+  + messages: strings or object
+  + possibly serialized in JSON format, most used JS object
+  + procedure of serialized:
+    + messages sent by the parent page to a worker
+      + create worker: `var worker = new Worker("worker0.js");`
+      + set string message: `worker.postMessage("Hello");`
+      + declare object: `var personObj = {'firstName': 'Michel', 'lastName': 'Buffa'};`
+      + set message: `worker.postMessage(personObj);`
+    + message received from a worker using this method - add message handler: `onmessage = function(evt) { // do sth. w/ evt.data; alert('received ' + evt.data.firstName); };`
+    + worker sending message back to the parent page: `postMessage("Message from a worker!");`
+    + the parent page able to listen to messages from a work: `worker.onmessage = function(evt) { // do sth. w/ evt.data };`
+
++ Example: web workers
+  + Parent HTML page - body part
+    + paragraph: `<p>The most simple example of Web Workers</p>`
+    + embedded script: `<script> ...</script>`
+      + create worker: `var worker = new Worker("worker0.js");`
+      + watch for messages from the worker: `worker.onmessage = function(e) { // do sth. w/ the msg from the client, e.data; alert("Got message that the background work is finished...") };`
+      + send a message to the worker: `worker.postMessage("start");`
+  + JavaScript snippet of the worker: `worker0.js`
+    + add message handler: `onmessage = function(e) { if (e.data === "start") { // do some computation and alert the creator of the thread that the job is finished; done(); } };`
+    + send back the results to the parent page: `function done() { postMessage("done"); }`
+
++ Example: handling error
+  + create worker: `var worker = new Worker('work.js');`
+  + add message handler: `worker.onmessage = function(evt) { // do sth w/ evt.data };`
+  + add error handler: `worker.onerror = fucntion(evt) { console.log(evt.message, evt); }`
 
 
 
