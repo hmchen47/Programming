@@ -68,6 +68,9 @@
   + [Creating Web Components — Templates and Slots](https://bit.ly/2ULQgjv)
   + [Using Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
   + [Custom Elements v1: Reusable Web Components](https://developers.google.com/web/fundamentals/web-components/customelements)
+  + [W3C specification about Web Workers](https://www.w3.org/TR/workers/)
+  + [Web Workers concepts and usage](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
+  + [Using Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
   
 
 
