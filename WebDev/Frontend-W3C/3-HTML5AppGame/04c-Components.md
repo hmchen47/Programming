@@ -157,6 +157,138 @@ There are two different kinds of Web Workers described in the specification:
     + not supported by major browsers
 
 
+### 4.3.2 Use cases
+
+#### Creating workers from script
+
+__Use case #1: a "parent HTML5 page" creates workers from a script__
+
+The HTML5 Web Worker API provides the Worker JavaScript interface for loading and executing a script in the background, in a different thread from the UI. The following instruction  loads and creates a worker:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> worker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Worker</span><span class="pun">(</span><span class="str">"worker0.js"</span><span class="pun">);</span></li>
+</ol></div>
+
+More than one worker can be created/loaded by a parent page. This is parallel computing after all :-)
+
+
+#### Using messages to manage a worker
+
+__Use case #2: you manage a worker by communicating with it using "messages"__
+
+Messages can be strings or objects, as long as they can be serialized in JSON format (this is the case for most JavaScript objects, and is handled by the Web Worker implementation of recent browser versions).
+
+Terminology check: serialized
+
+(1) Messages can be sent by the parent page to a worker using this kind of code:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> worker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Worker</span><span class="pun">(</span><span class="str">"worker0.js"</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="com">// String message example</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">worker</span><span class="pun">.</span><span class="pln">postMessage</span><span class="pun">(</span><span class="str">"Hello"</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="com">// Object message example</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> personObject </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="str">'firstName'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'lastName'</span><span class="pun">:</span><span class="str">'Buffa'</span><span class="pun">};</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">worker</span><span class="pun">.</span><span class="pln">postMessage</span><span class="pun">(</span><span class="pln">personObject </span><span class="pun">);</span></li>
+</ol></div>
+
+
+(2) Messages (like the object message example, above) are received from a worker using this method (code located in the JavaScript file of the worker):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">onmessage </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// do something with event.data</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; alert</span><span class="pun">(</span><span class="str">'received '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">data</span><span class="pun">.</span><span class="pln">firstName</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+</ol></div>
+
+(3) The worker will then send messages back to the parent page (code located in the JavaScript file of the worker):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">postMessage</span><span class="pun">(</span><span class="str">"Message from a worker !"</span><span class="pun">);</span></li>
+</ol></div>
+
+(4) And the parent page can listen to messages from a worker like this:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">worker.onmessage </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">){</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="com">// do something with event.data</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+</ol></div>
+
+
+#### Complete example
+
+__Use case #3: a complete example__
+
+The "Parent HTML page" of a simplistic example using a dedicated Web Worker:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE HTML&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Worker example: One-core computation</span><span class="tag">&lt;/title&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">The most simple example of Web Workers</span><span class="tag">&lt;/p&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="com">// create a new worker (a thread that will be run in the background)</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="kwd">var</span><span class="pln"> worker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Worker</span><span class="pun">(</span><span class="str">"worker0.js"</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="com">// Watch for messages from the worker</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; worker</span><span class="pun">.</span><span class="pln">onmessage </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">){</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Do something with the message from the client: e.data</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">"Got message that the background work is finished..."</span><span class="pun">)</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Send a message to the worker</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;worker</span><span class="pun">.</span><span class="pln">postMessage</span><span class="pun">(</span><span class="str">"start"</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+</ol></div>
+
+The JavaScript code of the worker (worker0.js):
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">onmessage </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">){</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">data </span><span class="pun">===</span><span class="pln"> </span><span class="str">"start"</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// Do some computation that can last a few seconds...</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// alert the creator of the thread that the job is finished</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">done</span><span class="pun">();</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> </span><span class="kwd">done</span><span class="pun">(){</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="com">// Send back the results to the parent page</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; postMessage</span><span class="pun">(</span><span class="str">"done"</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+
+#### Error handling
+
+__Use case #4: handling errors__
+
+The parent page can handle errors that may occur inside its workers, by listening for an onError event from a worker object:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> worker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Worker</span><span class="pun">(</span><span class="str">'worker.js'</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> worker</span><span class="pun">.</span><span class="pln">onmessage </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="com">// do something with event.data</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> worker</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">message</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+See also the section "how to debug Web Workers" on next page.
+
+
+
 
 
 
