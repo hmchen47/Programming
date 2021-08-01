@@ -21,4 +21,12 @@ If it provides a "mobile device emulation mode", you can use the devtools of a d
   + [DeviceOrientationEvent](https://developer.mozilla.org/en-US/docs/Web/API/Detecting_device_orientation#Browser_compatibility) and [DeviceMotionEvent](https://developer.mozilla.org/en-US/docs/Web/API/Detecting_device_orientation#Browser_compatibility) on MDN
 
 
+#### Notes for 4.4.1 The Orientation API
+
++ HTML5 orientation API
+  + a way to use angle measures provided by accelerometers form mobile devices or desktops such a sMacBook
+  + mobile device emulation mode: able to use the devtools of a desktop browser to fake the orientation values
+
+
+
 
