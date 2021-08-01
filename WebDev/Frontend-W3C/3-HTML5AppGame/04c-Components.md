@@ -739,16 +739,16 @@ Like other multi-threaded applications, debugging Web Workers can be a tricky ta
     + Chrome developers, [Debug background services](https://developer.chrome.com/docs/devtools/javascript/background-services/)
     + devtools setting: devtools > Workers tab > check 'Pause on stop'
     + poping up small window for tracing the execution of each worker
-    + able to checck breakpoints, inspect variables, log message, etc.
+    + able to check breakpoints, inspect variables, log message, etc.
   + FireFox: [Firefox developer tools](https://developer.mozilla.org/en-US/docs/Tools)
 
 
 ### 4.3.4 Demos
 
 
-#### Demo #
+#### Demo #1
 
-This is a variation of the prime number example (previous lecture) which shows that an interaction in the parent page is not affected by the background computation of prime numbers. Try it [online](https://michaeltreat.github.io/Web-Worker-Demo/html/no-web-worker.html). Open the devtool console, click the BEGIN button , then the CHANGE COLOR button. Without the use ow Workers, the color will change only after the computations are completed and the page GUI is not reactive. Click the WITH WORKERS button: this will run the code that computes prime numbers in a Web Worker. Now, try to change the color of the button, it reacts instantly...
+This is a variation of the prime number example (previous lecture) which shows that an interaction in the parent page is not affected by the background computation of prime numbers. Try it [online](https://michaeltreat.github.io/Web-Worker-Demo/html/no-web-worker.html). Open the devtool console, click the BEGIN button , then the CHANGE COLOR button. Without the use of Workers, the color will change only after the computations are completed and the page GUI is not reactive. Click the WITH WORKERS button: this will run the code that computes prime numbers in a Web Worker. Now, try to change the color of the button, it reacts instantly...
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
@@ -779,6 +779,33 @@ In this demo, you can select the number of Web Workers which will compute parts 
 #### Other demos
 
 [Try these other impressive demos at the MDN demo repository!](https://mzl.la/3ykdlbn)
+
+
+### 4.3.5 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please post your comments/observations/questions and share your creations.
+
+#### Suggested topics of discussion:
+
++ Did you try the demos from the last lesson? Do you understand why using Web Workers can be a savior in some situations?
++ Can you find some explanations on the Web about multi core architectures and Web Workers (e.g., about threads/workers benefiting from multi core processors, leading to greater performance). Please share any relevant articles in the forum!
+
+
+#### Optional projects:
+
++ Please write a small Web app. that uses Web Workers.
++ There is a wonderful demonstration of a fountain animation using particles, made by Microsoft. Can you write something similar, but perhaps with fewer options? The idea was the following: compute particle movements in separate workers, and when a new array of particles is ready to be drawn, post it from the Web Worker. The main page has a mainloop for animating at 60 frames per second. When a new set of particles is ready (posted by a Worker), it is drawn and animated. The demo had up to 10 workers operating in parallel, in the background.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3ll9sQ0')"
+    src    = "https://bit.ly/3ifFZ7S"
+    alt    = "IE 10 web worker fountain demo"
+    title  = "IE 10 web worker fountain demo"
+  />
+</figure>
+
+
 
 
 
