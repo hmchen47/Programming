@@ -120,7 +120,7 @@ There are two different kinds of Web Workers described in the specification:
 
 + Example: intensive task w/o Web Workers - bad JS programming
   + compute Prime: `function computePrime() {...}`
-  + init iterative variable: `var n =1;`
+  + init incremental variable for prime number: `var n =1;`
   + loop to get  (infinite loop): `search: while (true) {...}`
     + increase iterative variable: `n += 1;`
     + iterate to check prime number: `for (var i=2; i<=Math.sqrt(n); i+=1) {if (n%i ==0) continue search; }`
@@ -322,7 +322,7 @@ See also the section "how to debug Web Workers" on next page.
 + Example: handling error
   + create worker: `var worker = new Worker('work.js');`
   + add message handler: `worker.onmessage = function(evt) { // do sth w/ evt.data };`
-  + add error handler: `worker.onerror = fucntion(evt) { console.log(evt.message, evt); }`
+  + add error handler: `worker.onerror = function(evt) { console.log(evt.message, evt); }`
 
 
 ### 4.3.3 Examples
@@ -334,12 +334,14 @@ Dedicated Workers are the simplest kind of Workers. Once created, they remain li
 
 __Example #1: compute prime numbers in the background while keeping the page user interface responsive__
 
-Let's look at [the first example, taken from the W3C specification](https://www.w3.org/TR/workers/#examples): 
+Let's look at [the first example, taken from the W3C specification](https://html.spec.whatwg.org/#workers): 
 > "The simplest use of workers is for performing a computationally expensive task without interrupting the user interface. In this example, the main document spawns a worker to (naïvely) compute prime numbers, and progressively displays the most recently found prime number."
 
 This is the example we tried earlier, without Web Workers, and it froze the page. This time, we'll use a Web Worker. Now you will notice that the prime numbers it computes in the background are displayed as soon as the next prime number is found.
 
 [Try this example online using CodePen](https://codepen.io/w3devcampus/project/editor/ZynNvX/). Note that we cannot run this example on JsBin as Workers need to be defined in a separate JavaScript file.
+
+[Local Demo](src/04c-example02.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -396,8 +398,9 @@ The code of the worker (`worker.js`):
 
 There are a few interesting things to note here:
 
-There is an infinite loop in the code at line 2 (while true...). This is not a problem as it runs in the background.
-When a prime number is found, it is posted to the creator of the Web Worker (aka the parent HTML page), using the postMessage(...) function (line 8).
+There is an infinite loop in the code at _line 2_ (while true...). This is not a problem as it runs in the background.
+When a prime number is found, it is posted to the creator of the Web Worker (aka the parent HTML page), using the `postMessage(...)` function (_line 8_).
+
 Computing prime numbers using such a weak algorithm is very CPU intensive. However, the Web page is still responsive: you can refresh it and the "script not responding"  error dialog box will not appear, etc. There is a demo in the next section of this course chapter in which some graphic animation has been added to this example, and you can verify that the animation is not affected by the computations in the background.
 
 __Try an improved version of the first example yourself__
@@ -473,7 +476,7 @@ Here is the `worker1.js` code:
 In this example, we just added a message that is sent to the "parent page" (_line 1_) and we use the standard JavaScript method `setTimeout()` to delay the beginning of the prime number computation by 3s.
 
 
-#### Initiate and Kill worker
+#### Stop/kill a worker
 
 __Example #2: how to stop/kill a worker after a given amount of time__
 
@@ -609,7 +612,7 @@ WOW! This is a lot! So, please be careful!
 This is well illustrated below:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
     onclick= "window.open('https://bit.ly/3yhfGnl')"
     src    = "https://bit.ly/2Wz4Qv3"
     alt    = "web worker scope"
@@ -640,7 +643,107 @@ Like other multi-threaded applications, debugging Web Workers can be a tricky ta
     />
 </figure>
 
-+ __FireFox__ has similar tools, see Firefox developer tools.
++ __FireFox__ has similar tools, see [Firefox developer tools](https://developer.mozilla.org/en-US/docs/Tools).
+
+
+#### Notes for 4.3.3 Examples
+
++ Dedicated workers
+  + the simplest kind of Workers
+  + remaining linked to the parent page once created
+  + implicit communication channel opened btw the Workers and the parent page $\to$ message exchanged
+  + simplest use of workers for performing a computationally experience task w/o interrupting the user interface
+  + processing messages sent asynchronously by the worker: `worker.onmessage = function(event) {...}`
+  + `event.data`: the message content
+  + workers only communciating w/ their parent page using
+  + a worker = a thread
+  + thread using resources
+  + best pratice: a work no longer required $\to$ releasing the used resources
+  + using `terminate()` method on any worker to end the workera nd unable to 
+  + web worker able to kill itself by calling the `close()` method in worker's JS file
+
++ Example: backgroundtask and user interface responsive - simple version
+  + HTML inline script: `<script>...</script>`
+    + create worker: `var worker = new Worker("worker.js")`
+    + process messages sent asynchronously by the worker: `worker.onmessage = function(evt) { document.getElementById('result').textContent = evt.data; };`
+  + Javascript snippet for `worker.js`
+    + tasks:
+      + infinite loop to compute prime numbers
+      + post found prime numbers using `postMessage(...)`
+    + init incremental variable for prime number<a name="initNum"></a>: `var n = 1;`
+    + create infinite loop to compute prime<a name="primeNum"></a>: `search: while(true) {...}`
+      + increase variable: `n += 1;`
+      + iterate to check prime number: `for (var i=2; i<=Math.sqrt(n); i++) { if (n % i == 0) {continue search; } else { postMessage(n); } }`
+
++ Example: Web workers
+  + HTML snippet for prime number: <a name="output"></a>: `<p>The highest prime number discovered so far is: <output id="result"></output></p>`
+  + HTML inline script: `<script>...</script>`
+    + check browser supporting web worker<a name="chkSupport"></a>: `if (window.Worker) { // compute and display prime number } else { // not support msg }`
+    + browser support<a name="support"></a>: `var worker = new Worker("worker1.js"); worker.onmessage = function(evt) { document.getElementById("result").textContent = evt.data; };`
+    + browser not support<a name="notSupport"></a>: `alert("Sorry, your browser does not support Web Workers");`
+  + JavaScript snippet: `worker1.js`
+    + add message sent to the parent page: `postMessage("hey, in 3s, I'll start to compute prime numbers...");`
+    + set time out: `setTimeout( function() {...}, 3000);`
+    + [init incremental variable for prime number](#initNum)
+    + create infinite loop to [compute prime](#primeNum)
+
++ Example: terminating web worker
+  + HTML snippet for [prime number](#output)
+  + HTML inline script: `<script>...</script>`
+    + check [browser supporting](#chkSupport) web worker
+    + [browser support](#support)
+    + browser [not support](#notSupport)
+    + set time out: `setTimeout(function() {...}, 10000);`
+    + terminate worker: `worker.terminate();`
+    + addpend displayed msg on page: `document.body.appendChild(document.createTextNode("Worker killed, 10 seconds elapsed!"));`
+
++ Web worker w/ external scripts
+  + loading external scripts by works using the `importScripts()` function
+  + included scripts following the same-origin policy
+  + external scripts loaded asynchronously
+  + function `importScripts()` not returning until all the scripts loaded and executed
+  + error occurred during a script importing process
+    + a `NETWORK_ERROR` thrown by the `importScripts` function
+    + following code not executed
+
++ Limitations of Web Workers
+  + debugging threads probably becoming a nightmare
+  + solutions in the Web Workers API
+    + when a message is sent, it is always a copy that is received: no more thread security problem
+    + only pre-defined thread-safe objects are available in workers, this iis a subset of those usually available in stnadard JS scripts
+  + objects available in Web Workers
+    + the `navigator` object
+    + the `location` object (read-only)
+    + `XMLHttpRequest`
+    + `setTimeout()/clearTimeout()` and `setInterval()/clearInterval()`
+    + the [Application Cache](https://www.html5rocks.com/tutorials/appcache/beginner/)
+    + importing external scripts using the `importScripts()` method
+    + [Spawning other Web Workers](https://bit.ly/3BWcLmp)
+  + Worker unable to access to
+    + the DOM (not thread-safe)
+    + the `window` object
+    + the `document` object
+    + the `parent` object
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://bit.ly/3yhfGnl')"
+      src    = "https://bit.ly/2Wz4Qv3"
+      alt    = "web worker scope"
+      title  = "web worker scope"
+    />
+  </figure>
+
++ Debugging Web Workers
+  + Chrome providing tools
+    + Chrome developers, [Debug background services](https://developer.chrome.com/docs/devtools/javascript/background-services/)
+    + devtools setting: devtools > Workers tab > check 'Pause on stop'
+    + poping up small window for tracing the execution of each worker
+    + able to checck breakpoints, inspect variables, log message, etc.
+  + FireFox: [Firefox developer tools](https://developer.mozilla.org/en-US/docs/Tools)
+
+
+
 
 
 
