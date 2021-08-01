@@ -163,3 +163,205 @@ __Rotate the device frame around its y axis by gamma degrees, with gamma in [-90
     </a>
   </div>
 
+
+### 4.4.3 Get different angles
+
+
+#### Typical use using the JavaScript HTML5 orientation API
+
+The use of this API is very straightforward:
+
+1. Test if your browser supports the orientation API (`window.DeviceOrientationEvent` is not null),
+2. Define a listener for the 'deviceorientation' event as follows: `window.addEventListener('deviceorientation', callback, false);` with the callback function accepting the event object as its single input parameter,
+3. Extract the angles from the event (use its properties: `alpha`, `beta`, `gamma`).
+
+Here's [an example on JsBin](https://jsbin.com/limugat/edit). Try it with a smartphone, a tablet, or a device with an accelerometer:
+
+(If using a mobile device,  open [the page in standalone mode](https://jsbin.com/limugat) (without the JsBin editor) )
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/3rNf9aj')"
+    src    = "https://bit.ly/3fjy4EX"
+    alt    = "orientation api 2"
+    title  = "orientation api 2"
+  />
+</figure>
+
+The above screenshot came from an iPad laying immobile on a desk. Theoretically, all the angle values will be zero when the device is laid flat, providing it has not been moved since the page loaded. However, depending on the hardware, these values may change even if the device is stationary: a very sensitive sensor might report constantly changing values. This is why, in the example, we round the returned values with Math.round() at display time (see code).
+
+If we change the orientation of the device here are the results:
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://bit.ly/3rNf9aj" ismap target="_blank">
+    <img style="margin: 0.1em;" height=150
+      src   = "https://bit.ly/3zXuubb"
+      alt   = "orientation api 3"
+      title = "orientation api 3"
+    >
+    <img style="margin: 0.1em;" height=150
+      src   = "https://bit.ly/3C6Ea5l"
+      alt   = "orientation api 1"
+      title = "orientation api 1"
+    >
+    <img style="margin: 0.1em;" height=150
+      src   = "https://bit.ly/3xi4DsM"
+      alt   = "orientation api 2"
+      title = "orientation api 2"
+    >
+  </a>
+</div>
+
+
+Typical use / code from the above example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1">...</li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h2&gt;</span><span class="pln">Device Orientation with HTML5</span><span class="tag">&lt;/h2&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">You need to be on a mobile device or use a laptop with accelerometer/orientation</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> device.</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"LR"</span><span class="tag">&gt;&lt;/div&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"FB"</span><span class="tag">&gt;&lt;/div&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"DIR"</span><span class="tag">&gt;&lt;/div&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">window</span><span class="pun">.</span><span class="typ">DeviceOrientationEvent</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"DeviceOrientation is supported"</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>window</strong></span><strong><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'deviceorientation'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">eventData</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// gamme is for left/right inclination</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">var</span><span class="pln"> LR </span><span class="pun">=</span><strong><span class="pln"> eventData</span><span class="pun">.</span><span class="pln">gamma</span><span class="pun">;</span></strong></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// beta is for front/back inclination</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">var</span><span class="pln"> FB </span><span class="pun">=</span><strong><span class="pln"> eventData</span><span class="pun">.</span><span class="pln">beta</span><span class="pun">;</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// alpha is for orientation</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">var</span><span class="pln"> DIR </span><span class="pun">=</span><strong><span class="pln"> eventData</span><span class="pun">.</span><span class="pln">alpha</span><span class="pun">;</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// display values on screen</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; deviceOrientationHandler</span><span class="pun">(</span><span class="pln">LR</span><span class="pun">,</span><span class="pln"> FB</span><span class="pun">,</span><span class="pln"> DIR</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert</span><span class="pun">(</span><span class="str">"Device orientation not supported on your device or browser. Sorry."</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pun">}</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> deviceOrientationHandler</span><span class="pun">(</span><span class="pln">LR</span><span class="pun">,</span><span class="pln"> FB</span><span class="pun">,</span><span class="pln"> DIR</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#LR"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"gamma : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="pln">LR</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#FB"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"beta : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="pln">FB</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#DIR"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"alpha : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="pln">DIR</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;...</span></li>
+</ol></div>
+
+
+#### Rotation using The rotation API and CSS3 3D rotations
+
+__Another example that shows how to orient the HTML5 logo using the orientation API + CSS3 3D rotations__
+
+This is just a [variation of the previous example](https://jsbin.com/manobezoji/edit?html,js,output), try it at JsBin
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+  <a href="https://bit.ly/3rNf9aj" ismap target="_blank">
+    <img style="margin: 0.1em;" height=200
+      src   = "https://bit.ly/2VmgBEz"
+      alt   = "orientation api example 3"
+      title = "orientation api example 3"
+    >
+    <img style="margin: 0.1em;" height=200
+      src   = "https://bit.ly/3xjP0RA"
+      alt   = "orientation api example 1"
+      title = "orientation api example 1"
+    >
+    <img style="margin: 0.1em;" height=200
+      src   = "https://bit.ly/3fk153i"
+      alt   = "orientation api example 2"
+      title = "orientation api example 2"
+    >
+  </a>
+</div>
+
+
+Results on the iPad: the logo rotates when we change the iPad's orientation. This is a good "visual feedback" for an orientation controlled game...
+
+This example is also on [video](https://www.youtube.com/watch?v=OrNLhOAGSdE).
+
+Code from the example:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1">...</li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h2&gt;</span><span class="pln">Device Orientation with HTML5</span><span class="tag">&lt;/h2&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">You need to be on a mobile device or use a laptop with accelerometer/orientation</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> device.</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"LR"</span><span class="tag">&gt;&lt;/div&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"FB"</span><span class="tag">&gt;&lt;/div&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"DIR"</span><span class="tag">&gt;&lt;/div&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://www.html5</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="atv">rocks.com/en/tutorials/device/orientation/html5_logo.png"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"imgLogo"</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"logo"</span><span class="tag">&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">window</span><span class="pun">.</span><span class="typ">DeviceOrientationEvent</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"DeviceOrientation is supported"</span><span class="pun">);</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'deviceorientation'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">eventData</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">var</span><span class="pln"> LR </span><span class="pun">=</span><span class="pln"> eventData</span><span class="pun">.</span><span class="pln">gamma</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">var</span><span class="pln"> FB </span><span class="pun">=</span><span class="pln"> eventData</span><span class="pun">.</span><span class="pln">beta</span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">var</span><span class="pln"> DIR </span><span class="pun">=</span><span class="pln"> eventData</span><span class="pun">.</span><span class="pln">alpha</span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; deviceOrientationHandler</span><span class="pun">(</span><span class="pln">LR</span><span class="pun">,</span><span class="pln"> FB</span><span class="pun">,</span><span class="pln"> DIR</span><span class="pun">);</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert</span><span class="pun">(</span><span class="str">"Not supported on your device or browser. Sorry."</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="pun">}</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="kwd">function</span><span class="pln"> deviceOrientationHandler</span><span class="pun">(</span><span class="pln">LR</span><span class="pun">,</span><span class="pln"> FB</span><span class="pun">,</span><span class="pln"> DIR</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// USE CSS3 rotations for rotating the HTML5 logo</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">//for webkit browser</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"imgLogo"</span><span class="pun">).</span><span class="pln">style</span><span class="pun">.</span><span class="pln">webkitTransform </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="str">"rotate("</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> LR </span><span class="pun">+</span><span class="pln"> </span><span class="str">"deg) rotate3d(1,0,0, "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="pun">(</span><span class="pln">FB </span><span class="pun">*</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"deg)"</span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">//for HTML5 standard-compliance</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"imgLogo"</span><span class="pun">).</span><span class="pln">style</span><span class="pun">.</span><span class="pln">transform </span><span class="pun">=</span><span class="pln"> </span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="str">"rotate("</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> LR </span><span class="pun">+</span><span class="pln"> </span><span class="str">"deg) rotate3d(1,0,0, "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="pun">(</span><span class="pln">FB </span><span class="pun">*</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"deg)"</span><span class="pun">;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#LR"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"gamma : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="pln">LR</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#FB"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"beta : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="pln">FB</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#DIR"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"alpha : "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="pln">DIR</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;...</span></li>
+</ol></div>
+
+#### A simple level tool using device orientation
+
+This example works in Firefox, Chrome, and IOS Safari. Created by [Derek Anderson](https://twitter.com/derekanderson) @[Media Upstream](https://mediaupstream.com/). Original source code available [GitHub](https://github.com/mediaupstream/levelToolJS).
+
+[We adapted the source code](https://jsbin.com/quboge/edit) so that you can tweak it in JsBin, or test it in [standalone mode](https://jsbin.com/quboge) (using a mobile device).
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open('https://bit.ly/3rNf9aj')"
+    src    = "https://bit.ly/37ezNXu"
+    alt    = "level tool using device orientation"
+    title  = "level tool using device orientation"
+  />
+</figure>
+
+
+#### Other interesting uses: mix orientation API and WebSockets
+
+You can imagine the above example that sends the current orientation of the device to a server using WebSockets. The server in turn updates the logo and position on a PC screen. If multiple devices connect, they can chat together and take control of the 3D Logo.
+
+This video shows one of the above examples slightly modified: the JavaScript code running in the Web page on the iPad sends in real time the device orientation using the Web Sockets API to a server that in turns sends the orientation to a client running on a desktop browser. In this way the tablet "controls" the HTML5 logo that is shown on the desktop browser:
+
+Click on the image to see the YouTube video:
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+    onclick= "window.open('https://bit.ly/3rNf9aj')"
+    src    = "https://bit.ly/2TNpRRH"
+    alt    = "orientation API + websockets"
+    title  = "orientation API + websockets"
+  />
+</figure>
+
+
+
+
+
+
