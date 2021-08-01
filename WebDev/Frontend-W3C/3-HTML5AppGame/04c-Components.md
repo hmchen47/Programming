@@ -794,7 +794,7 @@ Here is the discussion forum for this part of the course. Please post your comme
 #### Optional projects:
 
 + Please write a small Web app. that uses Web Workers.
-+ There is a wonderful demonstration of a fountain animation using particles, made by Microsoft. Can you write something similar, but perhaps with fewer options? The idea was the following: compute particle movements in separate workers, and when a new array of particles is ready to be drawn, post it from the Web Worker. The main page has a mainloop for animating at 60 frames per second. When a new set of particles is ready (posted by a Worker), it is drawn and animated. The demo had up to 10 workers operating in parallel, in the background.
++ There is a wonderful demonstration of a [fountain animation](https://testdrive-archive.azurewebsites.net/Graphics/WorkerFountains/Default.html) using particles, made by Microsoft. Can you write something similar, but perhaps with fewer options? The idea was the following: compute _particle movements_ in separate _workers_, and when a new array of _particles_ is ready to be drawn, post it from the Web Worker. The main page has a mainloop for animating at 60 frames per second. When a new set of _particles_ is ready (posted by a _Worker_), it is drawn and animated. The demo had up to 10 _workers_ operating in _parallel_, in the _background_.
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -804,11 +804,6 @@ Here is the discussion forum for this part of the course. Please post your comme
     title  = "IE 10 web worker fountain demo"
   />
 </figure>
-
-
-
-
-
 
 
 
