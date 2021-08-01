@@ -743,7 +743,42 @@ Like other multi-threaded applications, debugging Web Workers can be a tricky ta
   + FireFox: [Firefox developer tools](https://developer.mozilla.org/en-US/docs/Tools)
 
 
+### 4.3.4 Demos
 
+
+#### Demo #
+
+This is a variation of the prime number example (previous lecture) which shows that an interaction in the parent page is not affected by the background computation of prime numbers. Try it [online](https://michaeltreat.github.io/Web-Worker-Demo/html/no-web-worker.html). Open the devtool console, click the BEGIN button , then the CHANGE COLOR button. Without the use ow Workers, the color will change only after the computations are completed and the page GUI is not reactive. Click the WITH WORKERS button: this will run the code that computes prime numbers in a Web Worker. Now, try to change the color of the button, it reacts instantly...
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick= "window.open('https://bit.ly/2TKd9TK')"
+    src    = "https://bit.ly/3rMGwRX"
+    alt    = "Demo screenshot"
+    title  = "Demo screenshot"
+  />
+</figure>
+
+
+#### Demo #2
+
+Do ray tracing using a variable number of Workers, and try it [online](https://nerget.com/rayjs-mt/rayjs.html) (if you've not heard of it before, [here's an explanation](https://www.cs.unc.edu/~rademach/xroads-RT/RTarticle.html) that tells you more than you will ever want to know about ray tracing!)
+
+In this demo, you can select the number of Web Workers which will compute parts of the image (pixels). If you use too many Web Workers, the performance decreases because too much time is spent exchanging data between workers and their creator, instead of computing in parallel.
+
+<figure style="margin: 0.5em; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+    onclick= "window.open('https://bit.ly/2TKd9TK')"
+    src    = "https://bit.ly/3zV8uOj"
+    alt    = "ray tracer with web workers"
+    title  = "ray tracer with web workers"
+  />
+</figure>
+
+
+#### Other demos
+
+[Try these other impressive demos at the MDN demo repository!](https://mzl.la/3ykdlbn)
 
 
 
