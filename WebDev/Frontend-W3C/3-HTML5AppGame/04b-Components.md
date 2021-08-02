@@ -352,7 +352,7 @@ The Shadow DOM API provides DOM encapsulation: it serves to hide what is not nec
 It is not obvious but the Shadow DOM API is already used by browsers' developers for `<audio>` or `<video>` elements, and also for the new `<input type="date">, <input type="color">` elements, etc.
 
 <div  style="margin: 10px; padding: 10px; border: 1px solid;">
-  <p style="color: red;"><strong>The three rules of Shadow DOM:</strong></p>
+  <p style="color: red;"><strong style="color: red;">The three rules of Shadow DOM:</strong></p>
   <ol style="item-style-type: decimal;">
     <li>With Shadow DOM, elements are associated with&nbsp;a new kind of node:&nbsp;<em>a shadow root</em>.</li>
     <li>An element that has a shadow root associated with it is called&nbsp;<em>a shadow host</em>.</li>
@@ -824,7 +824,7 @@ JavaScript code:
 <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; // Define the custom element to the browser</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>customElements</strong></span><strong><span class="pun">.</span><span class="pln">define</span><span class="pun">(</span><span class="str">'my-widget'</span><span class="pun">,</span><span class="pln"> </span><span class="typ">MyWidget</span><span class="pun">);</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong style="color: red;">customElements</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">define</span><span class="pun">(</span><span class="str">'my-widget'</span><span class="pun">,</span><span class="pln"> </span><span class="typ">MyWidget</span><span class="pun">);</span></strong></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Element defined"</span><span class="pun">);</span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="pln">error</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">error</span><span class="pun">);</span></li>
@@ -944,7 +944,7 @@ It is as simple as:
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;head&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;<strong> &lt;link</strong></span><strong><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"import"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"components/myComponents.html"</span><span class="tag">&gt;</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp;<strong style="color: red;"> &lt;link</strong></span><strong style="color: red;"><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"import"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"components/myComponents.html"</span><span class="tag">&gt;</span></strong></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;my-widget&gt;</span></li>
@@ -1021,11 +1021,11 @@ index.html (the host html page that imports and instantiates the Web Components)
 <li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"UTF-8"</span><span class="tag">&gt;</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;title&gt;</span><span class="pln">WebComponent as aJavaScript module</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><strong><span class="tag">&nbsp; &lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"module"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"./mycomponent/index.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><strong style="color: red;"><span class="tag">&nbsp; &lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"module"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"./mycomponent/index.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong></li>
 <li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; <strong>&lt;my-component</strong></span><strong><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"Michel Buffa"</span><span class="tag">&gt;&lt;/my-component&gt;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="tag">&nbsp; &lt;my-component</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"Marie-Claire Forgue"</span><span class="tag">&gt;&lt;/my-component&gt;</span></strong></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; <strong style="color: red;">&lt;my-component</strong></span><strong style="color: red;"><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"Michel Buffa"</span><span class="tag">&gt;&lt;/my-component&gt;</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln"></span><span class="tag">&nbsp; &lt;my-component</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"Marie-Claire Forgue"</span><span class="tag">&gt;&lt;/my-component&gt;</span></strong></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
 </ol></div>
