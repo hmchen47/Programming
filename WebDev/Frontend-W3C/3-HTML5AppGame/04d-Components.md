@@ -401,9 +401,9 @@ Click on the image to see the [YouTube video](https://www.youtube.com/watch?v=_C
     + image container: `<img src="https://.../log.png" id="imgLogo" class="logo">
   + Javascript inline snippet: `<script type="text/javascript>...</script>`
     + check browser support of [orientation API](#getOrient)
-    + tilt image to reflect device orientation: `function deviceOrientationHandler(LR, FB, DIR) {...}`
+    + tilt image to reflect device <a name="orientation"></a>: `function deviceOrientationHandler(LR, FB, DIR) {...}`
       + access image container and set style w/ webkit browser: `document.getElementById("imgLogo").style.webkitTransform = "rotate(" + LR + "deg) rotate3d(1, 0, 0 " + (FB *-1) + "deg)";`
-      + access image container and set style w/ HRML5 standard-compliance: `document.getElementById("imgLogo").style.Transform = "rotate(" + LR + "deg) rotate3d(1, 0, 0 " + (FB *-1) + "deg)";`
+      + access image container and set style w/ HTML5 standard-compliance: `document.getElementById("imgLogo").style.Transform = "rotate(" + LR + "deg) rotate3d(1, 0, 0 " + (FB *-1) + "deg)";`
 
 
 ### 4.4.4 The Device Motion API
@@ -448,7 +448,7 @@ Each value is measured in [meters per second squared](https://en.wikipedia.org/w
 
 The acceleration is returned by the API as an _acceleration event_. The two pertinent properties are: `accelerationIncludingGravity` and `acceleration`. The latter excludes the effects of gravity.
 
-Why are there two different values? Because some devices have the capability of excluding the effects of [gravity](https://en.wikipedia.org/wiki/Gravity), eg if equipped with a gyroscope. Indeed there is [acceleration due implicitly to gravity](https://en.wikipedia.org/wiki/Acceleration_of_gravity), see also this: [Acceleration of Gravity on Earth...](https://en.wikipedia.org/wiki/Acceleration_of_gravity#Earth.27s_gravity)
+Why are there two different values? Because some devices have the capability of excluding the effects of [gravity](https://en.wikipedia.org/wiki/Gravity), eg if equipped with a gyroscope. Indeed there is [acceleration due implicitly to gravity](https://en.wikipedia.org/wiki/Acceleration_of_gravity), see also this: [Acceleration of Gravity on Earth...](https://en.wikipedia.org/wiki/Gravity_of_Earth)
 
 If the device doesn't have a gyroscope, the `acceleration` property will be returned as null. In this case, you have no choice but to use the `accelerationIncludingGravity` property. Note that all IOS devices, so far, are equipped with a gyroscope.
 
@@ -460,7 +460,7 @@ So, the _device motion event_ is a superset of the _device orientation event_; i
 If a laptop is in its normal position with the screen facing up, the data returned would be (info taken from this [article](https://developers.google.com/web/fundamentals/native-hardware/device-orientation/)):
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
     onclick= "window.open('https://bit.ly/2VfpNuP')"
     src    = "https://bit.ly/3yinTId"
     alt    = "acceleration values 1"
@@ -472,7 +472,7 @@ If a laptop is in its normal position with the screen facing up, the data return
 A mobile phone rotated along the x-axis so the screen is perpendicular to its normal position would return:
 
 <figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
     onclick= "window.open('https://bit.ly/2VfpNuP')"
     src    = "https://bit.ly/37gqEOm"
     alt    = "acceleration values 2"
@@ -504,7 +504,7 @@ The principles are the same as for the orientation API:
 
 __Common processing with acceleration values__
 
-Test the value of the acceleration.z property: If > 0 then the device is facing up, otherwise it is facing down. This would be useful if you wanted to play [heads or tails](https://en.wikipedia.org/wiki/Coin_flipping) with your phone ;-)
+Test the value of the `acceleration.z` property: If > 0 then the device is facing up, otherwise it is facing down. This would be useful if you wanted to play [heads or tails](https://en.wikipedia.org/wiki/Coin_flipping) with your phone ;-)
 
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// For example, if acceleration.z is &gt; 0 then the phone is facing up</span></li>
@@ -565,6 +565,8 @@ Use acceleration values to move a ball on the screen of a tablet when the tablet
 __Move the HTML5 logo__
 
 [Online example at JsBin](https://jsbin.com/pasoboyucu/edit?html,js,output).
+
+[Local Demo](src/04d-example06.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
@@ -658,6 +660,8 @@ __Interesting example that uses jQuery mobile__
 This example shows how the X and Y acceleration values can be used for indicating the sky's direction (vertical), and how the Z acceleration is, in fact, an indicator for the face up / face down orientation of the device.
 
 [This example](https://jsbin.com/uyuqek/4/edit) has been adapted and put on jsbin.com so that you can tweak it.
+
+[Local Demo](src/04d-example07.html)
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
@@ -916,6 +920,132 @@ Code from this example:
 + From the W3C specification: [devicemotion Event](https://w3c.github.io/deviceorientation/spec-source-orientation.html#devicemotion)
 + From Google Devs: "[Device Orientation & Motion](https://developers.google.com/web/fundamentals/native-hardware/device-orientation/)"
 + On Dev. Opera: "[The W3C Device Orientation API: Detecting Orientation and Acceleration](https://dev.opera.com/articles/w3c-device-orientation-api/)"
+
+
+#### Notes for 4.4.4 The Device Motion API
+
++ The `deviceMotion` API
+  + dealing w/ the acceleration instead of orientation only
+  + use cases proposed
+    + __controlling a game:__ a gaming Web application monitors the device's orientation and interprets tilting in a certain direction as a means to control an on-screen sprite
+    + __+gesture recognition:__ a Web application monitors the device's acceleration and applies signal processing in order to recognize certain specific gesture
+    + __mapping:__ a mapping Web application uses the device's orientation to correctly align the map w/ reality
+  + basic syntax: 
+    + handle motion event: `function handleMotionEvent(evt) {...}`
+      + x-axis: `var x = evt.accelerationIncludingGravity.x;`
+      + x-axis: `var y = evt.accelerationIncludingGravity.y;`
+      + x-axis: `var z = evt.accelerationIncludingGravity.z;`
+      + processing ...
+    + add even listener for device motion: `window.addEventListener('devicemotion', handleMotionEvent, true);`
+
++ Acceleration
+  + `deviceMotion` API similar to the `orientation` API
+  + returning both the rotation infomation and aceration information
+  + reflecting the device's actual movement
+  + containing 3 parts: along the x axis, along the  axis, and along the z axis
+  + unit: $m/s^2 \sim \frac{1}{3.281} ft/s^2$
+  + returned by the API as an _acceleration_ event w/ properties
+    + `accelerationIncludingGravity`
+    + `acceleration`: presented w/ gyroscope, otherwise `null`
+  + device motion event: a superset of the device orientation event, returning both rotation and acceleration info from the device
+  + example of acceleration values
+    + top diagram: device screen sits up right as normal position
+    + botton diagram: device screen perpendicular to it normal position
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+        onclick= "window.open('https://bit.ly/2VfpNuP')"
+        src    = "https://bit.ly/3yinTId"
+        alt    = "acceleration values 1"
+        title  = "acceleration values 1"
+      />
+    </figure>
+
+    <figure style="margin: 0.5em; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 50vw;"
+        onclick= "window.open('https://bit.ly/2VfpNuP')"
+        src    = "https://bit.ly/37gqEOm"
+        alt    = "acceleration values 2"
+        title  = "acceleration values 2"
+      />
+    </figure>
+
++ Common procedure fro acceleration
+  + test if the API supported by the browser
+  + add a listener for `devicemotion` event
+  + get the acceleration values form the DOM event
+  + process the data
+
++ Common processing w/ acceleration values
+  + `acceleration.z` property:
+    + acceleration.z $> 0$: device facing up
+    + acceleration.z $\le 0$: device facing down
+  + typical snippet for `acceleration.z` property<a name="faceUp"></a>
+    + declare facing up variable: `var facingUp = -1;`
+    + check acceleration.z property: `if (acceleration.z > 0) { facingUp = +1; }`
+  + `accelerationIncludingGravity` perperty
+    + computing the angle corresponding to the left/right and front/back titls
+    + converting the value from acceleration to degrees
+    + `acceleration.x`/`acceleration.y`:
+      + the acceleration according to gravity
+      + dividing by 9.81 (Earth gravity) to get a percentage value and then multipy that by 90 to convert to degrees
+  + common snippet: `function deviceMotionHandler(evtData) {...}`
+    + set acceleration variable: `var acceleration = evtData.accelerationIncludingGravity;`
+    + convert the value to degrees<a name="val2Deg"></a>: `var tiltLR = Math.round(((acceleration.x)/9.81) * -90); var tiltFB = Math.round(((acceleration.y + 9.81)/9.81) * 90 * facingUp);`
+    + processing w/ the degrees
+  + common snippet to compute the vertical (direction to the sky)
+    + set angle: `var angle = Math.atan(accel.y, accel.x);`
+    + access canvas and set 2D context: `var canvas = document.getElementById('myCanvas'); var ctx = canvas.getContext('2d');`
+    + draw sky direction: `ctx.moveTo(50, 50); ctx.lineTo(50-50*Math.cos(angle), 50+50*Math.sin(angle)); ctx.stroke();`
+  + using acceleration values to move a ball on the screen of a tablet when tablet is tilted front/back or left/right
+    + x position: `ball.x += acceleration.x;`
+    + y position: `ball.y += acceleration.y;`
+
++ Example: displaying logo up when tilting
+  + HTML snippet:
+    + containers for acceleration values: `<div id="rawAccel"></div> <div id="tiltFB"></div> <div id="tiltLR"></div> <div id="upDown"></div>`
+    + container for image: `<img src="https://.../logo.png" id="imglogo" class="logo">`
+  + JavaScript inline snippet: `<script type="text/javascript">...</script>`
+    + check browser support: `if (window.DeviceMotionEvent != undefined) {...} else { // not supported }`
+      + log console msg: `console.log("DeviceMotion is supported");`
+      + add device motion handler: `window.addEventListener("devicemotion', function(evtDta) {...}, flase);`
+        + set acceleration var: `var acceleration = evtData.accelerationIncludingGravity;`
+        + display raw acceleration data: `var rawAcceleration = "[" + Mathround(acceleration.x) + "," + Math.round(acceleration.y) + "," + Math.round(acceleration.z) + "]";`
+        + check [facing up or down](#facingUp)
+        + convert [value to the degree](#val2Deg)
+        + set raw acceleration value: `document.querySelector("#rawAccel").innerHTML = "Raw acceleration: " + rawAccelaeration;`
+        + set tilt FB vale: `document.querySelector("#tiltFB").innerHTML = "Tilt fron/back: " + tiltFB;`
+        + set tilt LR vale: `document.querySelector("#tiltLR").innerHTML = "Tilt left/right: " + tiltLR;`
+        + set face up/down: `document.querySelector("#upDown").innerHTML = "Face up/down: " + facingUp;`
+        + call to update logo orientation: `updateLogoOrientation("tiltLR, tiltFB);`
+      + display not supported msg: `alert("Not supported on your device or browser. Sorry");`
+    + update [tilt image to reflect device](#orientation)
+
++ Example: orientations w/ X, Y, and Z accelerations
+  + tasks
+    + using the X and Y acceleration values for indicating the sky's direction (vertical)
+    + using the Z acceleration value for the face up / down orientation of the device
+  + HTML header portion
+    + link jQuery CSS: `<link rel="stylesheet" href="https://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.css" />`
+    + link jQuery JS: `<script type="text/javascript" src = "https://code.jquery.com/jquery-1.6.2.min.js"></script>`
+    + link jQuery mobile JS: `<script type="text/javascript" src = "https://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.js"></script>`
+  + JavaScript inline script in header portion: `<script type="text/javascript">...</script>`
+    + add device motion handler if page ready: `$(document).ready(function() { window.addEventListener("devicemotion", onDeviceMotion, false); });`
+    + device motion callback: `function onDeiceMotion(evt) {...}`
+    + access canvas and set context: `var ctx = document.getElementById("c").getContext("2d");`
+    + set acceleraton: `vr accel = evtData.accelerationIncludingGravity;`
+    + refresh all sliders: `$("#sliderX").val(Math.round(accel.x)).slider("refresh"); $("#sliderY").val(Math.round(accel.y)).slider("refresh"); $$("#sliderZ").val(Math.round(accel.z)).slider("refresh");`
+    + set sky direction: `var angle = Math.atan2(accel.y, accel.x);`
+    + draw sky direction: `cyx.clearRec(0, 0, 100, 100); ctx.arc(50, 50, 0, 2*Math.PI, false); ctx.moveTo(50, 50); ctx.lineTo(50-50*Math.cos(angle), 50+50*Math.sine(angle)); ctx.stroke();`
+  + HTML body snippet:
+    + page container: `div data-role="page" id="intrppage">...</div>`
+    + header container: `<div data-role="header"<h1>Accelerometer</h1></div>`
+    + content container: `<div data-role="content">...</div>`
+      + X acceleration slider: `<label for="sliderX">X Acceleration (Roll)</label> <input type="range" name="sliderX" id="sliderX" value=0 min=-10 max=10 data-theme="a" />`
+      + Y acceleration slider: `<label for="sliderY">Y Acceleration (Pitch)</label> <input type="range" name="sliderY" id="sliderY" value=0 min=-10 max=10 data-theme="b" />`
+      + Z acceleration slider: `<label for="sliderZ">Z Acceleration (<strike>Yaw</strike>Face up/down)</label> <input type="range" name="sliderZ" id="sliderZ" value=0 min=-10 max=10 data-theme="c" />`
+    + sky direction: `<p style="text-align: center;">SKY direction: follow this line:</p>`
+    + camvas: `<div style="text-align: center; margin-top: 10px;"><canvas id="c" width=100 height=100></canvas></div>`
 
 
 
