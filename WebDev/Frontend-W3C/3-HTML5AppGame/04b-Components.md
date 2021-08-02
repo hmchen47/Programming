@@ -44,7 +44,7 @@ Web components enable you to use custom HTML elements in your HTML documents, th
 Let's start with an example! This code...:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;x-gif src="https://i.imgur.com/iKXH4E2.gif" ping-pong&gt;&lt;/x-gif&gt;</li>
+<li value="1">&lt;x-gif src="https://i.imgur.com/iKXH4E2.gif" ping-pong&gt;&lt;/x-gif&gt;</li>
 </ol></div>
 
 ... renders an animated GIF, and it loops forever in ping-pong mode: the order of the animation is reversed when the last image is reached and again when the animation goes back to the first image.
@@ -63,7 +63,7 @@ Click on the image to run the animated GIF  demo, or visit [this Web site](https
 If you look at the source of the demo page, you note the following at the top of the page:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;link rel="import" href="dist/x-gif.html"&gt;</li>
+<li value="1">&lt;link rel="import" href="dist/x-gif.html"&gt;</li>
 </ol></div>
 
 It's called an "HTML import". If your browser supports _HTML imports_, you can now import _another HTML document_, that will come with its own HTML, CSS, and JavaScript code-base, into your HTML page . The code for the animated GIF player, rendered when the browser encounters _the custom HTML element_ `<x-gif>`,  is located in the imported HTML file (and this HTML file can in turn include or define CSS and JavaScript content).
@@ -206,10 +206,10 @@ These parts of code are _inert_ (i.e., CSS will not be applied, JavaScript will 
 Here is an example of code that defines a template:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;template id="mytemplate"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;img src="" alt="great image"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;div class="comment"&gt;&lt;/div&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/template&gt;</li>
+<li value="1">&lt;template id="mytemplate"&gt;</li>
+<li>&nbsp;&nbsp; &lt;img src="" alt="great image"&gt;</li>
+<li>&nbsp;&nbsp; &lt;div class="comment"&gt;&lt;/div&gt;</li>
+<li>&lt;/template&gt;</li>
 </ol></div>
 
 Note that it's ok to have the src attribute empty here, we will initialize it when the template is activated.
@@ -224,13 +224,13 @@ In order to use a template's content, we clone it using the `document.importNode
 A template is typically used like this:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">var t = document.querySelector('#mytemplate');</li>
-<li style="margin-bottom: 0px;">// Populate the src at runtime.</li>
-<li style="margin-bottom: 0px;">t.content.querySelector('img').src = 'https://webcomponents.github.io/img/logo.svg';</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// Clone the template, sort of "instantiation"!</li>
-<li style="margin-bottom: 0px;">var clone = document.importNode(t.content, true);</li>
-<li style="margin-bottom: 0px;">document.body.appendChild(clone);</li>
+<li value="1">var t = document.querySelector('#mytemplate');</li>
+<li>// Populate the src at runtime.</li>
+<li>t.content.querySelector('img').src = 'https://webcomponents.github.io/img/logo.svg';</li>
+<li> </li>
+<li>// Clone the template, sort of "instantiation"!</li>
+<li>var clone = document.importNode(t.content, true);</li>
+<li>document.body.appendChild(clone);</li>
 </ol></div>
 
 __Explanations:__
@@ -262,28 +262,28 @@ And here is the complete source code...
 The HTML part:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;template id="mytemplate"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;img src="" alt="great image"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;div class="comment"&gt;hello&lt;/div&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/template&gt; </li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;button onclick="instantiate()"&gt;Instantiate the template&lt;/button&gt;&lt;br&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li value="1">&lt;template id="mytemplate"&gt;</li>
+<li>&nbsp;&nbsp; &lt;img src="" alt="great image"&gt;</li>
+<li>&nbsp;&nbsp; &lt;div class="comment"&gt;hello&lt;/div&gt;</li>
+<li>&lt;/template&gt; </li>
+<li> </li>
+<li>&lt;body&gt;</li>
+<li>&nbsp;&nbsp; &lt;button onclick="instantiate()"&gt;Instantiate the template&lt;/button&gt;&lt;br&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 The JavaScript part:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">function instantiate() {</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; var t = document.querySelector('#mytemplate');</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; // Populate the src at runtime.</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; t.content.querySelector('img').src = </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;'https://webcomponents.github.io/img/logo.svg';</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; var clone = document.importNode(t.content, true);</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; document.body.appendChild(clone); </li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1">function instantiate() {</li>
+<li>&nbsp;&nbsp; var t = document.querySelector('#mytemplate');</li>
+<li>&nbsp;&nbsp; // Populate the src at runtime.</li>
+<li>&nbsp;&nbsp; t.content.querySelector('img').src = </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;'https://webcomponents.github.io/img/logo.svg';</li>
+<li> </li>
+<li>&nbsp;&nbsp; var clone = document.importNode(t.content, true);</li>
+<li>&nbsp;&nbsp; document.body.appendChild(clone); </li>
+<li>}</li>
 </ol></div>
 
 
@@ -436,18 +436,18 @@ Furthermore, there is a kind of "boundary" around the `<video>` element, so that
 Let's have a look at a very simple example:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"> &lt;div&gt;Hello this is not rendered!&lt;/div&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;script&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // the div is the Shadow Host. Its content will not be rendered</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; var host = document.querySelector('div');</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // Create the shadow ROOT, the root node of the shadow DOM</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // using mode:open makes it available, mode:close would return null</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; const shadowRoot = host.attachShadow({mode: 'open'});</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // insert something into the shadow DOM, this will be rendered</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; shadowRoot.innerHTML = '&lt;h1&gt;Hello Shadow DOM&lt;/h1&gt;'; // Could also use appendChild().</li>
-<li style="margin-bottom: 0px;">&lt;/script&gt; </li>
+<li value="1"> &lt;div&gt;Hello this is not rendered!&lt;/div&gt;</li>
+<li> &lt;script&gt;</li>
+<li>&nbsp; &nbsp; // the div is the Shadow Host. Its content will not be rendered</li>
+<li>&nbsp; &nbsp; var host = document.querySelector('div');</li>
+<li> </li>
+<li>&nbsp; &nbsp; // Create the shadow ROOT, the root node of the shadow DOM</li>
+<li>&nbsp; &nbsp; // using mode:open makes it available, mode:close would return null</li>
+<li>&nbsp; &nbsp; const shadowRoot = host.attachShadow({mode: 'open'});</li>
+<li> </li>
+<li>&nbsp; &nbsp; // insert something into the shadow DOM, this will be rendered</li>
+<li>&nbsp; &nbsp; shadowRoot.innerHTML = '&lt;h1&gt;Hello Shadow DOM&lt;/h1&gt;'; // Could also use appendChild().</li>
+<li>&lt;/script&gt; </li>
 </ol></div>
 
 _Lines 8 and 11_ show how to associate a shadow root with an existing HTML element. In this example, the `<div>` defined at line 1 is a shadow host, and it is associated with the shadow root which contains three words of text (_line 11_).
@@ -536,27 +536,27 @@ This is an important feature: the content of a new "widget" that is hidden in a 
 HTML part:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;template id="mytemplate"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;style&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp;&nbsp; h1 {color:white; background:red}</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;/style&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;h1&gt;This is a shadowed H1&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/template&gt;</li>
+<li value="1">&lt;template id="mytemplate"&gt;</li>
+<li>&nbsp;&nbsp; &lt;style&gt;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp; h1 {color:white; background:red}</li>
+<li>&nbsp;&nbsp; &lt;/style&gt;</li>
+<li>&nbsp;&nbsp; &lt;h1&gt;This is a shadowed H1&lt;/h1&gt;</li>
+<li>&lt;/template&gt;</li>
 </ol></div>
 
 The JavaScript part:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">// Instanciate the template</li>
-<li style="margin-bottom: 0px;">var t = document.querySelector('#mytemplate');</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">// Create a root node under our H1 title</li>
-<li style="margin-bottom: 0px;">var host = document.querySelector('#withShadowDom');</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">const shadowRoot = host.attachShadow({mode: 'open'});</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">// insert something into the shadow DOM, this will be rendered</li>
-<li style="margin-bottom: 0px;">shadowRoot.appendChild(document.importNode(t.content, true)); </li>
+<li value="1">// Instanciate the template</li>
+<li>var t = document.querySelector('#mytemplate');</li>
+<li>&nbsp;</li>
+<li>// Create a root node under our H1 title</li>
+<li>var host = document.querySelector('#withShadowDom');</li>
+<li>&nbsp;</li>
+<li>const shadowRoot = host.attachShadow({mode: 'open'});</li>
+<li> </li>
+<li>// insert something into the shadow DOM, this will be rendered</li>
+<li>shadowRoot.appendChild(document.importNode(t.content, true)); </li>
 </ol></div>
 
 [Online example at JSBin](https://jsbin.com/quguwa/edit?html,js,output):
@@ -588,18 +588,18 @@ Look at [this example at JSBin](https://jsbin.com/jopabat/edit?html,css,js,outpu
 The HTML part:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;template id="mytemplate"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;style&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp;&nbsp;&nbsp; h1 {color:white; background:red}</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;/style&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;h1&gt;This is a shadowed H1&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/template&gt; </li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;h1 id="withShadowDom"&gt;This is a text header&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp;&nbsp; &lt;h1&gt;Normal header with no shadow DOM associated.&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li value="1">&lt;template id="mytemplate"&gt;</li>
+<li>&nbsp;&nbsp; &lt;style&gt;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp; h1 {color:white; background:red}</li>
+<li>&nbsp;&nbsp; &lt;/style&gt; </li>
+<li>&nbsp;&nbsp; &lt;h1&gt;This is a shadowed H1&lt;/h1&gt;</li>
+<li>&lt;/template&gt; </li>
+<li> </li>
+<li>&lt;body&gt;</li>
+<li>&nbsp;&nbsp; &lt;h1 id="withShadowDom"&gt;This is a text header&lt;/h1&gt;</li>
+<li> </li>
+<li>&nbsp;&nbsp; &lt;h1&gt;Normal header with no shadow DOM associated.&lt;/h1&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 We added a new H1 at _line 11_. 
@@ -678,18 +678,18 @@ Let's see how to insert content from the host element within the Shadow DOM usin
 It is possible to define a part of the template into which external HTML content will be "injected". For this, we use the `<slot>...</slot>` element, as shown below:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;template id="mytemplate"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;h1 part='heading'&gt;This is a shadowed H1&lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;p part="paragraph"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &lt;slot name="my-text"&gt;My default text&lt;/slot&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/template&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;h1 id="myWidget"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;span slot="my-text"&gt;Injected content using slot elem&lt;/span&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li value="1">&lt;template id="mytemplate"&gt;</li>
+<li>&nbsp; &nbsp; &lt;h1 part='heading'&gt;This is a shadowed H1&lt;/h1&gt;</li>
+<li>&nbsp; &nbsp; &lt;p part="paragraph"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &lt;slot name="my-text"&gt;My default text&lt;/slot&gt;</li>
+<li>&nbsp; &nbsp; &lt;/p&gt;</li>
+<li>&lt;/template&gt; </li>
+<li>&nbsp;</li>
+<li>&lt;body&gt;</li>
+<li> &lt;h1 id="myWidget"&gt;</li>
+<li>&nbsp; &nbsp; &lt;span slot="my-text"&gt;Injected content using slot elem&lt;/span&gt;</li>
+<li> &lt;/h1&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 __Explanations:__
@@ -750,7 +750,7 @@ HTML Custom Elements is another API described as HTML Web components. It allows 
 Basic usage:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">customElements.define('my-widget', MyWidget);</li>
+<li value="1">customElements.define('my-widget', MyWidget);</li>
 </ol></div>
 
 This is done using JavaScript and there are some constraints:
@@ -761,7 +761,7 @@ This is done using JavaScript and there are some constraints:
 Optionally, a third parameter can be used: a JavaScript object containing an extends property, which specifies the built-in element your element inherits from if any:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">customElements.define('my-widget', MyWidget, { extends: 'p' });</li>
+<li value="1">customElements.define('my-widget', MyWidget, { extends: 'p' });</li>
 </ol></div>
 
 "Inheritance" is another aspect of object-oriented programming. If it is new to you, please see earlier reference material.
@@ -771,12 +771,12 @@ Here is an example which defines a new element named <my-widget>, that will rend
 HTML code for the use of the custom element:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;my-widget&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;span slot="my-title"&gt;Title injected&lt;/span&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;&lt;span slot="my-paragraph"&gt;Paragraph injected&lt;/span&gt;</li>
-<li style="margin-bottom: 0px;"> &lt;/my-widget&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li value="1">&lt;body&gt;</li>
+<li> &lt;my-widget&gt;</li>
+<li>&nbsp; &nbsp;&lt;span slot="my-title"&gt;Title injected&lt;/span&gt;</li>
+<li>&nbsp; &nbsp;&lt;span slot="my-paragraph"&gt;Paragraph injected&lt;/span&gt;</li>
+<li> &lt;/my-widget&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 Look at lines 2 and 5...
@@ -784,51 +784,51 @@ Look at lines 2 and 5...
 HTML code for the declaration of the template (the same as in one of the previous examples):
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;template id="mytemplate"&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;style&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; h1 {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; color:white;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; background:red;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; }</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;/style&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;slot name="my-title"&gt;My default text&lt;/slot&gt; </li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;/h1&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;p&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;slot name="my-paragraph"&gt;My default text&lt;/slot</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;/p&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/template&gt;</li>
+<li value="1">&lt;template id="mytemplate"&gt;</li>
+<li>&nbsp; &lt;style&gt;</li>
+<li>&nbsp; &nbsp; h1 {</li>
+<li>&nbsp; &nbsp; &nbsp; color:white;</li>
+<li>&nbsp; &nbsp; &nbsp; background:red;</li>
+<li>&nbsp; &nbsp; }</li>
+<li>&nbsp; &lt;/style&gt;</li>
+<li>&nbsp; &lt;h1&gt;</li>
+<li>&nbsp; &nbsp; &lt;slot name="my-title"&gt;My default text&lt;/slot&gt; </li>
+<li>&nbsp; &lt;/h1&gt;</li>
+<li>&nbsp; &lt;p&gt;</li>
+<li>&nbsp; &nbsp; &lt;slot name="my-paragraph"&gt;My default text&lt;/slot</li>
+<li>&nbsp; &lt;/p&gt;</li>
+<li>&lt;/template&gt;</li>
 </ol></div>
 
 JavaScript code:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">// TIP : use "document.currentScript" here to select</li>
-<li style="margin-bottom: 0px;">// the "local document", the one corresponding to this page.</li>
-<li style="margin-bottom: 0px;">// this may avoid problems when multiple WebComponents files</li>
-<li style="margin-bottom: 0px;">// are inserted in the same document. See below...</li>
-<li style="margin-bottom: 0px;">var localDoc = document.currentScript.ownerDocument;</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">class MyWidget extends HTMLElement {</li>
-<li style="margin-bottom: 0px;">&nbsp; constructor() {</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; super(); // mandatory</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; const shadowRoot = this.attachShadow({mode: 'open'});</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // instanciate template</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; let t = localDoc.querySelector('#mytemplate');</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; // add it to the shadow DOM</li>
-<li style="margin-bottom: 0px;"> </li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; shadowRoot.appendChild(document.importNode(t.content, true));</li>
-<li style="margin-bottom: 0px;">&nbsp; }</li>
-<li style="margin-bottom: 0px;">}</li>
-<li style="margin-bottom: 0px;">&nbsp;</li>
-<li style="margin-bottom: 0px;">try {</li>
-<li style="margin-bottom: 0px;">&nbsp; // Define the custom element to the browser</li>
-<li style="margin-bottom: 0px;">&nbsp; <strong style="color: red;">customElements</strong><strong style="color: red;">.define('my-widget', MyWidget);</strong></li>
-<li style="margin-bottom: 0px;">&nbsp; console.log("Element defined");</li>
-<li style="margin-bottom: 0px;">} catch (error) {</li>
-<li style="margin-bottom: 0px;">&nbsp; console.log(error);</li>
-<li style="margin-bottom: 0px;">}</li>
+<li value="1">// TIP : use "document.currentScript" here to select</li>
+<li>// the "local document", the one corresponding to this page.</li>
+<li>// this may avoid problems when multiple WebComponents files</li>
+<li>// are inserted in the same document. See below...</li>
+<li>var localDoc = document.currentScript.ownerDocument;</li>
+<li>&nbsp;</li>
+<li>class MyWidget extends HTMLElement {</li>
+<li>&nbsp; constructor() {</li>
+<li>&nbsp; &nbsp; super(); // mandatory</li>
+<li>&nbsp; &nbsp; const shadowRoot = this.attachShadow({mode: 'open'});</li>
+<li> </li>
+<li>&nbsp; &nbsp; // instanciate template</li>
+<li>&nbsp; &nbsp; let t = localDoc.querySelector('#mytemplate');</li>
+<li>&nbsp; &nbsp; // add it to the shadow DOM</li>
+<li> </li>
+<li>&nbsp; &nbsp; shadowRoot.appendChild(document.importNode(t.content, true));</li>
+<li>&nbsp; }</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>try {</li>
+<li>&nbsp; // Define the custom element to the browser</li>
+<li>&nbsp; <strong style="color: red;">customElements</strong><strong style="color: red;">.define('my-widget', MyWidget);</strong></li>
+<li>&nbsp; console.log("Element defined");</li>
+<li>} catch (error) {</li>
+<li>&nbsp; console.log(error);</li>
+<li>}</li>
 </ol></div>
 
 __Explanations:__
@@ -943,15 +943,15 @@ Add a `<link rel="import" href="your_html_file">` and all the html/css/js code, 
 It is as simple as:
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1">&lt;head&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp;<strong style="color: red;"> &lt;link</strong><strong style="color: red;"> rel="import" href="components/myComponents.html"&gt;</strong></li>
-<li style="margin-bottom: 0px;">&lt;/head&gt;</li>
-<li style="margin-bottom: 0px;">&lt;body&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;my-widget&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;span slot="my-title"&gt;Title injected&lt;/span&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;span slot="my-paragraph"&gt;Paragraph injected&lt;/span&gt;</li>
-<li style="margin-bottom: 0px;">&nbsp; &lt;/my-widget&gt;</li>
-<li style="margin-bottom: 0px;">&lt;/body&gt;</li>
+<li value="1">&lt;head&gt;</li>
+<li>&nbsp; &nbsp;<strong style="color: red;"> &lt;link</strong><strong style="color: red;"> rel="import" href="components/myComponents.html"&gt;</strong></li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&nbsp; &lt;my-widget&gt;</li>
+<li>&nbsp; &nbsp; &lt;span slot="my-title"&gt;Title injected&lt;/span&gt;</li>
+<li>&nbsp; &nbsp; &lt;span slot="my-paragraph"&gt;Paragraph injected&lt;/span&gt;</li>
+<li>&nbsp; &lt;/my-widget&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 Look at _line 2_: this is where the importation of the HTML, CSS and JS code of new "components" is done. The HTML+JS+CSS code that defines templates, attachment to a shadow host, CSS, and registering of new custom HTML elements is located in `myComponents.html`.
@@ -1016,18 +1016,18 @@ Here is an example :
 index.html (the host html page that imports and instantiates the Web Components) :
 
 <div><ol>
-<li style="margin-bottom: 0px;" value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;head&gt;</span></li>
-<li style="margin-bottom: 0px;"><span></span><span>&nbsp; &lt;meta</span><span> </span><span>charset</span><span>=</span><span>"UTF-8"</span><span>&gt;</span></li>
-<li style="margin-bottom: 0px;"><span></span><span>&nbsp; &lt;title&gt;</span><span>WebComponent as aJavaScript module</span><span>&lt;/title&gt;</span></li>
-<li style="margin-bottom: 0px;"><span></span><strong style="color: red;"><span>&nbsp; &lt;script</span><span> </span><span>type</span><span>=</span><span>"module"</span><span> </span><span>src</span><span>=</span><span>"./mycomponent/index.js"</span><span>&gt;&lt;/script&gt;</span></strong></li>
-<li style="margin-bottom: 0px;"><span>&lt;/head&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;body&gt;</span></li>
-<li style="margin-bottom: 0px;"><span></span><span>&nbsp; <strong style="color: red;">&lt;my-component</strong></span><strong style="color: red;"><span> </span><span>name</span><span>=</span><span>"Michel Buffa"</span><span>&gt;&lt;/my-component&gt;</span></strong></li>
-<li style="margin-bottom: 0px;"><strong style="color: red;"><span></span><span>&nbsp; &lt;my-component</span><span> </span><span>name</span><span>=</span><span>"Marie-Claire Forgue"</span><span>&gt;&lt;/my-component&gt;</span></strong></li>
-<li style="margin-bottom: 0px;"><span>&lt;/body&gt;</span></li>
-<li style="margin-bottom: 0px;"><span>&lt;/html&gt;</span></li>
+<li value="1"><span>&lt;!DOCTYPE html&gt;</span></li>
+<li><span>&lt;html</span><span> </span><span>lang</span><span>=</span><span>"en"</span><span>&gt;</span></li>
+<li><span>&lt;head&gt;</span></li>
+<li><span></span><span>&nbsp; &lt;meta</span><span> </span><span>charset</span><span>=</span><span>"UTF-8"</span><span>&gt;</span></li>
+<li><span></span><span>&nbsp; &lt;title&gt;</span><span>WebComponent as aJavaScript module</span><span>&lt;/title&gt;</span></li>
+<li><span></span><strong style="color: red;"><span>&nbsp; &lt;script</span><span> </span><span>type</span><span>=</span><span>"module"</span><span> </span><span>src</span><span>=</span><span>"./mycomponent/index.js"</span><span>&gt;&lt;/script&gt;</span></strong></li>
+<li><span>&lt;/head&gt;</span></li>
+<li><span>&lt;body&gt;</span></li>
+<li><span></span><span>&nbsp; <strong style="color: red;">&lt;my-component</strong></span><strong style="color: red;"><span> </span><span>name</span><span>=</span><span>"Michel Buffa"</span><span>&gt;&lt;/my-component&gt;</span></strong></li>
+<li><strong style="color: red;"><span></span><span>&nbsp; &lt;my-component</span><span> </span><span>name</span><span>=</span><span>"Marie-Claire Forgue"</span><span>&gt;&lt;/my-component&gt;</span></strong></li>
+<li><span>&lt;/body&gt;</span></li>
+<li><span>&lt;/html&gt;</span></li>
 </ol></div>
 
 __Explanations:__
