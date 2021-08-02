@@ -1,0 +1,63 @@
+<html> 
+<head> 
+     
+     <meta http-equiv="content-type" content="text/html; charset=utf-8"> 
+     <meta name="viewport" content="user-scalable=no, width=device-width" />
+ 
+     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.css" />
+     
+     <script type="text/javascript" src = "http://code.jquery.com/jquery-1.6.2.min.js"></script>
+     <script type="text/javascript" src = "http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.js"></script>
+         
+    <script type="text/javascript">
+        $(document).ready(function(){
+            window.addEventListener("devicemotion",onDeviceMotion,false);
+        });
+  
+        function onDeviceMotion(event){
+            var ctx = document.getElementById("c").getContext("2d");
+            var accel = event.accelerationIncludingGravity;
+            $("#sliderX").val(Math.round(accel.x)).slider("refresh");
+            $("#sliderY").val(Math.round(accel.y)).slider("refresh"); 
+            $("#sliderZ").val(Math.round(accel.z)).slider("refresh");
+            var angle = Math.atan2(accel.y,accel.x)  
+            ctx.clearRect(0,0,100,100);
+            ctx.beginPath();
+            ctx.arc(50,50,5,0,2*Math.PI,false);
+            ctx.moveTo(50,50);
+            ctx.lineTo(50-50*Math.cos(angle),50+50*Math.sin(angle));
+            ctx.stroke();
+        }
+    </script>
+    
+</head> 
+<body> 
+ 
+<div data-role="page" id = "intropage">
+    
+    <div data-role="header">
+        <h1>Accelerometer</h1>
+    </div>
+     
+    <div data-role="content">       
+         <label for="sliderX">X Acceleration (Roll)</label>
+        <input type="range" name="sliderX" id="sliderX" value="0" min="-10" max="10" data-theme="a" />
+  
+          <label for="sliderY">Y Acceleration (Pitch)</label>
+          <input type="range" name="sliderY" id="sliderY" value="0" min="-10" max="10" data-theme="b" />
+          
+          <label for="sliderZ">Z Acceleration (<strike>Yaw</strike> Face up/down)</label>
+          <input type="range" name="sliderZ" id="sliderZ" value="0" min="-10" max="10" data-theme="c" />
+     </div>    
+ 
+  <p style = "text-align:center">SKY direction: follow this line:</p>
+    <div style = "text-align:center;margin-top:10px;">
+
+        <canvas id="c" width="100" height="100"></canvas>
+    </div>
+ 
+</div>
+ 
+</body> 
+</html>
+
