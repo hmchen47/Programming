@@ -1094,6 +1094,20 @@ Code from this example:
     + board container with ball: `<div id ="board"><div id="ball"></div></div>`
  
 
+### 4.4.5 Discussion and projects
+
+Here is the discussion forum for this part of the course. Please post your comments/observations/questions and share your creations.
+
+#### Suggested topics of discussion:
+
++ Did you know that you can "fake" the orientation using the devtools of some desktop browsers?
++ What kind of application would benefit from the Orientation and Motion APIs (apart from games)?
+
+
+#### Optional projects:
+
++ The [Christmas game](https://mainline.i3s.unice.fr/mooc/SkywardBound/) developed by students from the previous run is a perfect candidate to be controlled using the APIs seen in this course!! I would start with the orientation API and try to move the bunny left/right... 
++ Using the game framework, try to control the monster using the orientation API, so that it avoids the balls - see the last example from Module 2 of the course!
 
 
 
