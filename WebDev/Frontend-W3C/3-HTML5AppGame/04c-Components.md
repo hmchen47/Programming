@@ -48,31 +48,31 @@ This example will block the user interface unless you close the tab. [Try it at 
 
 Code from the example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE HTML&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Worker example: One-core computation</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"startButton"</span><span class="tag">&gt;</span><span class="pln">Click to start discovering prime numbers</span><span class="tag">&lt;/button&gt;&lt;p&gt;</span><span class="pln">&nbsp;Note that this will make the page unresponsive, you will have to close the tab in order to get back your CPU!</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">The highest prime number discovered so far is: </span><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"result"</span><span class="tag">&gt;&lt;/output&gt;&lt;/p&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="kwd">function</span><span class="pln"> computePrime</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; search</span><span class="pun">:</span><span class="pln"> </span><span style="color: #ff0000;"><strong style="color: red;"><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">true</span><span class="pun">)</span></strong></span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; n </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sqrt</span><span class="pun">(</span><span class="pln">n</span><span class="pun">);</span><span class="pln"> i </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">n </span><span class="pun">%</span><span class="pln"> i </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">continue</span><span class="pln"> search</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// found a prime!</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'result'</span><span class="pun">).</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> n</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#startButton"</span><span class="pun">).</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'click'</span><span class="pun">,</span><span class="pln"> computePrime</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE HTML&gt;</li>
+<li>&lt;html&gt;</li>
+<li> &lt;head&gt;</li>
+<li> &lt;title&gt;Worker example: One-core computation&lt;/title&gt;</li>
+<li> &lt;/head&gt;</li>
+<li> &lt;body&gt;</li>
+<li> &lt;button>> >>id>>=>>"startButton">>&gt;>>Click to start discovering prime numbers>>&lt;/button&gt;&lt;p&gt;>>&nbsp;Note that this will make the page unresponsive, you will have to close the tab in order to get back your CPU!></li>
+<li>> >>&lt;p&gt;>>The highest prime number discovered so far is: >>&lt;output>> >>id>>=>>"result">>&gt;&lt;/output&gt;&lt;/p&gt;></li>
+<li>> >>&lt;script&gt;></li>
+<li>>&nbsp;&nbsp; >>function>> computePrime>>()>> >>{></li>
+<li>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; >>var>> n >>=>> >>1>>;></li>
+<li>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; search>>:>> > style="color: #ff0000;"><strong style="color: red;">>while>> >>(>>true>>)></strong>>> >>{></li>
+<li>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; n >>+=>> >>1>;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (var i = 2; i &lt;= Math.sqrt(n); i += 1)</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (n % i == 0)</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; continue search;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // found a prime!</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.getElementById('result').textContent = n;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </li>
+<li>&nbsp;&nbsp;&nbsp; }</li>
+<li>&nbsp;&nbsp;&nbsp; document.querySelector("#startButton").addEventListener('click', computePrime);</li>
+<li> &lt;/script&gt;</li>
+<li> &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 Notice the infinite loop in the function `computePrime` (_line 12_, in bold). This is guaranteed to block the user interface. If you are brave enough to click on the button that calls the `computePrime()` function, you will notice that the line 18 execution (that should normally modify the DOM of the page and display the prime number that has been found) does nothing visible. The UI is unresponsive. _This is **really, really, bad** JavaScript programming - and should be **avoided** at all costs._
@@ -165,8 +165,8 @@ __Use case #1: a "parent HTML5 page" creates workers from a script__
 
 The HTML5 Web Worker API provides the Worker JavaScript interface for loading and executing a script in the background, in a different thread from the UI. The following instruction  loads and creates a worker:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> worker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Worker</span><span class="pun">(</span><span class="str">"worker0.js"</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">var worker = new Worker("worker0.js");</li>
 </ol></div>
 
 More than one worker can be created/loaded by a parent page. This is parallel computing after all :-)
@@ -182,39 +182,39 @@ Terminology check: serialized
 
 (1) Messages can be sent by the parent page to a worker using this kind of code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> worker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Worker</span><span class="pun">(</span><span class="str">"worker0.js"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com">// String message example</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">worker</span><span class="pun">.</span><span class="pln">postMessage</span><span class="pun">(</span><span class="str">"Hello"</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="com">// Object message example</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> personObject </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="str">'firstName'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Michel'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'lastName'</span><span class="pun">:</span><span class="str">'Buffa'</span><span class="pun">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">worker</span><span class="pun">.</span><span class="pln">postMessage</span><span class="pun">(</span><span class="pln">personObject </span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">var worker = new Worker("worker0.js");</li>
+<li> </li>
+<li>// String message example</li>
+<li>worker.postMessage("Hello");</li>
+<li> </li>
+<li>// Object message example</li>
+<li>var personObject = {'firstName': 'Michel', 'lastName':'Buffa'};</li>
+<li>worker.postMessage(personObject );</li>
 </ol></div>
 
 
 (2) Messages (like the object message example, above) are received from a worker using this method (code located in the JavaScript file of the worker):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">onmessage </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// do something with event.data</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; alert</span><span class="pun">(</span><span class="str">'received '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">data</span><span class="pun">.</span><span class="pln">firstName</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">onmessage = function (event) {</li>
+<li>&nbsp; &nbsp;// do something with event.data</li>
+<li>&nbsp; alert('received ' + event.data.firstName);</li>
+<li>};</li>
 </ol></div>
 
 (3) The worker will then send messages back to the parent page (code located in the JavaScript file of the worker):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">postMessage</span><span class="pun">(</span><span class="str">"Message from a worker !"</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">postMessage("Message from a worker !");</li>
 </ol></div>
 
 (4) And the parent page can listen to messages from a worker like this:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">worker.onmessage </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="com">// do something with event.data</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">worker.onmessage = function(event){</li>
+<li>&nbsp;&nbsp;&nbsp; // do something with event.data</li>
+<li>};</li>
 </ol></div>
 
 
@@ -224,46 +224,46 @@ __Use case #3: a complete example__
 
 The "Parent HTML page" of a simplistic example using a dedicated Web Worker:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE HTML&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Worker example: One-core computation</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">The most simple example of Web Workers</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="com">// create a new worker (a thread that will be run in the background)</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="kwd">var</span><span class="pln"> worker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Worker</span><span class="pun">(</span><span class="str">"worker0.js"</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="com">// Watch for messages from the worker</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; worker</span><span class="pun">.</span><span class="pln">onmessage </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">){</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Do something with the message from the client: e.data</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">"Got message that the background work is finished..."</span><span class="pun">)</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Send a message to the worker</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;worker</span><span class="pun">.</span><span class="pln">postMessage</span><span class="pun">(</span><span class="str">"start"</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE HTML&gt;</li>
+<li>&lt;html&gt;</li>
+<li> &lt;head&gt;</li>
+<li> &lt;title&gt;Worker example: One-core computation&lt;/title&gt;</li>
+<li> &lt;/head&gt;</li>
+<li> &lt;body&gt;</li>
+<li> &lt;p&gt;The most simple example of Web Workers&lt;/p&gt;</li>
+<li> &lt;script&gt;</li>
+<li>&nbsp;&nbsp; // create a new worker (a thread that will be run in the background)</li>
+<li>&nbsp;&nbsp; var worker = new Worker("worker0.js");</li>
+<li> </li>
+<li>&nbsp;&nbsp; // Watch for messages from the worker</li>
+<li>&nbsp;&nbsp; worker.onmessage = function(e){</li>
+<li>&nbsp; &nbsp; &nbsp;// Do something with the message from the client: e.data</li>
+<li>&nbsp; &nbsp; &nbsp;alert("Got message that the background work is finished...")</li>
+<li>&nbsp; &nbsp;};</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Send a message to the worker</li>
+<li>&nbsp; &nbsp;worker.postMessage("start");</li>
+<li> &lt;/script&gt;</li>
+<li> &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 The JavaScript code of the worker (worker0.js):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">onmessage </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">data </span><span class="pun">===</span><span class="pln"> </span><span class="str">"start"</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// Do some computation that can last a few seconds...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// alert the creator of the thread that the job is finished</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">done</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> </span><span class="kwd">done</span><span class="pun">(){</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="com">// Send back the results to the parent page</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; postMessage</span><span class="pun">(</span><span class="str">"done"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">onmessage = function(e){</li>
+<li>&nbsp;&nbsp; if ( e.data === "start" ) {</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Do some computation that can last a few seconds...</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // alert the creator of the thread that the job is finished</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; done();</li>
+<li>&nbsp;&nbsp;&nbsp; }</li>
+<li>};</li>
+<li> </li>
+<li>function done(){</li>
+<li>&nbsp;&nbsp;&nbsp; // Send back the results to the parent page</li>
+<li>&nbsp;&nbsp;&nbsp; postMessage("done");</li>
+<li>}</li>
 </ol></div>
 
 
@@ -273,16 +273,16 @@ __Use case #4: handling errors__
 
 The parent page can handle errors that may occur inside its workers, by listening for an `onError` event from a worker object:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> worker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Worker</span><span class="pun">(</span><span class="str">'worker.js'</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> worker</span><span class="pun">.</span><span class="pln">onmessage </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="com">// do something with event.data</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> worker</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">message</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">var worker = new Worker('worker.js');</li>
+<li> worker.onmessage = function (event) {</li>
+<li>&nbsp;&nbsp;&nbsp; // do something with event.data</li>
+<li> };</li>
+<li> </li>
+<li> worker.onerror = function (event) {</li>
+<li>&nbsp;&nbsp;&nbsp; console.log(event.message, event);</li>
+<li> };</li>
+<li>}</li>
 </ol></div>
 
 See also the section "how to debug Web Workers" on next page.
@@ -355,22 +355,22 @@ This is the example we tried earlier, without Web Workers, and it froze the page
 
 The HTML5 page code from this example that uses a Web Worker:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE HTML&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Worker example: One-core computation</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">The highest prime number discovered so far is: </span><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"result"</span><span class="tag">&gt;&lt;/output&gt;&lt;/p&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><strong style="color: red;"><span class="kwd">var</span><span class="pln"> worker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Worker</span><span class="pun">(</span><span class="str">'worker.js'</span><span class="pun">);</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; <strong style="color: red;">worker</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">onmessage </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'result'</span><span class="pun">).</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">data</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE HTML&gt;</li>
+<li>&lt;html&gt;</li>
+<li> &lt;head&gt;</li>
+<li> &lt;title&gt;Worker example: One-core computation&lt;/title&gt;</li>
+<li> &lt;/head&gt;</li>
+<li> &lt;body&gt;</li>
+<li> &lt;p&gt;The highest prime number discovered so far is: &lt;output id="result"&gt;&lt;/output&gt;&lt;/p&gt;</li>
+<li> &lt;script&gt;</li>
+<li>&nbsp;&nbsp;&nbsp; <strong style="color: red;">var worker = new Worker('worker.js');</strong></li>
+<li>&nbsp;&nbsp;&nbsp; <strong style="color: red;">worker</strong><strong style="color: red;">.onmessage = function (event)</strong> {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; document.getElementById('result').textContent = event.data;</li>
+<li> };</li>
+<li> &lt;/script&gt;</li>
+<li> &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 __Explanations:__
@@ -384,16 +384,16 @@ Workers can only communicate with their parent page using messages. See the code
 
 The code of the worker (`worker.js`):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">search</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">true</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; n </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sqrt</span><span class="pun">(</span><span class="pln">n</span><span class="pun">);</span><span class="pln"> i </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">n </span><span class="pun">%</span><span class="pln"> i </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="kwd">continue</span><span class="pln"> search</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="com">// found a prime!</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;<strong style="color: red;"> postMessage</strong></span><strong style="color: red;"><span class="pun">(</span><span class="pln">n</span><span class="pun">);</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">var n = 1;</li>
+<li>search: while (true) {</li>
+<li>&nbsp;&nbsp;&nbsp; n += 1;</li>
+<li>&nbsp;&nbsp;&nbsp; for (var i = 2; i &lt;= Math.sqrt(n); i += 1)</li>
+<li>&nbsp;&nbsp;&nbsp; if (n % i == 0)</li>
+<li>&nbsp;&nbsp;&nbsp; continue search;</li>
+<li>&nbsp;&nbsp;&nbsp; // found a prime!</li>
+<li>&nbsp;&nbsp;&nbsp;<strong style="color: red;"> postMessage</strong><strong style="color: red;">(n);</strong></li>
+<li>}</li>
 </ol></div>
 
 There are a few interesting things to note here:
@@ -427,50 +427,50 @@ You can download this example: [WebWorkersExample1.zip](https://bit.ly/2V4hh1u)
 
 HTML code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE HTML&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Worker example: One-core computation</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">The highest prime number discovered so far is: </span><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"result"</span><span class="tag">&gt;&lt;/output&gt;&lt;/p&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">window</span><span class="pun">.</span><span class="typ">Worker</span><span class="pun">){</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// web workers supported by the browser</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">var</span><span class="pln"> worker</span><span class="pun">=</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Worker</span><span class="pun">(</span><span class="str">"worker1.js"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; worker</span><span class="pun">.</span><span class="pln">onmessage</span><span class="pun">=</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">event</span><span class="pun">){</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'result'</span><span class="pun">).</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">data</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="pun">};</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="pun">}</span><span class="kwd">else</span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// the browser does not support web workers</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert</span><span class="pun">(</span><span class="str">"Sorry, your browser does not support Web Workers"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE HTML&gt;</li>
+<li>&lt;html&gt;</li>
+<li> &lt;head&gt;</li>
+<li> &lt;title&gt;Worker example: One-core computation&lt;/title&gt;</li>
+<li> &lt;/head&gt;</li>
+<li> &lt;body&gt;</li>
+<li> &lt;p&gt;The highest prime number discovered so far is: &lt;output id="result"&gt;&lt;/output&gt;&lt;/p&gt;</li>
+<li> &lt;script&gt;</li>
+<li>&nbsp;&nbsp;&nbsp; if(window.Worker){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // web workers supported by the browser</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var worker=new Worker("worker1.js");</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; worker.onmessage=function(event){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.getElementById('result').textContent = event.data;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };</li>
+<li>&nbsp;&nbsp;&nbsp; }else{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // the browser does not support web workers</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert("Sorry, your browser does not support Web Workers");</li>
+<li>&nbsp;&nbsp;&nbsp; }</li>
+<li> &lt;/script&gt;</li>
+<li> &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 _Line 9_ shows how to test if the browser can run JavaScript code that uses the HTML5 Web Workers API.
 
 Here is the `worker1.js` code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">postMessage</span><span class="pun">(</span><span class="str">"Hey, in 3s, I'll start to compute prime numbers..."</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">setTimeout</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="com">// The setTimeout is just useful for displaying the message in line 1 for 3 seconds and</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="com">// making it visible</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; search</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">true</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; n </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sqrt</span><span class="pun">(</span><span class="pln">n</span><span class="pun">);</span><span class="pln"> i </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">n </span><span class="pun">%</span><span class="pln"> i </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">continue</span><span class="pln"> search</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// found a prime!</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; postMessage</span><span class="pun">(</span><span class="pln">n</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">},</span><span class="pln"> </span><span class="lit">3000</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">postMessage("Hey, in 3s, I'll start to compute prime numbers...");</li>
+<li> </li>
+<li>setTimeout(function() {</li>
+<li>&nbsp;&nbsp;&nbsp; // The setTimeout is just useful for displaying the message in line 1 for 3 seconds and</li>
+<li>&nbsp;&nbsp;&nbsp; // making it visible</li>
+<li>&nbsp;&nbsp;&nbsp; var n = 1;</li>
+<li>&nbsp;&nbsp;&nbsp; search: while (true) {</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; n += 1;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (var i = 2; i &lt;= Math.sqrt(n); i += 1)</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (n % i == 0)</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; continue search;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // found a prime!</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; postMessage(n);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp; }</li>
+<li>}, 3000);</li>
 </ol></div>
 
 In this example, we just added a message that is sent to the "parent page" (_line 1_) and we use the standard JavaScript method `setTimeout()` to delay the beginning of the prime number computation by 3s.
@@ -488,70 +488,70 @@ The Web Worker API provides a `terminate()` method that we can use on any worker
 
 HTML code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE HTML&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Worker example: One-core computation</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">The highest prime number discovered so far is: </span><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"result"</span><span class="tag">&gt;&lt;/output&gt;&lt;/p&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">window</span><span class="pun">.</span><span class="typ">Worker</span><span class="pun">){</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// web workers supported by the browser</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">var</span><span class="pln"> worker</span><span class="pun">=</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Worker</span><span class="pun">(</span><span class="str">"worker2.js"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; worker</span><span class="pun">.</span><span class="pln">onmessage</span><span class="pun">=</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">event</span><span class="pun">){</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'result'</span><span class="pun">).</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">data</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="pun">};</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="pun">}</span><span class="kwd">else</span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// the browser does not support web workers</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert</span><span class="pun">(</span><span class="str">"Sorry, your browser does not support Web Workers"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; setTimeout</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// After 10 seconds, we kill the worker</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="color: red;"> worker</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">terminate</span><span class="pun">();</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">createTextNode</span><span class="pun">(</span><span class="str">"Worker killed, 10 seconds elapsed !"</span><span class="pun">)</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="pun">);},</span><span class="pln"> </span><span class="lit">10000</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE HTML&gt;</li>
+<li>&lt;html&gt;</li>
+<li> &lt;head&gt;</li>
+<li> &lt;title&gt;Worker example: One-core computation&lt;/title&gt;</li>
+<li> &lt;/head&gt;</li>
+<li> &lt;body&gt;</li>
+<li> &lt;p&gt;The highest prime number discovered so far is: &lt;output id="result"&gt;&lt;/output&gt;&lt;/p&gt;</li>
+<li> &lt;script&gt;</li>
+<li>&nbsp;&nbsp;&nbsp; if(window.Worker){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // web workers supported by the browser</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var worker=new Worker("worker2.js");</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; worker.onmessage=function(event){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.getElementById('result').textContent = event.data;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };</li>
+<li>&nbsp;&nbsp;&nbsp; }else{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // the browser does not support web workers</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert("Sorry, your browser does not support Web Workers");</li>
+<li>&nbsp;&nbsp;&nbsp; }</li>
+<li> </li>
+<li>&nbsp;&nbsp;&nbsp; setTimeout(function(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // After 10 seconds, we kill the worker</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="color: red;"> worker</strong><strong style="color: red;">.terminate();</strong></li>
+<li> </li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.body.appendChild(document.createTextNode("Worker killed, 10 seconds elapsed !")</li>
+<li>&nbsp;&nbsp;&nbsp; );}, 10000);</li>
+<li> &lt;/script&gt;</li>
+<li> &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 Notice at _line 22_ the call to `worker.terminate()`, that kills the worker after 10000ms.
 
 `worker2.js` is the same as in the last example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE HTML&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Worker example: One-core computation</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">The highest prime number discovered so far is: </span><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"result"</span><span class="tag">&gt;&lt;/output&gt;&lt;/p&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">window</span><span class="pun">.</span><span class="typ">Worker</span><span class="pun">){</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// web workers supported by the browser</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">var</span><span class="pln"> worker</span><span class="pun">=</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Worker</span><span class="pun">(</span><span class="str">"worker2.js"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; worker</span><span class="pun">.</span><span class="pln">onmessage</span><span class="pun">=</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">event</span><span class="pun">){</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'result'</span><span class="pun">).</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">data</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="pun">};</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="pun">}</span><span class="kwd">else</span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// the browser does not support web workers</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert</span><span class="pun">(</span><span class="str">"Sorry, your browser does not support Web Workers"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; setTimeout</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// After 10 seconds, we kill the worker</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="color: red;"> worker</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">terminate</span><span class="pun">();</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">createTextNode</span><span class="pun">(</span><span class="str">"Worker killed, 10 seconds elapsed !"</span><span class="pun">)</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="pun">);},</span><span class="pln"> </span><span class="lit">10000</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE HTML&gt;</li>
+<li>&lt;html&gt;</li>
+<li> &lt;head&gt;</li>
+<li> &lt;title&gt;Worker example: One-core computation&lt;/title&gt;</li>
+<li> &lt;/head&gt;</li>
+<li> &lt;body&gt;</li>
+<li> &lt;p&gt;The highest prime number discovered so far is: &lt;output id="result"&gt;&lt;/output&gt;&lt;/p&gt;</li>
+<li> &lt;script&gt;</li>
+<li>&nbsp;&nbsp;&nbsp; if(window.Worker){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // web workers supported by the browser</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var worker=new Worker("worker2.js");</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; worker.onmessage=function(event){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.getElementById('result').textContent = event.data;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };</li>
+<li>&nbsp;&nbsp;&nbsp; }else{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // the browser does not support web workers</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert("Sorry, your browser does not support Web Workers");</li>
+<li>&nbsp;&nbsp;&nbsp; }</li>
+<li> </li>
+<li>&nbsp;&nbsp;&nbsp; setTimeout(function(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // After 10 seconds, we kill the worker</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="color: red;"> worker</strong><strong style="color: red;">.terminate();</strong></li>
+<li> </li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.body.appendChild(document.createTextNode("Worker killed, 10 seconds elapsed !")</li>
+<li>&nbsp;&nbsp;&nbsp; );}, 10000);</li>
+<li> &lt;/script&gt;</li>
+<li> &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 A Web worker can also kill itself by calling the `close()` method in the worker's JavaScript file:
@@ -570,12 +570,12 @@ External scripts can be loaded by workers using the `importScripts()` function.
 
 `worker.js`:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><strong style="color: red;"><span class="pln">importScripts</span><span class="pun">(</span><span class="str">'script1.js'</span><span class="pun">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">importScripts</span><span class="pun">(</span><span class="str">'script2.js'</span><span class="pun">);</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">// Other possible syntax</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">importScripts</span><span class="pun">(</span><span class="str">'script1.js'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'script2.js'</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1"><strong style="color: red;">importScripts('script1.js');</strong></li>
+<li><strong style="color: red;">importScripts('script2.js');</strong></li>
+<li> </li>
+<li>// Other possible syntax</li>
+<li>importScripts('script1.js', 'script2.js');</li>
 </ol></div>
 
 The included scripts must follow the [same-origin policy](https://mzl.la/2TKMGWh).
