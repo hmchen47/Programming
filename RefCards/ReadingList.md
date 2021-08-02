@@ -72,9 +72,12 @@
   + [W3C specification about Web Workers](https://www.w3.org/TR/workers/)
   + [Web Workers concepts and usage](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
   + [Using Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
-+ HTML45 Orientation API
++ HTML5 Orientation API
   + orientation API+ The W3C specification: [The Screen Orientation API](https://www.w3.org/TR/screen-orientation/)
   + device orientation: [Device Orientation and Motion](https://www.html5rocks.com/en/tutorials/device/orientation/)
++ Device Motion
+  + W3C specification: [devicemotion Event](https://w3c.github.io/deviceorientation/spec-source-orientation.html#devicemotion)
+  + Google Devs: "[Device Orientation & Motion](https://developers.google.com/web/fundamentals/native-hardware/device-orientation/)"
   
 
 
