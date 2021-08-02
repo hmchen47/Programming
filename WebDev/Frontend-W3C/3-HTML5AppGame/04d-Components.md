@@ -167,7 +167,9 @@ __Rotate the device frame around its y axis by gamma degrees, with gamma in [-90
 ### 4.4.3 Get different angles
 
 
-#### Typical use using the JavaScript HTML5 orientation API
+#### HTML5 orientation API
+
+__Typical use using the JavaScript HTML5 orientation API__
 
 The use of this API is very straightforward:
 
@@ -177,7 +179,12 @@ The use of this API is very straightforward:
 
 Here's [an example on JsBin](https://jsbin.com/limugat/edit). Try it with a smartphone, a tablet, or a device with an accelerometer:
 
-(If using a mobile device,  open [the page in standalone mode](https://jsbin.com/limugat) (without the JsBin editor) )
+[Local Demo](src/04d-example01.html)
+
+(If using a mobile device,  open [the page in standalone mode](https://jsbin.com/limugat) (without the JsBin editor))
+
+[Local Demo](src/04d-example02.html)
+
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -257,6 +264,8 @@ __Another example that shows how to orient the HTML5 logo using the orientation 
 
 This is just a [variation of the previous example](https://jsbin.com/manobezoji/edit?html,js,output), try it at JsBin
 
+[Local Demo](src/04d-example03.html)
+
 <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
   <a href="https://bit.ly/3rNf9aj" ismap target="_blank">
     <img style="margin: 0.1em;" height=200
@@ -333,6 +342,10 @@ This example works in Firefox, Chrome, and IOS Safari. Created by [Derek Anderso
 
 [We adapted the source code](https://jsbin.com/quboge/edit) so that you can tweak it in JsBin, or test it in [standalone mode](https://jsbin.com/quboge) (using a mobile device).
 
+[Local Demo](src/04d-example04.html)
+
+[Local Demo - Standalone mode](src/04d-exampl05.html)
+
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
     onclick= "window.open('https://bit.ly/3rNf9aj')"
@@ -349,17 +362,48 @@ You can imagine the above example that sends the current orientation of the devi
 
 This video shows one of the above examples slightly modified: the JavaScript code running in the Web page on the iPad sends in real time the device orientation using the Web Sockets API to a server that in turns sends the orientation to a client running on a desktop browser. In this way the tablet "controls" the HTML5 logo that is shown on the desktop browser:
 
-Click on the image to see the YouTube video:
+Click on the image to see the [YouTube video](https://www.youtube.com/watch?v=_CgIgJBK-Ys)
 
-<figure style="margin: 0.5em; text-align: center;">
-  <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open('https://bit.ly/3rNf9aj')"
-    src    = "https://bit.ly/2TNpRRH"
-    alt    = "orientation API + websockets"
-    title  = "orientation API + websockets"
-  />
-</figure>
 
+
+#### Notes for 4.4.3 Get different angles
+
++ HTML5 orientation API
+  + typical procedure
+    + test if browser supports the orientation API w/ `window.DeviceOrientationEvent !== null`
+    + define listener for the `deviceorientation` event: `window.addEventListener('deviceorientation', callback, false);` w/ the callback function accepting the event object as its single input parameter
+    + extract the angles from the events: the properties, `alpha`, `beta` and `gamma`
+  + incorporating w/ `WebSockets`:
+    + sending the real-time device orientation to server via `WebSockets`
+    + server sending the orientation to a client running on a desktop browser
+    + allowing multiple devices connecting to the server and chatting together
+
++ Example: device orientation in standalone version
+  + containers for device rotation angles<a name="containers"></a>: `<div id="LR"></div> <div id="FB"></div> <div id="DIR"></div>`
+  + Javascript inline snippet: `<script type="text/javascript>...</script>`
+    + check browser support of orientation API<a name="getOrient"></a>: `if (window.DeviceOrientationEvent) {...} else { // not supported }`
+      + log msg: `console.log("DeviceOrientation is supported");`
+      + add device orientation handler: `window.addEventListener('deviceorientation', function(evtData) {...}, false);`
+        + gamma for right/left inclination: `var LR = evtData.gamma;`
+        + beta for front/back inclination: `var FB = evtData.beta;`
+        + alpha fpr orientation: `var DIR = evtData.alpha;`
+        + display values on screen: `deviceOrientationHandler(LR, FB, DIR);`
+      + display not supported msg: `alert("Device orientation not supported on your device or browser: Sorry.");`
+    + display msg in containers: `function deviceOrientationHandler(LR, FB, DIR) {...}`
+      + left/right inclination: `document.querySelector("#LR").innerHTML = "gamma: " + Math.round(LR);`
+      + front/back inclination: `document.querySelector("#LR").innerHTML = "beta: " + Math.round(FB);`
+      + orientation: `document.querySelector("#LR").innerHTML = "alpha: " + Math.round(DIR);`
+
++ Example: device orintation w/ image
+  + task: using CSS3  rotations for rotating the image
+  + HTML snippet
+    + containers for [device rotation angles](#containers)
+    + image container: `<img src="https://.../log.png" id="imgLogo" class="logo">
+  + Javascript inline snippet: `<script type="text/javascript>...</script>`
+    + check browser support of [orientation API](#getOrient)
+    + tilt image to reflect device orientation: `function deviceOrientationHandler(LR, FB, DIR) {...}`
+      + access image container and set style w/ webkit browser: `document.getElementById("imgLogo").style.webkitTransform = "rotate(" + LR + "deg) rotate3d(1, 0, 0 " + (FB *-1) + "deg)";`
+      + access image container and set style w/ HRML5 standard-compliance: `document.getElementById("imgLogo").style.Transform = "rotate(" + LR + "deg) rotate3d(1, 0, 0 " + (FB *-1) + "deg)";`
 
 
 
