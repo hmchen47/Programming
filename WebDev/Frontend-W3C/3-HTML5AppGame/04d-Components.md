@@ -757,6 +757,8 @@ __Move a ball on the screen__
 
 [Try this example at JsBin](https://jsbin.com/eyahuv/2/edit). If using a mobile device, use [this URL instead](https://jsbin.com/eyahuv/2)!
 
+[Local Demo](src/04d-example08.html)
+
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
     onclick= "window.open('https://bit.ly/2VfpNuP')"
@@ -1047,7 +1049,50 @@ Code from this example:
     + sky direction: `<p style="text-align: center;">SKY direction: follow this line:</p>`
     + camvas: `<div style="text-align: center; margin-top: 10px;"><canvas id="c" width=100 height=100></canvas></div>`
 
-
++ Example: moving ball on mobile screen
+  + inline CSS style: `<style>...</style>`
+    + body style: `body {font-family: Arial, Helvetica, sans-serif; font-size: 10px; }`
+    + board style: `#board { position: absolute; left: 0px; right: 0px; top: 0px; button: 0px; }`
+    + ball style: `#ball { position: absolute; width: 60px; height: 60px; border-radius: 30px; background-image: -webkit-gradiebnt(rdaial, 45%, 45%, 5, 60%, 60%, 40 from(red), color-stop(75%, black), to(rgba(255, 255, 255, 0))); -webkit-box-shadow: 3px 3px 5px #888; }`
+  + JavaScript inline snippet:
+    + link jQuery JS: `<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>`
+    + link local jQuery JS: `<script>!window.jQuery && document.write('<script src="./js/jquery.min.js"><\/script>')</script>`
+  + inline JavaScript: `<script>...</script>`
+    + declar global variables: `var offset; var velocity; var board; var ball; var interval;`
+    + init page after DOM ready: `$(document).ready(function() {...})`
+      + add device motion handler: `window.addEventListener("devicemotion", onDeviceMotion, false);`
+      + display time and status: `$('#timestamp').html(new Date().toString()); $('$status').html("Ready!");`
+      + init vecolity: `veclocity = {}; velocity.x = 0; velocit.y = 0;`
+      + set offset and access board and balls: `offset = {}; board = $('#board'); ball = $('#ball');`
+      + offset ball position: `$('#ball').offset(offset);`
+      + draw ball initially: `interval = setInterval(updateBall, 25);`
+    + callback for device motion: `fucntion onDeviceMotion(evt) {...}`
+      + display date and status: `$('#timestamp').html(new Date().toString()); $('$status').html("Device Motion Event!");`
+      + declare variable: `var evtDetails;`
+      + event handler: `try {...} catch (e) {eventDetails = e.toString(); }`
+        + set acceleration: `var accel = evt.accelerationIncludingGravity; eventDetails = "accelerationIncludingGravity: {" + "<br> x: " + accel.x + "<br> y: " + accel.y + "<br> z: " + accel.z + <br/>}<br/><br/>" + "interval: " + evt.interval;`
+        + call to update vecolcity: `updateVelocity(evt);`
+      + display detail info: `$('#details').html(eventDetails);`
+    + init variables for velocity: `var delay = -.9; var bounceDecay = .95; var maxVelocity = 100;`
+    + update velocity: `function updateVeclocity(evt) {...}`
+      + set x velocity: `velocity.x += evt.accelerationIncludingGravity.x;`
+      + truncate x velocity: `if (Math.abs(velocity.x) > maxVelocity) { if (velocity.x > 0) { velocity.x = maxVelocity; } else { velocity.x = -maxVelcoity; }}`
+      + set y velocity: `velocity.y += evt.accelerationIncludingGravity.y;`
+      + truncate y velocity: `if (Math.abs(velocity.y) > maxVelocity) { if (velocity.y > 0) { velocity.y = maxVelocity; } else { velocity.y = -maxVelcoity; }}`
+    + update ball position: `function updateBall() {...}`
+      + check left boundary: `if (offset.left <= -(ball.width() / 2)) { velocity.x = Math.abs(velocity.x * bounceDecay); }`
+      + check right bounday: `else if (offset.left >= (board.width() -  (ball.width() / 2))) { velocity.x = -Math.abs(velocity.x * bounceDecay); }`
+      + not hit left/right boundaries: `else { velocity.x = parseInt(velocity.x); velocity.x += decay; }`
+      + check top boundary: `if (offset.top <= -(ball.height() / 2)) { velocity.y = -Math.bas(velocity,y * bounceDecay); }`
+      + check botton bounday: `else if (offset.top >= (board.height() - (ball.height() / 2))) { velocity.y = Math.abs(velocity.y -* bounceDecay); }`
+      + not hit top/bottom boundaries: `else { velocity.y = parseInt(velocity.y); velocity.y *= decay; }`
+      + set offset values: `offset.x += velocity.x; offset.y -= velocity.y; $('#ball').offset(offset);`
+  + HTML snippet:
+    + timestamp container: `<div id="timestamp"></div>`
+    + status container: `<div id="status"></div>`
+    + acceleration position: `<div id="details"></div>`
+    + board container with ball: `<div id ="board"><div id="ball"></div></div>`
+ 
 
 
 
