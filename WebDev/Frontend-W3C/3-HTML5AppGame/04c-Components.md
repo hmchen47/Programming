@@ -60,7 +60,7 @@ Code from the example:
 <li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="kwd">function</span><span class="pln"> computePrime</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; search</span><span class="pun">:</span><span class="pln"> </span><span style="color: #ff0000;"><strong><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">true</span><span class="pun">)</span></strong></span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; search</span><span class="pun">:</span><span class="pln"> </span><span style="color: #ff0000;"><strong style="color: red;"><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">true</span><span class="pun">)</span></strong></span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; n </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sqrt</span><span class="pun">(</span><span class="pln">n</span><span class="pun">);</span><span class="pln"> i </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">n </span><span class="pun">%</span><span class="pln"> i </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span></li>
@@ -364,8 +364,8 @@ The HTML5 page code from this example that uses a Web Worker:
 <li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
 <li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">The highest prime number discovered so far is: </span><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"result"</span><span class="tag">&gt;&lt;/output&gt;&lt;/p&gt;</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><strong><span class="kwd">var</span><span class="pln"> worker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Worker</span><span class="pun">(</span><span class="str">'worker.js'</span><span class="pun">);</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; <strong>worker</strong></span><strong><span class="pun">.</span><span class="pln">onmessage </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><strong style="color: red;"><span class="kwd">var</span><span class="pln"> worker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Worker</span><span class="pun">(</span><span class="str">'worker.js'</span><span class="pun">);</span></strong></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; <strong style="color: red;">worker</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">onmessage </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'result'</span><span class="pun">).</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">data</span><span class="pun">;</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
@@ -392,7 +392,7 @@ The code of the worker (`worker.js`):
 <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">n </span><span class="pun">%</span><span class="pln"> i </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="kwd">continue</span><span class="pln"> search</span><span class="pun">;</span></li>
 <li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="com">// found a prime!</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;<strong> postMessage</strong></span><strong><span class="pun">(</span><span class="pln">n</span><span class="pun">);</span></strong></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;<strong style="color: red;"> postMessage</strong></span><strong style="color: red;"><span class="pun">(</span><span class="pln">n</span><span class="pun">);</span></strong></li>
 <li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
 </ol></div>
 
@@ -407,7 +407,7 @@ __Try an improved version of the first example yourself__
 
 We can improve this example a little by testing whether the browser supports Web Workers, and by displaying some additional messages.
 
-<p style="margin: 10px; padding: 10px; color: red"><strong>CAREFUL</strong>: for security reasons you cannot try the examples using a file:// URL. <strong>You need an HTTP web server that will serve the files</strong>. Here is what happens if you do not follow this constraint:</p>
+<p style="margin: 10px; padding: 10px; color: red"><strong style="color: red;">CAREFUL</strong>: for security reasons you cannot try the examples using a file:// URL. <strong style="color: red;">You need an HTTP web server that will serve the files</strong>. Here is what happens if you do not follow this constraint:</p>
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -510,7 +510,7 @@ HTML code:
 <li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; setTimeout</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(){</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// After 10 seconds, we kill the worker</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong> worker</strong></span><strong><span class="pun">.</span><span class="pln">terminate</span><span class="pun">();</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="color: red;"> worker</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">terminate</span><span class="pun">();</span></strong></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">createTextNode</span><span class="pun">(</span><span class="str">"Worker killed, 10 seconds elapsed !"</span><span class="pun">)</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="pun">);},</span><span class="pln"> </span><span class="lit">10000</span><span class="pun">);</span></li>
@@ -545,7 +545,7 @@ Notice at _line 22_ the call to `worker.terminate()`, that kills the worker afte
 <li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; setTimeout</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(){</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="com">// After 10 seconds, we kill the worker</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong> worker</strong></span><strong><span class="pun">.</span><span class="pln">terminate</span><span class="pun">();</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="color: red;"> worker</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">terminate</span><span class="pun">();</span></strong></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">createTextNode</span><span class="pun">(</span><span class="str">"Worker killed, 10 seconds elapsed !"</span><span class="pun">)</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp; </span><span class="pun">);},</span><span class="pln"> </span><span class="lit">10000</span><span class="pun">);</span></li>
@@ -571,8 +571,8 @@ External scripts can be loaded by workers using the `importScripts()` function.
 `worker.js`:
 
 <div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><strong><span class="pln">importScripts</span><span class="pun">(</span><span class="str">'script1.js'</span><span class="pun">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">importScripts</span><span class="pun">(</span><span class="str">'script2.js'</span><span class="pun">);</span></strong></li>
+<li class="L0" style="margin-bottom: 0px;" value="1"><strong style="color: red;"><span class="pln">importScripts</span><span class="pun">(</span><span class="str">'script1.js'</span><span class="pun">);</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">importScripts</span><span class="pun">(</span><span class="str">'script2.js'</span><span class="pun">);</span></strong></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="com">// Other possible syntax</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pln">importScripts</span><span class="pun">(</span><span class="str">'script1.js'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'script2.js'</span><span class="pun">);</span></li>
