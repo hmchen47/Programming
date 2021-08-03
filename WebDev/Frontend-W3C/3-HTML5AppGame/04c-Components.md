@@ -55,21 +55,21 @@ Code from the example:
 <li> &lt;title&gt;Worker example: One-core computation&lt;/title&gt;</li>
 <li> &lt;/head&gt;</li>
 <li> &lt;body&gt;</li>
-<li> &lt;button>> >>id>>=>>"startButton">>&gt;>>Click to start discovering prime numbers>>&lt;/button&gt;&lt;p&gt;>>&nbsp;Note that this will make the page unresponsive, you will have to close the tab in order to get back your CPU!></li>
-<li>> >>&lt;p&gt;>>The highest prime number discovered so far is: >>&lt;output>> >>id>>=>>"result">>&gt;&lt;/output&gt;&lt;/p&gt;></li>
-<li>> >>&lt;script&gt;></li>
-<li>>&nbsp;&nbsp; >>function>> computePrime>>()>> >>{></li>
-<li>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; >>var>> n >>=>> >>1>>;></li>
-<li>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; search>>:>> > style="color: #ff0000;"><strong style="color: red;">>while>> >>(>>true>>)></strong>>> >>{></li>
-<li>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; n >>+=>> >>1>;</li>
-<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (var i = 2; i &lt;= Math.sqrt(n); i += 1)</li>
-<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (n % i == 0)</li>
-<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; continue search;</li>
-<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // found a prime!</li>
-<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.getElementById('result').textContent = n;</li>
-<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </li>
-<li>&nbsp;&nbsp;&nbsp; }</li>
-<li>&nbsp;&nbsp;&nbsp; document.querySelector("#startButton").addEventListener('click', computePrime);</li>
+<li> &lt;button id="startButton"&gt;Click to start discovering prime numbers&lt;/button&gt;&lt;p&gt;&nbsp;Note that this will make the page unresponsive, you will have to close the tab in order to get back your CPU!</li>
+<li> &lt;p&gt;The highest prime number discovered so far is: &lt;output id="result"&gt;&lt;/output&gt;&lt;/p&gt;></li>
+<li> &lt;script&gt;></li>
+<li> &nbsp;&nbsp; function computePrime() {></li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var n = 1;></li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; search: > style="color: #ff0000;"><strong style="color: red;"while (true)></strong> {></li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; n += 1>;</li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (var i = 2; i &lt;= Math.sqrt(n); i += 1)</li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (n % i == 0)</li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; continue search;</li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // found a prime!</li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.getElementById('result').textContent = n;</li>
+<li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </li>
+<li> &nbsp;&nbsp;&nbsp; }</li>
+<li> &nbsp;&nbsp;&nbsp; document.querySelector("#startButton").addEventListener('click', computePrime);</li>
 <li> &lt;/script&gt;</li>
 <li> &lt;/body&gt;</li>
 <li>&lt;/html&gt;</li>
