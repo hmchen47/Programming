@@ -723,12 +723,12 @@ See [the complete online example at JSBin](https://jsbin.com/jepucoz/edit?html,j
 + Inserting content
   + injection point defined in header part: `<slot name="my-text>...</slot>`
   + injected content defined in body part: `<span slot="my-text">...</span>`
-  + when the classic template instantiation and its addition to a shadow host node in the page is done, the HTML produced will "Injected Content" instead of
+  + when the classic template instantiation and its addition to a shadow host node in the page is done, the HTML produced will contain "Injected Content" instead of
 
 + Example: inserting content
   + template snippet: `<template id="mytemplate">...</template>`
     + H1 title: `<h1 part="heading">This is a shadow H1</h1>`
-    + paragraph contents: `<p par="paragraph">...</p>`
+    + paragraph contents: `<p part="paragraph">...</p>`
     + injection point: `<slot name="my-text">My default text</slot>`
   + body contents: `<body>...</body>`
     + h1 title: `<h1 id="myWidget">...<h1>`
