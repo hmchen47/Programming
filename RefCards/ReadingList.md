@@ -120,7 +120,7 @@
   + [C Programming: Advanced Data Types](https://www.edx.org/course/c-programming-advanced-data-types)
   + [Linux Basics: The Command Line Interface](https://www.edx.org/course/linux-basics-the-command-line-interface)
   + [C Programming: Using Linux Tools and Libraries](https://www.edx.org/course/c-programming-using-linux-tools-and-libraries)
-+ Introduction to Programming in C Specialization - CVoursera
++ Introduction to Programming in C Specialization - Coursera
   + [Programming Fundamentals](https://www.coursera.org/learn/programming-fundamentals)
   + [Writing, Running, and Fixing Code in C](https://www.coursera.org/learn/writing-running-fixing-code)
   + [Pointers, Arrays, and Recursion](https://www.coursera.org/learn/pointers-arrays-recursion)
