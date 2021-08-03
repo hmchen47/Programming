@@ -222,7 +222,7 @@ If we change the orientation of the device here are the results:
 
 Typical use / code from the above example:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">...</li>
 <li> &lt;h2&gt;Device Orientation with HTML5&lt;/h2&gt;</li>
 <li>You need to be on a mobile device or use a laptop with accelerometer/orientation</li>
@@ -293,7 +293,7 @@ This example is also on [video](https://www.youtube.com/watch?v=OrNLhOAGSdE).
 
 Code from the example:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">...</li>
 <li> &lt;h2&gt;Device Orientation with HTML5&lt;/h2&gt;</li>
 <li>You need to be on a mobile device or use a laptop with accelerometer/orientation</li>
@@ -421,7 +421,7 @@ Use cases proposed by the specification are:
 
 #### Basic usage
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">function handleMotionEvent(event) {</li>
 <li> </li>
 <li>&nbsp;&nbsp; var x = event.accelerationIncludingGravity.x;</li>
@@ -506,7 +506,7 @@ __Common processing with acceleration values__
 
 Test the value of the `acceleration.z` property: If > 0 then the device is facing up, otherwise it is facing down. This would be useful if you wanted to play [heads or tails](https://en.wikipedia.org/wiki/Coin_flipping) with your phone ;-)
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">// For example, if acceleration.z is &gt; 0 then the phone is facing up</li>
 <li> var facingUp = -1;</li>
 <li> if (acceleration.z &gt; 0) {</li>
@@ -516,7 +516,7 @@ Test the value of the `acceleration.z` property: If > 0 then the device is facin
 
 Compute the angle corresponding to the Left / Right and Front / Back tilts. This example uses the `accelerationIncludingGravity` property of the event.
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">function deviceMotionHandler(eventData) {</li>
 <li>&nbsp;&nbsp; // Grab the acceleration including gravity from the results</li>
 <li>&nbsp;&nbsp; var acceleration = eventData.accelerationIncludingGravity;</li>
@@ -535,7 +535,7 @@ Compute the angle corresponding to the Left / Right and Front / Back tilts. This
 
 Compute the vertical (direction of the sky) - this extract comes from a complete example further down this page...
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">... </li>
 <li>var angle = Math.atan2(accel.y,accel.x);</li>
 <li> </li>
@@ -550,7 +550,7 @@ Compute the vertical (direction of the sky) - this extract comes from a complete
 
 Use acceleration values to move a ball on the screen of a tablet when the tablet is tilted front / back or left / right (complete example later on)...
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">...</li>
 <li> </li>
 <li>ball.x += acceleration.x;</li>
@@ -580,7 +580,7 @@ __Move the HTML5 logo__
 
 Code from this example:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">&lt;!doctype html&gt;</li>
 <li>&lt;html&gt;</li>
 <li> </li>
@@ -675,7 +675,7 @@ This example shows how the X and Y acceleration values can be used for indicatin
 
 Code from the example:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">&lt;html&gt; </li>
 <li>&nbsp;&nbsp; &lt;head&gt; </li>
 <li> </li>
@@ -771,7 +771,7 @@ __Move a ball on the screen__
 
 Code from this example:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</li>
 <li>&lt;html xmlns="https://www.w3.org/1999/xhtml"&gt;</li>
 <li> </li>
