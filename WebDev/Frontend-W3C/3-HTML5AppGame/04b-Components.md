@@ -486,19 +486,19 @@ And indeed, the above example (try [the online version here at JSBin](https://js
 
 #### Notes for 4.2.4 Shadow DOM
 
-+ Shadow DOM API
++ The Shadow DOM API
   + providing DOM encapsulation
   + serving to hide what is not necessary to see
-  + already use dby browsers's developers for
+  + already used by browser's developers for
     + `<audio>` or `<video>` elements
     + `<input type="date">`, `<input type="color">` elements
     + etc.
   + rules
-    + __shadow root:__ elements associated w/ a new kind of node w/ Shadow DOM
+    + __shadow root:__ element associated w/ a new kind of node w/ Shadow DOM
     + __shadow host:__ element w/ a shadow root w/ it
     + the content of a shadow host isn't rendered; the content of the shadow root is rendered instead
   + ref: object-oriented technology
-    + [information hiding in Wikipedia](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming))
+    + [information hiding](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)), Wikipedia
     + [Introducing JavaScript objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects), MDN Web Docs
 
 + `<video>` element as Shadow DOM
@@ -519,10 +519,10 @@ And indeed, the above example (try [the online version here at JSBin](https://js
 
 + Example: shadow DOM
   + task: associate a shadow root w/ an existing HTML element
-  + HTML snippet: `<div>Hello this is nor rendered~</div>`
+  + HTML snippet: `<div>Hello, this is not rendered!</div>`
   + access element: `var host = document.querySelector('div');`
   + create shadow root: `const shadowRoot = host.attachShadow({mode: 'open'});`
-  + insert sth, into the Shadow DOM: `shadowRoot.innerHTML = '<h1>Hello Shadow DOM</h1>';`
+  + insert sth, into the Shadow DOM: `shadowRoot.innerHTML = '<h1>Hello, Shadow DOM</h1>';`
 
 
 ### 4.2.5 Shadow DOM: encapsulate code
