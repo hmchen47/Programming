@@ -147,12 +147,12 @@ HTML imports have been replaced by a more standard way involving JavaScript impo
   + using similar methdos to those used by browser developers to construct the `<video>`, `<audio>` and `<input type="date">` elements
   + enabling to use custom HTML elements in HTML documents
   + rendering as complex widgets, such as a better-looking calendar, an input text w/ vocal recognition, a nice chart. etc.
-  + [X-Tag library](https://x-tag.github.io/): a lightweight, power-packed Wen Components library
+  + [X-Tag library](https://x-tag.github.io/): a lightweight, power-packed Web Components library
   + example: `<x-gif src="https://i.imgur.com/iKXH4E2.gif" ping-pong></x-fig>`
     + rendering an animated gif
     + looping forever in ping-pong mode
     + reversed order of the animation when the last image reached
-    + playing again when the animation foes back to the 1st image
+    + playing again when the animation force back to the 1st image
 
 + HTML import
   + syntax: `<link rel="import" href="dist/x-gif.html>`
@@ -175,11 +175,11 @@ HTML imports have been replaced by a more standard way involving JavaScript impo
   + four different APIs
     + [the HTML Templates specification](https://www.w3.org/TR/html-templates/)
     + [the Shadow DOM specification](https://www.w3.org/TR/shadow-dom/) and [Using shadow DOM](https://mzl.la/2Vc2mly)
-    + the Custom Elements specification and W3C [Wen Components repository](https://github.com/w3c/webcomponents/)
+    + the Custom Elements specification and W3C [Web Components repository](https://github.com/w3c/webcomponents/)
     + [the HTML Imports specification](https://w3c.github.io/webcomponents/spec/imports/)
-  + current support for these APIs: [MS Edge's Wen Components](https://bit.ly/372rZIc) and [CanIUse](https://www.caniuse.com/)
+  + current support for these APIs: [MS Edge's Web Components](https://bit.ly/372rZIc) and [CanIUse](https://www.caniuse.com/)
     + [HTML Template support in CanIuse](https://caniuse.com/#feat=template)
-    + []Shadow DOM v1 in CanIuse](https://caniuse.com/shadowdomv1)
+    + [Shadow DOM v1 in CanIuse](https://caniuse.com/shadowdomv1)
     + [Custom Elements in CanIuse](https://caniuse.com/custom-elementsv1)
     + HTML imports deprecated but able to be used polyfill
 
