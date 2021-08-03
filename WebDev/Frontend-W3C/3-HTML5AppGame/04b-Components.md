@@ -307,7 +307,7 @@ The JavaScript part:
 + Example: define a template
 
   ```html
-  <template id="mytemplate>
+  <template id="mytemplate">
     <img src="xyz.png" alt="an image">
     <div></div>
   </template>
@@ -325,7 +325,7 @@ The JavaScript part:
     + set image `src` attribute
     + clone the template's content and add to page
   + access template: `var t = document.querySelector('#mytemplate');`
-  + populate the src at runtime: `t.content.querySelector('img').src = 'https://webcomponents.github.io/img/log.svg'`
+  + populate the src at runtime: `t.content.querySelector('img').src = 'https://webcomponents.github.io/img/logo.svg';`
   + clone the template: `var clone = document.importNode(t.content, true); document.body.appendChild(clone);`
 
 
