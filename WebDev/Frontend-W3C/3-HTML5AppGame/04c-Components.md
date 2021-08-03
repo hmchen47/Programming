@@ -48,7 +48,7 @@ This example will block the user interface unless you close the tab. [Try it at 
 
 Code from the example:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">&lt;!DOCTYPE HTML&gt;</li>
 <li>&lt;html&gt;</li>
 <li> &lt;head&gt;</li>
@@ -165,7 +165,7 @@ __Use case #1: a "parent HTML5 page" creates workers from a script__
 
 The HTML5 Web Worker API provides the Worker JavaScript interface for loading and executing a script in the background, in a different thread from the UI. The following instruction  loads and creates a worker:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">var worker = new Worker("worker0.js");</li>
 </ol></div>
 
@@ -182,7 +182,7 @@ Terminology check: serialized
 
 (1) Messages can be sent by the parent page to a worker using this kind of code:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">var worker = new Worker("worker0.js");</li>
 <li> </li>
 <li>// String message example</li>
@@ -196,7 +196,7 @@ Terminology check: serialized
 
 (2) Messages (like the object message example, above) are received from a worker using this method (code located in the JavaScript file of the worker):
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">onmessage = function (event) {</li>
 <li>&nbsp; &nbsp;// do something with event.data</li>
 <li>&nbsp; alert('received ' + event.data.firstName);</li>
@@ -205,13 +205,13 @@ Terminology check: serialized
 
 (3) The worker will then send messages back to the parent page (code located in the JavaScript file of the worker):
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">postMessage("Message from a worker !");</li>
 </ol></div>
 
 (4) And the parent page can listen to messages from a worker like this:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">worker.onmessage = function(event){</li>
 <li>&nbsp;&nbsp;&nbsp; // do something with event.data</li>
 <li>};</li>
@@ -224,7 +224,7 @@ __Use case #3: a complete example__
 
 The "Parent HTML page" of a simplistic example using a dedicated Web Worker:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">&lt;!DOCTYPE HTML&gt;</li>
 <li>&lt;html&gt;</li>
 <li> &lt;head&gt;</li>
@@ -251,7 +251,7 @@ The "Parent HTML page" of a simplistic example using a dedicated Web Worker:
 
 The JavaScript code of the worker (worker0.js):
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">onmessage = function(e){</li>
 <li>&nbsp;&nbsp; if ( e.data === "start" ) {</li>
 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Do some computation that can last a few seconds...</li>
@@ -273,7 +273,7 @@ __Use case #4: handling errors__
 
 The parent page can handle errors that may occur inside its workers, by listening for an `onError` event from a worker object:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">var worker = new Worker('worker.js');</li>
 <li> worker.onmessage = function (event) {</li>
 <li>&nbsp;&nbsp;&nbsp; // do something with event.data</li>
@@ -355,7 +355,7 @@ This is the example we tried earlier, without Web Workers, and it froze the page
 
 The HTML5 page code from this example that uses a Web Worker:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">&lt;!DOCTYPE HTML&gt;</li>
 <li>&lt;html&gt;</li>
 <li> &lt;head&gt;</li>
@@ -384,7 +384,7 @@ Workers can only communicate with their parent page using messages. See the code
 
 The code of the worker (`worker.js`):
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">var n = 1;</li>
 <li>search: while (true) {</li>
 <li>&nbsp;&nbsp;&nbsp; n += 1;</li>
@@ -427,7 +427,7 @@ You can download this example: [WebWorkersExample1.zip](https://bit.ly/2V4hh1u)
 
 HTML code:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">&lt;!DOCTYPE HTML&gt;</li>
 <li>&lt;html&gt;</li>
 <li> &lt;head&gt;</li>
@@ -455,7 +455,7 @@ _Line 9_ shows how to test if the browser can run JavaScript code that uses the 
 
 Here is the `worker1.js` code:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">postMessage("Hey, in 3s, I'll start to compute prime numbers...");</li>
 <li> </li>
 <li>setTimeout(function() {</li>
@@ -488,7 +488,7 @@ The Web Worker API provides a `terminate()` method that we can use on any worker
 
 HTML code:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">&lt;!DOCTYPE HTML&gt;</li>
 <li>&lt;html&gt;</li>
 <li> &lt;head&gt;</li>
@@ -523,7 +523,7 @@ Notice at _line 22_ the call to `worker.terminate()`, that kills the worker afte
 
 `worker2.js` is the same as in the last example:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1">&lt;!DOCTYPE HTML&gt;</li>
 <li>&lt;html&gt;</li>
 <li> &lt;head&gt;</li>
@@ -570,7 +570,7 @@ External scripts can be loaded by workers using the `importScripts()` function.
 
 `worker.js`:
 
-<div><ol>
+<div style="font-family: Lucida Console, Monaco;"><ol>
 <li value="1"><strong style="color: red;">importScripts('script1.js');</strong></li>
 <li><strong style="color: red;">importScripts('script2.js');</strong></li>
 <li> </li>
