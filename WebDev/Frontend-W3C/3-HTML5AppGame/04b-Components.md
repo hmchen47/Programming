@@ -648,7 +648,7 @@ In which the "regular" CSS rule changed the color of the H1 located in the body 
     + hidden in a shadow root
     + protected from external CSS, JS snippets, etc.
   + CSS inside the template not affected any other elements on the page
-  + CSS rule only applying to the template's content w/ no side-effect on other elements outside
+  + CSS rule only applying to the template's content w/o side-effect on other elements outside
 
 + Example: mixing templates and shadow DOM
   + tasks
@@ -657,18 +657,18 @@ In which the "regular" CSS rule changed the color of the H1 located in the body 
   + HTML template<a name="h1Template"></a>:
     + declare template: `<template id="mytemplate">...</template>`
     + declare CSS style: `<style> h1 { color: white; background: red; } </style>`
-    + heading: `<h1> This is a shadowed H1 </h1>`
+    + heading: `<h1> This is a shadowed H1. </h1>`
   + JavaScript snippet:
     + instanciate (instantiate in English) the template: `var t = document.querySelector("#mytemplate"`);`
-    + create a root node under H! title: `var host = document.querySelector("#withShadowDom"); const shadowRoot = host.attachShadow({mode: 'open'});`
+    + create a root node under H1 title: `var host = document.querySelector("#withShadowDom"); const shadowRoot = host.attachShadow({mode: 'open'});`
     + insert sth into the shadow DOM, going to be rendered: `shadowRoot.appendChild(document.importNode(t.content, true));`
 
 + Example: differentiating the template and noremal elements
   + [HTTP template](#h1Template)
   + HTML snippet:
     + main body: `<body>...</body>`
-    + title will be replaced: `<h1 id="withShadowDom">This is a text header</h1>`
-    + title will not be replaced: `<h1>Normal header with no shadow DOM associated.<h1>`
+    + title will be replaced: `<h1 id="withShadowDom">This is a text header.</h1>`
+    + title will not be replaced: `<h1>Normal header with no shadow DOM associated.</h1>`
 
 
 ### 4.2.6 Shadow DOM: insert content
