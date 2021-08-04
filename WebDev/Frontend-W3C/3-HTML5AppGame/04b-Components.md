@@ -866,18 +866,19 @@ This lesson is only an introduction to custom elements. Here are a few pointers 
 
 + HTML costom elements
   + another API described as HTML Web components
-  + extending HTML b y defining new elements
+  + extending HTML by defining new elements
   + telling the browser how to render them
-  + basic syntax: `customElement.define('my--widget', MyWidget);`
+  + basic syntax: `customElement.define('my-widget', MyWidget);`
   + constraints
     + containing a dash in the element's new name, e.g., `<my-calendar>`, `<app-list>`, etc.
     + `MyWidget`: a JS class object defining the behavior
     + optional 3rd parameter: a JS object containing an extended property, specifying the built-in element inherited
-  + `document.currentScript` syntax
-    + selecting the "local document", the one corresponding to the page to avoid ambiguity of multiple WebComponents files
-    + `var localDoc = document.currentScript.ownerDocument`: select the document only in the HTML of document attached to the JavaScript
-    + Web components probably included in other HTMLpages
-    + good practice: selecting elements only in the HTML page of the Web Component, not in the document that will import the Web Component
+  + local document:
+    + the one corresponding to the page to avoid ambiguity of multiple WebComponents files
+    + syntax to select: `document.currentScript`
+    + selecting the document only in the HTML of document attached to the JavaScript: `var localDoc = document.currentScript.ownerDocument`
+    + Web components probably included in other HTML pages
+    + good practice: selecting elements only in the HTML page of the Web Components, not in the document that will import the Web Components
   + registration of a new custom element named `<my-widget>`
     + syntax: `customElements.define('my-widget', MyWidget);`
     + when the browser encounters `<my-widget>` within an HTML document, it will create an instance of the `MyWidget` class and render the shadow DOM of the Web Component
@@ -885,15 +886,15 @@ This lesson is only an introduction to custom elements. Here are a few pointers 
 + Example: custom elements
   + HTML snippet in body part:
     + custom element: `<my-widget>...</my-widget>`
-    + title slot: `<span slot='my-text'>Title injected`
-    + paragraph slot: `<span slot="my-paragraph'>Paragraph injected`
+    + title slot: `<span slot='my-text'>Title injected>/span>`
+    + paragraph slot: `<span slot="my-paragraph'>Paragraph injected>/span>`
   + HTML template: `<template id="mytemplate">...</template>`
-    + CSS style: `<style>h1 { color: white; background: red; }</style>`
+    + CSS style: `<style>h1 { color: white; background-color: red; }</style>`
     + H1 element: `<h1> <slot name="my-title">My default text</slot> </h1>`
     + paragraph element: `<p> <slot name="my-paragraph">My default text</slot> </p>`
   + JavaScript snippet
-    + get local document: `var local Doc = document.currentScript.ownerDocument;`
-    + define the Web Component class attached tot he custom element `<my-widget>`: `class MyWidget extends HTMLElement {...}`
+    + get local document: `var localDoc = document.currentScript.ownerDocument;`
+    + define the Web Component class attached to the custom element `<my-widget>`: `class MyWidget extends HTMLElement {...}`
     + constructor: `constructor() {...}`
       + mandator statement to establish the correct prototype chain: `super();`
       + declare shadow root: `const shadowRoot = this.attachShadow({mode: 'open'});`
