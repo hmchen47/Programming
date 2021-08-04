@@ -967,7 +967,7 @@ You could create a `my-widget.html` file, add the HTML template and the JavaScri
 #### Notes for 4.2.8 HTML Imports
 
 + Replacement of HTML imports
-  + dropped since 202 and no clear replacement
+  + dropped since 2020 and no clear replacement
   + implemented only by Google Chrome but obsoleted since Chrome 73
   + many web sites still using them, including YouTube
   + possible replacement solutions:
@@ -986,7 +986,7 @@ You could create a `my-widget.html` file, add the HTML template and the JavaScri
     + HTML modules: under discussion since 2017
 
 + HTML imports
-  + simplest API from Web components
+  + simplest API from Web Components
   + syntax: `<link rel="import" href="your_html_file">`
   + importing all the html/css/js code to define a Web component
     + similar to including CSS in the page
@@ -994,11 +994,11 @@ You could create a `my-widget.html` file, add the HTML template and the JavaScri
 
 + Example: html imports
   + tasks:
-    + the importation of the HTML, CSS, and JS code odf new components
+    + the importation of the HTML, CSS, and JS code of new components
     + `myComponents.html` probably containing
       + HTML+JS+CSS code defining templates
       + attachment to a shadow host, CSS
-      + registering oof new custom HTML elements
+      + registeration of new custom HTML elements
   + HTML head part: `<link rel="import" href="components/myComponents.html">`
   + HTML body part: 
     + add widget: `<my-widget>...</my-widget>`
