@@ -114,14 +114,14 @@ There are two different kinds of Web Workers described in the specification:
   + intensive CPU task $\implies$ everything else blocked
   + solution:
     + running certain CPU-intensive tasks in separate threads from the one managing the graphical user interface
-    + performing computationally intensive tasks in one or mroe background threads
+    + performing computationally intensive tasks in one or more background threads
     + using the HTML Web Workers
     + Web Workers = CPU threads, in JavaScript
 
 + Example: intensive task w/o Web Workers - bad JS programming
   + compute Prime: `function computePrime() {...}`
   + init incremental variable for prime number: `var n =1;`
-  + loop to get  (infinite loop): `search: while (true) {...}`
+  + loop to get primes (infinite loop): `search: while (true) {...}`
     + increase iterative variable: `n += 1;`
     + iterate to check prime number: `for (var i=2; i<=Math.sqrt(n); i+=1) {if (n%i ==0) continue search; }`
     + display the prime number: `document.getElementById('result').textContent = n;`
@@ -153,7 +153,7 @@ There are two different kinds of Web Workers described in the specification:
       + communicating its current value
     + all the pages/tabs sharing its communication channel $\to$ display the same value
     + refreshing each of the pages $\to$ displaying the same value as each other
-    + conforing to the "same-origin" policy
+    + comforming to the "same-origin" policy
     + not supported by major browsers
 
 
