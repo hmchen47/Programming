@@ -1082,13 +1082,12 @@ __Explanations:__
 
 + JavaScrip modules as Web components
   + HTML Imports APIs removed from standard
-  + solution: embedding in the JavaScript part of you components
-    + the HTML templaste part of the components
+  + solution: embedding in the JavaScript part of the components
+    + the HTML template part of the components
     + the CSS part for the styling of the component
   + able to include the JavaScript as a regular JavaScript file, using 
     + `<script src="yourComponent.js"></script>`
-    + the new EcmaScript import statement and import the file as a ES Module
-  + `customElement.define`
+    + the new EcmaScript import statement and import the file as a JS Module
 
 + Example: the host html page importing and instantiating the Web Components
   + HTML snippet: `index.html`
@@ -1122,7 +1121,8 @@ __Explanations:__
                         <h1>${this.name}
                     </div>
                 `;
-                this.root.innerHTML = "<style>${this.css}</style><div id='wrapper'>${this.html}</div>";
+                this.root.innerHTML = 
+                  "<style>${this.css}</style><div id='wrapper'>${this.html}</div>";
             } //connectedCallback
         } // class extends HTMLElement
     );
