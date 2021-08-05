@@ -298,13 +298,13 @@ See also the section "how to debug Web Workers" on next page.
 + Using "messages" to manage a worker
   + messages: strings or object
   + possibly serialized in JSON format, most used JS object
-  + procedure of serialized:
+  + procedure of serialization:
     + messages sent by the parent page to a worker
       + create worker: `var worker = new Worker("worker0.js");`
       + set string message: `worker.postMessage("Hello");`
       + declare object: `var personObj = {'firstName': 'Michel', 'lastName': 'Buffa'};`
       + set message: `worker.postMessage(personObj);`
-    + message received from a worker using this method - add message handler: `onmessage = function(evt) { // do sth. w/ evt.data; alert('received ' + evt.data.firstName); };`
+    + message received from a worker by adding message handler: `onmessage = function(evt) { // do sth. w/ evt.data; alert('received ' + evt.data.firstName); };`
     + worker sending message back to the parent page: `postMessage("Message from a worker!");`
     + the parent page able to listen to messages from a work: `worker.onmessage = function(evt) { // do sth. w/ evt.data };`
 
@@ -313,14 +313,14 @@ See also the section "how to debug Web Workers" on next page.
     + paragraph: `<p>The most simple example of Web Workers</p>`
     + embedded script: `<script> ...</script>`
       + create worker: `var worker = new Worker("worker0.js");`
-      + watch for messages from the worker: `worker.onmessage = function(e) { // do sth. w/ the msg from the client, e.data; alert("Got message that the background work is finished...") };`
+      + watch for messages from the worker: `worker.onmessage = function(e) { // do sth. w/ the msg from the client, e.data; alert("Got message that the background work is finished..."); };`
       + send a message to the worker: `worker.postMessage("start");`
   + JavaScript snippet of the worker: `worker0.js`
     + add message handler: `onmessage = function(e) { if (e.data === "start") { // do some computation and alert the creator of the thread that the job is finished; done(); } };`
     + send back the results to the parent page: `function done() { postMessage("done"); }`
 
 + Example: handling error
-  + create worker: `var worker = new Worker('work.js');`
+  + create worker: `var worker = new Worker('worker.js');`
   + add message handler: `worker.onmessage = function(evt) { // do sth w/ evt.data };`
   + add error handler: `worker.onerror = function(evt) { console.log(evt.message, evt); }`
 
