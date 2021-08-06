@@ -380,13 +380,13 @@ Click on the image to see the [YouTube video](https://www.youtube.com/watch?v=_C
 
 + Example: device orientation in standalone version
   + containers for device rotation angles<a name="containers"></a>: `<div id="LR"></div> <div id="FB"></div> <div id="DIR"></div>`
-  + Javascript inline snippet: `<script type="text/javascript>...</script>`
+  + Javascript inline snippet: `<script type="text/javascript">...</script>`
     + check browser support of orientation API<a name="getOrient"></a>: `if (window.DeviceOrientationEvent) {...} else { // not supported }`
       + log msg: `console.log("DeviceOrientation is supported");`
       + add device orientation handler: `window.addEventListener('deviceorientation', function(evtData) {...}, false);`
         + gamma for right/left inclination: `var LR = evtData.gamma;`
         + beta for front/back inclination: `var FB = evtData.beta;`
-        + alpha fpr orientation: `var DIR = evtData.alpha;`
+        + alpha for orientation: `var DIR = evtData.alpha;`
         + display values on screen: `deviceOrientationHandler(LR, FB, DIR);`
       + display not supported msg: `alert("Device orientation not supported on your device or browser: Sorry.");`
     + display msg in containers: `function deviceOrientationHandler(LR, FB, DIR) {...}`
@@ -398,11 +398,11 @@ Click on the image to see the [YouTube video](https://www.youtube.com/watch?v=_C
   + task: using CSS3  rotations for rotating the image
   + HTML snippet
     + containers for [device rotation angles](#containers)
-    + image container: `<img src="https://.../log.png" id="imgLogo">
+    + image container: `<img src="https://.../log.png" id="imgLogo">`
   + Javascript inline snippet: `<script type="text/javascript>...</script>`
     + check browser support of [orientation API](#getOrient)
-    + tilt image to reflect device <a name="orientation"></a>: `function deviceOrientationHandler(LR, FB, DIR) {...}`
-      + access image container and set style w/ webkit browser: `document.getElementById("imgLogo").style.webkitTransform = "rotate(" + LR + "deg) rotate3d(1, 0, 0 " + (FB *-1) + "deg)";`
+    + tilt image to reflect device orientation<a name="orientation"></a>: `function deviceOrientationHandler(LR, FB, DIR) {...}`
+      + access image container and set style orientation w/ browser webkit: `document.getElementById("imgLogo").style.webkitTransform = "rotate(" + LR + "deg) rotate3d(1, 0, 0 " + (FB *-1) + "deg)";`
       + access image container and set style w/ HTML5 standard-compliance: `document.getElementById("imgLogo").style.Transform = "rotate(" + LR + "deg) rotate3d(1, 0, 0 " + (FB *-1) + "deg)";`
 
 
