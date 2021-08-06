@@ -650,16 +650,16 @@ Like other multi-threaded applications, debugging Web Workers can be a tricky ta
 
 + Dedicated workers
   + the simplest kind of Workers
-  + remaining linked to the parent page once created
+  + remaining link to the parent page once created
   + implicit communication channel opened btw the Workers and the parent page $\to$ message exchanged
-  + simplest use of workers for performing a computationally experience task w/o interrupting the user interface
+  + simplest use of workers for performing a computationally experienced task w/o interrupting the user interface
   + processing messages sent asynchronously by the worker: `worker.onmessage = function(event) {...}`
   + `event.data`: the message content
-  + workers only communciating w/ their parent page using
+  + workers only communciating w/ their parent page using messages
   + a worker = a thread
   + thread using resources
   + best pratice: a work no longer required $\to$ releasing the used resources
-  + using `terminate()` method on any worker to end the workera nd unable to 
+  + using `terminate()` method on any worker to end the worker
   + web worker able to kill itself by calling the `close()` method in worker's JS file
 
 + Example: backgroundtask and user interface responsive - simple version
@@ -669,7 +669,7 @@ Like other multi-threaded applications, debugging Web Workers can be a tricky ta
   + Javascript snippet for `worker.js`
     + tasks:
       + infinite loop to compute prime numbers
-      + post found prime numbers using `postMessage(...)`
+      + post found prime numbers to the parent page
     + init incremental variable for prime number<a name="initNum"></a>: `var n = 1;`
     + create infinite loop to compute prime<a name="primeNum"></a>: `search: while(true) {...}`
       + increase variable: `n += 1;`
@@ -691,8 +691,8 @@ Like other multi-threaded applications, debugging Web Workers can be a tricky ta
   + HTML snippet for [prime number](#output)
   + HTML inline script: `<script>...</script>`
     + check [browser supporting](#chkSupport) web worker
-    + [browser support](#support)
-    + browser [not support](#notSupport)
+      + [browser support](#support)
+      + browser [not support](#notSupport)
     + set time out: `setTimeout(function() {...}, 10000);`
     + terminate worker: `worker.terminate();`
     + addpend displayed msg on page: `document.body.appendChild(document.createTextNode("Worker killed, 10 seconds elapsed!"));`
@@ -703,7 +703,7 @@ Like other multi-threaded applications, debugging Web Workers can be a tricky ta
   + external scripts loaded asynchronously
   + function `importScripts()` not returning until all the scripts loaded and executed
   + error occurred during a script importing process
-    + a `NETWORK_ERROR` thrown by the `importScripts` function
+    + a `NETWORK_ERROR` thrown by the `importScripts()` function
     + following code not executed
 
 + Limitations of Web Workers
