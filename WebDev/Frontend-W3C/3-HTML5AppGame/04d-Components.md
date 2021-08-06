@@ -24,7 +24,7 @@ If it provides a "mobile device emulation mode", you can use the devtools of a d
 #### Notes for 4.4.1 The Orientation API
 
 + HTML5 orientation API
-  + a way to use angle measures provided by accelerometers form mobile devices or desktops such a sMacBook
+  + a way to use angle measures provided by accelerometers form mobile devices or desktops such as MacBook
   + mobile device emulation mode: able to use the devtools of a desktop browser to fake the orientation values
 
 
@@ -126,7 +126,7 @@ __Rotate the device frame around its y axis by gamma degrees, with gamma in [-90
   + clockwise rotation as a positive number while anti-clockwise as a negative
   + rotations measured in degrees
 
-+ Rotations and unified coordinate 
++ Rotations and unified coordinate
   + initial position: Earth (XYZ) and frames (xyz) aligned
   + around z-axis:
     + alpha degree w/ range [0, 360]
