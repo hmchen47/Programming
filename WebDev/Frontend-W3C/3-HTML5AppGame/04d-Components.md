@@ -930,22 +930,22 @@ Code from this example:
   + dealing w/ the acceleration instead of orientation only
   + use cases proposed
     + __controlling a game:__ a gaming Web application monitors the device's orientation and interprets tilting in a certain direction as a means to control an on-screen sprite
-    + __+gesture recognition:__ a Web application monitors the device's acceleration and applies signal processing in order to recognize certain specific gesture
+    + __gesture recognition:__ a Web application monitors the device's acceleration and applies signal processing in order to recognize certain specific gesture
     + __mapping:__ a mapping Web application uses the device's orientation to correctly align the map w/ reality
   + basic syntax: 
     + handle motion event: `function handleMotionEvent(evt) {...}`
       + x-axis: `var x = evt.accelerationIncludingGravity.x;`
-      + x-axis: `var y = evt.accelerationIncludingGravity.y;`
-      + x-axis: `var z = evt.accelerationIncludingGravity.z;`
-      + processing ...
+      + y-axis: `var y = evt.accelerationIncludingGravity.y;`
+      + z-axis: `var z = evt.accelerationIncludingGravity.z;`
+      + process: `// processing w. x, y, and z ...`
     + add even listener for device motion: `window.addEventListener('devicemotion', handleMotionEvent, true);`
 
 + Acceleration
   + `deviceMotion` API similar to the `orientation` API
   + returning both the rotation infomation and aceration information
   + reflecting the device's actual movement
-  + containing 3 parts: along the x axis, along the  axis, and along the z axis
-  + unit: $m/s^2 \sim \frac{1}{3.281} ft/s^2$
+  + containing 3 parts: along the x axis, along the y axis, and along the z axis
+  + unit: $m/s^2 \sim 3.281 ft/s^2$
   + returned by the API as an _acceleration_ event w/ properties
     + `accelerationIncludingGravity`
     + `acceleration`: presented w/ gyroscope, otherwise `null`
@@ -972,7 +972,7 @@ Code from this example:
       />
     </figure>
 
-+ Common procedure fro acceleration
++ Common procedure for acceleration
   + test if the API supported by the browser
   + add a listener for `devicemotion` event
   + get the acceleration values form the DOM event
@@ -982,9 +982,9 @@ Code from this example:
   + `acceleration.z` property:
     + acceleration.z $> 0$: device facing up
     + acceleration.z $\le 0$: device facing down
-  + typical snippet for `acceleration.z` property<a name="faceUp"></a>
+  + typical snippet for `acceleration.z` property<a name="facingUp"></a>
     + declare facing up variable: `var facingUp = -1;`
-    + check acceleration.z property: `if (acceleration.z > 0) { facingUp = +1; }`
+    + check `acceleration.z` property: `if (acceleration.z > 0) { facingUp = +1; }`
   + `accelerationIncludingGravity` perperty
     + computing the angle corresponding to the left/right and front/back titls
     + converting the value from acceleration to degrees
@@ -1012,16 +1012,16 @@ Code from this example:
       + log console msg: `console.log("DeviceMotion is supported");`
       + add device motion handler: `window.addEventListener("devicemotion', function(evtDta) {...}, flase);`
         + set acceleration var: `var acceleration = evtData.accelerationIncludingGravity;`
-        + display raw acceleration data: `var rawAcceleration = "[" + Mathround(acceleration.x) + "," + Math.round(acceleration.y) + "," + Math.round(acceleration.z) + "]";`
+        + display raw acceleration data: `var rawAcceleration = "[" + Math.round(acceleration.x) + "," + Math.round(acceleration.y) + "," + Math.round(acceleration.z) + "]";`
         + check [facing up or down](#facingUp)
         + convert [value to the degree](#val2Deg)
         + set raw acceleration value: `document.querySelector("#rawAccel").innerHTML = "Raw acceleration: " + rawAccelaeration;`
-        + set tilt FB vale: `document.querySelector("#tiltFB").innerHTML = "Tilt fron/back: " + tiltFB;`
-        + set tilt LR vale: `document.querySelector("#tiltLR").innerHTML = "Tilt left/right: " + tiltLR;`
+        + set tilt FB value: `document.querySelector("#tiltFB").innerHTML = "Tilt front/back: " + tiltFB;`
+        + set tilt LR value: `document.querySelector("#tiltLR").innerHTML = "Tilt left/right: " + tiltLR;`
         + set face up/down: `document.querySelector("#upDown").innerHTML = "Face up/down: " + facingUp;`
-        + call to update logo orientation: `updateLogoOrientation("tiltLR, tiltFB);`
+        + call to update logo orientation: `updateLogoOrientation(tiltLR, tiltFB);`
       + display not supported msg: `alert("Not supported on your device or browser. Sorry");`
-    + update [tilt image to reflect device](#orientation)
+    + update [tilt image to reflect device orientation](#orientation)
 
 + Example: orientations w/ X, Y, and Z accelerations
   + tasks
@@ -1035,62 +1035,62 @@ Code from this example:
     + add device motion handler if page ready: `$(document).ready(function() { window.addEventListener("devicemotion", onDeviceMotion, false); });`
     + device motion callback: `function onDeiceMotion(evt) {...}`
     + access canvas and set context: `var ctx = document.getElementById("c").getContext("2d");`
-    + set acceleraton: `vr accel = evtData.accelerationIncludingGravity;`
+    + set acceleraton: `var accel = evtData.accelerationIncludingGravity;`
     + refresh all sliders: `$("#sliderX").val(Math.round(accel.x)).slider("refresh"); $("#sliderY").val(Math.round(accel.y)).slider("refresh"); $$("#sliderZ").val(Math.round(accel.z)).slider("refresh");`
     + set sky direction: `var angle = Math.atan2(accel.y, accel.x);`
-    + draw sky direction: `cyx.clearRec(0, 0, 100, 100); ctx.arc(50, 50, 0, 2*Math.PI, false); ctx.moveTo(50, 50); ctx.lineTo(50-50*Math.cos(angle), 50+50*Math.sine(angle)); ctx.stroke();`
+    + draw sky direction: `ctx.clearRec(0, 0, 100, 100); ctx.arc(50, 50, 0, 2*Math.PI, false); ctx.moveTo(50, 50); ctx.lineTo(50-50*Math.cos(angle), 50+50*Math.sine(angle)); ctx.stroke();`
   + HTML body snippet:
-    + page container: `div data-role="page" id="intrppage">...</div>`
-    + header container: `<div data-role="header"<h1>Accelerometer</h1></div>`
+    + page container: `<div data-role="page" id="intropage">...</div>`
+    + header container: `<div data-role="header"><h1>Accelerometer</h1></div>`
     + content container: `<div data-role="content">...</div>`
       + X acceleration slider: `<label for="sliderX">X Acceleration (Roll)</label> <input type="range" name="sliderX" id="sliderX" value=0 min=-10 max=10 data-theme="a" />`
       + Y acceleration slider: `<label for="sliderY">Y Acceleration (Pitch)</label> <input type="range" name="sliderY" id="sliderY" value=0 min=-10 max=10 data-theme="b" />`
       + Z acceleration slider: `<label for="sliderZ">Z Acceleration (<strike>Yaw</strike>Face up/down)</label> <input type="range" name="sliderZ" id="sliderZ" value=0 min=-10 max=10 data-theme="c" />`
     + sky direction: `<p style="text-align: center;">SKY direction: follow this line:</p>`
-    + camvas: `<div style="text-align: center; margin-top: 10px;"><canvas id="c" width=100 height=100></canvas></div>`
+    + canvas: `<div style="text-align: center; margin-top: 10px;"><canvas id="c" width=100 height=100></canvas></div>`
 
 + Example: moving ball on mobile screen
   + inline CSS style: `<style>...</style>`
     + body style: `body {font-family: Arial, Helvetica, sans-serif; font-size: 10px; }`
     + board style: `#board { position: absolute; left: 0px; right: 0px; top: 0px; button: 0px; }`
-    + ball style: `#ball { position: absolute; width: 60px; height: 60px; border-radius: 30px; background-image: -webkit-gradiebnt(rdaial, 45%, 45%, 5, 60%, 60%, 40 from(red), color-stop(75%, black), to(rgba(255, 255, 255, 0))); -webkit-box-shadow: 3px 3px 5px #888; }`
+    + ball style: `#ball { position: absolute; width: 60px; height: 60px; border-radius: 30px; background-image: -webkit-gradient(radial, 45%, 45%, 5, 60%, 60%, 40 from(red), color-stop(75%, black), to(rgba(255, 255, 255, 0))); -webkit-box-shadow: 3px 3px 5px #888; }`
   + JavaScript inline snippet:
     + link jQuery JS: `<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>`
     + link local jQuery JS: `<script>!window.jQuery && document.write('<script src="./js/jquery.min.js"><\/script>')</script>`
   + inline JavaScript: `<script>...</script>`
-    + declar global variables: `var offset; var velocity; var board; var ball; var interval;`
-    + init page after DOM ready: `$(document).ready(function() {...})`
+    + declare global variables: `var offset; var velocity; var board; var ball; var interval;`
+    + init page after DOM ready: `$(document).ready(function() {...});`
       + add device motion handler: `window.addEventListener("devicemotion", onDeviceMotion, false);`
       + display time and status: `$('#timestamp').html(new Date().toString()); $('$status').html("Ready!");`
-      + init vecolity: `veclocity = {}; velocity.x = 0; velocit.y = 0;`
+      + init velocity: `velocity = {}; velocity.x = 0; velocity.y = 0;`
       + set offset and access board and balls: `offset = {}; board = $('#board'); ball = $('#ball');`
       + offset ball position: `$('#ball').offset(offset);`
       + draw ball initially: `interval = setInterval(updateBall, 25);`
-    + callback for device motion: `fucntion onDeviceMotion(evt) {...}`
+    + callback for device motion: `function onDeviceMotion(evt) {...}`
       + display date and status: `$('#timestamp').html(new Date().toString()); $('$status').html("Device Motion Event!");`
       + declare variable: `var evtDetails;`
-      + event handler: `try {...} catch (e) {eventDetails = e.toString(); }`
-        + set acceleration: `var accel = evt.accelerationIncludingGravity; eventDetails = "accelerationIncludingGravity: {" + "<br> x: " + accel.x + "<br> y: " + accel.y + "<br> z: " + accel.z + <br/>}<br/><br/>" + "interval: " + evt.interval;`
-        + call to update vecolcity: `updateVelocity(evt);`
+      + event handler: `try {...} catch (e) {evtDetails = e.toString(); }`
+        + set acceleration: `var accel = evt.accelerationIncludingGravity; eventDetails = "accelerationIncludingGravity: {" + "<br> x: " + accel.x + "<br> y: " + accel.y + "<br> z: " + accel.z + "<br/>}<br/><br/>" + "interval: " + evt.interval;`
+        + call to update velocity: `updateVelocity(evt);`
       + display detail info: `$('#details').html(eventDetails);`
     + init variables for velocity: `var delay = -.9; var bounceDecay = .95; var maxVelocity = 100;`
-    + update velocity: `function updateVeclocity(evt) {...}`
+    + update velocity: `function updateVelocity(evt) {...}`
       + set x velocity: `velocity.x += evt.accelerationIncludingGravity.x;`
-      + truncate x velocity: `if (Math.abs(velocity.x) > maxVelocity) { if (velocity.x > 0) { velocity.x = maxVelocity; } else { velocity.x = -maxVelcoity; }}`
+      + truncate x velocity: `if (Math.abs(velocity.x) > maxVelocity) { if (velocity.x > 0) { velocity.x = maxVelocity; } else { velocity.x = -maxVelocity; }}`
       + set y velocity: `velocity.y += evt.accelerationIncludingGravity.y;`
-      + truncate y velocity: `if (Math.abs(velocity.y) > maxVelocity) { if (velocity.y > 0) { velocity.y = maxVelocity; } else { velocity.y = -maxVelcoity; }}`
+      + truncate y velocity: `if (Math.abs(velocity.y) > maxVelocity) { if (velocity.y > 0) { velocity.y = maxVelocity; } else { velocity.y = -maxVelocity; }}`
     + update ball position: `function updateBall() {...}`
       + check left boundary: `if (offset.left <= -(ball.width() / 2)) { velocity.x = Math.abs(velocity.x * bounceDecay); }`
-      + check right bounday: `else if (offset.left >= (board.width() -  (ball.width() / 2))) { velocity.x = -Math.abs(velocity.x * bounceDecay); }`
+      + check right boundary: `else if (offset.left >= (board.width() -  (ball.width() / 2))) { velocity.x = -Math.abs(velocity.x * bounceDecay); }`
       + not hit left/right boundaries: `else { velocity.x = parseInt(velocity.x); velocity.x += decay; }`
-      + check top boundary: `if (offset.top <= -(ball.height() / 2)) { velocity.y = -Math.bas(velocity,y * bounceDecay); }`
-      + check botton bounday: `else if (offset.top >= (board.height() - (ball.height() / 2))) { velocity.y = Math.abs(velocity.y -* bounceDecay); }`
+      + check top boundary: `if (offset.top <= -(ball.height() / 2)) { velocity.y = -Math.bas(velocity.y * bounceDecay); }`
+      + check botton boundary: `else if (offset.top >= (board.height() - (ball.height() / 2))) { velocity.y = Math.abs(velocity.y * bounceDecay); }`
       + not hit top/bottom boundaries: `else { velocity.y = parseInt(velocity.y); velocity.y *= decay; }`
       + set offset values: `offset.x += velocity.x; offset.y -= velocity.y; $('#ball').offset(offset);`
   + HTML snippet:
     + timestamp container: `<div id="timestamp"></div>`
     + status container: `<div id="status"></div>`
-    + acceleration position: `<div id="details"></div>`
+    + acceleration container: `<div id="details"></div>`
     + board container with ball: `<div id ="board"><div id="ball"></div></div>`
  
 
