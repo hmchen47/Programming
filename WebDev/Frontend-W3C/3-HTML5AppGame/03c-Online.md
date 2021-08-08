@@ -50,12 +50,12 @@ In order to make any visible element draggable, add the `draggable="true"` attri
 
 In order to detect a drag, add an event listener for the `dragstart` event:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;ol</span><span class="pln"> </span><strong style="color: red;"><span class="atn">ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragStartHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span></strong><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;li</span><span class="pln"> </span><strong style="color: red;"><span class="atn">draggable</span><span class="pun">=</span><span class="atv">"true"</span></strong><span class="pln"> </span><span class="atn">data-value</span><span class="pun">=</span><span class="atv">"fruit-apple"</span><span class="tag">&gt;</span><span class="pln">Apples</span><span class="tag">&lt;/li&gt;</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;li</span><span class="pln"> </span><strong style="color: red;"><span class="atn">draggable</span><span class="pun">=</span><span class="atv">"true"</span></strong><span class="pln"> </span><span class="atn">data-value</span><span class="pun">=</span><span class="atv">"fruit-orange"</span><span class="tag">&gt;</span><span class="pln">Oranges</span><span class="tag">&lt;/li&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;li</span><span class="pln"> </span><strong style="color: red;"><span class="atn">draggable</span><span class="pun">=</span><span class="atv">"true"</span></strong><span class="pln"> </span><span class="atn">data-value</span><span class="pun">=</span><span class="atv">"fruit-pear"</span><span class="tag">&gt;</span><span class="pln">Pears</span><span class="tag">&lt;/li&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/ol&gt;</span></li>
+<div><ol>
+<li value="1">&lt;ol <strong style="color: red;">ondragstart="dragStartHandler(event)"</strong>&gt;</li>
+<li>&nbsp; &nbsp;&lt;li <strong style="color: red;">draggable="true"</strong> data-value="fruit-apple"&gt;Apples&lt;/li&gt; </li>
+<li>&nbsp; &nbsp;&lt;li <strong style="color: red;">draggable="true"</strong> data-value="fruit-orange"&gt;Oranges&lt;/li&gt;</li>
+<li>&nbsp; &nbsp;&lt;li <strong style="color: red;">draggable="true"</strong> data-value="fruit-pear"&gt;Pears&lt;/li&gt;</li>
+<li>&lt;/ol&gt;</li>
 </ol></div>
 
 In the above code, we made all of the `<li>` elements draggable, and we detect a dragstart event occurring to any item within the ordered list: `<ol ondragstart="dragStarthandler(event)">`.
@@ -79,26 +79,26 @@ Screenshot:
 
 Complete code from the example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;script&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> dragStartHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">'dragstart event, target: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;p&gt;</span><span class="pln">What fruits do you like? Try to drag an element!</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;ol</span><span class="pln"> </span><span class="atn">ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragStartHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">draggable</span><span class="pun">=</span><span class="atv">"true"</span><span class="pln"> </span><span class="atn">data-value</span><span class="pun">=</span><span class="atv">"fruit-apple"</span><span class="tag">&gt;</span><span class="pln">Apples</span><span class="tag">&lt;/li&gt;</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">draggable</span><span class="pun">=</span><span class="atv">"true"</span><span class="pln"> </span><span class="atn">data-value</span><span class="pun">=</span><span class="atv">"fruit-orange"</span><span class="tag">&gt;</span><span class="pln">Oranges</span><span class="tag">&lt;/li&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">draggable</span><span class="pun">=</span><span class="atv">"true"</span><span class="pln"> </span><span class="atn">data-value</span><span class="pun">=</span><span class="atv">"fruit-pear"</span><span class="tag">&gt;</span><span class="pln">Pears</span><span class="tag">&lt;/li&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;/ol&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">Drop your favorite fruits below:</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag">&lt;body&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li> &lt;head&gt;</li>
+<li>&nbsp; &nbsp;&lt;script&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;function dragStartHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alert('dragstart event, target: ' + event.target.innerHTML);</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp;&lt;/script&gt;</li>
+<li> &lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&nbsp;&nbsp;&lt;p&gt;What fruits do you like? Try to drag an element!&lt;/p&gt;</li>
+<li>&nbsp;&nbsp;&lt;ol ondragstart="dragStartHandler(event)"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;li draggable="true" data-value="fruit-apple"&gt;Apples&lt;/li&gt; </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;li draggable="true" data-value="fruit-orange"&gt;Oranges&lt;/li&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;li draggable="true" data-value="fruit-pear"&gt;Pears&lt;/li&gt;</li>
+<li>&nbsp;&nbsp;&lt;/ol&gt;</li>
+<li> &lt;p&gt;Drop your favorite fruits below:&lt;/p&gt;</li>
+<li>&nbsp;&lt;body&gt;</li>
+<li> &lt;html&gt;</li>
 </ol></div>
 
 In this script, the event handler will only display an alert showing the name of the target element that launched the event. 
@@ -153,45 +153,45 @@ When data is copied to this clipboard, a key/value pair must be given. The data 
 
 The variable `event.target` at line 5 below is the `<li>` element that has been dragged, and event.target.dataset.value is the value of its data-value attribute (in our case "apples", "oranges" or "pears"):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> dragStartHandler</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'dragstart event, target: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target.innerHTML</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Copy&nbsp;to the drag'n'drop clipboard the value of the </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; // data* attribute of the target, </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; // with a type "Fruit".</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">setData</span><span class="pun">(</span><span class="str">"Fruit"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">dataset</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function dragStartHandler(event) {</li>
+<li>&nbsp; &nbsp; console.log('dragstart event, target: ' + event.target.innerHTML);</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// Copy&nbsp;to the drag'n'drop clipboard the value of the </li>
+<li>&nbsp; &nbsp; // data* attribute of the target, </li>
+<li>&nbsp; &nbsp; // with a type "Fruit".</li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: red;">event.dataTransfer.setData("Fruit", event.target.dataset.value);</strong></li>
+<li> }</li>
 </ol></div>
 
 __Step #2: define a "drop zone"__
 
 Any visible HTML element may become a "drop zone"; if we attach an event listener for the `drop` event. Note that most of the time, as events may be propagated, we will also listen for `dragover` or `dragend` events and stop their propagation. More on this later...
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;div</span><span class="pln"> </span><strong style="color: red;"><span class="atn">ondragover</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="atv">"</span></strong><span class="pln"> </span><strong style="color: red;"><span class="atn">ondrop</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dropHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">);</span></strong><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> Drop your favorite fruits below:</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;ol</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"droppedFruits"</span><span class="tag">&gt;&lt;/ol&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/div&gt;</span></li>
+<div><ol>
+<li value="1">&lt;div <strong style="color: red;">ondragover="return false"</strong> <strong style="color: red;">ondrop="dropHandler(event);</strong>"&gt;</li>
+<li> Drop your favorite fruits below:</li>
+<li> &lt;ol id="droppedFruits"&gt;&lt;/ol&gt;</li>
+<li>&lt;/div&gt;</li>
 </ol></div>
 
 Whenever the mouse is moving above a (any) drop zone, dragover events will fire. Accordingly, a large number of dragover events may need to be handled before the element is finally dropped. The `ondragover` handler is used to avoid propagating `dragover` events. This is done by returning the `false` value at _line 1_.
 
 __Step #3: write a `drop` handler, fetch content from the clipboard, and do something with it__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> dropHandler</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'drop event, target: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target.innerHTML</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">...</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// get the data from the drag'n'drop clipboard,GET </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// with a type="Fruit"</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> data </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">getData</span><span class="pun">(</span><span class="str">"Fruit"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// do something with the data</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">...</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
+<div><ol>
+<li value="1">function dropHandler(event) {</li>
+<li>&nbsp; &nbsp;console.log('drop event, target: ' + event.target.innerHTML);</li>
+<li> </li>
+<li>&nbsp; &nbsp;...</li>
+<li> </li>
+<li>&nbsp; &nbsp;// get the data from the drag'n'drop clipboard,GET </li>
+<li>&nbsp; &nbsp;// with a type="Fruit"</li>
+<li>&nbsp; &nbsp;var data = event.dataTransfer.getData("Fruit");</li>
+<li> </li>
+<li>&nbsp; &nbsp;// do something with the data</li>
+<li>&nbsp; &nbsp;...</li>
+<li>} </li>
 </ol></div>
 
 Typically, in the `drop` handler, we need to acquire data about the element that has been dropped (we get this from the clipboard at _lines 6-8_, the data was copied there during step 1 in the `dragstart` handler).
@@ -214,56 +214,56 @@ Try it in your browser below or [play with it at CodePen](https://codepen.io/w3d
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;script&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp;&nbsp;function</span><span class="pln"> dragStartHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'dragstart event, target: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Copy&nbsp;to the drag'n'drop clipboard the value </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // of the data* attribute of </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // the target, with a type "Fruits".</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">setData</span><span class="pun">(</span><span class="str">"Fruit"</span><span class="pun">,</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">dataset</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> dropHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'drop event, target: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> li </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'li'</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// get the data from the drag'n'drop clipboard, </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// with a type="Fruit"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> data </span><span class="pun">=</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">getData</span><span class="pun">(</span><span class="str">"Fruit"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">data </span><span class="pun">==</span><span class="pln"> </span><span class="str">'fruit-apple'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Apples'</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">data </span><span class="pun">==</span><span class="pln"> </span><span class="str">'fruit-orange'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Oranges'</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">data </span><span class="pun">==</span><span class="pln"> </span><span class="str">'fruit-pear'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Pears'</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Unknown Fruit'</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// add the dropped data as a child of the list.</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#droppedFruits"</span><span class="pun">).</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">li</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;p&gt;</span><span class="pln">What fruits do you like? Try to drag an element!</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;ol</span><span class="pln"> </span><span class="atn">ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragStartHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">draggable</span><span class="pun">=</span><span class="atv">"true"</span><span class="pln"> </span><span class="atn">data-value</span><span class="pun">=</span><span class="atv">"fruit-apple"</span><span class="tag">&gt;</span><span class="pln">Apples</span><span class="tag">&lt;/li&gt;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">draggable</span><span class="pun">=</span><span class="atv">"true"</span><span class="pln"> </span><span class="atn">data-value</span><span class="pun">=</span><span class="atv">"fruit-orange"</span><span class="tag">&gt;</span><span class="pln">Oranges</span><span class="tag">&lt;/li&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">draggable</span><span class="pun">=</span><span class="atv">"true"</span><span class="pln"> </span><span class="atn">data-value</span><span class="pun">=</span><span class="atv">"fruit-pear"</span><span class="tag">&gt;</span><span class="pln">Pears</span><span class="tag">&lt;/li&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;/ol&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ondragover</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="atv">"</span><span class="pln"> </span><span class="atn">ondrop</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dropHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">);</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;Drop your favorite fruits below:</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;ol</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"droppedFruits"</span><span class="tag">&gt;&lt;/ol&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;/div&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html&gt;</li>
+<li> &lt;head&gt;</li>
+<li>&nbsp; &nbsp;&lt;script&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;function dragStartHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log('dragstart event, target: ' + </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event.target.innerHTML);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Copy&nbsp;to the drag'n'drop clipboard the value </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // of the data* attribute of </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // the target, with a type "Fruits".</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.dataTransfer.setData("Fruit", </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.target.dataset.value);</li>
+<li>&nbsp; &nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;function dropHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log('drop event, target: ' + </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.target.innerHTML);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var li = document.createElement('li');</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// get the data from the drag'n'drop clipboard, </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// with a type="Fruit"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var data = event.dataTransfer.getData("Fruit");</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (data == 'fruit-apple') {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li.textContent = 'Apples';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;} else if (data == 'fruit-orange') {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li.textContent = 'Oranges';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;} else if (data == 'fruit-pear') {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li.textContent = 'Pears';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;} else {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li.textContent = 'Unknown Fruit';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// add the dropped data as a child of the list.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document.querySelector("#droppedFruits").appendChild(li);</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;} </li>
+<li>&nbsp;&nbsp;&lt;/script&gt;</li>
+<li> &lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&nbsp; &nbsp;&lt;p&gt;What fruits do you like? Try to drag an element!&lt;/p&gt;</li>
+<li>&nbsp; &nbsp;&lt;ol ondragstart="dragStartHandler(event)"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;li draggable="true" data-value="fruit-apple"&gt;Apples&lt;/li&gt; </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;li draggable="true" data-value="fruit-orange"&gt;Oranges&lt;/li&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;li draggable="true" data-value="fruit-pear"&gt;Pears&lt;/li&gt;</li>
+<li>&nbsp; &nbsp;&lt;/ol&gt;</li>
+<li>&nbsp; &nbsp;&lt;div ondragover="return false" ondrop="dropHandler(event);"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;Drop your favorite fruits below:</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&lt;ol id="droppedFruits"&gt;&lt;/ol&gt;</li>
+<li>&nbsp; &nbsp;&lt;/div&gt;</li>
+<li> &lt;body&gt;</li>
+<li> &lt;html&gt;</li>
 </ol></div>
 
 In the above code, note:
@@ -276,23 +276,23 @@ In the above code, note:
 
 Notice that we use some CSS to set aside some screen-space for the drop zone (not presented in the source code above, but available in the online example):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">div </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150px</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150px</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">float</span><span class="pun">:</span><span class="pln"> left</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid </span><span class="com">#666666; </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> </span><span class="com">#ccc;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;margin</span><span class="pun">-</span><span class="pln">right</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5px</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;box</span><span class="pun">-</span><span class="pln">shadow</span><span class="pun">:</span><span class="pln"> inset </span><span class="lit">0</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">3px</span><span class="pln"> </span><span class="com">#000;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> center</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;cursor</span><span class="pun">:</span><span class="pln"> move</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> li</span><span class="pun">:</span><span class="pln">hover </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> dashed </span><span class="com">#000;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">div {</li>
+<li>&nbsp; &nbsp;height: 150px;</li>
+<li>&nbsp; &nbsp;width: 150px;</li>
+<li>&nbsp; &nbsp;float: left;</li>
+<li>&nbsp; &nbsp;border: 2px solid #666666; </li>
+<li>&nbsp; &nbsp;background-color: #ccc;</li>
+<li>&nbsp; &nbsp;margin-right: 5px;</li>
+<li>&nbsp; &nbsp;border-radius: 10px;</li>
+<li>&nbsp; &nbsp;box-shadow: inset 0 0 3px #000;</li>
+<li>&nbsp; &nbsp;text-align: center;</li>
+<li>&nbsp; &nbsp;cursor: move;</li>
+<li> }</li>
+<li> </li>
+<li> li:hover {</li>
+<li>&nbsp; &nbsp;border: 2px dashed #000;</li>
+<li>}</li>
 </ol></div>
 
 #### Notes for 3.3.3 Drop detection
@@ -354,11 +354,11 @@ Notice that we use some CSS to set aside some screen-space for the drop zone (no
 
 Microdata is a powerful way to add structured data into HTML code, but HTML5 has also added the possibility of adding arbitrary data to an HTML element. For example, adding an attribute to specify the name of the photographer (or painter?) of a picture, or any kind of information that does not be fit within the regular attributes of the `<img>` element, like `alt`.
 
-Suppose you coded: <code>&lt;img src="photo.jpg" <span style="color: #ff0000;">photographer="Michel Buffa"</span> date="14July2020"&gt;</span></strong></code>?  It would __not__ be valid!
+Suppose you coded: <code>&lt;img src="photo.jpg" <span style="color: #ff0000;">photographer="Michel Buffa" date="14July2020"&gt;</strong></code>?  It would __not__ be valid!
 
 However with HTML5 we may add attributes that start with data- followed by any string literal (WITH NO UPPERCASE) and it will be treated as a storage area for private data. This can later be accessed in your JavaScript code.
 
-Valid HTML5 code: <code>&lt;img src="photo.jpg" <span style="color: #ff0000;">data-photographer="Michel Buffa"</span> date="14July2020"&gt;</code>
+Valid HTML5 code: <code>&lt;img src="photo.jpg" <span style="color: #ff0000;">data-photographer="Michel Buffa" date="14July2020"&gt;</code>
 
 The reason for this addition is that, in a bid to keep the HTML code valid, some classic attributes like `alt`, `rel` and `title` have often been misused for storing arbitrary data. The `data-*` attributes of HTML5 are an "official" way to add arbitrary data to HTML elements that is also valid HTML code.
 
@@ -389,38 +389,38 @@ In this example, when you click on the sentence that starts with "John Says", th
 
 HTML code from the example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"user"</span><span class="pln"> </span><strong style="color: red;"><span class="atn">data-name</span><span class="pun">=</span><span class="atv">"John Resig"</span></strong><span class="pln"> </span><strong style="color: red;"><span class="atn">data-city</span><span class="pun">=</span><span class="atv">"Boston"</span></strong><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="atn">&nbsp; &nbsp; <strong style="color: red;">data-lang</strong></span><strong style="color: red;"><span class="pun">=</span><span class="atv">"js"</span></strong><span class="pln"> </span><strong style="color: red;"><span class="atn">data-food</span><span class="pun">=</span><span class="atv">"Bacon"</span></strong><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;b&gt;</span><span class="pln">John says:</span><span class="tag">&lt;/b&gt;</span><span class="pln"> </span><span class="tag">&lt;span&gt;</span><span class="pln">Hello, how are you?</span><span class="tag">&lt;/span&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/li&gt;</span></li>
+<div><ol>
+<li value="1">&lt;li class="user" <strong style="color: red;">data-name="John Resig"</strong> <strong style="color: red;">data-city="Boston"</strong> </li>
+<li>&nbsp; &nbsp; <strong style="color: red;">data-lang</strong><strong style="color: red;">="js"</strong> <strong style="color: red;">data-food="Bacon"</strong>&gt;</li>
+<li> &lt;b&gt;John says:&lt;/b&gt; &lt;span&gt;Hello, how are you?&lt;/span&gt;</li>
+<li>&lt;/li&gt;</li>
 </ol></div>
 
 We just defined four data‐ attributes. 
 
 JavaScript code from the example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;script&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">&nbsp; var</span><span class="pln"> user </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">"li"</span><span class="pun">)[</span><span class="lit">0</span><span class="pun">];</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">&nbsp; var</span><span class="pln"> pos </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> span </span><span class="pun">=</span><span class="pln"> user</span><span class="pun">.</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">"span"</span><span class="pun">)[</span><span class="lit">0</span><span class="pun">];</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">&nbsp; var</span><span class="pln"> phrases </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; {</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"city"</span><span class="pun">,</span><span class="pln"> prefix</span><span class="pun">:</span><span class="pln"> </span><span class="str">"I am from "</span><span class="pun">},</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; {</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"food"</span><span class="pun">,</span><span class="pln"> prefix</span><span class="pun">:</span><span class="pln"> </span><span class="str">"I like to eat "</span><span class="pun">},</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; {</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"lang"</span><span class="pun">,</span><span class="pln"> prefix</span><span class="pun">:</span><span class="pln"> </span><span class="str">"I like to program in "</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; ];</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; user</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="pln"> </span><span class="str">"click"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // Pick the first, second or third phrase</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> phrase </span><span class="pun">=</span><span class="pln"> phrases</span><span class="pun">[</span><span class="pln"> pos</span><span class="pun">++</span><span class="pln"> </span><span class="pun">%</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="pun">];</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // Use the .dataset property depending on the value of phrase.name</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // phrase.name is "city", "food" or "lang"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; span</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> phrase</span><span class="pun">.</span><span class="pln">prefix </span><span class="pun">+</span><span class="pln"> user</span><span class="pun">.</span><span class="pln">dataset</span><span class="pun">[</span><span class="pln"> phrase</span><span class="pun">.</span><span class="pln">name </span><span class="pun">];</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // could be replaces by old way..</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="com">&nbsp; &nbsp; // span.innerHTML = phrase.prefix + user.getAttribute("data-" + phrase.name );</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; },</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+<div><ol>
+<li value="1">&lt;script&gt;</li>
+<li>&nbsp; var user = document.getElementsByTagName("li")[0];</li>
+<li>&nbsp; var pos = 0, span = user.getElementsByTagName("span")[0];</li>
+<li>&nbsp; var phrases = [</li>
+<li>&nbsp; &nbsp; {name: "city", prefix: "I am from "},</li>
+<li>&nbsp; &nbsp; {name: "food", prefix: "I like to eat "},</li>
+<li>&nbsp; &nbsp; {name: "lang", prefix: "I like to program in "}</li>
+<li>&nbsp; ];</li>
+<li>&nbsp; user.addEventListener( "click", function(){</li>
+<li>&nbsp; &nbsp; // Pick the first, second or third phrase</li>
+<li>&nbsp; &nbsp; var phrase = phrases[ pos++ % 3 ];</li>
+<li> </li>
+<li>&nbsp; &nbsp; // Use the .dataset property depending on the value of phrase.name</li>
+<li>&nbsp; &nbsp; // phrase.name is "city", "food" or "lang"</li>
+<li>&nbsp; &nbsp; span.innerHTML = phrase.prefix + user.dataset[ phrase.name ];</li>
+<li> </li>
+<li>&nbsp; &nbsp; // could be replaces by old way..</li>
+<li>&nbsp; &nbsp; // span.innerHTML = phrase.prefix + user.getAttribute("data-" + phrase.name );</li>
+<li>&nbsp; }, false);</li>
+<li>&lt;/script&gt;</li>
 </ol></div>
 
 All `data‐` attributes are accessed using the `dataset` property of the HTML element: in this example, `user.dataset[phrase.name]` is either `user.dataset.city`, `user.dataset.food`, or `user.dataset.lang`.
@@ -448,37 +448,37 @@ Try the [online example at JsBin](https://jsbin.com/alunuk/6/edit).
 
 HTML code from this example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"100"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"25"</span><span class="tag">&gt;</span></li>
+<div><ol>
+<li value="1">&lt;input type="range" min="0" max="100" value="25"&gt;</li>
 </ol></div>
 
 This is just one of the new input types introduced by HTML5.
 
 JavaScript code from this example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;script&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> input </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'input'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">input</span><span class="pun">.</span><span class="pln">dataset</span><span class="pun">.</span><span class="pln">myvaluename </span><span class="pun">=</span><span class="pln"> input</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Set an initial value.</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">input</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'change'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">&nbsp; &nbsp; this</span><span class="pun">.</span><span class="pln">dataset</span><span class="pun">.</span><span class="pln">myvaluename </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">});</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+<div><ol>
+<li value="1">&lt;script&gt;</li>
+<li>var input = document.querySelector('input');</li>
+<li>&nbsp;</li>
+<li>input.dataset.myvaluename = input.value; // Set an initial value.</li>
+<li>&nbsp;</li>
+<li>input.addEventListener('change', function(e) {</li>
+<li>&nbsp; &nbsp; this.dataset.myvaluename = this.value;</li>
+<li>});</li>
+<li>&lt;/script&gt;</li>
 </ol></div>
 
 CSS code from this example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;style&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> input</span><span class="pun">::</span><span class="pln">after </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; color</span><span class="pun">:</span><span class="pln">red</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; content</span><span class="pun">:</span><strong style="color: red;"><span class="pln"> attr</span><span class="pun">(</span><span class="pln">data</span><span class="pun">-</span><span class="pln">myvaluename</span><span class="pun">)</span></strong><span class="pln"> </span><span class="str">'/'</span><span class="pln"> attr</span><span class="pun">(</span><span class="pln">max</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; position</span><span class="pun">:</span><span class="pln"> relative</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; left</span><span class="pun">:</span><span class="pln"> </span><span class="lit">100px</span><span class="pun">;</span><span class="pln"> top</span><span class="pun">:</span><span class="pln"> </span><span class="pun">-</span><span class="lit">15px</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/style&gt;</span><span class="pln"> </span></li>
+<div><ol>
+<li value="1">&lt;style&gt;</li>
+<li> input::after {</li>
+<li>&nbsp; &nbsp; color:red;</li>
+<li>&nbsp; &nbsp; content:<strong style="color: red;"> attr(data-myvaluename)</strong> '/' attr(max);</li>
+<li>&nbsp; &nbsp; position: relative;</li>
+<li>&nbsp; &nbsp; left: 100px; top: -15px;</li>
+<li>}</li>
+<li>&lt;/style&gt; </li>
 </ol></div>
 
 The `attr()` function takes an attribute name as a parameter and returns its value. Here we used the name of the attribute we added on the fly.
@@ -497,12 +497,12 @@ The `attr()` function takes an attribute name as a parameter and returns its val
   + creating and accessing data attributes by the `dataset` property
   + `attr()` function: taking an attribute name as a parameter and return its value
   + examples:
-    + invalid: <code>&lt;img src="photo.jpg" <span style="color: #ff0000;">photographer="Michel Buffa"</span> date="14July2020"&gt;</span></strong></code>
-    + valid: <code>&lt;img src="photo.jpg" <span style="color: #ff0000;">data-photographer="Michel Buffa"</span> date="14July2020"&gt;</code>
+    + invalid: <code>&lt;img src="photo.jpg" <span style="color: #ff0000;">photographer="Michel Buffa" date="14July2020"&gt;</strong></code>
+    + valid: <code>&lt;img src="photo.jpg" <span style="color: #ff0000;">data-photographer="Michel Buffa" date="14July2020"&gt;</code>
 
 + Example: accessing dataset property
   + task: access `data-` attributes w/ `dataset` property
-  + HTML snippet: `<li class="user" data-name="John Resig" data-city="Boston" data-lang="js" data-food="Bacon"><b>John says:</b> <span>Hello, how are you?</span></li>`
+  + HTML snippet: `<li data-name="John Resig" data-city="Boston" data-lang="js" data-food="Bacon"><b>John says:</b> Hello, how are you?</li>`
   + JavaScript snippet:
     + access elements: `var user = document.getElementsByTagName("li")[0]; var pos = 0, span = user.getElementsByTagName("span")[0];`
     + declare variable for phrases: `var phrases = [ {name: "city", prefix: "I am from "}, {name: "food", prefix: "I like to eat "}, {name: "lang", prefix: "I like to program in "} ];`
@@ -555,39 +555,39 @@ The next screenshot shows the use of CSS styles (green background + dashed borde
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">...</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="str">&lt;style&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">dragged </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> dashed </span><span class="com">#000;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> green</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&lt;/</span><span class="pln">style</span><span class="pun">&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="str">&lt;script&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> dragStartHandler</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong style="color: red;"><span class="com">// Change CSS class for visual feedback</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">opacity </span><span class="pun">=</span><span class="pln"> </span><span class="str">'0.4'</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><strong style="color: red;"><span class="pln">classList</span></strong><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="str">'dragged'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'dragstart event, target: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Copy&nbsp;to the drag'n'drop clipboard the value of the data* attribute of the target, </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp;// with a type "Fruits".</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">setData</span><span class="pun">(</span><span class="str">"Fruit"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">dataset</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> dragEndHandler</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"drag end"</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong style="color: red;"><span class="com">// Set draggable object to default style</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">opacity </span><span class="pun">=</span><span class="pln"> </span><span class="str">'1'</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="str">'dragged'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&lt;/</span><span class="pln">script</span><span class="pun">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">&lt;</span><span class="pln">ol ondragstart</span><span class="pun">=</span><span class="str">"dragStartHandler(event)"</span><span class="pln"> ondragend</span><span class="pun">=</span><span class="str">"dragEndHandler(event)"</span><span class="pln"> </span><span class="pun">&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">&lt;</span><span class="pln">li draggable</span><span class="pun">=</span><span class="str">"true"</span><span class="pln"> data</span><span class="pun">-</span><span class="pln">value</span><span class="pun">=</span><span class="str">"fruit-apple"</span><span class="pun">&gt;</span><span class="typ">Apples</span><span class="pun">&lt;/</span><span class="pln">li</span><span class="pun">&gt;</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">&lt;</span><span class="pln">li draggable</span><span class="pun">=</span><span class="str">"true"</span><span class="pln"> data</span><span class="pun">-</span><span class="pln">value</span><span class="pun">=</span><span class="str">"fruit-orange"</span><span class="pun">&gt;</span><span class="typ">Oranges</span><span class="pun">&lt;/</span><span class="pln">li</span><span class="pun">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">&lt;</span><span class="pln">li draggable</span><span class="pun">=</span><span class="str">"true"</span><span class="pln"> data</span><span class="pun">-</span><span class="pln">value</span><span class="pun">=</span><span class="str">"fruit-pear"</span><span class="pun">&gt;</span><span class="typ">Pears</span><span class="pun">&lt;/</span><span class="pln">li</span><span class="pun">&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">&lt;/</span><span class="pln">ol</span><span class="pun">&gt;</span></li>
+<div><ol>
+<li value="1">...</li>
+<li>&lt;style&gt;</li>
+<li>&nbsp;&nbsp;.dragged {</li>
+<li>&nbsp; &nbsp; &nbsp;border: 2px dashed #000;</li>
+<li>&nbsp; &nbsp; &nbsp;background-color: green;</li>
+<li>&nbsp;&nbsp;}</li>
+<li>&lt;/style&gt;</li>
+<li>&lt;script&gt;</li>
+<li>&nbsp;&nbsp;function dragStartHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;">// Change CSS class for visual feedback</strong></li>
+<li>&nbsp; &nbsp; &nbsp;event.target.style.opacity = '0.4';</li>
+<li>&nbsp; &nbsp; &nbsp;event.target.<strong style="color: red;">classList</strong>.add('dragged');</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;console.log('dragstart event, target: ' + event.target);</li>
+<li>&nbsp; &nbsp; &nbsp;// Copy&nbsp;to the drag'n'drop clipboard the value of the data* attribute of the target, </li>
+<li>&nbsp; &nbsp; &nbsp;// with a type "Fruits".</li>
+<li>&nbsp; &nbsp; &nbsp;event.dataTransfer.setData("Fruit", event.target.dataset.value);</li>
+<li>&nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp;&nbsp;function dragEndHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp;console.log("drag end");</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;">// Set draggable object to default style</strong></li>
+<li>&nbsp; &nbsp; &nbsp;event.target.style.opacity = '1';</li>
+<li>&nbsp; &nbsp; &nbsp;event.target.classList.remove('dragged'); </li>
+<li>&nbsp;&nbsp;}</li>
+<li>&lt;/script&gt;</li>
+<li>...</li>
+<li> &lt;ol ondragstart="dragStartHandler(event)" ondragend="dragEndHandler(event)" &gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;li draggable="true" data-value="fruit-apple"&gt;Apples&lt;/li&gt; </li>
+<li>&nbsp; &nbsp;&nbsp;&lt;li draggable="true" data-value="fruit-orange"&gt;Oranges&lt;/li&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;li draggable="true" data-value="fruit-pear"&gt;Pears&lt;/li&gt;</li>
+<li> &lt;/ol&gt;</li>
 </ol></div>
 
 Notice at _lines 12 and 24_ the use of the `classlist` property that has been introduced with HTML5 in order to allow CSS class manipulation from JavaScript.
@@ -612,104 +612,104 @@ Try it in your browser below or [directly at CodePen](https://codepen.io/w3devca
 
 Complete source code (for clarity's sake, we put the CSS and JavaScript into a single HTML page):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;style&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;div </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150px</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150px</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">float</span><span class="pun">:</span><span class="pln"> left</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid </span><span class="com">#666666; </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> </span><span class="com">#ccc;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; margin</span><span class="pun">-</span><span class="pln">right</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5px</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; box</span><span class="pun">-</span><span class="pln">shadow</span><span class="pun">:</span><span class="pln"> inset </span><span class="lit">0</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">3px</span><span class="pln"> </span><span class="com">#000;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> center</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; cursor</span><span class="pun">:</span><span class="pln"> move</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">.</span><span class="pln">dragged </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> dashed </span><span class="com">#000;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> green</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">.</span><span class="pln">draggedOver </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> dashed </span><span class="com">#000;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> green</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> dragStartHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Change css class for visual feedback</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">opacity </span><span class="pun">=</span><span class="pln"> </span><span class="str">'0.4'</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="str">'dragged'</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'dragstart event, target: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">target.innerHTML</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Copy in the drag'n'drop clipboard the value of the data* attribute of the target, </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // with a type "Fruits".</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">setData</span><span class="pun">(</span><span class="str">"Fruit"</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">dataset</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> dragEndHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"drag end"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">style</span><span class="pun">.</span><span class="pln">opacity </span><span class="pun">=</span><span class="pln"> </span><span class="str">'1'</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="str">'dragged'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> dragLeaveHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"drag leave"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="str">'draggedOver'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> dragEnterHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Drag enter"</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="str">'draggedOver'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> dragOverHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">//console.log("Drag over a droppable zone");</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span><span class="pln"> </span><span class="com">// Necessary. Allows us to drop.</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> dropHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'drop event, target: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// reset the visual look of the drop zone to default</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="str">'draggedOver'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> li </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'li'</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// get the data from the drag'n'drop clipboard, with a type="Fruit"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> data </span><span class="pun">=</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">getData</span><span class="pun">(</span><span class="str">"Fruit"</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">data </span><span class="pun">==</span><span class="pln"> </span><span class="str">'fruit-apple'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Apples'</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">data </span><span class="pun">==</span><span class="pln"> </span><span class="str">'fruit-orange'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Oranges'</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">data </span><span class="pun">==</span><span class="pln"> </span><span class="str">'fruit-pear'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Pears'</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Unknown Fruit'</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// add the dropped data as a child of the list.</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#droppedFruits"</span><span class="pun">).</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">li</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">What fruits do you like? Try to drag an element!</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;ol</span><span class="pln"> </span><span class="atn">ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragStartHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">ondragend</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragEndHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="tag">&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">draggable</span><span class="pun">=</span><span class="atv">"true"</span><span class="pln"> </span><span class="atn">data-value</span><span class="pun">=</span><span class="atv">"fruit-apple"</span><span class="tag">&gt;</span><span class="pln">Apples</span><span class="tag">&lt;/li&gt;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">draggable</span><span class="pun">=</span><span class="atv">"true"</span><span class="pln"> </span><span class="atn">data-value</span><span class="pun">=</span><span class="atv">"fruit-orange"</span><span class="tag">&gt;</span><span class="pln">Oranges</span><span class="tag">&lt;/li&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">draggable</span><span class="pun">=</span><span class="atv">"true"</span><span class="pln"> </span><span class="atn">data-value</span><span class="pun">=</span><span class="atv">"fruit-pear"</span><span class="tag">&gt;</span><span class="pln">Pears</span><span class="tag">&lt;/li&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/ol&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"droppableZone"</span><span class="pln"> </span><span class="atn">ondragenter</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragEnterHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">ondrop</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dropHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">ondragover</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragOverHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">ondragleave</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragLeaveHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; Drop your favorite fruits below:</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;ol</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"droppedFruits"</span><span class="tag">&gt;&lt;/ol&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;/div&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html&gt;</li>
+<li> &lt;head&gt;</li>
+<li>&nbsp; &nbsp;&lt;style&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;div {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; height: 150px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; width: 150px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;float: left;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; border: 2px solid #666666; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; background-color: #ccc;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; margin-right: 5px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; border-radius: 10px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; box-shadow: inset 0 0 3px #000;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; text-align: center;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; cursor: move;</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;.dragged {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; border: 2px dashed #000;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; background-color: green;</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;.draggedOver {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; border: 2px dashed #000;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; background-color: green;</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> &lt;/style&gt;</li>
+<li> &lt;script&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;function dragStartHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Change css class for visual feedback</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; event.target.style.opacity = '0.4';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; event.target.classList.add('dragged');</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; console.log('dragstart event, target: ' + event.target.innerHTML);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Copy in the drag'n'drop clipboard the value of the data* attribute of the target, </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; // with a type "Fruits".</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; event.dataTransfer.setData("Fruit", event.target.dataset.value);</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;function dragEndHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; console.log("drag end");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; event.target.style.opacity = '1';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; event.target.classList.remove('dragged'); </li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;function dragLeaveHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; console.log("drag leave");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; event.target.classList.remove('draggedOver'); </li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;function dragEnterHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; console.log("Drag enter");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; event.target.classList.add('draggedOver'); </li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;function dragOverHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;//console.log("Drag over a droppable zone");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; event.preventDefault(); // Necessary. Allows us to drop.</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;function dropHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; console.log('drop event, target: ' + event.target);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// reset the visual look of the drop zone to default</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; event.target.classList.remove('draggedOver'); </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var li = document.createElement('li');</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// get the data from the drag'n'drop clipboard, with a type="Fruit"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var data = event.dataTransfer.getData("Fruit");</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;if (data == 'fruit-apple') {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li.textContent = 'Apples'; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;} else if (data == 'fruit-orange') {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li.textContent = 'Oranges';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;} else if (data == 'fruit-pear') {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li.textContent = 'Pears';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;} else {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li.textContent = 'Unknown Fruit';</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp;// add the dropped data as a child of the list.</li>
+<li>&nbsp; &nbsp; &nbsp;document.querySelector("#droppedFruits").appendChild(li);</li>
+<li>&nbsp; &nbsp;} </li>
+<li>&nbsp;&nbsp;&lt;/script&gt;</li>
+<li> &lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li> &lt;p&gt;What fruits do you like? Try to drag an element!&lt;/p&gt;</li>
+<li> &lt;ol ondragstart="dragStartHandler(event)" ondragend="dragEndHandler(event)" &gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;li draggable="true" data-value="fruit-apple"&gt;Apples&lt;/li&gt; </li>
+<li>&nbsp; &nbsp;&nbsp;&lt;li draggable="true" data-value="fruit-orange"&gt;Oranges&lt;/li&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;li draggable="true" data-value="fruit-pear"&gt;Pears&lt;/li&gt;</li>
+<li> &lt;/ol&gt;</li>
+<li> &lt;div id="droppableZone" ondragenter="dragEnterHandler(event)" ondrop="dropHandler(event)"</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;ondragover="dragOverHandler(event)" ondragleave="dragLeaveHandler(event)"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; Drop your favorite fruits below:</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;&lt;ol id="droppedFruits"&gt;&lt;/ol&gt;</li>
+<li>&nbsp;&lt;/div&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&lt;html&gt;</li>
 </ol></div>
 
 
@@ -825,40 +825,40 @@ To give this visual feedback, we use the `effectAllowed` and `dropEffect` proper
 
 Here is an extract of the code we can add to the example we saw earlier:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> dragStartHandler</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="com">// Allow a "copy" cursor effect</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">effectAllowed </span><span class="pun">=</span><span class="pln"> </span><span class="str">'copy'</span><span class="pun">;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">...</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function dragStartHandler(event) {</li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: red;">// Allow a "copy" cursor effect</strong></li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: red;">event.dataTransfer.effectAllowed = 'copy';</strong></li>
+<li>&nbsp; &nbsp;&nbsp;...</li>
+<li>}</li>
 </ol></div>
 
 And here is where we can set the cursor to a permitted value:
 
-<ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> dragEnterHandler</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="com">// change the cursor shape to a "+"</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">dropEffect </span><span class="pun">=</span><span class="pln"> </span><span class="str">'copy'</span><span class="pun">;</span></strong><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">...</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<ol>
+<li value="1">function dragEnterHandler(event) {</li>
+<li>&nbsp; &nbsp;<strong style="color: red;">// change the cursor shape to a "+"</strong></li>
+<li>&nbsp; &nbsp;<strong style="color: red;">event.dataTransfer.dropEffect = 'copy';</strong> </li>
+<li>&nbsp; &nbsp;...</li>
+<li>}</li>
 </ol><br>
 
 To set a custom image, we also do the following in the `dragstart` handler:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> dragStartHandler</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// allowed cursor effects</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">effectAllowed </span><span class="pun">=</span><span class="pln"> </span><span class="str">'copy'</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="com">// Load and create an image</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> dragIcon </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'img'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;dragIcon</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">'anImage.png'</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;dragIcon</span><span class="pun">.</span><span class="pln">width </span><span class="pun">=</span><span class="pln"> </span><span class="lit">100</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="com">// set the cursor to this image, with an offset in X, Y</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">setDragImage</span><span class="pun">(</span><span class="pln">dragIcon</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">10</span><span class="pun">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function dragStartHandler(event) {</li>
+<li>&nbsp; &nbsp;// allowed cursor effects</li>
+<li>&nbsp; &nbsp;event.dataTransfer.effectAllowed = 'copy';</li>
+<li> </li>
+<li>&nbsp; &nbsp;<strong style="color: red;">// Load and create an image</strong></li>
+<li>&nbsp; &nbsp;var dragIcon = document.createElement('img');</li>
+<li>&nbsp; &nbsp;dragIcon.src = 'anImage.png';</li>
+<li>&nbsp; &nbsp;dragIcon.width = 100;</li>
+<li> </li>
+<li>&nbsp; &nbsp;<strong style="color: red;">// set the cursor to this image, with an offset in X, Y</strong></li>
+<li>&nbsp; &nbsp;<strong style="color: red;">event.dataTransfer.setDragImage(dragIcon, -10, -10);</strong></li>
+<li>&nbsp; &nbsp;...</li>
+<li>}</li>
 </ol></div>
 
 
@@ -914,10 +914,10 @@ All possible values for `dropEffect` and `effectAllowed`:
 
 We saw the main principles of HTML5 drag and drop in the previous sections. There are other interesting uses that differ in the way we copy and paste things to/from the clipboard. The clipboard is accessed through the `dataTransfer` property of the different events:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">setData</span><span class="pun">(</span><span class="str">"Fruit"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">dataset</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> data </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">getData</span><span class="pun">(</span><span class="str">"Fruit"</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">event.dataTransfer.setData("Fruit", event.target.dataset.value);</li>
+<li>...</li>
+<li>var data = event.dataTransfer.getData("Fruit");</li>
 </ol></div>
 
 __`<img>` elements are all draggable by default!__
@@ -932,52 +932,52 @@ Try this example (adapted from [braincracking.org](https://bit.ly/3ytA18W) (in F
 
 Code from the example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;html lang="en"&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">.</span><span class="pln">box </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="pln"> silver solid</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">256px</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">128px</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; padding</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5px</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">float</span><span class="pun">:</span><span class="pln"> left</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> drag</span><span class="pun">(</span><span class="pln">target</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; evt</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">setData</span><span class="pun">(</span><span class="str">"Text"</span><span class="pun">,</span><span class="pln"> target</span><span class="pun">.</span><span class="pln">id</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> drop</span><span class="pun">(</span><span class="pln">target</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> id </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">getData</span><span class="pun">(</span><span class="str">"Text"</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; target</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="pln">id</span><span class="pun">));</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// prevent default behavior</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; evt</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> Drag and drop browser images in a zone:</span><span class="tag">&lt;br/&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/ABiBCwZ.png"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"cr"</span><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="pln">drag</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">"Logo Chrome"</span><span class="tag">&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/n7xo93U.png"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"ff"</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="pln">drag</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">"Logo Firefox"</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/ugUmuGQ.png"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"ie"</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="pln">drag</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">"Logo IE"</span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/jfrNErz.png"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"op"</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="pln">drag</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">"Logo Opera"</span><span class="tag">&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/gDJCG0l.png"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"sf"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="pln">drag</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">"Logo Safari"</span><span class="tag">&gt;&lt;br/&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"box"</span><span class="pln"> </span><span class="atn">ondragover</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="atv">"</span><span class="pln"> </span><span class="atn">ondrop</span><span class="pun">=</span><span class="atv">"</span><span class="pln">drop</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;p&gt;</span><span class="pln">Good web browsers</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;/div&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"box"</span><span class="pln"> </span><span class="atn">ondragover</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="atv">"</span><span class="pln"> </span><span class="atn">ondrop</span><span class="pun">=</span><span class="atv">"</span><span class="pln">drop</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;p&gt;</span><span class="pln">Bad web browsers</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;/div&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li> &lt;style&gt;</li>
+<li>&nbsp; &nbsp;.box {</li>
+<li>&nbsp; &nbsp; &nbsp; border: silver solid;</li>
+<li>&nbsp; &nbsp; &nbsp; width: 256px;</li>
+<li>&nbsp; &nbsp; &nbsp; height: 128px;</li>
+<li>&nbsp; &nbsp; &nbsp; margin: 10px;</li>
+<li>&nbsp; &nbsp; &nbsp; padding: 5px;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;float: left;</li>
+<li>&nbsp; &nbsp;}</li>
+<li> &lt;/style&gt;</li>
+<li> &lt;script&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;function drag(target, evt) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; evt.dataTransfer.setData("Text", target.id);</li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp;&nbsp;function drop(target, evt) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var id = evt.dataTransfer.getData("Text");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; target.appendChild(document.getElementById(id));</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// prevent default behavior</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; evt.preventDefault();</li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li> &lt;/script&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li> Drag and drop browser images in a zone:&lt;br/&gt;</li>
+<li>&nbsp; &nbsp;&lt;img src="https://mainline.i3s.unice.fr/mooc/ABiBCwZ.png" id="cr"&nbsp; &nbsp; &nbsp;&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ondragstart="drag(this, event)" alt="Logo Chrome"&gt;</li>
+<li>&nbsp; &nbsp;&lt;img src="https://mainline.i3s.unice.fr/mooc/n7xo93U.png" id="ff" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ondragstart="drag(this, event)" alt="Logo Firefox"&gt;</li>
+<li>&nbsp; &nbsp;&lt;img src="https://mainline.i3s.unice.fr/mooc/ugUmuGQ.png" id="ie" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ondragstart="drag(this, event)" alt="Logo IE"&gt;</li>
+<li>&nbsp; &nbsp;&lt;img src="https://mainline.i3s.unice.fr/mooc/jfrNErz.png" id="op" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ondragstart="drag(this, event)" alt="Logo Opera"&gt;</li>
+<li>&nbsp; &nbsp;&lt;img src="https://mainline.i3s.unice.fr/mooc/gDJCG0l.png" id="sf" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ondragstart="drag(this, event)" alt="Logo Safari"&gt;&lt;br/&gt;</li>
+<li> </li>
+<li>&nbsp; &nbsp;&lt;div class="box" ondragover="return false" ondrop="drop(this, event)"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;Good web browsers&lt;/p&gt;</li>
+<li>&nbsp; &nbsp;&lt;/div&gt;</li>
+<li>&nbsp; &nbsp;&lt;div class="box" ondragover="return false" ondrop="drop(this, event)"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&lt;p&gt;Bad web browsers&lt;/p&gt;</li>
+<li>&nbsp; &nbsp;&lt;/div&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 The trick here is to only work on the DOM directly. We used a variant of the event handler proposed by the DOM API. This time, we used handlers with two parameters (the first parameter, `target`, is the element that triggered the event, and the second parameter is the event itself). In the `dragstart` handler we copy just the `id` of the element in the DOM (_line 15_).
@@ -1006,8 +1006,8 @@ In the drop handler, we just move the element from one part of the DOM tree to a
       + Opera: `<img src="https://.../opera.png" id="op" ondragstart="drag(this, event)" alt="Logo Opera">`
       + Safari: `<img src="https://.../safari.png" id="sf" ondragstart="drag(this, event)" alt="Logo Safari">`
     + containers for good and bad browser drop zones
-      + good: `<div class="box" ondragover="return false" ondrop="drop(this, event)"><p>Good web browsers</p></div>`
-      + bad: `<div class="box" ondragover="return false" ondrop="drop(this, event)"><p>Bad web browsers</p></div>`
+      + good: `<div ondragover="return false" ondrop="drop(this, event)"><p>Good web browsers</p></div>`
+      + bad: `<div ondragover="return false" ondrop="drop(this, event)"><p>Bad web browsers</p></div>`
   + CSS style<a name="boxStyle"></a>: `.box { border: silver solid; width: 256px; height: 128px; margin: 10px; padding: 5px; float: left; }`
   + JavaScript snippet
     + add drag handler: `function drag(target, evt) { evt.dataTransfer.setData("Text", target.id); }`
@@ -1034,11 +1034,11 @@ In the drop handler, we just move the element from one part of the DOM tree to a
 
 __There is no need to add a `dragstart` handler on an element that contains text.__ Any selected text is automatically added to the clipboard with a name/key equal to "text/plain". Just add a `drop` event handler on the drop zone and fetch the data from the clipboard using "text/plain" as the access key:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> drop</span><span class="pun">(</span><span class="pln">target</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;target</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">getData</span><span class="pun">(</span><strong style="color: red;"><span class="str">'text/plain'</span></strong><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">function drop(target, event) {</li>
+<li>&nbsp; &nbsp;event.preventDefault();</li>
+<li>&nbsp; &nbsp;target.innerHTML = event.dataTransfer.getData(<strong style="color: red;">'text/plain'</strong>);</li>
+<li>};</li>
 </ol></div>
 
 
@@ -1050,51 +1050,51 @@ Try it in your browser below (select text, then drag and drop it into the drop z
 
 Complete source code from the example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;html lang="en"&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;style&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">.</span><span class="pln">box </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="pln"> silver solid</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">256px</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">128px</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; padding</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5px</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">float</span><span class="pun">:</span><span class="pln"> left</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">.</span><span class="pln">notDraggable </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; user</span><span class="pun">-</span><span class="kwd">select</span><span class="pun">:</span><span class="pln"> none</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> drop</span><span class="pun">(</span><span class="pln">target</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;target</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">getData</span><span class="pun">(</span><span class="str">'text/plain'</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">};</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"text"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;b&gt;</span><span class="pln">Drag and drop a text selection from this paragraph</span><span class="tag">&lt;/b&gt;</span><span class="pln">. Drag and drop any</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; part of this text&nbsp;to </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; the drop zone. Notice in the code: there is no need for a dragstart handler in case of </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; text selection: </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; the text is added to the clipboard when dragged with a key/name equal to "text/plain". </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; Just write a </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drop handler that will do an event.dataTransfer.getData("text/plain") and you are </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; done!</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;/p&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><strong style="color: red;"><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"notDraggable"</span><span class="tag">&gt;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;This paragraph is not <g class="gr_ gr_29 gr-alert gr_gramm gr_run_anim Punctuation only-ins replaceWithoutSep" id="29" data-gr-id="29">selectable</g> however. Look at the CSS in the&nbsp;</span>source code.</li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/p&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"box"</span><span class="pln"> </span><span class="atn">ondragover</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="atv">"</span><span class="pln"> </span><span class="atn">ondrop</span><span class="pun">=</span><span class="atv">"</span><span class="pln">drop</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;p&gt;</span><span class="pln">Drop some text selection here.</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/div&gt;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li> &lt;style&gt;</li>
+<li>&nbsp; &nbsp;.box {</li>
+<li>&nbsp; &nbsp; &nbsp; border: silver solid;</li>
+<li>&nbsp; &nbsp; &nbsp; width: 256px;</li>
+<li>&nbsp; &nbsp; &nbsp; height: 128px;</li>
+<li>&nbsp; &nbsp; &nbsp; margin: 10px;</li>
+<li>&nbsp; &nbsp; &nbsp; padding: 5px;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;float: left;</li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;.notDraggable {</li>
+<li>&nbsp; &nbsp; &nbsp; user-select: none;</li>
+<li>&nbsp; &nbsp;}</li>
+<li> &lt;/style&gt;</li>
+<li> &lt;script&gt; </li>
+<li>&nbsp; &nbsp;&nbsp;function drop(target, event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;event.preventDefault();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;target.innerHTML = event.dataTransfer.getData('text/plain');</li>
+<li>&nbsp; &nbsp;&nbsp;};</li>
+<li> &lt;/script&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li> &lt;p id="text"&gt;</li>
+<li>&nbsp; &nbsp; &lt;b&gt;Drag and drop a text selection from this paragraph&lt;/b&gt;. Drag and drop any</li>
+<li>&nbsp; &nbsp; part of this text&nbsp;to </li>
+<li>&nbsp; &nbsp; the drop zone. Notice in the code: there is no need for a dragstart handler in case of </li>
+<li>&nbsp; &nbsp; text selection: </li>
+<li>&nbsp; &nbsp; the text is added to the clipboard when dragged with a key/name equal to "text/plain". </li>
+<li>&nbsp; &nbsp; Just write a </li>
+<li>&nbsp; &nbsp; drop handler that will do an event.dataTransfer.getData("text/plain") and you are </li>
+<li>&nbsp; &nbsp; done!</li>
+<li>&nbsp;&lt;/p&gt;</li>
+<li> </li>
+<li> <strong style="color: red;">&lt;p class="notDraggable"&gt;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;This paragraph is not <g id="29" data-gr-id="29">selectable</g> however. Look at the CSS in the&nbsp;source code.</li>
+<li>&lt;/p&gt;</li>
+<li> </li>
+<li> &lt;div class="box" ondragover="return false" ondrop="drop(this, event)"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;p&gt;Drop some text selection here.&lt;/p&gt;</li>
+<li> &lt;/div&gt; </li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div>
 
 Here, we use a CSS trick to make the second paragraph non-selectable, by setting the `user-selected` property to none.
@@ -1116,8 +1116,8 @@ In the next chapter, we will see how to drag and drop files!
     + use a CSS trick to make a paragraph non-selectable
     + move selected text to a drop zone
   + HTML snippet:
-    + text not draggable: `<p class="notDraggable">This paragraph is not selectable ...</p>`
-    + container for drop zone: `<div class="box" ondragover="return false" ondrop="drop(this, event)"><p>Drop some text selectoin here.</p></div>`
+    + text not draggable: `<p>This paragraph is not selectable ...</p>`
+    + container for drop zone: `<div ondragover="return false" ondrop="drop(this, event)"><p>Drop some text selectoin here.</p></div>`
   + CSS style
     + [box style](#boxStyle)
     + style for not draggable: `.notDraggable { user-select: none; }`
