@@ -379,14 +379,102 @@ __Additional code for the next question (17)__
   Explanation: HTML imports was intended to be the packaging mechanism for Web components. Now, the preferred way is to use JavaScript modules.
 
 
+### 4.5.6 Orientation and Motion APIs (21-26)
+
+__Source code for the next 4 questions (21, 22, 23 and 24)__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">...</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">&lt;h2&gt;</span><span class="typ">Device</span><span class="pln"> </span><span class="typ">Orientation</span><span class="pln"> </span><span class="kwd">with</span><span class="pln"> HTML5</span><span class="pun">&lt;/</span><span class="pln">h2</span><span class="pun">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="typ">You</span><span class="pln"> need to be on a mobile device </span><span class="kwd">or</span><span class="pln"> </span><span class="kwd">use</span><span class="pln"> a laptop </span><span class="kwd">with</span><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">accelerometer</span><span class="pun">/</span><span class="pln">orientation&nbsp;</span><span class="pln">device</span><span class="pun">.</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">&lt;p&gt;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">&lt;</span><span class="pln">div id</span><span class="pun">=</span><span class="str">"LR"</span><span class="pun">&gt;&lt;/</span><span class="pln">div</span><span class="pun">&gt;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">&lt;</span><span class="pln">div id</span><span class="pun">=</span><span class="str">"FB"</span><span class="pun">&gt;&lt;/</span><span class="pln">div</span><span class="pun">&gt;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">&lt;</span><span class="pln">div id</span><span class="pun">=</span><span class="str">"DIR"</span><span class="pun">&gt;&lt;/</span><span class="pln">div</span><span class="pun">&gt;</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">&lt;</span><span class="pln">script type</span><span class="pun">=</span><span class="str">"text/javascript"</span><span class="pun">&gt;</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">window</span><span class="pun">.</span><span class="typ">DeviceOrientationEvent</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"DeviceOrientation is supported"</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(<span style="color: #ff0000;"><strong><span color="#008800" style="color: #008800;">XXX</span></strong></span></span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">eventData</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// front/back inclination</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> FB </span><span class="pun">=</span><span class="pln"> eventData</span><span class="pun">.<strong>ZZZ</strong></span><span class="pun">;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// orientation</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> DIR </span><span class="pun">=</span><span class="pln"> eventData</span><span class="pun">.<strong>TTT</strong></span><span class="pun">;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// left/right inclination</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> LR </span><span class="pun">=</span><span class="pln"> eventData</span><span class="pun">.<strong>YYY</strong></span><span class="pun">;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// display values on screen</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;deviceOrientationHandler</span><span class="pun">(</span><span class="pln"><span class="pln">FB</span><span class="pun">,</span><span class="pln"> DIR,&nbsp;</span>LR</span><span class="pun">);</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">"Device orientation not supported on your device or browser. Sorry."</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> deviceOrientationHandler</span><span class="pun">(</span><span class="pln"><span class="pln">FB</span><span class="pun">,</span><span class="pln"> DIR,&nbsp;</span>LR</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#LR"</span><span class="pun">).</span><span class="pln">innerHTML &nbsp;<span style="color: #666600;" color="#666600">=&nbsp;</span></span><span class="str">""</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="pln">LR</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#FB"</span><span class="pun">).</span><span class="pln">innerHTML &nbsp;</span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="pln">FB</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#DIR"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="pln">DIR</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">&lt;/</span><span class="pln">script</span><span class="pun">&gt;</span></li>
+</ol></div>
+
+21. What is it called... I can't remember...
+
+  We would like to display a smartphone's angles of orientation.
+
+  What is the name of the event we must to listen for? What would you enter instead of the XXX placeholder in the above code?
+
+  Ans: <br>
+  Explanation: 
 
 
+22. Sometimes I feel like a....
+
+  We would like to display a smartphone's angles of orientation.
+
+  What is the name of the property for the front/back angle? What would you put instead of the ZZZ placeholder in the above code?
+
+  Ans: <br>
+  Explanation: 
 
 
+23. Left or right?
+
+  We would like to display a smartphone's angles of orientation.
+
+  What is the name of the property for the left/right angle? What would you put instead of the YYY placeholder in the above code?
+
+  Ans: <br>
+  Explanation: 
 
 
+24. Give me the orientation!
+
+  We would like to display a smartphone's angles of orientation.
+
+  What is the name of the property for the horizontal orientation angle? What would you put instead of the TTT placeholder in the above code?
+
+  Ans: <br>
+  Explanation: 
 
 
+25. Degrees or radians?
+
+  Returned angles are in?
+
+  a. Degrees<br>
+  b. Radians<br>
+
+  Ans: <br>
+  Explanation: 
 
 
+26. Motion or orientation, make a choice!
+
+What is the difference between the Device Motion API and the Orientation API?
+
+  a. The Orientation API is the only one that can tell if the device is oriented to the sky.<br>
+  b. The DeviceMotion API deals with accelerations as well as orientations.<br>
+  c. One works only when the device is stable, the other one when it's in motion.<br>
+
+  Ans: <br>
+  Explanation: 
 
