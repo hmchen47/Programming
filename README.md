@@ -707,7 +707,7 @@ This repository tracks my learning on different programming languages.
     <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#inserting-removing-and-modifying-records"> Insertion/Deletion/Modification Data </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#inserting-removing-and-modifying-records"> Insertion / Deletion / Modification Data </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#retrieving-record"> Retrieving Record </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#retrieving-multiple-records-and-range"> Retrieving Multiple Records </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#">  </a> </td>
