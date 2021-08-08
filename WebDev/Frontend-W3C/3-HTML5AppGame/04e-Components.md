@@ -81,16 +81,16 @@
   c. The buttons on the page will be red, and the ones in the calendar will be black<br>
   d. The buttons on the page and those in the calendar will all be red<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: c<br>
+  Explanation: By default, CSS styles do not cross the boundaries of the Web component. The CSS from the shadow DOM of the Web component will not affect the buttons in the page, and the same is true for the CSS styles defined globally: they will affect buttons defined in the page but not those in Web Components. The buttons on the page will be red, and the ones in the calendar will be black.
 
 
 15. Incompatible designs
 
   Is it possible to clone a template into a Web component's shadow DOM? (Yes/No)
 
-  Ans: <br>
-  Explanation: 
+  Ans: Yes<br>
+  Explanation: Yes, and this is a very powerful feature! The template will be the HTML/CSS/JS skeleton of the Web component.
 
 
 <hr>
@@ -152,27 +152,29 @@ JavaScript:
 
   <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
     <a href="https://bit.ly/3xtUqJR" ismap target="_blank">
-      a. <img style="margin: 0.1em;" width=120
+      a. <img style="margin: 0.1em;" width=200
         src   = "img/4.5.2-img2.jpg"
         alt   = "a. image showing 3 lines of text: the first one is a red title, below is a text in black, and the final text below is green"
         title = "a. image showing 3 lines of text: the first one is a red title, below is a text in black, and the final text below is green"
       >
-      b. <img style="margin: 0.1em;" width=120
+      b. <img style="margin: 0.1em;" width=200
         src   = "img/4.5.2-img1.jpg"
         alt   = "b. image showing 3 lines of text: first one is a red title, second one is a text in black highlighted in blue, and the third one is a text in green"
         title = "b. image showing 3 lines of text: first one is a red title, second one is a text in black highlighted in blue, and the third one is a text in green"
       >
-      c. <img style="margin: 0.1em;" width=100
+      c. <img style="margin: 0.1em;" width=150
         src   = "img/4.5.2-img4.jpg"
         alt   = "c. image showing only one line of text in green"
         title = "c. image showing only one line of text in green"
       >
-      d. <img style="margin: 0.1em;" width=120
+    </a>
+    <a href="https://bit.ly/3xtUqJR" ismap target="_blank">
+      d. <img style="margin: 0.1em;" width=200
         src   = "img/4.5.2-img5.jpg"
         alt   = "d. image showing 3 lines of text: the first one is a red title, and the two other ones are made of text in black"
         title = "d. image showing 3 lines of text: the first one is a red title, and the two other ones are made of text in black"
       >
-      e. <img style="margin: 0.1em;" width=120
+      e. <img style="margin: 0.1em;" width=200
         src   = "img/4.5.2-img3.jpg"
         alt   = "e. image showing a red big title, below a text highlighted in blue, and below again, a line of text in black"
         title = "e. image showing a red big title, below a text highlighted in blue, and below again, a line of text in black"
@@ -180,11 +182,13 @@ JavaScript:
     </a>
   </div>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation:
+    + The JavaScript code associates a shadow root (a shadow DOM) with the host (the `<p id="myWidget">` element). So the text "Injected content" alone is not the correct answer as the content of the shadow DOM (a cloned template) will be rendered.
+    + Let's look at the CSS styles. The H1 will be red, for sure. The injected span belongs to the main page, it's just "moved inside the shadow DOM" but will not belong to it. So the global style on spans will apply and it will be green. The other span is defined in the template but there is an internal CSS rule that applies to templates: only CSS rules defined in the template will target elements inside the shadow DOM. In this case this rule will apply to all spans in the shadow DOM of the host and the span will have a light blue background color.
+    + Check with [this JsBin](https://jsbin.com/sirepaq/edit).
+    + [Local Demo](src/04e-example01.html)
 
-
-<hr>
 
 __Additional code for the next question (17)__
 
@@ -207,7 +211,6 @@ __Additional code for the next question (17)__
 
 17. Pink fairies ...
 
-
   From the addional code above, a CSS rule in the template code changes the background color to pink whenever the mouse cursor hovers over selected elements...
 
   What will this do when we roll the mouse over `<p id='myWidget'>`?
@@ -216,8 +219,12 @@ __Additional code for the next question (17)__
   b. It will only change the background color of the content rendered corresponding to `<p id="myWidget">` (shadow DOM + injected content).<br>
   c. It will change the background color of all the text rendered in the page.<br>
 
-  Ans: <br>
+  Ans:b<br>
   Explanation: 
+    + All the text rendered for `<p id='myWidget'>` (the shadow host) will react to the mouse hover event and you will see its background color changed to pink. Try out [this JsBin](https://jsbin.com/kiluris/edit?html). The rest of the page (the H1 and the P after `<p id='myWidget'>`) remains unchanged.
+    + [Local Demo](src/04e-example02.html)
+
+
 
 
 
