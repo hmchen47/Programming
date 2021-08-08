@@ -27,7 +27,7 @@
     + the separate threads share different copies
 
 
-## Web Workers Overview
+## Web Workers
 
 + [Types of web workers](..)/WebDev/Frontend-W3C/3-HTML5AppGame/04c-Components.md#431-introduction
   + dedicated Web Works
@@ -46,5 +46,33 @@
     + refreshing each of the pages $\to$ displaying the same value as each other
     + comforming to the "same-origin" policy
     + not supported by major browsers
+
++ [Creating workers from script](../WebDev/Frontend-W3C/3-HTML5AppGame/04c-Components.md#432-use-cases)
+  + HTML5 Web Worker API: providing the Worker JS interface for loading and executing a script in the background, in different thread from the UI
+  + syntax: `var worker = new Worker("worker0.js");`
+  + more than one worker probably created/loaded by a parenet page
+
++ Example: [web workers](../WebDev/Frontend-W3C/3-HTML5AppGame/04c-Components.md#432-use-cases)
+
++ Example: [handling error](../WebDev/Frontend-W3C/3-HTML5AppGame/04c-Components.md#432-use-cases)
+
+
+
+## Managing Web Workers
+
++ [Using "messages" to manage a worker](../WebDev/Frontend-W3C/3-HTML5AppGame/04c-Components.md#432-use-cases)
+  + messages: strings or object
+  + possibly serialized in JSON format, most used JS object
+  + procedure of serialization:
+    + messages sent by the parent page to a worker
+      + create worker: `var worker = new Worker("worker0.js");`
+      + set string message: `worker.postMessage("Hello");`
+      + declare object: `var personObj = {'firstName': 'Michel', 'lastName': 'Buffa'};`
+      + set message: `worker.postMessage(personObj);`
+    + message received from a worker by adding message handler: `onmessage = function(evt) { // do sth. w/ evt.data; alert('received ' + evt.data.firstName); };`
+    + worker sending message back to the parent page: `postMessage("Message from a worker!");`
+    + the parent page able to listen to messages from a work: `worker.onmessage = function(evt) { // do sth. w/ evt.data };`
+
+
 
 
