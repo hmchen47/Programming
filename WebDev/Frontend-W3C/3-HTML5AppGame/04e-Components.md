@@ -1,7 +1,7 @@
 # Module 4: Web components and other HTML5 APIs section
 
 
-## 4.5 Final exam (26 Questions)
+## 4.5 Final exam (37 Questions)
 
 
 ### 4.5.1 Web components (1-5)
@@ -477,5 +477,183 @@ __Source code for the next 4 questions (21, 22, 23 and 24)__
 
   Ans: b<br>
   Explanation: The deviceMotion API deals with accelerations as well as orientations. It can also be used to tell if the device is oriented to the sky.
+
+
+### 4.5.7 Potpourri of questions (27-37)
+
+27. HTML track or TextTrack?
+
+  ```js
+      <video id="myVideo" ...>
+    <source ...>
+    <track ...>
+    <track ...>
+  </video>
+
+  // method 1
+  var videoElement = document.querySelector("#myVideo");
+
+  var textTracks = videoElement.textTracks; // one TextTrack for each HTML track element
+  // get the TextTrack property of the first HTML track element
+  var textTrack = textTracks[0]; // corresponds to the first track element
+
+  // method 2
+  var htmlTracks = document.querySelectorAll("track");
+  
+  // The TextTrack object associated with the first HTML track
+  var textTrack = htmlTracks[0].track;
+  ```
+
+  Can we do the same things with the `<track>` HTML element as we can with the textTrack property/object we get from the JavaScript API? (Yea/No)
+
+  Ans: <br>
+  Explanation: 
+
+
+28. Hidden but alive?
+
+  If a track has been loaded and the corresponding TextTrack mode property set to "hidden", will track and cue events be fired when the video is played (assume that the browser supports cue and track events)? (Yes/No)
+
+  Ans: <br>
+  Explanation: 
+
+
+29. Stream or not?
+
+  Can Web Audio work with both streamed sounds and sound samples loaded in memory? (Yes/No)
+
+  Ans: <br>
+  Explanation: 
+
+
+30. Fire and forget
+
+  Once played, can a BufferSource node (corresponding to a sound sample loaded in memory) be played again without re-creating it? (Yes/No)
+
+  Ans: <br>
+  Explanation: 
+
+
+31. Visualizer node
+
+  What is the name of the Web Audio node useful for retrieving frequency domain and time domain analysis data, in order to display a waveform or frequencies that dance with the music?
+
+  a. A canvas node<br>
+  b. An analyser node<br>
+  c. A waveform node<br>
+  d. An FFT node<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+32. Why did we use a Black Box model?
+
+  Why is it 'good practice' to use a Black Box model for the game framework?
+
+  a. It allows us to have private and public properties and methods, which is good for encapsulation.<br>
+  b. It's the best approach when we need to split the project into separate files<br>
+  c. It gives better performance<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+33. Time based animation... again!
+
+  ```js
+  requestAnimationFrame(callback);
+  ```
+
+  What is the relationship between time based animation and `requestAnimationFrame`?
+
+  a. The callback function has a parameter that is a hi-res timer passed by the browser, and we use it to measure deltas of time for time-based animation.<br/>
+  b. The callback function runs at a perfect 60 frames per second rate, so the time between two executions of the callback is exactly 1/60th of a second. We use this value (16.66ms) for time-based animation.<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+34. Game hero (bonus question, infinite attempts)
+
+  A Christmas game was developed by students during a previous run of this course. It uses an animal as the main character. What animal is it? (Haven't you tried this game yet? Check it now!)
+
+  a. A reindeer<br>
+  b. A rabbit<br>
+  c. A cat<br>
+  d. A llama<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+35. Selected text is a pain (or is plain) text!
+
+  Drag and drop a selection of text...
+
+  a. is possible (without doing anything special for the drag, just manage the drop in a drop handler)<br>
+  b. is not possible<br>
+  c. is possible, but we must enclose the text with ...<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+<hr>
+
+__Source code for the next question (36)__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> t0 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> t1 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> r </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> downloadSoundFile</span><span class="pun">(</span><span class="pln">url</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> xhr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'GET'</span><span class="pun">,</span><span class="pln"> url</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">responseType </span><span class="pun">=</span><span class="pln"> </span><span class="str">'arraybuffer'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// THIS IS NEW WITH HTML5!</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">onloadstart </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; console.log("download started");</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong> t0 </strong></span><strong><span class="pun">=</span><span class="pln"> performance</span><span class="pun">.</span><span class="pln">now</span><span class="pun">();</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Download complete"</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">onprogress </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> bytes </span><span class="pun">=</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">loaded</span><span class="pun">;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>t1 </strong></span><strong><span class="pun">=</span><span class="pln"> performance</span><span class="pun">.</span><span class="pln">now</span><span class="pun">();</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong> r </strong></span><strong><span class="pun">=</span><span class="pln"> bytes </span><span class="pun">/</span><span class="pln"> </span><span class="pun">(</span><span class="pln">t1 </span><span class="pun">-</span><span class="pln">t0</span><span class="pun">);</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>console</strong></span><strong><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"value = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> r</span><span class="pun">);</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pln">&nbsp;</span><span class="pun">}</span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"error downloading file"</span><span class="pun">);</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">send</span><span class="pun">();</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Ajax request sent... wait until it downloads completely"</span><span class="pun">);</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
+</ol></div>
+
+36. Now, now, now. We need `performance.now()`!
+
+  What does _line 21_ display?
+
+  a. It displays the current download speed.<br/>
+  b. It displays how long the download is taking.<br/>
+
+  Ans: <br>
+  Explanation: 
+
+
+37. Index or KeyPath?
+
+  With indexedDB, what is the difference between a KeyPath and an index?
+
+  a. We can have multiple objects with the same index value. This not possible with KeyPaths, which must be unique<br>
+  b. No difference: a KeyPath is an index<br>
+
+  Ans: <br>
+  Explanation: 
 
 
