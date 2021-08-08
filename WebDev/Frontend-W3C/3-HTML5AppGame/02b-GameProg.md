@@ -174,7 +174,7 @@ There are different ways to perform animation with JavaScript. A very detailed c
 
 #### setInterval Function
 
-__Performing animation using the JavaScript setInterval(...) function__
+__Performing animation using the JavaScript `setInterval(...)` function__
 
 + Syntax: `setInterval(function, ms);`
 
@@ -196,28 +196,28 @@ __Performing animation using the JavaScript setInterval(...) function__
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> addStarToTheBody </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"*"</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com">//this will add one star to the document each 200ms (1/5s)</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">setInterval</span><span class="pun">(</span><span class="pln">addStarToTheBody</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></strong></li>
+<div><ol>
+<li value="1">var addStarToTheBody = function(){</li>
+<li>&nbsp; &nbsp;document.body.innerHTML += "*";</li>
+<li>};</li>
+<li> </li>
+<li><strong style="color: red;">//this will add one star to the document each 200ms (1/5s)</strong></li>
+<li><strong style="color: red;">setInterval(addStarToTheBody, 200);</strong></li>
 </ol></div><br>
 
-<span style="color: red;">WRONG:</span>
+<span style="color: red;">WRONG:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">setInterval</span><span class="pun">(‘</span><span class="pln">addStarToTheBody</span><span class="pun">()’,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">setInterval</span><span class="pun">(‘</span><span class="pln">document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="pun">“*”;’,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">setInterval(‘addStarToTheBody()’, 200);</li>
+<li>setInterval(‘document.body.innerHTML += “*”;’, 200);</li>
 </ol></div><br>
 
-<span style="color: lightgreen;">GOOD:</span>
+<span style="color: lightgreen;">GOOD:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">setInterval</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="pun">“*”;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">},</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">setInterval(function(){</li>
+<li>&nbsp; &nbsp;document.body.innerHTML += “*”;</li>
+<li>}, 200);</li>
 </ol></div><br>
 
 or like we did in the example, with an external function.
@@ -238,15 +238,15 @@ __Using `setTimeout()` instead of `setInterval()`__
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> addStarToTheBody </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"*"</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="com">// calls again itself AFTER 200ms</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong style="color: red;">setTimeout</strong></span><strong style="color: red;"><span class="pun">(</span><span class="pln">addStarToTheBody</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com">// calls the function AFTER 200ms</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">setTimeout</span><span class="pun">(</span><span class="pln">addStarToTheBody</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></strong></li>
+<div><ol>
+<li value="1">var addStarToTheBody = function(){</li>
+<li>&nbsp; &nbsp; document.body.innerHTML += "*";</li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: red;">// calls again itself AFTER 200ms</strong></li>
+<li>&nbsp; &nbsp; <strong style="color: red;">setTimeout</strong><strong style="color: red;">(addStarToTheBody, 200);</strong></li>
+<li>};</li>
+<li> </li>
+<li><strong style="color: red;">// calls the function AFTER 200ms</strong></li>
+<li><strong style="color: red;">setTimeout(addStarToTheBody, 200);</strong></li>
 </ol></div><br>
 
 This example will work like the previous example. However, it is a definite improvement, because the timer waits for the function to finish everything inside before calling it again. 
@@ -272,18 +272,18 @@ Basic usage, [online example at JSBin](https://jsbin.com/geqija/1/edit?html,js,o
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// called after the page is entirely loaded</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong style="color: red;">requestAnimationFrame</strong></span><strong style="color: red;"><span class="pun">(</span><span class="pln">mainloop</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> mainloop</span><span class="pun">(</span><span class="pln">timestamp</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"*"</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="com">// call back itself every 60th of second</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong style="color: red;">requestAnimationFrame</strong></span><strong style="color: red;"><span class="pun">(</span><span class="pln">mainloop</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">window.onload = function init() {</li>
+<li>&nbsp; &nbsp;// called after the page is entirely loaded</li>
+<li>&nbsp; &nbsp;<strong style="color: red;">requestAnimationFrame</strong><strong style="color: red;">(mainloop);</strong></li>
+<li>}; </li>
+<li> </li>
+<li>function mainloop(timestamp) {</li>
+<li>&nbsp; &nbsp;document.body.innerHTML += "*";</li>
+<li> </li>
+<li>&nbsp; &nbsp;<strong style="color: red;">// call back itself every 60th of second</strong></li>
+<li>&nbsp; &nbsp;<strong style="color: red;">requestAnimationFrame</strong><strong style="color: red;">(mainloop);</strong></li>
+<li>}</li>
 </ol></div><br>
 
 Notice that calling `requestAnimationFrame(mainloop)` at _line 10_, asks the browser to call the `mainloop` function every 16.6 ms: this corresponds to 60 times per second (16.6 ms = 1/60 s).
