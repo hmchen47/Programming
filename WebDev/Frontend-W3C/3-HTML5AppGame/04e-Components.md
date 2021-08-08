@@ -131,8 +131,8 @@ JavaScript:
 
   Only a few current browsers, e.g. Google or Chrome, offer native support for the shadow DOM API. Is it possible to use the devtools to inspect the HTML source of a Web component even if it's located in the shadow DOM? (Yes/No)
 
-  Ans: <br>
-  Explanation: 
+  Ans: Yes<br>
+  Explanation: By default, the shadow DOM content is hidden, but on Chrome and Opera (which support the shadow DOM natively), it's possible to use a setting in the devtools to expose the shadow DOM for debugging purposes. This was shown in several videos during the course.
 
 
 <hr>
@@ -152,16 +152,16 @@ __Source code for the next three questions (10, 11, and 12)__
 
   The paragraph b is called a "shadow __XXXX__". What is the correct term (instead of __XXXX__)?
 
-  Ans: <br>
-  Explanation: 
+  Ans: <font style="color: red">host<font>, xroot<br>
+  Explanation: The paragraph b is called a _shadow host_
 
 
 11. What is my name?
 
   The variable c is called a "shadow __YYYY__". What is the correct term (instead of __YYYY__)?
 
-  Ans: <br>
-  Explanation: 
+  Ans: host<br>
+  Explanation: The variable c is called a _shadow root_
 
 
 12. Please show me!
@@ -171,8 +171,8 @@ __Source code for the next three questions (10, 11, and 12)__
   a. "I am a nice paragraph!"<br>
   a. "Please show me!"<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: When an element has a shadow root, the content of the shadow DOM is rendered: in this case, it is "I am a nice paragraph!"
 
 
 13. The shadow of robots?
@@ -183,11 +183,8 @@ What relationship exists between Isaac Asimov and the Shadow DOM?
   a. Isaac Asimov was born in a small Russian house called DOMA.<br>
   a. No relationship.<br>
 
-  Ans: <br>
-  Explanation: 
-
-
-
+  Ans: <font style="color: red">a</font>, xc<br>
+  Explanation: Three rules do govern the shadow DOM: 1) With Shadow DOM, elements are associated with a new kind of node: a shadow root; 2) An element that has a shadow root associated with it is called a shadow host; 3) The content of a shadow host isn’t rendered; the content of the shadow root is rendered in its place.
 
 
 ### 4.5.4 Shadow DOM encapsulation (14-17)
