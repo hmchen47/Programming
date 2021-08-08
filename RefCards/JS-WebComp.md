@@ -41,6 +41,40 @@
     + HTML imports deprecated but able to be used polyfill
 
 
+## HTML Templates
+
++ [HTML template](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-423-html-templates)
+  + an important building-block of Web Components
+  + browser going to clone and add some HTML/CSS/JS code to the document
+  + defining fragment of code (HTML, CSS style and JS) for reuse
+  + the fragment of code __inert__ until the template is used
+    + CSS not applied
+    + JS not executed
+    + images not loaded
+    + video not played
+    + etc.
+  + content
+    + the lines of code btw `<template>` and `</template>`
+    + using DOM API to manipulate
+    + the content attribute of the DOM node corresponding to a given template
+
++ Example: [define a template](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-423-html-templates)
+
+  ```html
+  <template id="mytemplate">
+    <img src="xyz.png" alt="an image">
+    <div></div>
+  </template>
+  ```
+
++ [Cloning contents](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-423-html-templates)
+  + using the `document.importNode(templateContent, deepCopy)` method
+  + node: the template's content
+  + `deepCopy`: deep copy the content
+
++ Example: [typical template](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-423-html-templates)
+
+
 
 
 
