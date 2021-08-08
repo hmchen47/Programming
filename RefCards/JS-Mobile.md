@@ -51,28 +51,6 @@
 
 
 
-
-## Th Orientation API
-
-+ [HTML5 orientation API overview](../WebDev/Frontend-W3C/3-HTML5AppGame/04d-Components.md#441-the-orientation-api)
-  + a way to use angle measures provided by accelerometers form mobile devices or desktops such as MacBook
-  + mobile device emulation mode: able to use the devtools of a desktop browser to fake the orientation values
-
-+ [HTML5 orientation API](../WebDev/Frontend-W3C/3-HTML5AppGame/04d-Components.md#443-get-different-angles)
-  + typical procedure
-    + test if browser supports the orientation API w/ `window.DeviceOrientationEvent !== null`
-    + define listener for the `deviceorientation` event: `window.addEventListener('deviceorientation', callback, false);` w/ the callback function accepting the event object as its single input parameter
-    + extract the angles from the events: the properties, `alpha`, `beta` and `gamma`
-  + incorporating w/ `WebSockets`:
-    + sending the real-time device orientation to server via `WebSockets`
-    + server sending the orientation to a client running on a desktop browser
-    + allowing multiple devices connecting to the server and chatting together
-
-+ Example: [device orientation in standalone version](../WebDev/Frontend-W3C/3-HTML5AppGame/04d-Components.md#443-get-different-angles)
-
-+ Example: [device orintation w/ image](../WebDev/Frontend-W3C/3-HTML5AppGame/04d-Components.md#443-get-different-angles)
-
-
 ## Acceleration
 
 + [Acceleration](../WebDev/Frontend-W3C/3-HTML5AppGame/04d-Components.md#444-the-device-motion-api)
@@ -106,6 +84,29 @@
         title  = "acceleration values 2"
       />
     </figure>
+
+
+
+
+## Th Orientation API
+
++ [HTML5 orientation API overview](../WebDev/Frontend-W3C/3-HTML5AppGame/04d-Components.md#441-the-orientation-api)
+  + a way to use angle measures provided by accelerometers form mobile devices or desktops such as MacBook
+  + mobile device emulation mode: able to use the devtools of a desktop browser to fake the orientation values
+
++ [HTML5 orientation API](../WebDev/Frontend-W3C/3-HTML5AppGame/04d-Components.md#443-get-different-angles)
+  + typical procedure
+    + test if browser supports the orientation API w/ `window.DeviceOrientationEvent !== null`
+    + define listener for the `deviceorientation` event: `window.addEventListener('deviceorientation', callback, false);` w/ the callback function accepting the event object as its single input parameter
+    + extract the angles from the events: the properties, `alpha`, `beta` and `gamma`
+  + incorporating w/ `WebSockets`:
+    + sending the real-time device orientation to server via `WebSockets`
+    + server sending the orientation to a client running on a desktop browser
+    + allowing multiple devices connecting to the server and chatting together
+
++ Example: [device orientation in standalone version](../WebDev/Frontend-W3C/3-HTML5AppGame/04d-Components.md#443-get-different-angles)
+
++ Example: [device orintation w/ image](../WebDev/Frontend-W3C/3-HTML5AppGame/04d-Components.md#443-get-different-angles)
 
 
 ## The Device Motion API
