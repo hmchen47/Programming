@@ -110,6 +110,14 @@
 
 + Example: [shadow DOM](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-424-shadow-dom)
 
++ [Inserting content
+  + injection point defined in header part: `<slot name="my-text>...</slot>`
+  + injected content defined in body part: `<span slot="my-text">...</span>`
+  + when the classic template instantiation and its addition to a shadow host node in the page is done, the HTML produced will contain "Injected Content" instead of
+
++ Example: ]inserting content](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-426-shadow-dom-insert-content)
+
+
 
 ## Shadow DOM Encapsulation
 
@@ -130,6 +138,30 @@
     + styles applied those defined in the template's content
 
 + Example: differentiating the template and normal elements
+
+
+## HTML Custom elements
+
++ [HTML costom elements](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-427-html-custom-elements)
+  + another API described as HTML Web components
+  + extending HTML by defining new elements
+  + telling the browser how to render them
+  + basic syntax: `customElement.define('my-widget', MyWidget);`
+  + constraints
+    + containing a dash in the element's new name, e.g., `<my-calendar>`, `<app-list>`, etc.
+    + `MyWidget`: a JS class object defining the behavior
+    + optional 3rd parameter: a JS object containing an extended property, specifying the built-in element inherited
+  + local document:
+    + the one corresponding to the page to avoid ambiguity of multiple WebComponents files
+    + syntax to select: `document.currentScript`
+    + selecting the document only in the HTML of document attached to the JavaScript: `var localDoc = document.currentScript.ownerDocument`
+    + Web components probably included in other HTML pages
+    + good practice: selecting elements only in the HTML page of the Web Components, not in the document that will import the Web Components
+  + registration of a new custom element named `<my-widget>`
+    + syntax: `customElements.define('my-widget', MyWidget);`
+    + when the browser encounters `<my-widget>` within an HTML document, it will create an instance of the `MyWidget` class and render the shadow DOM of the Web Component
+
++ Example: [custom elements](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-427-html-custom-elements)
 
 
 
