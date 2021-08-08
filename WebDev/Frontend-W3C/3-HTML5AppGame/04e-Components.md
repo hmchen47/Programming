@@ -66,6 +66,64 @@
   Explanation: Lit-HTML (by Google) and X-Tags (by Mozilla) are frameworks built on Web components.
 
 
+### 4.5.2 HTML5 templates (6-8)
+
+6. Dead or alive?
+
+  The code in HTML templates is:
+
+  a. to be rendered, the content of a template needs to be cloned within JavaScript, and the cloned version inserted into the DOM of a document.<br>
+  b. the same as any other unit of HTML code. When a page includes a template, it's rendered amongst the rest of the HTML code.<br>
+  
+  Ans: <br>
+  Explanation: 
+
+
+<hr>
+
+__Source code for the next 2 questions (7 and 8)__
+
+HTML:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;template</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"mytemplate"</span><span class="tag">&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">""</span><span class="pln">&nbsp;id="myImage"&nbsp;</span><span class="atn">alt</span><span class="pun">=</span><span class="atv">"a great image"</span><span class="tag">&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"comment"</span><span class="tag">&gt;</span><span class="pln">hello</span><span class="tag">&lt;/div&gt;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/template&gt;</span><span class="pln"> </span></li>
+</ol></div>
+
+JavaScript:
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> instanciate</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#mytemplate'</span><span class="pun">);</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<span style="color: #ff0000;"><strong>XXX</strong></span></span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#myImage'</span><span class="pun">).</span><span class="pln">src </span><span class="pun">=</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'http://webcomponents.github.io/img/logo.svg'</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> clone </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.<span style="color: #0000ff;"><strong>YYY</strong></span></span><span class="pun">(<span style="color: #ff0000;"><strong>XXX</strong></span></span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
+<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// add it to the body of the HTML document</span></li>
+<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">clone</span><span class="pun">);</span><span class="pln"> </span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+</ol></div>
+
+7. Give me content!
+
+  How would you complete the source code above to access the content of the template? Enter exactly what you would put instead of the XXX placeholders!
+  
+  Ans: <br>
+  Explanation: 
+
+
+8. Clone me!
+
+  How would you clone the content of the template? Enter exactly what you would enter instead of the YYY placeholder!
+  
+  Ans: <br>
+  Explanation: 
+
+
 ### 4.5.4 Shadow DOM encapsulation (14-17)
 
 14. The red and the black
