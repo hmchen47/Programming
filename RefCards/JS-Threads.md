@@ -1,7 +1,7 @@
 # JavaScript Threads
 
 
-## Threads
+## Overview
 
 + [Threads in browser](../WebDev/Frontend-W3C/3-HTML5AppGame/04c-Components.md#431-introduction)
   + normal JS code: a single thread
