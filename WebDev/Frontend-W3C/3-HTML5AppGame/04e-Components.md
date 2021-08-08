@@ -85,27 +85,27 @@ __Source code for the next 2 questions (7 and 8)__
 
 HTML:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;template</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"mytemplate"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">""</span><span class="pln">&nbsp;id="myImage"&nbsp;</span><span class="atn">alt</span><span class="pun">=</span><span class="atv">"a great image"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"comment"</span><span class="tag">&gt;</span><span class="pln">hello</span><span class="tag">&lt;/div&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/template&gt;</span><span class="pln"> </span></li>
+<div><ol>
+<li value="1"> &lt;template id="mytemplate"&gt;</li>
+<li>&nbsp; &nbsp;&lt;img src=""&nbsp;id="myImage"&nbsp;alt="a great image"&gt;</li>
+<li>&nbsp; &nbsp;&lt;div class="comment"&gt;hello&lt;/div&gt;</li>
+<li> &lt;/template&gt; </li>
 </ol></div>
 
 JavaScript:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> instanciate</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#mytemplate'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<span style="color: #ff0000;"><strong style="color: #AA0000;">XXX</strong></span></span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#myImage'</span><span class="pun">).</span><span class="pln">src </span><span class="pun">=</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'http://webcomponents.github.io/img/logo.svg'</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> clone </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.<span style="color: #0000ff;"><strong style="color: #AA0000;">YYY</strong></span></span><span class="pun">(<span style="color: #ff0000;"><strong style="color: #AA0000;">XXX</strong></span></span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// add it to the body of the HTML document</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">clone</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function instanciate() {</li>
+<li>&nbsp; &nbsp;var t = document.querySelector('#mytemplate');</li>
+<li> </li>
+<li>&nbsp; &nbsp;<span style="color: #ff0000;"><strong style="color: #AA0000;">XXX</strong>.querySelector('#myImage').src =</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'http://webcomponents.github.io/img/logo.svg';</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;var clone = document.<span style="color: #0000ff;"><strong style="color: #AA0000;">YYY</strong>(<span style="color: #ff0000;"><strong style="color: #AA0000;">XXX</strong>, true);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// add it to the body of the HTML document</li>
+<li>&nbsp; &nbsp;document.body.appendChild(clone); </li>
+<li>}</li>
 </ol></div>
 
 7. Give me content!
@@ -139,13 +139,13 @@ JavaScript:
 
 __Source code for the next three questions (10, 11, and 12)__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;p&gt;Please&nbsp;show me!</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;b&nbsp;</span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'p'</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;c&nbsp;</span><span class="pun">=</span><span class="pln"> b</span><span class="pun">.</span><span class="pun"><span color="#000000" style="color: #000000;">attachShadow({mode: 'open'});</span>;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;c</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> </span><span class="str">'I am a nice paragraph!'</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+<div><ol>
+<li value="1">&lt;p&gt;Please&nbsp;show me!&lt;/p&gt;</li>
+<li>&lt;script&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;var&nbsp;b&nbsp;= document.querySelector('p');</li>
+<li>&nbsp; &nbsp;&nbsp;var&nbsp;c&nbsp;= b.<span color="#000000" style="color: #000000;">attachShadow({mode: 'open'});;</li>
+<li>&nbsp; &nbsp;&nbsp;c.textContent = 'I am a nice paragraph!';</li>
+<li>&lt;/script&gt;</li>
 </ol></div>
 
 10. Who am I?
@@ -220,51 +220,51 @@ __Source code for the next two questions (16 and 17)__
 
 HTML:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;head&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;style&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; span </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; color</span><span class="pun">:</span><span class="pln">green</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;/style&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;template</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"mytemplate"</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;style&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; h1 </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; color</span><span class="pun">:</span><span class="pln">red</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; span </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">lightblue</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;/style&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;h1&gt;</span><span class="pln">Magnificient title</span><span class="tag">&lt;/h1&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;span&gt;</span><span class="pln">And I'm a span in the shadow DOM</span><span class="tag">&lt;/span&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;p&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;slot</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"my-text"</span><span class="tag">&gt;</span><span class="pln">My default text</span><span class="tag">&lt;/slot&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/template&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;h1&gt;</span><span class="pln">Hello my friends</span><span class="tag">&lt;/h1&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;p</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myWidget"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &nbsp; &lt;span</span><span class="pln"> </span><span class="atn">slot</span><span class="pun">=</span><span class="atv">"my-text"</span><span class="tag">&gt;</span><span class="pln">Injected content</span><span class="tag">&lt;/span&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;/p&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;p&gt;</span><span class="pln">This is not in the previous paragraph...</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<div><ol>
+<li value="1">&lt;head&gt;</li>
+<li>&nbsp; &lt;style&gt;</li>
+<li>&nbsp; &nbsp; span {</li>
+<li>&nbsp; &nbsp; &nbsp; color:green;</li>
+<li>&nbsp; &nbsp; }</li>
+<li>&nbsp; &lt;/style&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;template id="mytemplate"&gt;</li>
+<li>&nbsp; &lt;style&gt;</li>
+<li>&nbsp; &nbsp; h1 {</li>
+<li>&nbsp; &nbsp; &nbsp; color:red;</li>
+<li>&nbsp; &nbsp; }</li>
+<li>&nbsp; &nbsp; span {</li>
+<li>&nbsp; &nbsp; &nbsp; background-color:lightblue; </li>
+<li>&nbsp; &nbsp; }</li>
+<li>&nbsp; &lt;/style&gt;</li>
+<li>&nbsp; &lt;h1&gt;Magnificient title&lt;/h1&gt;</li>
+<li>&nbsp; &lt;span&gt;And I'm a span in the shadow DOM&lt;/span&gt;</li>
+<li>&nbsp; &lt;p&gt;</li>
+<li>&nbsp; &lt;slot name="my-text"&gt;My default text&lt;/slot&gt;</li>
+<li>&lt;/template&gt;</li>
+<li> </li>
+<li>&lt;body&gt;</li>
+<li>&nbsp; &lt;h1&gt;Hello my friends&lt;/h1&gt;</li>
+<li>&nbsp; &lt;p id="myWidget"&gt;</li>
+<li>&nbsp; &nbsp; &lt;span slot="my-text"&gt;Injected content&lt;/span&gt;</li>
+<li>&nbsp; &lt;/p&gt;</li>
+<li> </li>
+<li>&nbsp; &lt;p&gt;This is not in the previous paragraph...&lt;/p&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 JavaScript:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Instanciate the template</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#mytemplate'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">// Create a root node under our h1 title</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> host </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#myWidget'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">const</span><span class="pln"> shadowRoot </span><span class="pun">=</span><span class="pln"> host</span><span class="pun">.</span><span class="pln">attachShadow</span><span class="pun">({</span><span class="pln">mode</span><span class="pun">:</span><span class="pln"> </span><span class="str">'open'</span><span class="pun">});</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">shadowRoot</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">importNode</span><span class="pun">(</span><span class="pln">t</span><span class="pun">.</span><span class="pln">content</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">));</span></li>
+<div><ol>
+<li value="1">// Instanciate the template</li>
+<li>var t = document.querySelector('#mytemplate');</li>
+<li>&nbsp;</li>
+<li>// Create a root node under our h1 title</li>
+<li>var host = document.querySelector('#myWidget');</li>
+<li>const shadowRoot = host.attachShadow({mode: 'open'});</li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li>shadowRoot.appendChild(document.importNode(t.content, true));</li>
 </ol></div>
 
 16. Choose the nicest one!
@@ -313,21 +313,21 @@ JavaScript:
 
 __Additional code for the next question (17)__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;template</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"mytemplate"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;style&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; <strong style="color: #AA0000;">:</strong></span><strong style="color: #AA0000;"><span class="pln">host</span><span class="pun">(:</span><span class="pln">hover</span><span class="pun">){</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: #AA0000;"><span class="pln">&nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">pink</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: #AA0000;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; h1 </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; color</span><span class="pun">:</span><span class="pln">red</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; span </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">lightblue</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&lt;/template&gt;</span></li>
+<div><ol>
+<li value="1">&lt;template id="mytemplate"&gt;</li>
+<li>&nbsp; &lt;style&gt;</li>
+<li>&nbsp; &nbsp; <strong style="color: #AA0000;">:</strong><strong style="color: #AA0000;">host(:hover){</strong></li>
+<li><strong style="color: #AA0000;">&nbsp; &nbsp; &nbsp; background-color:pink;</strong></li>
+<li><strong style="color: #AA0000;">&nbsp; &nbsp; }</strong></li>
+<li>&nbsp; &nbsp; h1 {</li>
+<li>&nbsp; &nbsp; &nbsp; color:red;</li>
+<li>&nbsp; &nbsp; }</li>
+<li>&nbsp; &nbsp; span {</li>
+<li>&nbsp; &nbsp; &nbsp; background-color:lightblue; </li>
+<li>&nbsp; &nbsp; }</li>
+<li> &lt;/style&gt;</li>
+<li>...</li>
+<li>&lt;/template&gt;</li>
 </ol></div>
 
 17. Pink fairies ...
@@ -383,37 +383,37 @@ __Additional code for the next question (17)__
 
 __Source code for the next 4 questions (21, 22, 23 and 24)__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">...</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">&lt;h2&gt;</span><span class="typ">Device</span><span class="pln"> </span><span class="typ">Orientation</span><span class="pln"> </span><span class="kwd">with</span><span class="pln"> HTML5</span><span class="pun">&lt;/</span><span class="pln">h2</span><span class="pun">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="typ">You</span><span class="pln"> need to be on a mobile device </span><span class="kwd">or</span><span class="pln"> </span><span class="kwd">use</span><span class="pln"> a laptop </span><span class="kwd">with</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">accelerometer</span><span class="pun">/</span><span class="pln">orientation&nbsp;</span><span class="pln">device</span><span class="pun">.</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">&lt;p&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">&lt;</span><span class="pln">div id</span><span class="pun">=</span><span class="str">"LR"</span><span class="pun">&gt;&lt;/</span><span class="pln">div</span><span class="pun">&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">&lt;</span><span class="pln">div id</span><span class="pun">=</span><span class="str">"FB"</span><span class="pun">&gt;&lt;/</span><span class="pln">div</span><span class="pun">&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">&lt;</span><span class="pln">div id</span><span class="pun">=</span><span class="str">"DIR"</span><span class="pun">&gt;&lt;/</span><span class="pln">div</span><span class="pun">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">&lt;</span><span class="pln">script type</span><span class="pun">=</span><span class="str">"text/javascript"</span><span class="pun">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">window</span><span class="pun">.</span><span class="typ">DeviceOrientationEvent</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"DeviceOrientation is supported"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(<span style="color: #ff0000;"><strong style="color: #AA0000;"><span style="color: #008800;">XXX</span></strong></span></span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">eventData</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// front/back inclination</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> FB </span><span class="pun">=</span><span class="pln"> eventData</span><span class="pun">.<strong style="color: #AA0000;">ZZZ</strong></span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// orientation</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> DIR </span><span class="pun">=</span><span class="pln"> eventData</span><span class="pun">.<strong style="color: #AA0000;">TTT</strong></span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// left/right inclination</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> LR </span><span class="pun">=</span><span class="pln"> eventData</span><span class="pun">.<strong style="color: #AA0000;">YYY</strong></span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// display values on screen</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;deviceOrientationHandler</span><span class="pun">(</span><span class="pln"><span class="pln">FB</span><span class="pun">,</span><span class="pln"> DIR,&nbsp;</span>LR</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">"Device orientation not supported on your device or browser. Sorry."</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> deviceOrientationHandler</span><span class="pun">(</span><span class="pln"><span class="pln">FB</span><span class="pun">,</span><span class="pln"> DIR,&nbsp;</span>LR</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#LR"</span><span class="pun">).</span><span class="pln">innerHTML &nbsp;<span style="color: #666600;" color="#666600">=&nbsp;</span></span><span class="str">""</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="pln">LR</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#FB"</span><span class="pun">).</span><span class="pln">innerHTML &nbsp;</span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="pln">FB</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#DIR"</span><span class="pun">).</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="pln">DIR</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">&lt;/</span><span class="pln">script</span><span class="pun">&gt;</span></li>
+<div><ol>
+<li value="1">...</li>
+<li> &lt;h2&gt;Device Orientation with HTML5&lt;/h2&gt;</li>
+<li>You need to be on a mobile device or use a laptop with </li>
+<li>accelerometer/orientation&nbsp;device.</li>
+<li> &lt;p&gt;</li>
+<li> &lt;div id="LR"&gt;&lt;/div&gt;</li>
+<li> &lt;div id="FB"&gt;&lt;/div&gt;</li>
+<li> &lt;div id="DIR"&gt;&lt;/div&gt;</li>
+<li> &lt;script type="text/javascript"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;if (window.DeviceOrientationEvent) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log("DeviceOrientation is supported");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;window.addEventListener(<span style="color: #ff0000;"><strong style="color: #AA0000;"><span style="color: #008800;">XXX</strong>, function(eventData) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// front/back inclination</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var FB = eventData.<strong style="color: #AA0000;">ZZZ</strong>;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// orientation</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var DIR = eventData.<strong style="color: #AA0000;">TTT</strong>;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// left/right inclination</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var LR = eventData.<strong style="color: #AA0000;">YYY</strong>;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// display values on screen</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;deviceOrientationHandler(FB, DIR,&nbsp;LR);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}, false);</li>
+<li>&nbsp; } else {</li>
+<li>&nbsp; &nbsp; &nbsp; alert("Device orientation not supported on your device or browser. Sorry.");</li>
+<li>&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;function deviceOrientationHandler(FB, DIR,&nbsp;LR) {</li>
+<li>&nbsp; &nbsp; document.querySelector("#LR").innerHTML &nbsp;<span style="color: #666600;" color="#666600">=&nbsp;"" + Math.round(LR);</li>
+<li>&nbsp; &nbsp; document.querySelector("#FB").innerHTML &nbsp;= "" + Math.round(FB);</li>
+<li>&nbsp; &nbsp; document.querySelector("#DIR").innerHTML = "" + Math.round(DIR);</li>
+<li>&nbsp;&nbsp;}</li>
+<li> &lt;/script&gt;</li>
 </ol></div>
 
 21. What is it called... I can't remember...
@@ -607,36 +607,36 @@ __Source code for the next 4 questions (21, 22, 23 and 24)__
 
 __Source code for the next question (36)__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> t0 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> t1 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> r </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> downloadSoundFile</span><span class="pun">(</span><span class="pln">url</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> xhr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'GET'</span><span class="pun">,</span><span class="pln"> url</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">responseType </span><span class="pun">=</span><span class="pln"> </span><span class="str">'arraybuffer'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// THIS IS NEW WITH HTML5!</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">onloadstart </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; console.log("download started");</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong style="color: #aa0000;"> t0 </strong></span><strong style="color: #aa0000;"><span class="pun">=</span><span class="pln"> performance</span><span class="pun">.</span><span class="pln">now</span><span class="pun">();</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Download complete"</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">onprogress </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> bytes </span><span class="pun">=</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">loaded</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong style="color: #aa0000;">t1 </strong></span><strong style="color: #aa0000;"><span class="pun">=</span><span class="pln"> performance</span><span class="pun">.</span><span class="pln">now</span><span class="pun">();</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong style="color: #aa0000;"> r </strong></span><strong style="color: #aa0000;"><span class="pun">=</span><span class="pln"> bytes </span><span class="pun">/</span><span class="pln"> </span><span class="pun">(</span><span class="pln">t1 </span><span class="pun">-</span><span class="pln">t0</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong style="color: #aa0000;">console</strong></span><strong style="color: #aa0000;"><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"value = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> r</span><span class="pun">);</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pln">&nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"error downloading file"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">send</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Ajax request sent... wait until it downloads completely"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
+<div><ol>
+<li value="1">var t0 = null, t1 = null, r = null;</li>
+<li> </li>
+<li>function downloadSoundFile(url) {</li>
+<li>&nbsp; &nbsp;var xhr = new XMLHttpRequest();</li>
+<li>&nbsp; &nbsp;xhr.open('GET', url, true);</li>
+<li>&nbsp; &nbsp;xhr.responseType = 'arraybuffer'; // THIS IS NEW WITH HTML5!</li>
+<li> </li>
+<li>&nbsp; &nbsp;xhr.onloadstart = function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp; console.log("download started");</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: #aa0000;"> t0 </strong><strong style="color: #aa0000;">= performance.now();</strong></li>
+<li>&nbsp; &nbsp;};</li>
+<li> </li>
+<li>&nbsp; &nbsp;xhr.onload = function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp; console.log("Download complete");</li>
+<li>&nbsp; &nbsp;};</li>
+<li> </li>
+<li>&nbsp; &nbsp;xhr.onprogress = function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var bytes = e.loaded;</li>
+<li>&nbsp; &nbsp; &nbsp; <strong style="color: #aa0000;">t1 </strong><strong style="color: #aa0000;">= performance.now();</strong></li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: #aa0000;"> r </strong><strong style="color: #aa0000;">= bytes / (t1 -t0);</strong></li>
+<li>&nbsp; &nbsp; &nbsp; <strong style="color: #aa0000;">console</strong><strong style="color: #aa0000;">.log("value = " + r);</strong></li>
+<li>&nbsp;&nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp;xhr.onerror = function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp; console.log("error downloading file");</li>
+<li>&nbsp; &nbsp;}</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;xhr.send();</li>
+<li>&nbsp; &nbsp;console.log("Ajax request sent... wait until it downloads completely");</li>
+<li>} </li>
 </ol></div>
 
 36. Now, now, now. We need `performance.now()`!
