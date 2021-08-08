@@ -61,65 +61,65 @@ When we use requestAnimationFrame for implementing such an animation, as we did 
   />
 </figure>
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">utf-8</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;title&gt;</span><span class="pln">Small animation example</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> speedX</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Called after the DOM is ready (page loaded)</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// init the different variables</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#mycanvas"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;width </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;height </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;x</span><span class="pun">=</span><span class="lit">10</span><span class="pun">;</span><span class="pln"> y </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Move 3 pixels left or right at each frame</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;speedX </span><span class="pun">=</span><span class="pln"> </span><span class="lit">3</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Start animation</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;animationLoop</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> animationLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// an animation involves: 1) clear canvas and 2) draw shapes, </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// 3) move shapes, 4) recall the loop with requestAnimationFrame</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// clear canvas</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// move rectangle</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;x </span><span class="pun">+=</span><span class="pln"> speedX</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// check collision on left or right</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(((</span><span class="pln">x</span><span class="pun">+</span><span class="lit">5</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> width</span><span class="pun">)</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="pun">(</span><span class="pln">x </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// cancel move + inverse speed</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x </span><span class="pun">-=</span><span class="pln"> speedX</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; speedX </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="pln">speedX</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// animate.</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"mycanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"200"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"50"</span><span class="pln"> </span><span class="atn">style</span><span class="pun">=</span><span class="atv">"</span><span class="pln">border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid black</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;/canvas&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li>&nbsp; &lt;meta charset=utf-8 /&gt;</li>
+<li>&nbsp; &lt;title&gt;Small animation example&lt;/title&gt;</li>
+<li>&nbsp;&nbsp;&lt;script&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;var canvas, ctx;</li>
+<li>&nbsp; &nbsp;&nbsp;var width, height;</li>
+<li>&nbsp; &nbsp;&nbsp;var x, y;</li>
+<li>&nbsp; &nbsp;&nbsp;var speedX;</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// Called after the DOM is ready (page loaded)</li>
+<li>&nbsp; &nbsp;&nbsp;function init() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// init the different variables</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;canvas = document.querySelector("#mycanvas");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx = canvas.getContext('2d');</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;width = canvas.width;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;height = canvas.height;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;x=10; y = 10;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// Move 3 pixels left or right at each frame</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;speedX = 3;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// Start animation</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;animationLoop();</li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;function animationLoop() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// an animation involves: 1) clear canvas and 2) draw shapes, </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// 3) move shapes, 4) recall the loop with requestAnimationFrame</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// clear canvas</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx.clearRect(0, 0, width, height);</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx.strokeRect(x, y, 10, 10);</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// move rectangle</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;x += speedX;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// check collision on left or right</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;if(((x+5) &gt; width) || (x &lt;= 0)) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// cancel move + inverse speed</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x -= speedX;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; speedX = -speedX;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// animate.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;requestAnimationFrame(animationLoop);</li>
+<li>&nbsp; &nbsp;&nbsp;} </li>
+<li> &lt;/script&gt;</li>
+<li>&lt;/head&gt;</li>
+<li> </li>
+<li>&lt;body onload="init();"&gt;</li>
+<li> &lt;canvas id="mycanvas" width="200" height="50" style="border: 2px solid black"&gt;</li>
+<li>&nbsp;&lt;/canvas&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div><br>
 
 If you try this example on a low-end smartphone (use this URL for the example in stand-alone mode) and if you run it at the same time on a desktop PC, it is obvious that the rectangle moves faster on the desktop computer screen than on your phone.
@@ -134,15 +134,15 @@ Here is the same example to which we have added a loop that wastes time right in
 
 [Local Demo](src/02d-example02.html)
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> animationLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">50000000</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// slow down artificially the animation</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">...</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span></li>
+<div><ol>
+<li value="1"> function animationLoop() {</li>
+<li>&nbsp; &nbsp;&nbsp;...</li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: red;">for(var i = 0; i &lt; 50000000; i++) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp;// slow down artificially the animation</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;}</strong></li>
+<li>&nbsp; &nbsp;&nbsp;...</li>
+<li>&nbsp; &nbsp; requestAnimationFrame(animationLoop);</li>
+<li> } </li>
 </ol></div>
 
 #### Notes for 2.4.1 Introduction
@@ -192,16 +192,16 @@ Let's find out how to measuring time between frames to achieve a constant speed 
 
 Let's modify the example from the previous lesson slightly by adding a _time-based animation_.  Here we use the "standard JavaScript" way for measuring time, using JavaScript's Date object:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;time&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">new</span><span class="pln">&nbsp;</span><span class="typ" style="color: #aa0066;">Date</span><span class="pun" style="color: #669900;">().</span><span class="pln">getTime</span><span class="pun" style="color: #669900;">();</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><span style="color: #008888;">var&nbsp;time&nbsp;<span style="color: #669900;">=&nbsp;<span style="color: #008888;">new&nbsp;<span style="color: #aa0066;">Date<span style="color: #669900;">().getTime<span style="color: #669900;">();</li>
 </ol></div><br>
 
 The `getTime()` method returns the number of milliseconds since midnight on January 1, 1970. This is the number of milliseconds that have elapsed during the Unix epoch (!).
 
 There is an alternative. We could have called:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;time&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;</span><span class="typ" style="color: #aa0066;">Date</span><span class="pun" style="color: #669900;">.</span><span class="pln">now</span><span class="pun" style="color: #669900;">();</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><span style="color: #008888;">var&nbsp;time&nbsp;<span style="color: #669900;">=&nbsp;<span style="color: #aa0066;">Date<span style="color: #669900;">.now<span style="color: #669900;">();</li>
 </ol></div><br>
 
 So, if we measure the time at the beginning of each animation loop, and store it, we can then compute the delta of times elapsed between two consecutive loops.
@@ -227,94 +227,94 @@ __Example #1: using time based animation: the bouncing square__
 
 Source code from the example:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec" style="color: #aa0066;">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&lt;html</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">lang</span><span class="pun" style="color: #669900;">=</span><span class="atv" style="color: #008800;">"en"</span><span class="tag" style="color: #008888;">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&nbsp; &lt;meta</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">charset</span><span class="pun" style="color: #669900;">=</span><span class="atv" style="color: #008800;">utf-8</span><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">/&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&nbsp; &lt;title&gt;</span><span class="pln">Move rectangle using time based animation</span><span class="tag" style="color: #008888;">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag" style="color: #008888;">&lt;script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;ctx</span><span class="pun" style="color: #669900;">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;width</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;height</span><span class="pun" style="color: #669900;">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;x</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;y</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;incX</span><span class="pun" style="color: #669900;">;</span><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// incX is the distance from the previously drawn</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // rectangle to the new one</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;speedX</span><span class="pun" style="color: #669900;">;</span><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// speedX is the target speed of the rectangle, in pixels/s</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="com" style="color: #880000;">// for time based animation</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;now</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;delta</span><span class="pun" style="color: #669900;">;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;then&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">new</span><span class="pln">&nbsp;</span><span class="typ" style="color: #aa0066;">Date</span><span class="pun" style="color: #669900;">().</span><span class="pln">getTime</span><span class="pun" style="color: #669900;">();</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// Called after the DOM is ready (page loaded)</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;init</span><span class="pun" style="color: #669900;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// Init the different variables</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; canvas&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;document</span><span class="pun" style="color: #669900;">.</span><span class="pln">querySelector</span><span class="pun" style="color: #669900;">(</span><span class="str" style="color: #008800;">"#mycanvas"</span><span class="pun" style="color: #669900;">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #669900;">.</span><span class="pln">getContext</span><span class="pun" style="color: #669900;">(</span><span class="str" style="color: #008800;">'2d'</span><span class="pun" style="color: #669900;">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; width&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #669900;">.</span><span class="pln">width</span><span class="pun" style="color: #669900;">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; height&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #669900;">.</span><span class="pln">height</span><span class="pun" style="color: #669900;">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; x</span><span class="pun" style="color: #669900;">=</span><span class="lit" style="color: #006666;">10</span><span class="pun" style="color: #669900;">;</span><span class="pln">&nbsp;y&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">10</span><span class="pun" style="color: #669900;">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// Target speed in pixels/second, try with high values, 1000, 2000...</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; speedX&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">200</span><span class="pun" style="color: #669900;">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// Start animation</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;animationLoop</span><span class="pun" style="color: #669900;">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #669900;">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;animationLoop</span><span class="pun" style="color: #669900;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong style="color: red;"><span class="com" style="color: #880000;">// Measure time</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong style="color: red;">now&nbsp;</strong></span><strong style="color: red;"><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">new</span><span class="pln">&nbsp;</span><span class="typ" style="color: #aa0066;">Date</span><span class="pun" style="color: #669900;">().</span><span class="pln">getTime</span><span class="pun" style="color: #669900;">();</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// How long between the current frame and the previous one?</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong style="color: red;">delta&nbsp;</strong></span><strong style="color: red;"><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;now&nbsp;</span><span class="pun" style="color: #669900;">-</span><span class="pln">&nbsp;then</span><span class="pun" style="color: #669900;">;</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">//console.log(delta);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// Compute the displacement in x (in pixels) in function of the time elapsed and</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// in function of the wanted speed</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong style="color: red;">incX&nbsp;</strong></span><strong style="color: red;"><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;calcDistanceToMove</span><span class="pun" style="color: #669900;">(</span><span class="pln">delta</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;speedX</span><span class="pun" style="color: #669900;">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// an animation involves: 1) clear canvas and 2) draw shapes,</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// 3) move shapes, 4) recall the loop with requestAnimationFrame</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// clear canvas</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #669900;">.</span><span class="pln">clearRect</span><span class="pun" style="color: #669900;">(</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;width</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;height</span><span class="pun" style="color: #669900;">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #669900;">.</span><span class="pln">strokeRect</span><span class="pun" style="color: #669900;">(</span><span class="pln">x</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;y</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">10</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">10</span><span class="pun" style="color: #669900;">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// move rectangle</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;x&nbsp;</span><span class="pun" style="color: #669900;">+=</span><span class="pln">&nbsp;incX</span><span class="pun" style="color: #669900;">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// check collision on left or right</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">if</span><span class="pun" style="color: #669900;">((</span><span class="pln">x</span><span class="pun" style="color: #669900;">+</span><span class="lit" style="color: #006666;">10</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">&gt;=</span><span class="pln">&nbsp;width</span><span class="pun" style="color: #669900;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">||</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">(</span><span class="pln">x&nbsp;</span><span class="pun" style="color: #669900;">&lt;=</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #669900;">))</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// cancel move + inverse speed</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; x&nbsp;</span><span class="pun" style="color: #669900;">-=</span><span class="pln">&nbsp;incX</span><span class="pun" style="color: #669900;">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; speedX&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">-</span><span class="pln">speedX</span><span class="pun" style="color: #669900;">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun" style="color: #669900;">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong style="color: red;"><span class="com" style="color: #880000;">// Store time</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong style="color: red;">then&nbsp;</strong></span><strong style="color: red;"><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;now</span><span class="pun" style="color: #669900;">;</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;requestAnimationFrame</span><span class="pun" style="color: #669900;">(</span><span class="pln">animationLoop</span><span class="pun" style="color: #669900;">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">}</span><span class="pln"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// We want the rectangle to move at a speed given in pixels/second</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">&nbsp;// (there are 60 frames in a second)</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// If we are really running at 60 frames/s, the delay between </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">&nbsp;// frames should be 1/60</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// = 16.66 ms, so the number of pixels to move = (speed * del)/1000. </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">&nbsp;// If the delay&nbsp;</span>is twice as</li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// long, the formula works: let's move the rectangle for twice as long!</span></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;calcDistanceToMove&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #669900;">(</span><span class="pln">delta</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;speed</span><span class="pun" style="color: #669900;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">{</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">return</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">(</span><span class="pln">speed&nbsp;</span><span class="pun" style="color: #669900;">*</span><span class="pln">&nbsp;delta</span><span class="pun" style="color: #669900;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">/</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">1000</span><span class="pun" style="color: #669900;">;</span><span class="pln"></span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">}</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;/script&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&lt;/head&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&lt;body</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">onload</span><span class="pun" style="color: #669900;">=</span><span class="atv" style="color: #008800;">"</span><span class="pln">init</span><span class="pun" style="color: #669900;">();</span><span class="atv" style="color: #008800;">"</span><span class="tag" style="color: #008888;">&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;canvas</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">id</span><span class="pun" style="color: #669900;">=</span><span class="atv" style="color: #008800;">"mycanvas"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">width</span><span class="pun" style="color: #669900;">=</span><span class="atv" style="color: #008800;">"200"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">height</span><span class="pun" style="color: #669900;">=</span><span class="atv" style="color: #008800;">"50"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">style</span><span class="pun" style="color: #669900;">=</span><span class="atv" style="color: #008800;">"</span><span class="pln">border</span><span class="pun" style="color: #669900;">:</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">2px</span><span class="pln">&nbsp;solid black</span><span class="atv" style="color: #008800;">"</span><span class="tag" style="color: #008888;">&gt;&lt;/canvas&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&lt;/body&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&lt;/html&gt;</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><span style="color: #aa0066;">&lt;!DOCTYPE html&gt;</li>
+<li><span style="color: #008888;">&lt;html&nbsp;<span style="color: #aa0066;">lang<span style="color: #669900;">=<span style="color: #008800;">"en"<span style="color: #008888;">&gt;</li>
+<li><span style="color: #008888;">&lt;head&gt;</li>
+<li><span style="color: #008888;">&nbsp; &lt;meta&nbsp;<span style="color: #aa0066;">charset<span style="color: #669900;">=<span style="color: #008800;">utf-8&nbsp;<span style="color: #008888;">/&gt;</li>
+<li><span style="color: #008888;">&nbsp; &lt;title&gt;Move rectangle using time based animation<span style="color: #008888;">&lt;/title&gt;</li>
+<li>&nbsp;&nbsp;<span style="color: #008888;">&lt;script&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #008888;">var&nbsp;canvas<span style="color: #669900;">,&nbsp;ctx<span style="color: #669900;">;</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #008888;">var&nbsp;width<span style="color: #669900;">,&nbsp;height<span style="color: #669900;">;</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #008888;">var&nbsp;x<span style="color: #669900;">,&nbsp;y<span style="color: #669900;">,&nbsp;incX<span style="color: #669900;">;&nbsp;<span style="color: #880000;">// incX is the distance from the previously drawn</li>
+<li><span style="color: #880000;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // rectangle to the new one</li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: red;"><span style="color: #008888;">var&nbsp;speedX<span style="color: #669900;">;&nbsp;<span style="color: #880000;">// speedX is the target speed of the rectangle, in pixels/s</strong></li>
+<li></li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: red;"><span style="color: #880000;">// for time based animation</strong></li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: red;"><span style="color: #008888;">var&nbsp;now<span style="color: #669900;">,&nbsp;delta<span style="color: #669900;">;</strong></li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: red;"><span style="color: #008888;">var&nbsp;then&nbsp;<span style="color: #669900;">=&nbsp;<span style="color: #008888;">new&nbsp;<span style="color: #aa0066;">Date<span style="color: #669900;">().getTime<span style="color: #669900;">();</strong></li>
+<li></li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">// Called after the DOM is ready (page loaded)</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #008888;">function&nbsp;init<span style="color: #669900;">()&nbsp;<span style="color: #669900;">{</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #880000;">// Init the different variables</li>
+<li>&nbsp; &nbsp; &nbsp; canvas&nbsp;<span style="color: #669900;">=&nbsp;document<span style="color: #669900;">.querySelector<span style="color: #669900;">(<span style="color: #008800;">"#mycanvas"<span style="color: #669900;">);</li>
+<li>&nbsp; &nbsp; &nbsp; ctx&nbsp;<span style="color: #669900;">=&nbsp;canvas<span style="color: #669900;">.getContext<span style="color: #669900;">(<span style="color: #008800;">'2d'<span style="color: #669900;">);</li>
+<li>&nbsp; &nbsp; &nbsp; width&nbsp;<span style="color: #669900;">=&nbsp;canvas<span style="color: #669900;">.width<span style="color: #669900;">;</li>
+<li>&nbsp; &nbsp; &nbsp; height&nbsp;<span style="color: #669900;">=&nbsp;canvas<span style="color: #669900;">.height<span style="color: #669900;">;</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp; x<span style="color: #669900;">=<span style="color: #006666;">10<span style="color: #669900;">;&nbsp;y&nbsp;<span style="color: #669900;">=&nbsp;<span style="color: #006666;">10<span style="color: #669900;">;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #880000;">// Target speed in pixels/second, try with high values, 1000, 2000...</li>
+<li>&nbsp; &nbsp; &nbsp; speedX&nbsp;<span style="color: #669900;">=&nbsp;<span style="color: #006666;">200<span style="color: #669900;">;</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #880000;">// Start animation</li>
+<li>&nbsp; &nbsp; &nbsp;animationLoop<span style="color: #669900;">();</li>
+<li>&nbsp; &nbsp;<span style="color: #669900;">}</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">function&nbsp;animationLoop<span style="color: #669900;">()&nbsp;<span style="color: #669900;">{</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;"><span style="color: #880000;">// Measure time</strong></li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;">now&nbsp;</strong><strong style="color: red;"><span style="color: #669900;">=&nbsp;<span style="color: #008888;">new&nbsp;<span style="color: #aa0066;">Date<span style="color: #669900;">().getTime<span style="color: #669900;">();</strong></li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #880000;">// How long between the current frame and the previous one?</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;">delta&nbsp;</strong><strong style="color: red;"><span style="color: #669900;">=&nbsp;now&nbsp;<span style="color: #669900;">-&nbsp;then<span style="color: #669900;">;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #880000;">//console.log(delta);</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #880000;">// Compute the displacement in x (in pixels) in function of the time elapsed and</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #880000;">// in function of the wanted speed</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;">incX&nbsp;</strong><strong style="color: red;"><span style="color: #669900;">=&nbsp;calcDistanceToMove<span style="color: #669900;">(delta<span style="color: #669900;">,&nbsp;speedX<span style="color: #669900;">);</strong></li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #880000;">// an animation involves: 1) clear canvas and 2) draw shapes,</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #880000;">// 3) move shapes, 4) recall the loop with requestAnimationFrame</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #880000;">// clear canvas</li>
+<li>&nbsp; &nbsp; &nbsp;ctx<span style="color: #669900;">.clearRect<span style="color: #669900;">(<span style="color: #006666;">0<span style="color: #669900;">,&nbsp;<span style="color: #006666;">0<span style="color: #669900;">,&nbsp;width<span style="color: #669900;">,&nbsp;height<span style="color: #669900;">);</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;ctx<span style="color: #669900;">.strokeRect<span style="color: #669900;">(x<span style="color: #669900;">,&nbsp;y<span style="color: #669900;">,&nbsp;<span style="color: #006666;">10<span style="color: #669900;">,&nbsp;<span style="color: #006666;">10<span style="color: #669900;">);</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #880000;">// move rectangle</li>
+<li>&nbsp; &nbsp; &nbsp;x&nbsp;<span style="color: #669900;">+=&nbsp;incX<span style="color: #669900;">;</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #880000;">// check collision on left or right</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #008888;">if<span style="color: #669900;">((x<span style="color: #669900;">+<span style="color: #006666;">10&nbsp;<span style="color: #669900;">&gt;=&nbsp;width<span style="color: #669900;">)&nbsp;<span style="color: #669900;">||&nbsp;<span style="color: #669900;">(x&nbsp;<span style="color: #669900;">&lt;=&nbsp;<span style="color: #006666;">0<span style="color: #669900;">))&nbsp;<span style="color: #669900;">{</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #880000;">// cancel move + inverse speed</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; x&nbsp;<span style="color: #669900;">-=&nbsp;incX<span style="color: #669900;">;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; speedX&nbsp;<span style="color: #669900;">=&nbsp;<span style="color: #669900;">-speedX<span style="color: #669900;">;</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #669900;">}</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;"><span style="color: #880000;">// Store time</strong></li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;">then&nbsp;</strong><strong style="color: red;"><span style="color: #669900;">=&nbsp;now<span style="color: #669900;">;</strong></li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;requestAnimationFrame<span style="color: #669900;">(animationLoop<span style="color: #669900;">);</li>
+<li>&nbsp;<span style="color: #669900;">}</li>
+<li></li>
+<li></li>
+<li></li>
+<li>&nbsp;<span style="color: #880000;">// We want the rectangle to move at a speed given in pixels/second</li>
+<li><span style="color: #880000;">&nbsp;// (there are 60 frames in a second)</li>
+<li>&nbsp;<span style="color: #880000;">// If we are really running at 60 frames/s, the delay between </li>
+<li><span style="color: #880000;">&nbsp;// frames should be 1/60</li>
+<li>&nbsp;<span style="color: #880000;">// = 16.66 ms, so the number of pixels to move = (speed * del)/1000. </li>
+<li><span style="color: #880000;">&nbsp;// If the delay&nbsp;is twice as</li>
+<li>&nbsp;<span style="color: #880000;">// long, the formula works: let's move the rectangle for twice as long!</li>
+<li><strong style="color: red;">&nbsp;<span style="color: #008888;">var&nbsp;calcDistanceToMove&nbsp;<span style="color: #669900;">=&nbsp;<span style="color: #008888;">function<span style="color: #669900;">(delta<span style="color: #669900;">,&nbsp;speed<span style="color: #669900;">)&nbsp;<span style="color: #669900;">{</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;<span style="color: #008888;">return&nbsp;<span style="color: #669900;">(speed&nbsp;<span style="color: #669900;">*&nbsp;delta<span style="color: #669900;">)&nbsp;<span style="color: #669900;">/&nbsp;<span style="color: #006666;">1000<span style="color: #669900;">;</strong></li>
+<li><strong style="color: red;">&nbsp;<span style="color: #669900;">}</strong></li>
+<li></li>
+<li>&nbsp;<span style="color: #008888;">&lt;/script&gt;</li>
+<li><span style="color: #008888;">&lt;/head&gt;</li>
+<li></li>
+<li><span style="color: #008888;">&lt;body&nbsp;<span style="color: #aa0066;">onload<span style="color: #669900;">=<span style="color: #008800;">"init<span style="color: #669900;">();<span style="color: #008800;">"<span style="color: #008888;">&gt;</li>
+<li>&nbsp;<span style="color: #008888;">&lt;canvas&nbsp;<span style="color: #aa0066;">id<span style="color: #669900;">=<span style="color: #008800;">"mycanvas"&nbsp;<span style="color: #aa0066;">width<span style="color: #669900;">=<span style="color: #008800;">"200"&nbsp;<span style="color: #aa0066;">height<span style="color: #669900;">=<span style="color: #008800;">"50"&nbsp;<span style="color: #aa0066;">style<span style="color: #669900;">=<span style="color: #008800;">"border<span style="color: #669900;">:&nbsp;<span style="color: #006666;">2px&nbsp;solid black<span style="color: #008800;">"<span style="color: #008888;">&gt;&lt;/canvas&gt;</li>
+<li><span style="color: #008888;">&lt;/body&gt;</li>
+<li><span style="color: #008888;">&lt;/html&gt;</li>
 </ol></div><br>
 
 In this example, we only added a few lines of code for measuring the time and computing the time elapsed between two consecutive frames (see line 38). Normally, requestAnimationFrame(callback) tries to call the callback function every 16.66 ms (this corresponds to 60 frames/s)... but this is never exactly the case. If you do a console.log(delta)in the animation loop, you will see that even on a very powerful computer, the delta is "very close" to 16.6666 ms, but 99% of the time it will be slightly different.
@@ -334,45 +334,45 @@ __Example #2: using a simulation that spends a lot of time in the animation loop
 
 We added a long loop in the middle of the animation loop. This time, the animation should be very jerky. However, notice that the apparent speed of the square is the same as in the previous example: the animation adapts itself!
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> animationLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Measure time</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; now </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">().</span><span class="pln">getTime</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// How long between the current frame and the previous one ?</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; delta </span><span class="pun">=</span><span class="pln"> now </span><span class="pun">-</span><span class="pln"> </span><span class="kwd">then</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">//console.log(delta);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Compute the displacement in x (in pixels) in function of the time elapsed and</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// in function of the wanted speed</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; incX </span><span class="pun">=</span><span class="pln"> calcDistanceToMove</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">,</span><span class="pln"> speedX</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// an animation is : 1) clear canvas and 2) draw shapes, </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// 3) move shapes, 4) recall the loop with requestAnimationFrame</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// clear canvas</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong style="color: red;"><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">50000000</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// just to slow down the animation</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// move rectangle</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; x </span><span class="pun">+=</span><span class="pln"> incX</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// check collision on left or right</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">((</span><span class="pln">x</span><span class="pun">+</span><span class="lit">10</span><span class="pln"> </span><span class="pun">&gt;=</span><span class="pln"> width</span><span class="pun">)</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="pun">(</span><span class="pln">x </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// cancel move + inverse speed</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;x </span><span class="pun">-=</span><span class="pln"> incX</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;speedX </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="pln">speedX</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Store time</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">then</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> now</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span></li>
+<div><ol>
+<li value="1"> function animationLoop() {</li>
+<li>&nbsp; &nbsp;// Measure time</li>
+<li>&nbsp; now = new Date().getTime();</li>
+<li>&nbsp;</li>
+<li>&nbsp; // How long between the current frame and the previous one ?</li>
+<li>&nbsp; delta = now - then;</li>
+<li>&nbsp;&nbsp;//console.log(delta);</li>
+<li>&nbsp;&nbsp;// Compute the displacement in x (in pixels) in function of the time elapsed and</li>
+<li>&nbsp;&nbsp;// in function of the wanted speed</li>
+<li>&nbsp; incX = calcDistanceToMove(delta, speedX);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// an animation is : 1) clear canvas and 2) draw shapes, </li>
+<li>&nbsp;&nbsp;// 3) move shapes, 4) recall the loop with requestAnimationFrame</li>
+<li> </li>
+<li>&nbsp;&nbsp;// clear canvas</li>
+<li>&nbsp; ctx.clearRect(0, 0, width, height);</li>
+<li> </li>
+<li>&nbsp;&nbsp;<strong style="color: red;">for(var i = 0; i &lt; 50000000; i++) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;// just to slow down the animation</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;}</strong></li>
+<li> </li>
+<li>&nbsp; ctx.strokeRect(x, y, 10, 10);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// move rectangle</li>
+<li>&nbsp; x += incX;</li>
+<li> </li>
+<li>&nbsp;&nbsp;// check collision on left or right</li>
+<li>&nbsp;&nbsp;if((x+10 &gt;= width) || (x &lt;= 0)) {</li>
+<li>&nbsp; &nbsp;// cancel move + inverse speed</li>
+<li>&nbsp; &nbsp;x -= incX;</li>
+<li>&nbsp; &nbsp;speedX = -speedX;</li>
+<li>&nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Store time</li>
+<li>&nbsp;&nbsp;then = now;</li>
+<li> </li>
+<li>&nbsp; requestAnimationFrame(animationLoop);</li>
+<li> } </li>
 </ol></div><br>
 
 
@@ -382,8 +382,8 @@ Since the beginning of HTML5, game developers, musicians, and others have asked 
 
 This API is very simple to use - just do:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;time&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;performance</span><span class="pun" style="color: #669900;">.</span><span class="pln">now</span><span class="pun" style="color: #669900;">();</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><span style="color: #008888;">var&nbsp;time&nbsp;<span style="color: #669900;">=&nbsp;performance<span style="color: #669900;">.now<span style="color: #669900;">();</li>
 </ol></div><br>
 
 ... to get a sub-millisecond time-stamp. It is similar to `Date.now()` except that the accuracy is much higher and that the result is not exactly the same. The value returned is a floating point number, not an integer value!
@@ -404,61 +404,61 @@ Here is [a version on JSBin](https://jsbin.com/wecaho/edit) of the previous exam
 
 Source code of the example:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">...</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">&lt;script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #669900;">...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;speedX</span><span class="pun" style="color: #669900;">;</span><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// speedX is the target speed of the rectangle in pixels/s</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// for time based animation</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;now</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;delta</span><span class="pun" style="color: #669900;">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="com" style="color: #880000;">// High resolution timer</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">then</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;performance</span><span class="pun" style="color: #669900;">.</span><span class="pln">now</span><span class="pun" style="color: #669900;">();</span></strong><span class="pln"></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// Called after the DOM is ready (page loaded)</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;init</span><span class="pun" style="color: #669900;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun" style="color: #669900;">...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #669900;">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;animationLoop</span><span class="pun" style="color: #669900;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong style="color: red;"><span class="com" style="color: #880000;">// Measure time, with high resolution timer</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong style="color: red;">now&nbsp;</strong></span><strong style="color: red;"><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;performance</span><span class="pun" style="color: #669900;">.</span><span class="pln">now</span><span class="pun" style="color: #669900;">();</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// How long between the current frame and the previous one?</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; delta&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;now&nbsp;</span><span class="pun" style="color: #669900;">-</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">then</span><span class="pun" style="color: #669900;">;</span><span class="pln"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">//console.log(delta);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// Compute the displacement in x (in pixels) in function </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">&nbsp; &nbsp; // of the time elapsed and</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// in function of the wanted speed</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; incX&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;calcDistanceToMove</span><span class="pun" style="color: #669900;">(</span><span class="pln">delta</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;speedX</span><span class="pun" style="color: #669900;">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">//console.log("dist = " + incX);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// an animation involves: 1) clear canvas and 2) draw shapes,</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// 3) move shapes, 4) recall the loop with requestAnimationFrame</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// clear canvas</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun" style="color: #669900;">.</span><span class="pln">clearRect</span><span class="pun" style="color: #669900;">(</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;width</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;height</span><span class="pun" style="color: #669900;">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun" style="color: #669900;">.</span><span class="pln">strokeRect</span><span class="pun" style="color: #669900;">(</span><span class="pln">x</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;y</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">10</span><span class="pun" style="color: #669900;">,</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">10</span><span class="pun" style="color: #669900;">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// move rectangle</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;x&nbsp;</span><span class="pun" style="color: #669900;">+=</span><span class="pln">&nbsp;incX</span><span class="pun" style="color: #669900;">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// check collision on left or right</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">if</span><span class="pun" style="color: #669900;">((</span><span class="pln">x</span><span class="pun" style="color: #669900;">+</span><span class="lit" style="color: #006666;">10</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">&gt;=</span><span class="pln">&nbsp;width</span><span class="pun" style="color: #669900;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">||</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">(</span><span class="pln">x&nbsp;</span><span class="pun" style="color: #669900;">&lt;=</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #669900;">))</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// cancel move + inverse speed</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; x&nbsp;</span><span class="pun" style="color: #669900;">-=</span><span class="pln">&nbsp;incX</span><span class="pun" style="color: #669900;">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; speedX&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">-</span><span class="pln">speedX</span><span class="pun" style="color: #669900;">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #669900;">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// Store time</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">then</span><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">=</span><span class="pln">&nbsp;now</span><span class="pun" style="color: #669900;">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// call the animation loop again</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestAnimationFrame</span><span class="pun" style="color: #669900;">(</span><span class="pln">animationLoop</span><span class="pun" style="color: #669900;">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">}</span><span class="pln"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pun" style="color: #669900;">&lt;/</span><span class="pln">script</span><span class="pun" style="color: #669900;">&gt;</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1">&nbsp;<span style="color: #669900;">...</li>
+<li>&nbsp;<span style="color: #008800;">&lt;script&gt;</li>
+<li>&nbsp; &nbsp;<span style="color: #669900;">...</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var&nbsp;speedX<span style="color: #669900;">;&nbsp;<span style="color: #880000;">// speedX is the target speed of the rectangle in pixels/s</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// for time based animation</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var&nbsp;now<span style="color: #669900;">,&nbsp;delta<span style="color: #669900;">;</li>
+<li>&nbsp; &nbsp;<strong style="color: red;"><span style="color: #880000;">// High resolution timer</strong></li>
+<li>&nbsp; &nbsp;<strong style="color: red;"><span style="color: #008888;">var&nbsp;<span style="color: #008888;">then&nbsp;<span style="color: #669900;">=&nbsp;performance<span style="color: #669900;">.now<span style="color: #669900;">();</strong></li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// Called after the DOM is ready (page loaded)</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">function&nbsp;init<span style="color: #669900;">()&nbsp;<span style="color: #669900;">{</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #669900;">...</li>
+<li>&nbsp; &nbsp;<span style="color: #669900;">}</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">function&nbsp;animationLoop<span style="color: #669900;">()&nbsp;<span style="color: #669900;">{</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;"><span style="color: #880000;">// Measure time, with high resolution timer</strong></li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;">now&nbsp;</strong><strong style="color: red;"><span style="color: #669900;">=&nbsp;performance<span style="color: #669900;">.now<span style="color: #669900;">();</strong></li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #880000;">// How long between the current frame and the previous one?</li>
+<li>&nbsp; &nbsp; delta&nbsp;<span style="color: #669900;">=&nbsp;now&nbsp;<span style="color: #669900;">-&nbsp;<span style="color: #008888;">then<span style="color: #669900;">;</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">//console.log(delta);</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">// Compute the displacement in x (in pixels) in function </li>
+<li><span style="color: #880000;">&nbsp; &nbsp; // of the time elapsed and</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">// in function of the wanted speed</li>
+<li>&nbsp; &nbsp; incX&nbsp;<span style="color: #669900;">=&nbsp;calcDistanceToMove<span style="color: #669900;">(delta<span style="color: #669900;">,&nbsp;speedX<span style="color: #669900;">);</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">//console.log("dist = " + incX);</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">// an animation involves: 1) clear canvas and 2) draw shapes,</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">// 3) move shapes, 4) recall the loop with requestAnimationFrame</li>
+<li></li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">// clear canvas</li>
+<li>&nbsp; &nbsp;ctx<span style="color: #669900;">.clearRect<span style="color: #669900;">(<span style="color: #006666;">0<span style="color: #669900;">,&nbsp;<span style="color: #006666;">0<span style="color: #669900;">,&nbsp;width<span style="color: #669900;">,&nbsp;height<span style="color: #669900;">);</li>
+<li></li>
+<li>&nbsp; &nbsp;ctx<span style="color: #669900;">.strokeRect<span style="color: #669900;">(x<span style="color: #669900;">,&nbsp;y<span style="color: #669900;">,&nbsp;<span style="color: #006666;">10<span style="color: #669900;">,&nbsp;<span style="color: #006666;">10<span style="color: #669900;">);</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// move rectangle</li>
+<li>&nbsp; &nbsp;x&nbsp;<span style="color: #669900;">+=&nbsp;incX<span style="color: #669900;">;</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// check collision on left or right</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">if<span style="color: #669900;">((x<span style="color: #669900;">+<span style="color: #006666;">10&nbsp;<span style="color: #669900;">&gt;=&nbsp;width<span style="color: #669900;">)&nbsp;<span style="color: #669900;">||&nbsp;<span style="color: #669900;">(x&nbsp;<span style="color: #669900;">&lt;=&nbsp;<span style="color: #006666;">0<span style="color: #669900;">))&nbsp;<span style="color: #669900;">{</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #880000;">// cancel move + inverse speed</li>
+<li>&nbsp; &nbsp; &nbsp; x&nbsp;<span style="color: #669900;">-=&nbsp;incX<span style="color: #669900;">;</li>
+<li>&nbsp; &nbsp; &nbsp; speedX&nbsp;<span style="color: #669900;">=&nbsp;<span style="color: #669900;">-speedX<span style="color: #669900;">;</li>
+<li>&nbsp; &nbsp;<span style="color: #669900;">}</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// Store time</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">then&nbsp;<span style="color: #669900;">=&nbsp;now<span style="color: #669900;">;</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// call the animation loop again</li>
+<li>&nbsp; &nbsp;requestAnimationFrame<span style="color: #669900;">(animationLoop<span style="color: #669900;">);</li>
+<li>&nbsp;<span style="color: #669900;">}</li>
+<li>&nbsp;<span style="color: #669900;">...</li>
+<li></li>
+<li>&nbsp;<span style="color: #669900;">&lt;/script<span style="color: #669900;">&gt;</li>
 </ol></div><br>
 
 Only two lines have changed but the accuracy is much higher, if you uncomment the console.log(...) calls in the main loop. You will see the difference.
@@ -468,7 +468,7 @@ Only two lines have changed but the accuracy is much higher, if you uncomment th
 
 __Method #3: using the optional timestamp parameter of the callback function of requestAnimationFrame__
 
-<p class="exampleHTML" style="text-align: center;"><span style="color: #ff0000;"><strong style="color: red;"><span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;">This is the recommended method!</span></strong></span></p>
+<p style="text-align: center;"><span style="color: #ff0000;"><strong style="color: red;"><span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;">This is the recommended method!</strong></p>
 
 There is an optional parameter that is passed to the callback function called by `requestAnimationFrame`: a timestamp!
 
@@ -484,81 +484,81 @@ Here is a running example  of the animated rectangle, that uses this `timestamp`
 
 Source code of the example:
 
-<div class="source-code" style="line-height: 25.6px;"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln">&nbsp;</span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;meta</span><span class="pln">&nbsp;</span><span class="atn">charset</span><span class="pun">=</span><span class="atv">utf-8</span><span class="pln">&nbsp;</span><span class="tag">/&gt;</span><span class="pln"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;title&gt;</span><span class="pln">Time based animation using the parameter of the requestAnimationFrame callback</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag">&lt;script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;canvas</span><span class="pun">,</span><span class="pln">&nbsp;ctx</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;width</span><span class="pun">,</span><span class="pln">&nbsp;height</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;x</span><span class="pun">,</span><span class="pln">&nbsp;y</span><span class="pun">,</span><span class="pln">&nbsp;incX</span><span class="pun">;</span><span class="pln">&nbsp;</span><span class="com">// incX is the distance from the previously drawn rectangle</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// to the new one</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;speedX</span><span class="pun">;</span><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// speedX is the target speed of the rectangle in pixels/s</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// for time based animation</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;now</span><span class="pun">,</span><span class="pln">&nbsp;delta</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// High resolution timer</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;oldTime&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Called after the DOM is ready (page loaded)</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln">&nbsp;init</span><span class="pun">()</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// init the different variables</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;canvas&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#mycanvas"</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;width&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;height&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;x</span><span class="pun">=</span><span class="lit">10</span><span class="pun">;</span><span class="pln">&nbsp;y&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="lit">10</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Target speed in pixels/second, try with high values, 1000, 2000...</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;speedX&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="lit">200</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Start animation</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln">&nbsp;animationLoop</span><span class="pun">(</span><strong style="color: red;"><span class="pln">currentTime</span></strong><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// How long between the current frame and the previous one?</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong style="color: red;">delta&nbsp;</strong></span><strong style="color: red;"><span class="pun">=</span><span class="pln">&nbsp;currentTime&nbsp;</span><span class="pun">-</span><span class="pln">&nbsp;oldTime</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Compute the displacement in x (in pixels) in function of the time elapsed and</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// in function of the wanted speed</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;incX&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;calcDistanceToMove</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">,</span><span class="pln">&nbsp;speedX</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pln">&nbsp;</span><span class="com">// clear canvas</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">0</span><span class="pun">,</span><span class="pln">&nbsp;width</span><span class="pun">,</span><span class="pln">&nbsp;height</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln">&nbsp;y</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">10</span><span class="pun">,</span><span class="pln">&nbsp;</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// move rectangle</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;x&nbsp;</span><span class="pun">+=</span><span class="pln">&nbsp;incX</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// check collision on left or right</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(((</span><span class="pln">x</span><span class="pun">+</span><span class="lit">10</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">&gt;</span><span class="pln">&nbsp;width</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">||</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">x&nbsp;</span><span class="pun">&lt;</span><span class="pln">&nbsp;</span><span class="lit">0</span><span class="pun">))</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// inverse speed</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;x&nbsp;</span><span class="pun">-=</span><span class="pln">&nbsp;incX</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;speedX&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="pun">-</span><span class="pln">speedX</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Store time</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;oldTime&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;currentTime</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// asks for next frame</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;requestAnimationFrame</span><span class="pun">(</span><span class="pln">animationLoop</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;calcDistanceToMove&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">,</span><span class="pln">&nbsp;speed</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">speed&nbsp;</span><span class="pun">*</span><span class="pln">&nbsp;delta</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">/</span><span class="pln">&nbsp;</span><span class="lit">1000</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln">&nbsp;</span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag">&lt;canvas</span><span class="pln">&nbsp;</span><span class="atn">id</span><span class="pun">=</span><span class="atv">"mycanvas"</span><span class="pln">&nbsp;</span><span class="atn">width</span><span class="pun">=</span><span class="atv">"200"</span><span class="pln">&nbsp;</span><span class="atn">height</span><span class="pun">=</span><span class="atv">"50"</span><span class="pln">&nbsp;</span><span class="atn">style</span><span class="pun">=</span><span class="atv">"</span><span class="pln">border</span><span class="pun">:</span><span class="pln">&nbsp;</span><span class="lit">2px</span><span class="pln">&nbsp;solid black</span><span class="atv">"</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div style="line-height: 25.6px;"><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html&nbsp;lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li>&lt;meta&nbsp;charset=utf-8&nbsp;/&gt;</li>
+<li>&lt;title&gt;Time based animation using the parameter of the requestAnimationFrame callback&lt;/title&gt;</li>
+<li>&nbsp;&lt;script&gt;</li>
+<li>&nbsp; &nbsp;var&nbsp;canvas,&nbsp;ctx;</li>
+<li>&nbsp; &nbsp;var&nbsp;width,&nbsp;height;</li>
+<li>&nbsp; &nbsp;var&nbsp;x,&nbsp;y,&nbsp;incX;&nbsp;// incX is the distance from the previously drawn rectangle</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// to the new one</li>
+<li>&nbsp; &nbsp;var&nbsp;speedX;&nbsp; &nbsp; &nbsp;// speedX is the target speed of the rectangle in pixels/s</li>
+<li></li>
+<li>&nbsp; &nbsp;// for time based animation</li>
+<li>&nbsp; &nbsp;var&nbsp;now,&nbsp;delta=0;</li>
+<li>&nbsp; &nbsp;// High resolution timer</li>
+<li>&nbsp; &nbsp;var&nbsp;oldTime&nbsp;=&nbsp;0;</li>
+<li></li>
+<li>&nbsp; &nbsp;// Called after the DOM is ready (page loaded)</li>
+<li>&nbsp; &nbsp;function&nbsp;init()&nbsp;{</li>
+<li>&nbsp; &nbsp; &nbsp;// init the different variables</li>
+<li>&nbsp; &nbsp; &nbsp;canvas&nbsp;=&nbsp;document.querySelector("#mycanvas");</li>
+<li>&nbsp; &nbsp; &nbsp;ctx&nbsp;=&nbsp;canvas.getContext('2d');</li>
+<li>&nbsp; &nbsp; &nbsp;width&nbsp;=&nbsp;canvas.width;</li>
+<li>&nbsp; &nbsp; &nbsp;height&nbsp;=&nbsp;canvas.height;</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;x=10;&nbsp;y&nbsp;=&nbsp;10;</li>
+<li>&nbsp; &nbsp; &nbsp;// Target speed in pixels/second, try with high values, 1000, 2000...</li>
+<li>&nbsp; &nbsp; &nbsp;speedX&nbsp;=&nbsp;200;</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;// Start animation</li>
+<li>&nbsp; &nbsp; &nbsp;requestAnimationFrame(animationLoop);</li>
+<li>&nbsp; &nbsp;}</li>
+<li></li>
+<li>&nbsp; &nbsp;function&nbsp;animationLoop(<strong style="color: red;">currentTime</strong>)&nbsp;{</li>
+<li>&nbsp; &nbsp; &nbsp;// How long between the current frame and the previous one?</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;">delta&nbsp;</strong><strong style="color: red;">=&nbsp;currentTime&nbsp;-&nbsp;oldTime;</strong></li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;// Compute the displacement in x (in pixels) in function of the time elapsed and</li>
+<li>&nbsp; &nbsp; &nbsp;// in function of the wanted speed</li>
+<li>&nbsp; &nbsp; &nbsp;incX&nbsp;=&nbsp;calcDistanceToMove(delta,&nbsp;speedX);</li>
+<li></li>
+<li>&nbsp; &nbsp;&nbsp;&nbsp;// clear canvas</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.clearRect(0,&nbsp;0,&nbsp;width,&nbsp;height);</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;ctx.strokeRect(x,&nbsp;y,&nbsp;10,&nbsp;10);</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;// move rectangle</li>
+<li>&nbsp; &nbsp; &nbsp;x&nbsp;+=&nbsp;incX;</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;// check collision on left or right</li>
+<li>&nbsp; &nbsp; &nbsp;if(((x+10)&nbsp;&gt;&nbsp;width)&nbsp;||&nbsp;(x&nbsp;&lt;&nbsp;0))&nbsp;{</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// inverse speed</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;x&nbsp;-=&nbsp;incX;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;speedX&nbsp;=&nbsp;-speedX;</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;// Store time</li>
+<li>&nbsp; &nbsp; &nbsp;oldTime&nbsp;=&nbsp;currentTime;</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;// asks for next frame</li>
+<li>&nbsp; &nbsp; &nbsp;requestAnimationFrame(animationLoop);</li>
+<li>&nbsp; &nbsp;}</li>
+<li></li>
+<li>&nbsp; &nbsp;var&nbsp;calcDistanceToMove&nbsp;=&nbsp;function(delta,&nbsp;speed)&nbsp;{</li>
+<li>&nbsp; &nbsp; &nbsp;return&nbsp;(speed&nbsp;*&nbsp;delta)&nbsp;/&nbsp;1000;</li>
+<li>&nbsp; &nbsp;}</li>
+<li></li>
+<li>&nbsp;&lt;/script&gt;</li>
+<li>&lt;/head&gt;</li>
+<li></li>
+<li>&lt;body&nbsp;onload="init();"&gt;</li>
+<li>&nbsp;&lt;canvas&nbsp;id="mycanvas"&nbsp;width="200"&nbsp;height="50"&nbsp;style="border:&nbsp;2px&nbsp;solid black"&gt;&lt;/canvas&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div><br>
 
 
@@ -642,8 +642,8 @@ Here is the [online example](https://jsbin.com/bonutur/edit) at JSBin.
 
 Try to change the parameter value of the call to: 
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">setFrameRateInFramesPerSecond</span><span class="pun" style="color: #bb6600;">(</span><span class="lit" style="color: #006666;">5</span><span class="pun" style="color: #bb6600;">);</span><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// try other values!</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1">setFrameRateInFramesPerSecond<span style="color: #bb6600;">(<span style="color: #006666;">5<span style="color: #bb6600;">);&nbsp;<span style="color: #880000;">// try other values!</li>
 </ol></div><br>
 
 <figure style="margin: 0.5em; text-align: center;">
@@ -657,113 +657,113 @@ Try to change the parameter value of the call to:
 
 Source code of the example:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec" style="color: #aa0066;">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&lt;html</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">lang</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"en"</span><span class="tag" style="color: #008888;">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;meta</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">charset</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">utf-8</span><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">/&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;title&gt;</span><span class="pln">Set framerate using a high resolution timer</span><span class="tag" style="color: #008888;">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;p&gt;</span><span class="pln">This example measures and sums deltas of time between consecutive frames of animation. It includes a&nbsp;</span><span class="tag" style="color: #008888;">&lt;code&gt;</span><span class="pln">setFrameRateInFramesPerSecond</span><span class="tag" style="color: #008888;">&lt;/code&gt;</span><span class="pln">&nbsp;function you can use to reduce the number of frames per second of the main animation.</span><span class="tag" style="color: #008888;">&lt;/p&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;canvas</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">id</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"myCanvas"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">width</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"700"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">height</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"350"</span><span class="tag" style="color: #008888;">&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;/canvas&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;canvas&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;document</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">querySelector</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"#myCanvas"</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;ctx&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">getContext</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"2d"</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;width&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">width</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;height&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">height</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;lastX&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;width&nbsp;</span><span class="pun" style="color: #bb6600;">*</span><span class="pln">&nbsp;</span><span class="typ" style="color: #aa0066;">Math</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">random</span><span class="pun" style="color: #bb6600;">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;lastY&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;height&nbsp;</span><span class="pun" style="color: #bb6600;">*</span><span class="pln">&nbsp;</span><span class="typ" style="color: #aa0066;">Math</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">random</span><span class="pun" style="color: #bb6600;">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;hue&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="com" style="color: #880000;">// Michel Buffa: set the target frame rate. TRY TO CHANGE THIS VALUE AND SEE</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// THE RESULT. Try 2 frames/s, 10 frames/s, 60 frames/s Normally there</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// should be a limit&nbsp;of 60 frames/s in the browser's implementations.</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;setFrameRateInFramesPerSecond</span><span class="pun" style="color: #bb6600;">(</span><span class="lit" style="color: #006666;">60</span><span class="pun" style="color: #bb6600;">);</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com" style="color: #880000;">// for time based animation. DelayInMS corresponds to the target framerate</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;now</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;delta</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;delayInMS</span><span class="pun" style="color: #bb6600;">,</span><strong style="color: red;"><span class="pln">&nbsp;totalTimeSinceLastRedraw&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">;</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com" style="color: #880000;">// High resolution timer</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;then&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;performance</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">now</span><span class="pun" style="color: #bb6600;">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com" style="color: #880000;">// start the animation</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">mainloop</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong style="color: red;"><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;setFrameRateInFramesPerSecond</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">frameRate</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; delayInMs&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">1000</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">/</span><span class="pln">&nbsp;frameRate</span><span class="pun" style="color: #bb6600;">;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="pun" style="color: #bb6600;">}</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com" style="color: #880000;">// each function that is going to be run as an animation should end by</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com" style="color: #880000;">// asking again for a new frame of animation</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;<g class="gr_ gr_68 gr-alert gr_spell gr_run_anim ContextualSpelling ins-del multiReplace" id="68" data-gr-id="68">mainloop</g></span><span class="pun" style="color: #bb6600;">(time)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// Here we will only redraw something if the time we want between frames has</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// elapsed</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// Measure time with high resolution timer</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; now&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;time</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// How long between the current frame and the previous one?</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; delta&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;now&nbsp;</span><span class="pun" style="color: #bb6600;">-</span><span class="pln">&nbsp;then</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// TRY TO UNCOMMENT THIS LINE AND LOOK AT THE CONSOLE</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// console.log("delay = " + delayInMs + " delta = " + delta + " total time = " +</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">&nbsp; &nbsp; // totalTimeSinceLastRedraw);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// If the total time since the last redraw is &gt; delay corresponding to the wanted</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// framerate, then redraw, else add the delta time between the last call to line()</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">&nbsp; &nbsp; // by requestAnimFrame&nbsp;</span>to the total time..</li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">if</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">totalTimeSinceLastRedraw&nbsp;</span><span class="pun" style="color: #bb6600;">&gt;</span><span class="pln">&nbsp;delayInMs</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// if the time between the last frame and now is &gt; delay then we</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// clear the canvas and redraw</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">save</span><span class="pun" style="color: #bb6600;">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// Trick to make a blur effect: instead of clearing the canvas</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// we draw a rectangle with a transparent color. Changing the 0.1</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// for a smaller value will increase the blur...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">fillStyle&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"rgba(0,0,0,0.1)"</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">fillRect</span><span class="pun" style="color: #bb6600;">(</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;width</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;height</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">translate</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">width&nbsp;</span><span class="pun" style="color: #bb6600;">/</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">2</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;height&nbsp;</span><span class="pun" style="color: #bb6600;">/</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">2</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">scale</span><span class="pun" style="color: #bb6600;">(</span><span class="lit" style="color: #006666;">0.9</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">0.9</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">translate</span><span class="pun" style="color: #bb6600;">(-</span><span class="pln">width&nbsp;</span><span class="pun" style="color: #bb6600;">/</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">2</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">-</span><span class="pln">height&nbsp;</span><span class="pun" style="color: #bb6600;">/</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">2</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">beginPath</span><span class="pun" style="color: #bb6600;">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">lineWidth&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">5</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="typ" style="color: #aa0066;">Math</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">random</span><span class="pun" style="color: #bb6600;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">*</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">10</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">moveTo</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">lastX</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;lastY</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;lastX&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;width&nbsp;</span><span class="pun" style="color: #bb6600;">*</span><span class="pln">&nbsp;</span><span class="typ" style="color: #aa0066;">Math</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">random</span><span class="pun" style="color: #bb6600;">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;lastY&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;height&nbsp;</span><span class="pun" style="color: #bb6600;">*</span><span class="pln">&nbsp;</span><span class="typ" style="color: #aa0066;">Math</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">random</span><span class="pun" style="color: #bb6600;">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">bezierCurveTo</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">width&nbsp;</span><span class="pun" style="color: #bb6600;">*</span><span class="pln">&nbsp;</span><span class="typ" style="color: #aa0066;">Math</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">random</span><span class="pun" style="color: #bb6600;">(),</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height&nbsp;</span><span class="pun" style="color: #bb6600;">*</span><span class="pln">&nbsp;</span><span class="typ" style="color: #aa0066;">Math</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">random</span><span class="pun" style="color: #bb6600;">(),</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width&nbsp;</span><span class="pun" style="color: #bb6600;">*</span><span class="pln">&nbsp;</span><span class="typ" style="color: #aa0066;">Math</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">random</span><span class="pun" style="color: #bb6600;">(),</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height&nbsp;</span><span class="pun" style="color: #bb6600;">*</span><span class="pln">&nbsp;</span><span class="typ" style="color: #aa0066;">Math</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">random</span><span class="pun" style="color: #bb6600;">(),</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lastX</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;lastY</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;hue&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;hue&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">10</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">*</span><span class="pln">&nbsp;</span><span class="typ" style="color: #aa0066;">Math</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">random</span><span class="pun" style="color: #bb6600;">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">strokeStyle&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"hsl("</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;hue&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">", 50%, 50%)"</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">shadowColor&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"white"</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">shadowBlur&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">10</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">stroke</span><span class="pun" style="color: #bb6600;">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">restore</span><span class="pun" style="color: #bb6600;">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong style="color: red;"><span class="com" style="color: #880000;">// reset the total time since last redraw</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;totalTimeSinceLastRedraw&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">;</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun" style="color: #bb6600;">}</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">else</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><strong style="color: red;"><span class="com" style="color: #880000;">// sum the total time since last redraw</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;totalTimeSinceLastRedraw&nbsp;</span><span class="pun" style="color: #bb6600;">+=</span><span class="pln">&nbsp;delta</span><span class="pun" style="color: #bb6600;">;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun" style="color: #bb6600;">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// Store time</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; then&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;now</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// request new frame</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; requestAnimationFrame</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">mainloop</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun" style="color: #bb6600;">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;/script&gt;</span><span class="pln"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;/body&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&lt;/html&gt;</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><span style="color: #aa0066;">&lt;!DOCTYPE html&gt;</li>
+<li><span style="color: #008888;">&lt;html&nbsp;<span style="color: #aa0066;">lang<span style="color: #bb6600;">=<span style="color: #008800;">"en"<span style="color: #008888;">&gt;</li>
+<li>&nbsp;<span style="color: #008888;">&lt;head&gt;</li>
+<li>&nbsp;<span style="color: #008888;">&lt;meta&nbsp;<span style="color: #aa0066;">charset<span style="color: #bb6600;">=<span style="color: #008800;">utf-8&nbsp;<span style="color: #008888;">/&gt;</li>
+<li>&nbsp;<span style="color: #008888;">&lt;title&gt;Set framerate using a high resolution timer<span style="color: #008888;">&lt;/title&gt;</li>
+<li>&nbsp;<span style="color: #008888;">&lt;/head&gt;</li>
+<li>&nbsp;<span style="color: #008888;">&lt;body&gt;</li>
+<li>&nbsp;<span style="color: #008888;">&lt;p&gt;This example measures and sums deltas of time between consecutive frames of animation. It includes a&nbsp;<span style="color: #008888;">&lt;code&gt;setFrameRateInFramesPerSecond<span style="color: #008888;">&lt;/code&gt;&nbsp;function you can use to reduce the number of frames per second of the main animation.<span style="color: #008888;">&lt;/p&gt;</li>
+<li>&nbsp;</li>
+<li>&nbsp;<span style="color: #008888;">&lt;canvas&nbsp;<span style="color: #aa0066;">id<span style="color: #bb6600;">=<span style="color: #008800;">"myCanvas"&nbsp;<span style="color: #aa0066;">width<span style="color: #bb6600;">=<span style="color: #008800;">"700"&nbsp;<span style="color: #aa0066;">height<span style="color: #bb6600;">=<span style="color: #008800;">"350"<span style="color: #008888;">&gt;</li>
+<li>&nbsp;<span style="color: #008888;">&lt;/canvas&gt;</li>
+<li>&nbsp;<span style="color: #008888;">&lt;script&gt;</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var&nbsp;canvas&nbsp;<span style="color: #bb6600;">=&nbsp;document<span style="color: #bb6600;">.querySelector<span style="color: #bb6600;">(<span style="color: #008800;">"#myCanvas"<span style="color: #bb6600;">);</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var&nbsp;ctx&nbsp;<span style="color: #bb6600;">=&nbsp;canvas<span style="color: #bb6600;">.getContext<span style="color: #bb6600;">(<span style="color: #008800;">"2d"<span style="color: #bb6600;">);</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var&nbsp;width&nbsp;<span style="color: #bb6600;">=&nbsp;canvas<span style="color: #bb6600;">.width<span style="color: #bb6600;">,&nbsp;height&nbsp;<span style="color: #bb6600;">=&nbsp;canvas<span style="color: #bb6600;">.height<span style="color: #bb6600;">;</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var&nbsp;lastX&nbsp;<span style="color: #bb6600;">=&nbsp;width&nbsp;<span style="color: #bb6600;">*&nbsp;<span style="color: #aa0066;">Math<span style="color: #bb6600;">.random<span style="color: #bb6600;">();</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var&nbsp;lastY&nbsp;<span style="color: #bb6600;">=&nbsp;height&nbsp;<span style="color: #bb6600;">*&nbsp;<span style="color: #aa0066;">Math<span style="color: #bb6600;">.random<span style="color: #bb6600;">();</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var&nbsp;hue&nbsp;<span style="color: #bb6600;">=&nbsp;<span style="color: #006666;">0<span style="color: #bb6600;">;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;<strong style="color: red;"><span style="color: #880000;">// Michel Buffa: set the target frame rate. TRY TO CHANGE THIS VALUE AND SEE</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;<span style="color: #880000;">// THE RESULT. Try 2 frames/s, 10 frames/s, 60 frames/s Normally there</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;<span style="color: #880000;">// should be a limit&nbsp;of 60 frames/s in the browser's implementations.</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;setFrameRateInFramesPerSecond<span style="color: #bb6600;">(<span style="color: #006666;">60<span style="color: #bb6600;">);</strong></li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;<span style="color: #880000;">// for time based animation. DelayInMS corresponds to the target framerate</li>
+<li>&nbsp;&nbsp;<span style="color: #008888;">var&nbsp;now<span style="color: #bb6600;">,&nbsp;delta<span style="color: #bb6600;">,&nbsp;delayInMS<span style="color: #bb6600;">,<strong style="color: red;">&nbsp;totalTimeSinceLastRedraw&nbsp;<span style="color: #bb6600;">=&nbsp;<span style="color: #006666;">0<span style="color: #bb6600;">;</strong></li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;<span style="color: #880000;">// High resolution timer</li>
+<li>&nbsp;&nbsp;<span style="color: #008888;">var&nbsp;then&nbsp;<span style="color: #bb6600;">=&nbsp;performance<span style="color: #bb6600;">.now<span style="color: #bb6600;">();</li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;<span style="color: #880000;">// start the animation</li>
+<li>&nbsp; requestAnimationFrame<span style="color: #bb6600;">(mainloop<span style="color: #bb6600;">);</li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;<strong style="color: red;"><span style="color: #008888;">function&nbsp;setFrameRateInFramesPerSecond<span style="color: #bb6600;">(frameRate<span style="color: #bb6600;">)&nbsp;<span style="color: #bb6600;">{</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; delayInMs&nbsp;<span style="color: #bb6600;">=&nbsp;<span style="color: #006666;">1000&nbsp;<span style="color: #bb6600;">/&nbsp;frameRate<span style="color: #bb6600;">;</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;<span style="color: #bb6600;">}</strong></li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;<span style="color: #880000;">// each function that is going to be run as an animation should end by</li>
+<li>&nbsp;&nbsp;<span style="color: #880000;">// asking again for a new frame of animation</li>
+<li>&nbsp;&nbsp;<span style="color: #008888;">function&nbsp;<g id="68" data-gr-id="68">mainloop</g><span style="color: #bb6600;">(time)&nbsp;<span style="color: #bb6600;">{</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">// Here we will only redraw something if the time we want between frames has</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">// elapsed</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">// Measure time with high resolution timer</li>
+<li>&nbsp; &nbsp; now&nbsp;<span style="color: #bb6600;">=&nbsp;time<span style="color: #bb6600;">;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">// How long between the current frame and the previous one?</li>
+<li>&nbsp; &nbsp; delta&nbsp;<span style="color: #bb6600;">=&nbsp;now&nbsp;<span style="color: #bb6600;">-&nbsp;then<span style="color: #bb6600;">;</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">// TRY TO UNCOMMENT THIS LINE AND LOOK AT THE CONSOLE</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">// console.log("delay = " + delayInMs + " delta = " + delta + " total time = " +</li>
+<li><span style="color: #880000;">&nbsp; &nbsp; // totalTimeSinceLastRedraw);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">// If the total time since the last redraw is &gt; delay corresponding to the wanted</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">// framerate, then redraw, else add the delta time between the last call to line()</li>
+<li><span style="color: #880000;">&nbsp; &nbsp; // by requestAnimFrame&nbsp;to the total time..</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #008888;">if&nbsp;<span style="color: #bb6600;">(totalTimeSinceLastRedraw&nbsp;<span style="color: #bb6600;">&gt;&nbsp;delayInMs<span style="color: #bb6600;">)&nbsp;<span style="color: #bb6600;">{</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #880000;">// if the time between the last frame and now is &gt; delay then we</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #880000;">// clear the canvas and redraw</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.save<span style="color: #bb6600;">();</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #880000;">// Trick to make a blur effect: instead of clearing the canvas</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #880000;">// we draw a rectangle with a transparent color. Changing the 0.1</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #880000;">// for a smaller value will increase the blur...</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.fillStyle&nbsp;<span style="color: #bb6600;">=&nbsp;<span style="color: #008800;">"rgba(0,0,0,0.1)"<span style="color: #bb6600;">;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.fillRect<span style="color: #bb6600;">(<span style="color: #006666;">0<span style="color: #bb6600;">,&nbsp;<span style="color: #006666;">0<span style="color: #bb6600;">,&nbsp;width<span style="color: #bb6600;">,&nbsp;height<span style="color: #bb6600;">);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.translate<span style="color: #bb6600;">(width&nbsp;<span style="color: #bb6600;">/&nbsp;<span style="color: #006666;">2<span style="color: #bb6600;">,&nbsp;height&nbsp;<span style="color: #bb6600;">/&nbsp;<span style="color: #006666;">2<span style="color: #bb6600;">);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.scale<span style="color: #bb6600;">(<span style="color: #006666;">0.9<span style="color: #bb6600;">,&nbsp;<span style="color: #006666;">0.9<span style="color: #bb6600;">);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.translate<span style="color: #bb6600;">(-width&nbsp;<span style="color: #bb6600;">/&nbsp;<span style="color: #006666;">2<span style="color: #bb6600;">,&nbsp;<span style="color: #bb6600;">-height&nbsp;<span style="color: #bb6600;">/&nbsp;<span style="color: #006666;">2<span style="color: #bb6600;">);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.beginPath<span style="color: #bb6600;">();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.lineWidth&nbsp;<span style="color: #bb6600;">=&nbsp;<span style="color: #006666;">5&nbsp;<span style="color: #bb6600;">+&nbsp;<span style="color: #aa0066;">Math<span style="color: #bb6600;">.random<span style="color: #bb6600;">()&nbsp;<span style="color: #bb6600;">*&nbsp;<span style="color: #006666;">10<span style="color: #bb6600;">;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.moveTo<span style="color: #bb6600;">(lastX<span style="color: #bb6600;">,&nbsp;lastY<span style="color: #bb6600;">);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;lastX&nbsp;<span style="color: #bb6600;">=&nbsp;width&nbsp;<span style="color: #bb6600;">*&nbsp;<span style="color: #aa0066;">Math<span style="color: #bb6600;">.random<span style="color: #bb6600;">();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;lastY&nbsp;<span style="color: #bb6600;">=&nbsp;height&nbsp;<span style="color: #bb6600;">*&nbsp;<span style="color: #aa0066;">Math<span style="color: #bb6600;">.random<span style="color: #bb6600;">();</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.bezierCurveTo<span style="color: #bb6600;">(width&nbsp;<span style="color: #bb6600;">*&nbsp;<span style="color: #aa0066;">Math<span style="color: #bb6600;">.random<span style="color: #bb6600;">(),</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height&nbsp;<span style="color: #bb6600;">*&nbsp;<span style="color: #aa0066;">Math<span style="color: #bb6600;">.random<span style="color: #bb6600;">(),</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width&nbsp;<span style="color: #bb6600;">*&nbsp;<span style="color: #aa0066;">Math<span style="color: #bb6600;">.random<span style="color: #bb6600;">(),</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height&nbsp;<span style="color: #bb6600;">*&nbsp;<span style="color: #aa0066;">Math<span style="color: #bb6600;">.random<span style="color: #bb6600;">(),</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lastX<span style="color: #bb6600;">,&nbsp;lastY<span style="color: #bb6600;">);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;hue&nbsp;<span style="color: #bb6600;">=&nbsp;hue&nbsp;<span style="color: #bb6600;">+&nbsp;<span style="color: #006666;">10&nbsp;<span style="color: #bb6600;">*&nbsp;<span style="color: #aa0066;">Math<span style="color: #bb6600;">.random<span style="color: #bb6600;">();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.strokeStyle&nbsp;<span style="color: #bb6600;">=&nbsp;<span style="color: #008800;">"hsl("&nbsp;<span style="color: #bb6600;">+&nbsp;hue&nbsp;<span style="color: #bb6600;">+&nbsp;<span style="color: #008800;">", 50%, 50%)"<span style="color: #bb6600;">;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.shadowColor&nbsp;<span style="color: #bb6600;">=&nbsp;<span style="color: #008800;">"white"<span style="color: #bb6600;">;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.shadowBlur&nbsp;<span style="color: #bb6600;">=&nbsp;<span style="color: #006666;">10<span style="color: #bb6600;">;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.stroke<span style="color: #bb6600;">();</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.restore<span style="color: #bb6600;">();</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: red;"><span style="color: #880000;">// reset the total time since last redraw</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp;totalTimeSinceLastRedraw&nbsp;<span style="color: #bb6600;">=&nbsp;<span style="color: #006666;">0<span style="color: #bb6600;">;</strong></li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #bb6600;">}&nbsp;<span style="color: #008888;">else&nbsp;<span style="color: #bb6600;">{</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: red;"><span style="color: #880000;">// sum the total time since last redraw</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp;totalTimeSinceLastRedraw&nbsp;<span style="color: #bb6600;">+=&nbsp;delta<span style="color: #bb6600;">;</strong></li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #bb6600;">}</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">// Store time</li>
+<li>&nbsp; &nbsp; then&nbsp;<span style="color: #bb6600;">=&nbsp;now<span style="color: #bb6600;">;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #880000;">// request new frame</li>
+<li>&nbsp; &nbsp; requestAnimationFrame<span style="color: #bb6600;">(mainloop<span style="color: #bb6600;">);</li>
+<li>&nbsp;&nbsp;<span style="color: #bb6600;">}</li>
+<li>&nbsp;<span style="color: #008888;">&lt;/script&gt;</li>
+<li>&nbsp;<span style="color: #008888;">&lt;/body&gt;</li>
+<li><span style="color: #008888;">&lt;/html&gt;</li>
 </ol></div><br>
 
 
@@ -776,107 +776,107 @@ See how we can set both the speed (in pixels/s) and the frame-rate using a high-
 
 Source code:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec" style="color: #aa0066;">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&lt;html</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">lang</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"en"</span><span class="tag" style="color: #008888;">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&lt;meta</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">charset</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">utf-8</span><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">/&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&lt;title&gt;</span><span class="pln">Bouncing rectangle with high resolution timer and adjustable frame rate</span><span class="tag" style="color: #008888;">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;ctx</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;width</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;height</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;x</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;y</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;incX</span><span class="pun" style="color: #bb6600;">;</span><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// incX is the distance from the previously drawn rectangle</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// to the new one</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;speedX</span><span class="pun" style="color: #bb6600;">;</span><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// speedX is the target speed of the rectangle in pixels/s</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// for time based animation, DelayInMS corresponds to the target frame rate</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;now</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;delta</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;delayInMS</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;totalTimeSinceLastRedraw</span><span class="pun" style="color: #bb6600;">=</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// High resolution timer</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;then&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;performance</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">now</span><span class="pun" style="color: #bb6600;">();</span><span class="pln"></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// Michel Buffa: set the target frame rate. TRY TO CHANGE THIS VALUE AND SEE</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// THE RESULT. Try 2 frames/s, 10 frames/s, 60, 100 frames/s Normally there</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// should be a limit&nbsp;of 60 frames/s in the browser's implementations, but you can&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">&nbsp; &nbsp;// try higher values</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;setFrameRateInFramesPerSecond</span><span class="pun" style="color: #bb6600;">(</span><span class="lit" style="color: #006666;">25</span><span class="pun" style="color: #bb6600;">);</span><span class="pln"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;setFrameRateInFramesPerSecond</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">framerate</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;delayInMs&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">1000</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">/</span><span class="pln">&nbsp;framerate</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #bb6600;">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// Called after the DOM is ready (page loaded)</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;init</span><span class="pun" style="color: #bb6600;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// init the different variables</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;canvas&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;document</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">querySelector</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"#mycanvas"</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">getContext</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">'2d'</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;width&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">width</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;height&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;canvas</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">height</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;x</span><span class="pun" style="color: #bb6600;">=</span><span class="lit" style="color: #006666;">10</span><span class="pun" style="color: #bb6600;">;</span><span class="pln">&nbsp;y&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">10</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// Target speed in pixels/second, try with high values, 1000, 2000...</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;speedX&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">2000</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// Start animation</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;requestAnimationFrame</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">animationLoop</span><span class="pun" style="color: #bb6600;">)</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #bb6600;">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;animationLoop</span><span class="pun" style="color: #bb6600;">(time)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// Measure time with high resolution timer</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;now&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;time</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// How long between the current frame and the previous one?</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;delta&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;now&nbsp;</span><span class="pun" style="color: #bb6600;">-</span><span class="pln">&nbsp;then</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">if</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">totalTimeSinceLastRedraw&nbsp;</span><span class="pun" style="color: #bb6600;">&gt;</span><span class="pln">&nbsp;delayInMs</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// Compute the displacement in x (in pixels) in function of the time elapsed</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">&nbsp; &nbsp; &nbsp; &nbsp;// since the last draw and</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// in function of the wanted speed. This time, instead of delta we</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// use totalTimeSinceLastRedraw as we're not always drawing at</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// each execution of mainloop</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;incX&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;calcDistanceToMove</span><span class="pun" style="color: #bb6600;">(</span><strong style="color: red;"><span class="pln">totalTimeSinceLastRedraw</span></strong><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;speedX</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// an animation involves: 1) clear canvas and 2) draw shapes,</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// 3) move shapes, 4) recall the loop with requestAnimationFrame</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// clear canvas</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">clearRect</span><span class="pun" style="color: #bb6600;">(</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;width</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;height</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">strokeRect</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">x</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;y</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">10</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">10</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// move rectangle</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;x&nbsp;</span><span class="pun" style="color: #bb6600;">+=</span><span class="pln">&nbsp;incX</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// check collision on left or right</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">if</span><span class="pun" style="color: #bb6600;">((</span><span class="pln">x</span><span class="pun" style="color: #bb6600;">+</span><span class="lit" style="color: #006666;">10</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">&gt;=</span><span class="pln">&nbsp;width</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">||</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">x&nbsp;</span><span class="pun" style="color: #bb6600;">&lt;=</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">))</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// cancel move + inverse speed</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; x&nbsp;</span><span class="pun" style="color: #bb6600;">-=</span><span class="pln">&nbsp;incX</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; speedX&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">-</span><span class="pln">speedX</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun" style="color: #bb6600;">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong style="color: red;">&nbsp;</strong></span><strong style="color: red;"><span class="com" style="color: #880000;">// reset the total time since last redraw</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; totalTimeSinceLastRedraw&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;delta</span><span class="pun" style="color: #bb6600;">;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #bb6600;">}</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">else</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com" style="color: #880000;">// sum the total time since last redraw</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;totalTimeSinceLastRedraw&nbsp;</span><span class="pun" style="color: #bb6600;">+=</span><span class="pln">&nbsp;delta</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #bb6600;">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// Store time</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;then&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;now</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// animate.&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestAnimationFrame</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">animationLoop</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">}</span><span class="pln"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;calcDistanceToMove&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">delta</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;speed</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">return</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">speed&nbsp;</span><span class="pun" style="color: #bb6600;">*</span><span class="pln">&nbsp;delta</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">/</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">1000</span><span class="pun" style="color: #bb6600;">;</span><span class="pln"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;/script&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&lt;/head&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&lt;body</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">onload</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"</span><span class="pln">init</span><span class="pun" style="color: #bb6600;">();</span><span class="atv" style="color: #008800;">"</span><span class="tag" style="color: #008888;">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;canvas</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">id</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"mycanvas"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">width</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"200"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">height</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"50"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">style</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"</span><span class="pln">border</span><span class="pun" style="color: #bb6600;">:</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">2px</span><span class="pln">&nbsp;solid black</span><span class="atv" style="color: #008800;">"</span><span class="tag" style="color: #008888;">&gt;&lt;/canvas&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&lt;/body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;">&lt;/html&gt;</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><span style="color: #aa0066;">&lt;!DOCTYPE html&gt;</li>
+<li><span style="color: #008888;">&lt;html&nbsp;<span style="color: #aa0066;">lang<span style="color: #bb6600;">=<span style="color: #008800;">"en"<span style="color: #008888;">&gt;</li>
+<li><span style="color: #008888;">&lt;head&gt;</li>
+<li><span style="color: #008888;">&lt;meta&nbsp;<span style="color: #aa0066;">charset<span style="color: #bb6600;">=<span style="color: #008800;">utf-8&nbsp;<span style="color: #008888;">/&gt;</li>
+<li><span style="color: #008888;">&lt;title&gt;Bouncing rectangle with high resolution timer and adjustable frame rate<span style="color: #008888;">&lt;/title&gt;</li>
+<li>&nbsp;<span style="color: #008888;">&lt;script&gt;</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var&nbsp;canvas<span style="color: #bb6600;">,&nbsp;ctx<span style="color: #bb6600;">;</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var&nbsp;width<span style="color: #bb6600;">,&nbsp;height<span style="color: #bb6600;">;</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var&nbsp;x<span style="color: #bb6600;">,&nbsp;y<span style="color: #bb6600;">,&nbsp;incX<span style="color: #bb6600;">;&nbsp;<span style="color: #880000;">// incX is the distance from the previously drawn rectangle</li>
+<li><span style="color: #880000;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// to the new one</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var&nbsp;speedX<span style="color: #bb6600;">;&nbsp;<span style="color: #880000;">// speedX is the target speed of the rectangle in pixels/s</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// for time based animation, DelayInMS corresponds to the target frame rate</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var&nbsp;now<span style="color: #bb6600;">,&nbsp;delta<span style="color: #bb6600;">,&nbsp;delayInMS<span style="color: #bb6600;">,&nbsp;totalTimeSinceLastRedraw<span style="color: #bb6600;">=<span style="color: #006666;">0<span style="color: #bb6600;">;</li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// High resolution timer</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var&nbsp;then&nbsp;<span style="color: #bb6600;">=&nbsp;performance<span style="color: #bb6600;">.now<span style="color: #bb6600;">();</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// Michel Buffa: set the target frame rate. TRY TO CHANGE THIS VALUE AND SEE</li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// THE RESULT. Try 2 frames/s, 10 frames/s, 60, 100 frames/s Normally there</li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// should be a limit&nbsp;of 60 frames/s in the browser's implementations, but you can&nbsp;</li>
+<li><span style="color: #880000;">&nbsp; &nbsp;// try higher values</li>
+<li>&nbsp; &nbsp;setFrameRateInFramesPerSecond<span style="color: #bb6600;">(<span style="color: #006666;">25<span style="color: #bb6600;">);</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">function&nbsp;setFrameRateInFramesPerSecond<span style="color: #bb6600;">(framerate<span style="color: #bb6600;">)&nbsp;<span style="color: #bb6600;">{</li>
+<li>&nbsp; &nbsp; &nbsp;delayInMs&nbsp;<span style="color: #bb6600;">=&nbsp;<span style="color: #006666;">1000&nbsp;<span style="color: #bb6600;">/&nbsp;framerate<span style="color: #bb6600;">;</li>
+<li>&nbsp; &nbsp;<span style="color: #bb6600;">}</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// Called after the DOM is ready (page loaded)</li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">function&nbsp;init<span style="color: #bb6600;">()&nbsp;<span style="color: #bb6600;">{</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #880000;">// init the different variables</li>
+<li>&nbsp; &nbsp; &nbsp;canvas&nbsp;<span style="color: #bb6600;">=&nbsp;document<span style="color: #bb6600;">.querySelector<span style="color: #bb6600;">(<span style="color: #008800;">"#mycanvas"<span style="color: #bb6600;">);</li>
+<li>&nbsp; &nbsp; &nbsp;ctx&nbsp;<span style="color: #bb6600;">=&nbsp;canvas<span style="color: #bb6600;">.getContext<span style="color: #bb6600;">(<span style="color: #008800;">'2d'<span style="color: #bb6600;">);</li>
+<li>&nbsp; &nbsp; &nbsp;width&nbsp;<span style="color: #bb6600;">=&nbsp;canvas<span style="color: #bb6600;">.width<span style="color: #bb6600;">;</li>
+<li>&nbsp; &nbsp; &nbsp;height&nbsp;<span style="color: #bb6600;">=&nbsp;canvas<span style="color: #bb6600;">.height<span style="color: #bb6600;">;</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;x<span style="color: #bb6600;">=<span style="color: #006666;">10<span style="color: #bb6600;">;&nbsp;y&nbsp;<span style="color: #bb6600;">=&nbsp;<span style="color: #006666;">10<span style="color: #bb6600;">;</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #880000;">// Target speed in pixels/second, try with high values, 1000, 2000...</li>
+<li>&nbsp; &nbsp; &nbsp;speedX&nbsp;<span style="color: #bb6600;">=&nbsp;<span style="color: #006666;">2000<span style="color: #bb6600;">;</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #880000;">// Start animation</li>
+<li>&nbsp; &nbsp; &nbsp;requestAnimationFrame<span style="color: #bb6600;">(animationLoop<span style="color: #bb6600;">)</li>
+<li>&nbsp; &nbsp;<span style="color: #bb6600;">}</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">function&nbsp;animationLoop<span style="color: #bb6600;">(time)&nbsp;<span style="color: #bb6600;">{</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #880000;">// Measure time with high resolution timer</li>
+<li>&nbsp; &nbsp; &nbsp;now&nbsp;<span style="color: #bb6600;">=&nbsp;time<span style="color: #bb6600;">;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #880000;">// How long between the current frame and the previous one?</li>
+<li>&nbsp; &nbsp; &nbsp;delta&nbsp;<span style="color: #bb6600;">=&nbsp;now&nbsp;<span style="color: #bb6600;">-&nbsp;then<span style="color: #bb6600;">;</li>
+<li></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;<span style="color: #008888;">if<span style="color: #bb6600;">(totalTimeSinceLastRedraw&nbsp;<span style="color: #bb6600;">&gt;&nbsp;delayInMs<span style="color: #bb6600;">)&nbsp;<span style="color: #bb6600;">{</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #880000;">// Compute the displacement in x (in pixels) in function of the time elapsed</li>
+<li><span style="color: #880000;">&nbsp; &nbsp; &nbsp; &nbsp;// since the last draw and</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #880000;">// in function of the wanted speed. This time, instead of delta we</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #880000;">// use totalTimeSinceLastRedraw as we're not always drawing at</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #880000;">// each execution of mainloop</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;incX&nbsp;<span style="color: #bb6600;">=&nbsp;calcDistanceToMove<span style="color: #bb6600;">(<strong style="color: red;">totalTimeSinceLastRedraw</strong><span style="color: #bb6600;">,&nbsp;speedX<span style="color: #bb6600;">);</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #880000;">// an animation involves: 1) clear canvas and 2) draw shapes,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #880000;">// 3) move shapes, 4) recall the loop with requestAnimationFrame</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #880000;">// clear canvas</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.clearRect<span style="color: #bb6600;">(<span style="color: #006666;">0<span style="color: #bb6600;">,&nbsp;<span style="color: #006666;">0<span style="color: #bb6600;">,&nbsp;width<span style="color: #bb6600;">,&nbsp;height<span style="color: #bb6600;">);</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx<span style="color: #bb6600;">.strokeRect<span style="color: #bb6600;">(x<span style="color: #bb6600;">,&nbsp;y<span style="color: #bb6600;">,&nbsp;<span style="color: #006666;">10<span style="color: #bb6600;">,&nbsp;<span style="color: #006666;">10<span style="color: #bb6600;">);</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #880000;">// move rectangle</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;x&nbsp;<span style="color: #bb6600;">+=&nbsp;incX<span style="color: #bb6600;">;</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #880000;">// check collision on left or right</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #008888;">if<span style="color: #bb6600;">((x<span style="color: #bb6600;">+<span style="color: #006666;">10&nbsp;<span style="color: #bb6600;">&gt;=&nbsp;width<span style="color: #bb6600;">)&nbsp;<span style="color: #bb6600;">||&nbsp;<span style="color: #bb6600;">(x&nbsp;<span style="color: #bb6600;">&lt;=&nbsp;<span style="color: #006666;">0<span style="color: #bb6600;">))&nbsp;<span style="color: #bb6600;">{</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #880000;">// cancel move + inverse speed</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; x&nbsp;<span style="color: #bb6600;">-=&nbsp;incX<span style="color: #bb6600;">;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; speedX&nbsp;<span style="color: #bb6600;">=&nbsp;<span style="color: #bb6600;">-speedX<span style="color: #bb6600;">;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #bb6600;">}</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;">&nbsp;</strong><strong style="color: red;"><span style="color: #880000;">// reset the total time since last redraw</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; totalTimeSinceLastRedraw&nbsp;<span style="color: #bb6600;">=&nbsp;delta<span style="color: #bb6600;">;</strong></li>
+<li>&nbsp; &nbsp;<span style="color: #bb6600;">}&nbsp;<span style="color: #008888;">else&nbsp;<span style="color: #bb6600;">{</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #880000;">// sum the total time since last redraw</li>
+<li>&nbsp; &nbsp; &nbsp;totalTimeSinceLastRedraw&nbsp;<span style="color: #bb6600;">+=&nbsp;delta<span style="color: #bb6600;">;</li>
+<li>&nbsp; &nbsp;<span style="color: #bb6600;">}</li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// Store time</li>
+<li>&nbsp; &nbsp;then&nbsp;<span style="color: #bb6600;">=&nbsp;now<span style="color: #bb6600;">;</li>
+<li>&nbsp;</li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// animate.&nbsp;</li>
+<li>&nbsp; &nbsp;requestAnimationFrame<span style="color: #bb6600;">(animationLoop<span style="color: #bb6600;">);</li>
+<li>&nbsp;<span style="color: #bb6600;">}</li>
+<li></li>
+<li>&nbsp;<span style="color: #008888;">var&nbsp;calcDistanceToMove&nbsp;<span style="color: #bb6600;">=&nbsp;<span style="color: #008888;">function<span style="color: #bb6600;">(delta<span style="color: #bb6600;">,&nbsp;speed<span style="color: #bb6600;">)&nbsp;<span style="color: #bb6600;">{</li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #008888;">return&nbsp;<span style="color: #bb6600;">(speed&nbsp;<span style="color: #bb6600;">*&nbsp;delta<span style="color: #bb6600;">)&nbsp;<span style="color: #bb6600;">/&nbsp;<span style="color: #006666;">1000<span style="color: #bb6600;">;</li>
+<li>&nbsp;<span style="color: #bb6600;">}</li>
+<li></li>
+<li>&nbsp;<span style="color: #008888;">&lt;/script&gt;</li>
+<li><span style="color: #008888;">&lt;/head&gt;</li>
+<li></li>
+<li><span style="color: #008888;">&lt;body&nbsp;<span style="color: #aa0066;">onload<span style="color: #bb6600;">=<span style="color: #008800;">"init<span style="color: #bb6600;">();<span style="color: #008800;">"<span style="color: #008888;">&gt;</li>
+<li>&nbsp;<span style="color: #008888;">&lt;canvas&nbsp;<span style="color: #aa0066;">id<span style="color: #bb6600;">=<span style="color: #008800;">"mycanvas"&nbsp;<span style="color: #aa0066;">width<span style="color: #bb6600;">=<span style="color: #008800;">"200"&nbsp;<span style="color: #aa0066;">height<span style="color: #bb6600;">=<span style="color: #008800;">"50"&nbsp;<span style="color: #aa0066;">style<span style="color: #bb6600;">=<span style="color: #008800;">"border<span style="color: #bb6600;">:&nbsp;<span style="color: #006666;">2px&nbsp;solid black<span style="color: #008800;">"<span style="color: #008888;">&gt;&lt;/canvas&gt;</li>
+<li><span style="color: #008888;">&lt;/body&gt;</li>
+<li><span style="color: #008888;">&lt;/html&gt;</li>
 </ol></div><br>
 
 
@@ -974,57 +974,57 @@ Here are the parts we changed:
 
 + Declaration of the monster object - now the speed is in pixels/s instead of in pixels per frame
 
-  <div class="source-code"><ol style="list-style-type: decimal;">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="com">// The monster !</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> monster </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
-  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;x</span><span class="pun">:</span><span class="lit">10</span><span class="pun">,</span></li>
-  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;y</span><span class="pun">:</span><span class="lit">10</span><span class="pun">,</span></li>
-  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong style="color: red;">speed</strong></span><strong style="color: red;"><span class="pun">:</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="com">// pixels/s this time !</span></strong></li>
-  <li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+  <div><ol style="list-style-type: decimal;">
+  <li value="1"> // The monster !</li>
+  <li> var monster = {</li>
+  <li>&nbsp; &nbsp;x:10,</li>
+  <li>&nbsp; &nbsp;y:10,</li>
+  <li>&nbsp; &nbsp;<strong style="color: red;">speed</strong><strong style="color: red;">:100, // pixels/s this time !</strong></li>
+  <li> };</li>
   </ol></div><br>
 
 + We added a `timer(currentTime)` function that returns the `delta` of the time elapsed since its last call
 
   We refer to it from the game loop, to measure the time between frames. Notice that here we pass the delta as a parameter to the `updateMonsterPosition` call:
 
-  <div class="source-code"><ol style="list-style-type: decimal;">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><strong style="color: red;"><span class="kwd">function</span><span class="pln"> timer</span><span class="pun">(</span><span class="pln">currentTime</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-  <li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> delta </span><span class="pun">=</span><span class="pln"> currentTime </span><span class="pun">-</span><span class="pln"> oldTime</span><span class="pun">;</span></strong></li>
-  <li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;oldTime </span><span class="pun">=</span><span class="pln"> currentTime</span><span class="pun">;</span></strong></li>
-  <li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> delta</span><span class="pun">;</span></strong></li>
-  <li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pun">}</span></strong></li>
-  <li class="L6" style="margin-bottom: 0px;"><span class="kwd"></span></li>
-  <li class="L6" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> mainLoop </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><strong style="color: red;"><span class="pln">time</span></strong><span class="pun">){</span></li>
-  <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">//main function, called each frame </span></li>
-  <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong style="color: red;">measureFPS</strong></span><strong style="color: red;"><span class="pun">(</span><span class="pln">time</span><span class="pun">);</span></strong></li>
-  <li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-  <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="com">// number of ms since last frame draw</span></strong></li>
-  <li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;delta </span><span class="pun">=</span><span class="pln"> timer</span><span class="pun">(</span><span class="pln">time</span><span class="pun">);</span></strong></li>
-  <li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Clear the canvas</span></li>
-  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;clearCanvas</span><span class="pun">();</span></li>
-  <li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-  <li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// draw the monster</span></li>
-  <li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;drawMyMonster</span><span class="pun">(</span><span class="pln">monster</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">y</span><span class="pun">);</span></li>
-  <li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-  <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="com">// Check inputs and move the monster</span></strong></li>
-  <li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;updateMonsterPosition</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">);</span></strong></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// call the animation loop every 1/60th of second</span></li>
-  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-  <li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+  <div><ol style="list-style-type: decimal;">
+  <li value="1"><strong style="color: red;">function timer(currentTime) {</strong></li>
+  <li><strong style="color: red;">&nbsp; &nbsp;var delta = currentTime - oldTime;</strong></li>
+  <li><strong style="color: red;">&nbsp; &nbsp;oldTime = currentTime;</strong></li>
+  <li><strong style="color: red;">&nbsp; &nbsp;return delta;</strong></li>
+  <li><strong style="color: red;">}</strong></li>
+  <li></li>
+  <li>var mainLoop = function(<strong style="color: red;">time</strong>){</li>
+  <li>&nbsp; &nbsp;//main function, called each frame </li>
+  <li>&nbsp; &nbsp;<strong style="color: red;">measureFPS</strong><strong style="color: red;">(time);</strong></li>
+  <li> </li>
+  <li>&nbsp; &nbsp;<strong style="color: red;">// number of ms since last frame draw</strong></li>
+  <li><strong style="color: red;">&nbsp; &nbsp;delta = timer(time);</strong></li>
+  <li> </li>
+  <li>&nbsp; &nbsp;// Clear the canvas</li>
+  <li>&nbsp; &nbsp;clearCanvas();</li>
+  <li> </li>
+  <li>&nbsp; &nbsp;// draw the monster</li>
+  <li>&nbsp; &nbsp;drawMyMonster(monster.x, monster.y);</li>
+  <li> </li>
+  <li>&nbsp; &nbsp;<strong style="color: red;">// Check inputs and move the monster</strong></li>
+  <li><strong style="color: red;">&nbsp; &nbsp;updateMonsterPosition(delta);</strong></li>
+  <li> </li>
+  <li>&nbsp; &nbsp;// call the animation loop every 1/60th of second</li>
+  <li>&nbsp; &nbsp;requestAnimationFrame(mainLoop);</li>
+  <li> };</li>
   </ol></div><br>
 
 + Finally, we use the time-delta in the `updateMonsterPosition(...)` function
 
-  <div class="source-code"><ol style="list-style-type: decimal;">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> updateMonsterPosition</span><span class="pun">(</span><strong style="color: red;"><span class="pln">delta</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">...</span></li>
-  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Compute the incX and inY in pixels depending</span></li>
-  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// on the time elapsed since last redraw</span></li>
-  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong style="color: red;">monster</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">x </span><span class="pun">+=</span><span class="pln"> calcDistanceToMove</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">speedX</span><span class="pun">);</span></strong></li>
-  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong style="color: red;">&nbsp;monster</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> calcDistanceToMove</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">speedY</span><span class="pun">);</span></strong></li>
-  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pun">}</span></li>
+  <div><ol style="list-style-type: decimal;">
+  <li value="1"> function updateMonsterPosition(<strong style="color: red;">delta</strong>) {</li>
+  <li>&nbsp; &nbsp;...</li>
+  <li>&nbsp; &nbsp;// Compute the incX and inY in pixels depending</li>
+  <li>&nbsp; &nbsp;// on the time elapsed since last redraw</li>
+  <li>&nbsp; &nbsp;<strong style="color: red;">monster</strong><strong style="color: red;">.x += calcDistanceToMove(delta, monster.speedX);</strong></li>
+  <li>&nbsp; <strong style="color: red;">&nbsp;monster</strong><strong style="color: red;">.y += calcDistanceToMove(delta, monster.speedY);</strong></li>
+  <li>&nbsp;}</li>
   </ol></div>
 
 
