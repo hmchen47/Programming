@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title>Worker example: One-core computation</title>
+ </head>
+ <body>
+   <button id="startButton">Click to start discovering prime numbers</button>.<p> Note that this will make the page unresponsive, you will have to close the tab in order to get back your cpu!
+  <p>The highest prime number discovered so far is: <output id="result"></output></p>
+  <script>
+    function computePrime() {
+      var n = 1;
+      search: while (true) {
+      n += 1;
+      for (var i = 2; i <= Math.sqrt(n); i += 1)
+          if (n % i == 0)
+             continue search;
+          // found a prime!
+          document.getElementById('result').textContent = n;
+      } 
+    }
+    document.querySelector("#startButton").addEventListener('click', computePrime);
+  </script>
+ </body>
+</html>
+

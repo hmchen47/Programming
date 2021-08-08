@@ -707,7 +707,7 @@ This repository tracks my learning on different programming languages.
     <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
-    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#inserting-removing-and-modifying-records"> Insertion/Deletion/Modification Data </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#inserting-removing-and-modifying-records"> Insertion / Deletion / Modification Data </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#retrieving-record"> Retrieving Record </a></td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#retrieving-multiple-records-and-range"> Retrieving Multiple Records </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/JS-IndexedDB.md#">  </a> </td>
@@ -743,17 +743,56 @@ This repository tracks my learning on different programming languages.
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
   </tr>
 
+  <!-- Web Components -->
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan=2 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Web Components </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#html-templates"> HTML Templates </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#shadow-dom"> Shadow DOM </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#shadow-dom-encapsulation"> Shadow DOM Encapsulation </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#html-custom-elements"> HTML Custom Elements </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#html-imports"> HTML Imports </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#web-components-as-js-modules"> Web Components as JS Modules </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#">  </a> </td>
+  </tr>
+
+  <!-- Threads -->
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan=2 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Threads </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#web-workers"> Web Workers </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#managing-workers"> Managing Workers </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#dedicated-workers"> Dedicated Workers </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#limitations"> Limtations </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#debugging"> Debugging </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#">  </a> </td>
+  </tr>
+
+  <!-- Mobile Related Issues & APIs -->
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan=1 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Mobile Related Issues & APIs </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Mobile.md#mobile-coordinate-system"> Coordinate Systems </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Mobile.md#acceleration"> Acceleration </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Mobile.md#the-orientation-api"> The Orientation API </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Mobile.md#the-device-motion-api"> The Device Motion API </a> </td>
+  </tr>
+
   <!-- Temporary -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan=2 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
   </tr>

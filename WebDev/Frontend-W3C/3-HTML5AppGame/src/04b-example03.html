@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Shadow DOM example</title>
+  <!-- polyfill for web components -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.0.2/webcomponents-bundle.js"></script>
+  <!-- <link rel="stylesheet" href="css/04b-example03.css">
+  <script src="js/04b-example03.js"></script> -->
+</head>
+<body>
+  <div>Hello this is not rendered!</div>
+  <script>
+    // the div is the Shadow Host. Its content will not be rendered
+    var host = document.querySelector('div');
+  
+    // Create the shadow ROOT, the root node of the shadow DOM
+    // using mode:open makes it available, mode:close would return null
+    const shadowRoot = host.attachShadow({mode: 'open'});
+  
+    // insert something into the shadow DOM, this will be rendered
+    shadowRoot.innerHTML = '<h1>Hello Shadow DOM</h1>'; // Could also use appendChild().
+</script>
+</body>
+</html>
+

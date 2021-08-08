@@ -1,0 +1,174 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta 
+   name="viewport" 
+   content="width=device-width, target-densityDpi=device-dpi, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+   
+<title>iOS 4.2 Device Accellerometer</title>
+
+<style>	
+	body {
+		font-family:Arial, Helvetica, sans-serif;
+		font-size: 14px;
+	}
+	
+	#board {
+		position:absolute;
+		left:0px;
+		right:0px;
+		top:0px;
+		bottom:0px;	
+	}
+	
+	#ball {
+		position:absolute;
+		width: 60px;
+		height: 60px;
+		border-radius: 30px;
+		background-image: -webkit-gradient(radial,45% 45%,5,60% 60%,40,from(red),color-stop(75%, black),to(rgba(255,255,255,0)));
+		-webkit-box-shadow: 3px 3px 5px #888;
+	}
+</style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script>!window.jQuery && document.write('<script src="./js/jquery.min.js"><\/script>')</script>
+
+<script>
+	var offset;
+	var velocity;
+	var board;
+	var ball;
+	var interval;
+		
+	$( document ).ready( function( )
+	{		
+		window.addEventListener( "devicemotion", onDeviceMotion, false );
+		$('#timestamp').html( new Date().toString() );
+		$('#status').html( "Ready!" );
+		
+		velocity = {};
+		velocity.x = 0;
+		velocity.y = 0;
+		
+		offset = {};
+		board = $('#board');
+		ball = $('#ball');
+		
+		offset.left = (board.width()-ball.width())/2;
+		offset.top = (board.height()-ball.height())/2;
+		
+		$('#ball').offset( offset );
+		interval = setInterval( updateBall, 25 );
+	} );
+
+
+	
+	function onDeviceMotion( event ) 
+	{
+		$('#timestamp').html( new Date().toString() );
+		$('#status').html( "Device Motion Event" );
+		
+		var eventDetails;
+		try {
+			var accel = event.accelerationIncludingGravity;
+			eventDetails = "accelerationIncludingGravity: {" +
+								"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x: " + accel.x + 
+								"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y: " + accel.y + 
+								"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;z: " + accel.z + 
+						   "<br/>} <br/><br/>" + 
+						   "interval: " + event.interval;
+			updateVelocity( event );
+		}
+		catch (e)
+		{
+			eventDetails = e.toString();
+		}
+			
+		$('#details').html( eventDetails );
+	}
+	
+	var decay = .9;
+	var bounceDecay = .95;
+	var maxVelocity = 100;
+	
+	function updateVelocity( event ) 
+	{
+		velocity.x += event.accelerationIncludingGravity.x;
+		if ( Math.abs( velocity.x ) > maxVelocity )
+		{
+			if  (velocity.x > 0)
+				velocity.x = maxVelocity;
+			else
+				velocity.x = -maxVelocity;
+		}
+		
+		velocity.y += event.accelerationIncludingGravity.y;
+		if ( Math.abs( velocity.y ) > maxVelocity )
+		{
+			if  (velocity.y > 0)
+				velocity.y = maxVelocity;
+			else
+				velocity.y = -maxVelocity;
+		}
+	}
+	
+	function updateBall()
+	{
+		if( offset.left <= -(ball.width()/2) )
+		{
+			velocity.x = Math.abs( velocity.x * bounceDecay );
+		}
+		else if( offset.left >= (board.width() - (ball.width()/2)) )
+		{
+			velocity.x = - Math.abs( velocity.x * bounceDecay );
+		}
+		else
+		{
+			velocity.x = parseInt( velocity.x );
+			velocity.x *= decay;
+		}
+		
+		if( offset.top <= -(ball.height()/2) )
+		{
+			velocity.y = - Math.abs( velocity.y * bounceDecay );
+		}
+		else if( offset.top >= (board.height() - (ball.height()/2)) )
+		{
+			velocity.y = Math.abs( velocity.y * bounceDecay );
+		}
+		else 
+		{
+			velocity.y = parseInt( velocity.y );
+			velocity.y *= decay;
+		}
+		
+		offset.left += velocity.x;
+		offset.top -= velocity.y;
+		
+		
+		$('#ball').offset( offset );
+	}
+	
+</script>
+
+</head>
+
+<body>
+
+<div id="timestamp"></div>
+<div id="status"></div>
+<div id="details"></div>
+
+<div id="board">
+	<div id="ball"></div>
+</div>
+
+
+spec: <a href="http://dev.w3.org/geo/api/spec-source-orientation.html" target="http://dev.w3.org/geo/api/spec-source-orientation.html">http://dev.w3.org/geo/api/spec-source-orientation.html</a>
+
+</body>
+</html>
+
