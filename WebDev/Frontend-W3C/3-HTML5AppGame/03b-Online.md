@@ -63,17 +63,17 @@ Below is a function that loads a sound sample using XMLHttpRequest level 2.
 
 _Note_: 1) the simple and concise syntax, and 2) the use of the new `arrayBuffer` type for the expected response (_line 5_):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Load a binary file from a URL as an ArrayBuffer.</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> loadSoundFile</span><span class="pun">(</span><span class="pln">url</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> xhr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'GET'</span><span class="pun">,</span><span class="pln"> url</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);<br><br></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong style="color: red;">xhr</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">responseType </span><span class="pun">=</span><span class="pln"> </span><span class="str">'arraybuffer'</span><span class="pun">;</span><span class="com" style="color: #ff0000;"></span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; initSound</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">response</span><span class="pun">);</span><span class="pln"> </span><span class="com">// this.response is an ArrayBuffer.</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};<br><br></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">send</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">// Load a binary file from a URL as an ArrayBuffer.</li>
+<li>function loadSoundFile(url) {</li>
+<li>&nbsp; &nbsp;var xhr = new XMLHttpRequest();</li>
+<li>&nbsp; &nbsp;xhr.open('GET', url, true);<br><br></li>
+<li>&nbsp; &nbsp;<strong style="color: red;">xhr</strong><strong style="color: red;">.responseType = 'arraybuffer';<span style="color: #ff0000;"></strong></li>
+<li>&nbsp; &nbsp;xhr.onload = function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp; initSound(this.response); // this.response is an ArrayBuffer.</li>
+<li>&nbsp; &nbsp;};<br><br></li>
+<li>&nbsp; &nbsp;xhr.send();</li>
+<li>}</li>
 </ol></div><br>
 
 
@@ -99,83 +99,83 @@ In this example, instead of reading the file from disk, we download it using XHR
 
 Complete source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;title&gt;</span><span class="pln">XHR2 and binary files + Web Audio API</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;/head&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">Example of using XHR2&nbsp;and </span><span class="tag">&lt;code&gt;</span><span class="pln">xhr.responseType = 'arraybuffer';</span><span class="tag">&lt;/code&gt;</span><span class="pln"> to download a binary sound file</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> and start playing it on user-click using the Web Audio API.</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h2&gt;</span><span class="pln">Load file using Ajax/XHR2 and the arrayBuffer response type</span><span class="tag">&lt;/h2&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><strong style="color: red;"><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">downloadSoundFile</span><span class="pun">(</span><span class="str">'https://myserver.com/song.mp3'</span><span class="pun">);</span></strong><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;Download and play example song.</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;/button&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">playSound</span><span class="pun">()</span><span class="atv">"</span><span class="pln"> </span><span class="atn">disabled</span><span class="tag">&gt;</span><span class="pln">Start</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">stopSound</span><span class="pun">()</span><span class="atv">"</span><span class="pln"> </span><span class="atn">disabled</span><span class="tag">&gt;</span><span class="pln">Stop</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="com">&nbsp; // WebAudio context</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">&nbsp; var</span><span class="pln"> context </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> window</span><span class="pun">.</span><span class="typ">AudioContext</span><span class="pun">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">&nbsp; var</span><span class="pln"> source </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">&nbsp; var</span><span class="pln"> audioBuffer </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">&nbsp; function</span><span class="pln"> stopSound</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">source</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;source</span><span class="pun">.</span><span class="pln">stop</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&nbsp; }</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">&nbsp; function</span><span class="pln"> playSound</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Build a source node for the audio graph</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; source </span><span class="pun">=</span><span class="pln"> context</span><span class="pun">.</span><span class="pln">createBufferSource</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; source</span><span class="pun">.</span><span class="pln">buffer </span><span class="pun">=</span><span class="pln"> audioBuffer</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; source</span><span class="pun">.</span><span class="pln">loop </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// connect to the speakers</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; source</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">context</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; source</span><span class="pun">.</span><span class="pln">start</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span><span class="pln"> </span><span class="com">// Play immediately.</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&nbsp; }</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">&nbsp; function</span><span class="pln"> initSound</span><span class="pun">(</span><span class="pln">audioFile</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// The audio file may be an mp3 -&nbsp;we must decode it before playing it from memory</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; context</span><span class="pun">.</span><span class="pln">decodeAudioData</span><span class="pun">(</span><span class="pln">audioFile</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">buffer</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Song decoded!"</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// audioBuffer the decoded audio file we're going to work with</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; audioBuffer </span><span class="pun">=</span><span class="pln"> buffer</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Enable all buttons once the audio file is</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// decoded</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> buttons </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelectorAll</span><span class="pun">(</span><span class="str">'button'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; buttons</span><span class="pun">[</span><span class="lit">1</span><span class="pun">].</span><span class="pln">disabled </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln"> </span><span class="com">// play</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; buttons</span><span class="pun">[</span><span class="lit">2</span><span class="pun">].</span><span class="pln">disabled </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln"> </span><span class="com">// stop</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">"Binary file has been loaded and decoded, use play / stop buttons!"</span><span class="pun">)</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'Error decoding file'</span><span class="pun">,</span><span class="pln"> e</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">});</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; }</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Load a binary file from a URL as an ArrayBuffer.</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">&nbsp; function</span><span class="pln"> downloadSoundFile</span><span class="pun">(</span><span class="pln">url</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> xhr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; xhr</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'GET'</span><span class="pun">,</span><span class="pln"> url</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong style="color: red;">xhr</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">responseType </span><span class="pun">=</span><span class="pln"> </span><span class="str">'arraybuffer'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// THIS IS NEW WITH HTML5!</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; xhr</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Song downloaded, decoding..."</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;initSound</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">response</span><span class="pun">);</span><span class="pln"> </span><span class="com">// this.response is an ArrayBuffer.</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">};</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; xhr</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"error downloading file"</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; xhr</span><span class="pun">.</span><span class="pln">send</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Ajax request sent... wait until it downloads completely"</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; }</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&nbsp;&lt;head&gt;</li>
+<li>&nbsp; &nbsp;&lt;title&gt;XHR2 and binary files + Web Audio API&lt;/title&gt;</li>
+<li>&nbsp;&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li> &lt;p&gt;Example of using XHR2&nbsp;and &lt;code&gt;xhr.responseType = 'arraybuffer';&lt;/code&gt; to download a binary sound file</li>
+<li> and start playing it on user-click using the Web Audio API.&lt;/p&gt;</li>
+<li> </li>
+<li> &lt;p&gt;</li>
+<li> &lt;h2&gt;Load file using Ajax/XHR2 and the arrayBuffer response type&lt;/h2&gt;</li>
+<li> &lt;button <strong style="color: red;">onclick="downloadSoundFile('https://myserver.com/song.mp3');</strong>"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;Download and play example song.</li>
+<li>&nbsp;&lt;/button&gt;</li>
+<li> &lt;button onclick="playSound()" disabled&gt;Start&lt;/button&gt;</li>
+<li> &lt;button onclick="stopSound()" disabled&gt;Stop&lt;/button&gt;</li>
+<li>&lt;script&gt;</li>
+<li>&nbsp; // WebAudio context</li>
+<li>&nbsp; var context = new window.AudioContext();</li>
+<li>&nbsp; var source = null;</li>
+<li>&nbsp; var audioBuffer = null;</li>
+<li>&nbsp;</li>
+<li>&nbsp; function stopSound() {</li>
+<li>&nbsp; &nbsp;&nbsp;if (source) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;source.stop();</li>
+<li>&nbsp; &nbsp; }</li>
+<li>&nbsp; }</li>
+<li>&nbsp;</li>
+<li>&nbsp; function playSound() {</li>
+<li>&nbsp; &nbsp;&nbsp;// Build a source node for the audio graph</li>
+<li>&nbsp; &nbsp; source = context.createBufferSource();</li>
+<li>&nbsp; &nbsp; source.buffer = audioBuffer;</li>
+<li>&nbsp; &nbsp; source.loop = false;</li>
+<li>&nbsp; &nbsp;&nbsp;// connect to the speakers</li>
+<li>&nbsp; &nbsp; source.connect(context.destination);</li>
+<li>&nbsp; &nbsp; source.start(0); // Play immediately.</li>
+<li>&nbsp; }</li>
+<li>&nbsp;</li>
+<li>&nbsp; function initSound(audioFile) {</li>
+<li>&nbsp; &nbsp;&nbsp;// The audio file may be an mp3 -&nbsp;we must decode it before playing it from memory</li>
+<li>&nbsp; &nbsp; context.decodeAudioData(audioFile, function(buffer) {</li>
+<li>&nbsp; &nbsp; &nbsp; console.log("Song decoded!");</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;// audioBuffer the decoded audio file we're going to work with</li>
+<li>&nbsp; &nbsp; &nbsp; audioBuffer = buffer;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;// Enable all buttons once the audio file is</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;// decoded</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var buttons = document.querySelectorAll('button');</li>
+<li>&nbsp; &nbsp; &nbsp; buttons[1].disabled = false; // play</li>
+<li>&nbsp; &nbsp; &nbsp; buttons[2].disabled = false; // stop</li>
+<li>&nbsp; &nbsp; &nbsp; alert("Binary file has been loaded and decoded, use play / stop buttons!")</li>
+<li>&nbsp; &nbsp;&nbsp;}, function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;console.log('Error decoding file', e);</li>
+<li>&nbsp; &nbsp;&nbsp;}); </li>
+<li>&nbsp; }</li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;// Load a binary file from a URL as an ArrayBuffer.</li>
+<li>&nbsp; function downloadSoundFile(url) {</li>
+<li>&nbsp; &nbsp;&nbsp;var xhr = new XMLHttpRequest();</li>
+<li>&nbsp; &nbsp; xhr.open('GET', url, true);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; <strong style="color: red;">xhr</strong><strong style="color: red;">.responseType = 'arraybuffer'; // THIS IS NEW WITH HTML5!</strong></li>
+<li>&nbsp; &nbsp; xhr.onload = function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;console.log("Song downloaded, decoding...");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;initSound(this.response); // this.response is an ArrayBuffer.</li>
+<li>&nbsp; &nbsp; };</li>
+<li>&nbsp; &nbsp; xhr.onerror = function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp; console.log("error downloading file");</li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; xhr.send();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;console.log("Ajax request sent... wait until it downloads completely");</li>
+<li>&nbsp; } </li>
+<li>&lt;/script&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div><br>
 
 __Explanations:__
@@ -224,35 +224,35 @@ The syntax for declaring progress event handlers is slightly different depending
 
 __Syntax for download:__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> xhr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> xhr</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'GET'</span><span class="pun">,</span><span class="pln"> url</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">xhr</span><span class="pun">.</span><span class="pln">onprogress </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><strong style="color: red;"><span class="com">// do something</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pun">}</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">xhr</span><span class="pun">.</span><span class="pln">send</span><span class="pun">();</span></li>
+<div><ol>
+<li value="1">var xhr = new XMLHttpRequest();</li>
+<li> xhr.open('GET', url, true);</li>
+<li>...</li>
+<li><strong style="color: red;">xhr.onprogress = function(e) {</strong></li>
+<li> <strong style="color: red;">// do something</strong></li>
+<li><strong style="color: red;">}</strong></li>
+<li>&nbsp;</li>
+<li>xhr.send();</li>
 </ol></div><br>
 
 Note that an alternative syntax such as `xhr.addEventListener('progress', callback, false)` also works.
 
 __Syntax for upload:__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> xhr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> xhr</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'POST'</span><span class="pun">,</span><span class="pln"> url</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">xhr</span><span class="pun">.</span><span class="pln" style="color: #ff0000;">upload</span><span class="pun">.</span><span class="pln">onprogress </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><strong style="color: red;"><span class="com">// do something</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pun">}</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">xhr</span><span class="pun">.</span><span class="pln">send</span><span class="pun">();</span></li>
+<div><ol>
+<li value="1">var xhr = new XMLHttpRequest();</li>
+<li> xhr.open('POST', url, true);</li>
+<li>...</li>
+<li><strong style="color: red;">xhr.<span style="color: #ff0000;">upload.onprogress = function(e) {</strong></li>
+<li> <strong style="color: red;">// do something</strong></li>
+<li><strong style="color: red;">}</strong></li>
+<li>&nbsp;</li>
+<li>xhr.send();</li>
 </ol></div><br>
 
-Notice that the only difference is the "upload" added after the name of the request object: with GET we use `xhr.onprogress` and with POST we use <span style="font-family: 'courier new', courier;">xhr.<span style="color: #ff0000;">upload</span>.onprogress</span>.
+Notice that the only difference is the "upload" added after the name of the request object: with GET we use `xhr.onprogress` and with POST we use <span style="font-family: 'courier new', courier;">xhr.<span style="color: #ff0000;">upload.onprogress.
 
-Note that an alternative syntax such as <span style="font-family: 'courier new', courier;">xhr.<span style="color: #ff0000;">upload</span>.addEventListener('progress', callback, false)</span> also works.
+Note that an alternative syntax such as <span style="font-family: 'courier new', courier;">xhr.<span style="color: #ff0000;">upload.addEventListener('progress', callback, false) also works.
 
 __2 - Get progress values (how many bytes have been downloaded) and the total file size__
 
@@ -265,27 +265,27 @@ Combining these with a `<progress>` element, makes it very easy to render an ani
 
 HTML:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;progress</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"downloadProgress"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">0</span><span class="tag">&gt;&lt;/progress&gt;</span></li>
+<div><ol>
+<li value="1">&lt;progress id="downloadProgress" value=0&gt;&lt;/progress&gt;</li>
 </ol></div><br>
 
 JavaScript:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// progress element</span></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="kwd">var</span><span class="pln"> progress </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#downloadProgress'</span><span class="pun">);</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> downloadSoundFile</span><span class="pun">(</span><span class="pln">url</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> xhr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; xhr</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'GET'</span><span class="pun">,</span><span class="pln"> url</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;">&nbsp; ...</li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; xhr</span><span class="pun">.</span><span class="pln">onprogress </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong style="color: red;">progress</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">loaded</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong style="color: red;">progress</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">max </span><span class="pun">=</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">total</span><span class="pun">;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; xhr</span><span class="pun">.</span><span class="pln">send</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
+<div><ol>
+<li value="1">// progress element</li>
+<li><strong style="color: red;">var progress = document.querySelector('#downloadProgress');</strong></li>
+<li>&nbsp;</li>
+<li>function downloadSoundFile(url) {</li>
+<li>&nbsp;&nbsp;var xhr = new XMLHttpRequest();</li>
+<li>&nbsp; xhr.open('GET', url, true);</li>
+<li>&nbsp;</li>
+<li>&nbsp; ...</li>
+<li>&nbsp; xhr.onprogress = function(e) {</li>
+<li>&nbsp; &nbsp; <strong style="color: red;">.value = e.loaded;</strong></li>
+<li>&nbsp; &nbsp; <strong style="color: red;">.max = e.total;</strong></li>
+<li>&nbsp;&nbsp;}</li>
+<li>&nbsp; xhr.send();</li>
+<li>} </li>
 </ol></div><br>
 
 __Explanations:__ by setting the `value` and `max` attributes of the `<progress>` element with the current number of bytes downloaded by the browser and the total size of the file (_lines 10-11_), it will reflect the actual proportions of the file downloaded/still to come.
@@ -420,7 +420,7 @@ __Complete example: monitoring the download of a song file__
   + create [new connection](#xhr)
   + open connection w/ post request<a name="post"></a>: `xhr.open('POST', url, true);`
   + ...
-  + upload progress: <code>xhr.<span style="color: #ff0000; font-weight: bold;">upload</span>.onprogress = function(e) { // do sth. }</code>
+  + upload progress: <code>xhr.<span style="color: #ff0000; font-weight: bold;">upload.onprogress = function(e) { // do sth. }</code>
   + [send request](#send)
 
 + Progess values and the total file size
@@ -480,41 +480,41 @@ Try [the example on JSBin](https://jsbin.com/pidusap/edit):
 
 Source code of the example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;title&gt;</span><span class="pln">File upload with XMLHttpRequest level 2 and HTML5</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h1&gt;</span><span class="pln">Example of XHR2&nbsp;file upload</span><span class="tag">&lt;/h1&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; Choose a file and wait a little until it is uploaded (on a fake &nbsp; </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; server). A message should pop up once the file is uploaded 100%.</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"file"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"file"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> fileInput </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#file'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> fileInput</span><span class="pun">.</span><span class="pln">onchange </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> xhr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'POST'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'upload.html'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// With FormData, </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // POST is mandatory</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong style="color: red;">xhr</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong style="color: red;">alert</strong></span><strong style="color: red;"><span class="pun">(</span><span class="str">'Upload complete !'</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;<strong style="color: red;">};</strong></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="kwd">var</span><span class="pln"> form </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FormData</span><span class="pun">();</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong style="color: red;">form</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">'file'</span><span class="pun">,</span><span class="pln"> fileInput</span><span class="pun">.</span><span class="pln">files</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// send the request</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">send</span><span class="pun">(</span><span class="pln">form</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li> &lt;head&gt;</li>
+<li>&nbsp; &nbsp;&lt;meta charset="utf-8" /&gt;</li>
+<li>&nbsp; &nbsp;&lt;title&gt;File upload with XMLHttpRequest level 2 and HTML5&lt;/title&gt;</li>
+<li> &lt;/head&gt;</li>
+<li>&nbsp;</li>
+<li> &lt;body&gt;</li>
+<li> &lt;h1&gt;Example of XHR2&nbsp;file upload&lt;/h1&gt;</li>
+<li>&nbsp; Choose a file and wait a little until it is uploaded (on a fake &nbsp; </li>
+<li>&nbsp; server). A message should pop up once the file is uploaded 100%.</li>
+<li> &lt;p&gt;</li>
+<li> &lt;input id="file" type="file" /&gt;</li>
+<li> &lt;/p&gt;</li>
+<li> &lt;script&gt; </li>
+<li> var fileInput = document.querySelector('#file');</li>
+<li>&nbsp;</li>
+<li> fileInput.onchange = function() {</li>
+<li>&nbsp; &nbsp;var xhr = new XMLHttpRequest();</li>
+<li>&nbsp; &nbsp;xhr.open('POST', 'upload.html'); // With FormData, </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // POST is mandatory</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;<strong style="color: red;">xhr</strong><strong style="color: red;">.onload = function() {</strong></li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;">alert</strong><strong style="color: red;">('Upload complete !');</strong></li>
+<li>&nbsp; &nbsp;<strong style="color: red;">};</strong></li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;<strong style="color: red;">var form = new FormData();</strong></li>
+<li>&nbsp; &nbsp;<strong style="color: red;">form</strong><strong style="color: red;">.append('file', fileInput.files[0]);</strong></li>
+<li>&nbsp; &nbsp;// send the request</li>
+<li>&nbsp; &nbsp;xhr.send(form);</li>
+<li>};</li>
+<li> &lt;/script&gt;</li>
+<li> &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div><br>
 
 __Explanations:__
@@ -545,11 +545,11 @@ Here is a more user-friendly example. It is basically the same, but this time, w
 
 Here is the code of such an event listener:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">xhr</span><span class="pun">.</span><span class="pln" style="color: #ff0000;">upload</span><span class="pun">.</span><span class="pln">onprogress </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; progress.value =&nbsp;e</span><span class="pun">.</span><span class="pln">loaded<span style="color: #666600;" color="#666600">; //</span></span><span class="com">&nbsp;number of bytes uploaded</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; progress.max = e</span><span class="pun">.</span><span class="pln">total</span><span class="pun">;<span style="color: #000000;" color="#000000">&nbsp; &nbsp; //</span></span><span class="com">&nbsp;total number of bytes in the file</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">xhr.<span style="color: #ff0000;">upload.onprogress = function(e) { </li>
+<li>&nbsp; progress.value =&nbsp;e.loaded<span style="color: #666600;" color="#666600">; //&nbsp;number of bytes uploaded</li>
+<li>&nbsp; progress.max = e.total;<span style="color: #000000;" color="#000000">&nbsp; &nbsp; //&nbsp;total number of bytes in the file</li>
+<li>};</li>
 </ol></div><br>
 
 Try [the example on JSBin](https://jsbin.com/qedaja/edit?html,output):
@@ -558,47 +558,47 @@ Try [the example on JSBin](https://jsbin.com/qedaja/edit?html,output):
 
 Code from this example (nearly the same as previous example's code):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;title&gt;</span><span class="pln">HTML5 file upload with monitoring</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h1&gt;</span><span class="pln">Example of XHR2 file upload, with progress bar</span><span class="tag">&lt;/h1&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">Choose a file and wait a little until it is uploaded (on a fake server).</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"file"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"file"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;br/&gt;&lt;br</span><span class="tag">/&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><strong style="color: red;"><span class="tag">&lt;progress</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"progress" value=0</span><span class="tag">&gt;&lt;/progress&gt;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> fileInput </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#file'</span><span class="pun">),</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong style="color: red;">progress </strong></span><strong style="color: red;"><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#progress'</span><span class="pun">);</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;fileInput</span><span class="pun">.</span><span class="pln">onchange </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> xhr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'POST'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'upload.html'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong style="color: red;">xhr</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">upload</span><span class="pun">.</span><span class="pln">onprogress </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: red;">progress</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">loaded</span><span class="pun">;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: red;">progress</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">max </span><span class="pun">=</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">total</span><span class="pun">;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong style="color: red;"><span class="pun">};</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">'Upload complete!'</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> form </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FormData</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;form</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">'file'</span><span class="pun">,</span><span class="pln"> fileInput</span><span class="pun">.</span><span class="pln">files</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">send</span><span class="pun">(</span><span class="pln">form</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/body&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li> &lt;head&gt;</li>
+<li>&nbsp; &nbsp;&lt;meta charset="utf-8" /&gt;</li>
+<li>&nbsp; &nbsp;&lt;title&gt;HTML5 file upload with monitoring&lt;/title&gt;</li>
+<li> &lt;/head&gt;</li>
+<li>&nbsp;</li>
+<li> &lt;body&gt;</li>
+<li> &lt;h1&gt;Example of XHR2 file upload, with progress bar&lt;/h1&gt;</li>
+<li>Choose a file and wait a little until it is uploaded (on a fake server).</li>
+<li> &lt;p&gt;</li>
+<li> &lt;input id="file" type="file" /&gt;</li>
+<li> &lt;br/&gt;&lt;br/&gt;</li>
+<li> <strong style="color: red;">&lt;progress id="progress" value=0&gt;&lt;/progress&gt;</strong></li>
+<li>&nbsp;</li>
+<li> &lt;script&gt;</li>
+<li>&nbsp; &nbsp;var fileInput = document.querySelector('#file'),</li>
+<li>&nbsp; &nbsp;<strong style="color: red;">progress </strong><strong style="color: red;">= document.querySelector('#progress');</strong></li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;fileInput.onchange = function() {</li>
+<li>&nbsp; &nbsp; &nbsp;var xhr = new XMLHttpRequest();</li>
+<li>&nbsp; &nbsp; &nbsp;xhr.open('POST', 'upload.html');</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;">xhr</strong><strong style="color: red;">.upload.onprogress = function(e) {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: red;">.value = e.loaded;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: red;">.max = e.total;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;">};</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;xhr.onload = function() {</li>
+<li>&nbsp; &nbsp; &nbsp;alert('Upload complete!');</li>
+<li>&nbsp; &nbsp;};</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;var form = new FormData();</li>
+<li>&nbsp; &nbsp;form.append('file', fileInput.files[0]);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;xhr.send(form);</li>
+<li> };</li>
+<li> &lt;/script&gt;</li>
+<li> &lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div><br>
 
 The only difference between these two worked-examples is the `onprogress` listener which updates the progress bar's `value` and `max` attributes.
