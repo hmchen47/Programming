@@ -125,6 +125,70 @@ JavaScript:
 
 
 
+### 4.5.3Shadow DOM (9-13)
+
+9. Really hidden?
+
+  Only a few current browsers, e.g. Google or Chrome, offer native support for the shadow DOM API. Is it possible to use the devtools to inspect the HTML source of a Web component even if it's located in the shadow DOM? (Yes/No)
+
+  Ans: <br>
+  Explanation: 
+
+
+<hr>
+
+__Source code for the next three questions (10, 11, and 12)__
+
+<div class="source-code"><ol class="linenums">
+<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;p&gt;Please&nbsp;show me!</span><span class="tag">&lt;/p&gt;</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;script&gt;</span></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;b&nbsp;</span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'p'</span><span class="pun">);</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;c&nbsp;</span><span class="pun">=</span><span class="pln"> b</span><span class="pun">.</span><span class="pun"><span color="#000000" style="color: #000000;">attachShadow({mode: 'open'});</span>;</span></li>
+<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;c</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> </span><span class="str">'I am a nice paragraph!'</span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
+</ol></div>
+
+10. Who am I?
+
+  The paragraph b is called a "shadow __XXXX__". What is the correct term (instead of __XXXX__)?
+
+  Ans: <br>
+  Explanation: 
+
+
+11. What is my name?
+
+  The variable c is called a "shadow __YYYY__". What is the correct term (instead of __YYYY__)?
+
+  Ans: <br>
+  Explanation: 
+
+
+12. Please show me!
+
+  What is going to be rendered on the page?
+
+  a. "I am a nice paragraph!"<br>
+  a. "Please show me!"<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+13. The shadow of robots?
+
+What relationship exists between Isaac Asimov and the Shadow DOM?
+
+  a. Isaac Asimov wrote "The Three Laws of Robotics", and the shadow DOM is also governed by three rules.<br>
+  a. Isaac Asimov was born in a small Russian house called DOMA.<br>
+  a. No relationship.<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+
+
 
 ### 4.5.4 Shadow DOM encapsulation (14-17)
 
