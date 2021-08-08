@@ -75,8 +75,8 @@
   a. to be rendered, the content of a template needs to be cloned within JavaScript, and the cloned version inserted into the DOM of a document.<br>
   b. the same as any other unit of HTML code. When a page includes a template, it's rendered amongst the rest of the HTML code.<br>
   
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: Template code is inert: it cannot be rendered! If you practice object-oriented programming: it's similar to a "sort of class" that needs to be instantiated before use. The instantiation process consists of cloning the template's content and adding that to the DOM of a document.
 
 
 <hr>
@@ -110,18 +110,20 @@ JavaScript:
 
 7. Give me content!
 
-  How would you complete the source code above to access the content of the template? Enter exactly what you would put instead of the XXX placeholders!
+  How would you complete the source code above to access the content of the template? Enter exactly what you would put instead of the __XXX__ placeholders!
   
-  Ans: <br>
-  Explanation: 
+  Ans: `t.content`<br>
+  Explanation: In the above example, the right answer is `t.content`
 
 
 8. Clone me!
 
-  How would you clone the content of the template? Enter exactly what you would enter instead of the YYY placeholder!
+  How would you clone the content of the template? Enter exactly what you would enter instead of the __YYY__ placeholder!
   
-  Ans: <br>
-  Explanation: 
+  Ans: `importNode`<br>
+  Explanation: In the above example, the right answer is `importNode`
+
+
 
 
 ### 4.5.4 Shadow DOM encapsulation (14-17)
