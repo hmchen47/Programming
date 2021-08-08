@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    span {
+      color:green;
+    }
+  </style>
+  <script src="js/04e-example01.js"></script>
+</head>
+<template id="mytemplate">
+  <style>
+    h1 {
+      color:red;
+    }
+    span {
+      background-color:lightblue;
+    }
+  </style>
+  <h1>Magnificient title</h1>
+  <span>And I'm a span in the shadow DOM</span>
+  <p>
+  <slot name="my-text">My default text</slot>
+</template>
+<body>
+  <h1>Hello my friends</h1>
+  <p id="myWidget">
+    <span slot="my-text">Injected content</span>
+  </p>
+  <p>This is not in the previous paragraph...</p>
+</body>
+</html>
+
+
