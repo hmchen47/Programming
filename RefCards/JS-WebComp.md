@@ -164,6 +164,37 @@
 + Example: [custom elements](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-427-html-custom-elements)
 
 
+## HTML Imports
+
++ [Replacement of HTML imports](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-428-html-imports)
+  + dropped since 2020 and no clear replacement
+  + implemented only by Google Chrome but obsoleted since Chrome 73
+  + many web sites still using them, including YouTube
+  + possible replacement solutions:
+    + a polyfill for HTML imports (RECOMMENDED)
+      + including polyfill into the code $\to$ working out of the box on recent browser
+      + using it on applications
+      + working 100% w/ cascading imports, imports created dynamically, etc.
+    + integrating polyfill in the "Web Component polyfill" (RECOMMENDED)
+      + emulating other Web Components features
+      + the "global" polyfill made to make apps using Web Components cross-browser compatible
+      + old Web Components code using the version 0 of the APIs $\to$ using its v0 branch and old code working on modern browsers
+    + bundling the code of Web Components into a single JS file (WORKING BUT EXTRA WORK REQUIRED)
+      + using bundler, like [webpack](https://webpack.js.org/) or [parcel](https://parceljs.org/)
+      + besides, using JS modules, `<script type="module" src=...>`
+      + a.k.a. Polymer 3 Web Component framework
+    + HTML modules: under discussion since 2017
+
++ [HTML imports](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-428-html-imports)
+  + simplest API from Web Components
+  + syntax: `<link rel="import" href="your_html_file">`
+  + importing all the html/css/js code to define a Web component
+    + similar to including CSS in the page
+    + package components into an HTML page and import it
+
++ Example: [html imports](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-428-html-imports)
+
+
 
 
 
