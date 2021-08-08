@@ -663,7 +663,7 @@ In which the "regular" CSS rule changed the color of the H1 located in the body 
     + create a root node under H1 title: `var host = document.querySelector("#withShadowDom"); const shadowRoot = host.attachShadow({mode: 'open'});`
     + insert sth into the shadow DOM, going to be rendered: `shadowRoot.appendChild(document.importNode(t.content, true));`
 
-+ Example: differentiating the template and noremal elements
++ Example: differentiating the template and normal elements
   + [HTTP template](#h1Template)
   + HTML snippet:
     + main body: `<body>...</body>`
@@ -998,7 +998,7 @@ You could create a `my-widget.html` file, add the HTML template and the JavaScri
     + `myComponents.html` probably containing
       + HTML+JS+CSS code defining templates
       + attachment to a shadow host, CSS
-      + registeration of new custom HTML elements
+      + registration of new custom HTML elements
   + HTML head part: `<link rel="import" href="components/myComponents.html">`
   + HTML body part: 
     + add widget: `<my-widget>...</my-widget>`
