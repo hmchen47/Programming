@@ -98,10 +98,10 @@ JavaScript:
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> instanciate</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#mytemplate'</span><span class="pun">);</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<span style="color: #ff0000;"><strong>XXX</strong></span></span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#myImage'</span><span class="pun">).</span><span class="pln">src </span><span class="pun">=</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<span style="color: #ff0000;"><strong style="color: #AA0000;">XXX</strong></span></span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#myImage'</span><span class="pun">).</span><span class="pln">src </span><span class="pun">=</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'http://webcomponents.github.io/img/logo.svg'</span><span class="pun">;</span></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> clone </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.<span style="color: #0000ff;"><strong>YYY</strong></span></span><span class="pun">(<span style="color: #ff0000;"><strong>XXX</strong></span></span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
+<li class="L6" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> clone </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.<span style="color: #0000ff;"><strong style="color: #AA0000;">YYY</strong></span></span><span class="pun">(<span style="color: #ff0000;"><strong style="color: #AA0000;">XXX</strong></span></span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
 <li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// add it to the body of the HTML document</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">clone</span><span class="pun">);</span><span class="pln"> </span></li>
@@ -152,7 +152,7 @@ __Source code for the next three questions (10, 11, and 12)__
 
   The paragraph b is called a "shadow __XXXX__". What is the correct term (instead of __XXXX__)?
 
-  Ans: <font style="color: red">host<font>, xroot<br>
+  Ans: <font style="color: red">host</font>, xroot<br>
   Explanation: The paragraph b is called a _shadow host_
 
 
@@ -316,9 +316,9 @@ __Additional code for the next question (17)__
 <div class="source-code"><ol class="linenums">
 <li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;template</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"mytemplate"</span><span class="tag">&gt;</span></li>
 <li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="tag">&nbsp; &lt;style&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; <strong>:</strong></span><strong><span class="pln">host</span><span class="pun">(:</span><span class="pln">hover</span><span class="pun">){</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">pink</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; <strong style="color: #AA0000;">:</strong></span><strong style="color: #AA0000;"><span class="pln">host</span><span class="pun">(:</span><span class="pln">hover</span><span class="pun">){</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><strong style="color: #AA0000;"><span class="pln">&nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">pink</span><span class="pun">;</span></strong></li>
+<li class="L4" style="margin-bottom: 0px;"><strong style="color: #AA0000;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></strong></li>
 <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; h1 </span><span class="pun">{</span></li>
 <li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; color</span><span class="pun">:</span><span class="pln">red</span><span class="pun">;</span></li>
 <li class="L7" style="margin-bottom: 0px;"><span class="pln"></span><span class="pun">&nbsp; &nbsp; }</span></li>
@@ -332,7 +332,7 @@ __Additional code for the next question (17)__
 
 17. Pink fairies ...
 
-  From the addional code above, a CSS rule in the template code changes the background color to pink whenever the mouse cursor hovers over selected elements...
+  From the additional code above, a CSS rule in the template code changes the background color to pink whenever the mouse cursor hovers over selected elements...
 
   What will this do when we roll the mouse over `<p id='myWidget'>`?
 
@@ -395,13 +395,13 @@ __Source code for the next 4 questions (21, 22, 23 and 24)__
 <li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">&lt;</span><span class="pln">script type</span><span class="pun">=</span><span class="str">"text/javascript"</span><span class="pun">&gt;</span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">window</span><span class="pun">.</span><span class="typ">DeviceOrientationEvent</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"DeviceOrientation is supported"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(<span style="color: #ff0000;"><strong><span color="#008800" style="color: #008800;">XXX</span></strong></span></span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">eventData</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(<span style="color: #ff0000;"><strong style="color: #AA0000;"><span style="color: #008800;">XXX</span></strong></span></span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">eventData</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// front/back inclination</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> FB </span><span class="pun">=</span><span class="pln"> eventData</span><span class="pun">.<strong>ZZZ</strong></span><span class="pun">;</span></li>
+<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> FB </span><span class="pun">=</span><span class="pln"> eventData</span><span class="pun">.<strong style="color: #AA0000;">ZZZ</strong></span><span class="pun">;</span></li>
 <li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// orientation</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> DIR </span><span class="pun">=</span><span class="pln"> eventData</span><span class="pun">.<strong>TTT</strong></span><span class="pun">;</span></li>
+<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> DIR </span><span class="pun">=</span><span class="pln"> eventData</span><span class="pun">.<strong style="color: #AA0000;">TTT</strong></span><span class="pun">;</span></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// left/right inclination</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> LR </span><span class="pun">=</span><span class="pln"> eventData</span><span class="pun">.<strong>YYY</strong></span><span class="pun">;</span></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> LR </span><span class="pun">=</span><span class="pln"> eventData</span><span class="pun">.<strong style="color: #AA0000;">YYY</strong></span><span class="pun">;</span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// display values on screen</span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;deviceOrientationHandler</span><span class="pun">(</span><span class="pln"><span class="pln">FB</span><span class="pun">,</span><span class="pln"> DIR,&nbsp;</span>LR</span><span class="pun">);</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
@@ -422,8 +422,8 @@ __Source code for the next 4 questions (21, 22, 23 and 24)__
 
   What is the name of the event we must to listen for? What would you enter instead of the XXX placeholder in the above code?
 
-  Ans: <br>
-  Explanation: 
+  Ans: `deviceotientation`<br>
+  Explanation: The correct name is `deviceorientation`
 
 
 22. Sometimes I feel like a....
@@ -432,8 +432,8 @@ __Source code for the next 4 questions (21, 22, 23 and 24)__
 
   What is the name of the property for the front/back angle? What would you put instead of the ZZZ placeholder in the above code?
 
-  Ans: <br>
-  Explanation: 
+  Ans: `beta`<br>
+  Explanation: The correct name is `beta`.
 
 
 23. Left or right?
@@ -442,8 +442,8 @@ __Source code for the next 4 questions (21, 22, 23 and 24)__
 
   What is the name of the property for the left/right angle? What would you put instead of the YYY placeholder in the above code?
 
-  Ans: <br>
-  Explanation: 
+  Ans: `gamma`<br>
+  Explanation: The correct name is `gamma`.
 
 
 24. Give me the orientation!
@@ -452,8 +452,8 @@ __Source code for the next 4 questions (21, 22, 23 and 24)__
 
   What is the name of the property for the horizontal orientation angle? What would you put instead of the TTT placeholder in the above code?
 
-  Ans: <br>
-  Explanation: 
+  Ans:`alpha`<br>
+  Explanation: The correct name is `alpha`.
 
 
 25. Degrees or radians?
@@ -463,18 +463,19 @@ __Source code for the next 4 questions (21, 22, 23 and 24)__
   a. Degrees<br>
   b. Radians<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: The returned angles are the diffence between normal and current orientation, in degrees.
 
 
 26. Motion or orientation, make a choice!
 
-What is the difference between the Device Motion API and the Orientation API?
+  What is the difference between the Device Motion API and the Orientation API?
 
   a. The Orientation API is the only one that can tell if the device is oriented to the sky.<br>
   b. The DeviceMotion API deals with accelerations as well as orientations.<br>
   c. One works only when the device is stable, the other one when it's in motion.<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: The deviceMotion API deals with accelerations as well as orientations. It can also be used to tell if the device is oriented to the sky.
+
 
