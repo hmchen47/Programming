@@ -66,7 +66,7 @@
   Explanation: Lit-HTML (by Google) and X-Tags (by Mozilla) are frameworks built on Web components.
 
 
-### 4.5.2 Shadow DOM encapsulation (14-17)
+### 4.5.4 Shadow DOM encapsulation (14-17)
 
 14. The red and the black
 
@@ -225,14 +225,14 @@ __Additional code for the next question (17)__
     + [Local Demo](src/04e-example02.html)
 
 
-### 4.5.3 Custom elements and importing WebComponents (18-20)
+### 4.5.5 Custom elements and importing WebComponents (18-20)
 
 18. Give me a name!
 
   Do custom elements extend other HTML elements (or more precisely, extend the generic element type called HTMLElement)? (Yes/No)
 
-  Ans: <br>
-  Explanation: 
+  Ans: Yes<br>
+  Explanation: In JavaScript, to create element A that extends element B, element A must inherit the prototype of element B. By default, custom elements inherit from `HTMLElement`. But you can also inherit from pre-existing elements, for example from `HTMLButton`.
 
 
 19. Custom elements
@@ -243,8 +243,8 @@ __Additional code for the next question (17)__
   b. A JavaScript class<br>
   c. A template<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: The second parameter is a JavaScript class object that defines the behavior of the element.
 
 
 20. Are HTML imports obsolete?
@@ -254,8 +254,10 @@ __Additional code for the next question (17)__
   a. Using JavaScript module import (typically `<script type="module" src="./mycomponent/index.js"></script>`)<br>
   b. Using HTML imports (typically `<link rel="import" href="myComponent/index.html">`)<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: <font style="color: red;">a</font>, xb<br>
+  Explanation: HTML imports was intended to be the packaging mechanism for Web components. Now, the preferred way is to use JavaScript modules.
+
+
 
 
 
