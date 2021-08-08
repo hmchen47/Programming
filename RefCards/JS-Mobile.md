@@ -88,7 +88,7 @@
 
 
 
-## Th Orientation API
+## The Orientation API
 
 + [HTML5 orientation API overview](../WebDev/Frontend-W3C/3-HTML5AppGame/04d-Components.md#441-the-orientation-api)
   + a way to use angle measures provided by accelerometers form mobile devices or desktops such as MacBook
