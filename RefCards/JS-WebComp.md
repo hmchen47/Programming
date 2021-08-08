@@ -195,6 +195,18 @@
 + Example: [html imports](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-428-html-imports)
 
 
+## Web Components as JS Modules
+
++ [JavaScrip modules as Web components](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-429-web-components-as-javascript-modules)
+  + HTML Imports APIs removed from standard
+  + solution: embedding in the JavaScript part of the components
+    + the HTML template part of the components
+    + the CSS part for the styling of the component
+  + able to include the JavaScript as a regular JavaScript file, using 
+    + `<script src="yourComponent.js"></script>`
+    + the new EcmaScript import statement and import the file as a JS Module
+
++ Example: [the host html page importing and instantiating the Web Components](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-429-web-components-as-javascript-modules)
 
 
 
