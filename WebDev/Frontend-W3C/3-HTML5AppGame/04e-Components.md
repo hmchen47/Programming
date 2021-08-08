@@ -225,6 +225,39 @@ __Additional code for the next question (17)__
     + [Local Demo](src/04e-example02.html)
 
 
+### 4.5.3 Custom elements and importing WebComponents (18-20)
+
+18. Give me a name!
+
+  Do custom elements extend other HTML elements (or more precisely, extend the generic element type called HTMLElement)? (Yes/No)
+
+  Ans: <br>
+  Explanation: 
+
+
+19. Custom elements
+
+  In this code : `customElements.define('my-widget', MyWidget);`, what is the second parameter?
+
+  a. The host element<br>
+  b. A JavaScript class<br>
+  c. A template<br>
+
+  Ans: <br>
+  Explanation: 
+
+
+20. Are HTML imports obsolete?
+
+  How do you import Web Components into a Web page or a Web application?
+
+  a. Using JavaScript module import (typically `<script type="module" src="./mycomponent/index.js"></script>`)<br>
+  b. Using HTML imports (typically `<link rel="import" href="myComponent/index.html">`)<br>
+
+  Ans: <br>
+  Explanation: 
+
+
 
 
 
