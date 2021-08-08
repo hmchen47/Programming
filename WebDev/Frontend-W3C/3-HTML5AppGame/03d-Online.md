@@ -21,25 +21,25 @@ This `files` object is the same one we saw in the chapter about the File API in 
 
 In this source code extract we have a `drop` handler that works on files which have been dragged and dropped from the desktop to a drop zone associated with this handler with an `ondrop=dropHandler(event);` attribute:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> dropHandler</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Do not propagate the event</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">stopPropagation</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Prevent default behavior, in particular when we drop images or links</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="com">// get the dropped files from the clipboard</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="kwd">var</span><span class="pln"> files </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">files</span><span class="pun">;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> filenames </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// do something with the files...here we iterate on them and log the filenames</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> files.length&nbsp;</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;filenames </span><span class="pun">+=</span><span class="pln"> </span><span class="str">'\n'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> files</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">name</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">files</span><span class="pun">.</span><span class="pln">length </span><span class="pun">+</span><span class="pln"> </span><span class="str">' file(s) have been dropped:\n'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> filenames</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
+<div><ol>
+<li value="1">function dropHandler(event) { </li>
+<li>&nbsp; &nbsp;// Do not propagate the event</li>
+<li>&nbsp; &nbsp;event.stopPropagation();</li>
+<li>&nbsp; &nbsp;// Prevent default behavior, in particular when we drop images or links</li>
+<li>&nbsp; &nbsp;event.preventDefault(); </li>
+<li> </li>
+<li>&nbsp; &nbsp;<strong style="color: red;">// get the dropped files from the clipboard</strong></li>
+<li>&nbsp; &nbsp;<strong style="color: red;">var files = event.dataTransfer.files;</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp;var filenames = "";</li>
+<li> </li>
+<li>&nbsp; &nbsp;// do something with the files...here we iterate on them and log the filenames</li>
+<li>&nbsp; &nbsp;for(var i = 0 ; i &lt; files.length&nbsp;; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;filenames += '\n' + files[i].name; </li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;console.log(files.length + ' file(s) have been dropped:\n' + filenames);</li>
+<li>} </li>
 </ol></div>
 
 + _Lines 7-8_ we get the files that have been dropped.
@@ -55,35 +55,35 @@ If we drop an image into an HTML page, the browser will open a new tab and displ
 
 At the beginning of the `drop` handler in the previous piece of code, you can see the lines of code (_lines 2-5_) that stop the propagation of the drop event and prevent the default behavior of the browser. Normally when we drop an image or an HTTP link onto a web page, the browser will display the image or the web page pointed by the link, in a new tab/window. This is not what we would like in an application using the drag and drop process. These two lines are necessary to prevent the default behavior of the browser:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Do not propagate the event</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">event</span><span class="pun">.</span><span class="pln">stopPropagation</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com">// Prevent default behavior, in particular when we drop images or links</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span><span class="pln"> </span></li>
+<div><ol>
+<li value="1">// Do not propagate the event</li>
+<li>event.stopPropagation();</li>
+<li>// Prevent default behavior, in particular when we drop images or links</li>
+<li>event.preventDefault(); </li>
 </ol></div>
 
 <p style="margin: 10px; padding: 10px;"><strong style="color: red;">Best practice</strong>: add these lines to the <code>drop</code>handler AND to&nbsp;the <code>dragOver</code> handler attached to the drop zone!</p>
 
 ... like in this example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> dragOverHandler</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Do not propagate the event</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">stopPropagation</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Prevent default behavior, in particular when we drop images or links</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">...</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> dropHandler</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Do not propagate the event</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">stopPropagation</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Prevent default behavior, in particular when we drop images or links</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">...</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function dragOverHandler(event) {</li>
+<li>&nbsp; &nbsp;// Do not propagate the event</li>
+<li>&nbsp; &nbsp;event.stopPropagation();</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Prevent default behavior, in particular when we drop images or links</li>
+<li>&nbsp; &nbsp;event.preventDefault(); </li>
+<li>&nbsp; &nbsp;...</li>
+<li>}</li>
+<li> </li>
+<li>function dropHandler(event) {</li>
+<li>&nbsp; &nbsp;// Do not propagate the event</li>
+<li>&nbsp; &nbsp;event.stopPropagation();</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Prevent default behavior, in particular when we drop images or links</li>
+<li>&nbsp; &nbsp;event.preventDefault(); </li>
+<li>&nbsp; &nbsp;...</li>
+<li>}</li>
 </ol></div>
 
 __External resources__
@@ -165,95 +165,95 @@ Try the example below directly in your browser (just drag and drop files to the 
 
 Complete source code from the example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;style&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; div </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150px</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">350px</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">float</span><span class="pun">:</span><span class="pln"> left</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid </span><span class="com">#666666; </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> </span><span class="com">#ccc;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;margin</span><span class="pun">-</span><span class="pln">right</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5px</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box</span><span class="pun">-</span><span class="pln">shadow</span><span class="pun">:</span><span class="pln"> inset </span><span class="lit">0</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">3px</span><span class="pln"> </span><span class="com">#000;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> center</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cursor</span><span class="pun">:</span><span class="pln"> move</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">dragged </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> dashed </span><span class="com">#000;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> green</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">draggedOver </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> dashed </span><span class="com">#000;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> green</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;/style&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;script&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="kwd">function</span><span class="pln"> dragLeaveHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"drag leave"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Set style of drop zone to default</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="str">'draggedOver'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> dragEnterHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Drag enter"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Show some visual feedback</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="str">'draggedOver'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> dragOverHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">//console.log("Drag over a droppable zone");</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Do not propagate the event</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">stopPropagation</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Prevent default behavior, in particular when we drop images or links</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> dropHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'drop event'</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Do not propagate the event</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">stopPropagation</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Prevent default behavior, in particular when we drop images or links</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// reset the visual look of the drop zone to default</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="str">'draggedOver'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// get the files from the clipboard</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> files </span><span class="pun">=</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">files</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> filesLen </span><span class="pun">=</span><span class="pln"> files</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> filenames </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// iterate on the files, get details using the file API</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Display file names in a list.</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> filesLen </span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; filenames </span><span class="pun">+=</span><span class="pln"> </span><span class="str">'\n'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> files</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">name</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Create a li, set its value to a file name, add it to the ol</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> li </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'li'</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> files</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">name</span><span class="pun">;</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#droppedFiles"</span><span class="pun">).</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">li</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">files</span><span class="pun">.</span><span class="pln">length </span><span class="pun">+</span><span class="pln"> </span><span class="str">' file(s) have been dropped:\n'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> filenames</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pln">&nbsp;</span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;h2&gt;</span><span class="pln">Drop your files here!</span><span class="tag">&lt;/h2&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"droppableZone"</span><span class="pln"> </span><span class="atn">ondragenter</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragEnterHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">ondrop</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dropHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="pln">&nbsp; &nbsp; &nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ondragover</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragOverHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="pln">&nbsp; &nbsp;</span><span class="atn">ondragleave</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragLeaveHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;Drop zone</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;ol</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"droppedFiles"</span><span class="tag">&gt;&lt;/ol&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;/div&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li> &lt;head&gt;</li>
+<li>&nbsp; &nbsp;&lt;style&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; div {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;height: 150px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;width: 350px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;float: left;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border: 2px solid #666666; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color: #ccc;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;margin-right: 5px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border-radius: 10px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;box-shadow: inset 0 0 3px #000;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;text-align: center;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cursor: move;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;.dragged {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border: 2px dashed #000;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color: green;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;.draggedOver {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;border: 2px dashed #000;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;background-color: green;</li>
+<li>&nbsp; &nbsp; &nbsp; }</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;/style&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;script&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; function dragLeaveHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log("drag leave");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Set style of drop zone to default</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.target.classList.remove('draggedOver'); </li>
+<li>&nbsp; &nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;function dragEnterHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log("Drag enter");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Show some visual feedback</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.target.classList.add('draggedOver'); </li>
+<li>&nbsp; &nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;function dragOverHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;//console.log("Drag over a droppable zone");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Do not propagate the event</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.stopPropagation();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Prevent default behavior, in particular when we drop images or links</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.preventDefault(); </li>
+<li>&nbsp; &nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;function dropHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log('drop event');</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Do not propagate the event</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.stopPropagation();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Prevent default behavior, in particular when we drop images or links</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.preventDefault(); </li>
+<li> </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// reset the visual look of the drop zone to default</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.target.classList.remove('draggedOver'); </li>
+<li> </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// get the files from the clipboard</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var files = event.dataTransfer.files;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var filesLen = files.length; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var filenames = "";</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// iterate on the files, get details using the file API</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Display file names in a list.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;for(var i = 0 ; i &lt; filesLen ; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; filenames += '\n' + files[i].name; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Create a li, set its value to a file name, add it to the ol</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var li = document.createElement('li');</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li.textContent = files[i].name; document.querySelector("#droppedFiles").appendChild(li);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log(files.length + ' file(s) have been dropped:\n' + filenames);</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;&lt;/script&gt;</li>
+<li> &lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&nbsp;&nbsp;&lt;h2&gt;Drop your files here!&lt;/h2&gt;</li>
+<li>&nbsp;&nbsp;&lt;div id="droppableZone" ondragenter="dragEnterHandler(event)" ondrop="dropHandler(event)"&nbsp; &nbsp; &nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ondragover="dragOverHandler(event)"&nbsp; &nbsp;ondragleave="dragLeaveHandler(event)"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;Drop zone</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;ol id="droppedFiles"&gt;&lt;/ol&gt;</li>
+<li>&nbsp; &lt;/div&gt;</li>
+<li> &lt;body&gt;</li>
+<li> &lt;html&gt;</li>
 </ol></div>
 
 Note that:
@@ -310,34 +310,34 @@ Click the "Choose files" button (an `<input type="file">` element), select one o
 
 Source code extract (the part that reads the image file content and displays the thumbnails):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> readFilesAndDisplayPreview</span><span class="pun">(</span><span class="pln">files</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Loop through the FileList and render image files </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// as thumbnails.</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> f</span><span class="pun">;</span><span class="pln"> f </span><span class="pun">=</span><span class="pln"> files</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Only process image files.</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">f</span><span class="pun">.</span><span class="pln">type</span><span class="pun">.</span><span class="pln">match</span><span class="pun">(</span><span class="str">'image.*'</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">continue</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> reader </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FileReader</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">//capture the file information.</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;reader</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Render thumbnail.</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> span </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'span'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;span</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;img class='thumb' src='"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;e</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result </span><span class="pun">+</span><span class="pln"> </span><span class="str">"'/&gt;"</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'list'</span><span class="pun">).</span><span class="pln">insertBefore</span><span class="pun">(</span><span class="pln">span</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">};</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Read the image file as a data URL. Will trigger </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp;// a call to the onload callback above</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp;// only once the image is completely loaded</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;reader</span><span class="pun">.</span><span class="pln">readAsDataURL</span><span class="pun">(</span><span class="pln">f</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function readFilesAndDisplayPreview(files) {</li>
+<li>&nbsp; &nbsp;// Loop through the FileList and render image files </li>
+<li>&nbsp; &nbsp;// as thumbnails.</li>
+<li>&nbsp; &nbsp;for (var i = 0, f; f = files[i]; i++) {</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;// Only process image files.</li>
+<li>&nbsp; &nbsp; &nbsp;if (!f.type.match('image.*')) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;continue;</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;var reader = new FileReader();</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;//capture the file information.</li>
+<li>&nbsp; &nbsp; &nbsp;reader.onload = function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Render thumbnail.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var span = document.createElement('span');</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;span.innerHTML = "&lt;img class='thumb' src='" + </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;e.target.result + "'/&gt;";</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document.getElementById('list').insertBefore(span, null);</li>
+<li>&nbsp; &nbsp; &nbsp;}; </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;// Read the image file as a data URL. Will trigger </li>
+<li>&nbsp; &nbsp; &nbsp;// a call to the onload callback above</li>
+<li>&nbsp; &nbsp; &nbsp;// only once the image is completely loaded</li>
+<li>&nbsp; &nbsp; &nbsp;reader.readAsDataURL(f);</li>
+<li>&nbsp; &nbsp;}</li>
+<li> }</li>
 </ol></div>
 
 At _line7_, there is a test that will avoid processing non image files. The "!" is the NOT operator in JavaScript. The call to continue at line 8 will make the for loop go to its end and process the next file. See the HTML5 part 1 course about the file API for more details (each file has a `name`, `type`, `lastModificationDate` and `size` attribute. The call to `match(...)` here is a standard way in JavaScript to match a string value with a regular expression).
@@ -367,123 +367,123 @@ Try it below in your browser (drag'n'drop image files into the drop zone) or pla
 
 Complete source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html lang="en"&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;style&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;div </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150px</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">350px</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid </span><span class="com">#666666; </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> </span><span class="com">#ccc;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin</span><span class="pun">-</span><span class="pln">right</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5px</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; box</span><span class="pun">-</span><span class="pln">shadow</span><span class="pun">:</span><span class="pln"> inset </span><span class="lit">0</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">3px</span><span class="pln"> </span><span class="com">#000;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> center</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cursor</span><span class="pun">:</span><span class="pln"> move</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">.</span><span class="pln">dragged </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> dashed </span><span class="com">#000;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> green</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">.</span><span class="pln">draggedOver </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> dashed </span><span class="com">#000;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> green</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;/style&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;script&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> dragLeaveHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"drag leave"</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Set style of drop zone to default</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="str">'draggedOver'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> dragEnterHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Drag enter"</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Show some visual feedback</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="str">'draggedOver'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> dragOverHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">//console.log("Drag over a droppable zone");</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Do not propagate the event</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">stopPropagation</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Prevent default behavior, in particular when we drop images or links</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> dropHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'drop event'</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Do not propagate the event</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">stopPropagation</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Prevent default behavior, in particular when we drop images or links</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// reset the visual look of the drop zone to default</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="str">'draggedOver'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// get the files from the clipboard</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> files </span><span class="pun">=</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">files</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> filesLen </span><span class="pun">=</span><span class="pln"> files</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> filenames </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// iterate on the files, get details using the file API</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Display file names in a list.</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> filesLen </span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;filenames </span><span class="pun">+=</span><span class="pln"> </span><span class="str">'\n'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> files</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">name</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Create a li, set its value to a file name, add it to the ol</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> li </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'li'</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;li</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> files</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">name</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#droppedFiles"</span><span class="pun">).</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">li</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">files</span><span class="pun">.</span><span class="pln">length </span><span class="pun">+</span><span class="pln"> </span><span class="str">' file(s) have been dropped:\n'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> filenames</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; readFilesAndDisplayPreview</span><span class="pun">(</span><span class="pln">files</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> readFilesAndDisplayPreview</span><span class="pun">(</span><span class="pln">files</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Loop through the FileList and render image files as thumbnails.</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> f</span><span class="pun">;</span><span class="pln"> f </span><span class="pun">=</span><span class="pln"> files</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Only process image files.</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">f</span><span class="pun">.</span><span class="pln">type</span><span class="pun">.</span><span class="pln">match</span><span class="pun">(</span><span class="str">'image.*'</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">continue</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> reader </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FileReader</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">//capture the file information.</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; reader</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Render thumbnail.</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> span </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'span'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;span</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;img class='thumb' width='100' src='"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result </span><span class="pun">+</span><span class="pln"> </span><span class="str">"'/&gt;"</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'list'</span><span class="pun">).</span><span class="pln">insertBefore</span><span class="pun">(</span><span class="pln">span</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Read the image file as a data URL. Will trigger the call to the above callback when</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // the image file is completely loaded </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; reader</span><span class="pun">.</span><span class="pln">readAsDataURL</span><span class="pun">(</span><span class="pln">f</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h2&gt;</span><span class="pln">Drop your files here!</span><span class="tag">&lt;/h2&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"droppableZone"</span><span class="pln"> </span><span class="atn">ondragenter</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragEnterHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">ondrop</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dropHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ondragover</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragOverHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="pln">&nbsp; &nbsp;</span><span class="atn">ondragleave</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragLeaveHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; Drop zone</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;ol</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"droppedFiles"</span><span class="tag">&gt;&lt;/ol&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/div&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;br/&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"list"</span><span class="tag">&gt;&lt;/output&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li> &lt;head&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;style&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;div {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 150px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 350px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border: 2px solid #666666; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: #ccc;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin-right: 5px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border-radius: 10px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; box-shadow: inset 0 0 3px #000;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; text-align: center;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cursor: move;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;.dragged {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border: 2px dashed #000;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: green;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;.draggedOver {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border: 2px dashed #000;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: green;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&lt;/style&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;script&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;function dragLeaveHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log("drag leave");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Set style of drop zone to default</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.target.classList.remove('draggedOver'); </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;function dragEnterHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log("Drag enter");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Show some visual feedback</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.target.classList.add('draggedOver'); </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;function dragOverHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;//console.log("Drag over a droppable zone");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Do not propagate the event</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.stopPropagation();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Prevent default behavior, in particular when we drop images or links</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.preventDefault(); </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;function dropHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log('drop event');</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Do not propagate the event</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.stopPropagation();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Prevent default behavior, in particular when we drop images or links</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.preventDefault(); </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// reset the visual look of the drop zone to default</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.target.classList.remove('draggedOver'); </li>
+<li> </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// get the files from the clipboard</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var files = event.dataTransfer.files;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var filesLen = files.length; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var filenames = "";</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// iterate on the files, get details using the file API</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Display file names in a list.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;for(var i = 0 ; i &lt; filesLen ; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;filenames += '\n' + files[i].name; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Create a li, set its value to a file name, add it to the ol</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var li = document.createElement('li');</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;li.textContent = files[i].name; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document.querySelector("#droppedFiles").appendChild(li);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log(files.length + ' file(s) have been dropped:\n' + filenames);</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; readFilesAndDisplayPreview(files);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;} </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;function readFilesAndDisplayPreview(files) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Loop through the FileList and render image files as thumbnails.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;for (var i = 0, f; f = files[i]; i++) {</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Only process image files.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;if (!f.type.match('image.*')) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;continue;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var reader = new FileReader();</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;//capture the file information.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; reader.onload = function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Render thumbnail.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var span = document.createElement('span');</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;span.innerHTML = "&lt;img class='thumb' width='100' src='" + e.target.result + "'/&gt;";</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document.getElementById('list').insertBefore(span, null);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;};</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Read the image file as a data URL. Will trigger the call to the above callback when</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // the image file is completely loaded </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; reader.readAsDataURL(f);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp;&nbsp;} </li>
+<li>&nbsp;&nbsp;&lt;/script&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li> &lt;h2&gt;Drop your files here!&lt;/h2&gt;</li>
+<li> &lt;div id="droppableZone" ondragenter="dragEnterHandler(event)" ondrop="dropHandler(event)" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ondragover="dragOverHandler(event)"&nbsp; &nbsp;ondragleave="dragLeaveHandler(event)"&gt;</li>
+<li>&nbsp; &nbsp; Drop zone</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;ol id="droppedFiles"&gt;&lt;/ol&gt;</li>
+<li> &lt;/div&gt;</li>
+<li> &lt;br/&gt;</li>
+<li> &lt;output id="list"&gt;&lt;/output&gt;</li>
+<li> &lt;body&gt;</li>
+<li> &lt;html&gt;</li>
 </ol></div>
 
 Above, we added the `readFilesAndDisplayPreview()` method detailed earlier. We called it at the end of the `drop` handler (_line 77_), and we added the `<output>` element as a container for the `<img>` elements (constructed by the JavaScript code _lines 94-96_) which will display the thumbnails (_line 114_).
@@ -543,20 +543,20 @@ __Idea: reuse the same code for reading image files and displaying thumbnails__
 
 If you look (again) at the [very first example](https://codepen.io/w3devcampus/pen/ZbExbM) that displayed thumbnails, without drag and drop), you will notice that the event handler we used to track the selected files using `<input type="file"/>` looks like this:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;script&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> handleFileSelect</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> files </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">files</span><span class="pun">;</span><span class="pln"> </span><span class="com">// FileList object</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// do something with files... why not call readFilesAndDisplayPreview!</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: red;">readFilesAndDisplayPreview</strong></span><strong style="color: red;"><span class="pun">(</span><span class="pln">files</span><span class="pun">);</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'files'</span><span class="pun">).</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'change'</span><span class="pun">,</span><span class="pln"> handleFileSelect</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/script&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">...</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;Choose multiple files :</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"file"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"files"</span><span class="pln"> </span><span class="atn">multiple</span><span class="pln"> </span><span class="tag">/&gt;&lt;br/&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
+<div><ol>
+<li value="1">&lt;script&gt;</li>
+<li>&nbsp; &nbsp;function handleFileSelect(evt) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var files = evt.target.files; // FileList object</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// do something with files... why not call readFilesAndDisplayPreview!</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: red;">readFilesAndDisplayPreview</strong><strong style="color: red;">(files);</strong></li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;document.getElementById('files').addEventListener('change', handleFileSelect, false);</li>
+<li>&lt;/script&gt;</li>
+<li>...</li>
+<li>&lt;body&gt;</li>
+<li>&nbsp; &nbsp;Choose multiple files :&lt;input type="file" id="files" multiple /&gt;&lt;br/&gt;</li>
+<li>&lt;/body&gt;</li>
 </ol></div>
 
 It calls `readFilesAndDisplayPreview()` at line 5! The same function with the same parameters is also used by [the example](https://codepen.io/w3devcampus/pen/XmWEMQ) that used drag and drop that we discussed on a previous page of this course. 
@@ -574,147 +574,147 @@ Try it in your browser below (use all three functions: firstly using the file se
 
 Complete source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;style&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; div </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150px</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">350px</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> solid </span><span class="com">#666666; </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> </span><span class="com">#ccc;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin</span><span class="pun">-</span><span class="pln">right</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5px</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; box</span><span class="pun">-</span><span class="pln">shadow</span><span class="pun">:</span><span class="pln"> inset </span><span class="lit">0</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">3px</span><span class="pln"> </span><span class="com">#000;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> center</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cursor</span><span class="pun">:</span><span class="pln"> move</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">dragged </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> dashed </span><span class="com">#000;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> green</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">.</span><span class="pln">draggedOver </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pln"> dashed </span><span class="com">#000;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> green</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/style&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> dragLeaveHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"drag leave"</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Set style of drop zone to default</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="str">'draggedOver'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> dragEnterHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Drag enter"</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Show some visual feedback</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="str">'draggedOver'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> dragOverHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">//console.log("Drag over a droppable zone");</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Do not propagate the event</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">stopPropagation</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Prevent default behavior, in particular when we drop </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// images or links</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> dropHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'drop event'</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Do not propagate the event</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">stopPropagation</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Prevent default behavior, in particular when we drop </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// images or links</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// reset the visual look of the drop zone to default</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="str">'draggedOver'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// get the files from the clipboard</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> files </span><span class="pun">=</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">files</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> filesLen </span><span class="pun">=</span><span class="pln"> files</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> filenames </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// iterate on the files, get details using the file API</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Display file names in a list.</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> filesLen </span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; filenames </span><span class="pun">+=</span><span class="pln"> </span><span class="str">'\n'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> files</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">name</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Create a li, set its value to a file name, add it to the ol</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> li </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'li'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> files</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">name</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#droppedFiles"</span><span class="pun">).</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">li</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">files</span><span class="pun">.</span><span class="pln">length </span><span class="pun">+</span><span class="pln"> </span><span class="str">' file(s) have been dropped:\n'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> filenames</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: red;">readFilesAndDisplayPreview</strong></span><strong style="color: red;"><span class="pun">(</span><span class="pln">files</span><span class="pun">);</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> readFilesAndDisplayPreview</span><span class="pun">(</span><span class="pln">files</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Loop through the FileList and render image files as </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// thumbnails.</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> f</span><span class="pun">;</span><span class="pln"> f </span><span class="pun">=</span><span class="pln"> files</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Only process image files.</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">f</span><span class="pun">.</span><span class="pln">type</span><span class="pun">.</span><span class="pln">match</span><span class="pun">(</span><span class="str">'image.*'</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">continue</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> reader </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FileReader</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">//capture the file information.</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; reader</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Render thumbnail.</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> span </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'span'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;span</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;img class='thumb' width='100' src='"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; e</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">result </span><span class="pun">+</span><span class="pln"> </span><span class="str">"'/&gt;"</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'list'</span><span class="pun">).</span><span class="pln">insertBefore</span><span class="pun">(</span><span class="pln">span</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">};</span><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Read the image file as a data URL.</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;reader</span><span class="pun">.</span><span class="pln">readAsDataURL</span><span class="pun">(</span><span class="pln">f</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong style="color: red;"><span class="kwd">function</span><span class="pln"> handleFileSelect</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="kwd">var</span><span class="pln"> files </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">files</span><span class="pun">;</span><span class="pln"> </span><span class="com">// FileList object</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="com">// do something with files... why not call </span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; // readFilesAndDisplayPreview!</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: red;">readFilesAndDisplayPreview</strong></span><strong style="color: red;"><span class="pun">(</span><span class="pln">files</span><span class="pun">);</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h2&gt;</span><span class="pln">Use one of these input fields for selecting files</span><span class="tag">&lt;/h2&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&lt;p&gt;Beware, the directory choser&nbsp; may overload </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">your browser memory if there are too many big images in the </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">directory you choose.</span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"><strong style="color: red;"> Choose multiple files :</strong>&nbsp;</span><strong style="color: red;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"file"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"files"</span><span class="pln"> </span><span class="atn">multiple</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">onchange</span><span class="pun">=</span><span class="atv">"</span><span class="pln">handleFileSelect</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">/&gt;</span></strong><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><strong style="color: red;"><span class="tag">&lt;p&gt;</span><span class="pln">Choose a directory (Chrome only): </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"file"</span><span class="pln"> </span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id</span><span class="pun">=</span><span class="atv">"dir"</span><span class="pln"> </span><span class="atn">webkitdirectory</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onchange</span><span class="pun">=</span><span class="atv">"</span><span class="pln">handleFileSelect</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">/&gt;</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h2&gt;</span><span class="pln">Drop your files here!</span><span class="tag">&lt;/h2&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"droppableZone"</span><span class="pln"> </span><span class="atn">ondragenter</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragEnterHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ondrop</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dropHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ondragover</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragOverHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ondragleave</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragLeaveHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; Drop zone</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;ol</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"droppedFiles"</span><span class="tag">&gt;&lt;/ol&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp;&lt;/div&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;br/&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"list"</span><span class="tag">&gt;&lt;/output&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li> &lt;head&gt;</li>
+<li>&nbsp; &nbsp;&lt;style&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; div {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 150px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 350px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border: 2px solid #666666; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: #ccc;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin-right: 5px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border-radius: 10px;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; box-shadow: inset 0 0 3px #000;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; text-align: center;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cursor: move;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;.dragged {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border: 2px dashed #000;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: green;</li>
+<li>&nbsp; &nbsp; &nbsp; }</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;.draggedOver {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border: 2px dashed #000;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background-color: green;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp;</li>
+<li> &lt;/style&gt;</li>
+<li> &lt;script&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;function dragLeaveHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log("drag leave");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Set style of drop zone to default</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event.target.classList.remove('draggedOver'); </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;function dragEnterHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log("Drag enter");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Show some visual feedback</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event.target.classList.add('draggedOver'); </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;function dragOverHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//console.log("Drag over a droppable zone");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Do not propagate the event</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event.stopPropagation();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Prevent default behavior, in particular when we drop </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// images or links</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event.preventDefault(); </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;function dropHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log('drop event');</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Do not propagate the event</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event.stopPropagation();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Prevent default behavior, in particular when we drop </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// images or links</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event.preventDefault(); </li>
+<li> </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// reset the visual look of the drop zone to default</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event.target.classList.remove('draggedOver'); </li>
+<li> </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// get the files from the clipboard</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var files = event.dataTransfer.files;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var filesLen = files.length; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var filenames = "";</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// iterate on the files, get details using the file API</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Display file names in a list.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for(var i = 0 ; i &lt; filesLen ; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; filenames += '\n' + files[i].name; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Create a li, set its value to a file name, add it to the ol</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var li = document.createElement('li');</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li.textContent = files[i].name;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.querySelector("#droppedFiles").appendChild(li);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log(files.length + ' file(s) have been dropped:\n' + filenames);</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: red;">readFilesAndDisplayPreview</strong><strong style="color: red;">(files);</strong></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;} </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;function readFilesAndDisplayPreview(files) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Loop through the FileList and render image files as </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// thumbnails.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for (var i = 0, f; f = files[i]; i++) {</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Only process image files.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;if (!f.type.match('image.*')) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;continue;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var reader = new FileReader();</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;//capture the file information.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; reader.onload = function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Render thumbnail.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var span = document.createElement('span');</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;span.innerHTML = "&lt;img class='thumb' width='100' src='" + </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; e.target.result + "'/&gt;";</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document.getElementById('list').insertBefore(span, null);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;};&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Read the image file as a data URL.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;reader.readAsDataURL(f);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;">function handleFileSelect(evt) {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong style="color: red;">var files = evt.target.files; // FileList object</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong style="color: red;">// do something with files... why not call </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; // readFilesAndDisplayPreview!</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: red;">readFilesAndDisplayPreview</strong><strong style="color: red;">(files);</strong></li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp;&nbsp;&lt;/script&gt;</li>
+<li> &lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li> &lt;h2&gt;Use one of these input fields for selecting files&lt;/h2&gt;</li>
+<li>&lt;p&gt;Beware, the directory choser&nbsp; may overload </li>
+<li>your browser memory if there are too many big images in the </li>
+<li>directory you choose.&lt;/p&gt;</li>
+<li><strong style="color: red;"> Choose multiple files :</strong>&nbsp;<strong style="color: red;">&lt;input type="file" id="files" multiple</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;onchange="handleFileSelect(event)"/&gt;</strong> </li>
+<li> &lt;/p&gt;</li>
+<li> <strong style="color: red;">&lt;p&gt;Choose a directory (Chrome only): &lt;input type="file" </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id="dir" webkitdirectory</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onchange="handleFileSelect(event)"/&gt;</strong></li>
+<li> &lt;/p&gt;</li>
+<li>&nbsp;</li>
+<li> &lt;h2&gt;Drop your files here!&lt;/h2&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;div id="droppableZone" ondragenter="dragEnterHandler(event)" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ondrop="dropHandler(event)" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ondragover="dragOverHandler(event)" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ondragleave="dragLeaveHandler(event)"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; Drop zone</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&lt;ol id="droppedFiles"&gt;&lt;/ol&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;/div&gt;</li>
+<li> &lt;br/&gt;</li>
+<li> &lt;output id="list"&gt;&lt;/output&gt;</li>
+<li> &lt;body&gt;</li>
+<li> &lt;html&gt;</li>
 </ol></div>
 
 The parts that we have added are in bold. As you can see, all methods share the same code for previewing the images.
@@ -769,104 +769,104 @@ Try [this interactive example at JSBin](https://jsbin.com/conigekoda/edit) (this
 
 Source code extract (we omitted the CSS):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;style&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">...</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;/style&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;script&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> dragLeaveHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"drag leave"</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Set style of drop zone to default</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="str">'draggedOver'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> dragEnterHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Drag enter"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Show some visual feedback</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="str">'draggedOver'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> dragOverHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">//console.log("Drag over a droppable zone");</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Do not propagate the event</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">stopPropagation</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Prevent default behavior, in particular when we drop images </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp;// or links</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> dropHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'drop event'</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Do not propagate the event</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">stopPropagation</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Prevent default behavior, in particular when we drop images </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp;// or links</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// reset the visual look of the drop zone to default</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;event</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="str">'draggedOver'</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// get the files from the clipboard</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> files </span><span class="pun">=</span><span class="pln"> event</span><span class="pun">.</span><span class="pln">dataTransfer</span><span class="pun">.</span><span class="pln">files</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> filesLen </span><span class="pun">=</span><span class="pln"> files</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> filenames </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// iterate on the files, get details using the file API</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Display file names in a list.</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> filesLen </span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; filenames </span><span class="pun">+=</span><span class="pln"> </span><span class="str">'\n'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> files</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">name</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Create a li, set its value to a file name, add it to the ol</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> li </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'li'</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">=</span><span class="pln"> files</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">name</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#droppedFiles"</span><span class="pun">).</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">li</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">files</span><span class="pun">.</span><span class="pln">length </span><span class="pun">+</span><span class="pln"> </span><span class="str">' file(s) have been dropped:\n'</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; +</span><span class="pln">&nbsp;filenames</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;uploadAllFilesUsingAjax</span><span class="pun">(</span><span class="pln">files</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> uploadAllFilesUsingAjax</span><span class="pun">(</span><span class="pln">files</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> xhr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'POST'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'upload.html'</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">upload</span><span class="pun">.</span><span class="pln">onprogress </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; progress</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">loaded</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; progress</span><span class="pun">.</span><span class="pln">max </span><span class="pun">=</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">total</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">'Upload complete!'</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> form </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FormData</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> files</span><span class="pun">.</span><span class="pln">length </span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; form</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">'file'</span><span class="pun">,</span><span class="pln"> files</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Send the Ajax request</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">send</span><span class="pun">(</span><span class="pln">form</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;/script&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/head&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h2&gt;</span><span class="pln">Drop your files here!</span><span class="tag">&lt;/h2&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"droppableZone"</span><span class="pln"> </span><span class="atn">ondragenter</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragEnterHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ondrop</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dropHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">ondragover</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragOverHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="pln">&nbsp; &nbsp; &nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ondragleave</span><span class="pun">=</span><span class="atv">"</span><span class="pln">dragLeaveHandler</span><span class="pun">(</span><span class="pln">event</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;Drop zone</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;ol</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"droppedFiles"</span><span class="tag">&gt;&lt;/ol&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/div&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;br/&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;Uploading progress: </span><span class="tag">&lt;progress</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"progress"</span><span class="tag">&gt;&lt;/progress&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;body&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html&gt;</li>
+<li> &lt;head&gt;</li>
+<li>&nbsp; &nbsp;&lt;style&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp;&lt;/style&gt;</li>
+<li>&nbsp; &nbsp;&lt;script&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;function dragLeaveHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;console.log("drag leave");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// Set style of drop zone to default</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;event.target.classList.remove('draggedOver'); </li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;function dragEnterHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;console.log("Drag enter");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// Show some visual feedback</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;event.target.classList.add('draggedOver'); </li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;function dragOverHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;//console.log("Drag over a droppable zone");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// Do not propagate the event</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;event.stopPropagation();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// Prevent default behavior, in particular when we drop images </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// or links</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;event.preventDefault(); </li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;function dropHandler(event) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;console.log('drop event');</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// Do not propagate the event</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;event.stopPropagation();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// Prevent default behavior, in particular when we drop images </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// or links</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;event.preventDefault(); </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// reset the visual look of the drop zone to default</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;event.target.classList.remove('draggedOver'); </li>
+<li> </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// get the files from the clipboard</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var files = event.dataTransfer.files;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var filesLen = files.length; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var filenames = "";</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// iterate on the files, get details using the file API</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// Display file names in a list.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;for(var i = 0 ; i &lt; filesLen ; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; filenames += '\n' + files[i].name; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Create a li, set its value to a file name, add it to the ol</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var li = document.createElement('li');</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; li.textContent = files[i].name; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.querySelector("#droppedFiles").appendChild(li);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;console.log(files.length + ' file(s) have been dropped:\n' </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; +&nbsp;filenames);</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;uploadAllFilesUsingAjax(files); </li>
+<li>&nbsp; &nbsp; &nbsp;} </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;function uploadAllFilesUsingAjax(files) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var xhr = new XMLHttpRequest();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;xhr.open('POST', 'upload.html');</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;xhr.upload.onprogress = function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; progress.value = e.loaded;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; progress.max = e.total;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;};</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;xhr.onload = function() {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alert('Upload complete!');</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;};</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var form = new FormData();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;for(var i = 0 ; i &lt; files.length ; i++) { </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; form.append('file', files[i]);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// Send the Ajax request</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;xhr.send(form);</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp;&nbsp;&lt;/script&gt;</li>
+<li> &lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li> &lt;h2&gt;Drop your files here!&lt;/h2&gt;</li>
+<li> &lt;div id="droppableZone" ondragenter="dragEnterHandler(event)" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ondrop="dropHandler(event)" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ondragover="dragOverHandler(event)"&nbsp; &nbsp; &nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ondragleave="dragLeaveHandler(event)"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;Drop zone</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;ol id="droppedFiles"&gt;&lt;/ol&gt;</li>
+<li> &lt;/div&gt;</li>
+<li> &lt;br/&gt;</li>
+<li>&nbsp;Uploading progress: &lt;progress id="progress"&gt;&lt;/progress&gt;</li>
+<li> &lt;body&gt;</li>
+<li> &lt;html&gt;</li>
 </ol></div>
 
 We have highlighted the interesting parts in the example!
