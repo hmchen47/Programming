@@ -773,6 +773,15 @@ This repository tracks my learning on different programming languages.
     <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#">  </a> </td>
   </tr>
 
+  <!-- Mobile Related Issues & APIs -->
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan=1 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Mobile Related Issues & APIs </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Mobile.md#mobile-coordinate-system"> Coordinate Systems </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Mobile.md#acceleration"> Acceleration </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Mobile.md#the-orientation-api"> The Orientation API </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Mobile.md#the-device-motion-api"> The Device Motion API </a> </td>
+  </tr>
+
   <!-- Temporary -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan=2 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
