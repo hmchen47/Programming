@@ -75,6 +75,43 @@
 + Example: [typical template](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-423-html-templates)
 
 
+## Shadow DOM
+
++ [The Shadow DOM API](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-424-shadow-dom)
+  + providing DOM encapsulation
+  + serving to hide what is not necessary to see
+  + already used by browser's developers for
+    + `<audio>` or `<video>` elements
+    + `<input type="date">`, `<input type="color">` elements
+    + etc.
+  + rules
+    + __shadow root:__ element associated w/ a new kind of node w/ Shadow DOM
+    + __shadow host:__ element w/ a shadow root w/ it
+    + the content of a shadow host isn't rendered; the content of the shadow root is rendered instead
+  + ref: object-oriented technology
+    + [information hiding](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)), Wikipedia
+    + [Introducing JavaScript objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects), MDN Web Docs
+
++ [`<video>` element as Shadow DOM](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-424-shadow-dom)
+  + observation in Chrome:
+    + looking at the DOM view of the video element
+    + devtools > Elements or using the magnifying glass and click on the video
+  + unable to see the elements composing the control bar
+  + enabling the Shadow DOM associated w/ the `<video>` element
+    + Setting icon > enable 'Show user agent shadow DOM'
+    + observing video element again
+    + within the DOM view to observe the hidden elements (control components)
+  + boundary around of the `<video>` elements
+    + external CSS unable to interfer
+    + content of the `<video>` element sandboxed
+    + protected from external CSS selectors
+    + unable to be accessed using `document.querySelector()`
+    + nor inspected by default w/ a DOM inspector
+
++ Example: [shadow DOM](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-424-shadow-dom)
+
+
+
 
 
 
