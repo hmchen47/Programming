@@ -41,128 +41,128 @@ Each ball has an x and y position, and in this example, instead of working with 
 
 Here is the constructor function for building balls:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Constructor function for balls</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> </span><span class="typ">Ball</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> vx</span><span class="pun">,</span><span class="pln"> vy</span><span class="pun">,</span><span class="pln"> diameter</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; // property of each ball: a x and y position, speeds, radius</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> x</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> y</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">vx </span><span class="pun">=</span><span class="pln"> vx</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">vy </span><span class="pun">=</span><span class="pln"> vy</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">radius </span><span class="pun">=</span><span class="pln"> diameter</span><span class="pun">/</span><span class="lit">2</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; // methods</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">draw </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">arc</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fill</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">move </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// add horizontal increment to the x pos</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// add vertical increment to the y pos</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">vx</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">vy</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pun">};</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">// Constructor function for balls</li>
+<li>function Ball(x, y, vx, vy, diameter) {</li>
+<li>&nbsp; // property of each ball: a x and y position, speeds, radius</li>
+<li>&nbsp;&nbsp;this.x = x;</li>
+<li>&nbsp;&nbsp;this.y = y;</li>
+<li>&nbsp;&nbsp;this.vx = vx;</li>
+<li>&nbsp;&nbsp;this.vy = vy;</li>
+<li>&nbsp;&nbsp;this.radius = diameter/2;</li>
+<li> </li>
+<li>&nbsp; // methods</li>
+<li>&nbsp;&nbsp;this.draw = function() {</li>
+<li>&nbsp; &nbsp; ctx.beginPath();</li>
+<li>&nbsp; &nbsp; ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI);</li>
+<li>&nbsp; &nbsp; ctx.fill();</li>
+<li>&nbsp;&nbsp;};</li>
+<li> </li>
+<li>&nbsp;&nbsp;this.move = function() {</li>
+<li>&nbsp; &nbsp;&nbsp;// add horizontal increment to the x pos</li>
+<li>&nbsp; &nbsp;&nbsp;// add vertical increment to the y pos</li>
+<li>&nbsp; &nbsp;&nbsp;this.x += this.vx;</li>
+<li>&nbsp; &nbsp;&nbsp;this.y += this.vy;</li>
+<li>&nbsp;};</li>
+<li>}</li>
 </ol></div><br>
 
 Using a constructor function makes it easy to build new balls as follows:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> b1 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Ball</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln">&nbsp;2, 2,&nbsp;</span><span class="lit">5</span><span class="pun">);</span><span class="pln"> </span><span class="com">// x, y, vx, vy, radius</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> b1 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Ball</span><span class="pun">(</span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">130</span><span class="pun">,</span><span class="pln">&nbsp;4, 5,&nbsp;</span><span class="lit">5</span><span class="pun">);</span><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">etc</span><span class="pun">...</span></li>
+<div><ol>
+<li value="1">var b1 = new Ball(10, 10,&nbsp;2, 2,&nbsp;5); // x, y, vx, vy, radius</li>
+<li>var b1 = new Ball(100, 130,&nbsp;4, 5,&nbsp;5);&nbsp;</li>
+<li>etc...</li>
 </ol></div><br>
 
 We defined two methods in the constructor function for moving the ball and for drawing the ball as a black filled circle. Here is the syntax for moving and drawing a ball:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">b1</span><span class="pun">.</span><span class="pln">draw</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">b1</span><span class="pun">.</span><span class="pln">move</span><span class="pun">();</span></li>
+<div><ol>
+<li value="1">b1.draw();</li>
+<li>b1.move();</li>
 </ol></div><br>
 
 We will call these methods from inside the mainLoop, and as you'll see, we will create many balls. This object-oriented design makes it easier to handle large quantities.
 
 Here is the rest of the code from this example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com">// array of balls to animate</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="kwd">var</span><span class="pln"> ballArray </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myCanvas"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; width </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; height </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong style="color: red;"><span class="com">// try to change this number</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; createBalls</span><span class="pun">(</span><span class="lit">16</span><span class="pun">);</span></strong><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> createBalls</span><span class="pun">(</span><span class="pln">numberOfBalls</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> numberOfBalls</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="com">// Create a ball with random position and speed. </span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// You can change the radius</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> ball </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Ball</span><span class="pun">(</span><span class="pln">width</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">(),</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">(),</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">(</span><span class="lit">10</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">())-</span><span class="lit">5</span><span class="pun">,</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">(</span><span class="lit">10</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">())-</span><span class="lit">5</span><span class="pun">,</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="lit">30</span><span class="pun">);</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln"> </span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">//&nbsp;add the ball to the array</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong style="color: red;">ballArray</strong></span><strong style="color: red;"><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> ball</span><span class="pun">;</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> mainLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// clear the canvas</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong style="color: red;"><span class="com">// for each ball in the array</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> ballArray</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> ball </span><span class="pun">=</span><span class="pln"> ballArray</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];&nbsp;</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln"> </span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 1) move the ball</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">move</span><span class="pun">();</span><span class="pln"> </span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln"> </span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 2) test if the ball collides with a wall</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;testCollisionWithWalls</span><span class="pun">(</span><span class="pln">ball</span><span class="pun">);</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln"> </span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 3) draw the ball</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">draw</span><span class="pun">();</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// ask for a new frame of animation at 60f/s</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; window</span><span class="pun">.</span><span class="pln">requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> testCollisionWithWalls</span><span class="pun">(</span><span class="pln">ball</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// left</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">x </span><span class="pun">&lt;</span><span class="pln"> ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{ // x and y of the ball are at the center of the circle</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">; &nbsp; &nbsp; // if collision, we replace the ball at a position</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">vx </span><span class="pun">*=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// where it's exactly in contact with the left border</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // and we reverse the horizontal speed</span><span class="pln"></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// right</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">x </span><span class="pun">&gt;</span><span class="pln"> width </span><span class="pun">-</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> width </span><span class="pun">-</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">vx </span><span class="pun">*=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// up</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">y </span><span class="pun">&lt;</span><span class="pln"> ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">vy </span><span class="pun">*=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// down</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">y </span><span class="pun">&gt;</span><span class="pln"> height </span><span class="pun">-</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> height </span><span class="pun">-</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">vy </span><span class="pun">*=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">var canvas, ctx, width, height;</li>
+<li> </li>
+<li><strong style="color: red;">// array of balls to animate</strong></li>
+<li><strong style="color: red;">var ballArray = [];</strong></li>
+<li> </li>
+<li>function init() {</li>
+<li>&nbsp; canvas = document.querySelector("#myCanvas");</li>
+<li>&nbsp; ctx = canvas.getContext('2d');</li>
+<li>&nbsp; width = canvas.width;</li>
+<li>&nbsp; height = canvas.height;</li>
+<li> </li>
+<li>&nbsp;&nbsp;<strong style="color: red;">// try to change this number</strong></li>
+<li><strong style="color: red;">&nbsp; createBalls(16);</strong> </li>
+<li> </li>
+<li>&nbsp; requestAnimationFrame(mainLoop);</li>
+<li>}</li>
+<li> </li>
+<li>function createBalls(numberOfBalls) {</li>
+<li>&nbsp;&nbsp;for(var i=0; i &lt; numberOfBalls; i++) {</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: red;">// Create a ball with random position and speed. </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;// You can change the radius</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;var ball = new Ball(width*Math.random(),</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height*Math.random(),</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;(10*Math.random())-5,</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;(10*Math.random())-5,</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;30);</strong></li>
+<li><strong style="color: red;"> </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;//&nbsp;add the ball to the array</strong></li>
+<li>&nbsp; &nbsp; <strong style="color: red;">ballArray</strong><strong style="color: red;">[i] = ball;</strong></li>
+<li>&nbsp; &nbsp;}</li>
+<li>} </li>
+<li> </li>
+<li>function mainLoop() {</li>
+<li>&nbsp;&nbsp;// clear the canvas</li>
+<li>&nbsp; ctx.clearRect(0, 0, width, height);</li>
+<li> </li>
+<li>&nbsp;&nbsp;<strong style="color: red;">// for each ball in the array</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;for(var i=0; i &lt; ballArray.length; i++) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;var ball = ballArray[i];&nbsp;</strong></li>
+<li><strong style="color: red;"> </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;// 1) move the ball</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; ball.move(); </strong></li>
+<li><strong style="color: red;"> </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;// 2) test if the ball collides with a wall</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;testCollisionWithWalls(ball);</strong></li>
+<li><strong style="color: red;"> </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;// 3) draw the ball</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; ball.draw();</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;}</strong></li>
+<li>&nbsp;&nbsp;// ask for a new frame of animation at 60f/s</li>
+<li>&nbsp; window.requestAnimationFrame(mainLoop);</li>
+<li>}</li>
+<li> </li>
+<li>function testCollisionWithWalls(ball) {</li>
+<li>&nbsp;&nbsp;// left</li>
+<li>&nbsp;&nbsp;if (ball.x &lt; ball.radius) { // x and y of the ball are at the center of the circle</li>
+<li>&nbsp; &nbsp; ball.x = ball.radius; &nbsp; &nbsp; // if collision, we replace the ball at a position</li>
+<li>&nbsp; &nbsp; ball.vx *= -1; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// where it's exactly in contact with the left border</li>
+<li>&nbsp;&nbsp;} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // and we reverse the horizontal speed</li>
+<li>&nbsp;&nbsp;// right</li>
+<li>&nbsp;&nbsp;if (ball.x &gt; width - (ball.radius)) {</li>
+<li>&nbsp; &nbsp; ball.x = width - (ball.radius);</li>
+<li>&nbsp; &nbsp; ball.vx *= -1;</li>
+<li>&nbsp;&nbsp;} </li>
+<li>&nbsp;&nbsp;// up</li>
+<li>&nbsp;&nbsp;if (ball.y &lt; ball.radius) {</li>
+<li>&nbsp; &nbsp; ball.y = ball.radius;</li>
+<li>&nbsp; &nbsp; ball.vy *= -1;</li>
+<li>&nbsp;&nbsp;} </li>
+<li>&nbsp;&nbsp;// down</li>
+<li>&nbsp; if (ball.y &gt; height - (ball.radius)) {</li>
+<li>&nbsp; &nbsp; ball.y = height - (ball.radius);</li>
+<li>&nbsp; &nbsp; ball.vy *= -1;</li>
+<li>&nbsp;&nbsp;} </li>
+<li>}</li>
 </ol></div><br>
 
 Notice that:
@@ -183,79 +183,79 @@ Try this [example at JSBin](https://jsbin.com/begaci/edit): it behaves in the sa
 
 Note that we just changed the way we designed the balls and computed the angles after they rebound from the walls. The changes are highlighted in bold:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com">// Array of balls to animate</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> ballArray </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;">&nbsp; ...</li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> createBalls</span><span class="pun">(</span><span class="pln">numberOfBalls</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> numberOfBalls</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Create a ball with random position and speed. </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// You can change the radius</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> ball </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Ball</span><span class="pun">(</span><span class="pln">width</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">(),</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">(),</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><strong style="color: red;"><span class="pun">(</span><span class="lit">2</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">)*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">(), // angle</span></strong><span class="pln"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><strong style="color: red;"><span class="pun">(</span><span class="lit">10</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">())-</span><span class="lit">5</span><span class="pun">, &nbsp; &nbsp; &nbsp;// speed</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="lit">30</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// We add it in an array<br></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ballArray</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> ball</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> mainLoop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> testCollisionWithWalls</span><span class="pun">(</span><span class="pln">ball</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// left</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">x </span><span class="pun">&lt;</span><span class="pln"> ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ball</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong style="color: red;">ball</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">angle </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">angle </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// right</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">x </span><span class="pun">&gt;</span><span class="pln"> width </span><span class="pun">-</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> width </span><span class="pun">-</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong style="color: red;">ball</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">angle </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">angle </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">;</span></strong><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// up</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">y </span><span class="pun">&lt;</span><span class="pln"> ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong style="color: red;">ball</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">angle </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">angle</span><span class="pun">;</span></strong><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// down</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">y </span><span class="pun">&gt;</span><span class="pln"> height </span><span class="pun">-</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> height </span><span class="pun">-</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong style="color: red;"> ball</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">angle </span><span class="pun">=-</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">angle</span><span class="pun">;</span></strong><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="com">// constructor function for balls</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> </span><span class="typ">Ball</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> angle</span><span class="pun">,</span><span class="pln"> v</span><span class="pun">,</span><span class="pln"> diameter</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> x</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> y</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong style="color: red;"><span class="kwd">this</span><span class="pun">.</span><span class="pln">angle </span><span class="pun">=</span><span class="pln"> angle</span><span class="pun">;</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">v </span><span class="pun">=</span><span class="pln"> v</span><span class="pun">;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">radius </span><span class="pun">=</span><span class="pln"> diameter</span><span class="pun">/</span><span class="lit">2</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">draw </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;">&nbsp; &nbsp;...</li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">move </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// add horizontal increment to the x pos</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// add vertical increment to the y pos</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="kwd">this</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">v </span><span class="pun">*</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">cos</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">angle</span><span class="pun">);</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">v </span><span class="pun">*</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sin</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">angle</span><span class="pun">);</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">var canvas, ctx, width, height;</li>
+<li> </li>
+<li>// Array of balls to animate</li>
+<li>var ballArray = [];</li>
+<li> </li>
+<li>function init() {</li>
+<li>&nbsp; ...</li>
+<li>}</li>
+<li> </li>
+<li>function createBalls(numberOfBalls) {</li>
+<li>&nbsp;&nbsp;for(var i=0; i &lt; numberOfBalls; i++) {</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// Create a ball with random position and speed. </li>
+<li>&nbsp; &nbsp;&nbsp;// You can change the radius</li>
+<li>&nbsp; &nbsp;&nbsp;var ball = new Ball(width*Math.random(),</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height*Math.random(),</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong style="color: red;">(2*Math.PI)*Math.random(), // angle</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong style="color: red;">(10*Math.random())-5, &nbsp; &nbsp; &nbsp;// speed</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;30);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// We add it in an array<br></li>
+<li>&nbsp; &nbsp;ballArray[i] = ball;</li>
+<li>&nbsp;&nbsp;}</li>
+<li>} </li>
+<li> </li>
+<li>function mainLoop() {</li>
+<li>&nbsp;&nbsp;...</li>
+<li>} </li>
+<li> </li>
+<li>function testCollisionWithWalls(ball) {</li>
+<li>&nbsp;&nbsp;// left</li>
+<li>&nbsp;&nbsp;if (ball.x &lt; ball.radius) {</li>
+<li>&nbsp; &nbsp; &nbsp;ball.x = ball.radius;</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;">ball</strong><strong style="color: red;">.angle = -ball.angle + Math.PI;</strong></li>
+<li>&nbsp;&nbsp;} </li>
+<li>&nbsp;&nbsp;// right</li>
+<li>&nbsp;&nbsp;if (ball.x &gt; width - (ball.radius)) {</li>
+<li>&nbsp; &nbsp; ball.x = width - (ball.radius);</li>
+<li>&nbsp; &nbsp; <strong style="color: red;">ball</strong><strong style="color: red;">.angle = -ball.angle + Math.PI;</strong> </li>
+<li>&nbsp;&nbsp;} </li>
+<li>&nbsp;&nbsp;// up</li>
+<li>&nbsp;&nbsp;if (ball.y &lt; ball.radius) {</li>
+<li>&nbsp; &nbsp; ball.y = ball.radius;</li>
+<li>&nbsp; &nbsp; <strong style="color: red;">ball</strong><strong style="color: red;">.angle = -ball.angle;</strong> </li>
+<li>&nbsp;&nbsp;} </li>
+<li>&nbsp;&nbsp;// down</li>
+<li>&nbsp;&nbsp;if (ball.y &gt; height - (ball.radius)) {</li>
+<li>&nbsp; &nbsp; ball.y = height - (ball.radius);</li>
+<li>&nbsp; &nbsp;<strong style="color: red;"> ball</strong><strong style="color: red;">.angle =-ball.angle;</strong> </li>
+<li>&nbsp;&nbsp;} </li>
+<li>}</li>
+<li> </li>
+<li>// constructor function for balls</li>
+<li>function Ball(x, y, angle, v, diameter) {</li>
+<li>&nbsp;&nbsp;this.x = x;</li>
+<li>&nbsp;&nbsp;this.y = y;</li>
+<li>&nbsp;&nbsp;<strong style="color: red;">this.angle = angle;</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;this.v = v;</strong></li>
+<li>&nbsp;&nbsp;this.radius = diameter/2;</li>
+<li> </li>
+<li>&nbsp;&nbsp;this.draw = function() {</li>
+<li>&nbsp; &nbsp;...</li>
+<li>&nbsp;&nbsp;};</li>
+<li> </li>
+<li>&nbsp;&nbsp;this.move = function() {</li>
+<li>&nbsp; &nbsp;// add horizontal increment to the x pos</li>
+<li>&nbsp; &nbsp;// add vertical increment to the y pos</li>
+<li> </li>
+<li>&nbsp; &nbsp;<strong style="color: red;">this.x += this.v * Math.cos(this.angle);</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;this.y += this.v * Math.sin(this.angle);</strong></li>
+<li>&nbsp;&nbsp;};</li>
+<li>}</li>
 </ol></div><br>
 
 Using angles or horizontal and vertical increments is equivalent. However, one method might be preferable to the other: for example, to control an object that follows the mouse, or that tracks another object in order to attack it, angles would be more practical input to the computations required.
@@ -345,66 +345,66 @@ For this version, we copied and pasted some code from the previous example and w
 
 The new mainLoop:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> mainLoop </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">time</span><span class="pun">){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">//main function, called each frame </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; measureFPS</span><span class="pun">(</span><span class="pln">time</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// number of ms since last frame draw</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; delta </span><span class="pun">=</span><span class="pln"> timer</span><span class="pun">(</span><span class="pln">time</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Clear the canvas</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; clearCanvas</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Draw the monster</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; drawMyMonster</span><span class="pun">(</span><span class="pln">monster</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">y</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Check inputs and move the monster</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; updateMonsterPosition</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Update and draw balls</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; updateBalls</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Call the animation loop every 1/60th of second</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<div><ol>
+<li value="1">var mainLoop = function(time){</li>
+<li>&nbsp;&nbsp;//main function, called each frame </li>
+<li>&nbsp; measureFPS(time);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// number of ms since last frame draw</li>
+<li>&nbsp; delta = timer(time);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Clear the canvas</li>
+<li>&nbsp; clearCanvas();</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Draw the monster</li>
+<li>&nbsp; drawMyMonster(monster.x, monster.y);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Check inputs and move the monster</li>
+<li>&nbsp; updateMonsterPosition(delta);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Update and draw balls</li>
+<li>&nbsp; updateBalls(delta);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Call the animation loop every 1/60th of second</li>
+<li>&nbsp; requestAnimationFrame(mainLoop);</li>
+<li> };</li>
 </ol></div><br>
 
 As you can see, we draw the player/monster, we update its position; and we call an `updateBalls` function to do the same  for the balls: draw and update their position.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> updateMonsterPosition</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; monster</span><span class="pun">.</span><span class="pln">speedX </span><span class="pun">=</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">speedY </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// check inputStates</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">left</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; monster</span><span class="pun">.</span><span class="pln">speedX </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="pln">monster</span><span class="pun">.</span><span class="pln">speed</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">up</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; monster</span><span class="pun">.</span><span class="pln">speedY </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="pln">monster</span><span class="pun">.</span><span class="pln">speed</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pun">...</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Compute the incX and incY in pixels depending</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// on the time elapsed since last redraw</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; monster</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+=</span><span class="pln"> calcDistanceToMove</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">speedX</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; monster</span><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> calcDistanceToMove</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">speedY</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> updateBalls</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// for each ball in the array</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> ballArray</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> ball </span><span class="pun">=</span><span class="pln"> ballArray</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1) move the ball</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ball</span><span class="pun">.</span><span class="pln">move</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 2) test if the ball collides with a wall</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;testCollisionWithWalls</span><span class="pun">(</span><span class="pln">ball</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 3) draw the ball</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ball</span><span class="pun">.</span><span class="pln">draw</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
+<div><ol>
+<li value="1">function updateMonsterPosition(delta) {</li>
+<li>&nbsp; monster.speedX = monster.speedY = 0;</li>
+<li>&nbsp;&nbsp;// check inputStates</li>
+<li>&nbsp;&nbsp;if (inputStates.left) {</li>
+<li>&nbsp; &nbsp; monster.speedX = -monster.speed;</li>
+<li>&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;if (inputStates.up) {</li>
+<li>&nbsp; &nbsp; monster.speedY = -monster.speed;</li>
+<li>&nbsp;&nbsp;}</li>
+<li>&nbsp; ...</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Compute the incX and incY in pixels depending</li>
+<li>&nbsp;&nbsp;// on the time elapsed since last redraw</li>
+<li>&nbsp; monster.x += calcDistanceToMove(delta, monster.speedX);</li>
+<li>&nbsp; monster.y += calcDistanceToMove(delta, monster.speedY);</li>
+<li>}</li>
+<li> </li>
+<li>function updateBalls(delta) {</li>
+<li>&nbsp;&nbsp;// for each ball in the array</li>
+<li>&nbsp;&nbsp;for(var i=0; i &lt; ballArray.length; i++) {</li>
+<li>&nbsp; &nbsp;var ball = ballArray[i];</li>
+<li> </li>
+<li>&nbsp; &nbsp;// 1) move the ball</li>
+<li>&nbsp; &nbsp;ball.move(); </li>
+<li> </li>
+<li>&nbsp; &nbsp;// 2) test if the ball collides with a wall</li>
+<li>&nbsp; &nbsp;testCollisionWithWalls(ball);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// 3) draw the ball</li>
+<li>&nbsp; &nbsp;ball.draw();</li>
+<li> }</li>
+<li>} </li>
 </ol></div><br>
 
 Now, in order to turn this into a game, we need to create some interactions between the player (the monster) and the obstacles/enemies (balls, walls)... It's time to take a look at collision detection.
@@ -466,30 +466,30 @@ Imagine there is a line running between those two center points. The distances f
 
 <font style="color: red;">In other words: if the distance between the center points is less than the sum of the radii, then the circles collide.</font>
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> circleCollideNonOptimised</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> y1</span><span class="pun">,</span><span class="pln"> r1</span><span class="pun">,</span><span class="pln"> x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">,</span><span class="pln"> r2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> dx </span><span class="pun">=</span><span class="pln"> x1 </span><span class="pun">-</span><span class="pln"> x2</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> dy </span><span class="pun">=</span><span class="pln"> y1 </span><span class="pun">-</span><span class="pln"> y2</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong style="color: red;"><span class="kwd">var</span><span class="pln"> distance </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sqrt</span><span class="pun">(</span><span class="pln">dx </span><span class="pun">*</span><span class="pln"> dx </span><span class="pun">+</span><span class="pln"> dy </span><span class="pun">*</span><span class="pln"> dy</span><span class="pun">);</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">(</span><span class="pln">distance </span><span class="pun">&lt;</span><span class="pln"> r1 </span><span class="pun">+</span><span class="pln"> r2</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function circleCollideNonOptimised(x1, y1, r1, x2, y2, r2) {</li>
+<li>&nbsp;&nbsp;var dx = x1 - x2;</li>
+<li>&nbsp;&nbsp;var dy = y1 - y2;</li>
+<li>&nbsp;&nbsp;<strong style="color: red;">var distance = Math.sqrt(dx * dx + dy * dy);</strong></li>
+<li> </li>
+<li>&nbsp;&nbsp;return (distance &lt; r1 + r2); </li>
+<li>}</li>
 </ol></div><br>
 
 This could be optimized a little averting the need to compute a square root:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">(</span><span class="pln">x2</span><span class="pun">-</span><span class="pln">x1</span><span class="pun">)^</span><span class="lit">2</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="pun">(</span><span class="pln">y1</span><span class="pun">-</span><span class="pln">y2</span><span class="pun">)^</span><span class="lit">2</span><span class="pln"> </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">r1</span><span class="pun">+</span><span class="pln">r2</span><span class="pun">)^</span><span class="lit">2</span></li>
+<div><ol>
+<li value="1">(x2-x1)^2 + (y1-y2)^2 &lt;= (r1+r2)^2</li>
 </ol></div><br>
 
 Which yields:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> circleCollide</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> y1</span><span class="pun">,</span><span class="pln"> r1</span><span class="pun">,</span><span class="pln"> x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">,</span><span class="pln"> r2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> dx </span><span class="pun">=</span><span class="pln"> x1 </span><span class="pun">-</span><span class="pln"> x2</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> dy </span><span class="pun">=</span><span class="pln"> y1 </span><span class="pun">-</span><span class="pln"> y2</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">((</span><span class="pln">dx </span><span class="pun">*</span><span class="pln"> dx </span><span class="pun">+</span><span class="pln"> dy </span><span class="pun">*</span><span class="pln"> dy</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">r1 </span><span class="pun">+</span><span class="pln"> r2</span><span class="pun">)*(</span><span class="pln">r1</span><span class="pun">+</span><span class="pln">r2</span><span class="pun">));</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function circleCollide(x1, y1, r1, x2, y2, r2) {</li>
+<li> var dx = x1 - x2;</li>
+<li> var dy = y1 - y2;</li>
+<li> return ((dx * dx + dy * dy) &lt; (r1 + r2)*(r1+r2)); </li>
+<li>}</li>
 </ol></div><br>
 
 This technique is attractive because a "bounding circle" can often be used with graphic objects of other shapes, providing they are not too elongated horizontally or vertically.
@@ -513,77 +513,77 @@ This online example uses the game framework (without time-based animation in thi
 
 Let's implement this as a JavaScript function step-by-step:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// The monster!</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> monster </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; x</span><span class="pun">:</span><span class="lit">80</span><span class="pun">,</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; y</span><span class="pun">:</span><span class="lit">80</span><span class="pun">,</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; height </span><span class="pun">:</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; speed</span><span class="pun">:</span><span class="lit">1</span><span class="pun">,</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong style="color: red;"> boundingCircleRadius</strong></span><strong style="color: red;"><span class="pun">:</span><span class="pln"> </span><span class="lit">70</span></strong><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> player </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; x</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; y</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong style="color: red;">boundingCircleRadius</strong></span><strong style="color: red;"><span class="pun">:</span><span class="pln"> </span><span class="lit">20</span></strong><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">// The monster!</li>
+<li>var monster = {</li>
+<li>&nbsp; x:80,</li>
+<li>&nbsp; y:80,</li>
+<li>&nbsp; width: 100,</li>
+<li>&nbsp; height : 100,</li>
+<li>&nbsp; speed:1,</li>
+<li>&nbsp;<strong style="color: red;"> boundingCircleRadius</strong><strong style="color: red;">: 70</strong> </li>
+<li> };</li>
+<li> </li>
+<li>var player = {</li>
+<li>&nbsp; x:0,</li>
+<li>&nbsp; y:0,</li>
+<li>&nbsp; <strong style="color: red;">boundingCircleRadius</strong><strong style="color: red;">: 20</strong> </li>
+<li>};</li>
 </ol></div><br>
 
 The collision test occurs in the main loop:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> mainLoop </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">time</span><span class="pun">){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">//main function, called each frame </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; measureFPS</span><span class="pun">(</span><span class="pln">time</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Clear the canvas</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; clearCanvas</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Draw the monster</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; drawMyMonster</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Check inputs and move the monster</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; updateMonsterPosition</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; updatePlayer</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong style="color: red;">checkCollisions</strong></span><strong style="color: red;"><span class="pun">();</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Call the animation loop every 1/60th of second</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> updatePlayer</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// The player is just a circle drawn at the mouse position</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Just to test circle/circle collision.</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Move the player and draw it as a circle</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; player</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">; &nbsp;// when the mouse moves</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; player</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">arc</span><span class="pun">(</span><span class="pln">player</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">boundingCircleRadius</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> checkCollisions</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong style="color: red;">&nbsp;</strong></span><strong style="color: red;"><span class="kwd">if</span><span class="pun">(</span><span class="pln">circleCollide</span><span class="pun">(</span><span class="pln">player</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">boundingCircleRadius</span><span class="pun">,</span><span class="pln"> </span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monster</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">boundingCircleRadius</span><span class="pun">))</span></strong><span class="pln"> </span><span class="pun">{<br>&nbsp; &nbsp; // Draw everything in red</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"Collision"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{<br>&nbsp; &nbsp; // Draw in black</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"No collision"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'black'</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="kwd">function</span><span class="pln"> circleCollide</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> y1</span><span class="pun">,</span><span class="pln"> r1</span><span class="pun">,</span><span class="pln"> x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">,</span><span class="pln"> r2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> dx </span><span class="pun">=</span><span class="pln"> x1 </span><span class="pun">-</span><span class="pln"> x2</span><span class="pun">;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> dy </span><span class="pun">=</span><span class="pln"> y1 </span><span class="pun">-</span><span class="pln"> y2</span><span class="pun">;</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">((</span><span class="pln">dx </span><span class="pun">*</span><span class="pln"> dx </span><span class="pun">+</span><span class="pln"> dy </span><span class="pun">*</span><span class="pln"> dy</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">r1 </span><span class="pun">+</span><span class="pln"> r2</span><span class="pun">)*(</span><span class="pln">r1</span><span class="pun">+</span><span class="pln">r2</span><span class="pun">));</span><span class="pln"> </span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pun">}</span></strong></li>
+<div><ol>
+<li value="1">var mainLoop = function(time){</li>
+<li>&nbsp;&nbsp;//main function, called each frame </li>
+<li>&nbsp; measureFPS(time);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Clear the canvas</li>
+<li>&nbsp; clearCanvas();</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Draw the monster</li>
+<li>&nbsp; drawMyMonster();</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Check inputs and move the monster</li>
+<li>&nbsp; updateMonsterPosition();</li>
+<li> </li>
+<li>&nbsp; updatePlayer();</li>
+<li> </li>
+<li>&nbsp; <strong style="color: red;">checkCollisions</strong><strong style="color: red;">();</strong></li>
+<li> </li>
+<li>&nbsp;&nbsp;// Call the animation loop every 1/60th of second</li>
+<li>&nbsp; requestAnimationFrame(mainLoop);</li>
+<li> };</li>
+<li> </li>
+<li>function updatePlayer() {</li>
+<li>&nbsp;&nbsp;// The player is just a circle drawn at the mouse position</li>
+<li>&nbsp;&nbsp;// Just to test circle/circle collision.</li>
+<li> </li>
+<li>&nbsp;&nbsp;if(inputStates.mousePos) { &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Move the player and draw it as a circle</li>
+<li>&nbsp; &nbsp; player.x = inputStates.mousePos.x; &nbsp;// when the mouse moves</li>
+<li>&nbsp; &nbsp; player.y = inputStates.mousePos.y;</li>
+<li>&nbsp; &nbsp; ctx.beginPath();</li>
+<li>&nbsp; &nbsp; ctx.arc(player.x, player.y, player.boundingCircleRadius, 0, 2*Math.PI);</li>
+<li>&nbsp; &nbsp; ctx.stroke();</li>
+<li>&nbsp;&nbsp;}</li>
+<li> }</li>
+<li> </li>
+<li>function checkCollisions() {</li>
+<li>&nbsp;<strong style="color: red;">&nbsp;</strong><strong style="color: red;">if(circleCollide(player.x, player.y, player.boundingCircleRadius, </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monster.x, monster.y, monster.boundingCircleRadius))</strong> {<br>&nbsp; &nbsp; // Draw everything in red</li>
+<li>&nbsp; &nbsp; ctx.fillText("Collision", 150, 20);</li>
+<li>&nbsp; &nbsp; ctx.strokeStyle = ctx.fillStyle = 'red';</li>
+<li>&nbsp;&nbsp;} else {<br>&nbsp; &nbsp; // Draw in black</li>
+<li>&nbsp; &nbsp; ctx.fillText("No collision", 150, 20);</li>
+<li>&nbsp; &nbsp; ctx.strokeStyle = ctx.fillStyle = 'black';</li>
+<li>&nbsp;&nbsp;}</li>
+<li> }</li>
+<li> </li>
+<li><strong style="color: red;">function circleCollide(x1, y1, r1, x2, y2, r2) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;var dx = x1 - x2;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;var dy = y1 - y2;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;return ((dx * dx + dy * dy) &lt; (r1 + r2)*(r1+r2)); </strong></li>
+<li><strong style="color: red;">}</strong></li>
 </ol></div><br>
 
 
@@ -673,19 +673,19 @@ Try this online demonstration of rectangle - [rectangle detection](https://silen
 
 Here is a JavaScript implementation of a rectangle - rectangle (aligned) collision test:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Collisions between aligned rectangles</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> rectsOverlap</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> y1</span><span class="pun">,</span><span class="pln"> w1</span><span class="pun">,</span><span class="pln"> h1</span><span class="pun">,</span><span class="pln"> x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">,</span><span class="pln"> w2</span><span class="pun">,</span><span class="pln"> h2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp;&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">((</span><span class="pln">x1&nbsp;</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">x2 </span><span class="pun">+</span><span class="pln"> w2</span><span class="pun">))</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="pun">((</span><span class="pln">x1&nbsp;</span><span class="pun">+</span><span class="pln"> w1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> x2</span><span class="pun">))</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">; </span>// No horizontal axis projection overlap</li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">((</span><span class="pln">y1&nbsp;</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">y2 </span><span class="pun">+</span><span class="pln"> h2</span><span class="pun">))</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="pun">((</span><span class="pln">y1&nbsp;</span><span class="pun">+</span><span class="pln"> h1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> y2</span><span class="pun">))</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;&nbsp;</span><span style="line-height: 25.6px;">// No vertical&nbsp;axis projection overlap</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">; &nbsp; &nbsp;// If previous tests failed, then both axis projections</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // overlap and the rectangles intersect</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1">// Collisions between aligned rectangles</li>
+<li>function rectsOverlap(x1, y1, w1, h1, x2, y2, w2, h2) {</li>
+<li>&nbsp;&nbsp;</li>
+<li>&nbsp;&nbsp;if ((x1&nbsp;&gt; (x2 + w2)) || ((x1&nbsp;+ w1) &lt; x2))</li>
+<li>&nbsp; &nbsp;&nbsp;return false; // No horizontal axis projection overlap</li>
+<li> </li>
+<li>&nbsp;&nbsp;if ((y1&nbsp;&gt; (y2 + h2)) || ((y1&nbsp;+ h1) &lt; y2))</li>
+<li>&nbsp; &nbsp;&nbsp;return false;&nbsp;<span style="line-height: 25.6px;">// No vertical&nbsp;axis projection overlap</li>
+<li> </li>
+<li>&nbsp;&nbsp;return true; &nbsp; &nbsp;// If previous tests failed, then both axis projections</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // overlap and the rectangles intersect</li>
+<li> }</li>
 </ol></div>
 
 
@@ -713,77 +713,77 @@ Try [this example](https://jsbin.com/fubima/edit) at JSBin: move the monster wit
 
 Here is what we modified (in bold) in the code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">...</span></li>
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// The monster!</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> monster </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; x</span><span class="pun">:</span><span class="pln"> </span><span class="lit">80</span><span class="pun">,</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; y</span><span class="pun">:</span><span class="pln"> </span><span class="lit">80</span><span class="pun">,</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; speed</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; boundingCircleRadius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">70</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> player </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; x</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; y</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; boundingCircleRadius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">20</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span>...</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> updatePlayer</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; // The player is just a square drawn at the mouse position</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="com">&nbsp; // Just to test rectangle/rectangle collisions.</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; player</span><span class="pun">.</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; player</span><span class="pun">.</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; <strong style="color: red;">// draws a rectangle centered on the mouse position</strong></span></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com">&nbsp; &nbsp; // we draw it as a square.</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com">&nbsp; &nbsp; // We remove size/2 to the x and y position at drawing time in</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com">&nbsp; &nbsp; // order to recenter the rectangle on the mouse pos (normally </span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com">&nbsp; &nbsp; // the 0, 0 of a rectangle is at its top left corner)</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> size </span><span class="pun">=</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">boundingCircleRadius</span><span class="pun">;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">player</span><span class="pun">.</span><span class="pln">x </span><span class="pun">-</span><span class="pln"> size </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">y </span><span class="pun">-</span><span class="pln"> size </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> size</span><span class="pun">,</span><span class="pln"> size</span><span class="pun">);</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> checkCollisions</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; <strong style="color: red;">// Bounding rect position and size for the player. We need to translate</strong></span></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com">&nbsp; // it to half the player's size</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> playerSize </span><span class="pun">=</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">boundingCircleRadius</span><span class="pun">;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> playerXBoundingRect </span><span class="pun">=</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">x </span><span class="pun">-</span><span class="pln"> playerSize </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> playerYBoundingRect </span><span class="pun">=</span><span class="pln"> player</span><span class="pun">.</span><span class="pln">y </span><span class="pun">-</span><span class="pln"> playerSize </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com">&nbsp; // Same with the monster bounding rect</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> monsterXBoundingRect </span><span class="pun">=</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">x </span><span class="pun">-</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">width </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> monsterYBoundingRect </span><span class="pun">=</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">y </span><span class="pun">-</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">height </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">rectsOverlap</span><span class="pun">(</span><span class="pln">playerXBoundingRect</span><span class="pun">,</span><span class="pln"> playerYBoundingRect</span><span class="pun">,</span><span class="pln"> </span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;playerSize</span><span class="pun">,</span><span class="pln"> playerSize</span><span class="pun">,</span><span class="pln"> </span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monsterXBoundingRect</span><span class="pun">,</span><span class="pln"> monsterYBoundingRect</span><span class="pun">,</span><span class="pln"> </span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monster</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">height</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"Collision"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"No collision"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'black'</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com">// Collisions between aligned rectangles</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="kwd">function</span><span class="pln"> rectsOverlap</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> y1</span><span class="pun">,</span><span class="pln"> w1</span><span class="pun">,</span><span class="pln"> h1</span><span class="pun">,</span><span class="pln"> x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">,</span><span class="pln"> w2</span><span class="pun">,</span><span class="pln"> h2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">((</span><span class="pln">x1 </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">x2 </span><span class="pun">+</span><span class="pln"> w2</span><span class="pun">))</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="pun">((</span><span class="pln">x1 </span><span class="pun">+</span><span class="pln"> w1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> x2</span><span class="pun">))</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln"> </span><span class="com">// No horizontal axis projection overlap</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com"></span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">((</span><span class="pln">y1 </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">y2 </span><span class="pun">+</span><span class="pln"> h2</span><span class="pun">))</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="pun">((</span><span class="pln">y1 </span><span class="pun">+</span><span class="pln"> h1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> y2</span><span class="pun">))</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln"> </span><span class="com">// No vertical axis projection overlap</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com"></span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln"> </span><span class="com">// If previous tests failed, then both axis projections</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// overlap and the rectangles intersect</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pun">}</span></strong></li>
+<div><ol>
+<li value="1">...</li>
+<li value="1">// The monster!</li>
+<li>var monster = {</li>
+<li>&nbsp; x: 80,</li>
+<li>&nbsp; y: 80,</li>
+<li>&nbsp; width: 100,</li>
+<li>&nbsp; height: 100,</li>
+<li>&nbsp; speed: 1,</li>
+<li>&nbsp; boundingCircleRadius: 70</li>
+<li>};</li>
+<li>&nbsp;</li>
+<li>var player = {</li>
+<li>&nbsp; x: 0,</li>
+<li>&nbsp; y: 0,</li>
+<li>&nbsp; boundingCircleRadius: 20</li>
+<li>};</li>
+<li>...</li>
+<li>&nbsp;</li>
+<li>function updatePlayer() {</li>
+<li>&nbsp; // The player is just a square drawn at the mouse position</li>
+<li>&nbsp; // Just to test rectangle/rectangle collisions.</li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;if (inputStates.mousePos) {</li>
+<li>&nbsp; &nbsp; player.x = inputStates.mousePos.x;</li>
+<li>&nbsp; &nbsp; player.y = inputStates.mousePos.y;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; <strong style="color: red;">// draws a rectangle centered on the mouse position</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; // we draw it as a square.</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; // We remove size/2 to the x and y position at drawing time in</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; // order to recenter the rectangle on the mouse pos (normally </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; // the 0, 0 of a rectangle is at its top left corner)</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;var size = player.boundingCircleRadius;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; ctx.fillRect(player.x - size / 2, player.y - size / 2, size, size);</strong></li>
+<li>&nbsp;&nbsp;}</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function checkCollisions() {</li>
+<li>&nbsp; <strong style="color: red;">// Bounding rect position and size for the player. We need to translate</strong></li>
+<li><strong style="color: red;">&nbsp; // it to half the player's size</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;var playerSize = player.boundingCircleRadius;</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;var playerXBoundingRect = player.x - playerSize / 2;</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;var playerYBoundingRect = player.y - playerSize / 2;</strong></li>
+<li><strong style="color: red;">&nbsp; // Same with the monster bounding rect</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;var monsterXBoundingRect = monster.x - monster.width / 2;</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;var monsterYBoundingRect = monster.y - monster.height / 2;</strong></li>
+<li><strong style="color: red;">&nbsp;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;if (rectsOverlap(playerXBoundingRect, playerYBoundingRect, </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;playerSize, playerSize, </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monsterXBoundingRect, monsterYBoundingRect, </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monster.width, monster.height)) {</strong></li>
+<li>&nbsp; &nbsp; &nbsp;ctx.fillText("Collision", 150, 20);</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.strokeStyle = ctx.fillStyle = 'red';</li>
+<li>&nbsp; &nbsp;} else {</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.fillText("No collision", 150, 20);</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.strokeStyle = ctx.fillStyle = 'black';</li>
+<li>&nbsp;&nbsp;}</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li><strong style="color: red;">// Collisions between aligned rectangles</strong></li>
+<li><strong style="color: red;">function rectsOverlap(x1, y1, w1, h1, x2, y2, w2, h2) {</strong></li>
+<li><strong style="color: red;">&nbsp;</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;if ((x1 &gt; (x2 + w2)) || ((x1 + w1) &lt; x2))</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;return false; // No horizontal axis projection overlap</strong></li>
+<li><strong style="color: red;"></strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;if ((y1 &gt; (y2 + h2)) || ((y1 + h1) &lt; y2))</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;return false; // No vertical axis projection overlap</strong></li>
+<li><strong style="color: red;"></strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;return true; // If previous tests failed, then both axis projections</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// overlap and the rectangles intersect</strong></li>
+<li><strong style="color: red;">}</strong></li>
 </ol></div><br>
 
 
@@ -810,19 +810,19 @@ There are only two cases when a circle intersects with a rectangle:
 
 We propose this function (implemented after reading [this Thread at StackOverflow](https://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection)):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Collisions between rectangle and circle</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> circRectsOverlap</span><span class="pun">(</span><span class="pln">x0</span><span class="pun">,</span><span class="pln"> y0</span><span class="pun">,</span><span class="pln"> w0</span><span class="pun">,</span><span class="pln"> h0</span><span class="pun">,</span><span class="pln"> cx</span><span class="pun">,</span><span class="pln"> cy</span><span class="pun">,</span><span class="pln"> r</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> testX</span><span class="pun">=</span><span class="pln">cx</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> testY</span><span class="pun">=</span><span class="pln">cy</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">testX </span><span class="pun">&lt;</span><span class="pln"> x0</span><span class="pun">)</span><span class="pln"> testX</span><span class="pun">=</span><span class="pln">x0</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">testX </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">x0</span><span class="pun">+</span><span class="pln">w0</span><span class="pun">))</span><span class="pln"> testX</span><span class="pun">=(</span><span class="pln">x0</span><span class="pun">+</span><span class="pln">w0</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">testY </span><span class="pun">&lt;</span><span class="pln"> y0</span><span class="pun">)</span><span class="pln"> testY</span><span class="pun">=</span><span class="pln">y0</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">testY </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">y0</span><span class="pun">+</span><span class="pln">h0</span><span class="pun">))</span><span class="pln"> testY</span><span class="pun">=(</span><span class="pln">y0</span><span class="pun">+</span><span class="pln">h0</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">(((</span><span class="pln">cx</span><span class="pun">-</span><span class="pln">testX</span><span class="pun">)*(</span><span class="pln">cx</span><span class="pun">-</span><span class="pln">testX</span><span class="pun">)+(</span><span class="pln">cy</span><span class="pun">-</span><span class="pln">testY</span><span class="pun">)*(</span><span class="pln">cy</span><span class="pun">-</span><span class="pln">testY</span><span class="pun">))&lt;&nbsp;</span><span class="pln">r</span><span class="pun">*</span><span class="pln">r</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1">// Collisions between rectangle and circle</li>
+<li>function circRectsOverlap(x0, y0, w0, h0, cx, cy, r) {</li>
+<li>&nbsp; &nbsp;var testX=cx; </li>
+<li>&nbsp; &nbsp;var testY=cy; </li>
+<li> </li>
+<li>&nbsp; &nbsp;if (testX &lt; x0) testX=x0; </li>
+<li>&nbsp; &nbsp;if (testX &gt; (x0+w0)) testX=(x0+w0); </li>
+<li>&nbsp; &nbsp;if (testY &lt; y0) testY=y0; </li>
+<li>&nbsp; &nbsp;if (testY &gt; (y0+h0)) testY=(y0+h0); </li>
+<li> </li>
+<li>&nbsp; &nbsp;return (((cx-testX)*(cx-testX)+(cy-testY)*(cy-testY))&lt;&nbsp;r*r); </li>
+<li> }</li>
 </ol></div><br>
 
 Try this function in [this example](https://jsbin.com/acohiv/845/edit?html,output) on JSBin.
@@ -1036,31 +1036,31 @@ Try [the example](https://jsbin.com/bohebe/edit?js,output) at JsBin!
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> updateBalls</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// for each ball in the array</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> ballArray</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> ball </span><span class="pun">=</span><span class="pln"> ballArray</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// 1) move the ball</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ball</span><span class="pun">.</span><span class="pln">move</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// 2) test if the ball collides with a wall</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;testCollisionWithWalls</span><span class="pun">(</span><span class="pln">ball</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><strong style="color: red;"><span class="com">// 3) Test if the monster collides</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">circRectsOverlap</span><span class="pun">(</span><span class="pln">monster</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> </span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monster</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">height</span><span class="pun">,</span><span class="pln"> </span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> ball</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln"> </span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">//change the color of the ball</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// 3) draw the ball</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ball</span><span class="pun">.</span><span class="pln">draw</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span><span class="pln"> </span></li>
+<div><ol>
+<li value="1">function updateBalls(delta) {</li>
+<li>&nbsp; &nbsp;// for each ball in the array</li>
+<li>&nbsp; &nbsp;for(var i=0; i &lt; ballArray.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp;var ball = ballArray[i];</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;// 1) move the ball</li>
+<li>&nbsp; &nbsp; &nbsp;ball.move(); </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;// 2) test if the ball collides with a wall</li>
+<li>&nbsp; &nbsp; &nbsp;testCollisionWithWalls(ball);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="color: red;">// 3) Test if the monster collides</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;if(circRectsOverlap(monster.x, monster.y, </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monster.width, monster.height, </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ball.x, ball.y, ball.radius)) {</strong></li>
+<li><strong style="color: red;"> </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;//change the color of the ball</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; ball.color = 'red';</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;}</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;// 3) draw the ball</li>
+<li>&nbsp; &nbsp; &nbsp;ball.draw();</li>
+<li>&nbsp;&nbsp;}</li>
+<li>} </li>
 </ol></div><br>
 
 The only additions are: _lines 13-19_ in the updateBalls function, and the `circRectsOverlap` function!
