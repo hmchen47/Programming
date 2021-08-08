@@ -506,32 +506,34 @@ __Source code for the next 4 questions (21, 22, 23 and 24)__
 
   Can we do the same things with the `<track>` HTML element as we can with the textTrack property/object we get from the JavaScript API? (Yea/No)
 
-  Ans: <br>
+  Ans: No<br>
   Explanation: 
+    + No, the TextTrack object you can get from the HTML track or from the video is NOT the same element/object/node as the HTML track object.
+    + The `<track>` and the var you can get with a `document.getElementById(...)` represent the same DOM element. Using this "DOM/HTML view" of the track you can check if it's been loaded, get the attribute values, etc. But you cannot read the track content or change its mode and force it to load. For this you must use the "twin brother" `textTrack` property from the html track (`track.textTrack`) or from the video DOM element (`video.tracks` is a collection of these `TextTrack` objects). This `TextTrack` is not a DOM node and is not the HTML track element.
 
 
 28. Hidden but alive?
 
   If a track has been loaded and the corresponding TextTrack mode property set to "hidden", will track and cue events be fired when the video is played (assume that the browser supports cue and track events)? (Yes/No)
 
-  Ans: <br>
-  Explanation: 
+  Ans: Yes<br>
+  Explanation: Yes, a hidden track will not be displayed, but unlike tracks with mode=disabled, it will fire events.
 
 
 29. Stream or not?
 
   Can Web Audio work with both streamed sounds and sound samples loaded in memory? (Yes/No)
 
-  Ans: <br>
-  Explanation: 
+  Ans: Yes<br>
+  Explanation: Yes, with Web Audio, you can load sound samples in memory and process them in real time (filter, pitch, etc), and you can do the same with a stream coming from an audio or video element.
 
 
 30. Fire and forget
 
-  Once played, can a BufferSource node (corresponding to a sound sample loaded in memory) be played again without re-creating it? (Yes/No)
+  Once played, can a `BufferSource` node (corresponding to a sound sample loaded in memory) be played again without re-creating it? (Yes/No)
 
-  Ans: <br>
-  Explanation: 
+  Ans: No<br>
+  Explanation: No, `BufferSource` nodes can only be played once. After that, you must re-create them. This fire-and-forget philosophy may seem bizarre but the API is highly optimized for it.
 
 
 31. Visualizer node
@@ -543,8 +545,8 @@ __Source code for the next 4 questions (21, 22, 23 and 24)__
   c. A waveform node<br>
   d. An FFT node<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: The analyser node is useful for retrieving frequency domain and time domain analysis data.
 
 
 32. Why did we use a Black Box model?
@@ -555,8 +557,10 @@ __Source code for the next 4 questions (21, 22, 23 and 24)__
   b. It's the best approach when we need to split the project into separate files<br>
   c. It gives better performance<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation:
+    + It allows us to have private and public properties methods, this is good for encapsulation.
+    + When we do: `var game = new GF(); game.start();`, start is a method from the API we defined. We cannot call `game.mainloop` or use `game.monster`. `mainloop` and monster are "private" objects/methods and may only be used from inside the game framework.
 
 
 33. Time based animation... again!
@@ -570,21 +574,21 @@ __Source code for the next 4 questions (21, 22, 23 and 24)__
   a. The callback function has a parameter that is a hi-res timer passed by the browser, and we use it to measure deltas of time for time-based animation.<br/>
   b. The callback function runs at a perfect 60 frames per second rate, so the time between two executions of the callback is exactly 1/60th of a second. We use this value (16.66ms) for time-based animation.<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: The hi-res time parameter passed to the callback function is important as we cannot know the exact time elapsed since the last frame of animation. Time-based animation uses this hi-res time to compute deltas.
 
 
 34. Game hero (bonus question, infinite attempts)
 
-  A Christmas game was developed by students during a previous run of this course. It uses an animal as the main character. What animal is it? (Haven't you tried this game yet? Check it now!)
+  A Christmas game was developed by students during a previous run of this course. It uses an animal as the main character. What animal is it? (Haven't you tried this game yet? [Check it now!](https://mainline.i3s.unice.fr/mooc/SkywardBound))
 
   a. A reindeer<br>
   b. A rabbit<br>
   c. A cat<br>
   d. A llama<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: b<br>
+  Explanation: It's a green bunny that can fly!!
 
 
 35. Selected text is a pain (or is plain) text!
@@ -595,8 +599,8 @@ __Source code for the next 4 questions (21, 22, 23 and 24)__
   b. is not possible<br>
   c. is possible, but we must enclose the text with ...<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: <font style="color: red;">a</font>, xc<br>
+  Explanation: Selected text is automatically copied to the drag and drop clipboard. Nothing special is required. In the drop handler, just do `event.dataTransfert.getData("text/plain");` to retrieve the selected text.
 
 
 <hr>
@@ -613,7 +617,7 @@ __Source code for the next question (36)__
 <li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">onloadstart </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; console.log("download started");</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong> t0 </strong></span><strong><span class="pun">=</span><span class="pln"> performance</span><span class="pun">.</span><span class="pln">now</span><span class="pun">();</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong style="color: #aa0000;"> t0 </strong></span><strong style="color: #aa0000;"><span class="pun">=</span><span class="pln"> performance</span><span class="pun">.</span><span class="pln">now</span><span class="pun">();</span></strong></li>
 <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
 <li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
@@ -622,9 +626,9 @@ __Source code for the next question (36)__
 <li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">onprogress </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> bytes </span><span class="pun">=</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">loaded</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>t1 </strong></span><strong><span class="pun">=</span><span class="pln"> performance</span><span class="pun">.</span><span class="pln">now</span><span class="pun">();</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong> r </strong></span><strong><span class="pun">=</span><span class="pln"> bytes </span><span class="pun">/</span><span class="pln"> </span><span class="pun">(</span><span class="pln">t1 </span><span class="pun">-</span><span class="pln">t0</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong>console</strong></span><strong><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"value = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> r</span><span class="pun">);</span></strong></li>
+<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong style="color: #aa0000;">t1 </strong></span><strong style="color: #aa0000;"><span class="pun">=</span><span class="pln"> performance</span><span class="pun">.</span><span class="pln">now</span><span class="pun">();</span></strong></li>
+<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong style="color: #aa0000;"> r </strong></span><strong style="color: #aa0000;"><span class="pun">=</span><span class="pln"> bytes </span><span class="pun">/</span><span class="pln"> </span><span class="pun">(</span><span class="pln">t1 </span><span class="pun">-</span><span class="pln">t0</span><span class="pun">);</span></strong></li>
+<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong style="color: #aa0000;">console</strong></span><strong style="color: #aa0000;"><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"value = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> r</span><span class="pun">);</span></strong></li>
 <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pln">&nbsp;</span><span class="pun">}</span></li>
 <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;xhr</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
 <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"error downloading file"</span><span class="pun">);</span></li>
@@ -642,8 +646,8 @@ __Source code for the next question (36)__
   a. It displays the current download speed.<br/>
   b. It displays how long the download is taking.<br/>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: Indeed, it displays the current download speed!
 
 
 37. Index or KeyPath?
@@ -653,7 +657,7 @@ __Source code for the next question (36)__
   a. We can have multiple objects with the same index value. This not possible with KeyPaths, which must be unique<br>
   b. No difference: a KeyPath is an index<br>
 
-  Ans: <br>
-  Explanation: 
+  Ans: a<br>
+  Explanation: Multiple indexes are possible (during the creation of an index we can indicate if its values must be unique or if multiple indexes with the same value will be allowed). KeyPaths must be unique, they are like primary keys in relational databases.
 
 
