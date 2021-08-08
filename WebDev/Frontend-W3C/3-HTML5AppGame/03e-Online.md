@@ -190,41 +190,41 @@ __And here is the PHP code for the server-side part of examples #1 and #2__
 
 This code is given "as is":
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&lt;?</span><span class="pln">php</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isset</span><span class="pun">(</span><span class="pln">&#36;_POST</span><span class="pun">[</span><span class="str">'givenname'</span><span class="pun">])</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> isset</span><span class="pun">(</span><span class="pln">&#36;_POST</span><span class="pun">[</span><span class="str">'familyname'</span><span class="pun">]))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;echo &#36;_POST</span><span class="pun">[</span><span class="str">'givenname'</span><span class="pun">].</span><span class="str">' '</span><span class="pun">.</span><span class="pln">&#36;_POST</span><span class="pun">[</span><span class="str">'familyname'</span><span class="pun">].</span><span class="str">' uploaded file(s).&lt;br /&gt;'</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isset</span><span class="pun">(</span><span class="pln">&#36;_POST</span><span class="pun">[</span><span class="str">'namesAllFiles'</span><span class="pun">])</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> &#36;_POST</span><span class="pun">[</span><span class="str">'namesAllFiles'</span><span class="pun">]</span><span class="pln"> </span><span class="pun">!=</span><span class="pln"> </span><span class="str">""</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &#36;folderName </span><span class="pun">=</span><span class="pln"> date</span><span class="pun">(</span><span class="str">"m.d.Y"</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">is_dir</span><span class="pun">(</span><span class="str">'upload/'</span><span class="pun">.</span><span class="pln">&#36;folderName</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;mkdir</span><span class="pun">(</span><span class="str">'upload/'</span><span class="pun">.</span><span class="pln">&#36;folderName</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> &#36;filesName </span><span class="pun">=</span><span class="pln"> explode</span><span class="pun">(</span><span class="str">"::"</span><span class="pun">,</span><span class="pln"> &#36;_POST</span><span class="pun">[</span><span class="str">'namesAllFiles'</span><span class="pun">]);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">&#36;i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> &#36;i </span><span class="pun">&lt;</span><span class="pln"> count</span><span class="pun">(</span><span class="pln">&#36;filesName</span><span class="pun">);</span><span class="pln"> &#36;i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; copy</span><span class="pun">(</span><span class="str">'upload/RecycleBin/'</span><span class="pun">.</span><span class="pln">&#36;filesName</span><span class="pun">[</span><span class="pln">&#36;i</span><span class="pun">],</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'upload/'</span><span class="pun">.</span><span class="pln">&#36;folderName</span><span class="pun">.</span><span class="str">'/'</span><span class="pun">.</span><span class="pln">&#36;filesName</span><span class="pun">[</span><span class="pln">&#36;i</span><span class="pun">]);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; unlink</span><span class="pun">(</span><span class="str">'upload/RecycleBin/'</span><span class="pun">.</span><span class="pln">&#36;filesName</span><span class="pun">[</span><span class="pln">&#36;i</span><span class="pun">]);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; echo </span><span class="str">"&#36;filesName[&#36;i] uploaded&lt;br /&gt;"</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&#36;fn </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isset</span><span class="pun">(</span><span class="pln">&#36;_SERVER</span><span class="pun">[</span><span class="str">'HTTP_X_FILENAME'</span><span class="pun">])</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&#36;_SERVER</span><span class="pun">[</span><span class="str">'HTTP_X_FILENAME'</span><span class="pun">]</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">&#36;fn</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">is_dir</span><span class="pun">(</span><span class="str">'upload/RecycleBin'</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; mkdir</span><span class="pun">(</span><span class="str">'upload/RecycleBin'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; file_put_contents</span><span class="pun">(</span><span class="str">'upload/RecycleBin/'</span><span class="pun">.</span><span class="pln">&#36;fn</span><span class="pun">,</span><span class="pln">&nbsp; &nbsp; &nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; file_get_contents</span><span class="pun">(</span><span class="str">'php://input'</span><span class="pun">));</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">exit</span><span class="pun">();</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">?&gt;</span></li>
+<div><ol>
+<li value="1">&lt;?php</li>
+<li> </li>
+<li>if (isset(&#36;_POST['givenname']) &amp;&amp; isset(&#36;_POST['familyname'])) {</li>
+<li>&nbsp; &nbsp;echo &#36;_POST['givenname'].' '.&#36;_POST['familyname'].' uploaded file(s).&lt;br /&gt;';</li>
+<li>}</li>
+<li> </li>
+<li>if (isset(&#36;_POST['namesAllFiles']) &amp;&amp; &#36;_POST['namesAllFiles'] != "") {</li>
+<li>&nbsp; &#36;folderName = date("m.d.Y");</li>
+<li>&nbsp;&nbsp;if (!is_dir('upload/'.&#36;folderName)) {</li>
+<li>&nbsp; &nbsp; &nbsp;mkdir('upload/'.&#36;folderName);</li>
+<li> }</li>
+<li> </li>
+<li> &#36;filesName = explode("::", &#36;_POST['namesAllFiles']);</li>
+<li>&nbsp; for (&#36;i=0; &#36;i &lt; count(&#36;filesName); &#36;i++) {</li>
+<li>&nbsp; &nbsp; copy('upload/RecycleBin/'.&#36;filesName[&#36;i], </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'upload/'.&#36;folderName.'/'.&#36;filesName[&#36;i]);</li>
+<li>&nbsp; &nbsp; unlink('upload/RecycleBin/'.&#36;filesName[&#36;i]);</li>
+<li>&nbsp; &nbsp; echo "&#36;filesName[&#36;i] uploaded&lt;br /&gt;";</li>
+<li>&nbsp;&nbsp;}</li>
+<li>}</li>
+<li> </li>
+<li>&#36;fn = (isset(&#36;_SERVER['HTTP_X_FILENAME']) ? </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&#36;_SERVER['HTTP_X_FILENAME'] : false);</li>
+<li> </li>
+<li>if (&#36;fn) {</li>
+<li>&nbsp;&nbsp;if (!is_dir('upload/RecycleBin')) {</li>
+<li>&nbsp; &nbsp; mkdir('upload/RecycleBin');</li>
+<li>&nbsp;&nbsp;}</li>
+<li>&nbsp; file_put_contents('upload/RecycleBin/'.&#36;fn,&nbsp; &nbsp; &nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; file_get_contents('php://input'));</li>
+<li>&nbsp;&nbsp;exit();</li>
+<li>}</li>
+<li> </li>
+<li>?&gt;</li>
 </ol></div>
 
 
@@ -328,52 +328,52 @@ __PHP code for the single-packaged examples (with and without drag and drop, the
 
 This code is given "as is". The principle is the same as with the examples given in the previous section, except that this time we do not have to deal with a temporary "RecycleBin" directory.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">&lt;?</span><span class="pln">php</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isset</span><span class="pun">(</span><span class="pln">&#36;_POST</span><span class="pun">[</span><span class="str">'givenname'</span><span class="pun">])</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> isset</span><span class="pun">(</span><span class="pln">&#36;_POST</span><span class="pun">[</span><span class="str">'familyname'</span><span class="pun">]))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; echo &#36;_POST</span><span class="pun">[</span><span class="str">'givenname'</span><span class="pun">]</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> </span><span class="str">' '</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> &#36;_POST</span><span class="pun">[</span><span class="str">'familyname'</span><span class="pun">]</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> </span><span class="str">' try to upload </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;file(s).'</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&#36;folderName </span><span class="pun">=</span><span class="pln"> date</span><span class="pun">(</span><span class="str">"m.d.Y"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">is_dir</span><span class="pun">(</span><span class="str">'upload/'</span><span class="pun">.</span><span class="pln">&#36;folderName</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; mkdir</span><span class="pun">(</span><span class="str">'upload/'</span><span class="pun">.</span><span class="pln">&#36;folderName</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&#36;fn </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isset</span><span class="pun">(</span><span class="pln">&#36;_SERVER</span><span class="pun">[</span><span class="str">'HTTP_X_FILENAME'</span><span class="pun">])</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> &#36;_SERVER</span><span class="pun">[</span><span class="str">'HTTP_X_FILENAME'</span><span class="pun">]</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; false</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">&#36;fn</span><span class="pun">)</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; file_put_contents</span><span class="pun">(</span><span class="str">'upload/'</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> &#36;folderName </span><span class="pun">.</span><span class="pln"> </span><span class="str">'/'</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> &#36;fn</span><span class="pun">,</span><span class="pln">&nbsp; &nbsp; &nbsp; </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; file_get_contents</span><span class="pun">(</span><span class="str">'php://input'</span><span class="pun">));</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; echo </span><span class="str">"&#36;fn uploaded"</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">exit</span><span class="pun">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isset</span><span class="pun">(</span><span class="pln">&#36;_FILES</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> is_array</span><span class="pun">(</span><span class="pln">&#36;_FILES</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> array_key_exists</span><span class="pun">(</span><span class="str">'formFiles'</span><span class="pun">,</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#36;_FILES</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &#36;number_files_send </span><span class="pun">=</span><span class="pln"> count</span><span class="pun">(</span><span class="pln">&#36;_FILES</span><span class="pun">[</span><span class="str">'formFiles'</span><span class="pun">][</span><span class="str">'name'</span><span class="pun">]);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &#36;dir </span><span class="pun">=</span><span class="pln"> realpath</span><span class="pun">(</span><span class="str">'.'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> </span><span class="str">'/upload/'</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> &#36;folderName </span><span class="pun">.</span><span class="pln"> </span><span class="str">'/'</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">&#36;number_files_send </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">&#36;i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> &#36;i </span><span class="pun">&lt;</span><span class="pln"> &#36;number_files_send</span><span class="pun">;</span><span class="pln"> &#36;i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; echo </span><span class="str">'&lt;br/&gt;Reception of : '</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> &#36;_FILES</span><span class="pun">[</span><span class="str">'formFiles'</span><span class="pun">][</span><span class="str">'name'</span><span class="pun">][</span><span class="pln">&#36;i</span><span class="pun">];</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#36;copy </span><span class="pun">=</span><span class="pln"> move_uploaded_file</span><span class="pun">(</span><span class="pln">&#36;_FILES</span><span class="pun">[</span><span class="str">'formFiles'</span><span class="pun">][</span><span class="str">'tmp_name'</span><span class="pun">]</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [</span><span class="pln">&#36;i</span><span class="pun">],</span><span class="pln"> &#36;dir </span><span class="pun">.</span><span class="pln"> &#36;_FILES</span><span class="pun">[</span><span class="str">'formFiles'</span><span class="pun">][</span><span class="str">'name'</span><span class="pun">][</span><span class="pln">&#36;i</span><span class="pun">]);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">&#36;copy</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; echo </span><span class="str">'&lt;br /&gt;File '</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> &#36;_FILES</span><span class="pun">[</span><span class="str">'formFiles'</span><span class="pun">][</span><span class="str">'name'</span><span class="pun">][</span><span class="pln">&#36;i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' copy'</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; echo </span><span class="str">'&lt;br /&gt;No file to upload'</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">?&gt;</span></li>
+<div><ol>
+<li value="1">&lt;?php</li>
+<li> </li>
+<li>if (isset(&#36;_POST['givenname']) &amp;&amp; isset(&#36;_POST['familyname'])) {</li>
+<li>&nbsp; &nbsp; echo &#36;_POST['givenname'] . ' ' . &#36;_POST['familyname'] . ' try to upload </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;file(s).';</li>
+<li>}</li>
+<li> </li>
+<li>&#36;folderName = date("m.d.Y");</li>
+<li>if (!is_dir('upload/'.&#36;folderName)) {</li>
+<li>&nbsp; &nbsp; mkdir('upload/'.&#36;folderName);</li>
+<li>}</li>
+<li> </li>
+<li>&#36;fn = (isset(&#36;_SERVER['HTTP_X_FILENAME']) ? &#36;_SERVER['HTTP_X_FILENAME'] : </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; false);</li>
+<li>if (&#36;fn)</li>
+<li>{</li>
+<li>&nbsp; &nbsp; file_put_contents('upload/' . &#36;folderName . '/' . &#36;fn,&nbsp; &nbsp; &nbsp; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; file_get_contents('php://input'));</li>
+<li>&nbsp; &nbsp; echo "&#36;fn uploaded";</li>
+<li>&nbsp; &nbsp;&nbsp;exit();</li>
+<li>}</li>
+<li>else {</li>
+<li>&nbsp; &nbsp;if (isset(&#36;_FILES) &amp;&amp; is_array(&#36;_FILES) &amp;&amp; array_key_exists('formFiles', </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#36;_FILES)) {</li>
+<li>&nbsp; &nbsp; &nbsp; &#36;number_files_send = count(&#36;_FILES['formFiles']['name']);</li>
+<li>&nbsp; &nbsp; &nbsp; &#36;dir = realpath('.') . '/upload/' . &#36;folderName . '/';</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;if (&#36;number_files_send &gt; 0) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for (&#36;i = 0; &#36;i &lt; &#36;number_files_send; &#36;i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; echo '&lt;br/&gt;Reception of : ' . &#36;_FILES['formFiles']['name'][&#36;i];</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#36;copy = move_uploaded_file(&#36;_FILES['formFiles']['tmp_name']</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [&#36;i], &#36;dir . &#36;_FILES['formFiles']['name'][&#36;i]);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;if (&#36;copy) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; echo '&lt;br /&gt;File ' . &#36;_FILES['formFiles']['name'][&#36;i] . </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' copy';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;else {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; echo '&lt;br /&gt;No file to upload';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp;} </li>
+<li>}</li>
+<li> </li>
+<li>?&gt;</li>
 </ol></div>
 
 
