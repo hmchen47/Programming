@@ -14,33 +14,33 @@ We will evolve this framework throughout the lessons in this course, and cut it 
 
 Here is the starting point:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> GF </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> mainLoop </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">time</span><span class="pun">){</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">//Main function, called each frame</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> start </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Our GameFramework returns a public API visible from outside its scope</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="com">&nbsp; // Here we only expose the start method, under the "start" property name.</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong style="color: red;"><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; start</span><span class="pun">:</span><span class="pln"> start</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">var GF = function(){</li>
+<li> </li>
+<li>&nbsp;&nbsp;var mainLoop = function(time){</li>
+<li>&nbsp; &nbsp;&nbsp;//Main function, called each frame</li>
+<li>&nbsp; &nbsp; requestAnimationFrame(mainLoop);</li>
+<li>&nbsp;&nbsp;};</li>
+<li> </li>
+<li>&nbsp;&nbsp;var start = function(){</li>
+<li>&nbsp; &nbsp; requestAnimationFrame(mainLoop);</li>
+<li>&nbsp;&nbsp;};</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Our GameFramework returns a public API visible from outside its scope</li>
+<li>&nbsp; // Here we only expose the start method, under the "start" property name.</li>
+<li>&nbsp;&nbsp;<strong style="color: red;">return {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; start: start</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;};</strong></li>
+<li>};</li>
 </ol></div><br>
 
 With this skeleton, it's very easy to create a new game instance:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> game </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> GF</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com">// Launch the game, start the animation loop, etc.</span></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">game</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span></strong></li>
+<div><ol>
+<li value="1">var game = new GF();</li>
+<li> </li>
+<li>// Launch the game, start the animation loop, etc.</li>
+<li><strong style="color: red;">game.start();</strong></li>
 </ol></div>
 
 
@@ -54,14 +54,14 @@ Try this [online example at JSBin](https://jsbin.com/tatowa/edit), with a new `m
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> mainLoop </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">time</span><span class="pun">){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// main function, called each frame</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// call the animation loop every 1/60th of second</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">var mainLoop = function(time){</li>
+<li>&nbsp;&nbsp;// main function, called each frame</li>
+<li>&nbsp; document.body.innerHTML = Math.random();</li>
+<li> </li>
+<li>&nbsp;&nbsp;// call the animation loop every 1/60th of second</li>
+<li>&nbsp; requestAnimationFrame(mainLoop);</li>
+<li>};</li>
 </ol></div><br>
 
 
@@ -93,60 +93,60 @@ Here is a screenshot of an example and the code we added to our game engine, for
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">&nbsp;&nbsp; // vars for counting frames/s, used by the measureFPS function</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> frameCount </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> lastTime</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> fpsContainer</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> fps</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> measureFPS </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">newTime</span><span class="pun">){</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// test for the very first invocation</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">lastTime </span><span class="pun">===</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;lastTime </span><span class="pun">=</span><span class="pln"> newTime</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">return</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// calculate the delta&nbsp;between last &amp; current frame</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> diffTime </span><span class="pun">=</span><span class="pln"> newTime </span><span class="pun">-</span><span class="pln"> lastTime</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">diffTime </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="lit">1000</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;fps </span><span class="pun">=</span><span class="pln"> frameCount</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;frameCount </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;lastTime </span><span class="pun">=</span><span class="pln"> newTime</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// and display it in an element we appended to the </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// document in the start() function</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;fpsContainer</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">'FPS: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> fps</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;frameCount</span><span class="pun">++;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<div><ol>
+<li value="1">&nbsp;&nbsp; // vars for counting frames/s, used by the measureFPS function</li>
+<li> var frameCount = 0;</li>
+<li> var lastTime;</li>
+<li> var fpsContainer;</li>
+<li> var fps; </li>
+<li> </li>
+<li> var measureFPS = function(newTime){</li>
+<li> </li>
+<li>&nbsp; &nbsp;// test for the very first invocation</li>
+<li>&nbsp; &nbsp;if(lastTime === undefined) {</li>
+<li>&nbsp; &nbsp; &nbsp;lastTime = newTime; </li>
+<li>&nbsp; &nbsp; &nbsp;return;</li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;// calculate the delta&nbsp;between last &amp; current frame</li>
+<li>&nbsp; &nbsp;var diffTime = newTime - lastTime; </li>
+<li> </li>
+<li>&nbsp; &nbsp;if (diffTime &gt;= 1000) {</li>
+<li>&nbsp; &nbsp; &nbsp;fps = frameCount; </li>
+<li>&nbsp; &nbsp; &nbsp;frameCount = 0;</li>
+<li>&nbsp; &nbsp; &nbsp;lastTime = newTime;</li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;// and display it in an element we appended to the </li>
+<li>&nbsp; &nbsp;// document in the start() function</li>
+<li>&nbsp; &nbsp;fpsContainer.innerHTML = 'FPS: ' + fps; </li>
+<li>&nbsp; &nbsp;frameCount++;</li>
+<li> };</li>
 </ol></div><br>
 
 Now we can call the `measureFPS` function from inside the animation loop, passing it the current time, given by the high resolution timer that comes with the `requestAnimationFrame` API:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> mainLoop </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><strong style="color: red;"><span class="pln">time</span></strong><span class="pun">){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">//&nbsp;compute FPS,&nbsp;called each frame, uses the high resolution time parameter&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="com">&nbsp; //&nbsp;given&nbsp;by the browser that implements the requestAnimationFrame API</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong style="color: red;">measureFPS</strong></span><strong style="color: red;"><span class="pun">(</span><span class="pln">time</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// call the animation loop every 1/60th of second</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">var mainLoop = function(<strong style="color: red;">time</strong>){</li>
+<li>&nbsp;&nbsp;//&nbsp;compute FPS,&nbsp;called each frame, uses the high resolution time parameter&nbsp;</li>
+<li>&nbsp; //&nbsp;given&nbsp;by the browser that implements the requestAnimationFrame API</li>
+<li>&nbsp; <strong style="color: red;">measureFPS</strong><strong style="color: red;">(time);</strong></li>
+<li> </li>
+<li>&nbsp; // call the animation loop every 1/60th of second</li>
+<li>&nbsp; requestAnimationFrame(mainLoop);</li>
+<li>};</li>
 </ol></div><br>
 
 And the `<div>` element used to display FPS on the screen is created in this example by the `start()` function:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> start </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong style="color: red;"><span class="com">// adds a div for displaying the fps value</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; fpsContainer </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'div'</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">fpsContainer</span><span class="pun">);</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">var start = function(){</li>
+<li>&nbsp;&nbsp;<strong style="color: red;">// adds a div for displaying the fps value</strong></li>
+<li><strong style="color: red;">&nbsp; fpsContainer = document.createElement('div');</strong></li>
+<li><strong style="color: red;">&nbsp; document.body.appendChild(fpsContainer);</strong></li>
+<li> </li>
+<li>&nbsp; requestAnimationFrame(mainLoop);</li>
+<li>};</li>
 </ol></div>
 
 
@@ -156,13 +156,13 @@ We also know methods of implementing loops in JavaScript which achieve even more
 
 My favorite hack uses the onerror callback on an `<img>` element like this:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln">&nbsp;mainloop</span><span class="pun">(</span><span class="pun">){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> img </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; img</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="pun"><span style="line-height: 23.2727px;">mainloop</span>;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; img</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">'data:image/png,'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function&nbsp;mainloop(){</li>
+<li>&nbsp;&nbsp;var img = new Image;</li>
+<li></li>
+<li>&nbsp; img.onerror =&nbsp;<span style="line-height: 23.2727px;">mainloop;</li>
+<li>&nbsp; img.src = 'data:image/png,' + Math.random();</li>
+<li>}</li>
 </ol></div><br>
 
 What we are doing here, is creating a new image on each frame and providing invalid data as a source of the image. The image cannot be displayed properly, so the browser calls the onerror event handler that is the mainloop function itself, and so on.
@@ -183,17 +183,17 @@ Funny right? Please try this and check the number of FPS displayed with this [JS
 
 Source code extract of this example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> mainLoop </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// main function, called each frame </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; measureFPS</span><span class="pun">(+(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">()));</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// call the animation loop every LOTS of seconds using previous hack method</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> img </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; img</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> mainLoop</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; img</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> </span><span class="str">'data:image/png,'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<div><ol>
+<li value="1">var mainLoop = function(){</li>
+<li>&nbsp;&nbsp;// main function, called each frame </li>
+<li> </li>
+<li>&nbsp; measureFPS(+(new Date()));</li>
+<li> </li>
+<li>&nbsp;&nbsp;// call the animation loop every LOTS of seconds using previous hack method</li>
+<li>&nbsp;&nbsp;var img = new Image();</li>
+<li>&nbsp; img.onerror = mainLoop;</li>
+<li>&nbsp; img.src = 'data:image/png,' + Math.random();</li>
+<li> };</li>
 </ol></div><br>
 
 
@@ -282,7 +282,7 @@ Source code extract of this example:
   a. We use the parameter passed by the browser to the animation loop. This is a `requestAnimationFrame` API feature.<br>
   a. We use the Date() JavaScript object, that returns the current time.<br>
 
-  Ans: <span style="color: magenta;">a</span>, xb<br/>
+  Ans: <span style="color: magenta;">a, xb<br/>
   Explanation: When we ask the browser to call the `mainloop` function using `requestAnimationFrame(mainloop)`, a time parameter is passed to the `mainloop` function. It's a high resolution time in ms, that we use to compute deltas. By computing the difference between the current time and the previous time measured during the previous execution of `mainloop`, we can get the elapsed time, with a sub millisecond accuracy.
 
 
@@ -315,27 +315,27 @@ How to draw a monster in a canvas: you can try it [online at JSBin](https://jsbi
 
 HTML code (declaration of the canvas):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;title&gt;</span><span class="pln">Draw a monster in a canvas</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"200"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"200"</span><span class="tag">&gt;&lt;/canvas&gt;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li>&nbsp; &nbsp;&lt;meta charset="utf-8"&gt;</li>
+<li>&nbsp; &nbsp;&lt;title&gt;Draw a monster in a canvas&lt;/title&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&nbsp; &nbsp;<strong style="color: red;">&lt;canvas id="myCanvas" width="200" height="200"&gt;&lt;/canvas&gt;</strong></li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div><br>
 
 The canvas declaration is at _line 8_. Use attributes to give it a `width` and a `height`, but unless you add some CSS properties, you will not see it on the screen because it's transparent!
 
 Let's use CSS to reveal the canvas, for example, add a 1px black border around it:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">canvas </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1px</span><span class="pln"> solid black</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">canvas {</li>
+<li>&nbsp; &nbsp;border: 1px solid black;</li>
+<li>}</li>
 </ol></div><br>
 
 And here is a reminder of best practices when using the canvas, as described in the HTML5 Part 1 course:
@@ -348,58 +348,58 @@ And here is a reminder of best practices when using the canvas, as described in 
 
 Here is JavaScript code which implements those best practices:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// useful to have them as global variables</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> <g class="gr_ gr_126 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="126" data-gr-id="126">ctx</g></span><span class="pun">,</span><span class="pln"> w</span><span class="pun">,</span><span class="pln"> h</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Called AFTER the page has been loaded</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myCanvas"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Often useful</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; w </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; h </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Important, we will draw with this object</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Ready to go!</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Try to change the parameter values to move</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// the monster</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; drawMyMonster</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> drawMyMonster</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Draw a big monster!</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Head</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// BEST practice: save the context, use 2D transformations</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Translate the coordinate system, draw relative to it</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// (0, 0) is the top left corner of the monster.</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Eyes</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">65</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Nose</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">45</span><span class="pun">,</span><span class="pln"> </span><span class="lit">40</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">40</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Mouth</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">strokeRect</span><span class="pun">(</span><span class="lit">35</span><span class="pun">,</span><span class="pln"> </span><span class="lit">84</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Teeth</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">38</span><span class="pun">,</span><span class="pln"> </span><span class="lit">84</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">52</span><span class="pun">,</span><span class="pln"> </span><span class="lit">84</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// BEST practice: restore the context</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">// useful to have them as global variables</li>
+<li>var canvas, <g id="126" data-gr-id="126">ctx</g>, w, h; </li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li>window.onload = function init() {</li>
+<li>&nbsp;&nbsp;// Called AFTER the page has been loaded</li>
+<li>&nbsp; canvas = document.querySelector("#myCanvas");</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Often useful</li>
+<li>&nbsp; w = canvas.width; </li>
+<li>&nbsp; h = canvas.height; </li>
+<li> </li>
+<li>&nbsp;&nbsp;// Important, we will draw with this object</li>
+<li>&nbsp; ctx = canvas.getContext('2d');</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Ready to go!</li>
+<li>&nbsp;&nbsp;// Try to change the parameter values to move</li>
+<li>&nbsp;&nbsp;// the monster</li>
+<li>&nbsp; drawMyMonster(10, 10);</li>
+<li>};</li>
+<li>&nbsp;</li>
+<li>function drawMyMonster(x, y) {</li>
+<li>&nbsp;&nbsp;// Draw a big monster!</li>
+<li>&nbsp;&nbsp;// Head</li>
+<li> </li>
+<li>&nbsp;&nbsp;// BEST practice: save the context, use 2D transformations</li>
+<li>&nbsp; ctx.save();</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Translate the coordinate system, draw relative to it</li>
+<li>&nbsp; ctx.translate(x, y);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// (0, 0) is the top left corner of the monster.</li>
+<li>&nbsp; ctx.strokeRect(0, 0, 100, 100);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Eyes</li>
+<li>&nbsp; ctx.fillRect(20, 20, 10, 10);</li>
+<li>&nbsp; ctx.fillRect(65, 20, 10, 10);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Nose</li>
+<li>&nbsp; ctx.strokeRect(45, 40, 10, 40);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Mouth</li>
+<li>&nbsp; ctx.strokeRect(35, 84, 30, 10);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Teeth</li>
+<li>&nbsp; ctx.fillRect(38, 84, 10, 10);</li>
+<li>&nbsp; ctx.fillRect(52, 84, 10, 10);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// BEST practice: restore the context</li>
+<li>&nbsp; ctx.restore();</li>
+<li>}</li>
 </ol></div><br>
 
 In this small example, we used the `context` object to draw a monster using the default color (black) and wireframe and filled modes:
@@ -440,87 +440,87 @@ You can try [this version online at JSBin](https://jsbin.com/xuruja/edit).
 
 HTML code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Trembling monster in the Game Framework</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><strong style="color: red;"><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"200"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"200"</span><span class="tag">&gt;&lt;/canvas&gt;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li> &lt;meta charset="utf-8"&gt;</li>
+<li> &lt;title&gt;Trembling monster in the Game Framework&lt;/title&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li> <strong style="color: red;">&lt;canvas id="myCanvas" width="200" height="200"&gt;&lt;/canvas&gt;</strong></li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div><br>
 
 JavaScript complete code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Inits</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> game </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> GF</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; game</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="com">// GAME FRAMEWORK STARTS HERE</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> GF </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong style="color: red;"><span class="com">// Vars relative to the canvas</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong style="color: red;"><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> <g class="gr_ gr_121 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="121" data-gr-id="121">ctx</g></span><span class="pun">,</span><span class="pln"> w</span><span class="pun">,</span><span class="pln"> h</span><span class="pun">;</span></strong><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;...</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> measureFPS </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">newTime</span><span class="pun">){</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;...</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Clears the canvas content</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> clearCanvas</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> w</span><span class="pun">,</span><span class="pln"> h</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Functions for drawing the monster and perhaps other objects</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> drawMyMonster</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;...</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> mainLoop </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">time</span><span class="pun">){</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Main function, called each frame </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; measureFPS</span><span class="pun">(</span><span class="pln">time</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong style="color: red;">&nbsp;</strong></span><strong style="color: red;"><span class="com">// Clear the canvas</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong style="color: red;">clearCanvas</strong></span><strong style="color: red;"><span class="pun">();</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="com">// Draw the monster</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong style="color: red;">drawMyMonster</strong></span><strong style="color: red;"><span class="pun">(</span><span class="lit">10</span><span class="pun">+</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">()*</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">+</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">()*</span><span class="lit">10</span><span class="pun">);</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Call the animation loop every 1/60th of second</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> start </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;...</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="com">// Canvas, context etc.</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong style="color: red;">canvas </strong></span><strong style="color: red;"><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myCanvas"</span><span class="pun">);</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="com">// often useful</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; w </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">;</span><span class="pln"> </span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; h </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">;</span><span class="pln"> </span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln"> </span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// important, we will draw with this object</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Start the animation</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">//our GameFramework returns a public API visible from outside its scope</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;start</span><span class="pun">:</span><span class="pln"> start</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">// Inits</li>
+<li>window.onload = function init() {</li>
+<li>&nbsp;&nbsp;var game = new GF();</li>
+<li>&nbsp; game.start();</li>
+<li>};</li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li>// GAME FRAMEWORK STARTS HERE</li>
+<li>var GF = function(){</li>
+<li>&nbsp;&nbsp;<strong style="color: red;">// Vars relative to the canvas</strong></li>
+<li>&nbsp;&nbsp;<strong style="color: red;">var canvas, <g id="121" data-gr-id="121">ctx</g>, w, h;</strong> </li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;...</li>
+<li> </li>
+<li>&nbsp;&nbsp;var measureFPS = function(newTime){</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;...</li>
+<li> };</li>
+<li> </li>
+<li> // Clears the canvas content</li>
+<li> function clearCanvas() {</li>
+<li>&nbsp; &nbsp;ctx.clearRect(0, 0, w, h);</li>
+<li> }</li>
+<li> </li>
+<li> // Functions for drawing the monster and perhaps other objects</li>
+<li> function drawMyMonster(x, y) {</li>
+<li>&nbsp; &nbsp;...</li>
+<li> }</li>
+<li> </li>
+<li> var mainLoop = function(time){</li>
+<li>&nbsp; &nbsp;&nbsp;// Main function, called each frame </li>
+<li>&nbsp; &nbsp; measureFPS(time);</li>
+<li> </li>
+<li>&nbsp; &nbsp;<strong style="color: red;">&nbsp;</strong><strong style="color: red;">// Clear the canvas</strong></li>
+<li>&nbsp; &nbsp; <strong style="color: red;">clearCanvas</strong><strong style="color: red;">();</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: red;">// Draw the monster</strong></li>
+<li>&nbsp; &nbsp; <strong style="color: red;">drawMyMonster</strong><strong style="color: red;">(10+Math.random()*10, 10+Math.random()*10);</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// Call the animation loop every 1/60th of second</li>
+<li>&nbsp; &nbsp; requestAnimationFrame(mainLoop);</li>
+<li> };</li>
+<li>&nbsp;</li>
+<li> var start = function(){</li>
+<li>&nbsp; &nbsp;&nbsp;...</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: red;">// Canvas, context etc.</strong></li>
+<li>&nbsp; &nbsp; <strong style="color: red;">canvas </strong><strong style="color: red;">= document.querySelector("#myCanvas");</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: red;">// often useful</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; w = canvas.width; </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; h = canvas.height; </strong></li>
+<li><strong style="color: red;"> </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;// important, we will draw with this object</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; ctx = canvas.getContext('2d');</strong></li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;// Start the animation</li>
+<li>&nbsp; &nbsp; requestAnimationFrame(mainLoop);</li>
+<li> };</li>
+<li>&nbsp;</li>
+<li> //our GameFramework returns a public API visible from outside its scope</li>
+<li> return {</li>
+<li>&nbsp; &nbsp;start: start</li>
+<li> };</li>
+<li>};</li>
 </ol></div><br>
 
 __Explanations:__
@@ -613,28 +613,28 @@ There are three ways to manage events in the DOM structure. You could attach an 
 
 __Method #1: declare an event handler in the HTML code__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"someDiv"</span><span class="pln"> </span><strong style="color: red;"><span class="atn">onclick</span></strong><span class="pun">=</span><span class="atv">"</span><span class="pln">alert</span><span class="pun">(</span><span class="str">'clicked!'</span><span class="pun">)</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln"> content of the div </span><span class="tag">&lt;/div&gt;</span></li>
+<div><ol>
+<li value="1">&lt;div id="someDiv" <strong style="color: red;">onclick</strong>="alert('clicked!')"&gt; content of the div &lt;/div&gt;</li>
 </ol></div><br>
 
 This method is very easy to use, but it is not the recommended way to handle events. Indeed, It works today but is _deprecated_ (will probably be abandoned in the future). Mixing 'visual layer' (HTML) and 'logic layer' (JavaScript) in one place is really bad practice and causes a host of problems during development.
 
 __Method #2: attach an event handler to an HTML element in JavaScript__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'someDiv'</span><span class="pun">).</span><strong style="color: red;"><span class="pln">onclick </span></strong><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str"><g class="gr_ gr_54 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="54" data-gr-id="54">'clicked</g>!'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">document.getElementById('someDiv').<strong style="color: red;">onclick </strong>= function() {</li>
+<li>&nbsp; &nbsp;alert(<g id="54" data-gr-id="54">'clicked</g>!');</li>
+<li>}</li>
 </ol></div><br>
 
 This method is fine, but  you will not be able to attach multiple _listener_ functions. If you need to do this, use the version shown below.
 
 __Method #3: register a callback to the event listener with the `addEventListener` method (preferred  method)__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'someDiv'</span><span class="pun">).</span><strong style="color: red;"><span class="pln">addEventListener</span></strong><span class="pun">(</span><span class="str">'click'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;alert</span><span class="pun">(</span><span class="str">'clicked!'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">document.getElementById('someDiv').<strong style="color: red;">addEventListener</strong>('click', function() {</li>
+<li>&nbsp; &nbsp;alert('clicked!');</li>
+<li>}, false);</li>
 </ol></div><br>
 
 Note that the third parameter describes whether the _callback_ has to be called during the captured phase. This is not important for now, just set it to false.
@@ -644,10 +644,10 @@ Note that the third parameter describes whether the _callback_ has to be called 
 
 When you create an event listener and attach it to an element, the listener will create an `event` object to describe what happened. This object is provided as a parameter of the callback function:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">element</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str"><g class="gr_ gr_64 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="64" data-gr-id="64">'click</g>'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><strong style="color: red;"><span class="kwd">event</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="com">// now you can use event object inside the callback</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">element.addEventListener(<g id="64" data-gr-id="64">'click</g>', function(<strong style="color: red;">event</strong>) {</li>
+<li>&nbsp; &nbsp;<strong style="color: red;">// now you can use event object inside the callback</strong></li>
+<li>}, false);</li>
 </ol></div><br>
 
 Depending on the type of event you are listening to, you will consult different properties from the `event` object in order to obtain useful information such as: "which keys are pressed down?", "what is the location of the mouse cursor?", "which mouse button has been clicked?", etc.
@@ -698,12 +698,12 @@ This has been something of a nightmare for years, as different browsers had diff
 
 After a keyboard-related event (eg `keydown` or `keyup`), the code of the key that fired the event will be passed to the listener function. It is possible to test which key has been pressed or released, like this:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str"><g class="gr_ gr_84 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="84" data-gr-id="84">'keydown</g>'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">37</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Left arrow was pressed</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1">window.addEventListener(<g id="84" data-gr-id="84">'keydown</g>', function(event) {</li>
+<li>&nbsp; &nbsp;if (event.keyCode === 37) {</li>
+<li>&nbsp; &nbsp; &nbsp;// Left arrow was pressed</li>
+<li>&nbsp; &nbsp;}</li>
+<li>}, false);</li>
 </ol></div><br>
 
 At line 2, the key code of 37 corresponds to the left arrow key.
@@ -762,113 +762,113 @@ Here is the [online example](https://jsbin.com/razeya/edit) you can try at JSBin
 
 And here is the complete source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Inits</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> game </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> GF</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; game</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="com">// GAME FRAMEWORK STARTS HERE</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> GF </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">...&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;">// vars for handling inputs</strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> inputStates </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> measureFPS </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">newTime</span><span class="pun">){</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">...</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Clears the canvas content</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> clearCanvas</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> w</span><span class="pun">,</span><span class="pln"> h</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Functions for drawing the monster and perhaps other objects</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> drawMyMonster</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">...</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> mainLoop </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">time</span><span class="pun">){</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Main function, called each frame </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;measureFPS</span><span class="pun">(</span><span class="pln">time</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Clears the canvas</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;clearCanvas</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Draws the monster</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;drawMyMonster</span><span class="pun">(</span><span class="lit">10</span><span class="pun">+</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">()*</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">+</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">()*</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong style="color: red;"> &nbsp;&nbsp;</strong></span><strong style="color: red;">// check inputStates</strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">left</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"left"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">up</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"up"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">);</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">right</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"right"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">80</span><span class="pun">);</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">down</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"down"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">120</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">space</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"space bar"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">140</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></strong><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Calls the animation loop every 1/60th of second</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> start </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">...</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Important, we will draw with this object</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Default police for text</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">font</span><span class="pun">=</span><span class="str">"20px Arial"</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Add the listener to the main, window object, and update the states</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'keydown'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">){</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">37</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">left </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">38</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">up </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">39</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">right </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">40</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">down </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">32</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">space </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln"> </span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// If the key&nbsp;is released, change the states object </span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'keyup'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">){</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">37</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">left </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">38</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">up </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">39</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">right </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">40</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">down </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">32</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">space </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Starts the animation</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pun">};</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// our GameFramework returns a public API visible from outside its scope</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;start</span><span class="pun">:</span><span class="pln"> start</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">// Inits</li>
+<li>window.onload = function init() {</li>
+<li>&nbsp;&nbsp;var game = new GF();</li>
+<li>&nbsp; game.start();</li>
+<li>};</li>
+<li> </li>
+<li> </li>
+<li>// GAME FRAMEWORK STARTS HERE</li>
+<li>var GF = function(){</li>
+<li>&nbsp; &nbsp;...&nbsp;</li>
+<li> </li>
+<li>&nbsp; &nbsp;<strong style="color: red;">// vars for handling inputs</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;var inputStates = {};</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp;var measureFPS = function(newTime){</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;...</li>
+<li>&nbsp; &nbsp;};</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Clears the canvas content</li>
+<li>&nbsp; &nbsp;function clearCanvas() {</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.clearRect(0, 0, w, h);</li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Functions for drawing the monster and perhaps other objects</li>
+<li>&nbsp; &nbsp;function drawMyMonster(x, y) {</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;...</li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;var mainLoop = function(time){</li>
+<li>&nbsp; &nbsp; &nbsp;// Main function, called each frame </li>
+<li>&nbsp; &nbsp; &nbsp;measureFPS(time);</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;// Clears the canvas</li>
+<li>&nbsp; &nbsp; &nbsp;clearCanvas();</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;// Draws the monster</li>
+<li>&nbsp; &nbsp; &nbsp;drawMyMonster(10+Math.random()*10, 10+Math.random()*10);</li>
+<li>&nbsp;</li>
+<li>&nbsp;<strong style="color: red;"> &nbsp;&nbsp;</strong><strong style="color: red;">// check inputStates</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;if (inputStates.left) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; ctx.fillText("left", 150, 20);</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;}</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;if (inputStates.up) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; ctx.fillText("up", 150, 50);</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;}</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;if (inputStates.right) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; ctx.fillText("right", 150, 80);</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;}</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;if (inputStates.down) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;ctx.fillText("down", 150, 120);</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;} </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;if (inputStates.space) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;ctx.fillText("space bar", 140, 150);</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;}</strong> </li>
+<li> </li>
+<li>&nbsp; &nbsp;// Calls the animation loop every 1/60th of second</li>
+<li>&nbsp; &nbsp;requestAnimationFrame(mainLoop);</li>
+<li> };</li>
+<li> </li>
+<li> var start = function(){</li>
+<li>&nbsp; &nbsp;&nbsp;...</li>
+<li>&nbsp; &nbsp;&nbsp;// Important, we will draw with this object</li>
+<li>&nbsp; &nbsp; ctx = canvas.getContext('2d');</li>
+<li>&nbsp; &nbsp;&nbsp;// Default police for text</li>
+<li>&nbsp; &nbsp; ctx.font="20px Arial";</li>
+<li> </li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;// Add the listener to the main, window object, and update the states</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; window.addEventListener('keydown', function(event){</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; if (event.keyCode === 37) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; inputStates.left = true;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;&nbsp;} else if (event.keyCode === 38) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; inputStates.up = true;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;&nbsp;} else if (event.keyCode === 39) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; inputStates.right = true;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; } else if (event.keyCode === 40) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; inputStates.down = true;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;&nbsp;} else if (event.keyCode === 32) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; inputStates.space = true;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;&nbsp;}</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;}, false);</strong></li>
+<li><strong style="color: red;"> </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;&nbsp;// If the key&nbsp;is released, change the states object </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; window.addEventListener('keyup', function(event){</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;&nbsp;if (event.keyCode === 37) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; inputStates.left = false;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;&nbsp;} else if (event.keyCode === 38) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; inputStates.up = false;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;&nbsp;} else if (event.keyCode === 39) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; inputStates.right = false;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;&nbsp;} else if (event.keyCode === 40) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; inputStates.down = false;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;&nbsp;} else if (event.keyCode === 32) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; &nbsp; inputStates.space = false;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;&nbsp;}</strong></li>
+<li>&nbsp; &nbsp;&nbsp;}, false);</li>
+<li> </li>
+<li> </li>
+<li>&nbsp; &nbsp;// Starts the animation</li>
+<li>&nbsp; &nbsp;requestAnimationFrame(mainLoop);</li>
+<li>&nbsp;};</li>
+<li> </li>
+<li> // our GameFramework returns a public API visible from outside its scope</li>
+<li> return {</li>
+<li>&nbsp; &nbsp;start: start</li>
+<li> };</li>
+<li>};</li>
 </ol></div><br>
 
 You may notice that on some computers / operating systems, it is not possible to simultaneously press the up and down arrow keys, or left and right arrow keys, because they are mutually exclusive. However space + up + right should work in combination.
@@ -948,9 +948,9 @@ Working with mouse events requires detecting whether a mouse button is up or dow
 
 Special care must be taken when acquiring mouse coordinates because the HTML5 canvas has default (or directed) CSS properties which could produce false coordinates. The trick to get the right x and y mouse cursor coordinates is to use this method from the canvas API:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// necessary to take into account CSS boudaries</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> rect </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getBoundingClientRect</span><span class="pun">();</span></li>
+<div><ol>
+<li value="1">// necessary to take into account CSS boudaries</li>
+<li> var rect = canvas.getBoundingClientRect();</li>
 </ol></div><br>
 
 The width and height of the `rect` object must be taken into account. These dimensions correspond to the padding / margins / borders of the canvas. See how we deal with them in the `getMousePos()` function in the next example.
@@ -973,54 +973,54 @@ Move the mouse over the canvas and press or release mouse buttons. Notice that w
 
 Below is the JavaScript source code for this small example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="kwd">var</span><span class="pln"> inputStates </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'myCanvas'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong style="color: red;">canvas</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong style="color: red;">inputStates</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">mousePos </span><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">);</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> message </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Mouse position: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">','</span><span class="pln"> </span><span class="pun">+</span><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; writeMessage</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> message</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong style="color: red;">canvas</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousedown'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong style="color: red;">inputStates</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">mousedown </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong style="color: red;">inputStates</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">mouseButton </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">button</span><span class="pun">;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="kwd">var</span><span class="pln"> message </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Mouse button "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">button </span><span class="pun">+</span><span class="pln"> </span><span class="str">" down at position: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln">&nbsp; </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">','</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; writeMessage</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> message</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong style="color: red;">canvas</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mouseup'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; <strong style="color: red;">inputStates</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">mousedown </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> message </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Mouse up at position: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">','</span><span class="pln"> </span><span class="pun">+</span><span class="pln">&nbsp; &nbsp; &nbsp; </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; writeMessage</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> message</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> writeMessage</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> message</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">font </span><span class="pun">=</span><span class="pln"> </span><span class="str">'18pt Calibri'</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'black'</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="pln">message</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">25</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="kwd">function</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// necessary to take into account CSS boudaries</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> rect </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getBoundingClientRect</span><span class="pun">();</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;x</span><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientX </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">left</span><span class="pun">,</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;y</span><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientY </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">top</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pun">}</span></strong></li>
+<div><ol>
+<li value="1">var canvas, ctx;</li>
+<li><strong style="color: red;">var inputStates = {};</strong></li>
+<li> </li>
+<li>window.onload = function init() {</li>
+<li>&nbsp; &nbsp;canvas = document.getElementById('myCanvas');</li>
+<li>&nbsp; &nbsp;ctx = canvas.getContext('2d');</li>
+<li> </li>
+<li>&nbsp; &nbsp;<strong style="color: red;">canvas</strong><strong style="color: red;">.addEventListener('mousemove', function (evt) {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; <strong style="color: red;">inputStates</strong><strong style="color: red;">.mousePos = getMousePos(canvas, evt);</strong></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var message = 'Mouse position: ' + inputStates.mousePos.x + ',' +&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inputStates.mousePos.y;</li>
+<li>&nbsp; &nbsp; &nbsp; writeMessage(canvas, message);</li>
+<li>&nbsp; &nbsp;}, false);</li>
+<li> </li>
+<li>&nbsp; &nbsp;<strong style="color: red;">canvas</strong><strong style="color: red;">.addEventListener('mousedown', function (evt) {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; <strong style="color: red;">inputStates</strong><strong style="color: red;">.mousedown = true;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; <strong style="color: red;">inputStates</strong><strong style="color: red;">.mouseButton = evt.button;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; var message = "Mouse button " + evt.button + " down at position: " +&nbsp; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inputStates.mousePos.x + ',' + inputStates.mousePos.y;</li>
+<li>&nbsp; &nbsp; &nbsp; writeMessage(canvas, message);</li>
+<li>&nbsp; &nbsp;}, false);</li>
+<li> </li>
+<li>&nbsp; &nbsp;<strong style="color: red;">canvas</strong><strong style="color: red;">.addEventListener('mouseup', function (evt) {</strong></li>
+<li>&nbsp; &nbsp; &nbsp; <strong style="color: red;">inputStates</strong><strong style="color: red;">.mousedown = false;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var message = "Mouse up at position: " + inputStates.mousePos.x + ',' +&nbsp; &nbsp; &nbsp; </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inputStates.mousePos.y;</li>
+<li>&nbsp; &nbsp; &nbsp; writeMessage(canvas, message);</li>
+<li>&nbsp; &nbsp;}, false);</li>
+<li>};</li>
+<li> </li>
+<li>function writeMessage(canvas, message) {</li>
+<li>&nbsp;&nbsp;var ctx = canvas.getContext('2d');</li>
+<li>&nbsp; ctx.save();</li>
+<li>&nbsp; ctx.clearRect(0, 0, canvas.width, canvas.height);</li>
+<li>&nbsp; ctx.font = '18pt Calibri';</li>
+<li>&nbsp; ctx.fillStyle = 'black';</li>
+<li>&nbsp; ctx.fillText(message, 10, 25);</li>
+<li>&nbsp; ctx.restore();</li>
+<li>}</li>
+<li> </li>
+<li><strong style="color: red;">function getMousePos(canvas, evt) {</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;// necessary to take into account CSS boudaries</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;var rect = canvas.getBoundingClientRect();</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;return {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;x: evt.clientX - rect.left,</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;y: evt.clientY - rect.top</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;};</strong></li>
+<li><strong style="color: red;">}</strong></li>
 </ol></div>
 
 
@@ -1041,66 +1041,66 @@ Try this [example at JsBin](https://jsbin.com/soduko/edit?js,output)
 
 Source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> canvas</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> rect </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">x</span><span class="pun">:</span><span class="lit">40</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">:</span><span class="lit">40</span><span class="pun">,</span><span class="pln"> rayon</span><span class="pun">:</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">:</span><span class="lit">80</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">:</span><span class="lit">80</span><span class="pun">,</span><span class="pln"> v</span><span class="pun">:</span><span class="lit">1</span><span class="pun">};</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> mousepos </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">x</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">:</span><span class="lit">0</span><span class="pun">};</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myCanvas"</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; width </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; height </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">;</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;mousepos </span><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; mainloop</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> mainloop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1) clear screen</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 2) move object</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> dx </span><span class="pun">=</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">x </span><span class="pun">-</span><span class="pln"> mousepos</span><span class="pun">.</span><span class="pln">x</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> dy </span><span class="pun">=</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">y </span><span class="pun">-</span><span class="pln"> mousepos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="kwd">var</span><span class="pln"> angle </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">atan2</span><span class="pun">(</span><span class="pln">dy</span><span class="pun">,</span><span class="pln"> dx</span><span class="pun">);</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong style="color: red;">rect</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">x </span><span class="pun">-=</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">v</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">cos</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">);</span><span class="pln"> </span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; rect</span><span class="pun">.</span><span class="pln">y </span><span class="pun">-=</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">v</span><span class="pun">*</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">sin</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">);</span></strong><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 3) draw object</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; drawRectangle</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">//&nbsp;request new frame</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; window</span><span class="pun">.</span><span class="pln">requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainloop</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> drawRectangle</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="com">// These two lines move the coordinate system</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="pln">rect</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">y</span><span class="pun">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">rotate</span><span class="pun">(</span><span class="pln">angle</span><span class="pun">);</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// recenter the coordinate system in the middle</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// the rectangle. Like that it will rotate around</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// this point instead of top left corner</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(-</span><span class="pln">rect</span><span class="pun">.</span><span class="pln">width</span><span class="pun">/</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="pln">rect</span><span class="pun">.</span><span class="pln">height</span><span class="pun">/</span><span class="lit">2</span><span class="pun">);</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">,</span><span class="pln"> evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// necessary to take into account CSS boudaries</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> rect </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getBoundingClientRect</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; x</span><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientX </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">left</span><span class="pun">,</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; y</span><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientY </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">top</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">var canvas, ctx, width, height;</li>
+<li>var rect = {x:40, y:40, rayon: 30, width:80, height:80, v:1};</li>
+<li>var mousepos = {x:0, y:0};</li>
+<li>&nbsp;</li>
+<li>function init() {</li>
+<li>&nbsp; &nbsp; canvas = document.querySelector("#myCanvas");</li>
+<li>&nbsp; &nbsp; ctx = canvas.getContext('2d');</li>
+<li>&nbsp; &nbsp; width = canvas.width;</li>
+<li>&nbsp; &nbsp; height = canvas.height; </li>
+<li> </li>
+<li>&nbsp; &nbsp; canvas.addEventListener('mousemove', function (evt) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;mousepos = getMousePos(canvas, evt);</li>
+<li>&nbsp; &nbsp; }, false); </li>
+<li> </li>
+<li>&nbsp; &nbsp; mainloop();</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function mainloop() {</li>
+<li>&nbsp; &nbsp;// 1) clear screen</li>
+<li>&nbsp; &nbsp;ctx.clearRect(0, 0, canvas.width, canvas.height);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// 2) move object</li>
+<li>&nbsp; &nbsp;&nbsp;var dx = rect.x - mousepos.x;</li>
+<li>&nbsp; &nbsp;&nbsp;var dy = rect.y - mousepos.y;</li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: red;">var angle = Math.atan2(dy, dx);</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp; <strong style="color: red;">rect</strong><strong style="color: red;">.x -= rect.v*Math.cos(angle); </strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; rect.y -= rect.v*Math.sin(angle);</strong> </li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// 3) draw object</li>
+<li>&nbsp; &nbsp; drawRectangle(angle);</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;//&nbsp;request new frame</li>
+<li>&nbsp; &nbsp; window.requestAnimationFrame(mainloop);</li>
+<li>}</li>
+<li> </li>
+<li>function drawRectangle(angle) {</li>
+<li>&nbsp; &nbsp;ctx.save();</li>
+<li> </li>
+<li>&nbsp; &nbsp;<strong style="color: red;">// These two lines move the coordinate system</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;ctx.translate(rect.x, rect.y);</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;ctx.rotate(angle);</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;// recenter the coordinate system in the middle</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;// the rectangle. Like that it will rotate around</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;// this point instead of top left corner</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;ctx.translate(-rect.width/2, -rect.height/2);</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp;ctx.fillRect(0, 0, rect.width, rect.height);</li>
+<li>&nbsp; &nbsp;ctx.restore();</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function getMousePos(canvas, evt) {</li>
+<li>&nbsp; &nbsp;// necessary to take into account CSS boudaries</li>
+<li>&nbsp; &nbsp;var rect = canvas.getBoundingClientRect();</li>
+<li>&nbsp; &nbsp;return {</li>
+<li>&nbsp; &nbsp; &nbsp; x: evt.clientX - rect.left,</li>
+<li>&nbsp; &nbsp; &nbsp; y: evt.clientY - rect.top</li>
+<li>&nbsp; &nbsp;};</li>
+<li>}</li>
 </ol></div><br>
 
 __Explanations:__
@@ -1132,138 +1132,138 @@ Try pressing arrows and space keys, moving the mouse, and pressing the buttons, 
 
 JavaScript source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Inits</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> game </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> GF</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; game</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="com">// GAME FRAMEWORK STARTS HERE</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> GF </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">...</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Vars for handling inputs</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> inputStates </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> measureFPS </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">newTime</span><span class="pun">){</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">...</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun"><span style="color: #000000;" color="#000000">&nbsp;&nbsp;</span>};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Clears the canvas content</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> clearCanvas</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> w</span><span class="pun">,</span><span class="pln"> h</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Functions for drawing the monster and perhaps other objects</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> drawMyMonster</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">...</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> mainLoop </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">time</span><span class="pun">){</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Main function, called each frame </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;measureFPS</span><span class="pun">(</span><span class="pln">time</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Clears the canvas</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;clearCanvas</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Draws the monster</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;drawMyMonster</span><span class="pun">(</span><span class="lit">10</span><span class="pun">+</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">()*</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">+</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">()*</span><span class="lit">10</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Checks inputStates</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">left</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"left"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">up</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"up"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">40</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">right</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"right"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">60</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">down</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"down"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">80</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">space</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"space bar"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">140</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"x = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">" y = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">mousedown</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"mousedown b"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">mouseButton</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">180</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Calls the animation loop every 1/60th of second</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">function</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Necessary to take into account CSS boudaries</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> rect </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getBoundingClientRect</span><span class="pun">();</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; x</span><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientX </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">left</span><span class="pun">,</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; y</span><span class="pun">:</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">clientY </span><span class="pun">-</span><span class="pln"> rect</span><span class="pun">.</span><span class="pln">top</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">};</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> start </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">...</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Adds the listener to the main window object, and updates the states</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'keydown'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">){</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">37</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">left </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">38</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">up </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">39</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">right </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">40</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">down </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">32</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">space </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// If the key&nbsp;is released, changes the states object </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'keyup'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">){</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">37</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">left </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">38</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">up </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">39</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">right </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">40</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">down </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">32</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">space </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Mouse event listeners</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">mousePos </span><span class="pun">=</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousedown'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">mousedown </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">mouseButton </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">button</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mouseup'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">mousedown </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Starts the animation</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Our GameFramework returns a public API visible from outside its scope</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; start</span><span class="pun">:</span><span class="pln"> start</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">// Inits</li>
+<li>window.onload = function init() {</li>
+<li>&nbsp;&nbsp;var game = new GF();</li>
+<li>&nbsp; game.start();</li>
+<li>};</li>
+<li> </li>
+<li> </li>
+<li>// GAME FRAMEWORK STARTS HERE</li>
+<li>var GF = function(){</li>
+<li>&nbsp;&nbsp;...</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Vars for handling inputs</li>
+<li>&nbsp;&nbsp;var inputStates = {};</li>
+<li> </li>
+<li>&nbsp;&nbsp;var measureFPS = function(newTime){</li>
+<li>&nbsp; &nbsp; &nbsp;...</li>
+<li><span style="color: #000000;" color="#000000">&nbsp;&nbsp;};</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Clears the canvas content</li>
+<li>&nbsp;&nbsp;function clearCanvas() {</li>
+<li>&nbsp; &nbsp; ctx.clearRect(0, 0, w, h);</li>
+<li>&nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Functions for drawing the monster and perhaps other objects</li>
+<li>&nbsp;&nbsp;function drawMyMonster(x, y) {</li>
+<li>&nbsp; &nbsp;&nbsp;...</li>
+<li>&nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp;&nbsp;var mainLoop = function(time){</li>
+<li>&nbsp; &nbsp;// Main function, called each frame </li>
+<li>&nbsp; &nbsp;measureFPS(time);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Clears the canvas</li>
+<li>&nbsp; &nbsp;clearCanvas();</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Draws the monster</li>
+<li>&nbsp; &nbsp;drawMyMonster(10+Math.random()*10, 10+Math.random()*10);</li>
+<li>&nbsp; &nbsp;// Checks inputStates</li>
+<li>&nbsp; &nbsp;if (inputStates.left) {</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.fillText("left", 150, 20);</li>
+<li>&nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp;if (inputStates.up) {</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.fillText("up", 150, 40);</li>
+<li>&nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp;if (inputStates.right) {</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.fillText("right", 150, 60);</li>
+<li>&nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp;if (inputStates.down) {</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.fillText("down", 150, 80);</li>
+<li>&nbsp; &nbsp;} </li>
+<li>&nbsp; &nbsp;if (inputStates.space) {</li>
+<li>&nbsp; &nbsp; &nbsp;ctx.fillText("space bar", 140, 100);</li>
+<li>&nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp;if (inputStates.mousePos) { </li>
+<li>&nbsp; &nbsp; &nbsp;ctx.fillText("x = " + inputStates.mousePos.x + " y = " + </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;inputStates.mousePos.y, 5, 150);</li>
+<li>&nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp;if (inputStates.mousedown) { </li>
+<li>&nbsp; &nbsp; &nbsp;ctx.fillText("mousedown b" + inputStates.mouseButton, 5, 180);</li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Calls the animation loop every 1/60th of second</li>
+<li>&nbsp; &nbsp;requestAnimationFrame(mainLoop);</li>
+<li>&nbsp;&nbsp;};</li>
+<li> </li>
+<li> </li>
+<li>&nbsp;&nbsp;function getMousePos(evt) {</li>
+<li>&nbsp; &nbsp;&nbsp;// Necessary to take into account CSS boudaries</li>
+<li>&nbsp; &nbsp;&nbsp;var rect = canvas.getBoundingClientRect();</li>
+<li>&nbsp; &nbsp;&nbsp;return {</li>
+<li>&nbsp; &nbsp; &nbsp; x: evt.clientX - rect.left,</li>
+<li>&nbsp; &nbsp; &nbsp; y: evt.clientY - rect.top</li>
+<li>&nbsp; &nbsp;&nbsp;};</li>
+<li>&nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp;&nbsp;var start = function(){</li>
+<li>&nbsp; &nbsp;&nbsp;... </li>
+<li>&nbsp; &nbsp;&nbsp;// Adds the listener to the main window object, and updates the states</li>
+<li>&nbsp; &nbsp; window.addEventListener('keydown', function(event){</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;if (event.keyCode === 37) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; inputStates.left = true;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;} else if (event.keyCode === 38) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; inputStates.up = true;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;} else if (event.keyCode === 39) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; inputStates.right = true;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;} else if (event.keyCode === 40) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; inputStates.down = true;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;} else if (event.keyCode === 32) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; inputStates.space = true;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp;&nbsp;}, false);</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// If the key&nbsp;is released, changes the states object </li>
+<li>&nbsp; &nbsp;window.addEventListener('keyup', function(event){</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;if (event.keyCode === 37) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; inputStates.left = false;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;} else if (event.keyCode === 38) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;inputStates.up = false;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;} else if (event.keyCode === 39) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;inputStates.right = false;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;} else if (event.keyCode === 40) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;inputStates.down = false;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;} else if (event.keyCode === 32) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; inputStates.space = false;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp;}, false);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Mouse event listeners</li>
+<li>&nbsp; &nbsp;canvas.addEventListener('mousemove', function (evt) {</li>
+<li>&nbsp; &nbsp; &nbsp;inputStates.mousePos = getMousePos(evt);</li>
+<li>&nbsp; &nbsp;}, false);</li>
+<li> </li>
+<li>&nbsp; &nbsp;canvas.addEventListener('mousedown', function (evt) {</li>
+<li>&nbsp; &nbsp; &nbsp;inputStates.mousedown = true;</li>
+<li>&nbsp; &nbsp; &nbsp;inputStates.mouseButton = evt.button;</li>
+<li>&nbsp; &nbsp;}, false);</li>
+<li> </li>
+<li>&nbsp; &nbsp;canvas.addEventListener('mouseup', function (evt) {</li>
+<li>&nbsp; &nbsp; &nbsp;inputStates.mousedown = false;</li>
+<li>&nbsp; &nbsp;}, false); </li>
+<li> </li>
+<li> </li>
+<li>&nbsp; &nbsp;// Starts the animation</li>
+<li>&nbsp; &nbsp;requestAnimationFrame(mainLoop);</li>
+<li>&nbsp;&nbsp;};</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Our GameFramework returns a public API visible from outside its scope</li>
+<li>&nbsp;&nbsp;return {</li>
+<li>&nbsp; &nbsp; start: start</li>
+<li>&nbsp;&nbsp;};</li>
+<li>};</li>
 </ol></div>
 
 
@@ -1390,19 +1390,19 @@ If the user interacts with a controller (presses a button, moves a stick) a [`ga
 
 [Local Demo](src/02b-example013.html)
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">"gamepadconnected"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> gamepad </span><span class="pun">=</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">gamepad</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> index </span><span class="pun">=</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">index;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> id </span><span class="pun">=</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">id</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> nbButtons </span><span class="pun">=</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">buttons</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> nbAxes </span><span class="pun">=</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Gamepad No "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> index </span><span class="pun">+</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="str">", with id "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> id </span><span class="pun">+</span><span class="pln"> </span><span class="str">" is connected. It has "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;nbButtons </span><span class="pun">+</span><span class="pln"> </span><span class="str">" buttons and "</span><span class="pln"> </span><span class="pun">+</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;nbAxes </span><span class="pun">+</span><span class="pln"> </span><span class="str">" axes"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">});</span></li>
+<div><ol>
+<li value="1">window.addEventListener("gamepadconnected", function(e) {</li>
+<li>&nbsp; &nbsp;var gamepad = e.gamepad;</li>
+<li>&nbsp; &nbsp;var index = gamepad.index;</li>
+<li>&nbsp; &nbsp;var id = gamepad.id;</li>
+<li>&nbsp; &nbsp;var nbButtons = gamepad.buttons.length;</li>
+<li>&nbsp; &nbsp;var nbAxes = gamepad.axes.length;</li>
+<li> </li>
+<li>&nbsp; &nbsp;console.log("Gamepad No " + index + </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;", with id " + id + " is connected. It has " + </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;nbButtons + " buttons and " +</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;nbAxes + " axes");</li>
+<li>});</li>
 </ol></div><br>
 
 
@@ -1417,13 +1417,13 @@ If the user interacts with a controller (presses a button, moves a stick) a [`ga
 
 If a gamepad is disconnected (you unplug it), a [`gamepaddisconnected`](https://w3c.github.io/gamepad/#event-gamepaddisconnected) event is fired. Any references to the gamepad object will have their `connected` property set to false.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">"<g class="gr_ gr_186 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="186" data-gr-id="186">gamepaddisconnected</g>"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> gamepad </span><span class="pun">=</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">gamepad</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> index </span><span class="pun">=</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">index;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Gamepad No "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> index +&nbsp;</span><span class="str">" has been disconnected"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">});</span></li>
+<div><ol>
+<li value="1">window.addEventListener("<g id="186" data-gr-id="186">gamepaddisconnected</g>", function(e) {</li>
+<li>&nbsp; &nbsp;var gamepad = e.gamepad;</li>
+<li>&nbsp; &nbsp;var index = gamepad.index;</li>
+<li> </li>
+<li>&nbsp; &nbsp;console.log("Gamepad No " + index +&nbsp;" has been disconnected");</li>
+<li>});</li>
 </ol></div>
 
 <figure style="margin: 0.5em; text-align: center;">
@@ -1444,30 +1444,30 @@ So, you need to regularly scan for gamepads available on the system. You should 
 
 Here is the code to use to scan for a gamepad:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> gamepad</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> mainloop</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;...</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;scangamepads</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// test gamepad status: buttons, joysticks etc.</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;...</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainloop</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> scangamepads</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// function called 60 times/s</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong style="color: red;">&nbsp;</strong></span><strong style="color: red;"><span class="com">// the gamepad is a "snapshot", so we need to set it </span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// 60 times / second in order to have an updated status</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> gamepads </span><span class="pun">=</span><span class="pln"> navigator</span><span class="pun">.</span><span class="pln">getGamepads</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> gamepads</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// current gamepad is not necessarily the first</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">gamepads</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;gamepad </span><span class="pun">=</span><span class="pln"> gamepads</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">var gamepad;</li>
+<li>&nbsp;</li>
+<li>function mainloop() {</li>
+<li>&nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp;scangamepads();</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;// test gamepad status: buttons, joysticks etc.</li>
+<li>&nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp;requestAnimationFrame(mainloop);</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function scangamepads() {</li>
+<li>&nbsp;&nbsp;// function called 60 times/s</li>
+<li>&nbsp;<strong style="color: red;">&nbsp;</strong><strong style="color: red;">// the gamepad is a "snapshot", so we need to set it </strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;// 60 times / second in order to have an updated status</strong></li>
+<li>&nbsp;&nbsp;var gamepads = navigator.getGamepads();</li>
+<li> </li>
+<li>&nbsp;&nbsp;for (var i = 0; i &lt; gamepads.length; i++) {</li>
+<li>&nbsp; &nbsp;&nbsp;// current gamepad is not necessarily the first</li>
+<li>&nbsp; &nbsp;&nbsp;if(gamepads[i] !== undefined)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;gamepad = gamepads[i];</li>
+<li>&nbsp; &nbsp; }</li>
+<li>}</li>
 </ol></div><br>
 
 In this code, we check every 1/60 second for newly or re-connected gamepads, and we update the gamepad global var with the first gamepad object returned by the browser. We need to do this so that we have an accurate "snapshot" of the gamepad state, with fixed values for the buttons, axes, etc. If we want to check the current button and joystick statuses, we must poll the browser at a high frequency  and call for an updated snapshot.
@@ -1527,38 +1527,38 @@ Digital, on/off buttons evaluate to either one or zero (respectively). Whereas a
 
 Code for checking if a button is pressed:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> checkButtons</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">buttons</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; // do nothing is the gamepad is not ok</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; if(gamepad === undefined) return;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; if(!gamepad.connected) return;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">buttons</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">b</span><span class="pun">.</span><span class="pln">pressed</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Button "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i </span><span class="pun">+</span><span class="pln"> </span><span class="str">" is pressed."</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if(b.value !== undefined)</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// analog trigger L2 or R2, value is a float in [0, 1]</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Its value:"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">val</span>);</li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function checkButtons(gamepad) {</li>
+<li>&nbsp; &nbsp;for (var i = 0; i &lt; gamepad.buttons.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; // do nothing is the gamepad is not ok</li>
+<li>&nbsp; &nbsp; &nbsp; if(gamepad === undefined) return;</li>
+<li>&nbsp; &nbsp; &nbsp; if(!gamepad.connected) return;</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var b = gamepad.buttons[i];</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;if(b.pressed) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log("Button " + i + " is pressed.");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if(b.value !== undefined)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// analog trigger L2 or R2, value is a float in [0, 1]</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log("Its value:" + b.val);</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp;}</li>
+<li>}</li>
 </ol></div><br>
 
 Next, we'll integrate it into the `mainloop` code. Note that we also need to call the `scangamepads` function from the loop, to generate fresh "snapshots" of the gamepad with updated properties. Without this call, the `gamepad.buttons` will return the same  states every time.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> <g class="gr_ gr_192 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="192" data-gr-id="192">mainloop</g></span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// clear, draw objects, etc...</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;scangamepads</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Check gamepad button states</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;checkButtons</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// animate at 60 frames/s</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainloop</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function <g id="192" data-gr-id="192">mainloop</g>() {</li>
+<li>&nbsp; &nbsp;// clear, draw objects, etc...</li>
+<li>&nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp;scangamepads();</li>
+<li>&nbsp; &nbsp;// Check gamepad button states</li>
+<li>&nbsp; &nbsp;checkButtons(gamepad);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// animate at 60 frames/s</li>
+<li>&nbsp; &nbsp;requestAnimationFrame(mainloop);</li>
+<li>}</li>
 </ol></div><br>
 
 
@@ -1580,18 +1580,18 @@ __Detecting axes (joystick) values__
 
 Code for detecting the axes' values:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// detect axis (joystick states)</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> checkAxes</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">gamepad </span><span class="pun">===</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">return</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(!</span><span class="pln">gamepad</span><span class="pun">.</span><span class="pln">connected</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">return</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="pln">gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> axisValue </span><span class="pun">=</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// do something with the value</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">...</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">// detect axis (joystick states)</li>
+<li>function checkAxes(gamepad) {</li>
+<li>&nbsp; &nbsp;if(gamepad === undefined) return;</li>
+<li>&nbsp; &nbsp;if(!gamepad.connected) return;</li>
+<li> </li>
+<li>&nbsp; &nbsp;for (var i=0; i&lt;gamepad.axes.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp;var axisValue = gamepad.axes[i];</li>
+<li>&nbsp; &nbsp; &nbsp;// do something with the value</li>
+<li>&nbsp; &nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp;}</li>
+<li>}</li>
 </ol></div><br>
 
 __Detecting the direction (left, right, up, down, diagonals) and angle of the left joystick__
@@ -1614,90 +1614,90 @@ We could add an inputStates object similar to the one we used in the game framew
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><strong style="color: red;"><span class="kwd">var</span><span class="pln"> inputStates </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> <g class="gr_ gr_189 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" id="189" data-gr-id="189">mainloop</g></span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// clear, draw objects, etc...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// update gamepad status</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;scangamepads</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Check gamepad button states</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; checkButtons</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Check joysticks states</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; checkAxes</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong style="color: red;"><span class="com">// Move the player, taking into account</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// the gamepad left joystick state</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; updatePlayerPosition</span><span class="pun">();</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// We could use the same technique in</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// order to react when buttons are pressed</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">//...</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// animate at 60 frames/s</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainloop</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> updatePlayerPosition</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;directionDiv</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong style="color: red;">&nbsp;</strong></span><strong style="color: red;"><span class="kwd">if</span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">left</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; directionDiv</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Moving left"</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="kwd">if</span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">right</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; directionDiv</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Moving right"</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="kwd">if</span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">up</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; directionDiv</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Moving up"</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="kwd">if</span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">down</span><span class="pun">)</span></strong><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; directionDiv</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Moving down"</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// Display the angle in degrees, in the HTML page</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;angleDiv</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">((</span><strong style="color: red;"><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">angle</span></strong><span class="pun">*</span><span class="lit">180</span><span class="pun">/</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">));</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="com">// gamepad code below</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="com">// -------------------------</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="com">// detect axis (joystick states)</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> checkAxes</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">gamepad </span><span class="pun">===</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">return</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">(!</span><span class="pln">gamepad</span><span class="pun">.</span><span class="pln">connected</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">return</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">...</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong style="color: red;">&nbsp;</strong></span><strong style="color: red;"><span class="com">// Set inputStates.left, right, up, down</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; inputStates</span><span class="pun">.</span><span class="pln">left </span><span class="pun">=</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">right </span><span class="pun">=</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">up </span><span class="pun">=</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">down </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln"> </span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// all values between [-1 and 1]</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong style="color: red;">&nbsp;</strong></span><strong style="color: red;"><span class="com">// Horizontal detection</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0.5</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">right</span><span class="pun">=</span><span class="kwd">true</span><span class="pun">;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">left</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> </span><span class="pun">-</span><span class="lit">0.5</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">left</span><span class="pun">=</span><span class="kwd">true</span><span class="pun">;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">right</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln"> </span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// vertical detection</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0.5</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">down</span><span class="pun">=</span><span class="kwd">true</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">up</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> </span><span class="pun">-</span><span class="lit">0.5</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">up</span><span class="pun">=</span><span class="kwd">true</span><span class="pun">;</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">down</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></strong><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// compute the angle. gamepad.axes[1] is the </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// sinus of the angle (values between [-1, 1]),</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// gamepad.axes[0] is the cosinus of the angle.</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// we display the value in degree as in a regular</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// trigonometric circle, with the x axis to the right</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// and the y axis that goes up.</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// The angle = arcTan(sin/cos); We inverse the sign of</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// the sinus in order to have the angle in standard</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// x and y axis (y going up)</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong style="color: red;">inputStates</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">angle </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">atan2</span><span class="pun">(-</span><span class="pln">gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">[</span><span class="lit">1</span><span class="pun">],</span><span class="pln"> gamepad</span><span class="pun">.</span><span class="pln">axes</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1"><strong style="color: red;">var inputStates = {};</strong></li>
+<li>...</li>
+<li>function <g id="189" data-gr-id="189">mainloop</g>() {</li>
+<li>&nbsp; &nbsp;// clear, draw objects, etc...</li>
+<li>&nbsp; &nbsp;// update gamepad status</li>
+<li>&nbsp; &nbsp;scangamepads();</li>
+<li>&nbsp;&nbsp;// Check gamepad button states</li>
+<li>&nbsp; checkButtons(gamepad);</li>
+<li>&nbsp;&nbsp;// Check joysticks states</li>
+<li>&nbsp; checkAxes(gamepad);</li>
+<li> </li>
+<li>&nbsp;&nbsp;<strong style="color: red;">// Move the player, taking into account</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;// the gamepad left joystick state</strong></li>
+<li><strong style="color: red;">&nbsp; updatePlayerPosition();</strong></li>
+<li> </li>
+<li>&nbsp;&nbsp;// We could use the same technique in</li>
+<li>&nbsp;&nbsp;// order to react when buttons are pressed</li>
+<li>&nbsp;&nbsp;//...</li>
+<li> </li>
+<li>&nbsp;&nbsp;// animate at 60 frames/s</li>
+<li>&nbsp; requestAnimationFrame(mainloop);</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function updatePlayerPosition() {</li>
+<li>&nbsp; &nbsp;directionDiv.innerHTML += "";</li>
+<li>&nbsp; <strong style="color: red;">&nbsp;</strong><strong style="color: red;">if(inputStates.left)</strong> {</li>
+<li>&nbsp; &nbsp; &nbsp; directionDiv.innerHTML = "Moving left";</li>
+<li>&nbsp; &nbsp;} </li>
+<li>&nbsp; &nbsp;<strong style="color: red;">if(inputStates.right)</strong> {</li>
+<li>&nbsp; &nbsp; &nbsp; directionDiv.innerHTML = "Moving right";</li>
+<li>&nbsp; &nbsp;} </li>
+<li>&nbsp; &nbsp;<strong style="color: red;">if(inputStates.up)</strong> {</li>
+<li>&nbsp; &nbsp; &nbsp; directionDiv.innerHTML = "Moving up";</li>
+<li>&nbsp; &nbsp;} </li>
+<li>&nbsp; &nbsp;<strong style="color: red;">if(inputStates.down)</strong> {</li>
+<li>&nbsp; &nbsp; &nbsp; directionDiv.innerHTML = "Moving down";</li>
+<li>&nbsp; &nbsp;} </li>
+<li>&nbsp; &nbsp;// Display the angle in degrees, in the HTML page</li>
+<li>&nbsp; &nbsp;angleDiv.innerHTML = Math.round((<strong style="color: red;">inputStates.angle</strong>*180/Math.PI));</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>// gamepad code below</li>
+<li>// -------------------------</li>
+<li>// detect axis (joystick states)</li>
+<li>function checkAxes(gamepad) {</li>
+<li>&nbsp; if(gamepad === undefined) return;</li>
+<li>&nbsp;&nbsp;if(!gamepad.connected) return;</li>
+<li> </li>
+<li>&nbsp;&nbsp;...</li>
+<li> </li>
+<li>&nbsp;<strong style="color: red;">&nbsp;</strong><strong style="color: red;">// Set inputStates.left, right, up, down</strong></li>
+<li><strong style="color: red;">&nbsp; inputStates.left = inputStates.right = inputStates.up = inputStates.down = false;</strong></li>
+<li><strong style="color: red;"> </strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;// all values between [-1 and 1]</strong></li>
+<li>&nbsp;<strong style="color: red;">&nbsp;</strong><strong style="color: red;">// Horizontal detection</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;if(gamepad.axes[0] &gt; 0.5) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;inputStates.right=true;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;inputStates.left=false;</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;} else if(gamepad.axes[0] &lt; -0.5) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;inputStates.left=true;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;inputStates.right=false;</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;} </strong></li>
+<li><strong style="color: red;"> </strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;// vertical detection</strong></li>
+<li><strong style="color: red;">&nbsp; if(gamepad.axes[1] &gt; 0.5) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; inputStates.down=true;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; inputStates.up=false;</strong></li>
+<li><strong style="color: red;">&nbsp; } else if(gamepad.axes[1] &lt; -0.5) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; inputStates.up=true;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; inputStates.down=false;</strong></li>
+<li><strong style="color: red;">&nbsp;&nbsp;}</strong> </li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;// compute the angle. gamepad.axes[1] is the </li>
+<li>&nbsp;&nbsp;// sinus of the angle (values between [-1, 1]),</li>
+<li>&nbsp;&nbsp;// gamepad.axes[0] is the cosinus of the angle.</li>
+<li>&nbsp;&nbsp;// we display the value in degree as in a regular</li>
+<li>&nbsp;&nbsp;// trigonometric circle, with the x axis to the right</li>
+<li>&nbsp;&nbsp;// and the y axis that goes up.</li>
+<li>&nbsp;&nbsp;// The angle = arcTan(sin/cos); We inverse the sign of</li>
+<li>&nbsp;&nbsp;// the sinus in order to have the angle in standard</li>
+<li>&nbsp;&nbsp;// x and y axis (y going up)</li>
+<li>&nbsp; <strong style="color: red;">inputStates</strong><strong style="color: red;">.angle = Math.atan2(-gamepad.axes[1], gamepad.axes[0]);</strong></li>
+<li>}</li>
 </ol></div>
 
 
@@ -1855,13 +1855,13 @@ Check this [online example at JSBin](https://jsbin.com/yebufu/edit): we've chang
 
 #### Add a JavaScript object to describe the monster
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// The monster!</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> monster </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; x</span><span class="pun">:</span><span class="lit">10</span><span class="pun">,</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; y</span><span class="pun">:</span><span class="lit">10</span><span class="pun">,</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; speed</span><span class="pun">:</span><span class="lit">1</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<div><ol>
+<li value="1">// The monster!</li>
+<li>var monster = {</li>
+<li>&nbsp; x:10,</li>
+<li>&nbsp; y:10,</li>
+<li>&nbsp; speed:1</li>
+<li> };</li>
 </ol></div><br>
 
 Where `monster.x` and `monster.y` define the monster's current position and `monster.speed` corresponds to the number of pixels the monster will move between animation frames.
@@ -1870,66 +1870,66 @@ Note: this is not the best way to animate objects in a game; we will look at a f
 
 __We modified the game loop as follows:__
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> mainLoop </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">time</span><span class="pun">){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Main function, called each frame </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; measureFPS</span><span class="pun">(</span><span class="pln">time</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Clears the canvas</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; clearCanvas</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong style="color: red;"><span class="com">// Draws the monster</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; drawMyMonster</span><span class="pun">(</span><span class="pln">monster</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">y</span><span class="pun">);</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong style="color: red;"><span class="com">// Checks inputs and moves the monster</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; updateMonsterPosition</span><span class="pun">();</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Calls the animation loop every 1/60th of second</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<div><ol>
+<li value="1">var mainLoop = function(time){</li>
+<li>&nbsp;&nbsp;// Main function, called each frame </li>
+<li>&nbsp; measureFPS(time);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Clears the canvas</li>
+<li>&nbsp; clearCanvas();</li>
+<li> </li>
+<li>&nbsp;&nbsp;<strong style="color: red;">// Draws the monster</strong></li>
+<li><strong style="color: red;">&nbsp; drawMyMonster(monster.x, monster.y);</strong></li>
+<li> </li>
+<li>&nbsp;&nbsp;<strong style="color: red;">// Checks inputs and moves the monster</strong></li>
+<li><strong style="color: red;">&nbsp; updateMonsterPosition();</strong></li>
+<li> </li>
+<li>&nbsp;&nbsp;// Calls the animation loop every 1/60th of second</li>
+<li>&nbsp; requestAnimationFrame(mainLoop);</li>
+<li> };</li>
 </ol></div><br>
 
 We moved all the parts that check the input states in the `updateMonsterPosition()` function:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> updateMonsterPosition</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; monster</span><span class="pun">.</span><span class="pln">speedX </span><span class="pun">=</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">speedY </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Checks inputStates</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">left</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"left"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; monster</span><span class="pun">.</span><span class="pln">speedX </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="pln">monster</span><span class="pun">.</span><span class="pln">speed</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">up</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"up"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">40</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; monster</span><span class="pun">.</span><span class="pln">speedY </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="pln">monster</span><span class="pun">.</span><span class="pln">speed</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">right</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"right"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">60</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; monster</span><span class="pun">.</span><span class="pln">speedX </span><span class="pun">=</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">speed</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">down</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"down"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln"> </span><span class="lit">80</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; monster</span><span class="pun">.</span><span class="pln">speedY </span><span class="pun">=</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">speed</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">space</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"space bar"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">140</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"x = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">" y = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">mousePos</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">mousedown</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"mousedown b"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> inputStates</span><span class="pun">.</span><span class="pln">mouseButton</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">180</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; monster</span><span class="pun">.</span><span class="pln">speed </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Mouse up</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; monster</span><span class="pun">.</span><span class="pln">speed </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; monster</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+=</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">speedX</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; monster</span><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">speedY</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function updateMonsterPosition() {</li>
+<li>&nbsp; monster.speedX = monster.speedY = 0;</li>
+<li></li>
+<li>&nbsp;&nbsp;// Checks inputStates</li>
+<li>&nbsp;&nbsp;if (inputStates.left) {</li>
+<li>&nbsp; &nbsp; ctx.fillText("left", 150, 20);</li>
+<li>&nbsp; &nbsp; monster.speedX = -monster.speed;</li>
+<li>&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;if (inputStates.up) {</li>
+<li>&nbsp; &nbsp; ctx.fillText("up", 150, 40);</li>
+<li>&nbsp; &nbsp; monster.speedY = -monster.speed;</li>
+<li>&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;if (inputStates.right) {</li>
+<li>&nbsp; &nbsp; ctx.fillText("right", 150, 60);</li>
+<li>&nbsp; &nbsp; monster.speedX = monster.speed;</li>
+<li>&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;if (inputStates.down) {</li>
+<li>&nbsp; &nbsp; ctx.fillText("down", 150, 80);</li>
+<li>&nbsp; &nbsp; monster.speedY = monster.speed;</li>
+<li>&nbsp;&nbsp;} </li>
+<li>&nbsp;&nbsp;if (inputStates.space) {</li>
+<li>&nbsp; &nbsp; ctx.fillText("space bar", 140, 100);</li>
+<li>&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;if (inputStates.mousePos) { </li>
+<li>&nbsp; &nbsp; ctx.fillText("x = " + inputStates.mousePos.x + " y = " + </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; inputStates.mousePos.y, 5, 150);</li>
+<li>&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;if (inputStates.mousedown) { </li>
+<li>&nbsp; &nbsp; ctx.fillText("mousedown b" + inputStates.mouseButton, 5, 180);</li>
+<li>&nbsp; &nbsp; monster.speed = 5;</li>
+<li>&nbsp;&nbsp;} else {</li>
+<li>&nbsp;&nbsp;// Mouse up</li>
+<li>&nbsp; monster.speed = 1;</li>
+<li>&nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp; monster.x += monster.speedX;</li>
+<li>&nbsp; monster.y += monster.speedY;</li>
+<li>}</li>
 </ol></div><br>
 
 __Explanations:__
@@ -1963,39 +1963,39 @@ Let's add the gamepad utility functions from the previous lesson (we tidied them
 
 The new updated `mainloop`:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> mainLoop </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">time</span><span class="pun">){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">//main function, called each frame </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;measureFPS</span><span class="pun">(</span><span class="pln">time</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Clear the canvas</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;clearCanvas</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong style="color: red;">&nbsp;</strong></span><strong style="color: red;"><span class="com">// gamepad</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;updateGamePadStatus</span><span class="pun">();</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// draw the monster</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;drawMyMonster</span><span class="pun">(</span><span class="pln">monster</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">y</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Check inputs and move the monster</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;updateMonsterPosition</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Call the animation loop every 1/60th of second</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestAnimationFrame</span><span class="pun">(</span><span class="pln">mainLoop</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<div><ol>
+<li value="1">var mainLoop = function(time){</li>
+<li>&nbsp; &nbsp;//main function, called each frame </li>
+<li>&nbsp; &nbsp;measureFPS(time);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Clear the canvas</li>
+<li>&nbsp; &nbsp;clearCanvas();</li>
+<li> </li>
+<li>&nbsp; <strong style="color: red;">&nbsp;</strong><strong style="color: red;">// gamepad</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;updateGamePadStatus();</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp;// draw the monster</li>
+<li>&nbsp; &nbsp;drawMyMonster(monster.x, monster.y);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Check inputs and move the monster</li>
+<li>&nbsp; &nbsp;updateMonsterPosition();</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Call the animation loop every 1/60th of second</li>
+<li>&nbsp; &nbsp;requestAnimationFrame(mainLoop);</li>
+<li> };</li>
 </ol></div><br>
 
 And here is the updateGamePadStatus function (the inner function calls are to gamepad utility functions detailed in the previous lesson):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> updateGamePadStatus</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// get new snapshot of the gamepad properties</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; scangamepads</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Check gamepad button states</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; checkButtons</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Check joysticks</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; checkAxes</span><span class="pun">(</span><span class="pln">gamepad</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function updateGamePadStatus() {</li>
+<li>&nbsp;&nbsp;// get new snapshot of the gamepad properties</li>
+<li>&nbsp; scangamepads();</li>
+<li>&nbsp;&nbsp;// Check gamepad button states</li>
+<li>&nbsp; checkButtons(gamepad);</li>
+<li>&nbsp;&nbsp;// Check joysticks</li>
+<li>&nbsp; checkAxes(gamepad);</li>
+<li> }</li>
 </ol></div><br>
 
 The `checkAxes` function updates the `left`, `right`, `up`, `down` properties of the `inputStates` object we previously used with key events. Therefore, without changing any code in the `updatePlayerPosition` function, the monster moves by joystick command!
