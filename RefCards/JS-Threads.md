@@ -74,5 +74,77 @@
     + the parent page able to listen to messages from a work: `worker.onmessage = function(evt) { // do sth. w/ evt.data };`
 
 
+## Dedicated Workers
+
++ [Dedicated workers](../WebDev/Frontend-W3C/3-HTML5AppGame/04c-Components.md#433-examples)
+  + the simplest kind of Workers
+  + remaining link to the parent page once created
+  + implicit communication channel opened btw the Workers and the parent page $\to$ message exchanged
+  + simplest use of workers for performing a computationally experienced task w/o interrupting the user interface
+  + processing messages sent asynchronously by the worker: `worker.onmessage = function(event) {...}`
+  + `event.data`: the message content
+  + workers only communciating w/ their parent page using messages
+  + a worker = a thread
+  + thread using resources
+  + best pratice: a work no longer required $\to$ releasing the used resources
+  + using `terminate()` method on any worker to end the worker
+  + web worker able to kill itself by calling the `close()` method in worker's JS file
+
++ Example: [backgroundtask and user interface responsive - simple version](../WebDev/Frontend-W3C/3-HTML5AppGame/04c-Components.md#433-examples)
+
++ Example: [Web workers](../WebDev/Frontend-W3C/3-HTML5AppGame/04c-Components.md#433-examples)
+
++ Example: [terminating web worker](../WebDev/Frontend-W3C/3-HTML5AppGame/04c-Components.md#433-examples)
+
++ [Web worker w/ external scripts](../WebDev/Frontend-W3C/3-HTML5AppGame/04c-Components.md#433-examples)
+  + loading external scripts by works using the `importScripts()` function
+  + included scripts following the same-origin policy
+  + external scripts loaded asynchronously
+  + function `importScripts()` not returning until all the scripts loaded and executed
+  + error occurred during a script importing process
+    + a `NETWORK_ERROR` thrown by the `importScripts()` function
+    + following code not executed
+
+
+## Limtations
+
++ [Limitations of Web Workers](../WebDev/Frontend-W3C/3-HTML5AppGame/04c-Components.md#433-examples)
+  + debugging threads probably becoming a nightmare
+  + solutions in the Web Workers API
+    + when a message is sent, it is always a copy that is received: no more thread security problem
+    + only pre-defined thread-safe objects are available in workers, this iis a subset of those usually available in stnadard JS scripts
+  + objects available in Web Workers
+    + the `navigator` object
+    + the `location` object (read-only)
+    + `XMLHttpRequest`
+    + `setTimeout()/clearTimeout()` and `setInterval()/clearInterval()`
+    + the [Application Cache](https://www.html5rocks.com/tutorials/appcache/beginner/)
+    + importing external scripts using the `importScripts()` method
+    + [Spawning other Web Workers](https://bit.ly/3BWcLmp)
+  + Worker unable to access to
+    + the DOM (not thread-safe)
+    + the `window` object
+    + the `document` object
+    + the `parent` object
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://bit.ly/3yhfGnl')"
+      src    = "https://bit.ly/2Wz4Qv3"
+      alt    = "web worker scope"
+      title  = "web worker scope"
+    />
+  </figure>
+
+
+## Debugging
+
++ [Debugging Web Workers](../WebDev/Frontend-W3C/3-HTML5AppGame/04c-Components.md#433-examples)
+  + Chrome providing tools
+    + Chrome developers, [Debug background services](https://developer.chrome.com/docs/devtools/javascript/background-services/)
+    + devtools setting: devtools > Workers tab > check 'Pause on stop'
+    + poping up small window for tracing the execution of each worker
+    + able to check breakpoints, inspect variables, log message, etc.
+  + FireFox: [Firefox developer tools](https://developer.mozilla.org/en-US/docs/Tools)
 
 
