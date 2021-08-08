@@ -758,6 +758,21 @@ This repository tracks my learning on different programming languages.
     <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#">  </a> </td>
   </tr>
 
+  <!-- Threads -->
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan=2 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Threads </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#web-workers"> Web Workers </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#managing-workers"> Managing Workers </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#dedicated-workers"> Dedicated Workers </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#limitations"> Limtations </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#debugging"> Debugging </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#">  </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-Threads.md#">  </a> </td>
+  </tr>
+
   <!-- Temporary -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan=2 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
