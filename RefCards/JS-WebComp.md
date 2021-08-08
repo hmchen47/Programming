@@ -111,6 +111,27 @@
 + Example: [shadow DOM](../WebDev/Frontend-W3C/3-HTML5AppGame/04b-Components.md#notes-for-424-shadow-dom)
 
 
+## Shadow DOM Encapsulation
+
++ Encapsulating code
+  + mixing the templates and the shadow DOM
+    + possible to hide a template's content by embedding it in the shadow root
+    + encapsulating CSS and/or JS code $\to$ affect only the content of the shadow root
+    + external CSS not able to apply inside the shadow root
+  + the content of a widget:
+    + hidden in a shadow root
+    + protected from external CSS, JS snippets, etc.
+  + CSS inside the template not affected any other elements on the page
+  + CSS rule only applying to the template's content w/o side-effect on other elements outside
+
++ Example: mixing templates and shadow DOM
+  + tasks
+    + the content shown as the shadow root + the styles applied
+    + styles applied those defined in the template's content
+
++ Example: differentiating the template and normal elements
+
+
 
 
 
