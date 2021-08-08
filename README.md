@@ -743,17 +743,32 @@ This repository tracks my learning on different programming languages.
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
   </tr>
 
+  <!-- Web Components -->
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <th rowspan=2 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;"> Web Components </th>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#overview"> Overview </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#html-templates"> HTML Templates </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#shadow-dom"> Shadow DOM </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#shadow-dom-encapsulation"> Shadow DOM Encapsulation </a> </td>
+  </tr>
+  <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#html-custom-elements"> HTML Custom Elements </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#html-imports"> HTML Imports </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#web-components-as-js-modules"> Web Components as JS Modules </a> </td>
+    <td style="padding: 0.3em;"> <a href="RefCards/JS-WebComp.md#">  </a> </td>
+  </tr>
+
   <!-- Temporary -->
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <th rowspan=2 scope=row style="padding: 0.3em; text-align: left; line-height: 1.5; vertical-align: middle;">  </th>
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
   </tr>
   <tr style="text-align: left; line-height: 1.5; vertical-align: middle;">
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
-    <td style="padding: 0.3em;"> <a href="RefCards/">  </a></td>
+    <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
     <td style="padding: 0.3em;"> <a href="RefCards/">  </a> </td>
   </tr>
