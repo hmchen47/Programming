@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>HTML5 File</title>
+		<link rel="stylesheet" href="upload.css" />
+		<script src="upload.js"></script>
+	</script>
+	</head>
+	<body onload="retrieveValues();">
+		<form id="formUpload" name="formUpload" method="post" action="upload.php" enctype="multipart/form-data">
+			FirstName : <input type="text" name="firstname" required/><br />
+			LastName : <input type="text" name="lastname" required/><br />
+			<input type="file" multiple name="formFiles[]" id="formFiles" onchange="uploadFileWithoutParameters()"/>
+			<input type="submit" value="Send"> 
+		</form>
+		<progress id="progress" value="0" max="100"></progress> 
+	</body>
+</html>

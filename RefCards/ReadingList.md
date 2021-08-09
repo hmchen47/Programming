@@ -52,6 +52,33 @@
   + [Building Web Applications in Django](https://www.coursera.org/learn/django-build-web-apps)
   + [Django Features and Libraries](https://www.coursera.org/learn/django-features-libraries)
   + [Using JavaScript, JQuery, and JSON in Django](https://www.coursera.org/learn/django-javascript-jquery-json)
++ IndexedDB
+  + [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
+  + [IndexedDB key characteristics and basic terminology](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Basic_Terminology)
+  + [Using IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+  + [W3C Indexed Database API](https://www.w3.org/TR/IndexedDB/)
+  + R. Dabler, [Getting Started with Persistent Offline Storage with IndexedDB](https://bit.ly/3hoTemr)
+  + MDN's documentation on "[Using IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB)"
+  + [Storing images and files in IndexedDB](http://robertnyman.com/2012/03/06/storing-images-and-files-in-indexeddb/)
+  + [Working with IndexedDB](https://developers.google.com/web/ilt/pwa/working-with-indexeddb)
+  + [How to view IndexedDB content in Firefox](https://stackoverflow.com/questions/9846013/how-to-view-indexeddb-content-in-firefox)
++ Web Components
+  + [Using templates and slots](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots)
+  + [Add Flexibility to Web Components With Slots](https://bit.ly/3i9PPZc)
+  + [Creating Web Components — Templates and Slots](https://bit.ly/2ULQgjv)
+  + [Using Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
+  + [Custom Elements v1: Reusable Web Components](https://developers.google.com/web/fundamentals/web-components/customelements)
++ Web Workers
+  + [W3C specification about Web Workers](https://www.w3.org/TR/workers/)
+  + [Web Workers concepts and usage](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
+  + [Using Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
++ HTML5 Orientation API
+  + orientation API+ The W3C specification: [The Screen Orientation API](https://www.w3.org/TR/screen-orientation/)
+  + device orientation: [Device Orientation and Motion](https://www.html5rocks.com/en/tutorials/device/orientation/)
++ Device Motion
+  + W3C specification: [devicemotion Event](https://w3c.github.io/deviceorientation/spec-source-orientation.html#devicemotion)
+  + Google Devs: "[Device Orientation & Motion](https://developers.google.com/web/fundamentals/native-hardware/device-orientation/)"
+  
 
 
 ## Python
@@ -93,7 +120,7 @@
   + [C Programming: Advanced Data Types](https://www.edx.org/course/c-programming-advanced-data-types)
   + [Linux Basics: The Command Line Interface](https://www.edx.org/course/linux-basics-the-command-line-interface)
   + [C Programming: Using Linux Tools and Libraries](https://www.edx.org/course/c-programming-using-linux-tools-and-libraries)
-+ Introduction to Programming in C Specialization - CVoursera
++ Introduction to Programming in C Specialization - Coursera
   + [Programming Fundamentals](https://www.coursera.org/learn/programming-fundamentals)
   + [Writing, Running, and Fixing Code in C](https://www.coursera.org/learn/writing-running-fixing-code)
   + [Pointers, Arrays, and Recursion](https://www.coursera.org/learn/pointers-arrays-recursion)

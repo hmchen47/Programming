@@ -1,0 +1,9 @@
+ input:invalid {
+    background-color: #ffdddd;
+  }
+   
+  input:valid {
+    background-color: #ddffdd;
+  }
+   
+ 

@@ -1301,9 +1301,9 @@ Adding the graphic equalizer to the graph changes nothing, we visualize the soun
 #### Notes for 1.5.5 Waveforms
 
 + Analyzer node
-  + providing real-time frequency and time-doimain analysis information
-  + leaving audio stream unchchanged
-  + allowing to acqure data about the sound signal played
+  + providing real-time frequency and time-domain analysis information
+  + leaving audio stream unchanged
+  + allowing to acquire data about the sound signal played
   + processsing the data via complex computation such as FFT
   + typical operations to perform waveform after DOM ready
     + get audio context: `analyser = audioContext.createAnalyser();`
@@ -1314,7 +1314,7 @@ Adding the graphic equalizer to the graph changes nothing, we visualize the soun
 + Build audio/video graph w/ analyzer node
   + HTML snippet
     + audio element: `<audio src="https://.../guitaRiff1.mp3" id="player" controls loop crossorigin="anonymous"></audio>`
-    + canvas elemet: `<canvas id="myCanvas" width=300 heigh=100></canvas>`
+    + canvas element: `<canvas id="myCanvas" width=300 heigh=100></canvas>`
   + JavaScript snippet: `function buildAudioGraph() {...}`
     + access player: `var mediaElement = document.getElementById('player');`
     + create [source node](#srcNode)

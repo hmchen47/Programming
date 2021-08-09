@@ -1,0 +1,23 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>HTML5 File</title>
+    <link rel="stylesheet" href="css/03e-example01.css">
+    <script src="js/03e-example01.js"></script>
+	</head>
+	<body onload="retrieveValues();">
+      <p>This example sends files as soon as they have been selected. You cannot select more than once the same file. HTML5 form validation works, you can not sublit the form if there are invalid fields.</p>
+      <p>Notice that the JavaScript source code uses localStorage to save/restore form content as we type, and selected files as we select them. Reloading the page will restore the entered values. We saw this technique in the HTML5 part 1 course.</p>
+
+		<form id="formUpload" name="formUpload" method="post" action="upload.php" enctype="multipart/form-data">
+          <label>Given name:  <input type="text" id="givenname" name="givenname" required/></label><br />
+          <label>Family name: <input type="text" id="familyname" name="familyname" required/></label><br />
+          	Please select one or more pictures/files :<br/>
+			<input type="hidden" id="namesAllFiles" name="namesAllFiles"  />
+			<input type="file" multiple name="formFiles" id="formFiles" onchange="uploadFileWithoutParameters()"/>
+			<input type="submit" id="submitForm" value="Send" onclick="sendForm(event)" disabled>
+		</form>
+		<div id="message"></div>
+	</body>
+</html>
+

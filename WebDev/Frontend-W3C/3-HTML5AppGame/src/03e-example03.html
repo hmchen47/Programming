@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>HTML5 File</title>
+		<link rel="stylesheet" href="upload.css" />
+    <link rel="stylesheet" href="css/03e-example03.css">
+    <script src="js/03e-example03.js"></script>
+	</head>
+	<body onload="retrieveValues();">
+      <p>With this example, if you select files and try to send the form, it will not work. You need first to fill the form content so that there is no invalid field!</p>
+		<form id="formUpload" name="formUpload" method="post" action="upload.php" enctype="multipart/form-data">
+			FirstName : <input type="text" name="firstname" id="firstname" required /><br />
+			LastName : <input type="text" name="lastname" id="lastname" required/><br />
+           Please select one or more pictures/files :<br/>
+		
+			<input type="file" multiple name="formFiles[]" id="formFiles"/>
+			<input type="submit" value="Send">
+			<div id="message"></div>
+			<br />
+			<div id="status"></div>
+		</form>
+	</body>
+
+</html>
+
