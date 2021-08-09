@@ -25,7 +25,7 @@ __Let's create on the fly a WebVTT file with many cues, in order to cut a big so
 
 Below is the sound file. You can try to play it:
 
-<p class="exampleHTML"><audio src="https://mainline.i3s.unice.fr/mooc/animalSounds.mp3" controls="controls" gt="" audio=""></audio></p>
+<p><audio src="https://mainline.i3s.unice.fr/mooc/animalSounds.mp3" controls="controls" gt="" audio=""></audio></p>
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
@@ -41,30 +41,30 @@ __Explanations:__
 
 The demo uses a JavaScript array for defining the different animal sounds in this audio file:
 
-<div class="source-code" style="line-height: 22.4px; font-family: 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;"><ol class="linenums" style="margin-top: 1em; margin-bottom: 1em; margin-left: 0px; line-height: 1.4em;">
-<li class="L0" style="line-height: 1.4em; margin-bottom: 0px;" value="1"><span class="pln" >&nbsp;</span><span class="kwd" >var</span><span class="pln" >&nbsp;sounds&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;</span><span class="pun" >[</span></li>
-<li class="L0" style="line-height: 1.4em; margin-bottom: 0px;" value="1"><span class="pun" >&nbsp; &nbsp; {</span></li>
-<li class="L1" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp;id</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="str" >"purr"</span><span class="pun" >,</span></li>
-<li class="L2" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp;startTime</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="lit" >0.200</span><span class="pun" >,</span></li>
-<li class="L3" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp;endTime</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="lit" >1.800</span></li>
-<li class="L4" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp;&nbsp;</span><span class="pun" >},</span><span class="pln" ></span></li>
-<li class="L4" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; {</span></li>
-<li class="L5" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp;id</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="str" >"meow"</span><span class="pun" >,</span></li>
-<li class="L6" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp;startTime</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="lit" >2.300</span><span class="pun" >,</span></li>
-<li class="L7" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp;endTime</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="lit" >3.300</span></li>
-<li class="L8" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp;&nbsp;</span><span class="pun" >},</span><span class="pln" ></span></li>
-<li class="L8" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; {</span></li>
-<li class="L9" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp;id</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="str" >"bark"</span><span class="pun" >,</span></li>
-<li class="L0" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp;startTime</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="lit" >3.900</span><span class="pun" >,</span></li>
-<li class="L1" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp;endTime</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="lit" >4.300</span></li>
-<li class="L2" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp;&nbsp;</span><span class="pun" >},</span><span class="pln" ></span></li>
-<li class="L2" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; {</span></li>
-<li class="L3" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp;id</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="str" >"baa"</span><span class="pun" >,</span></li>
-<li class="L4" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp;startTime</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="lit" >5.000</span><span class="pun" >,</span></li>
-<li class="L5" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp;endTime</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="lit" >5.800</span></li>
-<li class="L6" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp;&nbsp;</span><span class="pun" >}</span></li>
-<li class="L6" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; ...</span></li>
-<li class="L6" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" ></span>];</li>
+<div style="line-height: 22.4px; font-family: 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;"><ol style="margin-top: 1em; margin-bottom: 1em; margin-left: 0px; line-height: 1.4em;">
+<li value="1">&nbsp;var&nbsp;sounds&nbsp;=&nbsp;[</li>
+<li value="1">&nbsp; &nbsp; {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;id:&nbsp;"purr",</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;startTime:&nbsp;0.200,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;endTime:&nbsp;1.800</li>
+<li>&nbsp; &nbsp;&nbsp;},</li>
+<li>&nbsp; &nbsp; {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;id:&nbsp;"meow",</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;startTime:&nbsp;2.300,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;endTime:&nbsp;3.300</li>
+<li>&nbsp; &nbsp;&nbsp;},</li>
+<li>&nbsp; &nbsp; {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;id:&nbsp;"bark",</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;startTime:&nbsp;3.900,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;endTime:&nbsp;4.300</li>
+<li>&nbsp; &nbsp;&nbsp;},</li>
+<li>&nbsp; &nbsp; {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;id:&nbsp;"baa",</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;startTime:&nbsp;5.000,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;endTime:&nbsp;5.800</li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp; ...</li>
+<li>];</li>
 </ol></div><br>
 
 The idea is to create a track on the fly, then add cues within this track. Each cue will be created with the id, the start and end time taken from the above JavaScript object. In the end, we will have a track with individual cues located at the time location where an animal sound is in the mp3 file.
@@ -74,21 +74,21 @@ Then we generate buttons in the HTML document, and when the user clicks on a but
 __Polyfill for `getCueById`__: Note that this method is not available on all browsers yet. A simple polyfill is used in the examples presented. If the `getCueById` method is not implemented (this is the case in some browsers), it's easy to use this small polyfill:
 
 
-<div class="source-code" style="line-height: 25.6px;"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">&nbsp;// for browsers that do not implement the getCueById() method</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;//&nbsp;let's assume we're adding the getCueById function to a TextTrack object</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;//named "track"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"></span><span class="kwd">if</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="kwd">typeof</span><span class="pln">&nbsp;track</span><span class="pun">.</span><span class="pln">getCueById&nbsp;</span><span class="pun">!==</span><span class="pln">&nbsp;</span><span class="str">"function"</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;track</span><span class="pun">.</span><span class="pln">getCueById&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">id</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln">&nbsp;cues&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;track</span><span class="pun">.</span><span class="pln">cues</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="kwd">var</span><span class="pln">&nbsp;i&nbsp;</span><span class="pun">=</span><span class="pln">&nbsp;</span><span class="lit">0</span><span class="pun">;</span><span class="pln">&nbsp;i&nbsp;</span><span class="pun">!=</span><span class="pln">&nbsp;track</span><span class="pun">.</span><span class="pln">cues</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln">&nbsp;</span><span class="pun">++</span><span class="pln">i</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln">&nbsp;</span><span class="pun">(</span><span class="pln">cues</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">id&nbsp;</span><span class="pun">===</span><span class="pln">&nbsp;id</span><span class="pun">)</span><span class="pln">&nbsp;</span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln">&nbsp;cues</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp;}</span></li>
+<div><ol>
+<li value="1">&nbsp;// for browsers that do not implement the getCueById() method</li>
+<li></li>
+<li>&nbsp;//&nbsp;let's assume we're adding the getCueById function to a TextTrack object</li>
+<li>&nbsp;//named "track"</li>
+<li>if&nbsp;(typeof&nbsp;track.getCueById&nbsp;!==&nbsp;"function")&nbsp;{</li>
+<li>&nbsp; &nbsp;track.getCueById&nbsp;=&nbsp;function(id)&nbsp;{</li>
+<li>&nbsp; &nbsp; &nbsp;var&nbsp;cues&nbsp;=&nbsp;track.cues;</li>
+<li>&nbsp; &nbsp; &nbsp;for&nbsp;(var&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;!=&nbsp;track.cues.length;&nbsp;++i)&nbsp;{</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;if&nbsp;(cues[i].id&nbsp;===&nbsp;id)&nbsp;{</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return&nbsp;cues[i];</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp;&nbsp;};</li>
+<li>&nbsp;}</li>
 </ol></div><br>
 
 
@@ -103,94 +103,94 @@ To add cue-instances to a TextTrack on-the-fly, use the `track` object's `addCue
 
 HTML source code extract:
 
-<div class="source-code" style="line-height: 22.4px; font-family: 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;"><ol class="linenums" style="margin-top: 1em; margin-bottom: 1em; margin-left: 0px; line-height: 1.4em;">
-<li class="L0" style="line-height: 1.4em; margin-bottom: 0px;" value="1"><span class="pun" >...</span></li>
-<li class="L1" style="line-height: 1.4em; margin-bottom: 0px;"><span class="str" >&lt;h1&gt;</span><span class="typ" >Playing</span><span class="pln" >&nbsp;audio sprites&nbsp;</span><span class="kwd" >with</span><span class="pln" >&nbsp;the track element</span><span class="pun" >&lt;/</span><span class="pln" >h1</span><span class="pun" >&gt;</span></li>
-<li class="L2" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp;</span><span class="str" >&lt;p&gt;</span><span class="pln" >A demo&nbsp;</span><span class="kwd" >by</span><span class="pln" >&nbsp;</span><span class="typ" >Sam</span><span class="pln" >&nbsp;</span><span class="typ" >Dutton</span><span class="pun" >,</span><span class="pln" >&nbsp;adapted&nbsp;</span><span class="kwd" >for</span><span class="pln" >&nbsp;</span><span class="typ" >JsBin</span><span class="pln" >&nbsp;</span><span class="kwd" >by</span><span class="pln" >&nbsp;M</span><span class="pun" >.</span><span class="typ" >Buffa</span><span class="pun" >&lt;/</span><span class="pln" >p</span><span class="pun" >&gt;</span></li>
-<li class="L3" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp;</span></li>
-<li class="L4" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&lt;</span><span class="pln" >div id</span><span class="pun" >=</span><span class="str" >"soundButtons"</span><span class="pln" >&nbsp;</span><span class="kwd" >class</span><span class="pun" >=</span><span class="str" >"isSupported"</span><span class="pun" >&gt;&lt;/</span><span class="pln" >div</span><span class="pun" >&gt;</span></li>
-<li class="L5" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >...</span></li>
+<div style="line-height: 22.4px; font-family: 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;"><ol style="margin-top: 1em; margin-bottom: 1em; margin-left: 0px; line-height: 1.4em;">
+<li value="1">...</li>
+<li>&lt;h1&gt;Playing&nbsp;audio sprites&nbsp;with&nbsp;the track element&lt;/h1&gt;</li>
+<li>&nbsp;&lt;p&gt;A demo&nbsp;by&nbsp;Sam&nbsp;Dutton,&nbsp;adapted&nbsp;for&nbsp;JsBin&nbsp;by&nbsp;M.Buffa&lt;/p&gt;</li>
+<li>&nbsp;</li>
+<li>&lt;div id="soundButtons"&nbsp;class="isSupported"&gt;&lt;/div&gt;</li>
+<li>...</li>
 </ol></div><br>
 
-<div class="source-code" style="line-height: 22.4px; font-family: 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;"><ol class="linenums" style="margin-top: 1em; margin-bottom: 1em; margin-left: 0px; line-height: 1.4em;">
-<li class="L0" style="line-height: 1.4em; margin-bottom: 0px;" value="1">&nbsp;<span class="pln" >window</span><span class="pun" >.</span><span class="pln" >onload&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;</span><span class="kwd" >function</span><span class="pun" >()</span><span class="pln" >&nbsp;</span><span class="pun" >{</span></li>
-<li class="L3" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; // Create an audio element programmatically</span></li>
-<li class="L4" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp;&nbsp;</span><span class="kwd" >var</span><span class="pln" >&nbsp;audio&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;</span><span class="kwd" >new</span><span class="pln" ></span><span class="typ" >Audio</span><span class="pun" >(</span><span class="str" >"https://mainline.i3s.unice.fr/mooc/animalSounds.mp3"</span><span class="pun" >);</span></li>
-<li class="L5" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp;</span></li>
-<li class="L6" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; audio</span><span class="pun" >.</span><span class="pln" >addEventListener</span><span class="pun" >(</span><span class="str" >"loadedmetadata"</span><span class="pun" >,</span><span class="pln" >&nbsp;</span><span class="kwd" >function</span><span class="pun" >()</span><span class="pln" >&nbsp;</span><span class="pun" >{</span></li>
-<li class="L6" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; &nbsp;&nbsp;<strong style="line-height: 1.4em;">// When the audio file has its metadata loaded, we can add </strong></span></li>
-<li class="L6" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" ><strong style="line-height: 1.4em;">&nbsp; &nbsp; &nbsp; // a new track to it, with mode = hidden. It will fire events</strong></span></li>
-<li class="L6" style="line-height: 1.4em; margin-bottom: 0px;"><strong style="line-height: 1.4em;"><span class="pun" >&nbsp; &nbsp; &nbsp; // even if it is hidden</span></strong></li>
-<li class="L7" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;&nbsp;</span><strong style="line-height: 1.4em;"><span class="kwd" >var</span><span class="pln" >&nbsp;track&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;audio</span><span class="pun" >.</span><span class="pln" >addTextTrack</span><span class="pun" >(</span><span class="str" >"metadata"</span><span class="pun" >,</span><span class="pln" >&nbsp;</span><span class="str" >"sprite track"</span><span class="pun" >,</span><span class="pln" >&nbsp;</span><span class="str" >"en"</span><span class="pun" >);</span></strong></li>
-<li class="L8" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;&nbsp;<strong style="line-height: 1.4em;">track</strong></span><strong style="line-height: 1.4em;"><span class="pun" >.</span><span class="pln" >mode&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;</span><span class="str" >"hidden"</span><span class="pun" >;</span></strong></li>
-<li class="L9" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp;</span></li>
-<li class="L0" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com" >// for browsers that do not implement the getCueById() method</span></li>
-<li class="L1" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" >if</span><span class="pln" >&nbsp;</span><span class="pun" >(</span><span class="kwd" >typeof</span><span class="pln" >&nbsp;track</span><span class="pun" >.</span><span class="pln" >getCueById&nbsp;</span><span class="pun" >!==</span><span class="pln" >&nbsp;</span><span class="str" >"function"</span><span class="pun" >)</span><span class="pln" >&nbsp;</span><span class="pun" >{</span></li>
-<li class="L2" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;track</span><span class="pun" >.</span><span class="pln" >getCueById&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;</span><span class="kwd" >function</span><span class="pun" >(</span><span class="pln" >id</span><span class="pun" >)</span><span class="pln" >&nbsp;</span><span class="pun" >{</span></li>
-<li class="L3" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" >var</span><span class="pln" >&nbsp;cues&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;track</span><span class="pun" >.</span><span class="pln" >cues</span><span class="pun" >;</span></li>
-<li class="L4" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" >for</span><span class="pln" >&nbsp;</span><span class="pun" >(</span><span class="kwd" >var</span><span class="pln" >&nbsp;i&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;</span><span class="lit" >0</span><span class="pun" >;</span><span class="pln" >&nbsp;i&nbsp;</span><span class="pun" >!=</span><span class="pln" >&nbsp;track</span><span class="pun" >.</span><span class="pln" >cues</span><span class="pun" >.</span><span class="pln" >length</span><span class="pun" >;</span><span class="pln" >&nbsp;</span><span class="pun" >++</span><span class="pln" >i</span><span class="pun" >)</span><span class="pln" >&nbsp;</span><span class="pun" >{</span></li>
-<li class="L5" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd" >if</span><span class="pln" >&nbsp;</span><span class="pun" >(</span><span class="pln" >cues</span><span class="pun" >[</span><span class="pln" >i</span><span class="pun" >].</span><span class="pln" >id&nbsp;</span><span class="pun" >===</span><span class="pln" >&nbsp;id</span><span class="pun" >)</span><span class="pln" >&nbsp;</span><span class="pun" >{</span></li>
-<li class="L6" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd" >return</span><span class="pln" >&nbsp;cues</span><span class="pun" >[</span><span class="pln" >i</span><span class="pun" >];</span></li>
-<li class="L7" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun" >}</span></li>
-<li class="L8" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun" >}</span></li>
-<li class="L9" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun" >};</span></li>
-<li class="L0" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp;}</span></li>
-<li class="L1" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp;</span></li>
-<li class="L2" style="line-height: 1.4em; margin-bottom: 0px;"><span class="kwd" >&nbsp; &nbsp;var</span><span class="pln" >&nbsp;sounds&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;</span><span class="pun" >[</span></li>
-<li class="L2" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; &nbsp; {</span></li>
-<li class="L3" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp; id</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="str" >"purr"</span><span class="pun" >,</span></li>
-<li class="L4" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp; startTime</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="lit" >0.200</span><span class="pun" >,</span></li>
-<li class="L5" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp; endTime</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="lit" >1.800</span></li>
-<li class="L6" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun" >},</span><span class="pln" ></span></li>
-<li class="L6" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; &nbsp; {</span></li>
-<li class="L7" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp; id</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="str" >"meow"</span><span class="pun" >,</span></li>
-<li class="L8" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp; startTime</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="lit" >2.300</span><span class="pun" >,</span></li>
-<li class="L9" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp; endTime</span><span class="pun" >:</span><span class="pln" >&nbsp;</span><span class="lit" >3.300</span></li>
-<li class="L0" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun" >},</span></li>
-<li class="L0" style="line-height: 1.4em; margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; ...</li>
-<li class="L0" style="line-height: 1.4em; margin-bottom: 0px;">&nbsp; &nbsp;];</li>
-<li class="L9" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp;</span></li>
-<li class="L0" style="line-height: 1.4em; margin-bottom: 0px;"><span class="kwd" >&nbsp; &nbsp;for</span><span class="pln" >&nbsp;</span><span class="pun" >(</span><span class="kwd" >var</span><span class="pln" >&nbsp;i&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;</span><span class="lit" >0</span><span class="pun" >;</span><span class="pln" >&nbsp;i&nbsp;</span><span class="pun" >!==</span><span class="pln" >&nbsp;sounds</span><span class="pun" >.</span><span class="pln" >length</span><span class="pun" >;</span><span class="pln" >&nbsp;</span><span class="pun" >++</span><span class="pln" >i</span><span class="pun" >)</span><span class="pln" >&nbsp;</span><span class="pun" >{</span></li>
-<li class="L0" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; &nbsp; // for each animal sound, create a cue with id, start&nbsp;and end time</span></li>
-<li class="L1" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" >var</span><span class="pln" >&nbsp;sound&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;sounds</span><span class="pun" >[</span><span class="pln" >i</span><span class="pun" >];</span></li>
-<li class="L2" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;&nbsp;</span><strong style="line-height: 1.4em;"><span class="kwd" >var</span><span class="pln" >&nbsp;cue&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;</span><span class="kwd" >new</span><span class="pln" >&nbsp;</span><span class="typ" >VTTCue</span><span class="pun" >(</span><span class="pln" >sound</span><span class="pun" >.</span><span class="pln" >startTime</span><span class="pun" >,</span><span class="pln" >&nbsp;sound</span><span class="pun" >.</span><span class="pln" >endTime</span><span class="pun" >,</span><span class="pln" >&nbsp;sound</span><span class="pun" >.</span><span class="pln" >id</span><span class="pun" >);</span><span class="pln" >&nbsp;</span></strong></li>
-<li class="L3" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;&nbsp;<strong style="line-height: 1.4em;">cue</strong></span><strong style="line-height: 1.4em;"><span class="pun" >.</span><span class="pln" >id&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;sound</span><span class="pun" >.</span><span class="pln" >id</span><span class="pun" >;</span></strong></li>
-<li class="L3" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; &nbsp;&nbsp;<strong style="line-height: 1.4em;">// add it to the track</strong></span></li>
-<li class="L4" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;&nbsp;<strong style="line-height: 1.4em;">track</strong></span><strong style="line-height: 1.4em;"><span class="pun" >.</span><span class="pln" >addCue</span><span class="pun" >(</span><span class="pln" >cue</span><span class="pun" >);</span></strong></li>
-<li class="L4" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; &nbsp; // create a button and add it to the HTML document</span></li>
-<li class="L5" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; document</span><span class="pun" >.</span><span class="pln" >querySelector</span><span class="pun" >(</span><span class="str" >"#soundButtons"</span><span class="pun" >).</span><span class="pln" >innerHTML&nbsp;</span><span class="pun" >+=</span><span class="pln" >&nbsp;</span></li>
-<li class="L5" style="line-height: 1.4em; margin-bottom: 0px;"><span class="str" >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"&lt;button class='playSound' id="</span><span class="pln" >&nbsp;</span></li>
-<li class="L5" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+&nbsp;</span><span class="pln" >sound</span><span class="pun" >.</span><span class="pln" >id&nbsp;</span><span class="pun" >+</span><span class="pln" >&nbsp;</span><span class="str" >"&gt;"</span><span class="pln" >&nbsp;</span><span class="pun" >+</span><span class="pln" >sound</span><span class="pun" >.</span><span class="pln" >id&nbsp;</span></li>
-<li class="L5" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+</span><span class="pln" >&nbsp;</span><span class="str" >"&lt;/button&gt;"</span><span class="pun" >;<br><span class="pln" >&nbsp; &nbsp;</span><span class="pun" >}</span><br></span></li>
-<li class="L7" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp;</span></li>
-<li class="L8" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp;</span><span class="kwd" >var</span><span class="pln" >&nbsp;endTime</span><span class="pun" >;</span></li>
-<li class="L9" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp;audio</span><span class="pun" >.</span><span class="pln" >addEventListener</span><span class="pun" >(</span><span class="str" >"timeupdate"</span><span class="pun" >,</span><span class="pln" >&nbsp;</span><span class="kwd" >function</span><span class="pun" >(</span><span class="kwd" >event</span><span class="pun" >)</span><span class="pln" >&nbsp;</span><span class="pun" >{</span></li>
-<li class="L9" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; &nbsp; // When we play a sound, we set the endtime var. </span></li>
-<li class="L9" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; &nbsp; // We need to listen when the audio file is being played,&nbsp;</span></li>
-<li class="L9" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; &nbsp; //&nbsp;in order to pause it when endTime is reached.</span></li>
-<li class="L0" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" >if</span><span class="pln" >&nbsp;</span><span class="pun" >(</span><span class="kwd" >event</span><span class="pun" >.</span><span class="pln" >target</span><span class="pun" >.</span><span class="pln" >currentTime&nbsp;</span><span class="pun" >&gt;</span><span class="pln" >&nbsp;endTime</span><span class="pun" >)</span></li>
-<li class="L1" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd" >event</span><span class="pun" >.</span><span class="pln" >target</span><span class="pun" >.</span><span class="pln" >pause</span><span class="pun" >();</span></li>
-<li class="L2" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp;</span><span class="pun" >});</span></li>
-<li class="L3" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp;</span></li>
-<li class="L4" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp;</span><span class="kwd" >function</span><span class="pln" >&nbsp;playSound</span><span class="pun" >(</span><span class="pln" >id</span><span class="pun" >)</span><span class="pln" >&nbsp;</span><span class="pun" >{</span></li>
-<li class="L4" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; &nbsp;// Plays the sound corresponding to the cue with id equal </span></li>
-<li class="L4" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; &nbsp;// to the one passed as a parameter. We set the endTime var</span></li>
-<li class="L4" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; &nbsp;// and position the audio currentTime at the start time </span></li>
-<li class="L4" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >&nbsp; &nbsp; &nbsp;// of the sound</span></li>
-<li class="L5" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;</span><strong style="line-height: 1.4em;"><span class="kwd" >var</span><span class="pln" >&nbsp;cue&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;track</span><span class="pun" >.</span><span class="pln" >getCueById</span><span class="pun" >(</span><span class="pln" >id</span><span class="pun" >);</span></strong></li>
-<li class="L6" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;audio</span><span class="pun" >.</span><span class="pln" >currentTime&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;cue</span><span class="pun" >.</span><span class="pln" >startTime</span><span class="pun" >;</span></li>
-<li class="L7" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;endTime&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;cue</span><span class="pun" >.</span><span class="pln" >endTime</span><span class="pun" >;</span></li>
-<li class="L8" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;audio</span><span class="pun" >.</span><span class="pln" >play</span><span class="pun" >();</span></li>
-<li class="L9" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp;&nbsp;</span><span class="pun" >};</span></li>
-<li class="L0" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; // create listeners for all buttons</span></li>
-<li class="L1" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; </span><span class="kwd" >var</span><span class="pln" >&nbsp;buttons&nbsp;</span><span class="pun" >=</span><span class="pln" >&nbsp;document</span><span class="pun" >.</span><span class="pln" >querySelectorAll</span><span class="pun" >(</span><span class="str" >"button.playSound"</span><span class="pun" >);<br><br></span></li>
-<li class="L4" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; for(var i=; i &lt; buttons.length; i++) { &nbsp; &nbsp;</span></li>
-<li class="L4" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp;buttons</span><span class="pun" >[</span><span class="pln" >i</span><span class="pun" >].</span><span class="pln" >addEventListener</span><span class="pun" >(</span><span class="str" >"click"</span><span class="pun" >,</span><span class="pln" >&nbsp;</span><span class="kwd" >function</span><span class="pun" >(</span><span class="pln" >e</span><span class="pun" >)</span><span class="pln" >&nbsp;</span><span class="pun" >{</span></li>
-<li class="L5" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp; &nbsp; &nbsp; &nbsp; playSound</span><span class="pun" >(</span><span class="kwd" >this</span><span class="pun" >.</span><span class="pln" >id</span><span class="pun" >);</span></li>
-<li class="L5" style="line-height: 1.4em; margin-bottom: 0px;">&nbsp; &nbsp; &nbsp;});</li>
-<li class="L6" style="line-height: 1.4em; margin-bottom: 0px;">&nbsp; }</li>
-<li class="L1" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pln" >&nbsp;</span><span class="pun" >});</span></li>
-<li class="L2" style="line-height: 1.4em; margin-bottom: 0px;"><span class="pun" >};</span></li>
+<div style="line-height: 22.4px; font-family: 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;"><ol style="margin-top: 1em; margin-bottom: 1em; margin-left: 0px; line-height: 1.4em;">
+<li value="1">&nbsp;window.onload&nbsp;=&nbsp;function()&nbsp;{</li>
+<li>&nbsp; &nbsp; // Create an audio element programmatically</li>
+<li>&nbsp; &nbsp;&nbsp;var&nbsp;audio&nbsp;=&nbsp;newAudio("https://mainline.i3s.unice.fr/mooc/animalSounds.mp3");</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; audio.addEventListener("loadedmetadata",&nbsp;function()&nbsp;{</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<strong style="line-height: 1.4em;">// When the audio file has its metadata loaded, we can add </strong></li>
+<li><strong style="line-height: 1.4em;">&nbsp; &nbsp; &nbsp; // a new track to it, with mode = hidden. It will fire events</strong></li>
+<li><strong style="line-height: 1.4em;">&nbsp; &nbsp; &nbsp; // even if it is hidden</strong></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<strong style="line-height: 1.4em;">var&nbsp;track&nbsp;=&nbsp;audio.addTextTrack("metadata",&nbsp;"sprite track",&nbsp;"en");</strong></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<strong style="line-height: 1.4em;">track</strong><strong style="line-height: 1.4em;">.mode&nbsp;=&nbsp;"hidden";</strong></li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;// for browsers that do not implement the getCueById() method</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;if&nbsp;(typeof&nbsp;track.getCueById&nbsp;!==&nbsp;"function")&nbsp;{</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;track.getCueById&nbsp;=&nbsp;function(id)&nbsp;{</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var&nbsp;cues&nbsp;=&nbsp;track.cues;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;for&nbsp;(var&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;!=&nbsp;track.cues.length;&nbsp;++i)&nbsp;{</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if&nbsp;(cues[i].id&nbsp;===&nbsp;id)&nbsp;{</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return&nbsp;cues[i];</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;};</li>
+<li>&nbsp; &nbsp;}</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;var&nbsp;sounds&nbsp;=&nbsp;[</li>
+<li>&nbsp; &nbsp; &nbsp; {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; id:&nbsp;"purr",</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; startTime:&nbsp;0.200,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; endTime:&nbsp;1.800</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;},</li>
+<li>&nbsp; &nbsp; &nbsp; {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; id:&nbsp;"meow",</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; startTime:&nbsp;2.300,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; endTime:&nbsp;3.300</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;},</li>
+<li>&nbsp; &nbsp; &nbsp; ...</li>
+<li>&nbsp; &nbsp;];</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;for&nbsp;(var&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;!==&nbsp;sounds.length;&nbsp;++i)&nbsp;{</li>
+<li>&nbsp; &nbsp; &nbsp; // for each animal sound, create a cue with id, start&nbsp;and end time</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var&nbsp;sound&nbsp;=&nbsp;sounds[i];</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<strong style="line-height: 1.4em;">var&nbsp;cue&nbsp;=&nbsp;new&nbsp;VTTCue(sound.startTime,&nbsp;sound.endTime,&nbsp;sound.id);&nbsp;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<strong style="line-height: 1.4em;">cue</strong><strong style="line-height: 1.4em;">.id&nbsp;=&nbsp;sound.id;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<strong style="line-height: 1.4em;">// add it to the track</strong></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<strong style="line-height: 1.4em;">track</strong><strong style="line-height: 1.4em;">.addCue(cue);</strong></li>
+<li>&nbsp; &nbsp; &nbsp; // create a button and add it to the HTML document</li>
+<li>&nbsp; &nbsp; &nbsp; document.querySelector("#soundButtons").innerHTML&nbsp;+=&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"&lt;button class='playSound' id="&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+&nbsp;sound.id&nbsp;+&nbsp;"&gt;"&nbsp;+sound.id&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+&nbsp;"&lt;/button&gt;";<br>&nbsp; &nbsp;}<br></li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;var&nbsp;endTime;</li>
+<li>&nbsp; &nbsp;audio.addEventListener("timeupdate",&nbsp;function(event)&nbsp;{</li>
+<li>&nbsp; &nbsp; &nbsp; // When we play a sound, we set the endtime var. </li>
+<li>&nbsp; &nbsp; &nbsp; // We need to listen when the audio file is being played,&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; //&nbsp;in order to pause it when endTime is reached.</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;if&nbsp;(event.target.currentTime&nbsp;&gt;&nbsp;endTime)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;event.target.pause();</li>
+<li>&nbsp; &nbsp;});</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;function&nbsp;playSound(id)&nbsp;{</li>
+<li>&nbsp; &nbsp; &nbsp;// Plays the sound corresponding to the cue with id equal </li>
+<li>&nbsp; &nbsp; &nbsp;// to the one passed as a parameter. We set the endTime var</li>
+<li>&nbsp; &nbsp; &nbsp;// and position the audio currentTime at the start time </li>
+<li>&nbsp; &nbsp; &nbsp;// of the sound</li>
+<li>&nbsp; &nbsp; &nbsp;<strong style="line-height: 1.4em;">var&nbsp;cue&nbsp;=&nbsp;track.getCueById(id);</strong></li>
+<li>&nbsp; &nbsp; &nbsp;audio.currentTime&nbsp;=&nbsp;cue.startTime;</li>
+<li>&nbsp; &nbsp; &nbsp;endTime&nbsp;=&nbsp;cue.endTime;</li>
+<li>&nbsp; &nbsp; &nbsp;audio.play();</li>
+<li>&nbsp;&nbsp;};</li>
+<li>&nbsp; // create listeners for all buttons</li>
+<li>&nbsp; var&nbsp;buttons&nbsp;=&nbsp;document.querySelectorAll("button.playSound");<br><br></li>
+<li>&nbsp; for(var i=; i &lt; buttons.length; i++) { &nbsp; &nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;buttons[i].addEventListener("click",&nbsp;function(e)&nbsp;{</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; playSound(this.id);</li>
+<li>&nbsp; &nbsp; &nbsp;});</li>
+<li>&nbsp; }</li>
+<li>&nbsp;});</li>
+<li>};</li>
 </ol></div>
 
 
@@ -246,7 +246,7 @@ HTML source code extract:
   + VTTCue constructor
     + enable to create cue class-instances programmatically
     + create a cue instance by using `new` keyword
-  + HTML snippet: `<div id="soundButtons" class="isSupported"></div>`
+  + HTML snippet: `<div id="soundButtons"></div>`
   + JavaScript snippet
     + init page w/ DOM ready: `window.onload = function() {...}`
       + create audio element: `var audio = newAudio("https://.../animalSounds.mp3");`
@@ -279,19 +279,19 @@ __Example of track event listeners that use JSON cue contents__
 
 Here is a small code extract that shows how we can capture the JSON content of a cue when the video reaches its start time. We do this within a `cuechange` listener attached to a `TextTrack`:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">textTrack</span><span class="pun">.</span><span class="pln">oncuechange </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// "this" is the textTrack that fired the event.</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; // Let's get the first active cue for this time segment</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> cue </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">activeCues</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> obj </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">cue</span><span class="pun">.</span><span class="pln">text</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// do something</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">textTrack.oncuechange = function (){</li>
+<li>&nbsp; &nbsp;&nbsp;// "this" is the textTrack that fired the event.</li>
+<li>&nbsp; &nbsp; // Let's get the first active cue for this time segment</li>
+<li>&nbsp; &nbsp;&nbsp;var cue = this.activeCues[0];&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;var obj = JSON.parse(cue.text);</li>
+<li>&nbsp; &nbsp;&nbsp;// do something</li>
+<li>}</li>
 </ol></div><br>
 
 Here is a very impressive demo by Sam Dutton that uses JSON cues containing the latitude and longitude of the camera used for filming the video, to synchronize two map views: every time the active cue changes, the Google map and equivalent Google street view are updated. 
 
-<p class="exampleHTML">WARNING: as this Google service is no longer free of charge, you might see "for development purpose only" messages during the execution of this demo. You'll need a valid Google API key in order to remove these messages.</p>
+<p>WARNING: as this Google service is no longer free of charge, you might see "for development purpose only" messages during the execution of this demo. You'll need a valid Google API key in order to remove these messages.</p>
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -305,52 +305,52 @@ Here is a very impressive demo by Sam Dutton that uses JSON cues containing the 
 
 Example of a cue content from this demonstration:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">{</span><span class="str">"lat"</span><span class="pun">:</span><span class="lit">37.4219276</span><span class="pun">,</span><span class="pln"> </span><span class="str">"lng"</span><span class="pun">:-</span><span class="lit">122.088218</span><span class="pun">,</span><span class="pln"> </span><span class="str">"t"</span><span class="pun">:</span><span class="lit">1331363000</span><span class="pun">}</span></li>
+<div><ol>
+<li value="1">{"lat":37.4219276, "lng":-122.088218, "t":1331363000}</li>
 </ol></div><br>
 
 Cue events and cue content:
 
 We can acquire a cue DOM object using the techniques we have seen previously, or by using the new HTML5 TextTrack `getCueById()` method. 
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> videoElement </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myvideo"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> textTracks </span><span class="pun">=</span><span class="pln"> videoElement</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">;</span><span class="pln"> </span><span class="com">// one for each track element</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> textTrack </span><span class="pun">=</span><span class="pln"> textTracks</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span><span class="pln"> </span><span class="com">// corresponds to the first track element</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><strong>// Get a cue with ID="wikipedia"</strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="kwd">var</span><span class="pln"> cue </span><span class="pun">=</span><span class="pln"> textTrack</span><span class="pun">.</span><span class="pln">getCueById</span><span class="pun">(</span><span class="str">"Wikipedia"</span><span class="pun">);</span><span class="pln">&nbsp;</span></strong></li>
+<div><ol>
+<li value="1">var videoElement = document.querySelector("#myvideo");</li>
+<li>var textTracks = videoElement.textTracks; // one for each track element</li>
+<li>var textTrack = textTracks[0]; // corresponds to the first track element</li>
+<li> </li>
+<li><strong>// Get a cue with ID="wikipedia"</strong></li>
+<li><strong>var cue = textTrack.getCueById("Wikipedia");&nbsp;</strong></li>
 </ol></div><br>
 
 And once we have a cue object, it is possible to add event listeners to it:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">cue</span><span class="pun">.</span><span class="pln">onenter </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// display something, play a sound, update any DOM element...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">cue</span><span class="pun">.</span><span class="pln">onexit </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// do something else</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">cue.onenter = function(){</li>
+<li>&nbsp; &nbsp;// display something, play a sound, update any DOM element...</li>
+<li>};</li>
+<li> </li>
+<li>cue.onexit = function(){</li>
+<li>&nbsp; &nbsp;// do something else</li>
+<li>};</li>
 </ol></div><br>
 
 If the `getCueById` method is not implemented (this is the case in some browsers), we use the @@polyfill presented in the previous section:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">&nbsp;// for browsers that do not implement the getCueById() method</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;//&nbsp;let's assume we're adding the getCueById function to a TextTrack object </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;//named "track"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">typeof</span><span class="pln"> track</span><span class="pun">.</span><span class="pln">getCueById </span><span class="pun">!==</span><span class="pln"> </span><span class="str">"function"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;track</span><span class="pun">.</span><span class="pln">getCueById </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">id</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> cues </span><span class="pun">=</span><span class="pln"> track</span><span class="pun">.</span><span class="pln">cues</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">!=</span><span class="pln"> track</span><span class="pun">.</span><span class="pln">cues</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> </span><span class="pun">++</span><span class="pln">i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">cues</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">id </span><span class="pun">===</span><span class="pln"> id</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> cues</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pun">};</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp;}</span></li>
+<div><ol>
+<li value="1">&nbsp;// for browsers that do not implement the getCueById() method</li>
+<li> </li>
+<li>&nbsp;//&nbsp;let's assume we're adding the getCueById function to a TextTrack object </li>
+<li>&nbsp;//named "track"</li>
+<li> if (typeof track.getCueById !== "function") {</li>
+<li>&nbsp; &nbsp;track.getCueById = function(id) {</li>
+<li>&nbsp; &nbsp; &nbsp;var cues = track.cues;</li>
+<li>&nbsp; &nbsp; &nbsp;for (var i = 0; i != track.cues.length; ++i) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;if (cues[i].id === id) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return cues[i];</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; };</li>
+<li>&nbsp;}</li>
 </ol></div><br>
 
 
@@ -374,106 +374,106 @@ Try [the example at JSBin](https://jsbin.com/gucutiyoyu/2/edit?html,js,output)
 
 HTML code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Example syncing element of the document with video metadata in webVTT file</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln"> </span><span class="tag">&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;main&gt;</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="pln"> </span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4"</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;...</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;</span><span class="tag">&lt;/source&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"urls track"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">"https://...../SamuraiPizzaCat-metadata.vtt"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln"> </span><span class="tag">&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;/track&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/video&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>&nbsp;</strong></span><strong><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"map"</span><span class="tag">&gt;&lt;/div&gt;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/main&gt;</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;aside&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="tag">&lt;iframe</span><span class="pln"> </span><span class="atn">sandbox</span><span class="pun">=</span><span class="atv">"allow-same-origin"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myIframe"</span><span class="pln"> </span><span class="tag">&gt;</span><span class="pln"> </span><span class="tag">&lt;/iframe&gt;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/aside&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h3&gt;</span><span class="pln">Wikipedia URL: </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"currentURL"</span><span class="tag">&gt;</span><span class="pln"> Non défini </span><span class="tag">&lt;/span&gt;&lt;/h3&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://maps.google.com/maps/api/js?sensor=false"</span><span class="tag">&gt;&lt;/script&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">...</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li> &lt;meta charset="utf-8"&gt;</li>
+<li> &lt;title&gt;Example syncing element of the document with video metadata in webVTT file&lt;/title&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body &gt;</li>
+<li>&lt;main&gt; </li>
+<li>&lt;video id="myVideo" controls crossorigin="anonymous" &gt;</li>
+<li>&nbsp; &nbsp;&lt;source src="https://mainline.i3s.unice.fr/mooc/samuraiPizzacat.mp4" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type="video/mp4"&gt; </li>
+<li>&nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp;&lt;/source&gt;</li>
+<li> &lt;track label="urls track" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; src="https://...../SamuraiPizzaCat-metadata.vtt" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; kind="metadata" &gt;</li>
+<li>&nbsp;&lt;/track&gt;</li>
+<li> &lt;/video&gt;</li>
+<li>&nbsp; &nbsp;<strong>&nbsp;</strong><strong>&lt;div id="map"&gt;&lt;/div&gt;</strong></li>
+<li> &lt;/main&gt; </li>
+<li>&nbsp;</li>
+<li> &lt;aside&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;<strong>&lt;iframe sandbox="allow-same-origin" id="myIframe" &gt; &lt;/iframe&gt;</strong></li>
+<li>&lt;/aside&gt;</li>
+<li> &lt;h3&gt;Wikipedia URL: &lt;span id="currentURL"&gt; Non défini &lt;/span&gt;&lt;/h3&gt;</li>
+<li>&nbsp;</li>
+<li> &lt;script src="https://maps.google.com/maps/api/js?sensor=false"&gt;&lt;/script&gt;</li>
+<li>...</li>
 </ol></div><br>
 
 JavaScript code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> videoElement </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.querySelector</span><span class="pun">(</span><span class="str">"#myVideo"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="kwd">var</span><span class="pln"> myIFrame </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pun"><span style="line-height: 25.6px;">querySelector</span>("</span><span class="str">#myIframe"</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;">&nbsp; &nbsp; var currentURLSpan =&nbsp;<span class="pln">document</span><span class="pun">.</span><span class="pun"><span style="line-height: 25.6px;"><mark style="background-color: pink;">querySelector</mask></span>(</span><span class="str">"#currentURL"</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> textTracks </span><span class="pun">=</span><span class="pln"> videoElement</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">;</span><span class="pln"> </span><span class="com">// one for each track element</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> textTrack </span><span class="pun">=</span><span class="pln"> textTracks</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span><span class="pln"> </span><span class="com">// corresponds to the first track element</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">&nbsp;</span><span class="pln">&nbsp;</span>&nbsp;</li>
-<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; // change mode so we can use the track</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pln">textTrack</span><span class="pun">.</span><span class="pln">mode </span><span class="pun">=</span><span class="pln"> </span><span class="str">"hidden"</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pln">&nbsp; &nbsp;</span><span class="com">// Default position on the google map</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> centerpos </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> google</span><span class="pun">.</span><span class="pln">maps</span><span class="pun">.</span><span class="typ">LatLng</span><span class="pun">(</span><span class="lit">48.579400</span><span class="pun">,</span><span class="lit">7.7519</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; // default options for the google map</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> optionsGmaps </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;center</span><span class="pun">:</span><span class="pln">centerpos</span><span class="pun">,</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;navigationControlOptions</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">style</span><span class="pun">:</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;google</span><span class="pun">.</span><span class="pln">maps</span><span class="pun">.</span><span class="typ">NavigationControlStyle</span><span class="pun">.</span><span class="pln">SMALL</span><span class="pun">},</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;mapTypeId</span><span class="pun">:</span><span class="pln"> google</span><span class="pun">.</span><span class="pln">maps</span><span class="pun">.</span><span class="typ">MapTypeId</span><span class="pun">.</span><span class="pln">ROADMAP</span><span class="pun">,</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;zoom</span><span class="pun">:</span><span class="pln"> </span><span class="lit">15</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; };</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; // Init map object</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; var</span><span class="pln"> map </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> google</span><span class="pun">.</span><span class="pln">maps</span><span class="pun">.</span><span class="typ">Map</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">"map"</span><span class="pun">),</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; optionsGmaps</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; // cue change listener, this is where the synchronization between</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; // the HTML document and the video is done</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; textTrack</span><span class="pun">.</span><span class="pln">oncuechange </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(){</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp;// we assume that we have no overlapping cues</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> cue </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">activeCues</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">cue </span><span class="pun">===</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">return</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;// get cue content as a JavaScript object</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> cueContentJSON </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">cue</span><span class="pun">.</span><span class="pln">text</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;// do different things depending on the type of sync (wikipedia, gmap)</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">switch</span><span class="pun">(</span><span class="pln">cueContentJSON</span><span class="pun">.</span><span class="pln">type</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">case</span><span class="str">'WikipediaPage'</span><span class="pun">:</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> myURL </span><span class="pun">=</span><span class="pln"> cueContentJSON</span><span class="pun">.</span><span class="pln">url</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> myLink </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;a href=\""</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> myURL </span><span class="pun">+</span><span class="pln"> </span><span class="str">"\"&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> myURL </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/a&gt;"</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun"><span style="color: #3c3c3c; line-height: 25.6px;"><mark style="background-color: pink;">currentURLSpan</mark></span>.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> myLink</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; myIFrame</span><span class="pun">.</span><span class="pln">src </span><span class="pun">=</span><span class="pln"> myURL</span><span class="pun">;</span><span class="pln"> </span><span class="com">// assign url to src property</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">case</span><span class="pln"> </span><span class="str">'LongLat'</span><span class="pun">:</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; drawPosition</span><span class="pun">(</span><span class="pln">cueContentJSON</span><span class="pun">.</span><span class="kwd">long</span><span class="pun">,</span><span class="pln"> cueContentJSON</span><span class="pun">.</span><span class="pln">lat</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;};</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">function</span><span class="pln"> drawPosition</span><span class="pun">(</span><span class="kwd">long</span><span class="pun">,</span><span class="pln"> lat</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Make new object LatLng for Google Maps</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> latlng </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> google</span><span class="pun">.</span><span class="pln">maps</span><span class="pun">.</span><span class="typ">LatLng</span><span class="pun">(</span><span class="pln">lat</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">long</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Add a marker at position</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> marker </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> google</span><span class="pun">.</span><span class="pln">maps</span><span class="pun">.</span><span class="typ">Marker</span><span class="pun">({</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position</span><span class="pun">:</span><span class="pln"> latlng</span><span class="pun">,</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; map</span><span class="pun">:</span><span class="pln"> map</span><span class="pun">,</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; title</span><span class="pun">:</span><span class="str">"You are here"</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">});</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// center map on longitude and latitude</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; map</span><span class="pun">.</span><span class="pln">panTo</span><span class="pun">(</span><span class="pln">latlng</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">window.onload = function() {</li>
+<li>&nbsp; &nbsp; var videoElement = document.querySelector("#myVideo");</li>
+<li>&nbsp; &nbsp; var myIFrame = document.querySelector("#myIframe");</li>
+<li>&nbsp; &nbsp; var currentURLSpan =&nbsp;document.<mark style="background-color: pink;">querySelector</mask>("#currentURL");</li>
+<li></li>
+<li>&nbsp; &nbsp; var textTracks = videoElement.textTracks; // one for each track element</li>
+<li>&nbsp; &nbsp; var textTrack = textTracks[0]; // corresponds to the first track element</li>
+<li>&nbsp;&nbsp;&nbsp;</li>
+<li>&nbsp; &nbsp; // change mode so we can use the track</li>
+<li>&nbsp; &nbsp; textTrack.mode = "hidden";</li>
+<li>&nbsp;&nbsp; &nbsp;// Default position on the google map</li>
+<li>&nbsp; &nbsp; var centerpos = new google.maps.LatLng(48.579400,7.7519);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; // default options for the google map</li>
+<li>&nbsp; &nbsp; var optionsGmaps = {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;center:centerpos,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;navigationControlOptions: {style: </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;google.maps.NavigationControlStyle.SMALL},</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;mapTypeId: google.maps.MapTypeId.ROADMAP,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;zoom: 15</li>
+<li>&nbsp; &nbsp; };</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; // Init map object</li>
+<li>&nbsp; &nbsp; var map = new google.maps.Map(document.getElementById("map"), </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; optionsGmaps);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; // cue change listener, this is where the synchronization between</li>
+<li>&nbsp; &nbsp; // the HTML document and the video is done</li>
+<li>&nbsp; &nbsp; textTrack.oncuechange = function (){</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// we assume that we have no overlapping cues</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var cue = this.activeCues[0];</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;if(cue === undefined) return;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// get cue content as a JavaScript object</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var cueContentJSON = JSON.parse(cue.text);</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// do different things depending on the type of sync (wikipedia, gmap)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;switch(cueContentJSON.type) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;case'WikipediaPage': </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var myURL = cueContentJSON.url;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var myLink = "&lt;a href=\"" + myURL + "\"&gt;" + myURL + "&lt;/a&gt;";</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<mark style="background-color: pink;">currentURLSpan</mark>.innerHTML = myLink;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; myIFrame.src = myURL; // assign url to src property</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;break;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;case 'LongLat':</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; drawPosition(cueContentJSON.long, cueContentJSON.lat);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;break;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;} </li>
+<li>&nbsp; &nbsp;};</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;function drawPosition(long, lat) {</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;// Make new object LatLng for Google Maps</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var latlng = new google.maps.LatLng(lat, long);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;// Add a marker at position</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var marker = new google.maps.Marker({</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: latlng,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; map: map,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; title:"You are here"</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;});</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;// center map on longitude and latitude</li>
+<li>&nbsp; &nbsp; &nbsp; map.panTo(latlng);</li>
+<li>&nbsp; &nbsp;}</li>
+<li>};</li>
 </ol></div><br>
 
 All the critical work is done by the `cuechange` event listener, _lines 27-50_. We have only the one track, so we set its mode to "hidden" (_line 10_)  in order to be sure that it will be loaded, and that playing the video will fire `cuechange` events on it. The rest is just Google map code and classic DOM manipulation for updating HTML content (a span that will display the current URL, _line 42_).
