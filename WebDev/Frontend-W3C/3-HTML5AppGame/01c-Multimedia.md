@@ -63,264 +63,264 @@ Try [this example at JSBin](https://jsbin.com/sodihux/1/edit?html,css,js,output)
 
 HTML code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1">&lt;section id="all"&gt;</li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">disabled</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"buttonEnglish"</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">loadTranscript</span><span class="pun">(</span><span class="str">'en'</span><span class="pun">);</span></strong><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; Display English transcript</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;/button&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">disabled</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"buttonDeutsch"</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">loadTranscript</span><span class="pun">(</span><span class="str">'de'</span><span class="pun">);</span></strong><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; Display Deutsch transcript</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/button&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/p&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="pln"> </span><span class="atn">preload</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">crossOrigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://...../elephants-dream-medium.mp4"</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-medium.webm"</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English subtitles"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"en"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-en.vtt"</span><span class="pln"> </span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"Deutsch subtitles"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"de"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-de.vtt"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>default</strong></span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English chapters"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"chapters"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"en"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-chapters-en.vtt"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"transcript"</span><span class="tag">&gt;&lt;/div&gt;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;">&lt;/section&gt;</li>
+<div><ol>
+<li value="1">&lt;section id="all"&gt;</li>
+<li> &lt;button disabled id="buttonEnglish" </li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;onclick="loadTranscript('en');</strong>"&gt;</li>
+<li>&nbsp; &nbsp; Display English transcript</li>
+<li>&nbsp;&lt;/button&gt;</li>
+<li> &lt;button disabled id="buttonDeutsch" </li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;onclick="loadTranscript('de');</strong>"&gt;</li>
+<li>&nbsp; &nbsp; Display Deutsch transcript</li>
+<li>&lt;/button&gt;</li>
+<li> &lt;/p&gt;</li>
+<li> &lt;video id="myVideo" preload="metadata" controls crossOrigin="anonymous"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;source src="https://...../elephants-dream-medium.mp4" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type="video/mp4"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;source src="https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-medium.webm" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type="video/webm"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;track label="English subtitles" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind="subtitles" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang="en" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src="https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-en.vtt" &gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;track label="Deutsch subtitles" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind="subtitles" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang="de" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src="https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-de.vtt" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>default</strong>&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;track label="English chapters" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind="chapters" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang="en" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src="https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-chapters-en.vtt"&gt;</li>
+<li>&lt;/video&gt;</li>
+<li><strong>&lt;div id="transcript"&gt;&lt;/div&gt;</strong></li>
+<li>&lt;/section&gt;</li>
 </ol></div><br>
 
 CSS code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">#all {</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> lightgrey</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span><span class="lit">10px</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;padding</span><span class="pun">:</span><span class="pln"> </span><span class="lit">20px</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;display</span><span class="pun">:</span><span class="kwd">inline</span><span class="pun">-</span><span class="pln">block</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;margin</span><span class="pun">:</span><span class="lit">30px</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;width</span><span class="pun">:</span><span class="lit">90</span><span class="pun">%;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">.</span><span class="pln">cues </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;color</span><span class="pun">:</span><span class="pln">blue</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">.</span><span class="pln">cues</span><span class="pun">:</span><span class="pln">hover </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;text</span><span class="pun">-</span><span class="pln">decoration</span><span class="pun">:</span><span class="pln"> underline</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">.</span><span class="pln">cues</span><span class="pun">.</span><span class="pln">current </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;color</span><span class="pun">:</span><span class="pln">black</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;font</span><span class="pun">-</span><span class="pln">weight</span><span class="pun">:</span><span class="pln"> bold</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="com">#myVideo {</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;display</span><span class="pun">:</span><span class="pln"> block</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">float</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> left</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;margin</span><span class="pun">-</span><span class="pln">right</span><span class="pun">:</span><span class="pln">&nbsp;<span style="color: #006666;" color="#006666">3</span></span><span class="pun">%;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">66</span><span class="pun">%;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> black</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;position</span><span class="pun">:</span><span class="pln"> relative</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">#transcript {</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;padding</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">float</span><span class="pun">:</span><span class="pln"> left</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;max</span><span class="pun">-</span><span class="pln">height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">225px</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;overflow</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">auto</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">25</span><span class="pun">%;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;font</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span><span class="pln"> </span><span class="lit">14px</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;list</span><span class="pun">-</span><span class="pln">style</span><span class="pun">:</span><span class="pln"> none</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">#all {</li>
+<li>&nbsp; &nbsp;background-color: lightgrey;</li>
+<li>&nbsp; &nbsp;border-radius:10px;</li>
+<li>&nbsp; &nbsp;padding: 20px;</li>
+<li>&nbsp; &nbsp;border:1px solid;</li>
+<li>&nbsp; &nbsp;display:inline-block;</li>
+<li>&nbsp; &nbsp;margin:30px;</li>
+<li>&nbsp; &nbsp;width:90%;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>.cues {</li>
+<li>&nbsp; &nbsp;color:blue;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>.cues:hover {</li>
+<li>&nbsp; &nbsp;text-decoration: underline;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>.cues.current {</li>
+<li>&nbsp; &nbsp;color:black;</li>
+<li>&nbsp; &nbsp;font-weight: bold;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>#myVideo {</li>
+<li>&nbsp; &nbsp;display: block;</li>
+<li>&nbsp; &nbsp;float : left;</li>
+<li>&nbsp; &nbsp;margin-right:&nbsp;<span style="color: #006666;" color="#006666">3%;</span></li>
+<li>&nbsp; &nbsp;width: 66%;</li>
+<li>&nbsp; &nbsp;background-color: black;</li>
+<li>&nbsp; &nbsp;position: relative;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>#transcript {</li>
+<li>&nbsp; &nbsp;padding: 10px;</li>
+<li>&nbsp; &nbsp;border:1px solid;</li>
+<li>&nbsp; &nbsp;float: left;</li>
+<li>&nbsp; &nbsp;max-height: 225px;</li>
+<li>&nbsp; &nbsp;overflow: auto;</li>
+<li>&nbsp; &nbsp;width: 25%;</li>
+<li>&nbsp; &nbsp;margin: 0;</li>
+<li>&nbsp; &nbsp;font-size: 14px;</li>
+<li>&nbsp; &nbsp;list-style: none;</li>
+<li>}</li>
 </ol></div><br>
 
 JavaScript code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> video</span><span class="pun">,</span><span class="pln"> transcriptDiv</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">// TextTracks, html tracks, urls of tracks</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> tracks</span><span class="pun">,</span><span class="pln"> trackElems</span><span class="pun">,</span><span class="pln"> tracksURLs </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> buttonEnglish</span><span class="pun">,</span><span class="pln"> buttonDeutsch</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"init"</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// when the page is loaded, get the different DOM nodes</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// we're going to work with</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;&nbsp;video </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myVideo"</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;transcriptDiv </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#transcript"</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// The tracks as HTML elements</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;trackElems </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelectorAll</span><span class="pun">(</span><span class="str">"track"</span><span class="pun">);<br></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// Get the URLs of the vtt files</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> trackElems</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> currentTrackElem </span><span class="pun">=</span><span class="pln"> trackElems</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; tracksURLs</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> currentTrackElem</span><span class="pun">.</span><span class="pln">src</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;buttonEnglish </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#buttonEnglish"</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;buttonDeutsch </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#buttonDeutsch"</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// we enable the buttons&nbsp;only in this load callback, </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// we cannot click before the video is in the DOM</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;buttonEnglish</span><span class="pun">.</span><span class="pln">disabled </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;buttonDeutsch</span><span class="pun">.</span><span class="pln">disabled </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// The tracks as TextTrack JS objects</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;tracks </span><span class="pun">=</span><span class="pln"> video</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> loadTranscript</span><span class="pun">(</span><span class="pln">lang</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; // Called when a button is clicked</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// clear current transcript</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; clearTranscriptDiv</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// set all track modes to disabled. We will only activate the</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// one whose content will be displayed as transcript</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; disableAllTracks</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Locate the track with language = lang</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> tracks</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// current track</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> track </span><span class="pun">=</span><span class="pln"> tracks</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> trackAsHtmlElem </span><span class="pun">=</span><span class="pln"> trackElems</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; // Only subtitles/captions are ok for this example...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">((</span><span class="pln">track</span><span class="pun">.</span><span class="pln">language </span><span class="pun">===</span><span class="pln"> lang</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">track</span><span class="pun">.</span><span class="pln">kind </span><span class="pun">!==</span><span class="pln"> </span><span class="str">"chapters"</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;track</span><span class="pun">.</span><span class="pln">mode</span><span class="pun">=</span><span class="str">"showing"</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">trackAsHtmlElem</span><span class="pun">.</span><span class="pln">readyState </span><span class="pun">===</span><span class="pln"> </span><span class="lit">2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// the track has already been loaded</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; displayCues</span><span class="pun">(</span><span class="pln">track</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; displayCuesAfterTrackLoaded</span><span class="pun">(</span><span class="pln">trackAsHtmlElem</span><span class="pun">,</span><span class="pln"> track</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp;/* Fallback for FireFox that still does not implement cue enter and exit events<br></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;track.addEventListener("cuechange", function(e) {</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var cue = this.activeCues[0];</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log("cue change");</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var transcriptText = document.getElementById(cue.id);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transcriptText.classList.add("current");</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;});</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; */</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> displayCuesAfterTrackLoaded</span><span class="pun">(</span><span class="pln">trackElem</span><span class="pun">,</span><span class="pln"> track</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Create a listener that will only be called once the track has</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// been loaded. We cannot display the transcript before </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="com">&nbsp; // the track is loaded</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;trackElem</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'load'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"track loaded"</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; displayCues</span><span class="pun">(</span><span class="pln">track</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">});</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> disableAllTracks</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> tracks</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp;</span>// the track mode is important: disabled tracks do not fire events</li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;tracks</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">mode </span><span class="pun">=</span><span class="pln"> </span><span class="str">"disabled"</span><span class="pun">;&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> displayCues</span><span class="pun">(</span><span class="pln">track</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// displays the transcript of a TextTrack</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> cues </span><span class="pun">=</span><span class="pln"> track</span><span class="pun">.</span><span class="pln">cues</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">//&nbsp;iterate on all cues of the current track</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> len </span><span class="pun">=</span><span class="pln"> cues</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> len</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; // current cue, also add enter and exit listeners to it</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> cue </span><span class="pun">=</span><span class="pln"> cues</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; addCueListeners</span><span class="pun">(</span><span class="pln">cue</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; // Test if the cue content is a voice &lt;v speaker&gt;....&lt;/v&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> voices </span><span class="pun">=</span><span class="pln"> getVoices</span><span class="pun">(</span><span class="pln">cue</span><span class="pun">.</span><span class="pln">text</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> transText</span><span class="pun">=</span><span class="str">""</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">voices</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> j </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> j </span><span class="pun">&lt;</span><span class="pln"> voices</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> j</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="com">// how many voices?</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transText </span><span class="pun">+=</span><span class="pln"> voices</span><span class="pun">[</span><span class="pln">j</span><span class="pun">].</span><span class="pln">voice </span><span class="pun">+</span><span class="pln"> </span><span class="str">': '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> removeHTML</span><span class="pun">(</span><span class="pln">voices</span><span class="pun">[</span><span class="pln">j</span><span class="pun">].</span><span class="pln">text</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transText </span><span class="pun">=</span><span class="pln"> cue</span><span class="pun">.</span><span class="pln">text</span><span class="pun">;</span><span class="pln"> </span><span class="com">// not a voice text</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com"></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> clickableTransText </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;li class='cues' id="</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> cue</span><span class="pun">.</span><span class="pln">id </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+</span><span class="pln"> </span><span class="str">" onclick='jumpTo("</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+&nbsp;</span><span class="pln">cue</span><span class="pun">.</span><span class="pln">startTime </span><span class="pun">+</span><span class="pln"> </span><span class="str">");'"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&gt;"</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+</span><span class="pln"> transText </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/li&gt;"</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; addToTranscriptDiv</span><span class="pun">(</span><span class="pln">clickableTransText</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> getVoices</span><span class="pun">(</span><span class="pln">speech</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// takes a text content and check if there are voices</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> voices </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span><span class="pln"> </span><span class="com">// inside</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> pos </span><span class="pun">=</span><span class="pln"> speech</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'&lt;v'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// voices are like &lt;v Michel&gt; ....</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">pos </span><span class="pun">!=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; endVoice </span><span class="pun">=</span><span class="pln"> speech</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'&gt;'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> voice </span><span class="pun">=</span><span class="pln"> speech</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="pln">pos </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> endVoice</span><span class="pun">).</span><span class="pln">trim</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> endSpeech </span><span class="pun">=</span><span class="pln"> speech</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'&lt;/v&gt;'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> text </span><span class="pun">=</span><span class="pln"> speech</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="pln">endVoice </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> endSpeech</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; voices</span><span class="pun">.</span><span class="pln">push</span><span class="pun">({</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="str">'voice'</span><span class="pun">:</span><span class="pln"> voice</span><span class="pun">,</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="str">'text'</span><span class="pun">:</span><span class="pln"> text</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">});</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; speech </span><span class="pun">=</span><span class="pln"> speech</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="pln">endSpeech </span><span class="pun">+</span><span class="pln"> </span><span class="lit">4</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; pos </span><span class="pun">=</span><span class="pln"> speech</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'&lt;v'</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> voices</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> removeHTML</span><span class="pun">(</span><span class="pln">text</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> div </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'div'</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; div</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> text</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> div</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">||</span><span class="pln"> div</span><span class="pun">.</span><span class="pln">innerText </span><span class="pun">||</span><span class="pln"> </span><span class="str">''</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> jumpTo</span><span class="pun">(</span><span class="pln">time</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; // Make the video jump at the time position + force play </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; // if it was not playing</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; video</span><span class="pun">.</span><span class="pln">currentTime </span><span class="pun">=</span><span class="pln"> time</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; video</span><span class="pun">.</span><span class="pln">play</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> clearTranscriptDiv</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; transcriptDiv</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> addToTranscriptDiv</span><span class="pun">(</span><span class="pln">htmlText</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; transcriptDiv</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">+=</span><span class="pln"> htmlText</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> addCueListeners</span><span class="pun">(</span><span class="pln">cue</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; cue</span><span class="pun">.</span><span class="pln">onenter </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp;// Highlight current cue transcript by adding the </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp;// cue.current CSS class</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'enter id='</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">id</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> transcriptText </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">id</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;transcriptText</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="str">"current"</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> cue</span><span class="pun">.</span><span class="pln">onexit </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">'exit id='</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> cue</span><span class="pun">.</span><span class="pln">id</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> transcriptText </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">id</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;transcriptText</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="str">"current"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">} // end of addCueListeners...</span></li>
+<div><ol>
+<li value="1">var video, transcriptDiv;</li>
+<li>// TextTracks, html tracks, urls of tracks</li>
+<li>var tracks, trackElems, tracksURLs = [];&nbsp;</li>
+<li>var buttonEnglish, buttonDeutsch;</li>
+<li>&nbsp;</li>
+<li>window.onload = function() {</li>
+<li>&nbsp; &nbsp;console.log("init");</li>
+<li>&nbsp; &nbsp;// when the page is loaded, get the different DOM nodes</li>
+<li>&nbsp; &nbsp;// we're going to work with</li>
+<li>&nbsp;&nbsp;&nbsp;video = document.querySelector("#myVideo");</li>
+<li>&nbsp; &nbsp;transcriptDiv = document.querySelector("#transcript");</li>
+<li> </li>
+<li>&nbsp; &nbsp;// The tracks as HTML elements</li>
+<li>&nbsp; &nbsp;trackElems = document.querySelectorAll("track");<br></li>
+<li></li>
+<li>&nbsp; &nbsp;// Get the URLs of the vtt files</li>
+<li>&nbsp; &nbsp;for(var i = 0; i &lt; trackElems.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var currentTrackElem = trackElems[i];</li>
+<li>&nbsp; &nbsp; &nbsp; tracksURLs[i] = currentTrackElem.src;</li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;buttonEnglish = document.querySelector("#buttonEnglish");</li>
+<li>&nbsp; &nbsp;buttonDeutsch = document.querySelector("#buttonDeutsch");</li>
+<li> </li>
+<li>&nbsp; &nbsp;// we enable the buttons&nbsp;only in this load callback, </li>
+<li>&nbsp; &nbsp;// we cannot click before the video is in the DOM</li>
+<li>&nbsp; &nbsp;buttonEnglish.disabled = false;</li>
+<li>&nbsp; &nbsp;buttonDeutsch.disabled = false;</li>
+<li> </li>
+<li>&nbsp; &nbsp;// The tracks as TextTrack JS objects</li>
+<li>&nbsp; &nbsp;tracks = video.textTracks;</li>
+<li>};</li>
+<li>&nbsp;</li>
+<li>function loadTranscript(lang) {</li>
+<li>&nbsp; // Called when a button is clicked</li>
+<li></li>
+<li>&nbsp;&nbsp;// clear current transcript</li>
+<li>&nbsp; clearTranscriptDiv();</li>
+<li> </li>
+<li>&nbsp;&nbsp;// set all track modes to disabled. We will only activate the</li>
+<li>&nbsp;&nbsp;// one whose content will be displayed as transcript</li>
+<li>&nbsp; disableAllTracks();</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Locate the track with language = lang</li>
+<li>&nbsp;&nbsp;for(var i = 0; i &lt; tracks.length; i++) {</li>
+<li>&nbsp; &nbsp;&nbsp;// current track</li>
+<li>&nbsp; &nbsp;&nbsp;var track = tracks[i];</li>
+<li>&nbsp; &nbsp;&nbsp;var trackAsHtmlElem = trackElems[i];</li>
+<li> </li>
+<li>&nbsp; &nbsp; // Only subtitles/captions are ok for this example...</li>
+<li>&nbsp; &nbsp;&nbsp;if((track.language === lang) &amp;&amp; (track.kind !== "chapters")) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;track.mode="showing";</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;if(trackAsHtmlElem.readyState === 2) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // the track has already been loaded</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; displayCues(track);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;} else {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; displayCuesAfterTrackLoaded(trackAsHtmlElem, track);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;/* Fallback for FireFox that still does not implement cue enter and exit events<br></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;track.addEventListener("cuechange", function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var cue = this.activeCues[0];</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log("cue change");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var transcriptText = document.getElementById(cue.id);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transcriptText.classList.add("current");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;});</li>
+<li>&nbsp; &nbsp; &nbsp; */</li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;} </li>
+<li>}</li>
+<li> </li>
+<li>function displayCuesAfterTrackLoaded(trackElem, track) {</li>
+<li>&nbsp;&nbsp;// Create a listener that will only be called once the track has</li>
+<li>&nbsp;&nbsp;// been loaded. We cannot display the transcript before </li>
+<li>&nbsp; // the track is loaded</li>
+<li>&nbsp; &nbsp;trackElem.addEventListener('load', function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp; console.log("track loaded");</li>
+<li>&nbsp; &nbsp; &nbsp; displayCues(track);</li>
+<li>&nbsp; &nbsp;});</li>
+<li>}</li>
+<li></li>
+<li>function disableAllTracks() {</li>
+<li>&nbsp;&nbsp;for(var i = 0; i &lt; tracks.length; i++) </li>
+<li>&nbsp; &nbsp; &nbsp;// the track mode is important: disabled tracks do not fire events</li>
+<li>&nbsp; &nbsp; &nbsp;tracks[i].mode = "disabled";&nbsp;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function displayCues(track) {&nbsp;</li>
+<li>&nbsp; &nbsp;// displays the transcript of a TextTrack</li>
+<li>&nbsp; &nbsp;var cues = track.cues;</li>
+<li> </li>
+<li>&nbsp; &nbsp;//&nbsp;iterate on all cues of the current track</li>
+<li>&nbsp; &nbsp;for(var i=0, len = cues.length; i &lt; len; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; // current cue, also add enter and exit listeners to it</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var cue = cues[i];</li>
+<li>&nbsp; &nbsp; &nbsp; addCueListeners(cue);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; // Test if the cue content is a voice &lt;v speaker&gt;....&lt;/v&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var voices = getVoices(cue.text);</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var transText="";</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;if (voices.length &gt; 0) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for (var j = 0; j &lt; voices.length; j++) { // how many voices?</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transText += voices[j].voice + ': ' + removeHTML(voices[j].text);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;} else </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transText = cue.text; // not a voice text</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var clickableTransText = "&lt;li class='cues' id=" + cue.id </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+ " onclick='jumpTo(" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+&nbsp;cue.startTime + ");'" + "&gt;" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+ transText + "&lt;/li&gt;";</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; addToTranscriptDiv(clickableTransText);</li>
+<li>&nbsp; &nbsp;}</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function getVoices(speech) {&nbsp;</li>
+<li>&nbsp; &nbsp;// takes a text content and check if there are voices</li>
+<li>&nbsp; &nbsp;var voices = []; // inside</li>
+<li>&nbsp; &nbsp;var pos = speech.indexOf('&lt;v'); // voices are like &lt;v Michel&gt; ....</li>
+<li>&nbsp; &nbsp;while (pos != -1) {</li>
+<li>&nbsp; &nbsp; &nbsp; endVoice = speech.indexOf('&gt;');</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var voice = speech.substring(pos + 2, endVoice).trim();</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var endSpeech = speech.indexOf('&lt;/v&gt;');</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var text = speech.substring(endVoice + 1, endSpeech);</li>
+<li>&nbsp; &nbsp; &nbsp; voices.push({</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;'voice': voice,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;'text': text</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;});</li>
+<li>&nbsp; &nbsp; &nbsp; speech = speech.substring(endSpeech + 4);</li>
+<li>&nbsp; &nbsp; &nbsp; pos = speech.indexOf('&lt;v');</li>
+<li>&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;return voices;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function removeHTML(text) {</li>
+<li>&nbsp;&nbsp;var div = document.createElement('div');</li>
+<li>&nbsp; div.innerHTML = text;</li>
+<li>&nbsp;&nbsp;return div.textContent || div.innerText || '';</li>
+<li>}</li>
+<li></li>
+<li>function jumpTo(time) {</li>
+<li>&nbsp; // Make the video jump at the time position + force play </li>
+<li>&nbsp; // if it was not playing</li>
+<li>&nbsp; video.currentTime = time;</li>
+<li>&nbsp; video.play();</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function clearTranscriptDiv() {</li>
+<li>&nbsp; transcriptDiv.innerHTML = "";</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function addToTranscriptDiv(htmlText) {</li>
+<li>&nbsp; transcriptDiv.innerHTML += htmlText;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function addCueListeners(cue) {</li>
+<li>&nbsp; cue.onenter = function(){</li>
+<li>&nbsp; &nbsp; &nbsp;// Highlight current cue transcript by adding the </li>
+<li>&nbsp; &nbsp; &nbsp;// cue.current CSS class</li>
+<li>&nbsp; &nbsp; &nbsp;console.log('enter id=' + this.id);</li>
+<li>&nbsp; &nbsp; &nbsp;var transcriptText = document.getElementById(this.id);</li>
+<li>&nbsp; &nbsp; &nbsp;transcriptText.classList.add("current");</li>
+<li> };</li>
+<li>&nbsp;</li>
+<li> cue.onexit = function(){</li>
+<li>&nbsp; &nbsp;console.log('exit id=' + cue.id);</li>
+<li>&nbsp; &nbsp;var transcriptText = document.getElementById(this.id); </li>
+<li>&nbsp; &nbsp;transcriptText.classList.remove("current");</li>
+<li> };</li>
+<li></li>
+<li>} // end of addCueListeners...</li>
 </ol></div><br>
 
 
@@ -348,125 +348,125 @@ This example, adapted from an example from (now offline) dev.opera.com, uses som
 
 Extract from HTML code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span style="color: #008888;">...</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">preload</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://..../elephants-dream-medium.mp4"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://..../elephants-dream-medium.webm"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English subtitles"</span><span class="pln"> </span><span class="atn">kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span><span class="atn">srclang</span><span class="pun">=</span><span class="atv">"en"</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src</span><span class="pun">=</span><span class="atv">"https://..../elephants-dream-subtitles-en.vtt"</span><span class="pln"> </span><span class="atn">default</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"Deutsch subtitles"</span><span class="pln"> </span><span class="atn">kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span><span class="atn">srclang</span><span class="pun">=</span><span class="atv">"de"</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src</span><span class="pun">=</span><span class="atv">"https://..../elephants-dream-subtitles-de.vtt"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English chapters"</span><span class="pln"> </span><span class="atn">kind</span><span class="pun">=</span><span class="atv">"chapters"</span><span class="pln"> </span><span class="atn">srclang</span><span class="pun">=</span><span class="atv">"en"</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src</span><span class="pun">=</span><span class="atv">"https://..../elephants-dream-chapters-en.vtt"</span><span class="tag">&gt;</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/video&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp;...</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;h3&gt;</span><span class="pln">Video Transcript</span><span class="tag">&lt;/h3&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">loadTranscript</span><span class="pun">(</span><span class="str">'en'</span><span class="pun">);</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">English</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">loadTranscript</span><span class="pun">(</span><span class="str">'de'</span><span class="pun">);</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Deutsch</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;/div&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"transcript"</span><span class="tag">&gt;&lt;/div&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;">...</li>
+<div><ol>
+<li value="1"><span style="color: #008888;">...</li>
+<li> &lt;video preload="metadata" controls &gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;source src="https://..../elephants-dream-medium.mp4" type="video/mp4"&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;source src="https://..../elephants-dream-medium.webm" type="video/webm"&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;track label="English subtitles" kind="subtitles" srclang="en" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src="https://..../elephants-dream-subtitles-en.vtt" default&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;track label="Deutsch subtitles" kind="subtitles" srclang="de" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src="https://..../elephants-dream-subtitles-de.vtt"&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;track label="English chapters" kind="chapters" srclang="en" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src="https://..../elephants-dream-chapters-en.vtt"&gt; </li>
+<li> &lt;/video&gt;</li>
+<li>&nbsp;...</li>
+<li>&nbsp; &nbsp;&lt;h3&gt;Video Transcript&lt;/h3&gt;</li>
+<li>&nbsp; &nbsp;&lt;button onclick="loadTranscript('en');"&gt;English&lt;/button&gt;</li>
+<li>&nbsp; &nbsp;&lt;button onclick="loadTranscript('de');"&gt;Deutsch&lt;/button&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;/div&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;div id="transcript"&gt;&lt;/div&gt;</li>
+<li>...</li>
 </ol></div><br>
 
 JavaScript code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Transcript.js, by dev.opera.com</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> loadTranscript</span><span class="pun">(</span><span class="pln">lang</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> url </span><span class="pun">=</span><span class="pln"> </span><span class="str">"https://mainline.i3s.unice.fr/mooc/"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp;'elephants-dream-subtitles-'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> lang </span><span class="pun">+</span><span class="pln"> </span><span class="str">'.vtt'</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// Will download using Ajax + extract subtitles/captions&nbsp; &nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;loadTranscriptFile</span><span class="pun">(</span><span class="pln">url</span><span class="pun">);&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> loadTranscriptFile</span><span class="pun">(</span><span class="pln">webvttFileUrl</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// Using Ajax/XHR2 (explained in detail in Module 3)</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> reqTrans </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;reqTrans</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'GET'</span><span class="pun">,</span><span class="pln"> webvttFileUrl</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// callback, called only once the response is ready</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;reqTrans</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> pattern </span><span class="pun">=</span><span class="pln"> </span><span class="str">/^([0-9]+)$/</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> patternTimecode </span><span class="pun">=</span><span class="pln"> </span><span class="str">/^([0-9]{2}:[0-9]{2}:[0-9]{2}[,.]{1}[0-9]{3}) --\&gt; ([0-9]</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="str">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{2}:[0-9]{2}:[0-9]{2}[,.]{1}[0-9]{3})(.*)$/</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> content </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">response</span><span class="pun">;</span><span class="pln"> </span><span class="com">// content of the webVTT file</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> lines </span><span class="pun">=</span><span class="pln"> content</span><span class="pun">.</span><span class="pln">split</span><span class="pun">(</span><span class="str">/\r?\n/</span><span class="pun">); // Get an array of text lines</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> transcript </span><span class="pun">=</span><span class="pln"> </span><span class="str">''</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> lines</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> identifier </span><span class="pun">=</span><span class="pln"> pattern</span><span class="pun">.</span><span class="kwd">exec</span><span class="pun">(</span><span class="pln">lines</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// is there an id for this line, if it is, go to next line</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">identifier</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;i</span><span class="pun">++;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> timecode </span><span class="pun">=</span><span class="pln"> patternTimecode</span><span class="pun">.</span><span class="kwd">exec</span><span class="pun">(</span><span class="pln">lines</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">// is the current line a</span>&nbsp;timecode?</li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">timecode </span><span class="pun">&amp;&amp;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> lines</span><span class="pun">.</span><span class="pln">length</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{ &nbsp; &nbsp; &nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;<span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>// if it is go to next line&nbsp;&nbsp; &nbsp;&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i</span><span class="pun">++;</span></li>
-<li class="L7" style="margin-bottom: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span class="pun">// it can only be a text&nbsp;</span>line now</li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> text </span><span class="pun">=</span><span class="pln"> lines</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]; &nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span>// is the text multiline?</li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">lines</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">!==</span><span class="pln"> </span><span class="str">''</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> lines</span><span class="pun">.</span><span class="pln">length</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{ &nbsp;&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;text </span><span class="pun">=</span><span class="pln"> text </span><span class="pun">+</span><span class="pln"> </span><span class="str">'\n'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> lines</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;i</span><span class="pun">++;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> transText </span><span class="pun">=</span><span class="pln"> </span><span class="str">''</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> voices </span><span class="pun">=</span><span class="pln"> getVoices</span><span class="pun">(</span><span class="pln">text</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// is the extracted text multi voices ?&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">voices</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>// how many voices ?</li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> j </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> j </span><span class="pun">&lt;</span><span class="pln"> voices</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> j</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transText </span><span class="pun">+=</span><span class="pln"> voices</span><span class="pun">[</span><span class="pln">j</span><span class="pun">].</span><span class="pln">voice </span><span class="pun">+</span><span class="pln"> </span><span class="str">': '</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+</span><span class="pln"> removeHTML</span><span class="pun">(</span><span class="pln">voices</span><span class="pun">[</span><span class="pln">j</span><span class="pun">].</span><span class="pln">text</span><span class="pun">)</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+</span><span class="pln"> </span><span class="str">'&lt;br /&gt;'</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}&nbsp;</span><span class="kwd">else</span><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>// not a voice text</li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transText </span><span class="pun">=</span><span class="pln"> removeHTML</span><span class="pun">(</span><span class="pln">text</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">'&lt;br /&gt;'</span><span class="pun">;&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transcript </span><span class="pun">+=</span><span class="pln"> transText</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> oTrans </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'transcript'</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;oTrans</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> transcript</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;reqTrans</span><span class="pun">.</span><span class="pln">send</span><span class="pun">(); // send the Ajax request</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> getVoices</span><span class="pun">(</span><span class="pln">speech</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{ &nbsp;// takes a text content and check if there are voices&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> voices </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[]; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// inside</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> pos </span><span class="pun">=</span><span class="pln"> speech</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'&lt;v'</span><span class="pun">); // voices are like &lt;v Michel&gt; ....</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">pos </span><span class="pun">!=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; endVoice </span><span class="pun">=</span><span class="pln"> speech</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'&gt;'</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> voice </span><span class="pun">=</span><span class="pln"> speech</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="pln">pos </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> endVoice</span><span class="pun">).</span><span class="pln">trim</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> endSpeech </span><span class="pun">=</span><span class="pln"> speech</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'&lt;/v&gt;'</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> text </span><span class="pun">=</span><span class="pln"> speech</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="pln">endVoice </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> endSpeech</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; voices</span><span class="pun">.</span><span class="pln">push</span><span class="pun">({</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="str">'voice'</span><span class="pun">:</span><span class="pln"> voice</span><span class="pun">,</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="str">'text'</span><span class="pun">:</span><span class="pln"> text</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">});</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; speech </span><span class="pun">=</span><span class="pln"> speech</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="pln">endSpeech </span><span class="pun">+</span><span class="pln"> </span><span class="lit">4</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; pos </span><span class="pun">=</span><span class="pln"> speech</span><span class="pun">.</span><span class="pln">indexOf</span><span class="pun">(</span><span class="str">'&lt;v'</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> voices</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> removeHTML</span><span class="pun">(</span><span class="pln">text</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> div </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'div'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; div</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> text</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="kwd">return</span><span class="pln"> div</span><span class="pun">.</span><span class="pln">textContent </span><span class="pun">||</span><span class="pln"> div</span><span class="pun">.</span><span class="pln">innerText </span><span class="pun">||</span><span class="pln"> </span><span class="str">''</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">// Transcript.js, by dev.opera.com</li>
+<li>function loadTranscript(lang) {</li>
+<li>&nbsp; &nbsp;var url = "https://mainline.i3s.unice.fr/mooc/" + </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;'elephants-dream-subtitles-' + lang + '.vtt';</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Will download using Ajax + extract subtitles/captions&nbsp; &nbsp;</li>
+<li>&nbsp; &nbsp;loadTranscriptFile(url);&nbsp;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function loadTranscriptFile(webvttFileUrl) {</li>
+<li>&nbsp; &nbsp;// Using Ajax/XHR2 (explained in detail in Module 3)</li>
+<li>&nbsp; &nbsp;var reqTrans = new XMLHttpRequest();</li>
+<li> </li>
+<li>&nbsp; &nbsp;reqTrans.open('GET', webvttFileUrl);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// callback, called only once the response is ready</li>
+<li>&nbsp; &nbsp;reqTrans.onload = function(e) {&nbsp;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var pattern = /^([0-9]+)$/;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var patternTimecode = /^([0-9]{2}:[0-9]{2}:[0-9]{2}[,.]{1}[0-9]{3}) --\&gt; ([0-9]</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{2}:[0-9]{2}:[0-9]{2}[,.]{1}[0-9]{3})(.*)$/;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var content = this.response; // content of the webVTT file</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var lines = content.split(/\r?\n/); // Get an array of text lines</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var transcript = '';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;for (i = 0; i &lt; lines.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var identifier = pattern.exec(lines[i]);</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// is there an id for this line, if it is, go to next line</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (identifier) {&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;i++;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var timecode = patternTimecode.exec(lines[i]);&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// is the current line a&nbsp;timecode?</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (timecode &amp;&amp; i &lt; lines.length) { &nbsp; &nbsp; &nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// if it is go to next line&nbsp;&nbsp; &nbsp;&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i++;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// it can only be a text&nbsp;line now</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var text = lines[i]; &nbsp;</li>
+<li> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// is the text multiline?</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;while (lines[i] !== '' &amp;&amp; i &lt; lines.length) { &nbsp;&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;text = text + '\n' + lines[i];</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;i++;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var transText = '';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var voices = getVoices(text);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// is the extracted text multi voices ?&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;if (voices.length &gt; 0) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// how many voices ?</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for (var j = 0; j &lt; voices.length; j++) {&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transText += voices[j].voice + ': ' </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+ removeHTML(voices[j].text) </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+ '&lt;br /&gt;';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;}&nbsp;else&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// not a voice text</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transText = removeHTML(text) + '&lt;br /&gt;';&nbsp;</li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transcript += transText;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;var oTrans = document.getElementById('transcript');</li>
+<li>&nbsp; &nbsp; &nbsp;oTrans.innerHTML = transcript;</li>
+<li>&nbsp; &nbsp;}</li>
+<li> };</li>
+<li>&nbsp;reqTrans.send(); // send the Ajax request</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function getVoices(speech) { &nbsp;// takes a text content and check if there are voices&nbsp;</li>
+<li>&nbsp;&nbsp;var voices = []; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// inside</li>
+<li>&nbsp;&nbsp;var pos = speech.indexOf('&lt;v'); // voices are like &lt;v Michel&gt; ....</li>
+<li> </li>
+<li>&nbsp;&nbsp;while (pos != -1) {</li>
+<li>&nbsp; &nbsp; endVoice = speech.indexOf('&gt;');</li>
+<li>&nbsp; &nbsp;&nbsp;var voice = speech.substring(pos + 2, endVoice).trim();</li>
+<li>&nbsp; &nbsp;&nbsp;var endSpeech = speech.indexOf('&lt;/v&gt;');</li>
+<li>&nbsp; &nbsp;&nbsp;var text = speech.substring(endVoice + 1, endSpeech);</li>
+<li>&nbsp; &nbsp; voices.push({</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;'voice': voice,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;'text': text</li>
+<li>&nbsp; &nbsp;&nbsp;});</li>
+<li>&nbsp; &nbsp; speech = speech.substring(endSpeech + 4);</li>
+<li>&nbsp; &nbsp; pos = speech.indexOf('&lt;v');</li>
+<li>&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;return voices;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function removeHTML(text) {</li>
+<li>&nbsp;&nbsp;var div = document.createElement('div');</li>
+<li>&nbsp; div.innerHTML = text;</li>
+<li>&nbsp; return div.textContent || div.innerText || '';</li>
+<li>}</li>
 </ol></div>
 
 
@@ -638,167 +638,167 @@ In the screen-capture below, we have a WebVTT file displaying a scene's captions
 
 Extract from HTML code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;">...</li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;">...</li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="pln"> </span><span class="atn">preload</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; poster</span><span class="pln"> </span><span class="pun">=</span><span class="atv">"https://...../sintel.jpg"</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; controls</span><span class="pun">=</span><span class="atv">"controls"</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; width</span><span class="pun">=</span><span class="atv">"640"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"272"</span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/sintel.mp4"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;>.....</span>/sintel.webm"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/sintel-captions.vtt"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span class="pun">=</span><span class="atv">"captions"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;label</span><span class="pun">=</span><span class="atv">"English Captions"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;default</span></strong><span class="tag">/&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;>.....</span>/sintel-descriptions.vtt"</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span class="pun">=</span><span class="atv">"descriptions"</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;label</span><span class="pun">=</span><span class="atv">"Audio Descriptions"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/sintel-chapters.vtt"</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span class="pun">=</span><span class="atv">"chapters"</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;label</span><span class="pun">=</span><span class="atv">"Chapter Markers"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;>.....</span>/sintel-thumbs.vtt"</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;label</span><span class="pun">=</span><span class="atv">"Preview Thumbs"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;/video&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/p&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"currentTrackStatuses"</span><span class="tag">&gt;&lt;/div&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"subtitlesCaptions"</span><span class="tag">&gt;&lt;/div&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/p&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;p&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">clearSubtitlesCaptions</span><span class="pun">();</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; Clear subtitles/captions log</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;/button&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/p&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;p&gt;</span><span class="pln">Click one of these buttons to toggle the mode of each track:</span><span class="tag">&lt;/p&gt;<br></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">toggleTrack</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;Toggle english caption track mode</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;/button&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp;&lt;br&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">toggleTrack</span><span class="pun">(</span><span class="lit">1</span><span class="pun">);</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;Toggle audio description track mode</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/button&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;br&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">toggleTrack</span><span class="pun">(</span><span class="lit">2</span><span class="pun">);</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;Toggle chapter track mode</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/button&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;br&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">toggleTrack</span><span class="pun">(</span><span class="lit">3</span><span class="pun">);</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;Toggle preview thumbnail track modes</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/button&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;html lang="en"&gt;</li>
+<li>...</li>
+<li>&lt;body onload="init();"&gt;</li>
+<li>...</li>
+<li>&lt;p&gt;</li>
+<li>&nbsp; &lt;video id="myVideo" preload="metadata" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; poster ="https://...../sintel.jpg" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; crossorigin="anonymous" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; controls="controls" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; width="640" height="272"&gt;</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;&lt;source src="https://<span style="line-height: 25.6px;">.....</span>/sintel.mp4" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="video/mp4" /&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;source src="https://<span style="line-height: 25.6px;>...../sintel.webm" </span></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="video/webm" /&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;track src="https://<span style="line-height: 25.6px;">.....</span>/sintel-captions.vtt" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind="captions" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;label="English Captions" </li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;default</strong>/&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;track src="https://<span style="line-height: 25.6px;">.....</span>/sintel-descriptions.vtt" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind="descriptions" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;label="Audio Descriptions" /&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;track src="https://<span style="line-height: 25.6px;">.....</span>/sintel-chapters.vtt" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind="chapters" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;label="Chapter Markers" /&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;track src="https://<span style="line-height: 25.6px;">.....</span>/sintel-thumbs.vtt" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind="metadata" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;label="Preview Thumbs" /&gt;</li>
+<li>&nbsp; &lt;/video&gt;</li>
+<li>&lt;/p&gt;</li>
+<li></li>
+<li>&lt;p&gt;</li>
+<li>&nbsp; &nbsp;&lt;div id="currentTrackStatuses"&gt;&lt;/div&gt;</li>
+<li>&lt;p&gt;</li>
+<li>&lt;p&gt;</li>
+<li>&nbsp; &nbsp;&lt;div id="subtitlesCaptions"&gt;&lt;/div&gt;</li>
+<li>&lt;/p&gt;</li>
+<li></li>
+<li>&lt;p&gt;</li>
+<li>&nbsp; &nbsp;&lt;button onclick="clearSubtitlesCaptions();"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp; Clear subtitles/captions log</li>
+<li>&nbsp; &nbsp;&lt;/button&gt;</li>
+<li>&lt;/p&gt;</li>
+<li>&nbsp;</li>
+<li> &lt;p&gt;Click one of these buttons to toggle the mode of each track:&lt;/p&gt;<br></li>
+<li> &lt;button onclick="toggleTrack(0);"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;Toggle english caption track mode</li>
+<li>&nbsp;&lt;/button&gt;</li>
+<li>&nbsp;&lt;br&gt;</li>
+<li> &lt;button onclick="toggleTrack(1);"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;Toggle audio description track mode</li>
+<li>&lt;/button&gt;</li>
+<li>&lt;br&gt;</li>
+<li> &lt;button onclick="toggleTrack(2);"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;Toggle chapter track mode</li>
+<li>&lt;/button&gt;</li>
+<li>&lt;br&gt;</li>
+<li>&lt;button onclick="toggleTrack(3);"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;Toggle preview thumbnail track modes</li>
+<li>&lt;/button&gt;</li>
+<li>&nbsp;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div><br>
 
 
 JavaScript code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> tracks</span><span class="pun">,</span><span class="pln"> video</span><span class="pun">,</span><span class="pln"> statusDiv</span><span class="pun">,</span><span class="pln"> subtitlesCaptionsDiv</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;video </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myVideo"</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<span style="line-height: 25.6px;">statusDiv</span>&nbsp;</span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#currentTrackStatuses"</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln" style="line-height: 1.6;">&nbsp; &nbsp;subtitlesCaptionsDiv </span><span class="pun" style="line-height: 1.6;">=</span><span class="pln" style="line-height: 1.6;"> document</span><span class="pun" style="line-height: 1.6;">.</span><span class="pln" style="line-height: 1.6;">querySelector</span><span class="pun" style="line-height: 1.6;">(</span><span class="str" style="line-height: 1.6;">"#subtitlesCaptions"</span><span class="pun" style="line-height: 1.6;">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;tracks </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelectorAll</span><span class="pun">(</span><span class="str">"track"</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;video</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'loadedmetadata'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"metadata loaded"</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// defines cue listeners for the active track; we can do this only after the video metadata have been loaded</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="pln">tracks</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> tracks</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">track</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">t</span><span class="pun">.</span><span class="pln">mode </span><span class="pun">===</span><span class="pln"> </span><span class="str">"showing"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'cuechange'</span><span class="pun">,</span><span class="pln"> logCue</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp;</span>// display in a div the list of tracks and their status/mode value</li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;displayTrackStatus</span><span class="pun">(); &nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">});</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> displayTrackStatus</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // display the status / mode value of each track. </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // In red if disabled, in green if showing</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="pln">tracks</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> tracks</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">track</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> mode </span><span class="pun">=</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">mode</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">mode </span><span class="pun">===</span><span class="pln"> </span><span class="str">"disabled"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mode </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;span style='color:red'&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">mode </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/span&gt;"</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">mode </span><span class="pun">===</span><span class="pln"> </span><span class="str">"showing"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mode </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;span style='color:green'&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">mode </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/span&gt;"</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;appendToScrollableDiv</span><span class="pun">(</span><span class="pln">statusDiv</span><span class="pun">,</span><span class="pln"> </span><span class="str">"track "&nbsp;</span><span class="pun">+&nbsp;</span><span class="pln">i&nbsp;</span><span class="pun">+&nbsp;</span><span class="str">": "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">label </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; +</span><span class="pln"> </span><span class="str">" "&nbsp;</span><span class="pun">+&nbsp;</span><span class="pln">t</span><span class="pun">.</span><span class="pln">kind</span><span class="pun">+</span><span class="str">" in "</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; +&nbsp;</span><span class="pln">mode&nbsp;</span><span class="pun">+&nbsp;</span><span class="str">" mode"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;">}</li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> appendToScrollableDiv</span><span class="pun">(</span><span class="pln">div</span><span class="pun">,</span><span class="pln"> text</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// we've got two scrollable divs. This function </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// appends text to the div passed as a parameter</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// The div is scrollable (thanks to CSS overflow:auto)</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> inner </span><span class="pun">=</span><span class="pln"> div</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;div</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> inner </span><span class="pun">+</span><span class="pln"> text </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br/&gt;"</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// Make it display the last line appended</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;div</span><span class="pun">.</span><span class="pln">scrollTop </span><span class="pun">=</span><span class="pln"> div</span><span class="pun">.</span><span class="pln">scrollHeight</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> clearDiv</span><span class="pun">(</span><span class="pln">div</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;div</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">''</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> clearSubtitlesCaptions</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;clearDiv</span><span class="pun">(</span><span class="pln">subtitlesCaptionsDiv</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> toggleTrack</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// toggles the mode of track i, removes the cue listener </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// if its mode becomes "disabled"</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// adds a cue listener if its mode was "disabled" </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// and becomes "hidden"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> tracks</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">track</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp;switch</span><span class="pln"> </span><span class="pun">(</span><span class="pln">t</span><span class="pun">.</span><span class="pln">mode</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">case</span><span class="pln"> </span><span class="str">"disabled"</span><span class="pun">:</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;t</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'cuechange'</span><span class="pun">,</span><span class="pln"> logCue</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;t</span><span class="pun">.</span><span class="pln">mode </span><span class="pun">=</span><span class="pln"> </span><span class="str">"hidden"</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">case</span><span class="pln"> </span><span class="str">"hidden"</span><span class="pun">:</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;t</span><span class="pun">.</span><span class="pln">mode </span><span class="pun">=</span><span class="pln"> </span><span class="str">"showing"</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">case</span><span class="pln"> </span><span class="str">"showing"</span><span class="pun">:</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;t</span><span class="pun">.</span><span class="pln">removeEventListener</span><span class="pun">(</span><span class="str">'cuechange'</span><span class="pun">,</span><span class="pln"> logCue</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;t</span><span class="pun">.</span><span class="pln">mode </span><span class="pun">=</span><span class="pln"> </span><span class="str">"disabled"</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // updates the status</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; clearDiv</span><span class="pun">(</span><span class="pln">statusDiv</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; displayTrackStatus</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; appendToScrollableDiv</span><span class="pun">(</span><span class="pln">statusDiv</span><span class="pun">,</span><span class="str">"&lt;br&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">label</span><span class="pun">+</span><span class="str">" are now "</span><span class="pln"> </span><span class="pun">+</span><span class="pln">t</span><span class="pun">.</span><span class="pln">mode</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> logCue</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// callback for the cue event</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">activeCues </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">activeCues</span><span class="pun">.</span><span class="pln">length</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">activeCues</span><span class="pun">[</span><span class="lit">0</span><span class="pun">].</span><span class="pln">text</span><span class="pun">; // text of current cue</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; appendToScrollableDiv</span><span class="pun">(</span><span class="pln">subtitlesCaptionsDiv</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Active "</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; +&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">kind&nbsp;</span><span class="pun">+&nbsp;</span><span class="str">" changed to: "&nbsp;</span><span class="pun">+&nbsp;</span><span class="pln">t</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1">var tracks, video, statusDiv, subtitlesCaptionsDiv;</li>
+<li>&nbsp;</li>
+<li>function init() { </li>
+<li>&nbsp; &nbsp;video = document.querySelector("#myVideo");</li>
+<li>&nbsp; &nbsp;<span style="line-height: 25.6px;">statusDiv&nbsp;</span>= document.querySelector("#currentTrackStatuses");</li>
+<li><span style="line-height: 1.6;">&nbsp; &nbsp;subtitlesCaptionsDiv </span><span style="line-height: 1.6;">=</span><span style="line-height: 1.6;"> document</span><span style="line-height: 1.6;">.</span><span style="line-height: 1.6;">querySelector</span><span style="line-height: 1.6;">(</span><span style="line-height: 1.6;">"#subtitlesCaptions"</span><span style="line-height: 1.6;">);</span></li>
+<li>&nbsp; &nbsp;tracks = document.querySelectorAll("track");</li>
+<li> </li>
+<li>&nbsp; &nbsp;video.addEventListener('loadedmetadata', function() {</li>
+<li>&nbsp; &nbsp; &nbsp; console.log("metadata loaded");</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;// defines cue listeners for the active track; we can do this only after the video metadata have been loaded</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;for(var i=0; i&lt;tracks.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var t = tracks[i].track;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if(t.mode === "showing") {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t.addEventListener('cuechange', logCue, false);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// display in a div the list of tracks and their status/mode value</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;displayTrackStatus(); &nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;});</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function displayTrackStatus() {</li>
+<li>&nbsp; &nbsp; // display the status / mode value of each track. </li>
+<li>&nbsp; &nbsp; // In red if disabled, in green if showing</li>
+<li>&nbsp; &nbsp;&nbsp;for(var i=0; i&lt;tracks.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var t = tracks[i].track;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;var mode = t.mode;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;if(mode === "disabled") {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mode = "&lt;span style='color:red'&gt;" + t.mode + "&lt;/span&gt;";</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;} else if(mode === "showing") {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mode = "&lt;span style='color:green'&gt;" + t.mode + "&lt;/span&gt;";</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;appendToScrollableDiv(statusDiv, "track "&nbsp;+&nbsp;i&nbsp;+&nbsp;": " + t.label </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; + " "&nbsp;+&nbsp;t.kind+" in "</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; +&nbsp;mode&nbsp;+&nbsp;" mode");</li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li>}</li>
+<li>function appendToScrollableDiv(div, text) {</li>
+<li>&nbsp; &nbsp;// we've got two scrollable divs. This function </li>
+<li>&nbsp; &nbsp;// appends text to the div passed as a parameter</li>
+<li>&nbsp; &nbsp;// The div is scrollable (thanks to CSS overflow:auto)</li>
+<li>&nbsp; &nbsp;var inner = div.innerHTML;</li>
+<li>&nbsp; &nbsp;div.innerHTML = inner + text + "&lt;br/&gt;";</li>
+<li>&nbsp; &nbsp;// Make it display the last line appended</li>
+<li>&nbsp; &nbsp;div.scrollTop = div.scrollHeight;</li>
+<li> }</li>
+<li>&nbsp;</li>
+<li>function clearDiv(div) {</li>
+<li>&nbsp; &nbsp;div.innerHTML = '';</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function clearSubtitlesCaptions() {</li>
+<li>&nbsp; &nbsp;clearDiv(subtitlesCaptionsDiv);</li>
+<li>}</li>
+<li> </li>
+<li>function toggleTrack(i) {</li>
+<li>&nbsp; &nbsp;// toggles the mode of track i, removes the cue listener </li>
+<li>&nbsp; &nbsp;// if its mode becomes "disabled"</li>
+<li>&nbsp; &nbsp;// adds a cue listener if its mode was "disabled" </li>
+<li>&nbsp; &nbsp;// and becomes "hidden"</li>
+<li>&nbsp; &nbsp;var t = tracks[i].track;</li>
+<li>&nbsp; &nbsp;switch (t.mode) {</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;case "disabled":</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;t.addEventListener('cuechange', logCue, false);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;t.mode = "hidden";</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;case "hidden":</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;t.mode = "showing";</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;case "showing": </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;t.removeEventListener('cuechange', logCue, false);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;t.mode = "disabled";</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;</li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp; // updates the status</li>
+<li>&nbsp; &nbsp; clearDiv(statusDiv);</li>
+<li>&nbsp; &nbsp; displayTrackStatus();</li>
+<li>&nbsp; &nbsp; appendToScrollableDiv(statusDiv,"&lt;br&gt;" + t.label+" are now " +t.mode);</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function logCue() {</li>
+<li>&nbsp; &nbsp;// callback for the cue event</li>
+<li>&nbsp; &nbsp;if(this.activeCues &amp;&amp; this.activeCues.length) {</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var t = this.activeCues[0].text; // text of current cue</li>
+<li>&nbsp; &nbsp; &nbsp; appendToScrollableDiv(subtitlesCaptionsDiv, "Active "</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; +&nbsp;this.kind&nbsp;+&nbsp;" changed to: "&nbsp;+&nbsp;t);</li>
+<li>&nbsp; &nbsp;}</li>
+<li> }</li>
 </ol></div><br>
 
 
@@ -839,7 +839,7 @@ JavaScript code:
       + display the status / mode value of each track w/ color red if disable and color green if showing
       + iterate on all tracks: `for (var i=0; i<tracks.length; i++) {...}`
         + declare variables: `var t = tracks[i].length; var mode = t.mode;`
-        + disabled mode: `if (mode === "disabled") { mode = "<span style='color: red'>" + t.mode + "</span>"; }`
+        + disabled mode: `if (mode === "disabled") { mode = "<span style='color: red'>" + t.mode + ""; }`
         + showing mode: `else if (mode === "showing") { mode = "<span style='color: green'>" + t.mode + "</span>" }`
         + append to container: `appendToScrollableDiv(statusDiv, "track" + i + ": " + t.label + " " + t.kind + " in " + mode + " mode");`
     + append to container: `function appendToScrollableDiv(div, text) {...}`
@@ -889,107 +889,107 @@ Here is a [simple example at JSBin](https://jsbin.com/balowuq/1/edit?html,css,js
 
 HTML code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1">...</li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;body</span><span class="pln"> </span><span class="atn">onload</span><span class="pun">=</span><span class="atv">"</span><span class="pln">init</span><span class="pun">()</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="pln"> </span><span class="atn">preload</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">crossOrigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="pln"> </span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://...../elephants-dream-medium.mp4"</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-medium.webm"</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;track</span><span class="pln">&nbsp;&nbsp;</span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English subtitles"</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;srclang</span><span class="pun">=</span><span class="atv">"en"</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-en.vtt"</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>default</strong></span><span class="tag">&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp;&lt;track</span><span class="pln">&nbsp;&nbsp;</span><span class="atn">label</span><span class="pun">=</span><span class="atv">"Deutsch subtitles"</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;srclang</span><span class="pun">=</span><span class="atv">"de"</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src</span><span class="pun">=</span><span class="atv">"https://...../elephants-dream-subtitles-de.vtt"</span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &nbsp;&lt;track</span><span class="pln">&nbsp;&nbsp;</span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English chapters"</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span class="pun">=</span><span class="atv">"chapters"</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;srclang</span><span class="pun">=</span><span class="atv">"en"</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://...../elephants-dream-chapters-en.vtt"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/video&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h3&gt;</span><span class="pln">Current track: </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"currentLang"</span><span class="tag">&gt;&lt;/span&gt;&lt;/h3&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"langButtonDiv"</span><span class="tag">&gt;&lt;/div&gt;</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/section&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;">...</li>
+<div><ol>
+<li value="1">...</li>
+<li>&lt;body onload="init()"&gt;</li>
+<li>&nbsp;...</li>
+<li> &lt;video id="myVideo" preload="metadata" controls crossOrigin="anonymous" &gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;source src="https://...../elephants-dream-medium.mp4" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type="video/mp4"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;source src="https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-medium.webm" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type="video/webm"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;track&nbsp;&nbsp;label="English subtitles" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind="subtitles" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;srclang="en"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src="https://<span style="line-height: 25.6px;">.....</span> /elephants-dream-subtitles-en.vtt" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>default</strong>&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;track&nbsp;&nbsp;label="Deutsch subtitles" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind="subtitles" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;srclang="de"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src="https://...../elephants-dream-subtitles-de.vtt"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;track&nbsp;&nbsp;label="English chapters" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind="chapters" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;srclang="en"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src="https://...../elephants-dream-chapters-en.vtt"&gt;</li>
+<li> &lt;/video&gt;</li>
+<li> &lt;h3&gt;Current track: &lt;span id="currentLang"&gt;&lt;/span&gt;&lt;/h3&gt;</li>
+<li> &lt;div id="langButtonDiv"&gt;&lt;/div&gt; </li>
+<li> &lt;/section&gt;</li>
+<li>...</li>
 </ol></div><br>
 
 
 JavaScript code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> langButtonDiv</span><span class="pun">,</span><span class="pln"> currentLangSpan</span><span class="pun">,</span><span class="pln"> video</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;langButtonDiv </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#langButtonDiv"</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;currentLangSpan </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#currentLang"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;video </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myVideo"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Number of tracks = "</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+</span><span class="pln"> video</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">.</span><span class="pln">length</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// Updates the display of the current track activated</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;currentLangSpan</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> activeTrack</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// Build the buttons for choosing a track</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;buildButtons</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;">}</li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> activeTrack</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> video</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">video</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">mode </span><span class="pun">===</span><span class="pln"> </span><span class="str">'showing'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> video</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">label </span><span class="pun">+</span><span class="pln"> </span><span class="str">" ("</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; +</span><span class="pln"> video</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">language </span><span class="pun">+</span><span class="pln"> </span><span class="str">")"</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="str">"no subtitles/caption selected"</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> buildButtons</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">video</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{ // if the video contains track elements</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// For each track, create a button</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> video</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// We create buttons only for the caption and subtitle tracks</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> track </span><span class="pun">=</span><span class="pln"> video</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">((</span><span class="pln">track</span><span class="pun">.</span><span class="pln">kind </span><span class="pun">!==</span><span class="pln"> </span><span class="str">"subtitles"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">track</span><span class="pun">.</span><span class="pln">kind </span><span class="pun">!==</span><span class="pln"> </span><span class="str">"captions"</span><span class="pun">))</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; continue</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// create a button for track number i&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;createButton</span><span class="pun">(</span><span class="pln">video</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> createButton</span><span class="pun">(</span><span class="pln">track</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// Create a button</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">"button"</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;b</span><span class="pun">.</span><span class="pln">value</span><span class="pun">=</span><span class="pln">track</span><span class="pun">.</span><span class="pln">label</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;</span>// use the lang attribute of the button to keep trace of the</li>
-<li class="L2" style="margin-bottom: 0px;">&nbsp; &nbsp;// associated track language. Will be useful in the click listener</li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;b</span><span class="pun">.</span><span class="pln">setAttribute</span><span class="pun">(</span><span class="str">"lang"</span><span class="pun">,</span><span class="pln"> track</span><span class="pun">.</span><span class="pln">language</span><span class="pun">);&nbsp;</span><span class="pln"></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;b</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'click'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Check which track is the track with the language we're</span><span class="pln"> </span><span class="com">looking for</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp;</span>// Get the value of the lang attribute of the clicked button</li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> lang </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">getAttribute</span><span class="pun">(</span><span class="str">'lang'</span><span class="pun">);&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> video</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">video</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">language </span><span class="pun">==</span><span class="pln"> lang</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; video</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">mode </span><span class="pun">=</span><span class="pln"> </span><span class="str">'showing'</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; video</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">mode </span><span class="pun">=</span><span class="pln"> </span><span class="str">'hidden'</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Updates the span so that it displays the new active track</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; currentLangSpan</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> activeTrack</span><span class="pun">();</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="pun">});</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; // Creates a label inside the button</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; b</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">document</span><span class="pun">.</span><span class="pln">createTextNode</span><span class="pun">(</span><span class="pln">track</span><span class="pun">.</span><span class="pln">label</span><span class="pun">));</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; // Add the button to a div at the end of the HTML document</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; langButtonDiv</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<div><ol>
+<li value="1">var langButtonDiv, currentLangSpan, video;</li>
+<li>&nbsp;</li>
+<li>function init() {</li>
+<li>&nbsp; &nbsp;langButtonDiv = document.querySelector("#langButtonDiv");</li>
+<li>&nbsp; &nbsp;currentLangSpan = document.querySelector("#currentLang");</li>
+<li>&nbsp; &nbsp;video = document.querySelector("#myVideo");</li>
+<li></li>
+<li>&nbsp; &nbsp;console.log("Number of tracks = " </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+ video.textTracks.length);</li>
+<li>&nbsp; &nbsp;// Updates the display of the current track activated</li>
+<li>&nbsp; &nbsp;currentLangSpan.innerHTML = activeTrack();</li>
+<li>&nbsp; &nbsp;// Build the buttons for choosing a track</li>
+<li>&nbsp; &nbsp;buildButtons();</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function activeTrack() {</li>
+<li>&nbsp; &nbsp;for (var i = 0; i &lt; video.textTracks.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;if(video.textTracks[i].mode === 'showing') {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return video.textTracks[i].label + " (" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; + video.textTracks[i].language + ")";</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp;return "no subtitles/caption selected";</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function buildButtons() {</li>
+<li>&nbsp; &nbsp;if (video.textTracks) { // if the video contains track elements</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;// For each track, create a button</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;for (var i = 0; i &lt; video.textTracks.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// We create buttons only for the caption and subtitle tracks</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var track = video.textTracks[i];</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if((track.kind !== "subtitles") &amp;&amp; (track.kind !== "captions")) </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; continue;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// create a button for track number i&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;createButton(video.textTracks[i]);&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp;}</li>
+<li>}</li>
+<li> </li>
+<li>function createButton(track) {</li>
+<li>&nbsp; &nbsp;// Create a button</li>
+<li>&nbsp; &nbsp;var b = document.createElement("button");</li>
+<li>&nbsp; &nbsp;b.value=track.label;</li>
+<li>&nbsp; &nbsp;// use the lang attribute of the button to keep trace of the</li>
+<li>&nbsp; &nbsp;// associated track language. Will be useful in the click listener</li>
+<li>&nbsp; &nbsp;b.setAttribute("lang", track.language);&nbsp;</li>
+<li>&nbsp; &nbsp;b.addEventListener('click', function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp;// Check which track is the track with the language we're looking for</li>
+<li>&nbsp; &nbsp; &nbsp;// Get the value of the lang attribute of the clicked button</li>
+<li>&nbsp; &nbsp; &nbsp;var lang = this.getAttribute('lang');&nbsp;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;for (var i = 0; i &lt; video.textTracks.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;if (video.textTracks[i].language == lang) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; video.textTracks[i].mode = 'showing';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;} else {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; video.textTracks[i].mode = 'hidden';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp;// Updates the span so that it displays the new active track</li>
+<li>&nbsp; &nbsp; currentLangSpan.innerHTML = activeTrack();</li>
+<li>&nbsp; });</li>
+<li>&nbsp; // Creates a label inside the button</li>
+<li>&nbsp; b.appendChild(document.createTextNode(track.label));</li>
+<li>&nbsp; // Add the button to a div at the end of the HTML document</li>
+<li>&nbsp; langButtonDiv.appendChild(b);</li>
+<li>}</li>
+<li> </li>
 </ol></div>
 
 #### External resources
@@ -1054,26 +1054,26 @@ We can use WebVTT files to define chapters. The syntax is exactly the same as fo
 
 HTML code:
 
-<div class="source-code" style="line-height: 25.6px;"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln">&nbsp;</span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="pln">&nbsp;</span><span class="atn">preload</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln">&nbsp;</span><span class="atn">controls</span><span class="pln">&nbsp;</span><span class="atn">crossOrigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln">&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://...../elephants-dream-medium.mp4"</span><span class="pln"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln">&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;>.....</span>/elephants-dream-medium.webm"</span><span class="pln"></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;track</span><span class="pln">&nbsp;</span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English subtitles"</span><span class="pln"></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"en"</span><span class="pln"></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-en.vtt"</span><span class="pln">&nbsp;</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;track</span><span class="pln">&nbsp;</span><span class="atn">label</span><span class="pun">=</span><span class="atv">"Deutsch subtitles"</span><span class="pln"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"de"</span><span class="pln"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;>.....</span>/elephants-dream-subtitles-de.vtt"</span><span class="pln"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;default</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong>&nbsp;</strong></span><strong><span class="tag">&lt;track</span><span class="pln">&nbsp;</span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English chapters"</span><span class="pln"></span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"<span style="color: #ff0000;">chapters</span>"</span><span class="pln"></span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"en"</span><span class="pln"></span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-chapters-en.vtt"</span><span class="tag">&gt;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span></li>
+<div style="line-height: 25.6px;"><ol>
+<li value="1">&lt;video&nbsp;id="myVideo"&nbsp;preload="metadata"&nbsp;controls&nbsp;crossOrigin="anonymous"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;source&nbsp;src="https://...../elephants-dream-medium.mp4"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type="video/mp4"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;source&nbsp;src="https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-medium.webm"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type="video/webm"&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;track&nbsp;label="English subtitles"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind="subtitles"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang="en"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src="https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-en.vtt"&nbsp;&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;track&nbsp;label="Deutsch subtitles"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind="subtitles"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang="de"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src="https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-de.vtt"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;default&gt;</li>
+<li>&nbsp; &nbsp; <strong>&nbsp;</strong><strong>&lt;track&nbsp;label="English chapters"</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kind="<span style="color: #ff0000;">chapters"</span></strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; srclang="en"</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src="https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-chapters-en.vtt"&gt;</strong></li>
+<li>&lt;/video&gt;</li>
 </ol></div> <br>
 
 If we try this code in an HTML document, nothing special happens. No magic menu, no extra button!
@@ -1084,36 +1084,36 @@ __Let's start by examining the sample `.vtt` file__
 
 `elephant-dream-chapters-en.vtt`:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">WEBVTT</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">chapter</span><span class="pun">-</span><span class="lit">1</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">26.000</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="typ">Introduction</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">chapter</span><span class="pun">-</span><span class="lit">2</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">28.206</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">02.000</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="typ">Watch</span><span class="pln"> </span><span class="kwd">out</span><span class="pun">!</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">chapter</span><span class="pun">-</span><span class="lit">3</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">02.034</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">03</span><span class="pun">:</span><span class="lit">10.000</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="typ">Let</span><span class="str">'s go</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="str">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">chapter-4</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="str">00:03:10.014 --&gt; 00:05:40.000 </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="str">The machine</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="str">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="str">chapter-5</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="str">00:05:41.208 --&gt; 00:07:26.000 </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="str">Close your eyes</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="str">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="str">chapter-6</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="str">00:07:27.125 --&gt; 00:08:12.000</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="str">There'</span><span class="pln">s nothing there</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">chapter</span><span class="pun">-</span><span class="lit">7</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">08</span><span class="pun">:</span><span class="lit">13.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">09</span><span class="pun">:</span><span class="lit">07.500</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="typ">The</span><span class="pln"> </span><span class="typ">Colossus</span><span class="pln"> of </span><span class="typ">Rhodes</span></li>
+<div><ol>
+<li value="1">WEBVTT</li>
+<li>&nbsp;</li>
+<li>chapter-1</li>
+<li>00:00:00.000 --&gt; 00:00:26.000</li>
+<li>Introduction</li>
+<li>&nbsp;</li>
+<li>chapter-2</li>
+<li>00:00:28.206 --&gt; 00:01:02.000 </li>
+<li>Watch out!</li>
+<li>&nbsp;</li>
+<li>chapter-3</li>
+<li>00:01:02.034 --&gt; 00:03:10.000</li>
+<li>Let's go</li>
+<li>&nbsp;</li>
+<li>chapter-4</li>
+<li>00:03:10.014 --&gt; 00:05:40.000 </li>
+<li>The machine</li>
+<li>&nbsp;</li>
+<li>chapter-5</li>
+<li>00:05:41.208 --&gt; 00:07:26.000 </li>
+<li>Close your eyes</li>
+<li>&nbsp;</li>
+<li>chapter-6</li>
+<li>00:07:27.125 --&gt; 00:08:12.000</li>
+<li>There's nothing there</li>
+<li>&nbsp;</li>
+<li>chapter-7</li>
+<li>00:08:13.000 --&gt; 00:09:07.500</li>
+<li>The Colossus of Rhodes</li>
 </ol></div><br>
 
 There are 7 cues (one for each chapter). Each cue id is the word "chapter-" followed by the chapter number, then we have the start and end time of the cue/chapter, and the cue content. In this case: the description of the chapter ("Introduction", "Watch out!", "Let's go", etc...).
@@ -1124,29 +1124,29 @@ Hmm... let's try to open this chapter track with the [example](https://jsbin.com
 
 1. We add a "show English chapters" button with a click event listener similar to this:
 
-  <div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">disabled</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"buttonEnglishChapters"</span><span class="pln"> </span><strong><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">loadTranscript</span><span class="pun">(</span><span class="str">'en'</span><span class="pun">,</span><span class="pln"> </span><span class="str" style="color: #ff0000;">'chapters'</span><span class="pun">);</span><span class="atv">"</span></strong><span class="tag">&gt;</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; Display English chapter markers</span></li>
-  <li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/button&gt;<br></span></li>
+  <div><ol style="list-style-type: decimal;">
+  <li value="1">&lt;button disabled id="buttonEnglishChapters" <strong>onclick="loadTranscript('en', <span style="color: #ff0000;">'chapters'</span>);"</strong>&gt;</li>
+  <li>&nbsp; &nbsp; Display English chapter markers</li>
+  <li>&lt;/button&gt;<br></li>
   </ol></div>
 
 2. We modify the `loadTranscript` function from the previous example, so that it matches both the `srclang` and the `kind` attribute of the track.
 
   Here is a new version: in bold are the source code lines we modified.
 
-  <div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> loadTranscript</span><span class="pun">(</span><span class="pln">lang</span><span class="pun">,</span><span class="pln" style="color: #ff0000;"> kind</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;...</span></li>
-  <li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-  <li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Locate the track with&nbsp;lang and kind that match the parameters</span></li>
-  <li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> tracks</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-  <li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;...</span></li>
-  <li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span class="kwd">if</span><span class="pun">((</span><span class="pln">track</span><span class="pun">.</span><span class="pln">language </span><span class="pun">===</span><span class="pln"> lang</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">track</span><span class="pun">.</span><span class="pln">kind </span><span class="pun">===</span><span class="pln" style="color: #ff0000;"> kind</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-  <li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// display it contents...</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-  <li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+  <div><ol style="list-style-type: decimal;">
+  <li value="1">function loadTranscript(lang,<span style="color: #ff0000;"> kind</span>) {</li>
+  <li>&nbsp; &nbsp;...</li>
+  <li> </li>
+  <li>&nbsp; &nbsp;// Locate the track with&nbsp;lang and kind that match the parameters</li>
+  <li>&nbsp; &nbsp;for(var i = 0; i &lt; tracks.length; i++) {</li>
+  <li>&nbsp; &nbsp; &nbsp;&nbsp;...</li>
+  <li> </li>
+  <li>&nbsp; &nbsp; &nbsp;&nbsp;<strong>if((track.language === lang) &amp;&amp; (track.kind ===<span style="color: #ff0000;"> kind</span>)) {</strong></li>
+  <li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// display it contents...</li>
+  <li>&nbsp; &nbsp; &nbsp;&nbsp;}</li>
+  <li>&nbsp; &nbsp;} </li>
+  <li>}</li>
   </ol></div>
 
 
@@ -1225,36 +1225,36 @@ Instead of using text (optionally using HTML for styling, multi lines, etc.), it
 
 Here is an example cue from a WebVTT file encoded as JSON instead of plain text. JSON is useful for describing "structured data"', and processing such data from JavaScript is easier than parsing plain text.
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">WEBVTT</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="typ">Wikipedia</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">15.200</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">02</span><span class="pun">:</span><span class="lit">18.800</span></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: olive;">{</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: olive;">&nbsp; &nbsp;"title"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"State of Wikipedia"</span><span class="pun">,</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: olive;">&nbsp; &nbsp;"description"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Jimmy Wales talking ..."</span><span class="pun">,</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong style="color: olive;">&nbsp; &nbsp;"src"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://upload.wikimedia.org/...../120px-Wikipedia-logo-v2.svg.png"</span><span class="pun">,</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: olive;">&nbsp; &nbsp;"href"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"https://en.wikipedia.org/wiki/Wikipedia"</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong style="color: olive;">}</span></strong></li>
+<div><ol>
+<li value="1">WEBVTT</li>
+<li> </li>
+<li>Wikipedia</li>
+<li>00:01:15.200 --&gt; 00:02:18.800</li>
+<li><strong style="color: olive;">{</strong></li>
+<li><strong style="color: olive;">&nbsp; &nbsp;"title": "State of Wikipedia",</strong></li>
+<li><strong style="color: olive;">&nbsp; &nbsp;"description": "Jimmy Wales talking ...",</strong></li>
+<li><strong style="color: olive;">&nbsp; &nbsp;"src": "https://upload.wikimedia.org/...../120px-Wikipedia-logo-v2.svg.png",</strong></li>
+<li><strong style="color: olive;">&nbsp; &nbsp;"href": "https://en.wikipedia.org/wiki/Wikipedia"</strong></li>
+<li><strong style="color: olive;">}</strong></li>
 </ol></div><br>
 
 This JSON object (in bold olive) is a JavaScript object encoded as a text string. If we listen for cue events or if we read a WebVTT file as done in previous examples, we can extract this text content using the `cue.text` property. For example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> videoElement </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myvideo"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> textTracks </span><span class="pun">=</span><span class="pln"> videoElement</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">;</span><span class="pln"> </span><span class="com">// one for each track element</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> textTrack </span><span class="pun">=</span><span class="pln"> textTracks</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span><span class="pln"> </span><span class="com">// corresponds to the first track element</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> cues </span><span class="pun">=</span><span class="pln"> textTrack</span><span class="pun">.</span><span class="pln">cues</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> cue </span><span class="pun">=</span><span class="pln"> cues</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span><span class="pln"> </span><span class="com">// first cue</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="com"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="kwd">// cue.text is in JSON format, with JSON.parse we turn it back </span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="kwd">// to a real JavaScript object</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="kwd">var</span><span class="pln"> obj </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">cue</span><span class="pun">.</span><span class="pln">text</span><span class="pun">);</span><span class="pln">&nbsp;</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> title </span><span class="pun">=</span><span class="pln"> obj</span><span class="pun">.</span><span class="pln">title</span><span class="pun">;</span><span class="pln"> </span><span class="com">// "State of Wikipedia"</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> description </span><span class="pun">=</span><span class="pln"> obj</span><span class="pun">.</span><span class="pln">description</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Jimmy Wales talking...</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">etc</span><span class="pun">...</span></li>
+<div><ol>
+<li value="1">var videoElement = document.querySelector("#myvideo");</li>
+<li>var textTracks = videoElement.textTracks; // one for each track element</li>
+<li>var textTrack = textTracks[0]; // corresponds to the first track element</li>
+<li> </li>
+<li>var cues = textTrack.cues;</li>
+<li>var cue = cues[0]; // first cue</li>
+<li> </li>
+<li><strong>// cue.text is in JSON format, with JSON.parse we turn it back </strong></li>
+<li><strong>// to a real JavaScript object</strong></li>
+<li><strong>var obj = JSON.parse(cue.text);&nbsp;</strong></li>
+<li> </li>
+<li>var title = obj.title; // "State of Wikipedia"</li>
+<li>var description = obj.description; // Jimmy Wales talking...</li>
+<li>etc...</li>
 </ol></div><br>
 
 This is a powerful way of embedding metadata, especially when used in conjunction with listening for cue and track events.
@@ -1279,17 +1279,17 @@ Earlier we saw [an example](https://jsbin.com/jiyodit/edit?html,css,js,output) t
 
 This example used only standard plain text content for the cues:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">WEBVTT</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">chapter</span><span class="pun">-</span><span class="lit">1</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">26.000</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="typ">Introduction</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">chapter</span><span class="pun">-</span><span class="lit">2</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">28.206</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">02.000</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="typ">Watch</span><span class="pln"> </span><span class="kwd">out</span><span class="pun">!</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span>...</li>
+<div><ol>
+<li value="1">WEBVTT</li>
+<li>&nbsp;</li>
+<li>chapter-1</li>
+<li>00:00:00.000 --&gt; 00:00:26.000</li>
+<li>Introduction</li>
+<li>&nbsp;</li>
+<li>chapter-2</li>
+<li>00:00:28.206 --&gt; 00:01:02.000 </li>
+<li>Watch out!</li>
+<li>&nbsp;...</li>
 </ol></div>
 
 We used this example to manually capture the images from the video that correspond to each of the seven chapters:
@@ -1343,24 +1343,24 @@ To associate these images with its chapter description, we will use JSON objects
 
 [elephants-dream-chapters-en-JSON.vtt](https://mainline.i3s.unice.fr/mooc/elephants-dream-chapters-en-JSON.vtt):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">WEBVTT</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">chapter</span><span class="pun">-</span><span class="lit">1</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">26.000</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">"description"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Introduction"</span><span class="pun">,</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">"image"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"introduction.jpg"</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">chapter</span><span class="pun">-</span><span class="lit">2</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">28.206</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">02.000</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">"description"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Watch out!"</span><span class="pun">,</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">"image"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"watchOut.jpg"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;">...</li>
+<div><ol>
+<li value="1">WEBVTT</li>
+<li>&nbsp;</li>
+<li>chapter-1</li>
+<li>00:00:00.000 --&gt; 00:00:26.000</li>
+<li>{</li>
+<li> "description": "Introduction",</li>
+<li> "image": "introduction.jpg"</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li>chapter-2</li>
+<li>00:00:28.206 --&gt; 00:01:02.000 </li>
+<li>{</li>
+<li> "description": "Watch out!",</li>
+<li> "image": "watchOut.jpg"</li>
+<li>}</li>
+<li>...</li>
 </ol></div><br>
 
 Before explaining the code, we propose that you [try this example at JSBin](https://jsbin.com/pulefe/1/edit?html,css,js,output) that uses this new `.vtt` file:
@@ -1379,121 +1379,121 @@ Before explaining the code, we propose that you [try this example at JSBin](http
 
 HTML code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1">...</li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="pln"> </span><span class="atn">preload</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">crossOrigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://...../elephants-dream-medium.mp4"</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-medium.webm"</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English subtitles"</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"en"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-en.vtt"</span><span class="pln"> </span><span class="tag">&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"Deutsch subtitles"</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"de"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-de.vtt"</span><span class="pln"> </span><span class="atn">default</span><span class="tag">&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English chapters"</span><span class="pln"> </span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind</span><span class="pun">=</span><span class="atv">"chapters"</span><span class="pln"> </span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; srclang</span><span class="pun">=</span><span class="atv">"en"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-chapters-en-<span style="color: #ff0000;">JSON</span>.vtt"</span><span class="tag">&gt;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/video&gt;</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;h2&gt;</span><span class="pln">Chapter menu</span><span class="tag">&lt;/h2&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><strong><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"chapterMenu"</span><span class="tag">&gt;&lt;/div&gt;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;...</span></li>
+<div><ol>
+<li value="1">...</li>
+<li>&lt;video id="myVideo" preload="metadata" controls crossOrigin="anonymous"&gt;</li>
+<li> &lt;source src="https://...../elephants-dream-medium.mp4" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type="video/mp4"&gt;</li>
+<li> &lt;source src="https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-medium.webm" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type="video/webm"&gt;</li>
+<li> &lt;track label="English subtitles" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; kind="subtitles" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; srclang="en" src="https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-en.vtt" &gt;</li>
+<li> &lt;track label="Deutsch subtitles" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; kind="subtitles" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; srclang="de" src="https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-subtitles-de.vtt" default&gt;</li>
+<li> <strong>&lt;track label="English chapters" </strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;kind="chapters" </strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; srclang="en" src="https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-chapters-en-<span style="color: #ff0000;">JSON.vtt"&gt;</span></strong></li>
+<li> &lt;/video&gt; </li>
+<li> &lt;h2&gt;Chapter menu&lt;/h2&gt;</li>
+<li> <strong>&lt;div id="chapterMenu"&gt;&lt;/div&gt;</strong></li>
+<li>&nbsp;...</li>
 </ol></div><br>
 
 It's the same code we had in the first example, except that this time we use a new WebVTT file that uses JSON cues to describe each chapter. For the sake of simplicity, we also removed the buttons and all the code for displaying a clickable transcript of the subtitles/captions on the right of the video.
 
 JavaScript code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> video</span><span class="pun">,</span><span class="pln"> chapterMenuDiv</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> tracks</span><span class="pun">,</span><span class="pln"> trackElems</span><span class="pun">,</span><span class="pln"> tracksURLs </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"init"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// When the page is loaded</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;video </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myVideo"</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;chapterMenuDiv </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#chapterMenu"</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Get the tracks as HTML elements</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;trackElems </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelectorAll</span><span class="pun">(</span><span class="str">"track"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> trackElems</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> currentTrackElem </span><span class="pun">=</span><span class="pln"> trackElems</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; tracksURLs</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> currentTrackElem</span><span class="pun">.</span><span class="pln">src</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Get the tracks as JS TextTrack objects</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;tracks </span><span class="pun">=</span><span class="pln"> video</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"><span style="color: #880000; line-height: 25.6px;">&nbsp; &nbsp;<strong>//&nbsp;Build the chapter navigation menu for the given lang and kind</strong></span></span></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;buildChapterMenu</span><span class="pun">(</span><span class="str">'en'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'chapters'</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> buildChapterMenu</span><span class="pun">(</span><span class="pln">lang</span><span class="pun">,</span><span class="pln"> kind</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Locate the track with language = lang and kind="chapters"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> tracks</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// current track</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> track </span><span class="pun">=</span><span class="pln"> tracks</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> trackAsHtmlElem </span><span class="pun">=</span><span class="pln"> trackElems</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">((</span><span class="pln">track</span><span class="pun">.</span><span class="pln">language </span><span class="pun">===</span><span class="pln"> lang</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">track</span><span class="pun">.</span><span class="pln">kind </span><span class="pun">===</span><span class="pln"> kind</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// the track must be active,&nbsp;otherwise it will not load</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; track</span><span class="pun">.</span><span class="pln">mode</span><span class="pun">=</span><span class="str">"showing"</span><span class="pun">; // "hidden" would work too</span><span class="pln"></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">trackAsHtmlElem</span><span class="pun">.</span><span class="pln">readyState </span><span class="pun">===</span><span class="pln"> </span><span class="lit">2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// the track has already been loaded</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;displayChapterMarkers</span><span class="pun">(</span><span class="pln">track</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;displayChapterMarkersAfterTrackLoaded</span><span class="pun">(</span><span class="pln">trackAsHtmlElem</span><span class="pun">,</span><span class="pln"> track</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln">&nbsp;</span><span class="pun"><spanline-height: 25.6px;">displayChapterMarkers</span>(</span><span class="pln">track</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> cues </span><span class="pun">=</span><span class="pln"> track</span><span class="pun">.</span><span class="pln">cues</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// We must not see the cues on the video</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;track.mode = "hidden";</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Iterate on cues</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> len </span><span class="pun">=</span><span class="pln"> cues</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> len</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> cue </span><span class="pun">=</span><span class="pln"> cues</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L0" style="margin-bottom: 0px;">&nbsp;</li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>&nbsp;</strong></span><strong><span class="kwd">var</span><span class="pln"> cueObject </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">cue</span><span class="pun">.</span><span class="pln">text</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; </span><span class="kwd">var</span><span class="pln"> description </span><span class="pun">=</span><span class="pln"> cueObject</span><span class="pun">.</span><span class="pln">description</span><span class="pun">;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> imageFileName </span><span class="pun">=</span><span class="pln"> cueObject</span><span class="pun">.</span><span class="pln">image</span><span class="pun">;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> imageURL </span><span class="pun">=</span><span class="pln"> </span><span class="str">"https://mainline.i3s.unice.fr/mooc/"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> imageFileName</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">//&nbsp;Build the marker. It's a figure with an img and a figcaption inside.</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; // The img has an onclick listener that will make the video jump</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp; &nbsp; // to the start time of the current cue/chapter</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> figure </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'figure'</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; figure</span><span class="pun">.</span><span class="pln">classList</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="str">"img"</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; figure</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;img onclick='jumpTo("</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+</span><span class="pln"> cue</span><span class="pun">.</span><span class="pln">startTime </span><span class="pun">+</span><span class="pln"> </span><span class="str">");' class='thumb' src='"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+</span><span class="pln"> imageURL</span>&nbsp;+ <span class="str">"'&gt;&lt;figcaption class='desc'&gt;"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+</span><span class="pln"> description </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/figcaption&gt;&lt;/figure&gt;"</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; // Add the figure to the chapterMenuDiv</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; chapterMenuDiv</span><span class="pun">.</span><span class="pln">insertBefore</span><span class="pun">(</span><span class="pln">figure</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> displayChapterMarkersAfterTrackLoaded</span><span class="pun">(</span><span class="pln">trackElem</span><span class="pun">,</span><span class="pln"> track</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Create a listener that will only be called when the track has</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// been loaded</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; trackElem</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'load'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"chapter track loaded"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun"><span style="line-height: 25.6px;">displayChapterMarkers</span>(</span><span class="pln">track</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">});</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> jumpTo</span><span class="pun">(</span><span class="pln">time</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; video</span><span class="pun">.</span><span class="pln">currentTime </span><span class="pun">=</span><span class="pln"> time</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; video</span><span class="pun">.</span><span class="pln">play</span><span class="pun">();</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<div><ol>
+<li value="1">var video, chapterMenuDiv;</li>
+<li>var tracks, trackElems, tracksURLs = [];</li>
+<li>&nbsp;</li>
+<li>window.onload = function() {</li>
+<li>&nbsp; &nbsp;console.log("init");</li>
+<li>&nbsp; &nbsp;// When the page is loaded</li>
+<li>&nbsp; &nbsp;video = document.querySelector("#myVideo");</li>
+<li>&nbsp; &nbsp;chapterMenuDiv = document.querySelector("#chapterMenu");</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Get the tracks as HTML elements</li>
+<li>&nbsp; &nbsp;trackElems = document.querySelectorAll("track");</li>
+<li>&nbsp; &nbsp;for(var i = 0; i &lt; trackElems.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var currentTrackElem = trackElems[i];</li>
+<li>&nbsp; &nbsp; &nbsp; tracksURLs[i] = currentTrackElem.src;</li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Get the tracks as JS TextTrack objects</li>
+<li>&nbsp; &nbsp;tracks = video.textTracks;</li>
+<li> </li>
+<li><span style="color: #880000; line-height: 25.6px;">&nbsp; &nbsp;<strong>//&nbsp;Build the chapter navigation menu for the given lang and kind</strong></span></li>
+<li><strong>&nbsp; &nbsp;buildChapterMenu('en', 'chapters');</strong></li>
+<li>};</li>
+<li>&nbsp;</li>
+<li>function buildChapterMenu(lang, kind) {</li>
+<li>&nbsp;&nbsp;// Locate the track with language = lang and kind="chapters"</li>
+<li>&nbsp;&nbsp;for(var i = 0; i &lt; tracks.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp;// current track</li>
+<li>&nbsp; &nbsp; &nbsp;var track = tracks[i];</li>
+<li>&nbsp; &nbsp; &nbsp;var trackAsHtmlElem = trackElems[i];</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;if((track.language === lang) &amp;&amp; (track.kind === kind)) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// the track must be active,&nbsp;otherwise it will not load</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; track.mode="showing"; // "hidden" would work too</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;if(trackAsHtmlElem.readyState === 2) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// the track has already been loaded</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;displayChapterMarkers(track);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;} else {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;displayChapterMarkersAfterTrackLoaded(trackAsHtmlElem, track);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp;} </li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function&nbsp;<spanline-height: 25.6px;">displayChapterMarkers(track) {</li>
+<li>&nbsp; &nbsp;var cues = track.cues;</li>
+<li> </li>
+<li>&nbsp; &nbsp;// We must not see the cues on the video</li>
+<li>&nbsp; &nbsp;track.mode = "hidden";</li>
+<li></li>
+<li>&nbsp; &nbsp;// Iterate on cues</li>
+<li>&nbsp; &nbsp;for(var i=0, len = cues.length; i &lt; len; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var cue = cues[i];</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;<strong>&nbsp;</strong><strong>var cueObject = JSON.parse(cue.text);</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; var description = cueObject.description;</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp;&nbsp;var imageFileName = cueObject.image;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var imageURL = "https://mainline.i3s.unice.fr/mooc/" + imageFileName;</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;//&nbsp;Build the marker. It's a figure with an img and a figcaption inside.</li>
+<li>&nbsp; &nbsp; &nbsp; // The img has an onclick listener that will make the video jump</li>
+<li>&nbsp; &nbsp; &nbsp; // to the start time of the current cue/chapter</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var figure = document.createElement('figure');</li>
+<li>&nbsp; &nbsp; &nbsp; figure.classList.add("img");</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; figure.innerHTML = "&lt;img onclick='jumpTo(" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+ cue.startTime + ");' class='thumb' src='" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+ imageURL&nbsp;+ "'&gt;&lt;figcaption class='desc'&gt;" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+ description + "&lt;/figcaption&gt;&lt;/figure&gt;";</li>
+<li>&nbsp; &nbsp; &nbsp; // Add the figure to the chapterMenuDiv</li>
+<li>&nbsp; &nbsp; &nbsp; chapterMenuDiv.insertBefore(figure, null);</li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li> }</li>
+<li>&nbsp;</li>
+<li>function displayChapterMarkersAfterTrackLoaded(trackElem, track) {</li>
+<li>&nbsp;&nbsp;// Create a listener that will only be called when the track has</li>
+<li>&nbsp;&nbsp;// been loaded</li>
+<li>&nbsp; trackElem.addEventListener('load', function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp;console.log("chapter track loaded");</li>
+<li>&nbsp; &nbsp; &nbsp;<span style="line-height: 25.6px;">displayChapterMarkers(track);</span></li>
+<li>&nbsp;&nbsp;});</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function jumpTo(time) {</li>
+<li>&nbsp; video.currentTime = time;</li>
+<li>&nbsp; video.play();</li>
+<li>}</li>
+<li>&nbsp;</li>
 </ol></div><br>
 
 
@@ -1504,13 +1504,13 @@ __Explanations:__
 + _Lines 24-43_: the `buildChapterMenu` function first locates the chapter track for the given language, then checks if this track has been loaded by the browser. Once it has been confirmed that the track is loaded, the function `displayChapters` is called.
 + _Lines 45-65_: the `displayChapters(track)` function will iterate over all of the cues within the chapter track passed as its parameter. For each cue, the JSON content is re-formatted back into a JavaScript object (_line 55_) and the image filename and description of the chapter/cue are extracted (_lines 56-57_). Then an HTML description for the chapter is built and added to the `div` element with `id=chapterMenu`. Here is the HTML code for one menu marker:
 
-  <div class="source-code"><ol class="linenums" style="list-style-type: decimal;">
-  <li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;figure</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"<g class="gr_ gr_127 gr-alert gr_spell gr_run_anim ContextualSpelling ins-del multiReplace" id="127" data-gr-id="127">img</g>"</span><span class="tag">&gt;</span></li>
-  <li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">jumpTo</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span><span class="atv">"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"thumb"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://...../introduction.jpg"</span><span class="tag">&gt;</span></li>
-  <li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;figcaption</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"desc"</span><span class="tag">&gt;</span></li>
-  <li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; Introduction</span></li>
-  <li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;/figcaption&gt;</span></li>
-  <li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/figure&gt;</span></li>
+  <div><ol style="list-style-type: decimal;">
+  <li value="1">&lt;figure class="<g id="127" data-gr-id="127">img</g>"&gt;</li>
+  <li>&nbsp; &nbsp;&lt;img onclick="jumpTo(0);" class="thumb" src="https://...../introduction.jpg"&gt;</li>
+  <li>&nbsp; &nbsp;&lt;figcaption class="desc"&gt;</li>
+  <li>&nbsp; &nbsp; &nbsp; Introduction</li>
+  <li>&nbsp; &nbsp;&lt;/figcaption&gt;</li>
+  <li>&lt;/figure&gt;</li>
   </ol></div><br>
 
 Notice that we add a click listener to each thumbnail image. Clicking a chapter thumbnail will cause the video to jump to the chapter time location (the example above is for the first chapter with start time = 0).
@@ -1519,39 +1519,39 @@ We also added CSS classes "img", "thumb" and "desc", which make it easy to style
 
 CSS source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">#chapterMenuSection {</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln"> lightgrey</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span><span class="lit">10px</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;padding</span><span class="pun">:</span><span class="pln"> </span><span class="lit">20px</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;display</span><span class="pun">:</span><span class="kwd">inline</span><span class="pun">-</span><span class="pln">block</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;margin</span><span class="pun">:</span><span class="lit">0px</span><span class="pln"> </span><span class="lit">30px</span><span class="pln"> </span><span class="lit">30px</span><span class="pln"> </span><span class="lit">30px</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;width</span><span class="pun">:</span><span class="lit">90</span><span class="pun">%;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">figure</span><span class="pun">.</span><span class="pln">img </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">float</span><span class="pun">:</span><span class="pln"> left</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">figcaption</span><span class="pun">.</span><span class="pln">desc </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> center</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; font</span><span class="pun">-</span><span class="pln">weight</span><span class="pun">:</span><span class="pln"> normal</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2px</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">.</span><span class="pln">thumb </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">75px</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1px</span><span class="pln"> solid </span><span class="com">#000;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pln"> </span><span class="lit">5px</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; box</span><span class="pun">-</span><span class="pln">shadow</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5px</span><span class="pln"> </span><span class="lit">5px</span><span class="pln"> </span><span class="lit">5px</span><span class="pln"> grey</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; transition</span><span class="pun">:</span><span class="pln"> all </span><span class="lit">0.5s</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">.</span><span class="pln">thumb</span><span class="pun">:</span><span class="pln">hover </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; box</span><span class="pun">-</span><span class="pln">shadow</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5px</span><span class="pln"> </span><span class="lit">5px</span><span class="pln"> </span><span class="lit">5px</span><span class="pln"> black</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">#chapterMenuSection {</li>
+<li>&nbsp; &nbsp;background-color: lightgrey;</li>
+<li>&nbsp; &nbsp;border-radius:10px;</li>
+<li>&nbsp; &nbsp;padding: 20px;</li>
+<li>&nbsp; &nbsp;border:1px solid;</li>
+<li>&nbsp; &nbsp;display:inline-block;</li>
+<li>&nbsp; &nbsp;margin:0px 30px 30px 30px;</li>
+<li>&nbsp; &nbsp;width:90%;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>figure.img {</li>
+<li>&nbsp; margin: 2px;</li>
+<li>&nbsp;&nbsp;float: left;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>figcaption.desc {</li>
+<li>&nbsp; text-align: center;</li>
+<li>&nbsp; font-weight: normal;</li>
+<li>&nbsp; margin: 2px;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>.thumb {</li>
+<li>&nbsp; height: 75px;</li>
+<li>&nbsp; border: 1px solid #000;</li>
+<li>&nbsp; margin: 10px 5px 0 0;</li>
+<li>&nbsp; box-shadow: 5px 5px 5px grey;</li>
+<li>&nbsp; transition: all 0.5s;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>.thumb:hover {</li>
+<li>&nbsp; box-shadow: 5px 5px 5px black;</li>
+<li>}</li>
 </ol></div><br>
 
 A sample menu marker is shown below (it's also animated - hover your mouse over the thumbnail to see its animated shadow):
