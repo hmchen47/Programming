@@ -29,50 +29,50 @@ Let's try adding a `dead` property to balls and consult it before drawing them. 
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> updateBalls</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;">// for each ball in the array</strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> allBallDead </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> ballArray</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> ball </span><span class="pun">=</span><span class="pln"> ballArray</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong style="color: red;">&nbsp;</strong></span><strong style="color: red;"><span class="kwd">if</span><span class="pun">(</span><span class="pln">ball</span><span class="pun">.</span><span class="pln">dead</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">continue</span><span class="pun">; // do nothing if the ball is dead</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong style="color: red;">&nbsp;</strong></span><strong style="color: red;">// if we are here: the ball is not dead</strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;allBallDead </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// 1) move the ball</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ball</span><span class="pun">.</span><span class="pln">move</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// 2) test if the ball collides with a wall</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;testCollisionWithWalls</span><span class="pun">(</span><span class="pln">ball</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// Test if the monster collides</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">circRectsOverlap</span><span class="pun">(</span><span class="pln">monster</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monster</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">height</span><span class="pun">,</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ball</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> ball</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">//change the color of the ball</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; <strong style="color: red;">ball</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">dead </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Here, a sound effect would greatly improve</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// the experience!</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: red;"> currentScore</strong></span><strong style="color: red;"><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// 3) draw the ball</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;ball</span><span class="pun">.</span><span class="pln">draw</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">&nbsp;<strong style="color: red;"> if</strong></span><strong style="color: red;"><span class="pun">(</span><span class="pln">allBallDead</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">// reset all balls, create more balls each time</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="com">//&nbsp;as a way&nbsp;of increasing the difficulty</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;">&nbsp; &nbsp; &nbsp;// in a real game: change the level, play nice music!</strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;nbBalls</span><span class="pun">++;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;createBalls</span><span class="pun">(</span><span class="pln">nbBalls</span><span class="pun">);</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function updateBalls(delta) {</li>
+<li>&nbsp; &nbsp;<strong style="color: red;">// for each ball in the array</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;var allBallDead = true;</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp;for(var i=0; i &lt; ballArray.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp;var ball = ballArray[i];</li>
+<li> </li>
+<li>&nbsp; &nbsp; <strong style="color: red;">&nbsp;</strong><strong style="color: red;">if(ball.dead) continue; // do nothing if the ball is dead</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp; <strong style="color: red;">&nbsp;</strong><strong style="color: red;">// if we are here: the ball is not dead</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;allBallDead = false;</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;// 1) move the ball</li>
+<li>&nbsp; &nbsp; &nbsp;ball.move(); </li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;// 2) test if the ball collides with a wall</li>
+<li>&nbsp; &nbsp; &nbsp;testCollisionWithWalls(ball);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;// Test if the monster collides</li>
+<li>&nbsp; &nbsp; &nbsp;if(circRectsOverlap(monster.x, monster.y, </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;monster.width, monster.height, </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ball.x, ball.y, ball.radius)) {</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;//change the color of the ball</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; ball.color = 'red';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong style="color: red;">ball</strong><strong style="color: red;">.dead = true;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Here, a sound effect would greatly improve</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// the experience!</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: red;"> currentScore</strong><strong style="color: red;">+= 1;</strong></li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;// 3) draw the ball</li>
+<li>&nbsp; &nbsp; &nbsp;ball.draw();</li>
+<li>&nbsp;&nbsp;}</li>
+<li value="1">&nbsp;<strong style="color: red;"> if</strong><strong style="color: red;">(allBallDead) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;// reset all balls, create more balls each time</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;//&nbsp;as a way&nbsp;of increasing the difficulty</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;// in a real game: change the level, play nice music!</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;nbBalls++;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;createBalls(nbBalls);</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;}</strong></li>
+<li>}</li>
 </ol></div><br>
 
 
@@ -106,118 +106,118 @@ Try this JsBin, then look at the source code. Start from the `mainloop`!
 
 Game state management in the JavaScript code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="pun">...</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// game states</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> gameStates </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;mainMenu</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;gameRunning</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;gameOver</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> currentGameState </span><span class="pun">=</span><span class="pln"> gameStates</span><span class="pun">.</span><span class="pln">gameRunning</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> currentLevel </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> TIME_BETWEEN_LEVELS </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5000</span><span class="pun">;</span><span class="pln"> </span><span class="com">// 5 seconds</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> currentLevelTime </span><span class="pun">=</span><span class="pln"> TIME_BETWEEN_LEVELS</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> mainLoop </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">time</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;...</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// number of ms since last frame draw</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;delta </span><span class="pun">=</span><span class="pln"> timer</span><span class="pun">(</span><span class="pln">time</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Clear the canvas</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;clearCanvas</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// monster.dead is set to true in updateBalls when there</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// is a collision</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">monster</span><span class="pun">.</span><span class="pln">dead</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp; currentGameState </span><span class="pun">=</span><span class="pln"> gameStates</span><span class="pun">.</span><span class="pln">gameOver</span><span class="pun">;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><strong style="color: red;"><span class="kwd">switch</span><span class="pln"> </span><span class="pun">(</span><span class="pln">currentGameState</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">case</span><span class="pln"> gameStates</span><span class="pun">.</span><span class="pln">gameRunning</span><span class="pun">:</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// draw the monster</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; drawMyMonster</span><span class="pun">(</span><span class="pln">monster</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">y</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Check inputs and move the monster</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; updateMonsterPosition</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// update and draw balls</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; updateBalls</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// display Score</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; displayScore</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// decrease currentLevelTime. Survive 5s per level</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// When &lt; 0 go to next level</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;currentLevelTime </span><span class="pun">-=</span><span class="pln"> delta</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">currentLevelTime </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; goToNextLevel</span><span class="pun">();</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="kwd">case</span><span class="pln"> gameStates</span><span class="pun">.</span><span class="pln">mainMenu</span><span class="pun">:</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// TO DO! We could have a main menu with high scores etc.</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong style="color: red;"><span class="kwd">case</span><span class="pln"> gameStates</span><span class="pun">.</span><span class="pln">gameOver</span><span class="pun">:</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"GAME OVER"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"Press SPACE to start again"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">150</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"Move with arrow keys"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ctx</span><span class="pun">.</span><span class="pln">fillText</span><span class="pun">(</span><span class="str">"Survive 5 seconds for next level"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">250</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">.</span><span class="pln">space</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; startNewGame</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">break</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp;...</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">...&nbsp;</span></li>
+<div><ol>
+<li value="1"> ...</li>
+<li> // game states</li>
+<li> var gameStates = {</li>
+<li>&nbsp; &nbsp;mainMenu: 0,</li>
+<li>&nbsp; &nbsp;gameRunning: 1,</li>
+<li>&nbsp; &nbsp;gameOver: 2</li>
+<li> };</li>
+<li>&nbsp;</li>
+<li> var currentGameState = gameStates.gameRunning;</li>
+<li> var currentLevel = 1;</li>
+<li> var TIME_BETWEEN_LEVELS = 5000; // 5 seconds</li>
+<li> var currentLevelTime = TIME_BETWEEN_LEVELS;</li>
+<li>...</li>
+<li> var mainLoop = function (time) {</li>
+<li>&nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp;// number of ms since last frame draw</li>
+<li>&nbsp; &nbsp;delta = timer(time);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;// Clear the canvas</li>
+<li>&nbsp; &nbsp;clearCanvas();</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;// monster.dead is set to true in updateBalls when there</li>
+<li>&nbsp; &nbsp;// is a collision</li>
+<li>&nbsp; &nbsp;<strong style="color: red;">if (monster.dead) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp; currentGameState = gameStates.gameOver;</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp;}</strong></li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;<strong style="color: red;">switch (currentGameState) {</strong></li>
+<li><strong style="color: red;">&nbsp; &nbsp; &nbsp;&nbsp;case gameStates.gameRunning:</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// draw the monster</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; drawMyMonster(monster.x, monster.y);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// Check inputs and move the monster</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; updateMonsterPosition(delta);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// update and draw balls</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; updateBalls(delta);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// display Score</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; displayScore();</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// decrease currentLevelTime. Survive 5s per level</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// When &lt; 0 go to next level</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;currentLevelTime -= delta;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;if (currentLevelTime &lt; 0) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; goToNextLevel();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;break;</li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: red;">case gameStates.mainMenu:</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// TO DO! We could have a main menu with high scores etc.</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;break;</li>
+<li>&nbsp; &nbsp;&nbsp;<strong style="color: red;">case gameStates.gameOver:</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx.fillText("GAME OVER", 50, 100);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx.fillText("Press SPACE to start again", 50, 150);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx.fillText("Move with arrow keys", 50, 200);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ctx.fillText("Survive 5 seconds for next level", 50, 250);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;if (inputStates.space) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; startNewGame();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;break;</li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp;};</li>
+<li>...&nbsp;</li>
 </ol></div><br>
 
 And below are the functions for starting a new level, starting a new game, and the `updateBalls` function that determines when a player loses and changes the current game-state to GameOver:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> startNewGame</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; monster</span><span class="pun">.</span><span class="pln">dead </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; currentLevelTime </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5000</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; currentLevel </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; nbBalls </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; createBalls</span><span class="pun">(</span><span class="pln">nbBalls</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; <strong style="color: red;">currentGameState </strong></span><strong style="color: red;"><span class="pun">=</span><span class="pln"> gameStates</span><span class="pun">.</span><span class="pln">gameRunning</span><span class="pun">;</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> goToNextLevel</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// reset time available for next level</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 5 seconds in this example</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;currentLevelTime </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5000</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;currentLevel</span><span class="pun">++;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Add two balls per level</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;nbBalls </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;createBalls</span><span class="pun">(</span><span class="pln">nbBalls</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> updateBalls</span><span class="pun">(</span><span class="pln">delta</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Move and draw each ball, test collisions, </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> ballArray</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;...</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Test if the monster collides</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">circRectsOverlap</span><span class="pun">(</span><span class="pln">monster</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; monster</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> monster</span><span class="pun">.</span><span class="pln">height</span><span class="pun">,</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ball</span><span class="pun">.</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> ball</span><span class="pun">.</span><span class="pln">y</span><span class="pun">,</span><span class="pln"> ball</span><span class="pun">.</span><span class="pln">radius</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">//change the color of the ball</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ball</span><span class="pun">.</span><span class="pln">color </span><span class="pun">=</span><span class="pln"> </span><span class="str">'red'</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong style="color: red;">&nbsp;monster</strong></span><strong style="color: red;"><span class="pun">.</span><span class="pln">dead </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// Here, a sound effect greatly improves</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// the experience!</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;plopSound</span><span class="pun">.</span><span class="pln">play</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// 3) draw the ball</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;ball</span><span class="pun">.</span><span class="pln">draw</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1"> function startNewGame() {</li>
+<li>&nbsp; &nbsp; monster.dead = false;</li>
+<li>&nbsp; &nbsp; currentLevelTime = 5000;</li>
+<li>&nbsp; &nbsp; currentLevel = 1;</li>
+<li>&nbsp; &nbsp; nbBalls = 5;</li>
+<li>&nbsp; &nbsp; createBalls(nbBalls);</li>
+<li>&nbsp; &nbsp; <strong style="color: red;">currentGameState </strong><strong style="color: red;">= gameStates.gameRunning;</strong></li>
+<li> }</li>
+<li>&nbsp;</li>
+<li> function goToNextLevel() {</li>
+<li>&nbsp; &nbsp;&nbsp;// reset time available for next level</li>
+<li>&nbsp; &nbsp;&nbsp;// 5 seconds in this example</li>
+<li>&nbsp; &nbsp;currentLevelTime = 5000;</li>
+<li>&nbsp; &nbsp;currentLevel++;</li>
+<li>&nbsp; &nbsp;// Add two balls per level</li>
+<li>&nbsp; &nbsp;nbBalls += 2;</li>
+<li>&nbsp; &nbsp;createBalls(nbBalls);</li>
+<li> }</li>
+<li>&nbsp;</li>
+<li> function updateBalls(delta) {</li>
+<li>&nbsp; &nbsp;&nbsp;// Move and draw each ball, test collisions, </li>
+<li>&nbsp; &nbsp;&nbsp;for (var i = 0; i &lt; ballArray.length; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// Test if the monster collides</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;if (circRectsOverlap(monster.x, monster.y,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; monster.width, monster.height,</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ball.x, ball.y, ball.radius)) {</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//change the color of the ball</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ball.color = 'red';</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong style="color: red;">&nbsp;monster</strong><strong style="color: red;">.dead = true;</strong></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Here, a sound effect greatly improves</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// the experience!</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;plopSound.play();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;// 3) draw the ball</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;ball.draw();</li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li> }</li>
 </ol></div>
 
 
@@ -300,31 +300,31 @@ First, create a `game.html` file that contains the actual HTML code:
 
 `game.html`:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Nearly a real game</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&nbsp;<strong style="color: red;">&lt;!-- External JS libs --&gt;</strong></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.25/howler.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span style="color: #008888;" color="#008888">&nbsp;<strong style="color: red;">&lt;!-- CSS files for your game --&gt;</strong></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span style="color: #008888;" color="#008888">&nbsp;&lt;link rel="stylesheet" href="css/game.css"&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln"> </span><span class="com">&lt;!-- Include here all game JS files--&gt;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong style="color: red;"><span class="com">&nbsp;&lt;script src="js/game.js"&gt;&lt;/script&gt;</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"400"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"400"</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li> &lt;meta charset="utf-8"&gt;</li>
+<li> &lt;title&gt;Nearly a real game&lt;/title&gt;</li>
+<li>&nbsp;<strong style="color: red;">&lt;!-- External JS libs --&gt;</strong></li>
+<li> &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.25/howler.min.js"&gt;&lt;/script&gt;</li>
+<li><span style="color: #008888;" color="#008888">&nbsp;<strong style="color: red;">&lt;!-- CSS files for your game --&gt;</strong></span></li>
+<li><span style="color: #008888;" color="#008888">&nbsp;&lt;link rel="stylesheet" href="css/game.css"&gt;</span></li>
+<li><strong style="color: red;"> &lt;!-- Include here all game JS files--&gt;</strong></li>
+<li><strong style="color: red;">&nbsp;&lt;script src="js/game.js"&gt;&lt;/script&gt;</strong></li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li> &lt;canvas id="myCanvas" width="400" height="400"&gt;&lt;/canvas&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div><br>
 
 Here is the `game.css` file (very simple):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">canvas </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;border</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1px</span><span class="pln"> solid black</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">canvas {</li>
+<li>&nbsp; &nbsp;border: 1px solid black;</li>
+<li>}</li>
 </ol></div><br>
 
 Let's take the JavaScript code from the last JSBin example, save it to a file called `game.js`, and locate it in a subdirectory `js` under the directory where the `game.html` file is located. Similarly, we'll keep the CSS file in a `css` subdirectory:
@@ -348,20 +348,20 @@ Put the Ball constructor function in a js/ball.js file, include it in the `game.
 
 `Ball.js`:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// constructor function for balls</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="typ">Ball</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> angle</span><span class="pun">,</span><span class="pln"> v</span><span class="pun">,</span><span class="pln"> diameter</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">draw </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: red;">ctx</strong></span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">...</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">move </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; ...</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+=</span><strong style="color: red;"><span class="pln"> calcDistanceToMove</span></strong><span class="pun">(</span><span class="pln">delta</span><span class="pun">,</span><span class="pln"> incX</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">y </span><span class="pun">+=</span><strong style="color: red;"><span class="pln"> calcDistanceToMove</span></strong><span class="pun">(</span><span class="pln">delta</span><span class="pun">,</span><span class="pln"> incY</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">};</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1">// constructor function for balls</li>
+<li> function Ball(x, y, angle, v, diameter) {</li>
+<li>&nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp;&nbsp;this.draw = function () {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;<strong style="color: red;">ctx</strong>.save();</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp; };</li>
+<li>&nbsp; &nbsp;&nbsp;this.move = function () {</li>
+<li>&nbsp; &nbsp; &nbsp; ...</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;this.x +=<strong style="color: red;"> calcDistanceToMove</strong>(delta, incX);</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;this.y +=<strong style="color: red;"> calcDistanceToMove</strong>(delta, incY);</li>
+<li>&nbsp; &nbsp;&nbsp;};</li>
+<li> }</li>
 </ol></div><br>
 
 
@@ -387,19 +387,19 @@ Fix: extract the utility functions related to time-based animation and add a _ct
 
 `timeBasedAnim.js`:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> delta</span><span class="pun">,</span><span class="pln"> oldTime </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> timer</span><span class="pun">(</span><span class="pln">currentTime</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> delta </span><span class="pun">=</span><span class="pln"> currentTime </span><span class="pun">-</span><span class="pln"> oldTime</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;oldTime </span><span class="pun">=</span><span class="pln"> currentTime</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> delta</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> calcDistanceToMove </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">delta</span><span class="pun">,</span><span class="pln"> speed</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">//console.log("#delta = " + delta + " speed = " + speed);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="pun">(</span><span class="pln">speed </span><span class="pun">*</span><span class="pln"> delta</span><span class="pun">)</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">1000</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<div><ol>
+<li value="1">var delta, oldTime = 0;</li>
+<li>&nbsp;</li>
+<li>function timer(currentTime) {</li>
+<li>&nbsp; &nbsp;var delta = currentTime - oldTime;</li>
+<li>&nbsp; &nbsp;oldTime = currentTime;</li>
+<li>&nbsp; &nbsp;return delta;</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>var calcDistanceToMove = function (delta, speed) {</li>
+<li>&nbsp; &nbsp;//console.log("#delta = " + delta + " speed = " + speed);</li>
+<li>&nbsp; &nbsp;return (speed * delta) / 1000;</li>
+<li> };</li>
 </ol></div><br>
 
 
@@ -409,41 +409,41 @@ We need to add a small `initFPS` function for creating the `<div>` that displays
 
 `fps.js`:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="com">// vars for counting frames/s, used by the measureFPS function</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> frameCount </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> lastTime</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> fpsContainer</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> fps</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> initFPSCounter </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// adds a div for displaying the fps value</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;fpsContainer </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">createElement</span><span class="pun">(</span><span class="str">'div'</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;document</span><span class="pun">.</span><span class="pln">body</span><span class="pun">.</span><span class="pln">appendChild</span><span class="pun">(</span><span class="pln">fpsContainer</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">var</span><span class="pln"> measureFPS </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">newTime</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// test for the very first invocation</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">lastTime </span><span class="pun">===</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; lastTime </span><span class="pun">=</span><span class="pln"> newTime</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">return</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">//calculate the difference between last &amp; current frame</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> diffTime </span><span class="pun">=</span><span class="pln"> newTime </span><span class="pun">-</span><span class="pln"> lastTime</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">diffTime </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="lit">1000</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; fps </span><span class="pun">=</span><span class="pln"> frameCount</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; frameCount </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; lastTime </span><span class="pun">=</span><span class="pln"> newTime</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">//and display it in an element we appended to the </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// document in the start() function</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;fpsContainer</span><span class="pun">.</span><span class="pln">innerHTML </span><span class="pun">=</span><span class="pln"> </span><span class="str">'FPS: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> fps</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;frameCount</span><span class="pun">++;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">};</span></li>
+<div><ol>
+<li value="1"> // vars for counting frames/s, used by the measureFPS function</li>
+<li> var frameCount = 0;</li>
+<li> var lastTime;</li>
+<li> var fpsContainer;</li>
+<li> var fps;</li>
+<li>&nbsp;</li>
+<li> var initFPSCounter = function() {</li>
+<li>&nbsp; &nbsp;// adds a div for displaying the fps value</li>
+<li>&nbsp; &nbsp;fpsContainer = document.createElement('div');</li>
+<li>&nbsp; &nbsp;document.body.appendChild(fpsContainer);</li>
+<li> }</li>
+<li> </li>
+<li> var measureFPS = function (newTime) {</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;// test for the very first invocation</li>
+<li>&nbsp; &nbsp;if (lastTime === undefined) {</li>
+<li>&nbsp; &nbsp; &nbsp; lastTime = newTime;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;return;</li>
+<li>&nbsp; &nbsp;}</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;//calculate the difference between last &amp; current frame</li>
+<li>&nbsp; &nbsp;var diffTime = newTime - lastTime;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;if (diffTime &gt;= 1000) {</li>
+<li>&nbsp; &nbsp; &nbsp; fps = frameCount;</li>
+<li>&nbsp; &nbsp; &nbsp; frameCount = 0;</li>
+<li>&nbsp; &nbsp; &nbsp; lastTime = newTime;</li>
+<li>&nbsp; &nbsp;}</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;//and display it in an element we appended to the </li>
+<li>&nbsp; &nbsp;// document in the start() function</li>
+<li>&nbsp; &nbsp;fpsContainer.innerHTML = 'FPS: ' + fps;</li>
+<li>&nbsp; &nbsp;frameCount++;</li>
+<li> };</li>
 </ol></div><br>
 
 At this stage, the structure looks like this:
@@ -465,32 +465,32 @@ Now, consider the code that creates the listeners, can we move it from the `GF.s
 
 `listeners.js`:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> addListeners</span><span class="pun">(</span><span class="pln">inputStates</span><span class="pun">,</span><strong style="color: red;"><span class="pln"> canvas</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">//add the listener to the main, window object, and update the states</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'keydown'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">37</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">left </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">keyCode </span><span class="pun">===</span><span class="pln"> </span><span class="lit">38</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;inputStates</span><span class="pun">.</span><span class="pln">up </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">}</span><span class="pln">&nbsp;...</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">//if the key&nbsp;is released, change the states object </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'keyup'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;...</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Mouse event listeners</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvas</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; inputStates</span><span class="pun">.</span><span class="pln">mousePos </span><span class="pun">=</span><strong style="color: red;"><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">);</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;">...</li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> getMousePos</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">,</span><strong style="color: red;"><span class="pln"> canvas</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;...</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function addListeners(inputStates,<strong style="color: red;"> canvas</strong>) {</li>
+<li>&nbsp; &nbsp;//add the listener to the main, window object, and update the states</li>
+<li>&nbsp; &nbsp;window.addEventListener('keydown', function (event) {</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;if (event.keyCode === 37) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;inputStates.left = true;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;} else if (event.keyCode === 38) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;inputStates.up = true;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;}&nbsp;...</li>
+<li>&nbsp; &nbsp;}, false);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;//if the key&nbsp;is released, change the states object </li>
+<li>&nbsp; &nbsp;window.addEventListener('keyup', function (event) {</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;...</li>
+<li>&nbsp; &nbsp;}, false);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;// Mouse event listeners</li>
+<li>&nbsp; &nbsp;canvas.addEventListener('mousemove', function (evt) {</li>
+<li>&nbsp; &nbsp; &nbsp; inputStates.mousePos =<strong style="color: red;"> getMousePos(evt, canvas);</strong></li>
+<li>&nbsp; &nbsp;}, false);</li>
+<li>...</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function getMousePos(evt,<strong style="color: red;"> canvas</strong>) {</li>
+<li>&nbsp; &nbsp;...</li>
+<li>}</li>
 </ol></div><br>
 
 
@@ -498,18 +498,18 @@ Now, consider the code that creates the listeners, can we move it from the `GF.s
 
 Following the same idea, let's put these into a `collisions.js` file:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="com">// We can add the other collision functions seen in the</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// course here...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// Collisions between rectangle and circle</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> circRectsOverlap</span><span class="pun">(</span><span class="pln">x0</span><span class="pun">,</span><span class="pln"> y0</span><span class="pun">,</span><span class="pln"> w0</span><span class="pun">,</span><span class="pln"> h0</span><span class="pun">,</span><span class="pln"> cx</span><span class="pun">,</span><span class="pln"> cy</span><span class="pun">,</span><span class="pln"> r</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;...</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">function</span><span class="pln"> testCollisionWithWalls</span><span class="pun">(</span><span class="pln">ball</span><span class="pun">,</span><strong style="color: red;"><span class="pln"> w</span><span class="pun">,</span><span class="pln"> h</span></strong><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;...</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1"> // We can add the other collision functions seen in the</li>
+<li> // course here...</li>
+<li> </li>
+<li> // Collisions between rectangle and circle</li>
+<li> function circRectsOverlap(x0, y0, w0, h0, cx, cy, r) {</li>
+<li>&nbsp; &nbsp;...</li>
+<li> }</li>
+<li>&nbsp;</li>
+<li> function testCollisionWithWalls(ball,<strong style="color: red;"> w, h</strong>) {</li>
+<li>&nbsp; &nbsp;...</li>
+<li> }</li>
 </ol></div><br>
 
 We added the width and height of the canvas as parameters to the testCollisionWithWalls function to resolve dependencies. The other collision functions (circle-circle and rectangle-rectangle) presented during the course, could be put into this file as well.
@@ -531,26 +531,26 @@ After all that, we reach this tidy structure:
 
 Final `game.html` file:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="dec">&lt;!DOCTYPE html&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">lang</span><span class="pun">=</span><span class="atv">"en"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;head&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"utf-8"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;title&gt;</span><span class="pln">Nearly a real game</span><span class="tag">&lt;/title&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><strong style="color: red;"><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"css/game.css"</span><span class="tag">&gt;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.25/howler.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">&lt;!-- Include here all JS files --&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><strong style="color: red;"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/game.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/ball.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/timeBasedAnim.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/fps.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/listeners.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong style="color: red;"><span class="pln"> </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/collisions.js"</span><span class="tag">&gt;&lt;/script&gt;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/head&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;body&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"400"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"400"</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/body&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/html&gt;</span></li>
+<div><ol>
+<li value="1">&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="en"&gt;</li>
+<li>&lt;head&gt;</li>
+<li> &lt;meta charset="utf-8"&gt;</li>
+<li> &lt;title&gt;Nearly a real game&lt;/title&gt;</li>
+<li> <strong style="color: red;">&lt;link rel="stylesheet" href="css/game.css"&gt;</strong></li>
+<li> &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.25/howler.min.js"&gt;&lt;/script&gt;</li>
+<li> &lt;!-- Include here all JS files --&gt;</li>
+<li> <strong style="color: red;">&lt;script src="js/game.js"&gt;&lt;/script&gt;</strong></li>
+<li><strong style="color: red;"> &lt;script src="js/ball.js"&gt;&lt;/script&gt;</strong></li>
+<li><strong style="color: red;"> &lt;script src="js/timeBasedAnim.js"&gt;&lt;/script&gt;</strong></li>
+<li><strong style="color: red;"> &lt;script src="js/fps.js"&gt;&lt;/script&gt;</strong></li>
+<li><strong style="color: red;"> &lt;script src="js/listeners.js"&gt;&lt;/script&gt;</strong></li>
+<li><strong style="color: red;"> &lt;script src="js/collisions.js"&gt;&lt;/script&gt;</strong></li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li> &lt;canvas id="myCanvas" width="400" height="400"&gt;&lt;/canvas&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>&lt;/html&gt;</li>
 </ol></div><br>
 
 We could go further by defining a `monster.js` file, turning all the code related to the monster/player into a well-formed object, with draw and move methods, etc. There are many potential improvements you could make. JavaScript experts are welcome to make a much fancier version of this little game :-)
