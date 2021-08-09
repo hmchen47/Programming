@@ -12,17 +12,17 @@ In the [W3Cx HTML5 Coding Essentials and Best Practices](https://bit.ly/3we2vSS)
 
 Here is a small example of a video with 3 different tracks ("......" masks the real URL here, as it is too long to fit in this page width!):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="pln"> </span><span class="atn">preload</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">crossOrigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://...../elephants-dream-medium.mp4"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-medium.webm"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English subtitles"</span><span class="pln"> </span><span class="atn">kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span><span class="atn">srclang</span><span class="pun">=</span><span class="atv">"en"</span><span class="pln"> </span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src</span><span class="pun">=</span><span class="atv">"https://<span style="font-weight: normal; line-height: 25.6px;">.....</span>/elephants-dream-subtitles-en.vtt"</span><span class="pln"></span><span class="tag">&gt;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"Deutsch subtitles"</span><span class="pln"> </span><span class="atn">kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span><span class="atn">srclang</span><span class="pun">=</span><span class="atv">"de"</span><span class="pln"> </span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src</span><span class="pun">=</span><span class="atv">"https://<span style="font-weight: normal; line-height: 25.6px;">.....</span>/elephants-dream-subtitles-de.vtt"</span><span class="pln"> </span><span class="atn">default</span><span class="tag">&gt;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English chapters"</span><span class="pln"> </span><span class="atn">kind</span><span class="pun">=</span><span class="atv">"chapters"</span><span class="pln"> </span><span class="atn">srclang</span><span class="pun">=</span><span class="atv">"en"</span><span class="pln"> </span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src</span><span class="pun">=</span><span class="atv">"https://<span style="font-weight: normal; line-height: 25.6px;">.....</span>/elephants-dream-chapters-en.vtt"</span><span class="tag">&gt;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/video&gt;</span></li>
+<div><ol>
+<li value="1">&lt;video id="myVideo" preload="metadata" controls crossOrigin="anonymous"&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;source src="https://...../elephants-dream-medium.mp4" type="video/mp4"&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;source src="https://<span style="line-height: 25.6px;">...../elephants-dream-medium.webm"</span> type="video/webm"&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;<strong>&lt;track label="English subtitles" kind="subtitles" srclang="en" </strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src="https://<span style="font-weight: normal; line-height: 25.6px;">.....</span>/elephants-dream-subtitles-en.vtt"&gt;</strong></li>
+<li><strong>&nbsp; &nbsp;&nbsp;&lt;track label="Deutsch subtitles" kind="subtitles" srclang="de" </strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src="https://<span style="font-weight: normal; line-height: 25.6px;">.....</span>/elephants-dream-subtitles-de.vtt" default&gt;</strong></li>
+<li><strong>&nbsp; &nbsp;&nbsp;&lt;track label="English chapters" kind="chapters" srclang="en" </strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src="https://<span style="font-weight: normal; line-height: 25.6px;">.....</span>/elephants-dream-chapters-en.vtt"&gt;</strong></li>
+<li> &lt;/video&gt;</li>
 </ol></div>
 
 And here is how it renders in your current browser (please play the video and try to show/hide the subtitles/captions):
@@ -54,24 +54,24 @@ Notice that the support for multiple tracks may differs significantly from one b
 
 Also there is [a Timed Text Track API in the HTML5/HTML5.1 specification](https://bit.ly/33RJsl8) that enables us to manipulate `<track>` contents from JavaScript. Do you recall that text tracks are associated with WebVTT files? As a quick reminder, let's look at a WebVTT file:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">WEBVTT</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="lit">1</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">15.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">18.000</span><span class="pln"> align</span><span class="pun">:</span><span class="pln">start</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&lt;</span><span class="pln">v </span><span class="typ">Proog</span><span class="pun">&gt;</span><span class="typ">On</span><span class="pln"> the left we can see</span><span class="pun">...&lt;/</span><span class="pln">v</span><span class="pun">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="lit">2</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">18.167</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">20.083</span><span class="pln"> align</span><span class="pun">:</span><span class="pln">middle</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&lt;</span><span class="pln">v </span><span class="typ">Proog</span><span class="pun">&gt;</span><span class="typ">On</span><span class="pln"> the right we can see the</span><span class="pun">...&lt;/</span><span class="pln">v</span><span class="pun">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="lit">3</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">20.083</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">22.000</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&lt;</span><span class="pln">v </span><span class="typ">Proog</span><span class="pun">&gt;...</span><span class="pln">the </span><span class="pun">&lt;</span><span class="pln">c</span><span class="pun">.</span><span class="pln">highlight</span><span class="pun">&gt;</span><span class="pln">head</span><span class="pun">-</span><span class="pln">snarlers</span><span class="pun">&lt;</span><span class="str">/c&gt;&lt;/</span><span class="pln">v</span><span class="pun">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="lit">4</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">22.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">24.417</span><span class="pln"> align</span><span class="pun">:</span><span class="kwd">end</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&lt;</span><span class="pln">v </span><span class="typ">Proog</span><span class="pun">&gt;</span><span class="typ">Everything</span><span class="pln"> </span><span class="kwd">is</span><span class="pln"> safe</span><span class="pun">.</span><span class="pln"> </span><span class="typ">Perfectly</span><span class="pln"> safe</span><span class="pun">.&lt;/</span><span class="pln">v</span><span class="pun">&gt;</span></li>
+<div><ol>
+<li value="1">WEBVTT</li>
+<li>&nbsp;</li>
+<li>1</li>
+<li>00:00:15.000 --&gt; 00:00:18.000 align:start</li>
+<li>&lt;v Proog&gt;On the left we can see...&lt;/v&gt;</li>
+<li>&nbsp;</li>
+<li>2</li>
+<li>00:00:18.167 --&gt; 00:00:20.083 align:middle</li>
+<li>&lt;v Proog&gt;On the right we can see the...&lt;/v&gt;</li>
+<li>&nbsp;</li>
+<li>3</li>
+<li>00:00:20.083 --&gt; 00:00:22.000</li>
+<li>&lt;v Proog&gt;...the &lt;c.highlight&gt;head-snarlers&lt;/c&gt;&lt;/v&gt;</li>
+<li>&nbsp;</li>
+<li>4</li>
+<li>00:00:22.000 --&gt; 00:00:24.417 align:end</li>
+<li>&lt;v Proog&gt;Everything is safe. Perfectly safe.&lt;/v&gt;</li>
 </ol></div>
 
 The different time segments are called "cues" and each cue has an id (1, 2, 3 and 4 in the above example), a startTime and an endTime, and a text content that can contain HTML tags for styling (`<b>`, etc...) or be associated with a "voice" as in the above example. In this case, the text content is wrapped inside `<v name_of_speaker>...</v>` elements.
@@ -190,21 +190,21 @@ etc.
 
 Let's go back to our example. Below is the HTML code:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag" style="color: #008888;">&lt;video</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">id</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"myVideo"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">preload</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"metadata"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">controls</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">crossOrigin</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"anonymous"</span><span class="tag" style="color: #008888;">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag" style="color: #008888;">&lt;source</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">src</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"https://...../elephants-dream-medium.mp4"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">type</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"video/mp4"</span><span class="tag" style="color: #008888;">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag" style="color: #008888;">&lt;source</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">src</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-medium.webm"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">type</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"video/webm"</span><span class="tag" style="color: #008888;">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><strong><span class="tag" style="color: #008888;">&lt;track</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">label</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"English subtitles"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">kind</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"subtitles"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">srclang</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"en"</span><span class="pln"></span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="atn" style="color: #aa0066;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"https://<span style="font-weight: normal; line-height: 25.6px;">.....</span>/elephants-dream-subtitles-en.vtt"</span><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&gt;</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag" style="color: #008888;">&lt;track</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">label</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"Deutsch subtitles"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">kind</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"subtitles"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">srclang</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"de"</span><span class="pln"></span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="atn" style="color: #aa0066;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"https://<span style="font-weight: normal; line-height: 25.6px;">.....</span>/elephants-dream-subtitles-de.vtt"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">default</span><span class="tag" style="color: #008888;">&gt;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag" style="color: #008888;">&lt;track</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">label</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"English chapters"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">kind</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"chapters"</span><span class="pln">&nbsp;</span><span class="atn" style="color: #aa0066;">srclang</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"en"</span><span class="pln"></span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="atn" style="color: #aa0066;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src</span><span class="pun" style="color: #bb6600;">=</span><span class="atv" style="color: #008800;">"https://<span style="font-weight: normal; line-height: 25.6px;">.....</span>/elephants-dream-chapters-en.vtt"</span><span class="tag" style="color: #008888;">&gt;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="tag" style="color: #008888;">&lt;/video&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag" style="color: #008888;"></span></li>
-<li class="L6" style="margin-bottom: 0px;">&lt;div id="trackStatusesDiv"&gt;</li>
-<li class="L6" style="margin-bottom: 0px;">&nbsp; &nbsp; &lt;h3&gt;HTML track descriptions&lt;/h3&gt;</li>
-<li class="L6" style="margin-bottom: 0px;">&lt;/div&gt;</li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><span style="color: #008888;">&lt;video</span>&nbsp;<span style="color: #aa0066;">id</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"myVideo"</span>&nbsp;<span style="color: #aa0066;">preload</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"metadata"</span>&nbsp;<span style="color: #aa0066;">controls</span>&nbsp;<span style="color: #aa0066;">crossOrigin</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"anonymous"</span><span style="color: #008888;">&gt;</span></li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #008888;">&lt;source</span>&nbsp;<span style="color: #aa0066;">src</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"https://...../elephants-dream-medium.mp4"</span>&nbsp;<span style="color: #aa0066;">type</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"video/mp4"</span><span style="color: #008888;">&gt;</span></li>
+<li>&nbsp; &nbsp;&nbsp;<span style="color: #008888;">&lt;source</span>&nbsp;<span style="color: #aa0066;">src</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"https://<span style="line-height: 25.6px;">.....</span>/elephants-dream-medium.webm"</span>&nbsp;<span style="color: #aa0066;">type</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"video/webm"</span><span style="color: #008888;">&gt;</span></li>
+<li>&nbsp; &nbsp;&nbsp;<strong><span style="color: #008888;">&lt;track</span>&nbsp;<span style="color: #aa0066;">label</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"English subtitles"</span>&nbsp;<span style="color: #aa0066;">kind</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"subtitles"</span>&nbsp;<span style="color: #aa0066;">srclang</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"en"</span></strong></li>
+<li><strong><span style="color: #aa0066;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"https://<span style="font-weight: normal; line-height: 25.6px;">.....</span>/elephants-dream-subtitles-en.vtt"</span>&nbsp;<span style="color: #008888;">&gt;</span></strong></li>
+<li><strong>&nbsp; &nbsp;&nbsp;<span style="color: #008888;">&lt;track</span>&nbsp;<span style="color: #aa0066;">label</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"Deutsch subtitles"</span>&nbsp;<span style="color: #aa0066;">kind</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"subtitles"</span>&nbsp;<span style="color: #aa0066;">srclang</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"de"</span></strong></li>
+<li><strong><span style="color: #aa0066;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"https://<span style="font-weight: normal; line-height: 25.6px;">.....</span>/elephants-dream-subtitles-de.vtt"</span>&nbsp;<span style="color: #aa0066;">default</span><span style="color: #008888;">&gt;</span></strong></li>
+<li><strong>&nbsp; &nbsp;&nbsp;<span style="color: #008888;">&lt;track</span>&nbsp;<span style="color: #aa0066;">label</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"English chapters"</span>&nbsp;<span style="color: #aa0066;">kind</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"chapters"</span>&nbsp;<span style="color: #aa0066;">srclang</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"en"</span></strong></li>
+<li><strong><span style="color: #aa0066;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;src</span><span style="color: #bb6600;">=</span><span style="color: #008800;">"https://<span style="font-weight: normal; line-height: 25.6px;">.....</span>/elephants-dream-chapters-en.vtt"</span><span style="color: #008888;">&gt;</span></strong></li>
+<li>&nbsp;<span style="color: #008888;">&lt;/video&gt;</span></li>
+<li><span style="color: #008888;"></span></li>
+<li>&lt;div id="trackStatusesDiv"&gt;</li>
+<li>&nbsp; &nbsp; &lt;h3&gt;HTML track descriptions&lt;/h3&gt;</li>
+<li>&lt;/div&gt;</li>
 </ol></div><br>
 
 This example defines three `<track>` elements. From JavaScript, we can manipulate these elements as "HTML elements" - we will call them the "HTML views" of  tracks.
@@ -230,37 +230,37 @@ Getting the status of an HTML track
 
 Here is the JavaScript source code:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;video</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;htmlTracks</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;trackStatusesDiv</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">onload&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #bb6600;">()</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// called when the page has been loaded</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;video&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;document</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">querySelector</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"#myVideo"</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;trackStatusesDiv&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;document</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">querySelector</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"#trackStatusesDiv"</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// Get the tracks as HTML elements</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;htmlTracks&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;document</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">querySelectorAll</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"track"</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// displays their statuses in a div under the video</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;displayTrackStatuses</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">htmlTracks</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">};</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;displayTrackStatuses</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">htmlTracks</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// displays track info</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">for</span><span class="pun" style="color: #bb6600;">(</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;i&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">;</span><span class="pln">&nbsp;i&nbsp;</span><span class="pun" style="color: #bb6600;">&lt;</span><span class="pln">&nbsp;htmlTracks</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">length</span><span class="pun" style="color: #bb6600;">;</span><span class="pln">&nbsp;i</span><span class="pun" style="color: #bb6600;">++)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;currentHtmlTrack&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;htmlTracks</span><span class="pun" style="color: #bb6600;">[</span><span class="pln">i</span><span class="pun" style="color: #bb6600;">];</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;label&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;li&gt;label = "</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;currentHtmlTrack</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">label&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;/li&gt;"</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;kind&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;li&gt;kind = "</span><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;currentHtmlTrack</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">kind&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;/li&gt;"</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;lang&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;li&gt;lang = "</span><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;currentHtmlTrack</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">srclang&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;/li&gt;"</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;readyState&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;li&gt;readyState = "</span><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+</span><span class="pln">&nbsp;currentHtmlTrack</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">readyState&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;/li&gt;"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;trackStatusesDiv</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun" style="color: #bb6600;">+=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;li&gt;&lt;b&gt;Track:"</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;i&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">":&lt;/b&gt;&lt;/li&gt;"</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;ul&gt;"</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;label&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;kind&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;lang&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;readyState&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;/ul&gt;"</span><span class="pun" style="color: #bb6600;">;</span><span class="pln"></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun" style="color: #bb6600;">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">}</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><span style="color: #008888;">var</span>&nbsp;video<span style="color: #bb6600;">,</span>&nbsp;htmlTracks<span style="color: #bb6600;">;</span></li>
+<li><span style="color: #008888;">var</span>&nbsp;trackStatusesDiv<span style="color: #bb6600;">;</span></li>
+<li>&nbsp;</li>
+<li>window<span style="color: #bb6600;">.</span>onload&nbsp;<span style="color: #bb6600;">=</span>&nbsp;<span style="color: #008888;">function</span><span style="color: #bb6600;">()</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// called when the page has been loaded</span></li>
+<li><span>&nbsp; &nbsp;video&nbsp;</span><span style="color: #bb6600;">=</span>&nbsp;document<span style="color: #bb6600;">.</span>querySelector<span style="color: #bb6600;">(</span><span style="color: #008800;">"#myVideo"</span><span style="color: #bb6600;">);</span></li>
+<li>&nbsp; &nbsp;trackStatusesDiv&nbsp;<span style="color: #bb6600;">=</span>&nbsp;document<span style="color: #bb6600;">.</span>querySelector<span style="color: #bb6600;">(</span><span style="color: #008800;">"#trackStatusesDiv"</span><span style="color: #bb6600;">);</span></li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// Get the tracks as HTML elements</span></li>
+<li>&nbsp; &nbsp;htmlTracks&nbsp;<span style="color: #bb6600;">=</span>&nbsp;document<span style="color: #bb6600;">.</span>querySelectorAll<span style="color: #bb6600;">(</span><span style="color: #008800;">"track"</span><span style="color: #bb6600;">);</span></li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// displays their statuses in a div under the video</span></li>
+<li>&nbsp; &nbsp;displayTrackStatuses<span style="color: #bb6600;">(</span>htmlTracks<span style="color: #bb6600;">);</span></li>
+<li><span style="color: #bb6600;">};</span></li>
+<li>&nbsp;</li>
+<li><span style="color: #008888;">function</span>&nbsp;displayTrackStatuses<span style="color: #bb6600;">(</span>htmlTracks<span style="color: #bb6600;">)</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// displays track info</span></li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">for</span><span style="color: #bb6600;">(</span><span style="color: #008888;">var</span>&nbsp;i&nbsp;<span style="color: #bb6600;">=</span>&nbsp;<span style="color: #006666;">0</span><span style="color: #bb6600;">;</span>&nbsp;i&nbsp;<span style="color: #bb6600;">&lt;</span>&nbsp;htmlTracks<span style="color: #bb6600;">.</span>length<span style="color: #bb6600;">;</span>&nbsp;i<span style="color: #bb6600;">++)</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #008888;">var</span>&nbsp;currentHtmlTrack&nbsp;<span style="color: #bb6600;">=</span>&nbsp;htmlTracks<span style="color: #bb6600;">[</span>i<span style="color: #bb6600;">];</span></li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #008888;">var</span>&nbsp;label&nbsp;<span style="color: #bb6600;">=</span>&nbsp;<span style="color: #008800;">"&lt;li&gt;label = "</span>&nbsp;<span style="color: #bb6600;">+</span>&nbsp;currentHtmlTrack<span style="color: #bb6600;">.</span>label&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008800;">"&lt;/li&gt;"</span><span style="color: #bb6600;">;</span></li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #008888;">var</span>&nbsp;kind&nbsp;<span style="color: #bb6600;">=</span>&nbsp;<span style="color: #008800;">"&lt;li&gt;kind = "</span>&nbsp; &nbsp;<span style="color: #bb6600;">+</span>&nbsp;currentHtmlTrack<span style="color: #bb6600;">.</span>kind&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008800;">"&lt;/li&gt;"</span><span style="color: #bb6600;">;</span></li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #008888;">var</span>&nbsp;lang&nbsp;<span style="color: #bb6600;">=</span>&nbsp;<span style="color: #008800;">"&lt;li&gt;lang = "</span>&nbsp; &nbsp;<span style="color: #bb6600;">+</span>&nbsp;currentHtmlTrack<span style="color: #bb6600;">.</span>srclang&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008800;">"&lt;/li&gt;"</span><span style="color: #bb6600;">;</span></li>
+<li>&nbsp; &nbsp; &nbsp;<span style="color: #008888;">var</span>&nbsp;readyState&nbsp;<span style="color: #bb6600;">=</span>&nbsp;<span style="color: #008800;">"&lt;li&gt;readyState = "</span>&nbsp;</li>
+<li><span style="color: #bb6600;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+</span>&nbsp;currentHtmlTrack<span style="color: #bb6600;">.</span>readyState&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008800;">"&lt;/li&gt;"</span></li>
+<li></li>
+<li>&nbsp; &nbsp; &nbsp;trackStatusesDiv<span style="color: #bb6600;">.</span>innerHTML&nbsp;<span style="color: #bb6600;">+=</span>&nbsp;<span style="color: #008800;">"&lt;li&gt;&lt;b&gt;Track:"</span>&nbsp;<span style="color: #bb6600;">+</span>&nbsp;i&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008800;">":&lt;/b&gt;&lt;/li&gt;"</span></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008800;">"&lt;ul&gt;"</span>&nbsp;<span style="color: #bb6600;">+</span>&nbsp;label&nbsp;<span style="color: #bb6600;">+</span>&nbsp;kind&nbsp;<span style="color: #bb6600;">+</span>&nbsp;lang&nbsp;<span style="color: #bb6600;">+</span>&nbsp;readyState&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008800;">"&lt;/ul&gt;"</span><span style="color: #bb6600;">;</li>
+<li>&nbsp;&nbsp;<span style="color: #bb6600;">}</span></li>
+<li><span style="color: #bb6600;">}</span></li>
 </ol></div><br>
 
 The code is rather straightforward:
@@ -340,17 +340,17 @@ __First method: get a `TextTrack` from its associated HTML track__
 
 The HTML track element has a track property which returns the associated `TextTrack` object. Example source code:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com" style="color: #880000;">// HTML tracks</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;htmlTracks&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;document</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">querySelectorAll</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"track"</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">// The TextTrack object associated&nbsp;with the first HTML track</span></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;textTrack&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;htmlTracks</span><span class="pun" style="color: #bb6600;">[</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">].</span><span class="pln">track</span><span class="pun" style="color: #bb6600;">;</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">var kind = textTrack.kind;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">var label = textTrack.label;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span style="color: #bb6600;" color="#bb6600">var lang = textTrack.language;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span style="color: #bb6600;" color="#bb6600">// etc.</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><span style="color: #880000;">// HTML tracks</span></li>
+<li><span style="color: #008888;">var</span>&nbsp;htmlTracks&nbsp;<span style="color: #bb6600;">=</span>&nbsp;document<span style="color: #bb6600;">.</span>querySelectorAll<span style="color: #bb6600;">(</span><span style="color: #008800;">"track"</span><span style="color: #bb6600;">);</span></li>
+<li><span>&nbsp;</span></li>
+<li><span>&nbsp;</span></li>
+<li><span style="color: #880000;">// The TextTrack object associated&nbsp;with the first HTML track</span></li>
+<li><strong><span style="color: #008888;">var</span><span>&nbsp;textTrack&nbsp;</span><span style="color: #bb6600;">=</span><span>&nbsp;htmlTracks</span><span style="color: #bb6600;">[</span><span style="color: #006666;">0</span><span style="color: #bb6600;">].</span><span>track</span><span style="color: #bb6600;">;</span></strong></li>
+<li><span style="color: #bb6600;">var kind = textTrack.kind;</span></li>
+<li><span style="color: #bb6600;">var label = textTrack.label;</span></li>
+<li><span style="color: #bb6600;" color="#bb6600">var lang = textTrack.language;</span></li>
+<li><span style="color: #bb6600;" color="#bb6600">// etc.</span></li>
 </ol></div>
 
 
@@ -360,13 +360,13 @@ __Second method: get TextTrack from the HTML video element__
 
 The `<video>` element (and `<audio>` element too) has a `TextTrack` property accessible from JavaScript:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;videoElement&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;document</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">querySelector</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"#myVideo"</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun" style="color: #bb6600;"></span></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;textTracks&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;videoElement</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">textTracks</span><span class="pun" style="color: #bb6600;">;</span><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// one TextTrack for each HTML track element</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;textTrack&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;textTracks</span><span class="pun" style="color: #bb6600;">[</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">];</span><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// corresponds to the first track element</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;kind&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;textTrack</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">kind&nbsp;</span><span class="com" style="color: #880000;">// e.g. "subtitles"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;mode&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;textTrack</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">mode&nbsp;</span><span class="com" style="color: #880000;">// e.g. "disabled", "hidden" or "showing"</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><span style="color: #008888;">var</span><span>&nbsp;videoElement&nbsp;</span><span style="color: #bb6600;">=</span><span>&nbsp;document</span><span style="color: #bb6600;">.</span><span>querySelector</span><span style="color: #bb6600;">(</span><span style="color: #008800;">"#myVideo"</span><span style="color: #bb6600;">);</span></li>
+<li value="1"><span style="color: #bb6600;"></span></li>
+<li><strong><span style="color: #008888;">var</span><span>&nbsp;textTracks&nbsp;</span><span style="color: #bb6600;">=</span><span>&nbsp;videoElement</span><span style="color: #bb6600;">.</span><span>textTracks</span><span style="color: #bb6600;">;</span><span>&nbsp;</span><span style="color: #880000;">// one TextTrack for each HTML track element</span></strong></li>
+<li><span style="color: #008888;">var</span><span>&nbsp;textTrack&nbsp;</span><span style="color: #bb6600;">=</span><span>&nbsp;textTracks</span><span style="color: #bb6600;">[</span><span style="color: #006666;">0</span><span style="color: #bb6600;">];</span><span>&nbsp;</span><span style="color: #880000;">// corresponds to the first track element</span></li>
+<li><span style="color: #008888;">var</span><span>&nbsp;kind&nbsp;</span><span style="color: #bb6600;">=</span><span>&nbsp;textTrack</span><span style="color: #bb6600;">.</span><span>kind&nbsp;</span><span style="color: #880000;">// e.g. "subtitles"</span></li>
+<li><span style="color: #008888;">var</span><span>&nbsp;mode&nbsp;</span><span style="color: #bb6600;">=</span><span>&nbsp;textTrack</span><span style="color: #bb6600;">.</span><span>mode&nbsp;</span><span style="color: #880000;">// e.g. "disabled", "hidden" or "showing"</span></li>
 </ol></div><br>
 
 #### The `mode` property of `TextTrack` objects
@@ -380,7 +380,7 @@ The `<video>` element (and `<audio>` element too) has a `TextTrack` property acc
 
 __`TextTrack` content can only be accessed if a track has been loaded! Use the mode property to force a track to be loaded!__
 
-<p class="exampleHTML" style="border: 1px solid black; margin-top: 20px; margin-right: 20px; margin-left: 20px; padding: 20px; font-size: 16px; line-height: 25.6px;"><span style="color: #ff0000;"><strong>BE CAREFUL: you cannot access&nbsp;a <span style="font-family: 'courier new', courier;">TextTrack</span>&nbsp;content if the corresponding HTML track has not been loaded by the browser!<br><br></strong></span>It is possible to force a track to be loaded by setting&nbsp;the&nbsp;<span style="font-family: 'courier new', courier;">mode</span>&nbsp;property of the&nbsp;TextTrack object&nbsp;to "showing" or "hidden".&nbsp;<br>Tracks that are not loaded have their mode property of "disabled".&nbsp;</p>
+<p style="border: 1px solid black; margin-top: 20px; margin-right: 20px; margin-left: 20px; padding: 20px; font-size: 16px; line-height: 25.6px;"><span style="color: #ff0000;"><strong>BE CAREFUL: you cannot access&nbsp;a <span style="font-family: 'courier new', courier;">TextTrack</span>&nbsp;content if the corresponding HTML track has not been loaded by the browser!<br><br></strong></span>It is possible to force a track to be loaded by setting&nbsp;the&nbsp;<span style="font-family: 'courier new', courier;">mode</span>&nbsp;property of the&nbsp;TextTrack object&nbsp;to "showing" or "hidden".&nbsp;<br>Tracks that are not loaded have their mode property of "disabled".&nbsp;</p>
 
 Here is an example that will test if a track has been loaded, and if it hasn't, will force it to be loaded by setting its mode to "hidden". We could have used "showing"; in this case, if the file is a subtitle or a caption file, then the subtitles or captions will be displayed on the video as soon as the track has finished loading.
 
@@ -401,55 +401,55 @@ Here is an example that will test if a track has been loaded, and if it hasn't, 
 
 Here is what we added to the HTML code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"buttonLoadFirstTrack"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">forceLoadTrack</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span><span class="atv">"</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">disabled</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;Force load track 0</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/button&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"buttonLoadThirdTrack"</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">forceLoadTrack</span><span class="pun">(</span><span class="lit">2</span><span class="pun">);</span><span class="atv">"</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">disabled</span><span class="tag">&gt;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;Force load track 2</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="tag">&lt;/button&gt;</span></li>
+<div><ol>
+<li value="1">&lt;button id="buttonLoadFirstTrack"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;onclick="forceLoadTrack(0);"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;disabled&gt;</li>
+<li>&nbsp; &nbsp;Force load track 0</li>
+<li>&lt;/button&gt;</li>
+<li>&lt;button id="buttonLoadThirdTrack"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;onclick="forceLoadTrack(2);"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;disabled&gt;</li>
+<li>&nbsp; &nbsp;Force load track 2</li>
+<li>&lt;/button&gt;</li>
 </ol></div><br>
 
 The buttons will call a function named `forceLoadTrack(trackNumber)` that takes as a parameter the number of the track to get (and force load if necessary).
 
 Here are the additions we made to the JavaScript code from the previous example:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;readContent</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">track</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">log</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"reading content of loaded track..."</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;displayTrackStatuses</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">htmlTracks</span><span class="pun" style="color: #bb6600;">); // update document with new track statuses</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;getTrack</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">htmlTrack</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;callback</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">&nbsp; &nbsp;// TextTrack associated to the htmlTrack</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;textTrack&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;htmlTrack</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">track</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd" style="color: #008888;">&nbsp; &nbsp;if</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">htmlTrack</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">readyState&nbsp;</span><span class="pun" style="color: #bb6600;">===</span><span class="pln">&nbsp;</span><span class="lit" style="color: #006666;">2</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">log</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"text track already loaded"</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">&nbsp; &nbsp; &nbsp; // call the callback function, the track is available</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; callback</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">textTrack</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #bb6600;">}</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">else</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">log</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"Forcing the text track to be loaded"</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// this will force the track to be loaded</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; textTrack</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">mode&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"hidden"</span><span class="pun" style="color: #bb6600;">;<br>&nbsp; &nbsp; &nbsp; // loading a track is asynchronous, we must use an event listener</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; htmlTrack</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">addEventListener</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">'load'</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">e</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// the track is arrived, call the callback function</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;callback</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">textTrack</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun" style="color: #bb6600;">});</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #bb6600;">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd" style="color: #008888;"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;forceLoadTrack</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">n</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">&nbsp; &nbsp; // first parameter = track number,</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">&nbsp; &nbsp; // second = a callback function called when the track is loaded,</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">&nbsp; &nbsp; // that takes the loaded TextTrack as parameter</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; getTrack</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">htmlTracks</span><span class="pun" style="color: #bb6600;">[</span><span class="pln">n</span><span class="pun" style="color: #bb6600;">],</span><span class="pln">&nbsp;readContent</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">}</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><span style="color: #008888;">function</span>&nbsp;readContent<span style="color: #bb6600;">(</span>track<span style="color: #bb6600;">)</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li>&nbsp; &nbsp;console<span style="color: #bb6600;">.</span>log<span style="color: #bb6600;">(</span><span style="color: #008800;">"reading content of loaded track..."</span><span style="color: #bb6600;">);</span></li>
+<li>&nbsp; &nbsp;displayTrackStatuses<span style="color: #bb6600;">(</span>htmlTracks<span style="color: #bb6600;">); // update document with new track statuses</span></li>
+<li><span style="color: #bb6600;">}</li>
+<li>&nbsp;</li>
+<li><span style="color: #008888;">function</span>&nbsp;getTrack<span style="color: #bb6600;">(</span>htmlTrack<span style="color: #bb6600;">,</span>&nbsp;callback<span style="color: #bb6600;">)</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li><span style="color: #bb6600;">&nbsp; &nbsp;// TextTrack associated to the htmlTrack</span></li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var</span>&nbsp;textTrack&nbsp;<span style="color: #bb6600;">=</span>&nbsp;htmlTrack<span style="color: #bb6600;">.</span>track<span style="color: #bb6600;">;</span></li>
+<li><span style="color: #bb6600;"></span></li>
+<li><span style="color: #008888;">&nbsp; &nbsp;if</span><span style="color: #bb6600;">(</span>htmlTrack<span style="color: #bb6600;">.</span>readyState&nbsp;<span style="color: #bb6600;">===</span>&nbsp;<span style="color: #006666;">2</span><span style="color: #bb6600;">)</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li>&nbsp; &nbsp; &nbsp; console<span style="color: #bb6600;">.</span>log<span style="color: #bb6600;">(</span><span style="color: #008800;">"text track already loaded"</span><span style="color: #bb6600;">);</span></li>
+<li><span style="color: #bb6600;">&nbsp; &nbsp; &nbsp; // call the callback function, the track is available</span></li>
+<li>&nbsp; &nbsp; &nbsp; callback<span style="color: #bb6600;">(</span>textTrack<span style="color: #bb6600;">);</span></li>
+<li>&nbsp; &nbsp;<span style="color: #bb6600;">}</span>&nbsp;<span style="color: #008888;">else</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li>&nbsp; &nbsp; &nbsp; console<span style="color: #bb6600;">.</span>log<span style="color: #bb6600;">(</span><span style="color: #008800;">"Forcing the text track to be loaded"</span><span style="color: #bb6600;">);</span></li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #880000;">// this will force the track to be loaded</span></li>
+<li>&nbsp; &nbsp; &nbsp; textTrack<span style="color: #bb6600;">.</span>mode&nbsp;<span style="color: #bb6600;">=</span>&nbsp;<span style="color: #008800;">"hidden"</span><span style="color: #bb6600;">;<br>&nbsp; &nbsp; &nbsp; // loading a track is asynchronous, we must use an event listener</span></li>
+<li>&nbsp; &nbsp; &nbsp; htmlTrack<span style="color: #bb6600;">.</span>addEventListener<span style="color: #bb6600;">(</span><span style="color: #008800;">'load'</span><span style="color: #bb6600;">,</span>&nbsp;<span style="color: #008888;">function</span><span style="color: #bb6600;">(</span>e<span style="color: #bb6600;">)</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// the track is arrived, call the callback function</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;callback<span style="color: #bb6600;">(</span>textTrack<span style="color: #bb6600;">);</span></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #bb6600;">});</span></li>
+<li>&nbsp; &nbsp;<span style="color: #bb6600;">}</span></li>
+<li><span style="color: #bb6600;">}</span></li>
+<li><span style="color: #008888;"></span></li>
+<li><span style="color: #008888;">function</span>&nbsp;forceLoadTrack<span style="color: #bb6600;">(</span>n<span style="color: #bb6600;">)</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li><span style="color: #bb6600;">&nbsp; &nbsp; // first parameter = track number,</span></li>
+<li><span style="color: #bb6600;">&nbsp; &nbsp; // second = a callback function called when the track is loaded,</span></li>
+<li><span style="color: #bb6600;">&nbsp; &nbsp; // that takes the loaded TextTrack as parameter</span></li>
+<li>&nbsp; &nbsp; getTrack<span style="color: #bb6600;">(</span>htmlTracks<span style="color: #bb6600;">[</span>n<span style="color: #bb6600;">],</span>&nbsp;readContent<span style="color: #bb6600;">);</span></li>
+<li><span style="color: #bb6600;">}</span></li>
 </ol></div><br>
 
 __Explanations:__
@@ -589,27 +589,27 @@ Here is [an example at JSBin](https://jsbin.com/teruhay/1/edit?html,css,js,outpu
 
 We just changed the content of the `readContent(track)` method from the example from the previous lesson:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;readContent</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">track</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">log</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"reading content of loaded track..."</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">//displayTrackStatuses(htmlTracks);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">&nbsp; &nbsp;// instead of displaying the track statuses, we display</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">&nbsp; &nbsp;// in the same div, the track content//</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com" style="color: #880000;">&nbsp; &nbsp;// first, empty the div</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;trackStatusesDiv</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">""</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// get the list of cues for that track &nbsp;&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd" style="color: #008888;">&nbsp; &nbsp;var</span><span class="pln">&nbsp;cues&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;track</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">cues</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">&nbsp; &nbsp;// iterate on them</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">for</span><span class="pun" style="color: #bb6600;">(</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;i</span><span class="pun" style="color: #bb6600;">=</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">;</span><span class="pln">&nbsp;i&nbsp;</span><span class="pun" style="color: #bb6600;">&lt;</span><span class="pln">&nbsp;cues</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">length</span><span class="pun" style="color: #bb6600;">;</span><span class="pln">&nbsp;i</span><span class="pun" style="color: #bb6600;">++)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">&nbsp; &nbsp; &nbsp; // current cue</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;cue&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;cues</span><span class="pun" style="color: #bb6600;">[</span><span class="pln">i</span><span class="pun" style="color: #bb6600;">];</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;id&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;cue</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">id&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;br&gt;"</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;timeSegment&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;cue</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">startTime&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">" =&gt; "</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;cue</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">endTime&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;br&gt;"</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;text&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;cue</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">text&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;P&gt;"</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; trackStatusesDiv</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun" style="color: #bb6600;">+=</span><span class="pln">&nbsp;id&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;timeSegment&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;text</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #bb6600;">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">}</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><span style="color: #008888;">function</span>&nbsp;readContent<span style="color: #bb6600;">(</span>track<span style="color: #bb6600;">)</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li>&nbsp; &nbsp;console<span style="color: #bb6600;">.</span>log<span style="color: #bb6600;">(</span><span style="color: #008800;">"reading content of loaded track..."</span><span style="color: #bb6600;">);</span></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">//displayTrackStatuses(htmlTracks);</span></li>
+<li><span style="color: #880000;">&nbsp; &nbsp;// instead of displaying the track statuses, we display</span></li>
+<li><span style="color: #880000;">&nbsp; &nbsp;// in the same div, the track content//</span></li>
+<li><span style="color: #880000;">&nbsp; &nbsp;// first, empty the div</span></li>
+<li>&nbsp; &nbsp;trackStatusesDiv<span style="color: #bb6600;">.</span>innerHTML&nbsp;<span style="color: #bb6600;">=</span>&nbsp;<span style="color: #008800;">""</span><span style="color: #bb6600;">;</span></li>
+<li><span style="color: #bb6600;"></span></li>
+<li>&nbsp; &nbsp;// get the list of cues for that track &nbsp;&nbsp;</li>
+<li><span style="color: #008888;">&nbsp; &nbsp;var</span>&nbsp;cues&nbsp;<span style="color: #bb6600;">=</span>&nbsp;track<span style="color: #bb6600;">.</span>cues<span style="color: #bb6600;">;</span></li>
+<li><span style="color: #bb6600;">&nbsp; &nbsp;// iterate on them</span></li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">for</span><span style="color: #bb6600;">(</span><span style="color: #008888;">var</span>&nbsp;i<span style="color: #bb6600;">=</span><span style="color: #006666;">0</span><span style="color: #bb6600;">;</span>&nbsp;i&nbsp;<span style="color: #bb6600;">&lt;</span>&nbsp;cues<span style="color: #bb6600;">.</span>length<span style="color: #bb6600;">;</span>&nbsp;i<span style="color: #bb6600;">++)</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li><span style="color: #bb6600;">&nbsp; &nbsp; &nbsp; // current cue</span></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #008888;">var</span>&nbsp;cue&nbsp;<span style="color: #bb6600;">=</span>&nbsp;cues<span style="color: #bb6600;">[</span>i<span style="color: #bb6600;">];</span></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #008888;">var</span>&nbsp;id&nbsp;<span style="color: #bb6600;">=</span>&nbsp;cue<span style="color: #bb6600;">.</span>id&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008800;">"&lt;br&gt;"</span><span style="color: #bb6600;">;</span></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #008888;">var</span>&nbsp;timeSegment&nbsp;<span style="color: #bb6600;">=</span>&nbsp;cue<span style="color: #bb6600;">.</span>startTime&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008800;">" =&gt; "</span>&nbsp;<span style="color: #bb6600;">+</span>&nbsp;cue<span style="color: #bb6600;">.</span>endTime&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008800;">"&lt;br&gt;"</span><span style="color: #bb6600;">;</span></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #008888;">var</span>&nbsp;text&nbsp;<span style="color: #bb6600;">=</span>&nbsp;cue<span style="color: #bb6600;">.</span>text&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008800;">"&lt;P&gt;"</span></li>
+<li>&nbsp; &nbsp; &nbsp; trackStatusesDiv<span style="color: #bb6600;">.</span>innerHTML&nbsp;<span style="color: #bb6600;">+=</span>&nbsp;id&nbsp;<span style="color: #bb6600;">+</span>&nbsp;timeSegment&nbsp;<span style="color: #bb6600;">+</span>&nbsp;text<span style="color: #bb6600;">;</span></li>
+<li>&nbsp; &nbsp;<span style="color: #bb6600;">}</span></li>
+<li><span style="color: #bb6600;">}</span></li>
 </ol></div><br>
 
 As you can see, the code is simple: you first get the cues for the given TextTrack (it must be loaded; this is the case since we took care of it earlier), then iterate on the list of cues, and use the `id`, `startTime`, `endTime` and `text` properties of each cue.
@@ -705,13 +705,13 @@ The two types of cue event are:
 
 __Example of `cuechange` listener on `TextTrack`__
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com" style="color: #880000;">// track is a loaded TextTrack</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">track</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">addEventListener</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"cuechange"</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">e</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;cue&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">this</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">activeCues</span><span class="pun" style="color: #bb6600;">[</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">];</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">log</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"cue change"</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// do something with the current cue</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">});</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><span style="color: #880000;">// track is a loaded TextTrack</span></li>
+<li>track<span style="color: #bb6600;">.</span>addEventListener<span style="color: #bb6600;">(</span><span style="color: #008800;">"cuechange"</span><span style="color: #bb6600;">,</span>&nbsp;<span style="color: #008888;">function</span><span style="color: #bb6600;">(</span>e<span style="color: #bb6600;">)</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var</span>&nbsp;cue&nbsp;<span style="color: #bb6600;">=</span>&nbsp;<span style="color: #008888;">this</span><span style="color: #bb6600;">.</span>activeCues<span style="color: #bb6600;">[</span><span style="color: #006666;">0</span><span style="color: #bb6600;">];</span></li>
+<li>&nbsp; &nbsp;console<span style="color: #bb6600;">.</span>log<span style="color: #bb6600;">(</span><span style="color: #008800;">"cue change"</span><span style="color: #bb6600;">);</span></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// do something with the current cue</span></li>
+<li>&nbsp;<span style="color: #bb6600;">});</span></li>
 </ol></div>
 <br>
 
@@ -724,28 +724,28 @@ In the following lessons, we show how to deal with overlapping cues (cases where
 
 Example of `enter` and `exit` event listeners on a track's cues
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com" style="color: #880000;">&nbsp;// iterate on all cues of the current track</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;var cues = track.cues;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">for</span><span class="pun" style="color: #bb6600;">(</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;i</span><span class="pun" style="color: #bb6600;">=</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;len&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;cues</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">length</span><span class="pun" style="color: #bb6600;">;</span><span class="pln">&nbsp;i&nbsp;</span><span class="pun" style="color: #bb6600;">&lt;</span><span class="pln">&nbsp;len</span><span class="pun" style="color: #bb6600;">;</span><span class="pln">&nbsp;i</span><span class="pun" style="color: #bb6600;">++)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// current cue, also add enter and exit listeners to it</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;cue&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;cues</span><span class="pun" style="color: #bb6600;">[</span><span class="pln">i</span><span class="pun" style="color: #bb6600;">];</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;addCueListeners</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">cue</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #bb6600;">...</span></li>
-<li class="L7" style="margin-bottom: 0px;">&nbsp;}</li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;addCueListeners</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">cue</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; cue</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">onenter&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #bb6600;">(){</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">log</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">'enter cue id='</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">this</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">id</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; // do something</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun" style="color: #bb6600;">};</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; cue</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">onexit&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #bb6600;">(){</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; console</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">log</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">'exit cue id='</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;cue</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">id</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;// do something else</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun" style="color: #bb6600;">};</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">}</span><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// end of addCueListeners...</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><span style="color: #880000;">&nbsp;// iterate on all cues of the current track</span></li>
+<li>&nbsp;var cues = track.cues;</li>
+<li>&nbsp;<span style="color: #008888;">for</span><span style="color: #bb6600;">(</span><span style="color: #008888;">var</span>&nbsp;i<span style="color: #bb6600;">=</span><span style="color: #006666;">0</span><span style="color: #bb6600;">,</span>&nbsp;len&nbsp;<span style="color: #bb6600;">=</span>&nbsp;cues<span style="color: #bb6600;">.</span>length<span style="color: #bb6600;">;</span>&nbsp;i&nbsp;<span style="color: #bb6600;">&lt;</span>&nbsp;len<span style="color: #bb6600;">;</span>&nbsp;i<span style="color: #bb6600;">++)</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// current cue, also add enter and exit listeners to it</span></li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var</span>&nbsp;cue&nbsp;<span style="color: #bb6600;">=</span>&nbsp;cues<span style="color: #bb6600;">[</span>i<span style="color: #bb6600;">];</span></li>
+<li>&nbsp; &nbsp;addCueListeners<span style="color: #bb6600;">(</span>cue<span style="color: #bb6600;">);</span></li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #bb6600;">...</span></li>
+<li>&nbsp;}</li>
+<li>&nbsp;</li>
+<li><span style="color: #008888;">function</span>&nbsp;addCueListeners<span style="color: #bb6600;">(</span>cue<span style="color: #bb6600;">)</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li>&nbsp; cue<span style="color: #bb6600;">.</span>onenter&nbsp;<span style="color: #bb6600;">=</span>&nbsp;<span style="color: #008888;">function</span><span style="color: #bb6600;">(){</li>
+<li>&nbsp; &nbsp; console<span style="color: #bb6600;">.</span>log<span style="color: #bb6600;">(</span><span style="color: #008800;">'enter cue id='</span>&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008888;">this</span><span style="color: #bb6600;">.</span>id<span style="color: #bb6600;">);</span></li>
+<li>&nbsp; &nbsp; // do something</li>
+<li>&nbsp;&nbsp;<span style="color: #bb6600;">};</span></li>
+<li></li>
+<li>&nbsp; cue<span style="color: #bb6600;">.</span>onexit&nbsp;<span style="color: #bb6600;">=</span>&nbsp;<span style="color: #008888;">function</span><span style="color: #bb6600;">(){</span></li>
+<li>&nbsp; &nbsp; console<span style="color: #bb6600;">.</span>log<span style="color: #bb6600;">(</span><span style="color: #008800;">'exit cue id='</span>&nbsp;<span style="color: #bb6600;">+</span>&nbsp;cue<span style="color: #bb6600;">.</span>id<span style="color: #bb6600;">);</span></li>
+<li>&nbsp; &nbsp; &nbsp;// do something else</li>
+<li>&nbsp;&nbsp;<span style="color: #bb6600;">};</span></li>
+<li><span style="color: #bb6600;">}</span>&nbsp;<span style="color: #880000;">// end of addCueListeners...</span></li>
 </ol></div><br>
 
 
@@ -769,20 +769,20 @@ Here is an [example at JSBin](https://bit.ly/3wesDwM) that shows how to listen f
 
 Source code extract:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;readContent</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">track</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">log</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"adding cue change listener to loaded track..."</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;trackStatusesDiv</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">""</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;<strong>// add a cue change listener to the TextTrack</strong></span></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;track</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">addEventListener</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"cuechange"</span><span class="pun" style="color: #bb6600;">,</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">e</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;cue&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">this</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">activeCues</span><span class="pun" style="color: #bb6600;">[</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">];</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">if</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">cue&nbsp;</span><span class="pun" style="color: #bb6600;">!==</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">undefined</span><span class="pun" style="color: #bb6600;">)</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;trackStatusesDiv</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun" style="color: #bb6600;">+=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"cue change: text = "</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;cue</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">text&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;br&gt;"</span><span class="pun" style="color: #bb6600;">;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #bb6600;">});</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;video</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">play</span><span class="pun" style="color: #bb6600;">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">}</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><span style="color: #008888;">function</span>&nbsp;readContent<span style="color: #bb6600;">(</span>track<span style="color: #bb6600;">)</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li>&nbsp; &nbsp;console<span style="color: #bb6600;">.</span>log<span style="color: #bb6600;">(</span><span style="color: #008800;">"adding cue change listener to loaded track..."</span><span style="color: #bb6600;">);</span></li>
+<li>&nbsp; &nbsp;trackStatusesDiv<span style="color: #bb6600;">.</span>innerHTML&nbsp;<span style="color: #bb6600;">=</span>&nbsp;<span style="color: #008800;">""</span><span style="color: #bb6600;">;</span></li>
+<li></li>
+<li>&nbsp; &nbsp;<strong>// add a cue change listener to the TextTrack</strong></li>
+<li><strong>&nbsp; &nbsp;track<span style="color: #bb6600;">.</span>addEventListener<span style="color: #bb6600;">(</span><span style="color: #008800;">"cuechange"</span><span style="color: #bb6600;">,</span>&nbsp;<span style="color: #008888;">function</span><span style="color: #bb6600;">(</span>e<span style="color: #bb6600;">)</span>&nbsp;<span style="color: #bb6600;">{</span></strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #008888;">var</span>&nbsp;cue&nbsp;<span style="color: #bb6600;">=</span>&nbsp;<span style="color: #008888;">this</span><span style="color: #bb6600;">.</span>activeCues<span style="color: #bb6600;">[</span><span style="color: #006666;">0</span><span style="color: #bb6600;">];</span></strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #008888;">if</span><span style="color: #bb6600;">(</span>cue&nbsp;<span style="color: #bb6600;">!==</span>&nbsp;<span style="color: #008888;">undefined</span><span style="color: #bb6600;">)</span></strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;trackStatusesDiv<span style="color: #bb6600;">.</span>innerHTML&nbsp;<span style="color: #bb6600;">+=</span>&nbsp;<span style="color: #008800;">"cue change: text = "</span>&nbsp;<span style="color: #bb6600;">+</span>&nbsp;cue<span style="color: #bb6600;">.</span>text&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008800;">"&lt;br&gt;"</span><span style="color: #bb6600;">;</span></strong></li>
+<li><strong>&nbsp; &nbsp;<span style="color: #bb6600;">});</span></strong></li>
+<li></li>
+<li>&nbsp; &nbsp;video<span style="color: #bb6600;">.</span>play<span style="color: #bb6600;">();</span></li>
+<li><span style="color: #bb6600;">}</span></li>
 </ol></div><br>
 
 And [here](https://bit.ly/3f2oy9u) is another modified version of this example at JSBin, that shows how to use enter and exit events on cues:
@@ -801,33 +801,33 @@ And [here](https://bit.ly/3f2oy9u) is another modified version of this example a
 
 Source code extract:
 
-<div class="source-code" style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;"><ol class="linenums" style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;readContent</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">track</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">log</span><span class="pun" style="color: #bb6600;">(</span><span class="str" style="color: #008800;">"adding enter and exit listeners to all cues of this track"</span><span class="pun" style="color: #bb6600;">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;trackStatusesDiv</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">""</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// get the list of cues for that track</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;cues&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;track</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">cues</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com" style="color: #880000;">// iterate on them</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd" style="color: #008888;">for</span><span class="pun" style="color: #bb6600;">(</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;i</span><span class="pun" style="color: #bb6600;">=</span><span class="lit" style="color: #006666;">0</span><span class="pun" style="color: #bb6600;">;</span><span class="pln">&nbsp;i&nbsp;</span><span class="pun" style="color: #bb6600;">&lt;</span><span class="pln">&nbsp;cues</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">length</span><span class="pun" style="color: #bb6600;">;</span><span class="pln">&nbsp;i</span><span class="pun" style="color: #bb6600;">++)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com" style="color: #880000;">// current cue</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd" style="color: #008888;">var</span><span class="pln">&nbsp;cue&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;cues</span><span class="pun" style="color: #bb6600;">[</span><span class="pln">i</span><span class="pun" style="color: #bb6600;">]; &nbsp;&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;<strong>&nbsp;addCueListeners</strong></span><strong><span class="pun" style="color: #bb6600;">(</span><span class="pln">cue</span><span class="pun" style="color: #bb6600;">);</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">video</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">play</span><span class="pun" style="color: #bb6600;">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd" style="color: #008888;">function</span><span class="pln">&nbsp;addCueListeners</span><span class="pun" style="color: #bb6600;">(</span><span class="pln">cue</span><span class="pun" style="color: #bb6600;">)</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;cue</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">onenter&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #bb6600;">(){</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; trackStatusesDiv</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun" style="color: #bb6600;">+=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">'entered cue id='</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">this</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">id&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">" "</span><span class="pln"></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+</span><span class="pln">&nbsp;this</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">text&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;br&gt;"</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #bb6600;">};</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;cue</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">onexit&nbsp;</span><span class="pun" style="color: #bb6600;">=</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">function</span><span class="pun" style="color: #bb6600;">(){</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; trackStatusesDiv</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">innerHTML&nbsp;</span><span class="pun" style="color: #bb6600;">+=</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">'exited cue id='</span><span class="pln">&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="kwd" style="color: #008888;">this</span><span class="pun" style="color: #bb6600;">.</span><span class="pln">id&nbsp;</span><span class="pun" style="color: #bb6600;">+</span><span class="pln">&nbsp;</span><span class="str" style="color: #008800;">"&lt;br&gt;"</span><span class="pun" style="color: #bb6600;">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun" style="color: #bb6600;">};</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun" style="color: #bb6600;">}</span><span class="pln">&nbsp;</span><span class="com" style="color: #880000;">// end of addCueListeners...</span></li>
+<div style="padding-left: 30px; padding-right: 30px; border: 1px solid black; line-height: 25.6px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;"><ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px;">
+<li value="1"><span style="color: #008888;">function</span>&nbsp;readContent<span style="color: #bb6600;">(</span>track<span style="color: #bb6600;">)</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li>&nbsp; &nbsp;console<span style="color: #bb6600;">.</span>log<span style="color: #bb6600;">(</span><span style="color: #008800;">"adding enter and exit listeners to all cues of this track"</span><span style="color: #bb6600;">);</span></li>
+<li></li>
+<li>&nbsp; &nbsp;trackStatusesDiv<span style="color: #bb6600;">.</span>innerHTML&nbsp;<span style="color: #bb6600;">=</span>&nbsp;<span style="color: #008800;">""</span><span style="color: #bb6600;">;</span></li>
+<li></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// get the list of cues for that track</span></li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">var</span>&nbsp;cues&nbsp;<span style="color: #bb6600;">=</span>&nbsp;track<span style="color: #bb6600;">.</span>cues<span style="color: #bb6600;">;</span></li>
+<li>&nbsp; &nbsp;<span style="color: #880000;">// iterate on them</span></li>
+<li>&nbsp; &nbsp;<span style="color: #008888;">for</span><span style="color: #bb6600;">(</span><span style="color: #008888;">var</span>&nbsp;i<span style="color: #bb6600;">=</span><span style="color: #006666;">0</span><span style="color: #bb6600;">;</span>&nbsp;i&nbsp;<span style="color: #bb6600;">&lt;</span>&nbsp;cues<span style="color: #bb6600;">.</span>length<span style="color: #bb6600;">;</span>&nbsp;i<span style="color: #bb6600;">++)</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #880000;">// current cue</span></li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: #008888;">var</span>&nbsp;cue&nbsp;<span style="color: #bb6600;">=</span>&nbsp;cues<span style="color: #bb6600;">[</span>i<span style="color: #bb6600;">]; &nbsp;&nbsp;</span></li>
+<li>&nbsp; &nbsp; &nbsp;<strong>&nbsp;addCueListeners</strong><strong><span style="color: #bb6600;">(</span>cue<span style="color: #bb6600;">);</span></strong></li>
+<li>&nbsp;<span style="color: #bb6600;">}</span></li>
+<li></li>
+<li>video<span style="color: #bb6600;">.</span>play<span style="color: #bb6600;">();</span></li>
+<li><span style="color: #bb6600;">}</span></li>
+<li>&nbsp;</li>
+<li><span style="color: #008888;">function</span>&nbsp;addCueListeners<span style="color: #bb6600;">(</span>cue<span style="color: #bb6600;">)</span>&nbsp;<span style="color: #bb6600;">{</span></li>
+<li>&nbsp; &nbsp;cue<span style="color: #bb6600;">.</span>onenter&nbsp;<span style="color: #bb6600;">=</span>&nbsp;<span style="color: #008888;">function</span><span style="color: #bb6600;">(){</li>
+<li><span>&nbsp; &nbsp; &nbsp; trackStatusesDiv</span><span style="color: #bb6600;">.</span>innerHTML&nbsp;<span style="color: #bb6600;">+=</span>&nbsp;<span style="color: #008800;">'entered cue id='</span>&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008888;">this</span><span style="color: #bb6600;">.</span>id&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008800;">" "</span></li>
+<li><span style="color: #bb6600;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+</span>&nbsp;this<span style="color: #bb6600;">.</span>text&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008800;">"&lt;br&gt;"</span><span style="color: #bb6600;">;</span></li>
+<li>&nbsp; &nbsp;<span style="color: #bb6600;">};</span></li>
+<li>&nbsp; &nbsp;cue<span style="color: #bb6600;">.</span>onexit&nbsp;<span style="color: #bb6600;">=</span>&nbsp;<span style="color: #008888;">function</span><span style="color: #bb6600;">(){</span></li>
+<li>&nbsp; &nbsp; &nbsp; trackStatusesDiv<span style="color: #bb6600;">.</span>innerHTML&nbsp;<span style="color: #bb6600;">+=</span>&nbsp;<span style="color: #008800;">'exited cue id='</span>&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008888;">this</span><span style="color: #bb6600;">.</span>id&nbsp;<span style="color: #bb6600;">+</span>&nbsp;<span style="color: #008800;">"&lt;br&gt;"</span><span style="color: #bb6600;">;</span></li>
+<li>&nbsp; &nbsp;<span style="color: #bb6600;">};</span></li>
+<li><span style="color: #bb6600;">}</span>&nbsp;<span style="color: #880000;">// end of addCueListeners...</span></li>
 </ol></ol></div><br>
 
 
