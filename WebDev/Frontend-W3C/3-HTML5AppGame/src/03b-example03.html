@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>File upload with XMLHttpRequest level 2 and HTML5</title>
+  </head>
+
+  <body>
+    <h1>Example of Xhr2 file upload</h1>
+    Choose a file and wait a little until it is uploaded (on a fake server). A message should pop up once the file is uploaded 100%.
+    <p>
+    <input id="file" type="file" />
+    </p>
+    <script>      
+      var fileInput = document.querySelector('#file');
+
+      fileInput.onchange = function() {
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'upload.html'); // With FormData, POST is mandatory
+
+        xhr.onload = function() {
+            alert('Upload complete !');
+        };
+
+        var form = new FormData();
+        form.append('file', fileInput.files[0]);
+      // send the request
+        xhr.send(form);
+    };
+    </script>
+
+  </body>
+</html>
+

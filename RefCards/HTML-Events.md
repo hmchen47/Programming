@@ -59,6 +59,13 @@
     + events placed in "queue of events"
     + browser looks at a list of "Event Listerners" and calls the ones corresponding to the type of evenet listening to
 
++ [Interaction](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-222-elements-and-apis-useful-for-writing-games)
+  + user input replying on several APIs
+  + DOM API used for keyboard, touch, or mouse inputs
+  + GamePad API (working draft)
+    + define a low-level interface representing gamepad devices
+    + already implemented by some browsers
+
 
 
 ## Reference table

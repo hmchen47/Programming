@@ -53,7 +53,7 @@ Here's a screenshot from one example we will study: an audio player with animate
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/34cszld")"
+    onclick= "window.open('https://bit.ly/34cszld')"
     src    = "https://bit.ly/2St4DY8"
     alt    = "A fancy audio player with multiple visualizations"
     title  = "A fancy audio player with multiple visualizations"
@@ -79,7 +79,7 @@ The easiest way to understand this principle is to look at a [first example at J
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/34cszld")"
+    onclick= "window.open('https://bit.ly/34cszld')"
     src    = "https://bit.ly/3ukFWdI"
     alt    = "A fancy audio player with multiple visualizations"
     title  = "A fancy audio player with multiple visualizations"
@@ -95,7 +95,7 @@ For a long time, FireFox had a very good WebAudio debugger built in its devtools
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
-    onclick= "window.open("https://bit.ly/34cszld")"
+    onclick= "window.open('https://bit.ly/34cszld')"
     src    = "https://bit.ly/2QOQDYp"
     alt    = "Chrome WebAudio Inspector extension"
     title  = "Chrome WebAudio Inspector extension"
@@ -199,7 +199,7 @@ Web Audio nodes are implemented natively in the browser. The Web Audio framework
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-    onclick= "window.open("https://bit.ly/34cszld")"
+    onclick= "window.open('https://bit.ly/34cszld')"
     src    = "https://bit.ly/34gs3my"
     alt    = "audio graph of the vocoder app is made of hundreds of nodes"
     title  = "audio graph of the vocoder app is made of hundreds of nodes"
@@ -448,7 +448,7 @@ Here is [a nice graphic application](https://webaudioapi.com/samples/frequency-r
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3wCeY2L")"
+    onclick= "window.open('https://bit.ly/3wCeY2L')"
     src    = "https://bit.ly/3uh4dSd"
     alt    = "Frequency responses for various filters. Screenshot of a nice application that visualizes that"
     title  = "Frequency responses for various filters. Screenshot of a nice application that visualizes that"
@@ -525,7 +525,7 @@ Try [this demo](https://webaudioapi.com/samples/room-effects/) to see the differ
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3wCeY2L")"
+    onclick= "window.open('https://bit.ly/3wCeY2L')"
     src    = "https://bit.ly/3fj5fsz"
     alt    = "screenshot of a webapp that enable to switch between different impulse files"
     title  = "screenshot of a webapp that enable to switch between different impulse files"
@@ -582,7 +582,7 @@ The audio graph will look like this (picture taken with the now discontinued Fir
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3wCeY2L")"
+    onclick= "window.open('https://bit.ly/3wCeY2L')"
     src    = "https://bit.ly/3yOQNQS"
     alt    = "audio graph of the previous example"
     title  = "audio graph of the previous example"
@@ -642,7 +642,7 @@ Audio graph with the compressor activated (picture taken with the now discontinu
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3wCeY2L")"
+    onclick= "window.open('https://bit.ly/3wCeY2L')"
     src    = "https://bit.ly/3fN9iMG"
     alt    = "Audio graph of the previous example"
     title  = "Audio graph of the previous example"
@@ -898,7 +898,7 @@ __Example #1: an audio equalizer with an `<audio>` element__
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/3oXBelg")"
+    onclick= "window.open('https://bit.ly/3oXBelg')"
     src    = "https://bit.ly/3upIW8N"
     alt    = "an audio player with an equalizer"
     title  = "an audio player with an equalizer"
@@ -1007,7 +1007,7 @@ Here is the final audio graph (picture taken with the now discontinued FireFox W
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3oXBelg")"
+    onclick= "window.open('https://bit.ly/3oXBelg')"
     src    = "https://bit.ly/3oUOgA3"
     alt    = "audio graph of the previous example"
     title  = "audio graph of the previous example"
@@ -1035,7 +1035,7 @@ And the example works in the same way, but this time with a video. Try moving th
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/3oXBelg")"
+    onclick= "window.open('https://bit.ly/3oXBelg')"
     src    = "https://bit.ly/34CEhpP"
     alt    = "same example as previously but with a video above the equalizer"
     title  = "same example as previously but with a video above the equalizer"
@@ -1094,7 +1094,7 @@ __Example #1: audio player with waveform visualization__
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/3c1Lh3z")"
+    onclick= "window.open('https://bit.ly/3c1Lh3z')"
     src    = "https://bit.ly/3ft2ZPn"
     alt    = "Audio player with waveform visualization"
     title  = "Audio player with waveform visualization"
@@ -1168,7 +1168,7 @@ With the exception of _lines 8-12_, where we set the analyser options (explained
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
-    onclick= "window.open("https://bit.ly/3c1Lh3z")"
+    onclick= "window.open('https://bit.ly/3c1Lh3z')"
     src    = "https://bit.ly/3oYy0Oz"
     alt    = "Audio graph with analyser node and properties"
     title  = "Audio graph with analyser node and properties"
@@ -1263,7 +1263,7 @@ Using a `<video>` element is very similar to using an `<audio>` element. We have
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/3c1Lh3z")"
+    onclick= "window.open('https://bit.ly/3c1Lh3z')"
     src    = "https://bit.ly/3vtyQ8r"
     alt    = "a video player with real time waveform visualization"
     title  = "a video player with real time waveform visualization"
@@ -1301,9 +1301,9 @@ Adding the graphic equalizer to the graph changes nothing, we visualize the soun
 #### Notes for 1.5.5 Waveforms
 
 + Analyzer node
-  + providing real-time frequency and time-doimain analysis information
-  + leaving audio stream unchchanged
-  + allowing to acqure data about the sound signal played
+  + providing real-time frequency and time-domain analysis information
+  + leaving audio stream unchanged
+  + allowing to acquire data about the sound signal played
   + processsing the data via complex computation such as FFT
   + typical operations to perform waveform after DOM ready
     + get audio context: `analyser = audioContext.createAnalyser();`
@@ -1314,7 +1314,7 @@ Adding the graphic equalizer to the graph changes nothing, we visualize the soun
 + Build audio/video graph w/ analyzer node
   + HTML snippet
     + audio element: `<audio src="https://.../guitaRiff1.mp3" id="player" controls loop crossorigin="anonymous"></audio>`
-    + canvas elemet: `<canvas id="myCanvas" width=300 heigh=100></canvas>`
+    + canvas element: `<canvas id="myCanvas" width=300 heigh=100></canvas>`
   + JavaScript snippet: `function buildAudioGraph() {...}`
     + access player: `var mediaElement = document.getElementById('player');`
     + create [source node](#srcNode)
@@ -1472,7 +1472,7 @@ And here is the audio graph for this example (picture taken with the now discont
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 45vw;"
-    onclick= "window.open("https://bit.ly/2R2ZKVt")"
+    onclick= "window.open('https://bit.ly/2R2ZKVt')"
     src    = "https://bit.ly/3wVRqGD"
     alt    = "audio graph from above example"
     title  = "audio graph from above example"
@@ -1582,7 +1582,7 @@ __Example #1: add a single volume meter to the audio player__
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/3uBXZfy")"
+    onclick= "window.open('https://bit.ly/3uBXZfy')"
     src    = "https://bit.ly/3vDdsxw"
     alt    = "Single volume meter that dances with the music"
     title  = "Single volume meter that dances with the music"
@@ -1680,7 +1680,7 @@ Use the connect method with extra parameters to connect the different outputs of
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/3uBXZfy")"
+    onclick= "window.open('https://bit.ly/3uBXZfy')"
     src    = "https://bit.ly/2St4DY8"
     alt    = "Example with stereo volume meters"
     title  = "Example with stereo volume meters"
@@ -1691,7 +1691,7 @@ This is the audio graph we've built (picture taken with the now discontinued Fir
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
-    onclick= "window.open("https://bit.ly/3uBXZfy")"
+    onclick= "window.open('https://bit.ly/3uBXZfy')"
     src    = "https://bit.ly/3i4pvjn"
     alt    = "Audiograph from previous example"
     title  = "Audiograph from previous example"
@@ -1831,7 +1831,7 @@ Here is a [codepen with my proposed meters](https://codepen.io/Sound_Spinning/pe
 
     <figure style="margin: 0.5em; text-align: center;">
       <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-        onclick= "window.open("https://bit.ly/3uBXZfy")"
+        onclick= "window.open('https://bit.ly/3uBXZfy')"
         src    = "https://bit.ly/3i4pvjn"
         alt    = "Audiograph from previous example"
         title  = "Audiograph from previous example"
@@ -1892,7 +1892,7 @@ Here is how the WebAudio graph looks like (picture taken with the now discontinu
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-    onclick= "window.open("https://bit.ly/2TurtPU")"
+    onclick= "window.open('https://bit.ly/2TurtPU')"
     src    = "https://bit.ly/3i4Lc2G"
     alt    = "Screenshot with buttons that play sound samples many times with different pitch, volume, interval of times"
     title  = "Screenshot with buttons that play sound samples many times with different pitch, volume, interval of times"
@@ -1905,7 +1905,7 @@ Music applications such as Digital Audio Workstations (GarageBand-like apps) wil
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-    onclick= "window.open("https://bit.ly/2TurtPU")"
+    onclick= "window.open('https://bit.ly/2TurtPU')"
     src    = "https://bit.ly/3c3alXF"
     alt    = "The remixer DAW workstation, a typical screenshot of a DAW with tracks, mix table etc."
     title  = "The remixer DAW workstation, a typical screenshot of a DAW with tracks, mix table etc."
@@ -1919,7 +1919,7 @@ The author of this course wrote a multitrack audio player: it loads different mp
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/2TurtPU")"
+    onclick= "window.open('https://bit.ly/2TurtPU')"
     src    = "https://bit.ly/34yYNrc"
     alt    = "Screenshot of MT5 a multitrack player"
     title  = "Screenshot of MT5 a multitrack player"
@@ -1934,7 +1934,7 @@ Try also this small demonstration that uses the [Howler.js](https://goldfirestud
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/2TurtPU")"
+    onclick= "window.open('https://bit.ly/2TurtPU')"
     src    = "https://bit.ly/34MxZE9"
     alt    = "Screenshot of an example that plays sound in memory. It's an explosion framework based on a particle system"
     title  = "Screenshot of an example that plays sound in memory. It's an explosion framework based on a particle system"
@@ -1977,7 +1977,7 @@ Try the [example at JSBin](https://jsbin.com/botagas/edit?html,js,console,output
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/3uPRR3P")"
+    onclick= "window.open('https://bit.ly/3uPRR3P')"
     src    = "https://bit.ly/3pckbMc"
     alt    = "example that loads and play a unique sound"
     title  = "example that loads and play a unique sound"
@@ -2101,7 +2101,7 @@ There are different approaches for dealing with this problem. During the HTML5 C
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3uPRR3P")"
+    onclick= "window.open('https://bit.ly/3uPRR3P')"
     src    = "https://bit.ly/3wPR5VC"
     alt    = "Example that loads two sounds and create two buttons for playing them"
     title  = "Example that loads two sounds and create two buttons for playing them"
@@ -2192,7 +2192,7 @@ This is a variant of the previous example (picture taken with the now discontinu
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
-    onclick= "window.open("https://bit.ly/3uPRR3P")"
+    onclick= "window.open('https://bit.ly/3uPRR3P')"
     src    = "https://bit.ly/3vJ9nHZ"
     alt    = "Audio Graph used in the previous example source node -> gain -> compressor -> destination"
     title  = "Audio Graph used in the previous example source node -> gain -> compressor -> destination"
@@ -2357,7 +2357,7 @@ Below, we have mixed the code from two previous examples:
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/3uOirdC")"
+    onclick= "window.open('https://bit.ly/3uOirdC')"
     src    = "https://bit.ly/2St4DY8"
     alt    = "audio player with volume meters and waveform"
     title  = "audio player with volume meters and waveform"
@@ -2371,7 +2371,7 @@ And [this one at JSBin](https://jsbin.com/nazega/edit?html,js,console,output) (p
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3uOirdC")"
+    onclick= "window.open('https://bit.ly/3uOirdC')"
     src    = "https://bit.ly/2RbHpWk"
     alt    = "multiple sound samples played at different intervals and rates"
     title  = "multiple sound samples played at different intervals and rates"
@@ -2384,7 +2384,7 @@ And here is the result ([try it at JSBin](https://jsbin.com/coraso/edit?html,js,
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
-    onclick= "window.open("https://bit.ly/3uOirdC")"
+    onclick= "window.open('https://bit.ly/3uOirdC')"
     src    = "https://bit.ly/3g0Ty98"
     alt    = "Sound samples and 2D visualization"
     title  = "Sound samples and 2D visualization"
@@ -2395,7 +2395,7 @@ Here is the audio graph of this example (picture taken with the now discontinued
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3uOirdC")"
+    onclick= "window.open('https://bit.ly/3uOirdC')"
     src    = "https://bit.ly/3g0nDp7"
     alt    = "audio graph of the previous example"
     title  = "audio graph of the previous example"
@@ -2462,7 +2462,7 @@ And here is an impressive music visualization example written by a student of th
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
-    onclick= "window.open("https://bit.ly/3papfkv")"
+    onclick= "window.open('https://bit.ly/3papfkv')"
     src    = "https://bit.ly/3yURVlM"
     alt    = "audio visualization example"
     title  = "audio visualization example"
@@ -2474,7 +2474,7 @@ And here is an impressive music visualization example written by a student of th
 
   <figure style="margin: 0.5em; text-align: center;">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-      onclick= "window.open("https://bit.ly/3papfkv")"
+      onclick= "window.open('https://bit.ly/3papfkv')"
       src    = "https://bit.ly/3g0YIlw"
       alt    = "graphic equalizer"
       title  = "graphic equalizer"

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Example that uses a Web Component</title>
+  <!-- Polyfill -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.20/webcomponents.js"></script>
+  <!-- import the web components -->
+  <link rel="import" href="x-gif/x-gif.html">
+  <link rel="import" href="voice/voice-player.html">
+  <link rel="import" href="voice/voice-recognition.html">
+ 
+</head>
+<body>
+	<h1>Example with a web component for playing animated GIFs</H1>
+ 	<x-gif src="http://i.imgur.com/iKXH4E2.gif"></x-gif>
+
+	<h1>Example page that uses a Web Component for speech synthesis<h1>
+<voice-player text="Hi students from the HTML5 part 2 course, a web component is speaking!" id="voice"></voice-player>
+<button onclick="speak(event);">Click to speak</button>
+<script>
+    var element = document.querySelector('#voice');
+
+function speak(event) {
+	event.preventDefault();
+	element.speak();
+}
+</script>
+<script>
+</script>

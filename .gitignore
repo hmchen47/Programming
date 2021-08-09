@@ -58,3 +58,6 @@ Thumbs.db
 .ipynb_checkpoints/
 .vscode/
 
+# system test files in folder       #
+#####################################
+upload/

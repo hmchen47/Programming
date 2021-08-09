@@ -43,7 +43,6 @@ Institution: W3Cx - HTML5.2x
 + 4.3 [Web Workers](04c-Components.md)
 + 4.4 [The Orientation and Device Motion APIs](04d-Components.md)
 + 4.5 [Final exam (37 Questions)](04e-Components.md)
-+ 4.6 [Course evaluation](04f-Components.md)
 
 
 

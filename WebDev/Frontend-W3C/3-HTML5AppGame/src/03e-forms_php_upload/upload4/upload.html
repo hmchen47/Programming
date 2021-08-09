@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>HTML5 File</title>
+		<link rel="stylesheet" href="upload.css" />
+		<script src="upload.js"></script>
+	</head>
+	<body onload="retrieveValues();">
+		<form id="formUpload" name="formUpload" method="post" action="upload.php" enctype="multipart/form-data">
+			FirstName : <input type="text" name="firstname" id="firstname" required/><br />
+			LastName : <input type="text" name="lastname" id="lastname"  required/><br />
+			<div type="file" id="filedrag" ondragover="dragOverHandler(event)" ondragleave="dragLeaveHandler(event)" ondrop="dropHandler(event)">
+				Drop files here
+				<ol id="droppedFiles"></ol>
+			</div>
+			<input id="submitForm" type="submit" value="Send">
+		</form>
+		<div id="message"></div>
+		<script src="onsubmit.js"></script>
+	</body>
+</html>

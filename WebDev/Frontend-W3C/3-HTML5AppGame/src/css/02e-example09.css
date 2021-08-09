@@ -1,0 +1,179 @@
+/* CSS */
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+
+body {
+	font-family: 'Dosis', sans-serif;
+	font-size: 18px;
+  margin: 8px 8px 0 8px
+}
+
+body * {
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+h1, h2, h3 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2, h3 {
+  color: gray;
+}
+
+ul {
+  list-style: circle;
+}
+
+canvas {
+  max-height: 600px;
+  width: 100%;
+  max-width: calc(600px * 16 / 9);
+  background-image: radial-gradient(circle, peru 40%, dimgray 50%, white 52%, teal 86%);
+  -webkit-transition: unset;
+  transition: unset;
+}
+
+i {
+  font-size:1.5rem;
+  color:crimson;
+}
+
+b {
+  letter-spacing: 0.2ch;
+}
+
+button {
+  padding: 0.5rem;
+  border-width: 0.25rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.2rem;
+  margin-right: 1rem;
+  line-height: 1.75rem;
+}
+
+button i {
+  vertical-align: middle;
+}
+
+button:hover {
+  border-color: crimson;
+  transform: scale(1.1);
+  transform-origin: left;
+  cursor: pointer;
+}
+
+.inline {
+  float: left;
+}
+
+.controls.inline {
+  margin-top: .5rem;
+}
+
+.clearBoth { 
+  clear: both;
+}
+
+.controls {
+  margin-top: 1.5rem;
+}
+
+.controls, .controls span, form, label, input {
+  display: flex;
+  flex-flow: wrap;
+}
+
+form {
+  min-width: 260px;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+form[data-type="Loss"] {
+  opacity: 0.35;
+}
+
+form:hover output, form:active output {
+  color: orange;
+}
+
+label {
+  min-height: 40px;
+  min-width: 6ch;
+}
+
+input {
+  margin: 0 0.5rem 1rem 0.5rem;
+}
+
+input:hover {
+  cursor: pointer;
+}
+
+:focus{
+  outline:none;
+}
+
+input[type="range"] {
+  max-width: 110px;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 3px solid #ccc;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius:50%;
+  margin-right: 0.25rem;
+}
+
+input[type="radio"]:checked {
+  border: 0.5rem solid crimson;
+}
+
+output {
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  padding: 0.45rem;
+  text-align: center;
+  width: 3ch;
+  height: 3ch;
+  margin: -0.7rem 0.5rem 0 0.5rem;
+  display: grid;
+  align-items: center;
+}
+
+.browserupgrade {
+  background-color: white;
+  margin-top: 1rem;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+footer {
+  background-color: darkgray;
+  color: white;
+  margin: 0 -8px 0 -8px;
+  padding: 0.5rem 0 0.5rem 1rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+.no-show {
+  display: none !important;
+}
+

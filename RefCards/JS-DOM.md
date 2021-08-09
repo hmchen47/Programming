@@ -297,6 +297,17 @@
 				+ `currentVideo`: a variable corresonding to the the index of the current video
         + `myVideo.src = sources [currentVideo % sources.length]`: set the `src` of the video element to `sources[0]`, then to `sources[1]`, and module w/ the length of the list to repeat the playing
 
++ [Video and animated texture](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-222-elements-and-apis-useful-for-writing-games)
+  + `<video>` element
+    + playing streaming videos or movies
+    + partially replacing the object element
+  + JavaScript API
+    + nearly the same as the one of the `<audio>` element
+    + enabling full control from JavaScript
+  + combining the capabilities of the `<video>` and `<canvas>` elements
+    + possible to maipulate video data to incorporate a variety of visual effects in real time
+    + possible to use images from video as "animated textures" over graphic object
+
 
 ## The `<audio>` elements
 
@@ -318,6 +329,19 @@
     + using nearly zero CPU and w/o delay when playing (no buffering)
     + complicated to use for this purpose
   + [howler.js](https://howlerjs.com/) simplifying the use of the WebAudio API
+
++ [Audio](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-222-elements-and-apis-useful-for-writing-games)
+  + the `<audio>` element
+    + an HTML element
+    + introduced to give a consistent API for playing streamed sounds in browsers
+    + file format support varying btw browsers
+    + MP3 working nearly all browsers
+    + only for streaming compressed audio $\implies$ consuming CPU resources
+    + no sound effects, such as changing speed and real-time effect
+  + the Web Audio API
+    + a 100\% JavaScript API designed for working in real-time w/ uncompressed sound samples or for generating procedural music
+    + sound samples loaded into memory and decompressed prior to being used
+    + up to 12 sound effects natively provided by browsers
 
 
 
@@ -937,7 +961,7 @@
       + `ctx.beginPath();`: lift pen to begin a new draw, no line btw the previous ned point and the current starting point
       + useful global properties: `w = canvas.width; h = canvas.height;`
     + typical procedure for function to change the context
-      + change any properties of global context: 
+      + change any properties of global context:
         + start by saving the content: `ctx.save();`
         + end by restoring it: `ctx.restore();`
       + properties including color, line, width, coordinate system, etc.
@@ -965,6 +989,194 @@
     + test game state: game over if no life left
     + etc.
 
++ [Drawing](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-222-elements-and-apis-useful-for-writing-games)
+  + `<canvas>` element
+    + a new HTML element
+    + a resolution-dependent bitmap canvas used for rendering graphs, game graphs, or orther images on-the-fly
+    + rectangle shape able to draw by using scripting w/ JavaScript
+    + a drawable region defined w/ `height` and `width` attributes
+  + multiple canvas on one page
+    + possible stacked one on top of another, such as transpreant layer
+    + visible in the DOM tree
+    + one's state independent of the others
+  + a rich JavaScript API
+    + all kind of shapes
+    + wireframe or filled shapes
+    + properties: color, line width, patterns, gradient, etc.
+    + transparency and pixel level manipulation
+    + supported by all browsers, on desktop or mobile phones, and on most devices
+
++ [Animation](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-222-elements-and-apis-useful-for-writing-games)
+  + `requestAnimationFrame` API
+    + targeting 60 fps in canvases
+    + w/ high resolution timer
+  + 60 fps: easy to obtain w/ simple 2D games on major desktop commputers
+  + preferred way to perform animation
+  + no animation performed if not visible $\to$ saving CPU resources
+
++ [Multiple participants: Websockets](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-222-elements-and-apis-useful-for-writing-games)
+  + not part of HTML5 but W3C [WebRTC](https://www.w3.org/TR/webrtc/) specification, "Real-time Communication between Browsers"
+  + creating two-way communication sessions btw multiple browsers and a server
+  + [socket.io](https://socket.io/): useful libraries built on top of Websocket API
+  + [Websockets](https://fr.wikipedia.org/wiki/WebSocket): providing the means for sending messages to a sever and receiving event-driven responses w/o having to poll the sever for a reply
+
+
++ [Game loop](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-223-the-game-loop)
+  + the main component of any game
+  + separating the game logic and the visual layer from a user's input and action
+  + traditional applications: respond to user input and do nothing w/o it
+  + game: continue operating regardless of a user's input
+  + computing events in the game all the time, even if no action from user
+  + possible actions: move the enemies, resolve collisions, playing sound and drawing graphics
+  + possible implementations
+    + `setInterval(function, ms)`
+    + `setTimeout(function, ms)`
+    + `requestAnimationFrame(mainloop)`
+
++ [Animation using `setInterval` function](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-223-the-game-loop)
+  + syntax: `setInterval(function, ms)`
+  + call a function and evaluate an expression at specified intervals of time (in ms)
+  + return a unique id of this action
+  + stop by calling `clearInterval(id)`
+  + call the `function` every `ms` second even if the previous one not yet finished
+
++ [Animation using `setTimeout` function](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-223-the-game-loop)
+  + syntax: `setTimeout(function, ms)`
+  + work like `setInterval` but w/ one little difference
+  + call `function` __AFTER__ a given amount of time
+  + definite improvement: timer waiting for the function to finish everything inside before calling it again
+
++ [Animation using `requestAnimationFrame` function](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-223-the-game-loop)
+  + syntax: `requestAnimationFrame(mainloop)`
+  + 60 fps: 16.6 ms = 1/60 s
+  + help browser to optimize all the animations on the screen
+  + `setInterval` & `setTimeout`: browser w/o info about the actions within function $\to$ execution time unknown
+  + animation loop in an invisible tab: not running
+  + issue: animation loop content probably takes longer than the rate (60 fps)
+  + solution: time-based animation
+    + require an accurate timer to tell the elapsed time btw each animation frame
+    + according to the time, compute the distances each object on the screen must achieve to move at a given speed
+    + independent on the CPU or GPU of the computer or mobile device
+  + `timestamp` parameter of the `mainloop` function: a high-resolution time
+
+
+
+## Time-base Animation
+
++ [Time-based animation](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-241-introduction)
+  + animate objects to move at the same speed on screen, regardless of the device running the game
+    + compute the amount of time elapsed btw the last frame and the current one
+    + adjust the distance the objects move across the screen depending on the delta of time
+  + perform some animations only a few times per second
+    + sprite-based animation: drawing different images as an object moves
+    + draw object only ten times per second, not change the images of the animation 60 times/s
+    + screen still performs 60 fps
+  + accurate set the framerate
+    + leave some CPU time for other tasks
+    + many game consoles limit the frame-rate tp 1/30th of a second
+
++ [Procedure to measure time btw frames](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-241-introduction)
+  1. erase the canvas
+  2. draw the shapes
+  3. move the shapes
+  4. go to the 1st step
+
++ [Methods to measure time btw frames](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-242-measuring-time-between-frames)
+  + using the JavaScript `Date` object
+    + standard JavaScript for measuring time: `var time = new Date().getTime();`
+    + alternative solution: `var time = Date().now();`
+    + `getTime()` method: return an integer number of millisecond (Unix epoch) since midnight on 1970-01-01
+    + procedure
+      + measure the time at the beginning of each animation loop
+      + store the time
+      + compute the delta of times elapsed btw two consecutive loops
+    + applying some simple math to compute the number of pixels $\to$ move the object to achieve a given speed (in pixels/s)
+  + using the new HTML5 high-resolution timer
+    + [Hight Resolution Time API](https://www.w3.org/TR/hr-time/): a working draft
+    + `performance.now()`:
+      + get a sub-millisecond timestamp
+      + similar to `Date.now()` but w/ much higher accuracy
+      + return a floating point number, called a `DOMHighResTimeStamp`
+  + using timestamps parameter of the callback function of `requestAnimationFrame`
+    + recommended method
+    + timestamps as optional parameter
+    + corresponding to the time elapsed since the page loaded
+    + similar to the value sent by the high resolution timer using `performance.now()`
+
++ [Frame rate](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-243-setting-the-frame-rate)
+  + ignore some frames to reach desired frame rate w/ `requestAnimationFrame`
+  + possible to set the frame rate using time-based animation
+    + set a global variable corresponding to the desired frame rate
+    + compare the elapsed time btw two executions of the animation loop
+      + time elapsed too short for the target frame rate: do nothing
+      + time elapsed exceeding the delay corresponding to the chosen frame rate: draw the frame and reset the time to zero
+  + change frame rate: `setFrameRateInFramesPerSecond(nb);`
+
+
+## Sprite-based Animation
+
++ [Sprite animation](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-261-introduction)
+  + using components from a collection of animation frames
+  + animation effect: drawing component images, rapidly, one-after-the-other
+  + using time-based aniamtion in draw function of the prite model
+
++ [Types of sprite sheets](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-262-different-sorts-of-sprite-sheets)
+  + multiple postures on a single sprite sheet
+    + different sprite sets corresponding to different postures
+    + example: walking woman
+      + 8 different sets of sprites, or posturess, each corresponding to a direction
+      + each comprising exactly 13 sprites, aligned in a single row across the sprite sheet
+  + one posture per sprite sheet
+    + only a single sprite set per sheet
+    + spreadign over multiple lines
+    + multiple sprite sheets: one for each posture
+    + example: walking robot (16 sprites) and jumping robot (26 sprites)
+  + hybrid sprite sheets
+    + sprite sheets containing completely different sets of sprites
+    + sprite engine: considering how to support differenet layouts of sprite sheet
+
++ [Procedure of sprite animation](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-263-sprite-extraction-and-animation)
+  + loading the sprite sheet(s)
+  + extracting the different postures and store them in an array of sprites
+  + sprite engine
+    + choosing the appropriate one
+    + drawing within the animation loop
+    + taking into account elapsed time: creating a realistic "delay" btw each change of sprite image
+
++ [`SpriteImage` class](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-264-a-small-sprite-animation-framework)
+  + declare class<a name="spriteImg"></a>: `function SpriteImage(img, x, y, width, height) {...}`
+  + delcare properties: `this.img = img; this.x = x; this.y = y; this.width = width; this.height = height;`
+  + declare draw method: `this.draw = function(ctx, xPos, yPos, scale) {ctx.drawImage(this.img, this.x, this.y, this.width, this.height, xPos, yPos, this.width*scale, this.height*scale);}`
+
++ [`Sprite` class](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-264-a-small-sprite-animation-framework)
+  + an animated object
+  + defined by an array of `SpriteImage` objects
+  + a method for extracting all`SpriteImage` from a given sheet and filling the array
+  + `draw` method: draw current `SpriteImage`
+  + drawing multiple times involve an automatic change of the current `SpriteImage` being drawn
+  + number of different images drawn per second: a parameter of the sprite
+  + declare class<a name="sprite"></a>: `function Sprite() {...}`
+    + declare properties: `this.spriteArray = []; this.currentFrame = 0; this.delayBetweenFrames = 10;`
+    + declare extract method: `this.extractSprite = function(spritesheet, nbPosture, postureToExtract, nbFramesPerPosture, spriteWidth, spriteHeight) {...};`
+    + declare to stop draw<a name="stop"></a>: `this.drawStopped = function(ctx, x, y) { var currentSpriteImage = this.spriteArray[this.currentFrame]; currentSpriteImage(ctx, x, y,1); }`
+    + declare time-related properties: `this.then = performance.now(); this.totalTimeSinceLastRedraw = 0;`
+    + declare draw method<a name="draw"></a>: `this.draw = function(ctx, x, y) {...}`
+    + declare method to set number of images per second: `this.setNbImagesPerSecond = function(nb) { this.delayBetweenFrames = 1000 / nb; };`
+
++ [Adding sprites to game framework - walking woman](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-265-adding-sprites-to-the-game-framework)
+  + declare a `woman` object w/ `x`, `y`, `speed`, `width` and `direction` properties, where `direction` corresponding to a posture's index
+  + add the `Sprite` and `SpriteImage` objects to the game framework
+  + create a `loadAssets(callback)` function
+    + loading the sprite sheet
+    + extracting all the woman sprites and building the `womanSprites` array
+    + calling the `callback` function passed as a parameter once finished
+  + call the `loadAssets` function from the game framework `start` function
+    + start the animation loop only when the `loadAssets` function completed loading and extract the sprites
+    + real game: `loadAssets` function probably loading the sounds, sprite sheets or resources, etc.
+    + using the `BufferLoader` utility for loading multiple resources asynchronously
+
+
+
 
 ## Assets Loading
 
@@ -977,6 +1189,270 @@
       + multiple samples elements probably required
       + pause one and start another when changig music
   + alternatively, change `src` attribute
+
+
+
+## Game Framework
+
++ [Game framework skeleton](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+  + based on the [Black Box Driven Development](https://hacks.mozilla.org/2014/08/black-box-driven-development-in-javascript/)
+    + principle 1: modularize everything
+    + principle 2: expose only public methods
+    + principle 3: use composition over inheritance
+  + a simple objected-based model using encapsulation to expose only useful methods and properties
+  + cut into several files once becoming too large to fit into one single file
+  + game:
+    + a state machine
+    + states changed depending on user interaction, collisions, or game conditions
+    + animation loop referring to current states to make the game respond accordingly
+
++ [Measuring animation's frame rate](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+  + every game requiring a function to measure the actual frame rate achieved by the code
+  + principle:
+    + count the time elapsed by adding deltas in the `mainloop`
+    + sum of the deltas $\ge 1000 \implies$ 1s elapsed since starting point
+    + meanwhile, count the number of frames drawn $\implies$ meansure frame rate, should be 60 fps
+  + delta ($\Delta, \delta$)
+    + $\Delta$:
+      + used in mathematics as an abbreviation for measuring the change in some object
+      + how quickly the mainloop running
+      + the maximum speed, rate of change, at which the game display will be updated
+      + rate of change able to be measured in frames per second (fps)
+    + $\delta$
+      + determine the achievable frame rate
+      + the shorter the delta (in ms), the faster the possible rate of change (in fps)
+
++ [Best practices for canvas](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-232-introducing-graphics)
+  1. use a function called AFTER the page is fully loaded (and the DOM is ready), set a pointer to the canvas node in the DOM
+  2. get a 2D graphic context for this canvas; the `context` object used to
+      + draw on the canvas
+      + set global properties, such as color, gradient, patterns and line width
+  3. then able to draw something
+  4. do not forget to use global variables for the canvas and context object, in particular, the width and height of the cnavas
+  5. for each function that will change the context, start by saving context and end by restoring it
+
++ [Adding animaton into canvas](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-232-introducing-graphics)
+  1. add the canvas to the HTML page
+  2. add tne content of the `init()` function to the `start()` function of the game engine
+  3. add a few global variables, such as `canvas`, `ctx`, etc.
+  4. call the `drawMonster(...)` function from the mainloop
+  5. add a random displacement to the x, y position of the monster to see it moving
+  6. before drawing again in main loop, clear the canvas by `ctx.clearRect(x, y, width, height)` fucntion
+
++ [HTML5 events](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-233-user-interaction-and-event-handling)
+  + JavaScript w/o input and output
+    + treating event caused by user actions as inputs
+    + manipulating the DOM structure as output
+  + games
+    + maintaining state variables respenting moving objects like the position and speed of an alien ship
+    + the animation loop refers to the variables in determining the movement of such objects
+  + listening the event
+    + declare an event handler in the HTML code
+      + easy to use but not recommended $\to$ deprecated
+      + bad practice ([separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns): mixing 'visual layer' (HTML) and 'logical layer' (JavaScript)
+    + attach an event handler to an HTML element in JavaScript
+      + not able to attach multiple listener functions
+    + register a callback to the event listener w/ the `addEventListener` method (preferred method)
+      + parameter `false` describes whether the callback has to be called during the captured phase
+
++ [DOM event passed to the event listener function](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-233-user-interaction-and-event-handling)
+  + the listener creating an `event` object to describe what happened
+  + different types of event $\to$ different properties of the `event` object
+
++ [Keyboard related events](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-234-adding-key-listeners)
+  + the code of the key passed tot he listener function once key-board event fired
+  + example: `window.addEventListener('keydown', function(evt) { if (event.keyCode === 37) { // left arrow pressed } }, false);`
+  + online interactive [event keycode test page](http://www.asquare.net/javascript/tests/KeyCode.html)
+
++ [Multiple keyboard related events](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-234-adding-key-listeners)
+  + game requirements:
+    + check keys pressed at a very high frequency
+    + typically from inside the game loop that is looping at up to 60 times per second
+    + possible pressed down multiple keys
+  + keep the list if pertinent keys in a JavaScript object
+    + typical methods: store the list of the keys up or down at a given time in a JavaScript object
+    + object `inputStates`
+      + update content inside the different input event listener
+      + check values inside the game loop to make the game react accordingly
+  + add changes to game framework
+    + add empty `inputState` object as a global property of the game engine
+    + add event listeners for each keydown and keyup event to control game within `start()` method
+    + test if an arrow key or the space bar pressed or released $\to$ set the properties of the `inputState` object accordingly, e.g., space bar pressed w/ setting `inputState.space=true;` but released w/ resetting `inputState.space=false;`
+    + add tests to check which keys are down within main loop
+
++ [Mouse corrdinate](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-235-adding-mouse-listeners)
+  + HTML canvas w/ default (or directed) CSS properties producing false corrdinate
+  + using `var rect = canvas.getBoundingClientRect();` to get exact mouse cursor corrdinates
+    + considering the width and height of the `rect` object
+    + dimensions corresponding to the padding / margins / borders of the canvas
+  + `getMousePos()` to retrieve the mouse position within page
+
++ [Gamepad API](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-236-gamepad-events)
+  + a [W3C draft](https://w3c.github.io/gamepad/)
+  + supported by all browsers, except IE
+  + recommendation: Wired Xbox 360 Controller or a PS2 controller
+  + wireless controllers supported but not tested yet
+  + some controllers probably require to install drivers
+
++ [Detecting gamepad](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-236-gamepad-events)
+  + event triggered when plugged in or unplugged
+  + `gamepadconnected` event trigered as user interacting (press a button or move a stick)
+  + `gamepad` property along w/ event listener to describe the connected device
+  + issue: gamepad already detected by the browser
+    + using a global variable for managing the gamepad or an array of gampads in code
+    + reload page $\to$ no event fired $\to$ variables undefined
+  + solution: regular scanning gamepap availability
+  + `getGamepads`: retrieving a snapshot of the data for the current connected nad interacted w/ gamepads
+  + [luser/gamepadtest in GitHub](https://github.com/luser/gamepadtest): good example of managing multiple gamepads
+
++ Attributes of [Gamepad interface](https://w3c.github.io/gamepad/#gamepad-interface)
+  + `id`: identification string for the gamepad, brand or style of connected gamepad, useful w/ `mapping` property
+  + `index`: index of the gamepad in the Naviagtor, used for multiple gamepads
+  + `connected`: whether the physical device represented still connected to the system
+  + `timestamp`: last time the data updated
+  + `mapping`:
+    + setting a property to a known mapping name
+    + not implemented yet by most browsers
+    + a layout map associated w/ the `id` of the gamepad
+    + default: all connected gamepads using a [standard default layout](https://w3c.github.io/gamepad/#remapping)
+  + `axes`:
+    + array of values for all axes of gamepad, ranging [-1.0, 1.0]
+    + usually representing the analog sticks
+    + a pair of axes given the position on the stick in its X and Y axis
+    + -1.0 representing the up or left-most position of the axis while 1.0 representing the down or right-most position of the axis
+    + compute the angle via axes values w/ `angle = arcTan(sin/cos);`
+  + `buttons`: array of button states of `GamepadButton` objects for all buttons of the gamepad
+    + `pressed`: a Boolean property indicating whether the button is currently pressed (`true`) or unpressed (`false`)
+    + `value`: a floating-point value used to enable representing analog buttons, normalized to [0.0, 1.0]
+
++ [Pseudo class](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-251-animating-multiple-objects)
+  + define a constructor function for creating objects
+  + found in other object-oriented languages, such as Java, C#, etc.
+  + useful to create many objects of the same classes
+
++ [Modulizing game project](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
+  + review and isolate functions
+    + grouping functions w/o dependence on the framework
+    + typical functions reused in other project
+      + sprite utility functions
+      + collision detection functions
+      + ball constructor functions
+    + typical interactive functions
+      + key and mouse listeners
+      + gamepad code
+      + ...
+  + reduce dependencies:
+    + change code to reduce dependencies
+    + example: add a parameter to make a function independent from global variables
+  + limit main JavaScript to certain function
+    + `game.js` as the core of the game framework: `init` function, `mainloop` function, game states, score, levels
+    + other functional groupings: `utils.js`, `sprites.js`, `collisions.js`, `listeners.js`
+
++ [Possible procedure of game development](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
+  + start w/ a simple structure: `game.html` and `game.css`
+  + isolate ball function constructor: `ball.js`
+  + isolate time-based animation functions in a separate file: `timeBaseAnim.js`
+  + isolate the part counting the number of frames per second: `fps.js`
+  + isolate the event listeners: `listeners.js`
+  + isolate the collision tests: `collisions.js`
+
++ [A simple structure](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
+  + HTML snippet `game.html`<a name="simpleGame"></a>:
+    + head part: `<head> ... </head>`
+      + sound script: `<script src="https://cdnjs.cloudflare.com/.../howler.min.js"></script>`
+      + css style: `<link rel="stylesheet" href="css/game.css">`
+      + game script: `<script src="js/game.js"></script>`
+    + body part: `<canvas id="myCanvas" width=200 height=200></canvas>`
+  + CSS style `game.css`: `canvas { border: 1px solid black; }`
+
+
+
+## Collision Detection
+
++ [Circle collision test](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-253-collision-detection)
+  + objects: (left diagram)
+    + circle `c1` w/ center `(x1, y1)` and radius `r1`
+    + circle `c2` w/ center `(x2, y2)` and radius `r2`
+  + imaging a line running btw two center points
+  + scenarios btw distance and radii of circles
+    + $\overline{c_1 c_2} = r_1 + r_2$: the edges of the circles touch
+    + $\overline{c_1 c_2} > r_1 + r_2$: the circles neither touched nor collided
+    + $\overline{c_1 c_2} < r_1 + r_2$: the circles collided or overlaid
+  + Javascript snippet: `function circleCollideNonOptimised(x1, y1, r1, x2, y2, r2) {...}`
+    + declare variables: `var dx = x1 - x2; dy = y1 - y2;`
+    + compute distance: `var distance = Math.sqrt(dx * dx + dy * dy);`
+    + return boolean value: `return (distance < r1 + r2);`
+  + complex shapes (right diagrams)
+    + using a list of bounding circles or a hierarchy of bounding circles
+    + a hierarchy of bounding circles (middle diagram)
+      + test against the "big one" on the left containing the whole arm
+      + collision $\implies$ test for two-sub-circles
+      + ...
+
+  <div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+    <a href="https://bit.ly/3vJxHZv" ismap target="_blank">
+      <img style="margin: 0.1em;" height=150
+        src   = "https://bit.ly/3cZ1O8K"
+        alt   = "two circles with distances between the centers drawn"
+        title = "two circles with distances between the centers drawn"
+      >
+      <img style="margin: 0.1em;" height=150
+        src   = "https://bit.ly/3gKp2lm"
+        alt   = "mage of an arm with a hierarchy of bounding circles: one for the whole arm, and two smaller for the forearm and the other part"
+        title = "mage of an arm with a hierarchy of bounding circles: one for the whole arm, and two smaller for the forearm and the other part"
+      >
+    </a>
+  </div>
+
+<div style="margin: 0.5em; display: flex; justify-content: center; align-items: center; flex-flow: row wrap;">
+</div>
+
++ [Rectangle detection test](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-253-collision-detection)
+  + projecting the horizontal and vertical axis of the rectangles over the X and Y asix
+  + scenarios:
+    + only horizontal axis projection overlapped: no collision
+    + only vertical axis projection overlapped: no collision
+    + both horizontal and vertical projectsions overlapped: collision detected
+  + JavaScript snippet: `function rectsOverlap(x1, y1, w1, h1, x2, y2, w2, h2) {...}`
+    + only horizontal overlap: `if ((x1 > (x2+w2)) || ((x1 + w1) < x2)) return false;`
+    + only vertical overlap: `if ((y1 > (y2+h2)) || ((y1+h1) < y2)) return false;`
+    + both axes overlap: `return true;`
+
++ [Rectangle-circle collision](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-253-collision-detection)
+  + [scenarios](https://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection)
+    + circle's center lying inside the rectangle
+    + one of the edges of the rectangle interacting the circle
+  + JavaScript snippet: `function circRectsOverlap(x0, y0, w0, h0, cx, cy, r) {...}`
+    + declare and set circle center: `var testX = cx; var testY = cy;`
+    + left collision: `if (testX < x0) testX = x0;`
+    + right collision: `if (testX > (x0+w0)) testX = (x0+w0);`
+    + top collision: `if (testY < y0) testY = y0;`
+    + buttom collision: `if (testY > (y0+h0)) testY = (y0+h0);`
+    + return collision check: `return (((cx-testX)*(cx-testX) - (cy-testY)*(cy-testY)) < r*r);`
+
++ [Ball collision - pool like](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-253-collision-detection)
+  + two balls collide and know their velocities (step 1)
+  + separate each ball's velocity into perpendicular componets (step 2)
+    + "normal" component: heading twoward the other ball
+    + "tangential" component: perpendicular to the other ball
+    + using "normal" for the first component as its direction along the line linking the centers of the balls
+    + line perpendicular to the collision plane, tangent to the two balls at collision point
+  + swap the components btw two balls (step 3)
+  + recombine the velocities for each ball (step 4)
+
+  <figure style="margin: 0.5em; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      onclick= "window.open('https://sinepost.wordpress.com/2012/09/05/making-your-balls-bounce/')"
+      src    = "https://bit.ly/35G82qa"
+      alt    = "diagram with two balls, velocities, tengeantial and normal planes"
+      title  = "diagram with two balls, velocities, tengeantial and normal planes"
+    />
+  </figure>
+
+  + Ref: [Video Game Physics Tutorial - Part I: An Introduction to Rigid Body Dynamics](https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics)
+
+
+
 
 
 ## Example: Canvas and Animation
@@ -1006,10 +1482,16 @@
   + [circle-Rectangle collision detection](https://stackoverflow.com/questions/401847/circle-rectangle-collision-detection-intersection)
   + example: [collision detection btw balls & the player](src/02f-example12.html)
 
-
 + [Changing variable dynamically - game completion](../WebDev/Frontend-W3C/5-JavaScript/02f-Interact.md#267-adding-input-fields)
   + using `input` fields to change the init variables
   + example: [game to collide selected color balls](../WebDev/Frontend-W3C/5-JavaScript/src/02f-example13.html)
+
++ Example: [animation w/ `setInterval` function](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-223-the-game-loop)
+
++ Example: [animation w/ `setTimeout` function](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-223-the-game-loop)
+
++ Example: [animation w/ `requestAnimationFrame` function](../WebDev/Frontend-W3C/3-HTML5AppGame/02b-GameProg.md#notes-for-223-the-game-loop)
+
 
 
 ## Example: Audio
@@ -1189,5 +1671,101 @@
 
 + Example: [playing 2 sound samples w/ different rates](../WebDev/Frontend-W3C/3-HTML5AppGame/01e-Multimedia.md#notes-for-159-load-and-play-sound-samples)
 
+
+## Example: Game
+
++ Example: [game framework starting point](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+
++ Example: [animation loop of game framework](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+
++ Example: [counting frames/s](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+
++ Example: [compute FPS in animation loop](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+
++ Example: [display FPS](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+
++ Example: [image element w/ error callback](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+
++ Example: [check the number of FPS](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-231-a-game-framework-skeleton)
+
++ Example: [draw a monster in a canvas](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-232-introducing-graphics)
+
++ Example: [add animation to game engine](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-232-introducing-graphics)
+
++ Example: [handling multiple keyboard-related events](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-234-adding-key-listeners)
+
++ Example: [mouse position in canvas](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-235-adding-mouse-listeners)
+
++ Example: [object following mouse cursor](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-235-adding-mouse-listeners)
+  
++ Example: [adding mouse listeners to the game framework](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-235-adding-mouse-listeners)
+
++ Example: [detecting gamepad](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-236-gamepad-events)
+
++ Example: [scanning the gamepad](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-236-gamepad-events)
+
++ Example: [detecting button status](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-236-gamepad-events)
+
++ Example: [detecting axes values](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-236-gamepad-events)
+
++ Example: [detecting the direction](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-236-gamepad-events)
+
++ Example: [moving and accelerating object](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-237-move-the-monster)
+  + tasks:
+    + arrow keys to move object up/down/left/right
+    + mouse button to accelerate
+
++ Example: [gamepad enhancements](../WebDev/Frontend-W3C/3-HTML5AppGame/02c-GameProg.md#notes-for-237-move-the-monster)
+
++ Example: [regular animation](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-241-introduction)
+
++ Example: [simulating a low-end device](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-241-introduction)
+
++ Example: [using Date object](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-242-measuring-time-between-frames)
+
++ Example: [simulation spending time in animation loop](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-242-measuring-time-between-frames)
+
++ Example: [high resultion API](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-242-measuring-time-between-frames)
+
++ Example: [using timestamps parameter of `requestAnimationFrame`](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-242-measuring-time-between-frames)
+
+
++ Example: [change frame rate](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-243-setting-the-frame-rate)
+
++ Example: [bouncing rectangle w/ adjustable frame rate](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-243-setting-the-frame-rate)
+
++ Example: [game framework adding time-based animation](../WebDev/Frontend-W3C/3-HTML5AppGame/02d-GameProg.md#notes-for-244-adding-time-based-animation)
+
++ Example: [multiple balls](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-251-animating-multiple-objects)
+
++ Example: [direction and velocity with wall collisions](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-251-animating-multiple-objects)
+
++ Example: [game framework w/ bouncing balls](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-252-adding-balls-to-the-game-framework)
+
++ Example: [circle collision test](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-253-collision-detection)
+
++ Example: [rectangle collision test](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-253-collision-detection)
+
++ Example: [game framework w/ collision detection](../WebDev/Frontend-W3C/3-HTML5AppGame/02e-GameProg.md#notes-for-254-adding-collision-detection-to-the-game-framework)
+
++ Example: [walking woman w/ multiple postures/sheet](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-263-sprite-extraction-and-animation)
+
++ Example: [sprite animation framework w/ walking robot](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-264-a-small-sprite-animation-framework)
+
++ Example: [game framework w/ sprites - Init Page](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-265-adding-sprites-to-the-game-framework)
+
++ Example: [Game framework class w/ sprites - GF class](../WebDev/Frontend-W3C/3-HTML5AppGame/02f-GameProg.md#notes-for-265-adding-sprites-to-the-game-framework)
+
++ Example: [properties for balls](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-271-menus-high-score-tables-etc)
+
++ Example: [game states](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-271-menus-high-score-tables-etc)
+
++ Procedure for game development
+  + [Ball function constructor, `ball.js`](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
+  + [Time-based animation, `timeBasedAnim,js`](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
+  + [Count the number of frames per second, `fps.js`](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
+  + [Handling event listeners, `listeners.js`](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
+  + [Collision detection, `collisions.js`](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
+  + [Final version of game fraework](../WebDev/Frontend-W3C/3-HTML5AppGame/02g-GameProg.md#notes-for-272-splitting-the-game-into-several-js-files)
 
 

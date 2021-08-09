@@ -759,7 +759,7 @@ Here is an [example at JSBin](https://bit.ly/3wesDwM) that shows how to listen f
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3oIkFK9")"
+    onclick= "window.open('https://bit.ly/3oIkFK9')"
     src    = "https://bit.ly/3hEPQEo"
     alt    = "example that displays cue contents with cuechange even listeners"
     title  = "example that displays cue contents with cuechange even listeners"
@@ -791,7 +791,7 @@ And [here](https://bit.ly/3f2oy9u) is another modified version of this example a
 
 <figure style="margin: 0.5em; text-align: center;">
   <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-    onclick= "window.open("https://bit.ly/3oIkFK9")"
+    onclick= "window.open('https://bit.ly/3oIkFK9')"
     src    = "https://bit.ly/3eZ0Cnc"
     alt    = "Example that displays message in enter and exit cue listeners of the selected track"
     title  = "Example that displays message in enter and exit cue listeners of the selected track"

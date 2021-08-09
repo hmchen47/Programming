@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Example of the Orientation API</title>
+</head>
+<body>
+<h2>Device Orientation with HTML5</h2>
+You need to be on a mobile device or use a laptop with accelerometer/orientation device.<p>
+
+<div id="LR"></div>
+<div id="FB"></div>
+<div id="DIR"></div>
+
+<script type="text/javascript">
+    if (window.DeviceOrientationEvent) {
+        console.log("DeviceOrientation is supported");
+
+        window.addEventListener('deviceorientation', function (eventData) {
+            var LR = eventData.gamma;
+            var FB = eventData.beta;
+            var DIR = eventData.alpha;
+            deviceOrientationHandler(LR, FB, DIR);
+        }, false);
+    } else {
+        alert("Device orientation not supported on your device or browser.  Sorry.");
+    }
+
+    function deviceOrientationHandler(LR, FB, DIR) {
+        document.querySelector("#LR").innerHTML = "gamma : " + Math.round(LR);
+        document.querySelector("#FB").innerHTML = "beta : " + Math.round(FB);
+        document.querySelector("#DIR").innerHTML = "alpha : " + Math.round(DIR);
+    }
+</script>
+ 
+</body>
+</html>
+

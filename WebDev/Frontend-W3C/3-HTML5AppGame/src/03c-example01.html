@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      function dragStartHandler(event) {
+        alert('dragstart event, target: ' + event.target.innerHTML);
+      }
+    </script>
+  </head>
+<body>
+   <p>What fruits do you like? Try to drag an element!</p>
+   <ol ondragstart="dragStartHandler(event)">
+     <li draggable="true" data-value="fruit-apple">Apples</li>   
+     <li draggable="true" data-value="fruit-orange">Oranges</li>
+     <li draggable="true" data-value="fruit-pear">Pears</li>
+   </ol>
+  <p>Drop your favorite fruits below:</p>
+ <body>
+ <html>
+
+ 

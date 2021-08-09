@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <script>
+      function dragStartHandler(event) {
+        console.log('dragstart event, target: ' + event.target.innerHTML);
+        // Copy in the drag'n'drop clipboard the value of the data* attribute of the target, with a type "Fruits".
+         event.dataTransfer.setData("Fruit", event.target.dataset.value);
+      }
+      
+      function dropHandler(event) {
+        console.log('drop event, target: ' + event.target.innerHTML);
+        var li = document.createElement('li');
+        // get the data from the drag'n'drop clipboard, with a type="Fruit"
+        var data = event.dataTransfer.getData("Fruit");
+    
+        if (data == 'fruit-apple') {
+          li.textContent = 'Apples';
+        } else if (data == 'fruit-orange') {
+          li.textContent = 'Oranges';
+        } else if (data == 'fruit-pear') {
+          li.textContent = 'Pears';
+        } else {
+          li.textContent = 'Unknown Fruit';
+        }
+        // add the dropped data as a child of the list.
+        document.querySelector("#droppedFruits").appendChild(li);
+    }  
+    </script>
+    <link rel="stylesheet" href="css/03c-example02.css">
+  </head>
+<body>
+   <p>What fruits do you like? Try to drag an element!</p>
+   <ol ondragstart="dragStartHandler(event)">
+     <li draggable="true" data-value="fruit-apple">Apples</li>   
+     <li draggable="true" data-value="fruit-orange">Oranges</li>
+     <li draggable="true" data-value="fruit-pear">Pears</li>
+   </ol>
+  <div ondragover="return false" ondrop="dropHandler(event);">
+    Drop your favorite fruits below:
+    <ol id="droppedFruits"></ol>
+  </div>
+ <body>
+<html>
+
