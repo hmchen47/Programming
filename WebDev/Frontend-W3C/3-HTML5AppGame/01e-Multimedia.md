@@ -21,13 +21,13 @@ In Module 2 of the HTML5 Coding Essentials course, you learned how to add an aud
 
 For example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;audio</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/LaSueur.mp3"</span><span class="pln"> </span><span class="atn">controls</span><span class="tag">&gt;</span></li>
+<div><ol>
+<li value="1">&lt;audio src="https://mainline.i3s.unice.fr/mooc/LaSueur.mp3" controls&gt;</li>
 </ol></div><br>
 
 ... render like this in your document:
 
-<p class="exampleHTML"><audio id="player" src="https://mainline.i3s.unice.fr/mooc/LaSueur.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio></p>
+<p><audio id="player" src="https://mainline.i3s.unice.fr/mooc/LaSueur.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio></p>
 
 Under the hood, this HTML code:
 
@@ -132,57 +132,57 @@ __Typical code to build an audio routing graph (the one used in the above exampl
 
 HTML code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;audio</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/drums.mp3"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; id</span><span class="pun">=</span><span class="atv">"gainExample"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; controls</span><span class="pln"> </span><span class="atn">loop</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="tag">&lt;/audio&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;br&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&lt;label for="gainSlider"&gt;</span><span class="pln">Gain</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"1"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"0.01"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"1"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"gainSlider"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
+<div><ol>
+<li value="1"> &lt;audio src="https://mainline.i3s.unice.fr/mooc/drums.mp3" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; id="gainExample" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; controls loop </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; crossorigin="anonymous"&gt;</li>
+<li>&lt;/audio&gt;</li>
+<li>&lt;br&gt;</li>
+<li>&lt;label for="gainSlider"&gt;Gain&lt;/label&gt;</li>
+<li>&lt;input type="range" min="0" max="1" step="0.01" value="1" id="gainSlider" /&gt;</li>
 </ol></div><br>
 
 JavaScript source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// This line is a trick to initialize the AudioContext</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="com">// that will work on all recent browsers</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="typ">AudioContext</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">webkitAudioContext</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> audioContext</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> gainExemple</span><span class="pun">,</span><span class="pln"> gainSlider</span><span class="pun">,</span><span class="pln"> gainNode</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// get the AudioContext</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; audioContext </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> ctx</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// the audio element</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; player&nbsp;</span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#gainExample'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;">&nbsp; player.onplay = () =&gt; {</li>
-<li class="L2"><span color="#666600" style="color: #666600;">&nbsp; &nbsp; &nbsp;audioContext.resume();</span></li>
-<li class="L2"><span color="#666600" style="color: #666600;">&nbsp; }</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; gainSlider </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#gainSlider'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>buildAudioGraph</strong></span><strong><span class="pun">();</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// input listener on the gain slider</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; gainSlider</span><span class="pun">.</span><span class="pln">oninput </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">){</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; gainNode</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">&nbsp; };</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="kwd">function</span><span class="pln"> buildAudioGraph</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// create source and gain node</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> gainMediaElementSource </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(player</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; gainNode </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createGain</span><span class="pun">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><strong><span class="com">// connect nodes together</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; gainMediaElementSource</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">gainNode</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; gainNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<div><ol>
+<li value="1">// This line is a trick to initialize the AudioContext</li>
+<li>// that will work on all recent browsers</li>
+<li>var ctx = window.AudioContext || window.webkitAudioContext;</li>
+<li>var audioContext;</li>
+<li></li>
+<li>var gainExemple, gainSlider, gainNode;</li>
+<li>&nbsp;</li>
+<li>window.onload = function() {</li>
+<li> </li>
+<li>&nbsp;&nbsp;// get the AudioContext</li>
+<li>&nbsp; audioContext = new ctx();</li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;// the audio element</li>
+<li>&nbsp; player&nbsp;= document.querySelector('#gainExample');</li>
+<li>&nbsp; player.onplay = () =&gt; {</li>
+<li><span color="#666600" style="color: #666600;">&nbsp; &nbsp; &nbsp;audioContext.resume();</span></li>
+<li><span color="#666600" style="color: #666600;">&nbsp; }</span></li>
+<li>&nbsp; gainSlider = document.querySelector('#gainSlider');</li>
+<li>&nbsp;</li>
+<li>&nbsp; <strong>buildAudioGraph</strong><strong>();</strong></li>
+<li> </li>
+<li>&nbsp;&nbsp;// input listener on the gain slider</li>
+<li>&nbsp; gainSlider.oninput = function(evt){</li>
+<li>&nbsp; &nbsp; gainNode.gain.value = evt.target.value;</li>
+<li>&nbsp; }; </li>
+<li>};</li>
+<li>&nbsp;</li>
+<li><strong>function buildAudioGraph() {</strong></li>
+<li>&nbsp;&nbsp;// create source and gain node</li>
+<li>&nbsp;&nbsp;var gainMediaElementSource = audioContext.createMediaElementSource(player);</li>
+<li>&nbsp; gainNode = audioContext.createGain();</li>
+<li> </li>
+<li>&nbsp;&nbsp;<strong>// connect nodes together</strong></li>
+<li><strong>&nbsp; gainMediaElementSource.connect(gainNode);</strong></li>
+<li><strong>&nbsp; gainNode.connect(audioContext.destination);</strong></li>
+<li>}</li>
+<li>&nbsp;</li>
 </ol></div><br>
 
 __Explanations:__
@@ -305,22 +305,22 @@ Typical use:
 
 HTML:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;audio</span><span class="pln"> </span><strong><span class="atn">id</span><span class="pun">=</span><span class="atv">"player"</span></strong><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="pln"> </span><span class="atn">loop</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;Your browser does not support the audio tag.</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/audio&gt;</span></li>
+<div><ol>
+<li value="1">&lt;audio <strong>id="player"</strong> controls crossorigin="anonymous" loop&gt;</li>
+<li>&nbsp; &nbsp;&lt;source src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3"&gt;</li>
+<li>&nbsp; &nbsp;Your browser does not support the audio tag.</li>
+<li> &lt;/audio&gt;</li>
 </ol></div><br>
 
 JavaScript:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="typ">AudioContext</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">webkitAudioContext</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> context </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> ctx</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> mediaElement </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.querySelector</span><span class="pun">(</span><span class="str">'<strong>#player</strong>'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> sourceNode </span><span class="pun">=</span><span class="pln"> context</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">mediaElement</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun"><span class="pun" style="line-height: 25.6px;"><span style="line-height: 25.6px;">sourceNode</span>.<span>connect</span></span><span class="pun" style="line-height: 25.6px;">(context.destination</span><span class="pun" style="line-height: 25.6px;">); // connect to the speakers</span></span></li>
+<div><ol>
+<li value="1">var ctx = window.AudioContext || window.webkitAudioContext;</li>
+<li>var context = new ctx();</li>
+<li> </li>
+<li>var mediaElement = document.querySelector('<strong>#player</strong>');</li>
+<li>var sourceNode = context.createMediaElementSource(mediaElement);</li>
+<li>sourceNode.connect(context.destination); // connect to the speakers</li>
 </ol></div><br>
 
 The `MediaElementSource` node  is built using `context.createMediaElementSource(elem)`, where `elem` is an `<audio>` or a `<video>` element.
@@ -364,25 +364,25 @@ Useful for setting volume... see the [Gain node's documentation](https://develop
 
 [Local Demo](src/01e-example03.html)
 
-<p class="exampleHTML"><audio id="gainExample" src="https://mainline.i3s.unice.fr/mooc/drums.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio>&nbsp;<br> <label>Gain</label> <input id="gainSlider" min="0" max="1" step="0.01" value="1" type="range"></p>
+<p><audio id="gainExample" src="https://mainline.i3s.unice.fr/mooc/drums.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio>&nbsp;<br> <label>Gain</label> <input id="gainSlider" min="0" max="1" step="0.01" value="1" type="range"></p>
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">/* Gain Node */</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> gainExample </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#gainExample'</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> gainSlider </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#gainSlider'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> gainMediaElementSource </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">gainExample</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> gainNode </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createGain</span><span class="pun">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">gainMediaElementSource</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">gainNode</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">gainNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">gainSlider</span><span class="pun">.</span><span class="pln">oninput </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">){</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;gainNode</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">/* Gain Node */</li>
+<li>&nbsp;</li>
+<li>var gainExample = document.querySelector('#gainExample');</li>
+<li>var gainSlider = document.querySelector('#gainSlider');</li>
+<li>&nbsp;</li>
+<li>var gainMediaElementSource = audioContext.createMediaElementSource(gainExample);</li>
+<li>var gainNode = audioContext.createGain();</li>
+<li>&nbsp;</li>
+<li>gainMediaElementSource.connect(gainNode);</li>
+<li>gainNode.connect(audioContext.destination);</li>
+<li>&nbsp;</li>
+<li>gainSlider.oninput = function(evt){</li>
+<li>&nbsp; &nbsp;gainNode.gain.value = evt.target.value;</li>
+<li>};</li>
 </ol></div><br>
 
 The `gain` property (_line 13_ in the above code) corresponds to the multiplication we apply to the input signal volume. A value of 1 will keep the volume unchanged. A value < 1 will lower the volume (0 will mute the signal), and a value > 1 will increase the global volume, with a risk of clipping. With gain values > 1, we usually add a compressor node to the signal chain to prevent clipping. You will see an example of this when we discuss the compressor node.
@@ -398,27 +398,27 @@ See the [Stereo Panner node's documentation](https://developer.mozilla.org/en-US
 
 [Local Demo](src/01e-example04.html)
 
-<p class="exampleHTML"><audio id="pannerPlayer" src="https://mainline.i3s.unice.fr/mooc/drums.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio> <br> <label for="pannerSlider">Balance</label> <input id="pannerSlider" min="-1" max="1" step="0.1" value="0" type="range"></p>
+<p><audio id="pannerPlayer" src="https://mainline.i3s.unice.fr/mooc/drums.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio> <br> <label for="pannerSlider">Balance</label> <input id="pannerSlider" min="-1" max="1" step="0.1" value="0" type="range"></p>
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="com">// the audio element</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> playerPanner </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#pannerPlayer'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> pannerSlider </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#pannerSlider'</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="com">// create nodes</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> source </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">playerPanner</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> pannerNode </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createStereoPanner</span><span class="pun">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="com">// connect nodes together</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> source</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">pannerNode</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> pannerNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="com">// input listener on the gain slider</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> pannerSlider</span><span class="pun">.</span><span class="pln">oninput </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">){</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; pannerNode</span><span class="pun">.</span><span class="pln">pan</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">};</span><span class="pln"> </span></li>
+<div><ol>
+<li value="1"> // the audio element</li>
+<li> playerPanner = document.querySelector('#pannerPlayer');</li>
+<li> pannerSlider = document.querySelector('#pannerSlider');</li>
+<li>&nbsp;</li>
+<li>// create nodes</li>
+<li>var source = audioContext.createMediaElementSource(playerPanner);</li>
+<li> pannerNode = audioContext.createStereoPanner();</li>
+<li> </li>
+<li>// connect nodes together</li>
+<li> source.connect(pannerNode);</li>
+<li> pannerNode.connect(audioContext.destination);</li>
+<li>&nbsp;</li>
+<li> // input listener on the gain slider</li>
+<li> pannerSlider.oninput = function(evt){</li>
+<li>&nbsp; pannerNode.pan.value = evt.target.value;</li>
+<li>}; </li>
 </ol></div><br>
 
 #### Biquad filter
@@ -431,7 +431,7 @@ See also the [Biquad Filter node's documentation](https://developer.mozilla.org/
 
 [Local Demo](src/01e-example05.html)
 
-<p class="exampleHTML"><audio id="biquadExample" src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio> <br> <label>Frequency</label> <input id="biquadFilterFrequencySlider" min="0" max="22050" step="1" value="350" type="range"> <label>Detune</label> <input id="biquadFilterDetuneSlider" min="0" max="100" step="1" value="0" type="range"> <label>Q</label> <input id="biquadFilterQSlider" min="0.0001" max="1000" step="0.01" value="1" type="range"> <label>Type</label><select id="biquadFilterTypeSelector">
+<p><audio id="biquadExample" src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio> <br> <label>Frequency</label> <input id="biquadFilterFrequencySlider" min="0" max="22050" step="1" value="350" type="range"> <label>Detune</label> <input id="biquadFilterDetuneSlider" min="0" max="100" step="1" value="0" type="range"> <label>Q</label> <input id="biquadFilterQSlider" min="0.0001" max="1000" step="0.01" value="1" type="range"> <label>Type</label><select id="biquadFilterTypeSelector">
 <option selected="selected" value="lowpass">lowpass</option>
 <option value="highpass">highpass</option>
 <option value="bandpass">bandpass</option>
@@ -460,47 +460,47 @@ Multiple filters are often used together. We will make a multi band equalizer in
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> <g class="gr_ gr_195 gr-alert gr_spell gr_run_anim ContextualSpelling ins-del multiReplace" id="195" data-gr-id="195">ctx</g> </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="typ">AudioContext</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">webkitAudioContext</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> audioContext </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> <g class="gr_ gr_196 gr-alert gr_spell gr_run_anim ContextualSpelling ins-del multiReplace" id="196" data-gr-id="196">ctx</g></span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="com">/* BiquadFilterNode */</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> biquadExample </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#biquadExample'</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> biquadFilterFrequencySlider </span><span class="pun">=</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#biquadFilterFrequencySlider'</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> biquadFilterDetuneSlider </span><span class="pun">=</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#biquadFilterDetuneSlider'</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> biquadFilterQSlider </span><span class="pun">=</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#biquadFilterQSlider'</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> biquadFilterTypeSelector </span><span class="pun">=</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#biquadFilterTypeSelector'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> biquadExampleMediaElementSource </span><span class="pun">=</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">biquadExample</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> filterNode </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createBiquadFilter</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">biquadExampleMediaElementSource</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">filterNode</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">filterNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">biquadFilterFrequencySlider</span><span class="pun">.</span><span class="pln">oninput </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">){</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;filterNode</span><span class="pun">.</span><span class="pln">frequency</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> parseFloat</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">biquadFilterDetuneSlider</span><span class="pun">.</span><span class="pln">oninput </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">){</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;filterNode</span><span class="pun">.</span><span class="pln">detune</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> parseFloat</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">biquadFilterQSlider</span><span class="pun">.</span><span class="pln">oninput </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">){</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;filterNode</span><span class="pun">.</span><span class="pln">Q</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> parseFloat</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">biquadFilterTypeSelector</span><span class="pun">.</span><span class="pln">onchange </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">){</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; filterNode</span><span class="pun">.</span><span class="pln">type </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span>;</li>
+<div><ol>
+<li value="1">var <g id="195" data-gr-id="195">ctx</g> = window.AudioContext || window.webkitAudioContext;</li>
+<li>var audioContext = new <g id="196" data-gr-id="196">ctx</g>();</li>
+<li>&nbsp;</li>
+<li>/* BiquadFilterNode */</li>
+<li>&nbsp;</li>
+<li>var biquadExample = document.querySelector('#biquadExample');</li>
+<li>var biquadFilterFrequencySlider = </li>
+<li>&nbsp; &nbsp; &nbsp; document.querySelector('#biquadFilterFrequencySlider');</li>
+<li>var biquadFilterDetuneSlider = </li>
+<li>&nbsp; &nbsp; &nbsp; document.querySelector('#biquadFilterDetuneSlider');</li>
+<li>var biquadFilterQSlider = </li>
+<li>&nbsp; &nbsp; &nbsp; document.querySelector('#biquadFilterQSlider');</li>
+<li>var biquadFilterTypeSelector = </li>
+<li>&nbsp; &nbsp; &nbsp; document.querySelector('#biquadFilterTypeSelector');</li>
+<li>&nbsp;</li>
+<li>var biquadExampleMediaElementSource = </li>
+<li>&nbsp; &nbsp; &nbsp; audioContext.createMediaElementSource(biquadExample);</li>
+<li>&nbsp;</li>
+<li>var filterNode = audioContext.createBiquadFilter();</li>
+<li>&nbsp;</li>
+<li>biquadExampleMediaElementSource.connect(filterNode);</li>
+<li>&nbsp;</li>
+<li>filterNode.connect(audioContext.destination);</li>
+<li>&nbsp;</li>
+<li>biquadFilterFrequencySlider.oninput = function(evt){</li>
+<li>&nbsp; &nbsp;filterNode.frequency.value = parseFloat(evt.target.value);</li>
+<li>};</li>
+<li>&nbsp;</li>
+<li>biquadFilterDetuneSlider.oninput = function(evt){</li>
+<li>&nbsp; &nbsp;filterNode.detune.value = parseFloat(evt.target.value);</li>
+<li>};</li>
+<li>&nbsp;</li>
+<li>biquadFilterQSlider.oninput = function(evt){</li>
+<li>&nbsp; &nbsp;filterNode.Q.value = parseFloat(evt.target.value);</li>
+<li>};</li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li>biquadFilterTypeSelector.onchange = function(evt){</li>
+<li>&nbsp; &nbsp; filterNode.type = evt.target.value;</li>
+<li>};</li>
 </ol></div><br>
 
 #### Convolver Node
@@ -515,7 +515,7 @@ See the [Convolver node's documentation](https://developer.mozilla.org/en-US/doc
 
 [Local Demo](src/01e-example06.html)
 
-<p class="exampleHTML"><audio id="convolverPlayer" src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio> <br> <label for="convolverSlider">Reverb (Dry/Wet)</label> <input id="convolverSlider" min="0" max="1" step="0.1" value="0" type="range"></p>
+<p><audio id="convolverPlayer" src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio> <br> <label for="convolverSlider">Reverb (Dry/Wet)</label> <input id="convolverSlider" min="0" max="1" step="0.1" value="0" type="range"></p>
 
 > [From Wikipedia:](https://en.wikipedia.org/wiki/Convolution) a convolution is a mathematical process which can be applied to an audio signal to achieve many interesting high-quality linear effects. Very often, the effect is used to simulate an acoustic space such as a concert hall, cathedral, or outdoor amphitheater. It can also be used for complex filter effects, like a muffled sound coming from inside a closet, sound underwater, sound coming through a telephone, or playing through a vintage speaker cabinet. This technique is very commonly used in major motion picture and music production and is considered to be extremely versatile and of high quality.
 
@@ -535,41 +535,41 @@ Try [this demo](https://webaudioapi.com/samples/room-effects/) to see the differ
 
 So before building the audio graph, we need to download the impulse. For this, we use an Ajax request (this will be detailed during Module 3), but for the moment, just take this function as it is... The Web Audio API requires that impulse files should be decoded in memory before use. Accordingly, once the requested file has downloaded, we call the `decodeAudioData` method. Once the impulse is decoded, we can build the graph. So typical use is as follows:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> impulseURL </span><span class="pun">=</span><span class="pln"> </span><span class="str">"https://mainline.i3s.unice.fr/mooc/Scala-Milan-Opera-Hall.wav"</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pun">var decodedImpulse;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> loadImpulse</span><span class="pun">(</span><span class="pln">impulseURL</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// we only get here&nbsp;once the impulse has finished</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// loading and is decoded</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;buildAudioGraphConvolver</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">});</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">...</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> loadImpulse</span><span class="pun">(</span><span class="pln">url</span><span class="pun">,</span><span class="pln"> callback</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ajaxRequest </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ajaxRequest</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'GET'</span><span class="pun">,</span><span class="pln"> url</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ajaxRequest</span><span class="pun">.</span><span class="pln">responseType </span><span class="pun">=</span><span class="pln"> </span><span class="str">'arraybuffer'</span><span class="pun">; // for binary transfer</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ajaxRequest</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; // The impulse has been loaded</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> impulseData </span><span class="pun">=</span><span class="pln"> ajaxRequest</span><span class="pun">.</span><span class="pln">response</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; // let's decode it.</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; audioContext</span><span class="pun">.</span><span class="pln">decodeAudioData</span><span class="pun">(</span><span class="pln">impulseData</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">buffer</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// The impulse has been decoded</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;decodedImpulse </span><span class="pun">=</span><span class="pln"> buffer</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Let's call the callback function, we're done!</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;callback</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">});</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ajaxRequest</span><span class="pun">.</span><span class="pln">onerror </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Error with loading&nbsp;audio data"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> e</span><span class="pun">.</span><span class="pln">err</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ajaxRequest</span><span class="pun">.</span><span class="pln">send</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">var impulseURL = "https://mainline.i3s.unice.fr/mooc/Scala-Milan-Opera-Hall.wav";</li>
+<li value="1">var decodedImpulse;</li>
+<li>...</li>
+<li> loadImpulse(impulseURL, function() {</li>
+<li>&nbsp; &nbsp;// we only get here&nbsp;once the impulse has finished</li>
+<li>&nbsp; &nbsp;// loading and is decoded</li>
+<li>&nbsp; &nbsp;buildAudioGraphConvolver();</li>
+<li>});</li>
+<li>&nbsp;</li>
+<li>...</li>
+<li>function loadImpulse(url, callback) {</li>
+<li> </li>
+<li>&nbsp; &nbsp;ajaxRequest = new XMLHttpRequest();</li>
+<li>&nbsp; &nbsp;ajaxRequest.open('GET', url, true);</li>
+<li>&nbsp; &nbsp;ajaxRequest.responseType = 'arraybuffer'; // for binary transfer</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;ajaxRequest.onload = function() {</li>
+<li>&nbsp; &nbsp; &nbsp; // The impulse has been loaded</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var impulseData = ajaxRequest.response;</li>
+<li>&nbsp; &nbsp; &nbsp; // let's decode it.</li>
+<li>&nbsp; &nbsp; &nbsp; audioContext.decodeAudioData(impulseData, function(buffer) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// The impulse has been decoded</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;decodedImpulse = buffer;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Let's call the callback function, we're done!</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;callback();</li>
+<li>&nbsp; &nbsp; &nbsp;});</li>
+<li>&nbsp; &nbsp;};</li>
+<li> </li>
+<li>&nbsp; &nbsp;ajaxRequest.onerror = function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp; console.log("Error with loading&nbsp;audio data" + e.err);</li>
+<li>&nbsp; &nbsp;};</li>
+<li> </li>
+<li>&nbsp; &nbsp;ajaxRequest.send();</li>
+<li>}</li>
 </ol></div><br>
 
 Now let's consider the function which builds the graph. In order to set the quantity of reverb we would like to apply, we need two separate routes for the signal:
@@ -592,31 +592,31 @@ The audio graph will look like this (picture taken with the now discontinued Fir
 
 And here is the function which builds the graph:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> buildAudioGraphConvolver</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// create&nbsp;the nodes</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> source </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">playerConvolver</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>convolverNode </strong></span><strong><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createConvolver</span><span class="pun">();</span></strong></li>
-<li class="L3" style="margin-bottom: 0px;"><strong><span class="pun">&nbsp; // Set the buffer property of the convolver node with the decoded impulse</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; convolverNode</span><span class="pun">.</span><span class="pln">buffer </span><span class="pun">=</span><span class="pln"> decodedImpulse</span><span class="pun">;</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; convolverGain </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createGain</span><span class="pun">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; convolverGain</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; directGain </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createGain</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; directGain</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// direct/dry route source -&gt; directGain -&gt; destination</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; source</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">directGain</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; directGain</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// wet route with convolver: source -&gt; convolver </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// -&gt; convolverGain -&gt; destination</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; source</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">convolverNode</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; convolverNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">convolverGain</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; convolverGain</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function buildAudioGraphConvolver() {</li>
+<li>&nbsp;&nbsp;// create&nbsp;the nodes</li>
+<li>&nbsp;&nbsp;var source = audioContext.createMediaElementSource(playerConvolver);</li>
+<li>&nbsp; <strong>convolverNode </strong><strong>= audioContext.createConvolver();</strong></li>
+<li><strong>&nbsp; // Set the buffer property of the convolver node with the decoded impulse</strong></li>
+<li><strong>&nbsp; convolverNode.buffer = decodedImpulse;</strong></li>
+<li> </li>
+<li>&nbsp; convolverGain = audioContext.createGain();</li>
+<li>&nbsp; convolverGain.gain.value = 0;</li>
+<li> </li>
+<li>&nbsp; directGain = audioContext.createGain();</li>
+<li>&nbsp; directGain.gain.value = 1;</li>
+<li> </li>
+<li> </li>
+<li>&nbsp; // direct/dry route source -&gt; directGain -&gt; destination</li>
+<li>&nbsp; source.connect(directGain);</li>
+<li>&nbsp; directGain.connect(audioContext.destination);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// wet route with convolver: source -&gt; convolver </li>
+<li>&nbsp;&nbsp;// -&gt; convolverGain -&gt; destination</li>
+<li>&nbsp; source.connect(convolverNode);</li>
+<li>&nbsp; convolverNode.connect(convolverGain);</li>
+<li>&nbsp; convolverGain.connect(audioContext.destination);</li>
+<li>}</li>
 </ol></div><br>
 
 Note that at line 6 we use the decoded impulse. We could not have done this before the impulse was loaded and decoded.
@@ -632,7 +632,7 @@ It's usually a good idea to insert a compressor in your audio graph to give a lo
 
 [Local Demo](src/01e-example07.html)
 
-<p class="exampleHTML"><audio id="compressorExample" src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio> <br> <label for="gainSlider1">Gain</label> <input id="gainSlider1" min="0" max="10" step="0.01" value="8" type="range"> <button id="compressorButton">Turn compressor On</button></p>
+<p><audio id="compressorExample" src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3" loop="loop" controls="controls" crossorigin="anonymous"></audio> <br> <label for="gainSlider1">Gain</label> <input id="gainSlider1" min="0" max="10" step="0.01" value="8" type="range"> <button id="compressorButton">Turn compressor On</button></p>
 
 In this example we set the gain to a very high value that will make a saturated sound. To prevent clipping, it is sufficient to add a compressor right at the end of the graph! Here we use the compressor with all default settings.
 
@@ -652,78 +652,78 @@ Audio graph with the compressor activated (picture taken with the now discontinu
 
 Extract of the HTML code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;audio</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; id</span><span class="pun">=</span><span class="atv">"compressorExample"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">loop</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;&lt;/audio&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;br&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"gainSlider1"</span><span class="tag">&gt;</span><span class="pln">Gain</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"10"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"0.01"</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; <strong>value</strong></span><strong><span class="pun">=</span><span class="atv">"8"</span></strong><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"gainSlider1"</span><span class="pln"> </span><span class="tag">/&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"compressorButton"</span><span class="tag">&gt;</span><span class="pln">Turn compressor On</span><span class="tag">&lt;/button&gt;</span></li>
+<div><ol>
+<li value="1"> &lt;audio src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3" </li>
+<li value="1">&nbsp; &nbsp; &nbsp; &nbsp; id="compressorExample" controls loop </li>
+<li value="1">&nbsp; &nbsp; &nbsp; &nbsp; crossorigin="anonymous"&gt;&lt;/audio&gt;</li>
+<li> &lt;br&gt;</li>
+<li> &lt;label for="gainSlider1"&gt;Gain&lt;/label&gt;</li>
+<li> &lt;input type="range" min="0" max="10" step="0.01" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; <strong>value</strong><strong>="8"</strong> id="gainSlider1" /&gt;</li>
+<li> &lt;button id="compressorButton"&gt;Turn compressor On&lt;/button&gt;</li>
 </ol></div><br>
 
 JavaScript source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// This line is a trick to initialize the AudioContext</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="com">// that will work on all recent browsers</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="typ">AudioContext</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">webkitAudioContext</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> audioContext</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> compressorExemple</span><span class="pun">,</span><span class="pln"> gainSlider1</span><span class="pun">,</span><span class="pln"> gainNode1</span><span class="pun">,</span><span class="pln"> compressorNode</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> compressorButton</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> compressorOn </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// get the AudioContext</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; audioContext </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> ctx</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// the audio element</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; compressorExemple </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#compressorExample'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; gainSlider1 </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#gainSlider1'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// button for turning on/off the compressor</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; compressorButton </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#compressorButton'</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; buildAudioGraph</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// input listener on the gain slider</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; gainSlider1</span><span class="pun">.</span><span class="pln">oninput </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; gainNode1</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> evt</span><span class="pun">.</span><span class="pln">target</span><span class="pun">.</span><span class="pln">value</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">};</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; compressorButton</span><span class="pun">.</span><span class="pln">onclick </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">compressorOn</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// disconnect the compressor and make a </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// direct route from gain to destination</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; compressorNode</span><span class="pun">.</span><span class="pln">disconnect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gainNode1</span><span class="pun">.</span><span class="pln">disconnect</span><span class="pun">(</span><span class="pln">compressorNode</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gainNode1</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; compressorButton</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">"Turn compressor: On"</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><strong><span class="com">// compressor was off, we connect the gain to the compressor </span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// and the compressor to the destination</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gainNode1</span><span class="pun">.</span><span class="pln">disconnect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; gainNode1</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">compressorNode</span><span class="pun">);</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; compressorNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; compressorButton</span><span class="pun">.</span><span class="pln">innerHTML</span><span class="pun">=</span><span class="str">"Turn compressor: Off"</span><span class="pun">;</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;compressorOn </span><span class="pun">=</span><span class="pln"> </span><span class="pun">!</span><span class="pln">compressorOn</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> buildAudioGraph</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// create source and gain node</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> gainMediaElementSource </span><span class="pun">=</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">compressorExemple</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;gainNode1 </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createGain</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;gainNode1</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> parseFloat</span><span class="pun">(</span><span class="pln">gainSlider1</span><span class="pun">.</span><span class="pln">value</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// do not connect it yet</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>&nbsp;compressorNode </strong></span><strong><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createDynamicsCompressor</span><span class="pun">();</span><span class="pln">&nbsp;</span><span class="com">// connect nodes together</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;gainMediaElementSource</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">gainNode1</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;gainNode1</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">// This line is a trick to initialize the AudioContext</li>
+<li>// that will work on all recent browsers</li>
+<li>var ctx = window.AudioContext || window.webkitAudioContext;</li>
+<li>var audioContext;</li>
+<li>var compressorExemple, gainSlider1, gainNode1, compressorNode;</li>
+<li>var compressorButton;</li>
+<li>var compressorOn = false;</li>
+<li>&nbsp;</li>
+<li>window.onload = function() {</li>
+<li> </li>
+<li>&nbsp;&nbsp;// get the AudioContext</li>
+<li>&nbsp; audioContext = new ctx();</li>
+<li>&nbsp;</li>
+<li>&nbsp; // the audio element</li>
+<li>&nbsp; compressorExemple = document.querySelector('#compressorExample');</li>
+<li>&nbsp; gainSlider1 = document.querySelector('#gainSlider1');</li>
+<li>&nbsp;&nbsp;// button for turning on/off the compressor</li>
+<li>&nbsp; compressorButton = document.querySelector('#compressorButton');</li>
+<li> </li>
+<li>&nbsp; buildAudioGraph();</li>
+<li> </li>
+<li>&nbsp;&nbsp;// input listener on the gain slider</li>
+<li>&nbsp; gainSlider1.oninput = function(evt) {</li>
+<li>&nbsp; &nbsp; gainNode1.gain.value = evt.target.value;</li>
+<li>&nbsp;&nbsp;}; </li>
+<li> </li>
+<li>&nbsp; compressorButton.onclick = function(evt) {</li>
+<li>&nbsp; &nbsp; &nbsp;if(compressorOn) {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// disconnect the compressor and make a </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// direct route from gain to destination</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; compressorNode.disconnect(audioContext.destination);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; gainNode1.disconnect(compressorNode);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; gainNode1.connect(audioContext.destination);</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; compressorButton.innerHTML="Turn compressor: On";</li>
+<li>&nbsp; &nbsp; &nbsp;} else {</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>// compressor was off, we connect the gain to the compressor </strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// and the compressor to the destination</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; gainNode1.disconnect(audioContext.destination);</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; gainNode1.connect(compressorNode);</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; compressorNode.connect(audioContext.destination);</strong></li>
+<li><strong>&nbsp; &nbsp; &nbsp; &nbsp; compressorButton.innerHTML="Turn compressor: Off";</strong></li>
+<li>&nbsp; &nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp; &nbsp;compressorOn = !compressorOn;</li>
+<li>&nbsp; &nbsp;}; </li>
+<li>};</li>
+<li>&nbsp;</li>
+<li>function buildAudioGraph() {</li>
+<li>&nbsp; &nbsp;// create source and gain node</li>
+<li>&nbsp; &nbsp;var gainMediaElementSource = </li>
+<li>&nbsp; &nbsp; &nbsp; audioContext.createMediaElementSource(compressorExemple);</li>
+<li>&nbsp; &nbsp;gainNode1 = audioContext.createGain();</li>
+<li>&nbsp; &nbsp;gainNode1.gain.value = parseFloat(gainSlider1.value);</li>
+<li></li>
+<li>&nbsp; &nbsp;// do not connect it yet</li>
+<li>&nbsp; <strong>&nbsp;compressorNode </strong><strong>= audioContext.createDynamicsCompressor();&nbsp;// connect nodes together</strong></li>
+<li>&nbsp; &nbsp;gainMediaElementSource.connect(gainNode1);</li>
+<li>&nbsp; &nbsp;gainNode1.connect(audioContext.destination);</li>
+<li>}</li>
 </ol></div><br>
 
 
@@ -918,88 +918,88 @@ The definition says that:
 
 HTML code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;h2&gt;</span><span class="pln">Equalizer made with the Web Audio API</span><span class="tag">&lt;/h2&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"eq"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;audio</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"player"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="pln"> </span><span class="atn">loop</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/drums.mp3"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span style="color: #000000; line-height: 1.6;">&nbsp; &nbsp; &nbsp;Your browser does not support the audio tag.</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag">&nbsp; &lt;/audio&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;<br></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;label&gt;</span><span class="pln">60Hz</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"1"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"-30"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"30"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;oninput</span><span class="pun">=</span><span class="atv">"</span><span class="pln">changeGain</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;/input&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"gain0"</span><span class="tag">&gt;</span><span class="pln">0 dB</span><span class="tag">&lt;/output&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;/div&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag"></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;label&gt;</span><span class="pln">170Hz</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; value</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"1"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"-30"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"30"</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; oninput</span><span class="pun">=</span><span class="atv">"</span><span class="pln">changeGain</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;/input&gt;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp;&lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"gain1"</span><span class="tag">&gt;</span><span class="pln">0 dB</span><span class="tag">&lt;/output&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;/div&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="tag"></span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;label&gt;</span><span class="pln">350Hz</span><span class="tag">&lt;/label&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"range"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value</span><span class="pun">=</span><span class="atv">"0"</span><span class="pln"> </span><span class="atn">step</span><span class="pun">=</span><span class="atv">"1"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"-30"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"30"</span><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;oninput</span><span class="pun">=</span><span class="atv">"</span><span class="pln">changeGain</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">value</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">);</span><span class="atv">"</span><span class="tag">&gt;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;/input&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;output</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"gain2"</span><span class="tag">&gt;</span><span class="pln">0 dB</span><span class="tag">&lt;/output&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="tag">&lt;/div&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">...</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="tag">&lt;/div&gt;</span></li>
+<div><ol>
+<li value="1">&lt;h2&gt;Equalizer made with the Web Audio API&lt;/h2&gt;</li>
+<li>&nbsp;</li>
+<li>&lt;div class="eq"&gt;</li>
+<li>&nbsp;&nbsp;&lt;audio id="player" controls crossorigin="anonymous" loop&gt;</li>
+<li>&nbsp; &nbsp; &nbsp;&lt;source src="https://mainline.i3s.unice.fr/mooc/drums.mp3"&gt;</li>
+<li><span style="color: #000000; line-height: 1.6;">&nbsp; &nbsp; &nbsp;Your browser does not support the audio tag.</span></li>
+<li>&nbsp; &lt;/audio&gt;</li>
+<li></li>
+<li>&nbsp;&nbsp;&lt;div class="controls"&gt;<br></li>
+<li>&nbsp; &nbsp;&nbsp;&lt;label&gt;60Hz&lt;/label&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;input type="range" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value="0" step="1" min="-30" max="30" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;oninput="changeGain(this.value, 0);"&gt;</li>
+<li>&nbsp; &nbsp; &lt;/input&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;output id="gain0"&gt;0 dB&lt;/output&gt;</li>
+<li>&nbsp;&nbsp;&lt;/div&gt;</li>
+<li></li>
+<li>&nbsp;&nbsp;&lt;div class="controls"&gt;</li>
+<li>&nbsp; &nbsp;&lt;label&gt;170Hz&lt;/label&gt;</li>
+<li>&nbsp; &nbsp;&lt;input type="range" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; value="0" step="1" min="-30" max="30" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; oninput="changeGain(this.value, 1);"&gt;</li>
+<li>&nbsp; &nbsp;&lt;/input&gt;</li>
+<li>&nbsp; &nbsp;&lt;output id="gain1"&gt;0 dB&lt;/output&gt;</li>
+<li>&nbsp;&nbsp;&lt;/div&gt;</li>
+<li></li>
+<li>&nbsp;&nbsp;&lt;div class="controls"&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;label&gt;350Hz&lt;/label&gt;</li>
+<li>&nbsp; &nbsp;&nbsp;&lt;input type="range" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;value="0" step="1" min="-30" max="30" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;oninput="changeGain(this.value, 2);"&gt;</li>
+<li>&nbsp; &nbsp; &lt;/input&gt;</li>
+<li>&nbsp; &nbsp; &lt;output id="gain2"&gt;0 dB&lt;/output&gt;</li>
+<li>&nbsp;&nbsp;&lt;/div&gt;</li>
+<li>...</li>
+<li>&lt;/div&gt;</li>
 </ol></div><br>
 
 JavaScript code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">//Builds an equalizer with multiple <g class="gr_ gr_63 gr-alert gr_spell gr_run_anim ContextualSpelling ins-del multiReplace" id="63" data-gr-id="63">biquad</g> filters</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> ctx </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="typ">AudioContext</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">webkitAudioContext</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> context </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> ctx</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> mediaElement </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'player'</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> sourceNode </span><span class="pun">=</span><span class="pln"> context</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">mediaElement</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="com">// Creates the equalizer,&nbsp;comprised of&nbsp;a set of biquad filters</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> filters </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="com">// Set filters</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">[</span><span class="lit">60</span><span class="pun">,</span><span class="pln"> </span><span class="lit">170</span><span class="pun">,</span><span class="pln"> </span><span class="lit">350</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1000</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3500</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10000</span><span class="pun">].</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">freq</span><span class="pun">,</span><span class="pln"> i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> eq </span><span class="pun">=</span><span class="pln"> context</span><span class="pun">.</span><span class="pln">createBiquadFilter</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;eq</span><span class="pun">.</span><span class="pln">frequency</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> freq</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;eq</span><span class="pun">.</span><span class="pln">type </span><span class="pun">=</span><span class="pln"> </span><span class="str">"peaking"</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;eq</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;filters</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">eq</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">});</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="com">// Connects filters in&nbsp;sequence</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> sourceNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">filters</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd"></span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> filters</span><span class="pun">.</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;filters</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">filters</span><span class="pun">[</span><span class="pln">i</span><span class="pun">+</span><span class="lit">1</span><span class="pun">]);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="com">// Connects the last filter to the speakers</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">filters</span><span class="pun">[</span><span class="pln">filters</span><span class="pun">.</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">].</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">context</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">// Event listener called by the sliders</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> changeGain</span><span class="pun">(</span><span class="pln">sliderVal</span><span class="pun">,</span><span class="pln">nbFilter</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> value </span><span class="pun">=</span><span class="pln"> parseFloat</span><span class="pun">(</span><span class="pln">sliderVal</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; filters</span><span class="pun">[</span><span class="pln">nbFilter</span><span class="pun">].</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Updates output labels</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> output </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#gain"</span><span class="pun">+</span><span class="pln">nbFilter</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; output</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> value </span><span class="pun">+</span><span class="pln"> </span><span class="str">" dB"</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">//Builds an equalizer with multiple <g id="63" data-gr-id="63">biquad</g> filters</li>
+<li>&nbsp;</li>
+<li>var ctx = window.AudioContext || window.webkitAudioContext;</li>
+<li>var context = new ctx();</li>
+<li>&nbsp;</li>
+<li>var mediaElement = document.getElementById('player');</li>
+<li>var sourceNode = context.createMediaElementSource(mediaElement);</li>
+<li>&nbsp;</li>
+<li>// Creates the equalizer,&nbsp;comprised of&nbsp;a set of biquad filters</li>
+<li>&nbsp;</li>
+<li>var filters = [];</li>
+<li>&nbsp;</li>
+<li>// Set filters</li>
+<li>[60, 170, 350, 1000, 3500, 10000].forEach(function(freq, i) {</li>
+<li>&nbsp; &nbsp;var eq = context.createBiquadFilter();</li>
+<li>&nbsp; &nbsp;eq.frequency.value = freq;</li>
+<li>&nbsp; &nbsp;eq.type = "peaking";</li>
+<li>&nbsp; &nbsp;eq.gain.value = 0;</li>
+<li>&nbsp; &nbsp;filters.push(eq);</li>
+<li>});</li>
+<li>&nbsp;</li>
+<li>// Connects filters in&nbsp;sequence</li>
+<li> sourceNode.connect(filters[0]);</li>
+<li></li>
+<li>for(var i = 0; i &lt; filters.length - 1; i++) {</li>
+<li>&nbsp; &nbsp;filters[i].connect(filters[i+1]);</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>// Connects the last filter to the speakers</li>
+<li>filters[filters.length - 1].connect(context.destination);</li>
+<li>&nbsp;</li>
+<li>// Event listener called by the sliders</li>
+<li>function changeGain(sliderVal,nbFilter) {</li>
+<li>&nbsp; &nbsp;var value = parseFloat(sliderVal);</li>
+<li>&nbsp; filters[nbFilter].gain.value = value;</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Updates output labels</li>
+<li>&nbsp;&nbsp;var output = document.querySelector("#gain"+nbFilter);</li>
+<li>&nbsp; output.value = value + " dB";</li>
+<li>}</li>
 </ol></div><br>
 
 
@@ -1021,10 +1021,10 @@ __Example #2: equalizer with a `<video>` element__
 
 We cloned the previous example and simply changed the `<audio>...</audio>` part of the HTML code by:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"player"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"320"</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">"240"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">crossOrigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&nbsp; &nbsp; &lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.mp4"</span><span class="pln"> </span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/video&gt;</span></li>
+<div><ol>
+<li value="1">&lt;video id="player" width="320" height="240" controls crossOrigin="anonymous"&gt;</li>
+<li>&nbsp; &nbsp; &lt;source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.mp4" &gt;</li>
+<li>&lt;/video&gt;</li>
 </ol></div><br>
 
 And the example works in the same way, but this time with a video. Try moving the sliders to change the sound!
@@ -1048,8 +1048,8 @@ And the example works in the same way, but this time with a video. Try moving th
 + Example: audio/video equalizer
   + HTML snippet
     + audio element: `<audio id="player" controls crossorigin="anonymous" loop><source src="https://.../drums.mp3"></audio>`
-    + 60Hz gain slider: `<div class="controls"><label>60Hz</label><input type="range" value=0 step=1 min=-30 max=30 oninput="changeGain(this.value, 0);"></input><output id="gain0">0 dB</output></div>`
-    + 170Hz gain slider: `<div class="controls"><label>170Hz</label><input type="range" value=0 step=1 min=-30 max=30 oninput="changeGain(this.value, 1);"></input><output id="gain1">0 dB</output></div>`
+    + 60Hz gain slider: `<div><label>60Hz</label><input type="range" value=0 step=1 min=-30 max=30 oninput="changeGain(this.value, 0);"></input><output id="gain0">0 dB</output></div>`
+    + 170Hz gain slider: `<div><label>170Hz</label><input type="range" value=0 step=1 min=-30 max=30 oninput="changeGain(this.value, 1);"></input><output id="gain1">0 dB</output></div>`
     + ...
   + JavaScript snippet
     + create [audio context](#audioCtx)
@@ -1108,23 +1108,23 @@ First, select the audio context and the canvas context, then build the audio gra
 
 Typical operations to perform once the HTML page is loaded:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// get the audio context</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;audioContext</span><span class="pun">=</span><span class="pln"> ...</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// get the canvas, its graphic context...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvas </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myCanvas"</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;width </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;height </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;canvasContext </span><span class="pun">=</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// Build the audio graph with an analyser node at the end</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;buildAudioGraph</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// starts the animation at 60 frames/s</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;requestAnimationFrame</span><span class="pun">(</span><span class="pln">visualize</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">window.onload = function() {</li>
+<li>&nbsp; &nbsp;// get the audio context</li>
+<li>&nbsp; &nbsp;audioContext= ...;</li>
+<li> </li>
+<li>&nbsp; &nbsp;// get the canvas, its graphic context...</li>
+<li>&nbsp; &nbsp;canvas = document.querySelector("#myCanvas");</li>
+<li>&nbsp; &nbsp;width = canvas.width;</li>
+<li>&nbsp; &nbsp;height = canvas.height;</li>
+<li>&nbsp; &nbsp;canvasContext = canvas.getContext('2d');</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Build the audio graph with an analyser node at the end</li>
+<li>&nbsp; &nbsp;buildAudioGraph();</li>
+<li> </li>
+<li>&nbsp; &nbsp;// starts the animation at 60 frames/s</li>
+<li>&nbsp; &nbsp;requestAnimationFrame(visualize);</li>
+<li>};</li>
 </ol></div>
 
 
@@ -1136,32 +1136,32 @@ __Typical code for building the audio graph:__
 
 HTML code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;audio</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="atn">id</span><span class="pun">=</span><span class="atv">"player"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">loop</span><span class="pln"> </span><span class="atn">crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/audio&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">300</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">100</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
+<div><ol>
+<li value="1">&lt;audio src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3"</li>
+<li>&nbsp; &nbsp;&nbsp;id="player" controls loop crossorigin="anonymous"&gt;</li>
+<li>&lt;/audio&gt;</li>
+<li>&lt;canvas id="myCanvas" width=300 height=100&gt;&lt;/canvas&gt;</li>
 </ol></div><br>
 
 JavaScript code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> buildAudioGraph</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> mediaElement </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'player'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> sourceNode </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">mediaElement</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="com">// Create an analyser node</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;analyser </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createAnalyser</span><span class="pun">();</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"> </span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="com">//&nbsp;set visualizer options, for lower precision change 1024 to 512,</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; &nbsp;// 256, 128, 64 etc. bufferLength will be equal to fftSize/2</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;analyser</span><span class="pun">.</span><span class="pln">fftSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1024</span><span class="pun">;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;bufferLength </span><span class="pun">=</span><span class="pln"> analyser</span><span class="pun">.</span><span class="pln">frequencyBinCount</span><span class="pun">;</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;dataArray </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Uint8Array</span><span class="pun">(</span><span class="pln">bufferLength</span><span class="pun">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln"> </span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;sourceNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">analyser</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;analyser</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function buildAudioGraph() {</li>
+<li>&nbsp; &nbsp;var mediaElement = document.getElementById('player');</li>
+<li>&nbsp; &nbsp;var sourceNode = audioContext.createMediaElementSource(mediaElement);</li>
+<li> </li>
+<li><strong>&nbsp; &nbsp;// Create an analyser node</strong></li>
+<li><strong>&nbsp; &nbsp;analyser = audioContext.createAnalyser();</strong></li>
+<li><strong> </strong></li>
+<li><strong>&nbsp; &nbsp;//&nbsp;set visualizer options, for lower precision change 1024 to 512,</strong></li>
+<li><strong>&nbsp; &nbsp;// 256, 128, 64 etc. bufferLength will be equal to fftSize/2</strong></li>
+<li><strong>&nbsp; &nbsp;analyser.fftSize = 1024;</strong></li>
+<li><strong>&nbsp; &nbsp;bufferLength = analyser.frequencyBinCount;</strong></li>
+<li><strong>&nbsp; &nbsp;dataArray = new Uint8Array(bufferLength);</strong></li>
+<li><strong> </strong></li>
+<li>&nbsp; &nbsp;sourceNode.connect(analyser);</li>
+<li>&nbsp; &nbsp;analyser.connect(audioContext.destination);</li>
+<li>}</li>
 </ol></div><br>
 
 With the exception of _lines 8-12_, where we set the analyser options (explained later), we build the following graph (picture taken with the now discontinued FireFox WebAudio debugger, you should get similar results with the Chrome WebAudio Inspector extension):
@@ -1181,10 +1181,10 @@ __Step #2: write the animation loop__
 
 The visualization itself depends on the options which we set for the analyser node. In this case we set the FFT size to 1024 (FFT is a kind of accuracy setting: the bigger the value, the more accurate the analysis will be. 1024 is common for visualizing waveforms, while lower values are preferred for visualizing frequencies). Here is what we set in this example:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> analyser</span><span class="pun">.</span><span class="pln">fftSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1024</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> bufferLength </span><span class="pun">=</span><span class="pln"> analyser</span><span class="pun">.</span><span class="pln">frequencyBinCount</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> dataArray </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Uint8Array</span><span class="pun">(</span><span class="pln">bufferLength</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1"> analyser.fftSize = 1024;</li>
+<li> bufferLength = analyser.frequencyBinCount;</li>
+<li> dataArray = new Uint8Array(bufferLength);</li>
 </ol></div><br>
 
 + _Line 2_: we set the size of the FFT,
@@ -1194,54 +1194,54 @@ When we build the graph, these parameters are set - effectively as constants, to
 
 Here is the code that is run 60 times per second to draw the waveform:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> visualize</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// 1 - clear the canvas</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// like this: canvasContext.clearRect(0, 0, width, height);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Or use rgba fill to give a slight blur effect</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">fillStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'rgba(0, 0, 0, 0.5)'</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="com">// 2 - Get the analyser data - for waveforms we need time domain data</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; analyser</span><span class="pun">.</span><span class="pln">getByteTimeDomainData</span><span class="pun">(</span><span class="pln">dataArray</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; // 3 - draws the waveform</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">lineWidth </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">strokeStyle </span><span class="pun">=</span><span class="pln"> </span><span class="str">'lightBlue'</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// the waveform is in one single path, first let's</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// clear any previous path that could be in the buffer</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">beginPath</span><span class="pun">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> sliceWidth </span><span class="pun">=</span><span class="pln"> width </span><span class="pun">/</span><span class="pln"> bufferLength</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> bufferLength</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // dataArray values are between 0 and 255,</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; //&nbsp;normalize v, now between 0 and 1</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> v </span><span class="pun">=</span><span class="pln"> dataArray</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> 255</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // y will be in [0, canvas height], in pixels</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> y </span><span class="pun">=</span><span class="pln"> v </span><span class="pun">*</span><span class="pln"> height</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">i </span><span class="pun">===</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; canvasContext</span><span class="pun">.</span><span class="pln">moveTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; canvasContext</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; x </span><span class="pun">+=</span><span class="pln"> sliceWidth</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">lineTo</span><span class="pun">(</span><span class="pln">canvas</span><span class="pun">.</span><span class="pln">width</span><span class="pun">,</span><span class="pln"> canvas</span><span class="pun">.</span><span class="pln">height</span><span class="pun">/</span><span class="lit">2</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// draw the path at once</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">stroke</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// once again call the visualize function at 60 frames/s</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">visualize</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
+<div><ol>
+<li value="1">function visualize() {</li>
+<li>&nbsp;&nbsp;// 1 - clear the canvas</li>
+<li>&nbsp;&nbsp;// like this: canvasContext.clearRect(0, 0, width, height);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Or use rgba fill to give a slight blur effect</li>
+<li>&nbsp; canvasContext.fillStyle = 'rgba(0, 0, 0, 0.5)';</li>
+<li>&nbsp; canvasContext.fillRect(0, 0, width, height);</li>
+<li> </li>
+<li><strong>&nbsp;&nbsp;// 2 - Get the analyser data - for waveforms we need time domain data</strong></li>
+<li><strong>&nbsp; analyser.getByteTimeDomainData(dataArray);</strong></li>
+<li>&nbsp;</li>
+<li>&nbsp; // 3 - draws the waveform</li>
+<li>&nbsp; canvasContext.lineWidth = 2;</li>
+<li>&nbsp; canvasContext.strokeStyle = 'lightBlue';</li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;// the waveform is in one single path, first let's</li>
+<li>&nbsp;&nbsp;// clear any previous path that could be in the buffer</li>
+<li>&nbsp; canvasContext.beginPath();</li>
+<li> </li>
+<li>&nbsp;&nbsp;var sliceWidth = width / bufferLength;</li>
+<li>&nbsp;&nbsp;var x = 0;</li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;for(var i = 0; i &lt; bufferLength; i++) {</li>
+<li>&nbsp; &nbsp; // dataArray values are between 0 and 255,</li>
+<li>&nbsp; &nbsp; //&nbsp;normalize v, now between 0 and 1</li>
+<li>&nbsp; &nbsp;&nbsp;var v = dataArray[i] / 255;</li>
+<li>&nbsp; &nbsp; // y will be in [0, canvas height], in pixels</li>
+<li>&nbsp; &nbsp;&nbsp;var y = v * height;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;if(i === 0) {</li>
+<li>&nbsp; &nbsp; &nbsp; canvasContext.moveTo(x, y);</li>
+<li>&nbsp; &nbsp; } else {</li>
+<li>&nbsp; &nbsp; &nbsp; canvasContext.lineTo(x, y);</li>
+<li>&nbsp; &nbsp;&nbsp;}</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; x += sliceWidth;</li>
+<li>&nbsp;&nbsp;}</li>
+<li>&nbsp;</li>
+<li>&nbsp; canvasContext.lineTo(canvas.width, canvas.height/2);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// draw the path at once</li>
+<li>&nbsp; canvasContext.stroke(); </li>
+<li> </li>
+<li>&nbsp;&nbsp;// once again call the visualize function at 60 frames/s</li>
+<li>&nbsp; requestAnimationFrame(visualize);</li>
+<li>}</li>
+<li> </li>
 </ol></div><br>
 
 __Explanations:__
@@ -1379,58 +1379,58 @@ Enough said! Let's study some extracts from the source code.
 
 This code is very similar to the first example given at the top of this page. We've set the FFT size to a lower value, and rewritten the animation loop to plot frequency bars instead of a waveform:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> buildAudioGraph</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;">&nbsp; ...</li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Create an analyser node</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyser </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createAnalyser</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="com">// Try changing to lower values: 512, 256, 128, 64...</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; // Lower values are good for frequency visualizations, </span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; // try 128, 64 etc.?&nbsp;</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; analyser</span><span class="pun">.</span><span class="pln">fftSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">256</span><span class="pun">;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;...</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function buildAudioGraph() {</li>
+<li>&nbsp; ...</li>
+<li>&nbsp;&nbsp;// Create an analyser node</li>
+<li>&nbsp; analyser = audioContext.createAnalyser();</li>
+<li> </li>
+<li><strong>&nbsp;&nbsp;// Try changing to lower values: 512, 256, 128, 64...</strong></li>
+<li><strong>&nbsp; // Lower values are good for frequency visualizations, </strong></li>
+<li><strong>&nbsp; // try 128, 64 etc.?&nbsp;</strong></li>
+<li><strong>&nbsp; analyser.fftSize = 256;</strong></li>
+<li><strong>&nbsp;&nbsp;...</strong></li>
+<li>}</li>
 </ol></div><br>
 
 This time, when building the audio graph, we have used a smaller FFT size. Values between 64 and 512 are very common here. Try them in the JSBin example! Apart from the lines in bold, this function is exactly the same as in the first example.
 
 The new visualization code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> visualize</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// clear the canvas</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="com">// Get the analyser data</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; analyser</span><span class="pun">.</span><span class="pln">getByteFrequencyData</span><span class="pun">(</span><span class="pln">dataArray</span><span class="pun">);</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> barWidth </span><span class="pun">=</span><span class="pln"> width </span><span class="pun">/</span><span class="pln"> bufferLength</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> barHeight</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// values go from 0 to 255 and the canvas heigt is 100. Let's rescale</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// before drawing. This is the scale factor</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; heightScale </span><span class="pun">=</span><span class="pln"> height</span><span class="pun">/</span><span class="lit">128</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> bufferLength</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // between 0 and 255</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; barHeight </span><span class="pun">=</span><span class="pln"> dataArray</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; // The color is red but lighter or darker depending on the value</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pln" style="line-height: 1.6;">canvasContext</span><span class="pun" style="line-height: 1.6;">.</span><span class="pln" style="line-height: 1.6;">fillStyle </span><span class="pun" style="line-height: 1.6;">=</span><span class="pln" style="line-height: 1.6;"> </span><span class="str" style="line-height: 1.6;">'rgb('</span><span class="pln" style="line-height: 1.6;"> </span><span class="pun" style="line-height: 1.6;">+</span><span class="pln" style="line-height: 1.6;"> </span><span class="pun" style="line-height: 1.6;">(</span><span class="pln" style="line-height: 1.6;">barHeight</span><span class="pun" style="line-height: 1.6;">+</span><span class="lit" style="line-height: 1.6;">100</span><span class="pun" style="line-height: 1.6;">)</span><span class="pln" style="line-height: 1.6;"> </span><span class="pun" style="line-height: 1.6;">+</span><span class="pln" style="line-height: 1.6;"> </span><span class="str" style="line-height: 1.6;">',50,50)'</span><span class="pun" style="line-height: 1.6;">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun" style="line-height: 1.6;">&nbsp; &nbsp; // scale from [0, 255] to the canvas height [0, height] pixels</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; barHeight </span><span class="pun">*=</span><span class="pln"> heightScale</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // draw the bar</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; canvasContext</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">-</span><span class="pln">barHeight</span><span class="pun">/</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> barWidth</span><span class="pun">,</span><span class="pln"> barHeight</span><span class="pun">/</span><span class="lit">2</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// 1 is the number of pixels between bars -&nbsp;you can change it</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; x </span><span class="pun">+=</span><span class="pln"> barWidth </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// once again call the visualize function at 60 frames/s</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">visualize</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function visualize() {</li>
+<li>&nbsp;&nbsp;// clear the canvas</li>
+<li>&nbsp; canvasContext.clearRect(0, 0, width, height);</li>
+<li> </li>
+<li><strong>&nbsp;&nbsp;// Get the analyser data</strong></li>
+<li><strong>&nbsp; analyser.getByteFrequencyData(dataArray);</strong></li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;var barWidth = width / bufferLength;</li>
+<li>&nbsp;&nbsp;var barHeight;</li>
+<li>&nbsp;&nbsp;var x = 0;</li>
+<li> </li>
+<li>&nbsp;&nbsp;// values go from 0 to 255 and the canvas heigt is 100. Let's rescale</li>
+<li>&nbsp;&nbsp;// before drawing. This is the scale factor</li>
+<li>&nbsp; heightScale = height/128;</li>
+<li> </li>
+<li>&nbsp;&nbsp;for(var i = 0; i &lt; bufferLength; i++) {</li>
+<li>&nbsp; &nbsp; // between 0 and 255</li>
+<li>&nbsp; &nbsp; barHeight = dataArray[i];</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp; // The color is red but lighter or darker depending on the value</li>
+<li>&nbsp; &nbsp;&nbsp;canvasContext.fillStyle = 'rgb(' + (barHeight+100) + ',50,50)';</li>
+<li>&nbsp; &nbsp; // scale from [0, 255] to the canvas height [0, height] pixels</li>
+<li>&nbsp; &nbsp; barHeight *= heightScale;</li>
+<li>&nbsp; &nbsp; // draw the bar</li>
+<li>&nbsp; &nbsp; canvasContext.fillRect(x, height-barHeight/2, barWidth, barHeight/2);</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;&nbsp;// 1 is the number of pixels between bars -&nbsp;you can change it</li>
+<li>&nbsp; &nbsp; x += barWidth + 1;</li>
+<li>&nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp;&nbsp;// once again call the visualize function at 60 frames/s</li>
+<li>&nbsp; requestAnimationFrame(visualize);</li>
+<li>}</li>
 </ol></div><br>
 
 __Explanations:__
@@ -1481,51 +1481,51 @@ And here is the audio graph for this example (picture taken with the now discont
 
 Source code from this example's the buildAudioGraph function:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> buildAudioGraph</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> mediaElement </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'player'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> sourceNode </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">mediaElement</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Create an analyser node</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyser </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createAnalyser</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// Try changing for lower values: 512, 256, 128, 64...</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyser</span><span class="pun">.</span><span class="pln">fftSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1024</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferLength </span><span class="pun">=</span><span class="pln"> analyser</span><span class="pun">.</span><span class="pln">frequencyBinCount</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; dataArray </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Uint8Array</span><span class="pun">(</span><span class="pln">bufferLength</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Create the equalizer, which comprises a set of biquad filters</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Set filters</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">[</span><span class="lit">60</span><span class="pun">,</span><span class="pln"> </span><span class="lit">170</span><span class="pun">,</span><span class="pln"> </span><span class="lit">350</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1000</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3500</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10000</span><span class="pun">].</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">freq</span><span class="pun">,</span><span class="pln"> i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> eq </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createBiquadFilter</span><span class="pun">();</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;eq</span><span class="pun">.</span><span class="pln">frequency</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> freq</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;eq</span><span class="pun">.</span><span class="pln">type </span><span class="pun">=</span><span class="pln"> </span><span class="str">"peaking"</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;eq</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;filters</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">eq</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">});</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Connect filters in&nbsp;sequence</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;sourceNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">filters</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> filters</span><span class="pun">.</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;filters</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">filters</span><span class="pun">[</span><span class="pln">i</span><span class="pun">+</span><span class="lit">1</span><span class="pun">]);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Master volume is a gain node</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;masterGain </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createGain</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;masterGain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"></span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Connect the last filter to the speakers</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;filters</span><span class="pun">[</span><span class="pln">filters</span><span class="pun">.</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">].</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">masterGain</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>&nbsp;</strong></span><strong><span class="com">// for stereo balancing, split the signal</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;stereoPanner </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createStereoPanner</span><span class="pun">();</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="com">// connect master volume output to the stereo panner</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;masterGain</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">stereoPanner</span><span class="pun">);</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Connect the stereo panner to analyser and analyser to destination</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;stereoPanner</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">analyser</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;analyser</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function buildAudioGraph() {</li>
+<li>&nbsp; &nbsp;var mediaElement = document.getElementById('player');</li>
+<li>&nbsp; &nbsp;var sourceNode = audioContext.createMediaElementSource(mediaElement);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Create an analyser node</li>
+<li>&nbsp; analyser = audioContext.createAnalyser();</li>
+<li> </li>
+<li>&nbsp; // Try changing for lower values: 512, 256, 128, 64...</li>
+<li>&nbsp; analyser.fftSize = 1024;</li>
+<li>&nbsp; bufferLength = analyser.frequencyBinCount;</li>
+<li>&nbsp; dataArray = new Uint8Array(bufferLength);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Create the equalizer, which comprises a set of biquad filters</li>
+<li>&nbsp;&nbsp;// Set filters</li>
+<li>&nbsp;&nbsp;[60, 170, 350, 1000, 3500, 10000].forEach(function(freq, i) {</li>
+<li>&nbsp; &nbsp; &nbsp;var eq = audioContext.createBiquadFilter();</li>
+<li>&nbsp; &nbsp; &nbsp;eq.frequency.value = freq;</li>
+<li>&nbsp; &nbsp; &nbsp;eq.type = "peaking";</li>
+<li>&nbsp; &nbsp; &nbsp;eq.gain.value = 0;</li>
+<li>&nbsp; &nbsp; &nbsp;filters.push(eq);</li>
+<li>&nbsp; &nbsp;});</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;// Connect filters in&nbsp;sequence</li>
+<li>&nbsp; &nbsp;sourceNode.connect(filters[0]);</li>
+<li>&nbsp; &nbsp;for(var i = 0; i &lt; filters.length - 1; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp;filters[i].connect(filters[i+1]);</li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Master volume is a gain node</li>
+<li>&nbsp; &nbsp;masterGain = audioContext.createGain();</li>
+<li>&nbsp; &nbsp;masterGain.value = 1;</li>
+<li></li>
+<li>&nbsp; &nbsp;// Connect the last filter to the speakers</li>
+<li>&nbsp; &nbsp;filters[filters.length - 1].connect(masterGain);</li>
+<li> </li>
+<li>&nbsp; <strong>&nbsp;</strong><strong>// for stereo balancing, split the signal</strong></li>
+<li><strong>&nbsp; &nbsp;stereoPanner = audioContext.createStereoPanner();</strong></li>
+<li><strong>&nbsp; &nbsp;// connect master volume output to the stereo panner</strong></li>
+<li><strong>&nbsp; &nbsp;masterGain.connect(stereoPanner);</strong></li>
+<li> </li>
+<li>&nbsp; &nbsp;// Connect the stereo panner to analyser and analyser to destination</li>
+<li>&nbsp; &nbsp;stereoPanner.connect(analyser); </li>
+<li>&nbsp; &nbsp;analyser.connect(audioContext.destination);</li>
+<li>}</li>
 </ol></div>
 
 
@@ -1569,7 +1569,7 @@ Source code from this example's the buildAudioGraph function:
 
 ### 1.5.7 Volume meters
 
-<p style="margin: 10px; border: 1px solid black; padding: 5px;"><span style="color: #ff0000;"><strong>Important note:</strong></span> the volume meter implementations below use rough approximations and cannot be taken as the most accurate way to compute an exact volume. See at the end of the page for some extra explanations, as well as links to better (and more complex) implementations.&nbsp;</p>
+<p style="margin: 10px; border: 1px solid black; padding: 5px;"><span style="color: #ff0000;"><strong>Important note:</strong> the volume meter implementations below use rough approximations and cannot be taken as the most accurate way to compute an exact volume. See at the end of the page for some extra explanations, as well as links to better (and more complex) implementations.&nbsp;</span></p>
 
 
 #### Volume Meter of Audio Player
@@ -1594,64 +1594,64 @@ In order to have a "volume meter" which traces upward/downward with the intensit
 
 Here are the two functions we will call from the animation loop:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> drawVolumeMeter</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; <strong>analyser</strong></span><strong><span class="pun">.</span><span class="pln">getByteFrequencyData</span><span class="pun">(</span><span class="pln">dataArray</span><span class="pun">);</span></strong></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> average </span><span class="pun">=</span><span class="pln"> getAverageVolume</span><span class="pun">(</span><span class="pln">dataArray</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// set the fill style to a nice gradient</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">gradient</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// draw the vertical meter</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln">height</span><span class="pun">-</span><span class="pln">average</span><span class="pun">,</span><span class="lit">25</span><span class="pun">,</span><span class="pln">height</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">restore</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> getAverageVolume</span><span class="pun">(</span><span class="pln">array</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> values </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> average</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> length </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// get all the frequency amplitudes</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; values </span><span class="pun">+=</span><span class="pln"> array</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; average </span><span class="pun">=</span><span class="pln"> values </span><span class="pun">/</span><span class="pln"> length</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">return</span><span class="pln"> average</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function drawVolumeMeter() {</li>
+<li>&nbsp; canvasContext.save();</li>
+<li> </li>
+<li>&nbsp; <strong>analyser</strong><strong>.getByteFrequencyData(dataArray);</strong></li>
+<li>&nbsp;&nbsp;var average = getAverageVolume(dataArray);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// set the fill style to a nice gradient</li>
+<li>&nbsp; canvasContext.fillStyle=gradient;</li>
+<li> </li>
+<li>&nbsp;&nbsp;// draw the vertical meter</li>
+<li>&nbsp; canvasContext.fillRect(0,height-average,25,height);</li>
+<li> </li>
+<li>&nbsp; canvasContext.restore();</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function getAverageVolume(array) {</li>
+<li>&nbsp;&nbsp;var values = 0;</li>
+<li>&nbsp;&nbsp;var average;</li>
+<li> </li>
+<li>&nbsp;&nbsp;var length = array.length;</li>
+<li> </li>
+<li>&nbsp;&nbsp;// get all the frequency amplitudes</li>
+<li>&nbsp;&nbsp;for (var i = 0; i &lt; length; i++) {</li>
+<li>&nbsp; &nbsp; values += array[i];</li>
+<li>&nbsp;&nbsp;}</li>
+<li> </li>
+<li>&nbsp; average = values / length;</li>
+<li>&nbsp;&nbsp;return average;</li>
+<li> }</li>
 </ol></div><br>
 
 Note that we are measuring intensity (_line 4_) and once the frequency analysis data is copied into the dataarray, we call the `getAverageVolume` function (_line 5_) to compute the average value which we will draw as the volume meter.
 
 This is how we create the gradient:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="com">// create a vertical gradient of the height of the canvas</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> gradient </span><span class="pun">=</span><span class="pln"> canvasContext</span><span class="pun">.</span><span class="pln">createLinearGradient</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> gradient</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="str">'#000000'</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> gradient</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0.75</span><span class="pun">,</span><span class="str">'#ff0000'</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> gradient</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0.25</span><span class="pun">,</span><span class="str">'#ffff00'</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> gradient</span><span class="pun">.</span><span class="pln">addColorStop</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="str">'#ffffff'</span><span class="pun">);</span></li>
+<div><ol>
+<li value="1"> // create a vertical gradient of the height of the canvas</li>
+<li> gradient = canvasContext.createLinearGradient(0,0,0, height);</li>
+<li> gradient.addColorStop(1,'#000000');</li>
+<li> gradient.addColorStop(0.75,'#ff0000');</li>
+<li> gradient.addColorStop(0.25,'#ffff00');</li>
+<li> gradient.addColorStop(0,'#ffffff');</li>
 </ol></div><br>
 
 And here is what the new animation loop looks like (for the sake of clarity, we have moved the code that draws the signal waveform to a separate function):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> visualize</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; clearCanvas</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; drawVolumeMeter</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; drawWaveform</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// call again the visualize function at 60 frames/s</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">visualize</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;">}</li>
+<div><ol>
+<li value="1">function visualize() {</li>
+<li> </li>
+<li>&nbsp; clearCanvas();</li>
+<li> </li>
+<li>&nbsp; drawVolumeMeter();</li>
+<li>&nbsp; drawWaveform();</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;// call again the visualize function at 60 frames/s</li>
+<li>&nbsp; requestAnimationFrame(visualize);</li>
+<li>}</li>
 </ol></div><br>
 
 Notice that we used the best practices seen in week 3 of the HTML5 part 1 course: we saved and restored the context in all functions that change something in the canvas context (see function `drawVolumeMeter` and `drawWaveForm` in the source code).
@@ -1703,86 +1703,86 @@ As you can see there are two routes: the one on top sends the output signal to t
 
 Source code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> buildAudioGraph</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> mediaElement </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'player'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> sourceNode </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">mediaElement</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong>&nbsp;</strong></span><strong>// connect the source node to a stereo panner</strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; stereoPanner </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createStereoPanner</span><span class="pun">();</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; sourceNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">stereoPanner</span><span class="pun">);</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"></li>
-<li class="L6" style="margin-bottom: 0px;">&nbsp; // Create an analyser node for the waveform</li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyser </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createAnalyser</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">//&nbsp;Use FFT value adapted to waveform drawing</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyser</span><span class="pun">.</span><span class="pln">fftSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1024</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferLength </span><span class="pun">=</span><span class="pln"> analyser</span><span class="pun">.</span><span class="pln">frequencyBinCount</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; dataArray </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Uint8Array</span><span class="pun">(</span><span class="pln">bufferLength</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Connect the stereo panner to the analyser</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; stereoPanner</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">analyser</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// and the analyser to the destination</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyser</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp;&nbsp;</span><span class="com">// End of route 1. &nbsp;W</span>e start another route from the</strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong>&nbsp; // stereoPanner node, with two analysers for the meters</strong></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// Two analysers for the stereo volume meters</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="com">&nbsp; // Here we use a small FFT value as we're gonna work with</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="com">&nbsp; // frequency analysis data</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyserLeft </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createAnalyser</span><span class="pun">();</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyserLeft</span><span class="pun">.</span><span class="pln">fftSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">256</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferLengthLeft </span><span class="pun">=</span><span class="pln"> analyserLeft</span><span class="pun">.</span><span class="pln">frequencyBinCount</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; dataArrayLeft </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Uint8Array</span><span class="pun">(</span><span class="pln">bufferLengthLeft</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyserRight </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createAnalyser</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyserRight</span><span class="pun">.</span><span class="pln">fftSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">256</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferLengthRight </span><span class="pun">=</span><span class="pln"> analyserRight</span><span class="pun">.</span><span class="pln">frequencyBinCount</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; dataArrayRight </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Uint8Array</span><span class="pun">(</span><span class="pln">bufferLengthRight</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;<strong> // Split the signal</strong></span></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; splitter </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createChannelSplitter</span><span class="pun">();</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Connect the stereo panner&nbsp;to the splitter node</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; stereoPanner</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">splitter</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Connect each&nbsp;of the outputs from the splitter to</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// the analysers</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; splitter</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">analyserLeft</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; splitter</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">analyserRight</span><span class="pun">,</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// No need to connect these analysers to something, the sound</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// is already connected through the route that goes through</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// the analyser used for the waveform</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function buildAudioGraph() {</li>
+<li>&nbsp;&nbsp;var mediaElement = document.getElementById('player');</li>
+<li>&nbsp;&nbsp;var sourceNode = audioContext.createMediaElementSource(mediaElement);</li>
+<li> </li>
+<li>&nbsp;<strong>&nbsp;</strong><strong>// connect the source node to a stereo panner</strong></li>
+<li><strong>&nbsp; stereoPanner = audioContext.createStereoPanner();</strong></li>
+<li><strong>&nbsp; sourceNode.connect(stereoPanner);</strong></li>
+<li></li>
+<li>&nbsp; // Create an analyser node for the waveform</li>
+<li>&nbsp; analyser = audioContext.createAnalyser();</li>
+<li> </li>
+<li>&nbsp; //&nbsp;Use FFT value adapted to waveform drawing</li>
+<li>&nbsp; analyser.fftSize = 1024;</li>
+<li>&nbsp; bufferLength = analyser.frequencyBinCount;</li>
+<li>&nbsp; dataArray = new Uint8Array(bufferLength);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Connect the stereo panner to the analyser</li>
+<li>&nbsp; stereoPanner.connect(analyser);</li>
+<li>&nbsp; &nbsp;// and the analyser to the destination</li>
+<li>&nbsp; analyser.connect(audioContext.destination);</li>
+<li> </li>
+<li><strong>&nbsp;&nbsp;// End of route 1. &nbsp;We start another route from the</strong></li>
+<li><strong>&nbsp; // stereoPanner node, with two analysers for the meters</strong></li>
+<li> </li>
+<li>&nbsp; // Two analysers for the stereo volume meters</li>
+<li>&nbsp; // Here we use a small FFT value as we're gonna work with</li>
+<li>&nbsp; // frequency analysis data</li>
+<li>&nbsp; analyserLeft = audioContext.createAnalyser();</li>
+<li>&nbsp; analyserLeft.fftSize = 256;</li>
+<li>&nbsp; bufferLengthLeft = analyserLeft.frequencyBinCount;</li>
+<li>&nbsp; dataArrayLeft = new Uint8Array(bufferLengthLeft);</li>
+<li> </li>
+<li>&nbsp; analyserRight = audioContext.createAnalyser();</li>
+<li>&nbsp; analyserRight.fftSize = 256;</li>
+<li>&nbsp; bufferLengthRight = analyserRight.frequencyBinCount;</li>
+<li>&nbsp; dataArrayRight = new Uint8Array(bufferLengthRight);</li>
+<li>&nbsp;</li>
+<li>&nbsp;<strong> // Split the signal</strong></li>
+<li><strong>&nbsp; splitter = audioContext.createChannelSplitter();</strong></li>
+<li> </li>
+<li>&nbsp;&nbsp;// Connect the stereo panner&nbsp;to the splitter node</li>
+<li>&nbsp; stereoPanner.connect(splitter);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// Connect each&nbsp;of the outputs from the splitter to</li>
+<li>&nbsp;&nbsp;// the analysers</li>
+<li>&nbsp; splitter.connect(analyserLeft,0,0);</li>
+<li>&nbsp; splitter.connect(analyserRight,1,0);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// No need to connect these analysers to something, the sound</li>
+<li>&nbsp;&nbsp;// is already connected through the route that goes through</li>
+<li>&nbsp;&nbsp;// the analyser used for the waveform</li>
+<li>}</li>
 </ol></div><br>
 
 And here is the new function for drawing the two volume meters:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> drawVolumeMeters</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">save</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// set the fill style to a nice gradient</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">fillStyle</span><span class="pun">=</span><span class="pln">gradient</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// left channel</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyserLeft</span><span class="pun">.</span><span class="pln">getByteFrequencyData</span><span class="pun">(</span><span class="pln">dataArrayLeft</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> averageLeft </span><span class="pun">=</span><span class="pln"> getAverageVolume</span><span class="pun">(</span><span class="pln">dataArrayLeft</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// draw the vertical meter for left channel</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln">height</span><span class="pun">-</span><span class="pln">averageLeft</span><span class="pun">,</span><span class="lit">25</span><span class="pun">,</span><span class="pln">height</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// right channel</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyserRight</span><span class="pun">.</span><span class="pln">getByteFrequencyData</span><span class="pun">(</span><span class="pln">dataArrayRight</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> averageRight </span><span class="pun">=</span><span class="pln"> getAverageVolume</span><span class="pun">(</span><span class="pln">dataArrayRight</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// draw the vertical meter for left channel</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; canvasContext</span><span class="pun">.</span><span class="pln">fillRect</span><span class="pun">(</span><span class="lit">26</span><span class="pun">,</span><span class="pln">height</span><span class="pun">-</span><span class="pln">averageRight</span><span class="pun">,</span><span class="lit">25</span><span class="pun">,</span><span class="pln">height</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pln" style="line-height: 1.6;">canvasContext</span><span class="pun" style="line-height: 1.6;">.</span><span class="pln" style="line-height: 1.6;">restore</span><span class="pun" style="line-height: 1.6;">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function drawVolumeMeters() {</li>
+<li>&nbsp; canvasContext.save();</li>
+<li> </li>
+<li>&nbsp; // set the fill style to a nice gradient</li>
+<li>&nbsp; canvasContext.fillStyle=gradient;</li>
+<li> </li>
+<li>&nbsp;&nbsp;// left channel</li>
+<li>&nbsp; analyserLeft.getByteFrequencyData(dataArrayLeft);</li>
+<li>&nbsp;&nbsp;var averageLeft = getAverageVolume(dataArrayLeft);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// draw the vertical meter for left channel</li>
+<li>&nbsp; canvasContext.fillRect(0,height-averageLeft,25,height);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// right channel</li>
+<li>&nbsp; analyserRight.getByteFrequencyData(dataArrayRight);</li>
+<li>&nbsp;&nbsp;var averageRight = getAverageVolume(dataArrayRight);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// draw the vertical meter for left channel</li>
+<li>&nbsp; canvasContext.fillRect(26,height-averageRight,25,height);</li>
+<li></li>
+<li>&nbsp;&nbsp;canvasContext.restore();</li>
+<li>}</li>
 </ol></div><br>
 
 The code is very similar to the previous one. We draw two rectangles side-by-side, corresponding to the two analyser nodes - instead of the single display in the previous example.
@@ -1989,78 +1989,78 @@ In this example, as soon as the page is loaded, we send an Ajax request to a rem
 
 Notice in the code that each time we click on the button, we rebuild the audio graph.
 
-<p class="exampleHTML" style="color: red; text-align: center;"><strong>This is because AudioBufferSourceNodes can be used only once!&nbsp;<br></strong><br>But don't worry, Web Audio is optimized for handling thousands of nodes...</p>
+<p style="color: red; text-align: center;"><strong>This is because AudioBufferSourceNodes can be used only once!&nbsp;<br></strong><br>But don't worry, Web Audio is optimized for handling thousands of nodes...</p>
 
 HTML code extract:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"playButton"</span><span class="pln"> </span><span class="atn">disabled</span><span class="pun">=</span><span class="atv">true</span><span class="tag">&gt;</span><span class="pln">Play sound</span><span class="tag">&lt;/button&gt;</span></li>
+<div><ol>
+<li value="1"> &lt;button id="playButton" disabled=true&gt;Play sound&lt;/button&gt;</li>
 </ol></div><br>
 
 JavaScript source code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> <g class="gr_ gr_136 gr-alert gr_spell gr_run_anim ContextualSpelling ins-del multiReplace" id="136" data-gr-id="136">ctx</g></span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> soundURL </span><span class="pun">=</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">'https://mainline.i3s.unice.fr/mooc/shoot2.mp3'</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> decodedSound</span><span class="pun">;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// The page has been loaded</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp; </span><span class="com">// To make it work even on browsers like Safari, that still</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// do not recognize the non prefixed version of AudioContext</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp;var</span><span class="pln"> audioContext </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="typ">AudioContext</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">webkitAudioContext</span><span class="pun">;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;ctx </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> audioContext</span><span class="pun">();</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;loadSoundUsingAjax</span><span class="pun">(</span><span class="pln">soundURL</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// By default the button is disabled, it will be</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// clickable only when the sound sample will be loaded</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;playButton</span><span class="pun">.</span><span class="pln">onclick </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; playSound</span><span class="pun">(</span><span class="pln">decodedSound</span><span class="pun">);</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> loadSoundUsingAjax</span><span class="pun">(</span><span class="pln">url</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> request </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;request</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'GET'</span><span class="pun">,</span><span class="pln"> url</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Important: we're loading binary data</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;request</span><span class="pun">.</span><span class="pln">responseType </span><span class="pun">=</span><span class="pln"> </span><span class="str">'arraybuffer'</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Decode asynchronously</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;request</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Sound loaded"</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="com">// Let's decode it. This is also asynchronous</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; ctx</span><span class="pun">.</span><span class="pln">decodeAudioData</span><span class="pun">(</span><span class="pln">request</span><span class="pun">.</span><span class="pln">response</span><span class="pun">,</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; function</span><span class="pun">(</span><span class="pln">buffer</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{ // success</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Sound decoded"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;decodedSound </span><span class="pun">=</span><span class="pln"> buffer</span><span class="pun">; &nbsp; &nbsp;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="com">// we enable the button</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;playButton</span><span class="pun">.</span><span class="pln">disabled </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="pun">},</span><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{ // error</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"error"</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; &nbsp; ); // end of decodeAudioData callback</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; </span><span class="pun">}; &nbsp; // end of the onload callback</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Send the request. When the file will be loaded,</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// the request.onload callback will be called (above)</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; request</span><span class="pun">.</span><span class="pln">send</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="kwd">function</span><span class="pln"> playSound</span><span class="pun">(</span><span class="pln">buffer</span><span class="pun">){</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pun">&nbsp; &nbsp; // builds the audio graph, then start playing the source</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> bufferSource </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createBufferSource</span><span class="pun">();</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; bufferSource</span><span class="pun">.</span><span class="pln">buffer </span><span class="pun">=</span><span class="pln"> buffer</span><span class="pun">;</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; bufferSource</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp; bufferSource</span><span class="pun">.</span><span class="pln">start</span><span class="pun">(); // remember, you can start() a source only once!</span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><strong><span class="pun">}</span></strong></li>
+<div><ol>
+<li value="1">var <g id="136" data-gr-id="136">ctx</g>;</li>
+<li>&nbsp;</li>
+<li>var soundURL = </li>
+<li> 'https://mainline.i3s.unice.fr/mooc/shoot2.mp3';</li>
+<li>var decodedSound;</li>
+<li>&nbsp;</li>
+<li>window.onload = function init() {</li>
+<li>&nbsp; &nbsp;// The page has been loaded</li>
+<li></li>
+<li>&nbsp;&nbsp; // To make it work even on browsers like Safari, that still</li>
+<li>&nbsp; &nbsp;// do not recognize the non prefixed version of AudioContext</li>
+<li>&nbsp; &nbsp;var audioContext = window.AudioContext || window.webkitAudioContext;</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;ctx = new audioContext();</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;loadSoundUsingAjax(soundURL);</li>
+<li> </li>
+<li>&nbsp; &nbsp;// By default the button is disabled, it will be</li>
+<li>&nbsp; &nbsp;// clickable only when the sound sample will be loaded</li>
+<li>&nbsp; &nbsp;playButton.onclick = function(evt) {</li>
+<li>&nbsp; &nbsp; &nbsp; playSound(decodedSound);</li>
+<li>&nbsp; &nbsp;};</li>
+<li>};</li>
+<li>&nbsp;</li>
+<li>function loadSoundUsingAjax(url) {</li>
+<li>&nbsp; &nbsp;var request = new XMLHttpRequest();</li>
+<li> </li>
+<li>&nbsp; &nbsp;request.open('GET', url, true);</li>
+<li>&nbsp; &nbsp;// Important: we're loading binary data</li>
+<li>&nbsp; &nbsp;request.responseType = 'arraybuffer';</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;// Decode asynchronously</li>
+<li>&nbsp; &nbsp;request.onload = function() {</li>
+<li>&nbsp; &nbsp; &nbsp; console.log("Sound loaded");</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;// Let's decode it. This is also asynchronous</li>
+<li>&nbsp; &nbsp; &nbsp; ctx.decodeAudioData(request.response, </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; function(buffer) { // success</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log("Sound decoded");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;decodedSound = buffer; &nbsp; &nbsp;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// we enable the button</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;playButton.disabled = false;</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;}, </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; function(e) { // error</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log("error");</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</li>
+<li>&nbsp; &nbsp; &nbsp; ); // end of decodeAudioData callback</li>
+<li>&nbsp; &nbsp; }; &nbsp; // end of the onload callback</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// Send the request. When the file will be loaded,</li>
+<li>&nbsp; &nbsp;&nbsp;// the request.onload callback will be called (above)</li>
+<li>&nbsp; &nbsp; request.send();</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li><strong>function playSound(buffer){</strong></li>
+<li><strong>&nbsp; &nbsp; // builds the audio graph, then start playing the source</strong></li>
+<li><strong>&nbsp; &nbsp;&nbsp;var bufferSource = ctx.createBufferSource();</strong></li>
+<li><strong>&nbsp; &nbsp; bufferSource.buffer = buffer;</strong></li>
+<li><strong>&nbsp; &nbsp; bufferSource.connect(ctx.destination);</strong></li>
+<li><strong>&nbsp; &nbsp; bufferSource.start(); // remember, you can start() a source only once!</strong></li>
+<li><strong>}</strong></li>
 </ol></div><br>
 
 __Explanations:__
@@ -2068,7 +2068,7 @@ __Explanations:__
 + When the page is loaded, we first call the `loadSoundUsingAjax` function for loading and decoding the sound sample (_line 16_), then we define a click listener for the play button. Loading and decoding the sound can take some time, so it's an asynchronous process. This means that the call to `loadSoundUsingAjax` will return while the downloading and decoding is still in progress. We can define a click listener on the button anyway, as it is disabled by default (see the HTML code). Once the sample has been loaded and decoded, only then will the button be enabled (_line 42_).
 + The `loadSoundUsingAjax` function will first create an `XmlHttpRequest` using the "new version of Ajax called XhR2" (described in detail during week 3). First we create the request (_lines 26-30_): notice the use of '`arrayBuffer`' as a `responseType` for the request. This has been introduced by Xhr2 and is necessary for binary file transfer. Then the request is sent (_line 52_).
 + Ajax is an asynchronous process: once the browser receives the requested file, the `request.onload` callback will be called (it is defined at _line 33_), and we can decode the file (an mp3, the content of which must be uncompressed in memory). This is done by calling `ctx.decodeAudioData(file, successCallback, errorCallback)`.  When the file is decoded, the success callback is called (_lines 38-43_). We store the decoded buffer in the variable decodedSound, and we enable the button.
-+ Now, when someone clicks on the button, the `playSound` function will be called (_lines 55-61_). This function builds a simple audio graph: it creates an `AudioBufferSourceNode` (_line 57_), sets its buffer property with the decoded sample, connects this source to the speakers (_line 59_) and plays the sound. <span style="color: pink;">Source nodes can only be used once (a "fire and forget" philosophy), so to play the sound again, we have to rebuild a source node and connect that to the destination. This seems strange when you learn Web Audio, but don't worry - it's a very fast operation, even with hundreds of nodes.</span>
++ Now, when someone clicks on the button, the `playSound` function will be called (_lines 55-61_). This function builds a simple audio graph: it creates an `AudioBufferSourceNode` (_line 57_), sets its buffer property with the decoded sample, connects this source to the speakers (_line 59_) and plays the sound. <span style="color: pink;">Source nodes can only be used once (a "fire and forget" philosophy), so to play the sound again, we have to rebuild a source node and connect that to the destination.</span> This seems strange when you learn Web Audio, but don't worry - it's a very fast operation, even with hundreds of nodes.
 
 
 #### The `BufferLoader` Utility
@@ -2079,11 +2079,11 @@ __The problem: AJax requests are asynchronous__
 
 The asynchronous aspect of Ajax has always been problematic for beginners. For example, if our applications use multiple sound samples and we need to be sure that all of them are loaded and decoded, using the code we presented in the earlier example will not work as is. We cannot call:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">loadSoundSample</span><span class="pun">(</span><span class="pln">urlOfSound1</span><span class="pun">);</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">loadSoundSample</span><span class="pun">(</span><span class="pln">urlOfSound2</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">loadSoundSample</span><span class="pun">(</span><span class="pln">urlOfSound3</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">etc</span><span class="pun">...</span></li>
+<div><ol>
+<li value="1">loadSoundSample(urlOfSound1);</li>
+<li>loadSoundSample(urlOfSound2);</li>
+<li>loadSoundSample(urlOfSound3);</li>
+<li>etc...</li>
 </ol></div><br>
 
 ... because we will never know exactly when all the sounds have finished being loaded and decoded. All these calls will run operations in the background yet return instantly.
@@ -2111,64 +2111,64 @@ There are different approaches for dealing with this problem. During the HTML5 C
 
 HTML code:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"shot1Normal"</span><span class="pln"> </span><span class="atn">disabled</span><span class="pun">=</span><span class="atv">true</span><span class="tag">&gt;</span><span class="pln">Shot 1</span><span class="tag">&lt;/button&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"shot2Normal"</span><span class="pln"> </span><span class="atn">disabled</span><span class="pun">=</span><span class="atv">true</span><span class="tag">&gt;</span><span class="pln">Shot 2</span><span class="tag">&lt;/button&gt;</span></li>
+<div><ol>
+<li value="1">&lt;button id="shot1Normal" disabled=true&gt;Shot 1&lt;/button&gt;</li>
+<li>&lt;button id="shot2Normal" disabled=true&gt;Shot 2&lt;/button&gt;</li>
 </ol></div><br>
 
 
 JavaScript code extract (does not contain the BufferLoader utility code):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> listOfSoundSamplesURLs </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">'https://mainline.i3s.unice.fr/mooc/shoot1.mp3'</span><span class="pun">,</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">'https://mainline.i3s.unice.fr/mooc/shoot2.mp3'</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">];</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// To make it work even on browsers like Safari, that still</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// do not recognize the non prefixed version of AudioContext</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="kwd">&nbsp; var</span><span class="pln"> audioContext </span><span class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span class="typ">AudioContext</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> window</span><span class="pun">.</span><span class="pln">webkitAudioContext</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; ctx </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> audioContext</span><span class="pun">();</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; loadAllSoundSamples</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> playSampleNormal</span><span class="pun">(</span><span class="pln">buffer</span><span class="pun">){</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">&nbsp; // builds the audio graph and play</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> bufferSource </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createBufferSource</span><span class="pun">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferSource</span><span class="pun">.</span><span class="pln">buffer </span><span class="pun">=</span><span class="pln"> buffer</span><span class="pun">;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferSource</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferSource</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> onSamplesDecoded</span><span class="pun">(</span><span class="pln">buffers</span><span class="pun">){</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"all samples loaded and decoded"</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// enables the buttons</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;shot1Normal</span><span class="pun">.</span><span class="pln">disabled</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;shot2Normal</span><span class="pun">.</span><span class="pln">disabled</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// creates the click listeners on the buttons</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;shot1Normal</span><span class="pun">.</span><span class="pln">onclick </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; playSampleNormal</span><span class="pun">(</span><span class="pln">buffers</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;shot2Normal</span><span class="pun">.</span><span class="pln">onclick </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">evt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; playSampleNormal</span><span class="pun">(</span><span class="pln">buffers</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">};</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> loadAllSoundSamples</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// onSamplesDecoded will be called when all samples </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// have been loaded and decoded, and the decoded sample will</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// be its only parameter (see function above)</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferLoader </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">BufferLoader</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">,&nbsp;</span><span class="pln" style="line-height: 1.6;">listOfSoundSamplesURLs</span><span class="pun" style="line-height: 1.6;">,</span><span style="color: #000000; line-height: 1.6; background-color: #ffffff;">onSamplesDecoded</span>);</li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// starts loading and decoding the files</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; bufferLoader</span><span class="pun">.</span><span class="pln">load</span><span class="pun">();</span><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">var listOfSoundSamplesURLs = [</li>
+<li> 'https://mainline.i3s.unice.fr/mooc/shoot1.mp3', </li>
+<li> 'https://mainline.i3s.unice.fr/mooc/shoot2.mp3'</li>
+<li>];</li>
+<li>&nbsp;</li>
+<li>window.onload = function init() {</li>
+<li>&nbsp; // To make it work even on browsers like Safari, that still</li>
+<li>&nbsp; // do not recognize the non prefixed version of AudioContext</li>
+<li>&nbsp; var audioContext = window.AudioContext || window.webkitAudioContext;</li>
+<li>&nbsp;</li>
+<li>&nbsp; ctx = new audioContext();</li>
+<li> </li>
+<li>&nbsp; loadAllSoundSamples();</li>
+<li>};</li>
+<li>&nbsp;</li>
+<li>function playSampleNormal(buffer){</li>
+<li>&nbsp; // builds the audio graph and play</li>
+<li>&nbsp;&nbsp;var bufferSource = ctx.createBufferSource();</li>
+<li>&nbsp; bufferSource.buffer = buffer;</li>
+<li>&nbsp; bufferSource.connect(ctx.destination);</li>
+<li>&nbsp; bufferSource.start();</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li>function onSamplesDecoded(buffers){</li>
+<li>&nbsp; &nbsp;console.log("all samples loaded and decoded");</li>
+<li>&nbsp; &nbsp;// enables the buttons</li>
+<li>&nbsp; &nbsp;shot1Normal.disabled=false;</li>
+<li>&nbsp; &nbsp;shot2Normal.disabled=false;</li>
+<li> </li>
+<li>&nbsp; &nbsp;// creates the click listeners on the buttons</li>
+<li>&nbsp; &nbsp;shot1Normal.onclick = function(evt) {</li>
+<li>&nbsp; &nbsp; &nbsp; playSampleNormal(buffers[0]);</li>
+<li>&nbsp; &nbsp;};</li>
+<li> </li>
+<li>&nbsp; &nbsp;shot2Normal.onclick = function(evt) {</li>
+<li>&nbsp; &nbsp; &nbsp; playSampleNormal(buffers[1]);</li>
+<li>&nbsp; &nbsp;};</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>function loadAllSoundSamples() {</li>
+<li>&nbsp;&nbsp;// onSamplesDecoded will be called when all samples </li>
+<li>&nbsp;&nbsp;// have been loaded and decoded, and the decoded sample will</li>
+<li>&nbsp;&nbsp;// be its only parameter (see function above)</li>
+<li>&nbsp; bufferLoader = new BufferLoader(ctx,&nbsp;listOfSoundSamplesURLs,<span style="color: #000000; line-height: 1.6; background-color: #ffffff;">onSamplesDecoded);</span></li>
+<li> </li>
+<li>&nbsp;&nbsp;// starts loading and decoding the files</li>
+<li>&nbsp; bufferLoader.load(); </li>
+<li>}</li>
 </ol></div><br>
 
 After the call to `loadAllSoundSamples()` (_line 13_), when all the sound sample files have been loaded and decoded, a callback will be initiated to `onSamplesDecoded(decodedSamples)`, located at _line 25_. The array of decoded samples is the  parameter of the `onSamplesDecoded` function.
@@ -2206,49 +2206,49 @@ In this example, we added a function (borrowed and adapted from this [article on
 
 Here is the source code of this function:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> makeSource</span><span class="pun">(</span><span class="pln">buffer</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// build graph source -&gt; gain -&gt; compressor -&gt; speakers</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// We use a compressor at the end to cut the part of the signal</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// that would make peaks</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="com">&nbsp; &nbsp;// create the nodes</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> source </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createBufferSource</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> compressor </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createDynamicsCompressor</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> gain </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">createGain</span><span class="pun">();</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// set their properties</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// Not all shots&nbsp;will have the same volume</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;gain</span><span class="pun">.</span><span class="pln">gain</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0.2</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">();</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;source</span><span class="pun">.</span><span class="pln">buffer </span><span class="pun">=</span><span class="pln"> buffer</span><span class="pun">;<br></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun"></span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp;// Build the graph</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;source</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">gain</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; gain</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">compressor</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; compressor</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">ctx</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln"> </span><span class="kwd">return</span><span class="pln"> source</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function makeSource(buffer) {</li>
+<li>&nbsp; &nbsp;// build graph source -&gt; gain -&gt; compressor -&gt; speakers</li>
+<li>&nbsp; &nbsp;// We use a compressor at the end to cut the part of the signal</li>
+<li>&nbsp; &nbsp;// that would make peaks</li>
+<li>&nbsp; &nbsp;// create the nodes</li>
+<li>&nbsp; &nbsp;var source = ctx.createBufferSource();</li>
+<li>&nbsp; &nbsp;var compressor = ctx.createDynamicsCompressor();</li>
+<li>&nbsp; &nbsp;var gain = ctx.createGain();</li>
+<li></li>
+<li>&nbsp; &nbsp;// set their properties</li>
+<li>&nbsp; &nbsp;// Not all shots&nbsp;will have the same volume</li>
+<li>&nbsp; &nbsp;gain.gain.value = 0.2 + Math.random();</li>
+<li></li>
+<li>&nbsp; &nbsp;source.buffer = buffer;<br></li>
+<li></li>
+<li>&nbsp; &nbsp;// Build the graph</li>
+<li>&nbsp; &nbsp;source.connect(gain);</li>
+<li>&nbsp; gain.connect(compressor);</li>
+<li>&nbsp; compressor.connect(ctx.destination);</li>
+<li> return source;</li>
+<li>}</li>
 </ol></div><br>
 
 And this is the function that plays different sounds in a row, eventually creating random time intervals between them and random pitch variations:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> playSampleRepeated</span><span class="pun">(</span><span class="pln">buffer</span><span class="pun">,</span><span class="pln"> rounds</span><span class="pun">,</span><span class="pln"> interval</span><span class="pun">,</span><span class="pln"> random</span><span class="pun">,</span><span class="pln"> random2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">typeof</span><span class="pln"> random </span><span class="pun">==</span><span class="pln"> </span><span class="str">'undefined'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; random </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">typeof</span><span class="pln"> random2 </span><span class="pun">==</span><span class="pln"> </span><span class="str">'undefined'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; random2 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">}</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> time </span><span class="pun">=</span><span class="pln"> ctx</span><span class="pun">.</span><span class="pln">currentTime</span><span class="pun">;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Make multiple sources using the same buffer and play in quick succession.</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> rounds</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> source </span><span class="pun">=</span><span class="pln"> makeSource</span><span class="pun">(</span><span class="pln">buffer</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; source</span><span class="pun">.</span><span class="pln">playbackRate</span><span class="pun">.</span><span class="pln">value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">()</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> random2</span><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; source</span><span class="pun">.</span><span class="pln">start</span><span class="pun">(</span><span class="pln">time </span><span class="pun">+</span><span class="pln"> i </span><span class="pun">*</span><span class="pln"> interval </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">()</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> random</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function playSampleRepeated(buffer, rounds, interval, random, random2) {</li>
+<li>&nbsp; &nbsp;if (typeof random == 'undefined') {</li>
+<li>&nbsp; &nbsp; &nbsp; random = 0;</li>
+<li>&nbsp; &nbsp;}</li>
+<li>&nbsp; &nbsp;if (typeof random2 == 'undefined') {</li>
+<li>&nbsp; &nbsp; &nbsp; random2 = 0;</li>
+<li>&nbsp; &nbsp;}</li>
+<li> </li>
+<li>&nbsp; &nbsp;var time = ctx.currentTime;</li>
+<li>&nbsp; &nbsp;// Make multiple sources using the same buffer and play in quick succession.</li>
+<li>&nbsp; &nbsp;for (var i = 0; i &lt; rounds; i++) {</li>
+<li>&nbsp; &nbsp; &nbsp;&nbsp;var source = makeSource(buffer);</li>
+<li>&nbsp; &nbsp; &nbsp; source.playbackRate.value = 1 + Math.random() * random2;</li>
+<li>&nbsp; &nbsp; &nbsp; source.start(time + i * interval + Math.random() * random);</li>
+<li>&nbsp;&nbsp;}&nbsp;</li>
+<li>}</li>
 </ol></div><br>
 
 __Explanations:__
