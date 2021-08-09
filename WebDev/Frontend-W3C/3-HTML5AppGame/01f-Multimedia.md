@@ -8,39 +8,39 @@ __Source code useful for answering the questions on this page__
 
 HTML:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="pln"> </span><span class="atn">preload</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">crossOrigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.mp4"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.webm"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English subtitles"</span><span class="pln"> </span><span class="atn">kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span><span class="atn">srclang</span><span class="pun">=</span><span class="atv">"en"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-en.vtt"</span><span class="pln"> </span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"Deutsch subtitles"</span><span class="pln"> </span><span class="atn">kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span><span class="atn">srclang</span><span class="pun">=</span><span class="atv">"de"</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-de.vtt"</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">default</span><span class="tag">&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English chapters"</span><span class="pln"> </span><span class="atn">kind</span><span class="pun">=</span><span class="atv">"chapters"</span><span class="pln"> </span><span class="atn">srclang</span><span class="pun">=</span><span class="atv">"en"</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/elephants-dream-chapters-en.vtt"</span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/video&gt;</span></li>
+<div><ol>
+<li value="1">&lt;video id="myVideo" preload="metadata" controls crossOrigin="anonymous"&gt;</li>
+<li> &lt;source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.mp4" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; type="video/mp4"&gt;</li>
+<li> &lt;source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.webm" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type="video/webm"&gt;</li>
+<li> &lt;track label="English subtitles" kind="subtitles" srclang="en"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;src="https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-en.vtt" &gt;</li>
+<li> &lt;track label="Deutsch subtitles" kind="subtitles" srclang="de"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;src="https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-de.vtt"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;default&gt;</li>
+<li> &lt;track label="English chapters" kind="chapters" srclang="en"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;src="https://mainline.i3s.unice.fr/mooc/elephants-dream-chapters-en.vtt"&gt;</li>
+<li> &lt;/video&gt;</li>
 </ol></div><br>
 
 JavaScript:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> video</span><span class="pun">,</span><span class="pln"> htmlTracks</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Called when the page has been loaded</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;video </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myVideo"</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// Get the tracks as HTML elements</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;htmlTracks </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelectorAll</span><span class="pun">(</span><span class="str">"track"</span><span class="pun">);</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> firstTrack </span><span class="pun">=</span><span class="pln"> htmlTracks</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// do something with this track...</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;// access properties etc.</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
+<div><ol>
+<li value="1">var video, htmlTracks;</li>
+<li>&nbsp;</li>
+<li>window.onload = function() {</li>
+<li>&nbsp; &nbsp;// Called when the page has been loaded</li>
+<li>&nbsp; &nbsp;video = document.querySelector("#myVideo");</li>
+<li> </li>
+<li>&nbsp; &nbsp;// Get the tracks as HTML elements</li>
+<li>&nbsp; &nbsp;htmlTracks = document.querySelectorAll("track");</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;var firstTrack = htmlTracks[0];</li>
+<li>&nbsp;</li>
+<li>&nbsp; &nbsp;// do something with this track...</li>
+<li>&nbsp; &nbsp;// access properties etc.</li>
+<li>};</li>
 </ol></div><br>
 
 [Local Code Snippet](src/01f-exercise01.html)
@@ -81,7 +81,7 @@ JavaScript:
   a. No, we can only read track content using a `TextTrack` object obtained, for example, with `firstTrack.track` in the source code given at the beginning of this page.<br>
   b. Yes, use `firstTrack.cues` which contains a list of cues for the track. Iterate over this list to access the individual cues.<br>
 
-  Ans: <span style="color: magenta">a</span>, xb<br>
+  Ans: <span style="color: magenta">a, xb<br>
   Explanation: No, cues can be obtained only from TextTrack objects, and the track should have been loaded in memory.
 
 
@@ -139,44 +139,44 @@ __Source code for the next questions (8 and 9)__
 
 HTML (same code as the one at the top of this page):
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;video</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myVideo"</span><span class="pln"> </span><span class="atn">preload</span><span class="pun">=</span><span class="atv">"metadata"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">crossOrigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.mp4"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; type</span><span class="pun">=</span><span class="atv">"video/mp4"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;source</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.webm"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="atn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type</span><span class="pun">=</span><span class="atv">"video/webm"</span><span class="tag">&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English subtitles"</span><span class="pln"> </span><span class="atn">kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span><span class="atn">srclang</span><span class="pun">=</span><span class="atv">"en"</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-en.vtt"</span><span class="pln"> </span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"Deutsch subtitles"</span><span class="pln"> </span><span class="atn">kind</span><span class="pun">=</span><span class="atv">"subtitles"</span><span class="pln"> </span><span class="atn">srclang</span><span class="pun">=</span><span class="atv">"de"</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-de.vtt"</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">default</span><span class="tag">&gt;</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;track</span><span class="pln"> </span><span class="atn">label</span><span class="pun">=</span><span class="atv">"English chapters"</span><span class="pln"> </span><span class="atn">kind</span><span class="pun">=</span><span class="atv">"chapters"</span><span class="pln"> </span><span class="atn">srclang</span><span class="pun">=</span><span class="atv">"en"</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/elephants-dream-chapters-en.vtt"</span><span class="tag">&gt;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span><span class="tag">&lt;/video&gt;</span></li>
+<div><ol>
+<li value="1">&lt;video id="myVideo" preload="metadata" controls crossOrigin="anonymous"&gt;</li>
+<li> &lt;source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.mp4" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; type="video/mp4"&gt;</li>
+<li> &lt;source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.webm" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type="video/webm"&gt;</li>
+<li> &lt;track label="English subtitles" kind="subtitles" srclang="en"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;src="https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-en.vtt" &gt;</li>
+<li> &lt;track label="Deutsch subtitles" kind="subtitles" srclang="de"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;src="https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-de.vtt"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;default&gt;</li>
+<li> &lt;track label="English chapters" kind="chapters" srclang="en"</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;src="https://mainline.i3s.unice.fr/mooc/elephants-dream-chapters-en.vtt"&gt;</li>
+<li> &lt;/video&gt;</li>
 </ol></div><br>
 
 JavaScript:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> video</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; video </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">"#myVideo"</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> firstTrack </span><span class="pun">=</span><span class="pln"> video</span><span class="pun">.</span><span class="pln">textTracks</span><span class="pun">[<span style="color: #006666;">0</span></span><span class="pun">];</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; readContent</span><span class="pun">(</span><span class="pln">firstTrack</span><span class="pun">);</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> readContent</span><span class="pun">(</span><span class="pln">track</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"adding cue change listener to loaded track..."</span><span class="pun">);</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; track</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">"cuechange"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> cue </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">activeCues</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">cue </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">)</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln"> </span><span class="str">"cue change: text = "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> cue</span><span class="pun">.</span><span class="pln">text</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;</span><span class="pun">});</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp;video</span><span class="pun">.</span><span class="pln">play</span><span class="pun">();</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
+<div><ol>
+<li value="1">var video;</li>
+<li>&nbsp;</li>
+<li>window.onload = function() {</li>
+<li>&nbsp; video = document.querySelector("#myVideo");</li>
+<li>&nbsp;&nbsp;var firstTrack = video.textTracks[<span style="color: #006666;">0</span>];</li>
+<li>&nbsp; readContent(firstTrack);</li>
+<li>};</li>
+<li>&nbsp;</li>
+<li>function readContent(track) {</li>
+<li>&nbsp; console.log("adding cue change listener to loaded track..."); </li>
+<li>&nbsp; track.addEventListener("cuechange", function(e) {</li>
+<li>&nbsp; &nbsp; &nbsp;var cue = this.activeCues[0];</li>
+<li>&nbsp; &nbsp; &nbsp;if(cue !== undefined)</li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp; console.log( "cue change: text = " + cue.text);</li>
+<li>&nbsp; &nbsp; &nbsp;});</li>
+<li> </li>
+<li>&nbsp; &nbsp; &nbsp;video.play();</li>
+<li>}</li>
+<li>&nbsp;</li>
 </ol></div><br>
 
 [Local Exercise Code](src/01f-exercise02.html)
@@ -190,7 +190,7 @@ JavaScript:
   b. It reports no errors, but no event is fired<br>
   c. In the console it displays the English subtitles in sync<br>
 
-  Ans: <span style="color: magenta">b</span>, xc<br>
+  Ans: <span style="color: magenta">b, xc<br>
   Explanation: The code is not best practice: verify that the track is loaded before working with it, accessing its content, etc. The first track does not have the default attribute, therefore it is not active nor hidden, it is disabled. It exists, but as it is not showing or hidden (and even not loaded, with some browsers), it will not fire any events while the video is playing. Try [this JSBin](https://jsbin.com/visegax/edit?html,js,console,output) with different browsers.
 
 
@@ -211,46 +211,46 @@ Source code for the next questions (10 and 11)
 
 HTML:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln">WEBVTT</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">chapter</span><span class="pun">-</span><span class="lit">1</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">00.000</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">26.000</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">{</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">"description"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Introduction"</span><span class="pun">,</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">"image"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"introduction.jpg"</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">chapter</span><span class="pun">-</span><span class="lit">2</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="lit">00</span><span class="pun">:</span><span class="lit">00</span><span class="pun">:</span><span class="lit">28.206</span><span class="pln"> </span><span class="pun">--&gt;</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">01</span><span class="pun">:</span><span class="lit">02.000</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">"description"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Watch out!"</span><span class="pun">,</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln"> </span><span class="str">"image"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"watchOut.jpg"</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
-<li class="L6" style="margin-bottom: 0px;">...</li>
+<div><ol>
+<li value="1">WEBVTT</li>
+<li>&nbsp;</li>
+<li>chapter-1</li>
+<li>00:00:00.000 --&gt; 00:00:26.000</li>
+<li>{</li>
+<li> "description": "Introduction",</li>
+<li> "image": "introduction.jpg"</li>
+<li>}</li>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
+<li>chapter-2</li>
+<li>00:00:28.206 --&gt; 00:01:02.000 </li>
+<li>{</li>
+<li> "description": "Watch out!",</li>
+<li> "image": "watchOut.jpg"</li>
+<li>}</li>
+<li>...</li>
 </ol></div><br>
 
 JavaScript:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="com">// Track is the TextTrack corresponding to the webVTT file.&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">//&nbsp;</span>We suppose it's been loaded</li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> displayChapters</span><span class="pun">(</span><span class="pln">track</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Get the list of cues for this track</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> cues </span><span class="pun">=</span><span class="pln"> track</span><span class="pun">.</span><span class="pln">cues</span><span class="pun">;</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// Iterate on cues</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> len </span><span class="pun">=</span><span class="pln"> cues</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> len</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pun">&nbsp; &nbsp; // current cue</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> cue </span><span class="pun">=</span><span class="pln"> cues</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="com">// Get the current cue as a JavaScript object</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> cueObject </span><span class="pun">=</span><span style="color: #ff0000;"><strong><span class="pln"> AAA</span></strong></span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> description </span><span class="pun">=</span><strong><span class="pln"> BBB</span></strong><span class="pun">;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;&nbsp;</span><span class="pun">...</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="pun">}</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">// Track is the TextTrack corresponding to the webVTT file.&nbsp;</li>
+<li>//&nbsp;We suppose it's been loaded</li>
+<li>function displayChapters(track) {</li>
+<li>&nbsp;&nbsp;// Get the list of cues for this track</li>
+<li>&nbsp;&nbsp;var cues = track.cues;</li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;// Iterate on cues</li>
+<li>&nbsp;&nbsp;for(var i=0, len = cues.length; i &lt; len; i++) {</li>
+<li>&nbsp; &nbsp; // current cue</li>
+<li>&nbsp; &nbsp;&nbsp;var cue = cues[i];</li>
+<li> </li>
+<li>&nbsp; &nbsp;&nbsp;// Get the current cue as a JavaScript object</li>
+<li>&nbsp; &nbsp;&nbsp;var cueObject =<span style="color: #ff0000;"><strong> AAA</strong></span>;</li>
+<li>&nbsp; &nbsp;&nbsp;var description =<strong> BBB</strong>;</li>
+<li>&nbsp; &nbsp;&nbsp;...</li>
+<li>&nbsp;&nbsp;}</li>
+<li>}</li>
 </ol></div><br>
 
 10. JSON and JavaScript objects
@@ -319,38 +319,38 @@ __Source code for the next questions (15 and 16)__
 
 HTML:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="pln"> </span><span class="tag">&lt;audio</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/drums.mp3"</span><span class="pln"> </span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">id</span><span class="pun">=</span><span class="atv">"player"</span><span class="pln"> </span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">controls</span><span class="pln"> </span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">loop</span><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="atn">crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="tag">&lt;/audio&gt;</span></li>
+<div><ol>
+<li value="1"> &lt;audio src="https://mainline.i3s.unice.fr/mooc/drums.mp3" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;id="player" </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;controls </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;loop </li>
+<li>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;crossorigin="anonymous"&gt;</li>
+<li>&lt;/audio&gt;</li>
 </ol></div><br>
 
 JavaScript:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">var</span><span class="pln"> audioContext</span><span class="pun">;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="kwd">var</span><span class="pln"> player</span><span class="pun">;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">window</span><span class="pun">.</span><span class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// get the AudioContext</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; audioContext </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">AudioContext</span><span class="pun">();</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// the audio element</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp; player </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">'#player'</span><span class="pun">);</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; buildAudioGraph</span><span class="pun">();</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pun">};</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="kwd">function</span><span class="pln"> buildAudioGraph</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// create source node with the audio element stream</span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="kwd">var</span><span class="pln"> source </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><strong><span class="pln">AAA</span></strong><span class="pun">(</span><span class="pln">player</span><span class="pun">);</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp;&nbsp;</span><span class="com">// connect source node to the speaker</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; source</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><strong><span class="pln">BBB</span></strong><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">var audioContext;</li>
+<li>var player;</li>
+<li>&nbsp;</li>
+<li>window.onload = function() {</li>
+<li>&nbsp;&nbsp;// get the AudioContext</li>
+<li>&nbsp; audioContext = new AudioContext();</li>
+<li>&nbsp;</li>
+<li>&nbsp;&nbsp;// the audio element</li>
+<li>&nbsp; player = document.querySelector('#player');</li>
+<li>&nbsp;</li>
+<li>&nbsp; buildAudioGraph();</li>
+<li>};</li>
+<li>&nbsp;</li>
+<li>function buildAudioGraph() {</li>
+<li>&nbsp;&nbsp;// create source node with the audio element stream</li>
+<li>&nbsp;&nbsp;var source = audioContext.<strong>AAA</strong>(player);</li>
+<li> </li>
+<li>&nbsp;&nbsp;// connect source node to the speaker</li>
+<li>&nbsp; source.connect(<strong>BBB</strong>);</li>
+<li>}</li>
 </ol></div><br>
 
 15. Use the source, Luke!
@@ -419,50 +419,50 @@ __Source code for the next 4 questions (21, 22, 23 and 24)__
 
 HTML:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="tag">&lt;audio</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3"</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"player"</span><span class="pln"> </span><span class="atn">controls</span><span class="pln"> </span><span class="atn">loop</span><span class="pln"> </span><span class="atn">crossorigin</span><span class="pun">=</span><span class="atv">"anonymous"</span><span class="tag">&gt;</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="tag">&lt;/audio&gt;</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="tag">&lt;canvas</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"myCanvas"</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">300</span><span class="pln"> </span><span class="atn">height</span><span class="pun">=</span><span class="atv">100</span><span class="tag">&gt;&lt;/canvas&gt;</span></li>
+<div><ol>
+<li value="1">&lt;audio src="https://mainline.i3s.unice.fr/mooc/guitarRiff1.mp3"</li>
+<li> id="player" controls loop crossorigin="anonymous"&gt;</li>
+<li>&lt;/audio&gt;</li>
+<li>&lt;canvas id="myCanvas" width=300 height=100&gt;&lt;/canvas&gt;</li>
 </ol></div><br>
 
 JavaScript:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> buildAudioGraph</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> mediaElement </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="str">'player'</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="kwd">var</span><span class="pln"> sourceNode </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createMediaElementSource</span><span class="pun">(</span><span class="pln">mediaElement</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L4" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="com">// Create an analyser node</span></strong></li>
-<li class="L5" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;analyser </span><span class="pun">=</span><span class="pln"> audioContext</span><span class="pun">.</span><span class="pln">createAnalyser</span><span class="pun">();</span></strong></li>
-<li class="L6" style="margin-bottom: 0px;"><strong><span class="pln"> </span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;</span><span class="com">// Set visualizer options, for lower precision change 1024 to 512,</span></strong></li>
-<li class="L7" style="margin-bottom: 0px;"><strong><span class="com">&nbsp; &nbsp;// 256, 128, 64 etc.</span></strong></li>
-<li class="L8" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;analyser</span><span class="pun">.</span><span class="pln">fftSize </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1024</span><span class="pun">;</span></strong></li>
-<li class="L9" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;bufferLength </span><span class="pun">=</span><span class="pln"> analyser</span><span class="pun">.</span><span class="pln">frequencyBinCount</span><span class="pun">;</span></strong></li>
-<li class="L0" style="margin-bottom: 0px;"><strong><span class="pln">&nbsp; &nbsp;dataArray </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Uint8Array</span><span class="pun">(</span><span class="pln">bufferLength</span><span class="pun">);</span></strong></li>
-<li class="L1" style="margin-bottom: 0px;"><strong><span class="pln"> </span></strong></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;sourceNode</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">analyser</span><span class="pun">);</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;analyser</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">(</span><span class="pln">audioContext</span><span class="pun">.</span><span class="pln">destination</span><span class="pun">);</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function buildAudioGraph() {</li>
+<li>&nbsp; &nbsp;var mediaElement = document.getElementById('player');</li>
+<li>&nbsp; &nbsp;var sourceNode = audioContext.createMediaElementSource(mediaElement);</li>
+<li> </li>
+<li><strong>&nbsp; &nbsp;// Create an analyser node</strong></li>
+<li><strong>&nbsp; &nbsp;analyser = audioContext.createAnalyser();</strong></li>
+<li><strong> </strong></li>
+<li><strong>&nbsp; &nbsp;// Set visualizer options, for lower precision change 1024 to 512,</strong></li>
+<li><strong>&nbsp; &nbsp;// 256, 128, 64 etc.</strong></li>
+<li><strong>&nbsp; &nbsp;analyser.fftSize = 1024;</strong></li>
+<li><strong>&nbsp; &nbsp;bufferLength = analyser.frequencyBinCount;</strong></li>
+<li><strong>&nbsp; &nbsp;dataArray = new Uint8Array(bufferLength);</strong></li>
+<li><strong> </strong></li>
+<li>&nbsp; &nbsp;sourceNode.connect(analyser);</li>
+<li>&nbsp; &nbsp;analyser.connect(audioContext.destination);</li>
+<li>}</li>
 </ol></div><br>
 
 And here is an extract of the code that does a real time animated visualization of the signal:
 
-<div class="source-code"><ol class="linenums">
-<li class="L0" style="margin-bottom: 0px;" value="1"><span class="kwd">function</span><span class="pln"> visualize</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 1 - Clear the canvas</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="pun">...</span></li>
-<li class="L3" style="margin-bottom: 0px;"><span class="pln">&nbsp; &nbsp;</span><span class="com">// 2 - Get the analyser data</span></li>
-<li class="L4" style="margin-bottom: 0px;"><span class="pln">&nbsp; analyser</span><span class="pun">.</span><strong><span class="pln">AAA</span></strong><span class="pun">(</span><span class="pln">dataArray</span><span class="pun">);</span></li>
-<li class="L5" style="margin-bottom: 0px;"><span class="pln"> </span></li>
-<li class="L6" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// 3 - Draws the visualization...</span></li>
-<li class="L7" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L8" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// dataArray values are between ? and ?,</span></li>
-<li class="L9" style="margin-bottom: 0px;"><span class="pln">&nbsp;</span></li>
-<li class="L0" style="margin-bottom: 0px;"><span class="pln">&nbsp; </span><span class="com">// Once again call the visualize function at 60 frames/s</span></li>
-<li class="L1" style="margin-bottom: 0px;"><span class="pln">&nbsp; requestAnimationFrame</span><span class="pun">(</span><span class="pln">visualize</span><span class="pun">);</span></li>
-<li class="L2" style="margin-bottom: 0px;"><span class="pun">}</span></li>
+<div><ol>
+<li value="1">function visualize() {</li>
+<li>&nbsp; &nbsp;// 1 - Clear the canvas</li>
+<li>&nbsp; &nbsp;...</li>
+<li>&nbsp; &nbsp;// 2 - Get the analyser data</li>
+<li>&nbsp; analyser.<strong>AAA</strong>(dataArray);</li>
+<li> </li>
+<li>&nbsp; // 3 - Draws the visualization...</li>
+<li>&nbsp;</li>
+<li>&nbsp; // dataArray values are between ? and ?,</li>
+<li>&nbsp;</li>
+<li>&nbsp; // Once again call the visualize function at 60 frames/s</li>
+<li>&nbsp; requestAnimationFrame(visualize);</li>
+<li>}</li>
 </ol></div><br>
 
 21. Number of data to draw?
