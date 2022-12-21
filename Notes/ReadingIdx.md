@@ -1,5 +1,11 @@
 # Reading Notes Index
 
+## General Concepts
+
+- RF Wireless World, [Floating Point Tutorial](gc01-FloatPt.md)
+
+
+
 ## Python
 
 ### Basics
@@ -8,7 +14,7 @@
 
 ### Webscraping
 
-+ P. Anwla, [Web Scraping using Selenium with Python!](../Notes/py01-ImgScrape.md), 2020
++ P. Anwla, [Web Scraping using Selenium with Python!](py01-ImgScrape.md), 2020
 
 ### Automation
 
@@ -19,14 +25,13 @@
 
 
 
-
 ## Web Develops
 
 ### HTML
 
-+ [Easy content organisation with HTML5](../Notes/web01-ContentOrg.md)
++ [Easy content organisation with HTML5](web01-ContentOrg.md)
 + Learn to Code HTML & CSS
-  + [Positioning Content - Lesson 5](../Notes/web02e-Positioning.md)
+  + [Positioning Content - Lesson 5](web02e-Positioning.md)
 
 
 ### CSS
@@ -35,7 +40,7 @@
 
 ### JavaScript
 
-+ [Introducing JSON](../Notes/web03-JSONIntro.md)
++ [Introducing JSON](web03-JSONIntro.md)
 
 
 ## Misc
