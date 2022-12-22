@@ -5,6 +5,7 @@ Institute: RF Wireless World
 [Original](https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html)
 
 
+## IEEE Standard Floating Point
 
 - IEEE 754 Standard Floating Point Numbers
   - floating point binary world
@@ -102,11 +103,31 @@ Institute: RF Wireless World
           <img style="margin: 0.1em; padding-top: 0.5em; height: 100px;"
             onclick= "window.open('https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html')"
             src    = "https://www.rfwireless-world.com/images/floating-point-fig8.jpg"
-            alt    = "IEEE 754 standard floating point Arithmetic"
-            title  = "IEEE 754 standard floating point Arithmetic"
+            alt    = "Converting decimal value to standard floating point binary word"
+            title  = "Converting decimal value to standard floating point binary word"
           />
         </figure>
       </div>
+
+
+## IEEE 754 standard floating point Arithmetic
+
+- Arithmetic operands
+  - considering the IEEE 754 floating point format numbers $X1$ & $X2$
+
+    <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+        onclick= "window.open('https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html')"
+        src    = "https://www.rfwireless-world.com/images/floating-point-fig9.jpg"
+        alt    = "Two floating point numbers"
+        title  = "Two floating point numbers"
+      />
+    </figure>
+
+  - $S1$, $S2$: Sign bits of number $X1$ & $X2$
+  - $E1$, $E2$: Exponent bits of number $X1$ & $X2$
+  - $M1$, $M2$: Mantissa bits of Number $X1$ & $X2$
+
 
 
 
