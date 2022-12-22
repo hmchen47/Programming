@@ -12,8 +12,9 @@ Institute: RF Wireless World
     - 8 = Biased exponent bits (e)
     - 23 = mantissa (m)
   - decimal equivalent value
+    - $E = 8$: single precision IEEE floating point format
 
-    \[ (-1)^S \times 1.m \times s^{(e-\text{bias})} \hspace{2em} \text{bias} = 2^{(e-1)} - 1\]
+    \[ (-1)^S \times 1.m \times s^{(e-\text{bias})} \hspace{2em} \text{bias} = 2^{(E-1)} - 1\]
 
     <div style="display: flex; justify-content: center;">
       <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
@@ -59,6 +60,53 @@ Institute: RF Wireless World
         />
       </figure>
     </div>
+
+
+- Decimal to IEEE 754 standard floating point
+  - converting 286.75 to standard floating point
+  - procedure: find the Sign, exponent and mantissa bits
+    1. represting decimal number, $286.75_{(10)}$ to binary format
+
+      \[ 286.75_{(10)} = 1\;0001\;1110.11_{(2)} \]
+
+    2. normalizing binary number by shifting decimal point to get a "1" at the very end 
+         - mantissa treated as fractional fixed point binary number
+         - normalization: the process in which mantissa bits are either shifted right or to the left (add or subtract the exponent accordingly) s.t. the most significant bit is "1"
+         - $\text{mantissa} = 0001\;1110\;1100\;0000\;0000\;000$
+
+      <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 10vw;"
+          onclick= "window.open('https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html')"
+          src    = "https://www.rfwireless-world.com/images/floating-point-fig6.jpg"
+          alt    = "Normalizing binary number"
+          title  = "Normalizing binary number"
+        />
+      </figure>
+
+    3. computing bias: $\text{bias} = 2^{(E-1)} - 1 = 2^{8-1} -1 = 127$ where $E = 8$ for single precision IEEE floating point format
+    4. retrieving biased exponent $e$
+         - obtained after normalizing in setp 2 w/ bias
+         - $e = 8 + bias = 8 + 127 = 135 = 1000\;0111_{(2)}$
+    5. final result
+
+      <div style="display: flex; justify-content: center;">
+        <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+          <img style="margin: 0.1em; padding-top: 0.5em; height: 75px;"
+            onclick= "window.open('https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html')"
+            src    = "https://www.rfwireless-world.com/images/floating-point-fig7.jpg"
+            alt    = "Standard floating point binary word of 286.75"
+            title  = "Standard floating point binary word of 286.75"
+          />
+        </figure>
+        <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+          <img style="margin: 0.1em; padding-top: 0.5em; height: 100px;"
+            onclick= "window.open('https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html')"
+            src    = "https://www.rfwireless-world.com/images/floating-point-fig8.jpg"
+            alt    = "IEEE 754 standard floating point Arithmetic"
+            title  = "IEEE 754 standard floating point Arithmetic"
+          />
+        </figure>
+      </div>
 
 
 
