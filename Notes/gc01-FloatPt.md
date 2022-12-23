@@ -129,6 +129,77 @@ Institute: RF Wireless World
   - $M1$, $M2$: Mantissa bits of Number $X1$ & $X2$
 
 
+- IEEE 754 standard Floating point multiplication algorithm
+  - multiplication
+
+    \[
+        \begin{aligned}
+          X3 &= X1 \times X2 \\
+             &= (-1)^{S1} (M1 \cdot 2^{E1}) \times (-1)^{S2} (M2 \cdot 2^{E2})
+        \end{aligned}
+    \]
+
+  - procedure
+    1. checking operands: one/both operands = 0 (all '0's) or $\infty$ (all '1's)
+    2. sign bit: $S1 \text{ XOR } S2$
+    3. mantissa: $M1 \cdot M2$ and truncating or rounding the results for 24 bits
+    4. bias: $E = E1 + E2 - \text{bias}$
+    5. exponent: normalizing the sum, shifting right to increase or shift left to decrease the exponent
+    6. checking underflow/overflow: 0 $\to$ underflow; $\infty \to$ overflow
+    7. $(E1 + E2 -\text{bias}) \ge E_{\max} \to \infty \hspace{1em}$ and $\hspace{1em} (E1 + E2 -\text{bias}) \le E_{\min} \to 0$
+  - example
+    - $X1 = 125.125$ and $X2 = 12.0625$ $\to X3= X1 * X2 = 1509.3203125$
+    - floating point binary words
+
+      <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+          onclick= "window.open('https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html')"
+          src    = "https://www.rfwireless-world.com/images/floating-point-fig10.jpg"
+          alt    = "Floating point binary words of X1 and X2"
+          title  = "Floating point binary words of X1 and X2"
+        />
+      </figure>
+    
+    - procedure
+      1. XOR sign: $X1 \text{XOR} X2  = 0$
+      2. mantissa:
+          - multiply the mantissa values including the "hidden one": $\Rightarrow 24 \times 24 \to 48$
+          - 2 bits to the left of binary point
+
+          <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
+            <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+              onclick= "window.open('https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html')"
+              src    = "https://www.rfwireless-world.com/images/floating-point-fig11.jpg"
+              alt    = "Resultant of multiplied mantissa"
+              title  = "Resultant of multiplied mantissa"
+            />
+          </figure>
+
+          - $M3 (48) = 1 \implies$ left shift the binary point and add "1" to the exponent
+          - truncating the result to 24 bits and adding "1" to the final exponent
+      3. exponent
+          - range of the product is between $(1 - 3.9999999)$
+          - normalization of the product simpler as the range of $M_A$ and $$ is between $1 - 1.9999999$
+          - a 1 bit shift required with the adjust of exponent
+
+        \[\begin{aligned}
+          E3 &= E1 + E2 - \text{bias} + \text{(normalized exponent from step 2)} \\
+             &= (1000\;0101)_2 + (1000\;0010)_2 - \text{bias} + 1 \\
+             &= 133 + 130 - 127 + 1 = 137
+        \end{aligned}\]
+
+      4. final result: $X=1509.3203125$
+
+          <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
+            <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+              onclick= "window.open('https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html')"
+              src    = "https://www.rfwireless-world.com/images/floating-point-fig12.jpg"
+              alt    = "Floating point binary word of resultant of multiplication"
+              title  = "Floating point binary word of resultant of multiplication"
+            />
+          </figure>
+
+
 
 
 
