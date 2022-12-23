@@ -742,9 +742,9 @@ This repository tracks my learning on different programming languages.
 
 ## Reading Notes
 
-+ [Reading Notes Indexing](RefCards/ReadingIdx.md)
++ [Reading Notes Indexing](Notes/ReadingIdx.md)
 
-+ [Reading List](RefCards/ReadingList.md)
++ [Reading List](Notes/ReadingList.md)
 
 
 
