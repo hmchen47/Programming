@@ -110,7 +110,7 @@ Institute: RF Wireless World
       </div>
 
 
-## IEEE 754 standard floating point Arithmetic
+## IEEE 754 Standard Floating Point Arithmetic
 
 - Arithmetic operands
   - considering the IEEE 754 floating point format numbers $X1$ & $X2$
@@ -129,7 +129,7 @@ Institute: RF Wireless World
   - $M1$, $M2$: Mantissa bits of Number $X1$ & $X2$
 
 
-- IEEE 754 standard Floating point multiplication algorithm
+- Multiplication algorithm
   - multiplication
 
     \[
@@ -200,6 +200,86 @@ Institute: RF Wireless World
           </figure>
 
 
+- Addition algorithm
+  - addition
+
+    \[\begin{aligned}
+      X3 &= X1 \pm X2 \\
+        &= (M1 \times 2^{E1}) \pm (M2 \times 2^{E2})
+    \end{aligned}\]
+
+  - procedure
+    1. $X1$ and $X2$ addable w/ $E1 = E2$
+    2. $|X1| \gt |X2|$, swap if necessary
+    3. $E3 = \begin{cases} E1 & \text{if } E1 > E2 \\ E2 & \text{if } E1 < E2 \end{cases}$ 
+    4. exponent difference: $E+{diff} = (E1 - E2)$
+    5. left shift the decimal point of mantissa ($M2$) by the exponent difference $\to$ same exponent
+    6. computing the sum/difference of the mantissa depends on the sign bit $S1$ and $S2$
+        - $S1 == S2$: add mantissa
+        - $S1 !- S2$: subtract mantissa
+    7. normalizing $M3$ if required
+    8. $ E3 = \begin{cases} \infty & E3 > E_{max} \;\text{ or overflow} \\ 0 & E3 < E_{min}\; \text{ or underflow} \end{cases}$
+    9. $Nan$ not supported
+  - example: $X1 = 9.75 \hspace{2em} X2 = 0.625$
+    - floating point binary words
+
+      <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+          onclick= "window.open('https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html')"
+          src    = "https://www.rfwireless-world.com/images/floating-point-fig13.jpg"
+          alt    = "Floating point binary words of X1 and X2"
+          title  = "Floating point binary words of X1 and X2"
+        />
+      </figure>
+
+    - procedure
+      1. $|X1| > |X2|$: True
+      2. $E3 = E1 = 1000\;0010 = 130_{(10)}$
+      3. $E1 - E2 = (1000\;0010 - 0111\;1110) \implies (130-126)=4$
+      4. shift the mantissa $M2$ by $(E1-E2)$
+
+        <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
+          <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+            onclick= "window.open('https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html')"
+            src    = "https://www.rfwireless-world.com/images/floating-point-fig14.jpg"
+            alt    = "Computing mantissa by shifting E1 - E2 to have same exponent"
+            title  = "Computing mantissa by shifting E1 - E2 to have same exponent"
+          />
+        </figure>
+
+      5. equal sign bits $\to$ add mantissa
+
+        <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
+          <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+            onclick= "window.open('https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html')"
+            src    = "https://www.rfwireless-world.com/images/floating-point-fig15.jpg"
+            alt    = "Adding mantissa of X1 and X2"
+            title  = "Adding mantissa of X1 and X2"
+          />
+        </figure>
+
+      6. no normalization required
+      7. result: # X3 = 10.3125$
+
+        <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
+          <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+            onclick= "window.open('https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html')"
+            src    = "https://www.rfwireless-world.com/images/floating-point-fig16.jpg"
+            alt    = "Flating point binary word of X3"
+            title  = "Flating point binary word of X3"
+          />
+        </figure>
+
+      8. abstration: change $S2$ to $1$
+
+        <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
+          <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+            onclick= "window.open('https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html')"
+            src    = "https://www.rfwireless-world.com/images/floating-point-fig17.jpg"
+            alt    = "Flating point binary word of X3 w/ abstraction"
+            title  = "Flating point binary word of X3 w/ abstraction"
+          />
+        </figure>
 
 
 
