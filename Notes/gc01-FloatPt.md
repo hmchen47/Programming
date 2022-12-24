@@ -282,5 +282,58 @@ Institute: RF Wireless World
         </figure>
 
 
+- Division algorithm
+  - statement
+
+    \[\begin{aligned}
+      X3 &= (X1/X2) \\
+        &= (-1)^{S1} (M1 \times 2^{E1}) / (-1)^{S2} (M2 \times 2^{E2}) \\
+        &= (-1)^{S3} (M1/M2) 2^{(E1-E2)}
+    \end{aligned}\]
+
+  - procedure
+    1. checking $X2 = 0 \implies X3 =\infty$ and $X1=X2=0 \implies Nan$
+    2. $S3 = (S1 \text{XOR} S2)$
+    3. $M3 = M1/M2$
+    4. normalizing $M3$ if required
+    5. checking overflow/underflow
+        - $E3 > E_{\max} \to \infty$ or overflow
+        - $E3 < E_{\min} \to \infty$ or underflow
+  - example: $X1 = 127.03125 \hspace{2em} X2 = 16.9375$
+    - floating point binary words
+
+      <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+          onclick= "window.open('https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html')"
+          src    = "https://www.rfwireless-world.com/images/floating-point-fig18.jpg"
+          alt    = "Flating point binary word of X1 and X2"
+          title  = "Flating point binary word of X1 and X2"
+        />
+      </figure>
+
+    - procedure
+      1. $S3 = S1 \text{XOR} S2 = 0$
+      2. $E3 = (E1 - E2) + bias = 133-131+127 = 129$
+      3. dividing $M1/M2$
+
+        <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
+          <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+            onclick= "window.open('https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html')"
+            src    = "https://www.rfwireless-world.com/images/floating-point-fig19.jpg"
+            alt    = "Division of mantissa"
+            title  = "Division of mantissa"
+          />
+        </figure>
+
+      4. result: $X3 = 7.5$
+
+        <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
+          <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+            onclick= "window.open('https://www.rfwireless-world.com/Tutorials/floating-point-tutorial.html')"
+            src    = "https://www.rfwireless-world.com/images/floating-point-fig20.jpg"
+            alt    = "Result of float point binary word"
+            title  = "Result of float point binary word"
+          />
+        </figure>
 
 
