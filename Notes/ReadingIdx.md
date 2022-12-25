@@ -3,6 +3,7 @@
 ## General Concepts
 
 - RF Wireless World, [Floating Point Tutorial](gc01-FloatPt.md)
+- Microsoft, [Tutorial to Understand IEEE Floating-Point Errors](gc02-FloatError.md), 2005
 
 
 
