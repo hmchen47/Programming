@@ -219,7 +219,7 @@ Institute: RF Wireless World
         - $S1 !- S2$: subtract mantissa
     7. normalizing $M3$ if required
     8. $ E3 = \begin{cases} \infty & E3 > E_{max} \;\text{ or overflow} \\ 0 & E3 < E_{min}\; \text{ or underflow} \end{cases}$
-    9. $Nan$ not supported
+    9. $NaN$ not supported
   - example: $X1 = 9.75 \hspace{2em} X2 = 0.625$
     - floating point binary words
 
@@ -292,7 +292,7 @@ Institute: RF Wireless World
     \end{aligned}\]
 
   - procedure
-    1. checking $X2 = 0 \implies X3 =\infty$ and $X1=X2=0 \implies Nan$
+    1. checking $X2 = 0 \implies X3 =\infty$ and $X1=X2=0 \implies NaN$
     2. $S3 = (S1 \text{XOR} S2)$
     3. $M3 = M1/M2$
     4. normalizing $M3$ if required
@@ -384,4 +384,83 @@ Institute: RF Wireless World
     </tbody>
   </table><br/>
 
+
+- IEEE 754 Number Representation Table
+
+  <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing=0 cellpadding=5 border=1 align="center">
+    <colgroup>
+      <col style="width: 3%">
+      <col style="width: 10%">
+      <col style="width: 28%">
+      <col style="width: 10%">
+      <col style="width: 20%">
+    </colgroup>
+    <thead>
+    <tr style="font-size: 1.0em; vertical-align:middle;">
+      <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Sign</th>
+      <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Exponent</th>
+      <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Mantissa (Significant)</th>
+      <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Number Representaion</th>
+      <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Comments</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="vertical-align:middle">
+      <td style="text-align: center;">0</td>
+      <td style="text-align: center;"><code>0000 0000</code></td>
+      <td style="text-align: center;"><code>0000 0000 0000 0000 0000 000</code></td>
+      <td style="text-align: center;"><code>+/- 0</code></td>
+      <td style="text-align: center;"></td>
+    </tr>
+    <tr style="vertical-align:middle">
+      <td style="text-align: center;">0</td>
+      <td style="text-align: center;"><code>0000 0000</code></td>
+      <td style="text-align: center;">
+        None Zero<br/>
+        <code>0000 0000 00000 0000 0000 001</code><br/>
+        <code>0000 0000 00000 0000 0000 010</code><br/>
+        <code>0000 0000 00000 0000 0000 011</code><br/>
+        ...<br/>
+        <code>1111 1111 11111 1111 1111 111</code>
+      </td>
+      <td style="text-align: center;"><br/>+1.4E-45<br/>+2.8E-45<br/>+4.2E-45<br/><br/>1.1754942E-38</td>
+      <td>Denumalized number if the exponent is all zeros and Mantissa is non zero then the number represented are known as denormalized numbers. Other term is denormals</td>
+    </tr>
+    <tr style="vertical-align:middle">
+      <td style="text-align: center;">1</td>
+      <td style="text-align: center;"><code>0000 0000</code></td>
+      <td style="text-align: center;">Non Zero</td>
+      <td style="text-align: center;"></td>
+      <td>"- ive" Denomalized number</td>
+    </tr>
+    <tr style="vertical-align:middle">
+      <td style="text-align: center;">0</td>
+      <td style="text-align: center;">1 ~ 254</td>
+      <td style="text-align: center;">Any number</td>
+      <td style="text-align: center;"></td>
+      <td>"+ ive" Floating point number</td>
+    </tr>
+    <tr style="vertical-align:middle">
+      <td style="text-align: center;">1</td>
+      <td style="text-align: center;">1 ~ 254</td>
+      <td style="text-align: center;">Any number</td>
+      <td style="text-align: center;"></td>
+      <td>"- ive" Floating point number</td>
+    </tr>
+    <tr style="vertical-align:middle">
+      <td style="text-align: center;">0/1</td>
+      <td style="text-align: center;"><code>1111 1111</code></td>
+      <td style="text-align: center;">Zero</td>
+      <td style="text-align: center;">+/- &infin;</td>
+      <td style="text-align: center;"></td>
+    </tr>
+    <tr style="vertical-align:middle">
+      <td style="text-align: center;">0/1</td>
+      <td style="text-align: center;"><code>1111 1111</code></td>
+      <td style="text-align: center;">Non Zero</td>
+      <td style="text-align: center;">NaN</td>
+      <td>"Not a Number"<br/>(0/0), (&infin;/&infin;), (0 x &infin;), etc. produce NaNs</td>
+    </tr>
+    </tbody>
+  </table><br/>
 
