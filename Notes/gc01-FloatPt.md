@@ -337,3 +337,51 @@ Institute: RF Wireless World
         </figure>
 
 
+
+## Tables of IEEE Floating Point Standard 
+
+- IEEE 754 Floating point Standard
+
+  <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 40vw;" cellspacing=0 cellpadding=5 border=1 align="center">
+    <colgroup>
+      <col style="width: 30%">
+      <col style="width: 20%">
+      <col style="width: 20%">
+    </colgroup>
+    <thead>
+    <tr style="font-size: 1.0em; vertical-align:middle;">
+      <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;"></th>
+      <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Single Precision</th>
+      <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Double Precision</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="vertical-align:middle">
+      <td style="text-align: center;">Word Length (bits)</td>
+      <td style="text-align: center;">32</td>
+      <td style="text-align: center;">64</td>
+    </tr>
+    <tr style="vertical-align:middle">
+      <td style="text-align: center;">Mantissa (bits)</td>
+      <td style="text-align: center;">23</td>
+      <td style="text-align: center;">52</td>
+    </tr>
+    <tr style="vertical-align:middle">
+      <td style="text-align: center;">Exponent (bits)</td>
+      <td style="text-align: center;">8</td>
+      <td style="text-align: center;">11</td>
+    </tr>
+    <tr style="vertical-align:middle">
+      <td style="text-align: center;">Bias</td>
+      <td style="text-align: center;">127</td>
+      <td style="text-align: center;">1023</td>
+    </tr>
+    <tr style="vertical-align:middle">
+      <td style="text-align: center;">Range</td>
+      <td style="text-align: center;">3.8 x 10<sup>38</sup></td>
+      <td style="text-align: center;">1.8 x 10<sup>308</sup></td>
+    </tr>
+    </tbody>
+  </table><br/>
+
+
