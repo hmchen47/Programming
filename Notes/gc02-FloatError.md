@@ -14,6 +14,13 @@ Date: 2005-08-16
   - example: $a = 69.82 \ne b = 69.20 + 0.62$ in binary
 
 
+- General floating-point concepts
+  - binary floating point system: limited number of floating-point values
+  - approximated by the closest representable value
+  - IEEE standard "rounding" value to the "closest" representable value
+  - goal of IEEE standard: maximizing accuracy w/ engineering calculations
+
+
 
 
 
