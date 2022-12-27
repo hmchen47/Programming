@@ -21,6 +21,16 @@ Date: 2005-08-16
   - goal of IEEE standard: maximizing accuracy w/ engineering calculations
 
 
+- IEEE details
+  - representation: $X = \text{Fraction} \times 2^{\text{ exponent - bias}}$
+  - fraction:
+    - normalized fractional part of the number
+    - normalization: always w/ leading bit as "1" $\to$ implied bit
+  - bias: 
+    - avoid having to store negative exponent
+    - bias value = 127 (single) / 1023 (double)
+
+
 
 
 
