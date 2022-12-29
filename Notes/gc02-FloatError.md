@@ -48,6 +48,28 @@ Date: 2005-08-16
   - $0 = 1.0 * 2^{-128} = 0000\;0000\;0000\;0000\;...\;0000\;0000_{(2)} = 0000\;0000_{(16)}$: a special case
 
 
+- Other common floating-point errors
+  - round-off error: 
+    - not all bits used in calculation
+    - example: adding 0.0001 to 0.9900 (Single Precision)
+      - $0.0001$ represented as $(1.)10100011011011100010111 \times 2^{(-14+\text{Bias})}$ (13 Leading 0s in Binary!)
+      - $0.9900$ represented as $(1.)11111010111000010100011 \times 2^{(-1+\text{Bias})}$
+      - the decimal (binary) points must be aligned $\to$ un-normalized
+
+      ```text
+       .000000000000011010001101 * 2^0  <- Only 11 of 23 Bits retained
+      +.111111010111000010100011 * 2^0
+      ________________________________
+      .111111010111011100110000 * 2^0
+      ```
+
+  - substracting two almost equal values
+  - overflow and underflow
+  - quantizing error - not exact form
+  - division by a small number $\to$ divided by zero?
+  - output errors
+
+
 
 
 
