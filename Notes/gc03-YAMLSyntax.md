@@ -19,6 +19,12 @@ Institute: Grav
   - not allowing the use of tab, but space
 
 
+- YAML data types
+  - mappings: hashes/dictionaries
+  - sequences: arrays / lists
+  - scalars: strings / numbers
+
+
 
 
 
