@@ -13,6 +13,13 @@ Institute: Grav
   - to provide powerful configuration settings, w/o having to learn a more complex code type like CSS, JavaScript and PHP
 
 
+- YAML basic rules
+  - end in `.yaml` / `.yml`
+  - case sensitive
+  - not allowing the use of tab, but space
+
+
+
 
 
 
