@@ -44,6 +44,40 @@ Institute: Grav
     ```
 
 
+- Sequence data type
+  - each item in the list placed in its own line w/ an open dash, e.g.,
+
+    ```yaml
+    - Cat
+    - Dog
+    - Goldfish
+    ```
+
+  - nested sequence w/ items and subitems
+  - YAML using spaces, not tab, for indentation, e.g.,
+
+    ```yaml
+    -
+      - Cat
+      - Dog
+      - Goldfish
+    -
+      - Python
+      - Lion
+      - Tiger
+    ```
+
+  - nesting sequences even deeper $\to$ adding more levels, e.g.,
+
+    ```yaml
+    -
+      -
+        - Cat
+        - Dog
+        - Goldfish
+    ```
+
+
 
 
 
