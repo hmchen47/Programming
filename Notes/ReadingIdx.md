@@ -4,7 +4,9 @@
 
 - RF Wireless World, [Floating Point Tutorial](gc01-FloatPt.md)
 - Microsoft, [Tutorial to Understand IEEE Floating-Point Errors](gc02-FloatError.md), 2005
-
+- Grav, [YAML Syntax](gc03-YAMLSyntax.md)
+- D. Gidwani, [YAML Primer](gc04-YAMLPrimer.md)
+- 
 
 
 ## Python
