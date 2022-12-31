@@ -35,5 +35,28 @@ Date: 2013-01-01
     ```
 
 
+- Using anchors
+  - any YAML node able to be anchored and referenced elsewhere as an alias node
+  - `&name` of anchor: to anchor a particular value or set of values
+  - `*name` of anchor: to reference an anchor
+  - example
+
+    ```yaml
+    item:
+      - method: UPDATE
+        where: &FREE_ITEMS
+          - Portable Hole
+          - Light Feather
+        SellPrice: 0
+        BuyPrice: 0
+
+    npc:
+      - method: MERGE
+        merge-from: {name: General Goods Vendor}
+        items: *FREE_ITEMS
+    ```
+
+
+
 
 
