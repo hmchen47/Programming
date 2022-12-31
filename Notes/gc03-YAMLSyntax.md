@@ -78,6 +78,18 @@ Institute: Grav
     ```
 
 
+- Mappings data type
+  - listing keys w/ values
+  - assigning a name or a property to a specific element
+  - example: `animal: pts`
+  - in conjunction w/ a sequence
+
+    ```yaml
+    pets:
+      - Cat
+      - Dog
+      - Goldfish
+    ```
 
 
 
