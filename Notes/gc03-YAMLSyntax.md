@@ -25,6 +25,24 @@ Institute: Grav
   - scalars: strings / numbers
 
 
+- Scalars data type
+  - the strings and numbers that make up the data on the page
+  - could be
+    - boolean property: `true`
+    - integer (number): `5`
+    - string of text: a sentence or the title of your website
+  - often called **variables** in programming
+  - most scalars unquoted
+  - string w/ punctuation or other elements that can be confused w/ YAML syntax (dashes, colon, etc.) $\to$ quote this data using single `'` or double `"` marks
+  - examples
+
+    ```yaml
+    integer: 25
+    string: "25"
+    float: 25.0
+    boolean: true
+    ```
+
 
 
 
