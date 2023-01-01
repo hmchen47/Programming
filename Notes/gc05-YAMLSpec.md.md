@@ -28,3 +28,19 @@ Date: Revision 1.2.2 (2021-10-01)
   - sequences (arrays/lists)
   - scalars (strings/numbers)
 
+
+- Purpose of YAML
+  - to form a complete language for serializing any native data structure by
+    - leveraging primitives 
+    - adding a simple typing system
+    - aliasing mechanism
+  - easy to view and understand
+  - working well for common use cases such as
+    - configuration files
+    - log files
+    - interprocess messaging
+    - cross-language data sharing
+    - object persistence
+    - debugging of complex data structures
+
+
