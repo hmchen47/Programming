@@ -2,11 +2,15 @@
 
 ## General Concepts
 
-- RF Wireless World, [Floating Point Tutorial](gc01-FloatPt.md)
-- Microsoft, [Tutorial to Understand IEEE Floating-Point Errors](gc02-FloatError.md), 2005
-- Grav, [YAML Syntax](gc03-YAMLSyntax.md)
-- D. Gidwani, [YAML Primer](gc04-YAMLPrimer.md)
-- 
+- Floating-Point
+  - RF Wireless World, [Floating Point Tutorial](gc01-FloatPt.md)
+  - Microsoft, [Tutorial to Understand IEEE Floating-Point Errors](gc02-FloatError.md), 2005
+
+- YAML
+  - YAML Spec, [YAML Ain’t Markup Language, version 1.2](gc05-YAMLSpec.md), 2021
+  - Grav, [YAML Syntax](gc03-YAMLSyntax.md)
+  - D. Gidwani, [YAML Primer](gc04-YAMLPrimer.md)
+
 
 
 ## Python
