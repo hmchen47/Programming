@@ -57,6 +57,21 @@ Date: 2013-01-01
     ```
 
 
+- Merging mappings
+  - merge keys (`<<`): merging al keys and values from one or more mappings intot he current mapping
+  - multiple mappings able to be referenced in a sequence, like `[*FREE_TO_BUY, *FREE_TO_SELL]`
+  - example
+
+    ```yaml
+    _FreeItemProps: &FREE
+        SellPrice: 1
+        BuyPrice: 0
+
+    item:
+      - method: UPDATE
+        where: {name: !include "itemlists/pve_weapons.yml"}
+        <<: *FREE
+    ```
 
 
 
