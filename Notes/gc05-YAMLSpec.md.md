@@ -22,3 +22,9 @@ Date: Revision 1.2.2 (2021-10-01)
     - colons separating key/value pairs
     - dashes used to create “bulleted” lists
 
+
+- Basic primitives
+  - mappings (hashes/dictionaries)
+  - sequences (arrays/lists)
+  - scalars (strings/numbers)
+
