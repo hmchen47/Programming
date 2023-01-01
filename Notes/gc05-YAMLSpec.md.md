@@ -44,3 +44,16 @@ Date: Revision 1.2.2 (2021-10-01)
     - debugging of complex data structures
 
 
+- Goals for YAML in decreasing priority
+  - YAML should be easily readable by humans.
+  - YAML data should be portable between programming languages.
+  - YAML should match the native data structures of dynamic languages.
+  - YAML should have a consistent model to support generic tools.
+  - YAML should support one-pass processing.
+  - YAML should be expressive and extensible.
+  - YAML should be easy to implement and use.
+
+
+
+
+
