@@ -112,5 +112,87 @@ Date: Revision 1.2.2 (2021-10-01)
     ```
 
 
+- Structures
+  - three dashes (`---`)
+    - separating directives from document content
+    - serving to signal the start of a document if no directives are present
+  - three dots (`...`): indicating the end of a document without starting a new one, for use in communication channels
+  - repeated nodes (objects):
+    - first identified by an anchor (marked with the ampersand - “&”)
+    - aliased (referenced with an asterisk - `*`) thereafter
+  - question mark and space (`? `): indicating a complex mapping key
+  - key/value pairs: started immediately following the dash, colon or question mark
+  - examples
+
+    ```yaml
+    # Two Documents in a Stream (each with a leading comment)
+
+    ## Ranking of 1998 home runs
+    ---
+    - Mark McGwire
+    - Sammy Sosa
+    - Ken Griffey
+
+    ## Team ranking
+    ---
+    - Chicago Cubs
+    - St Louis Cardinals
+
+    # Play by Play Feed from a Game
+    ---
+    time: 20:03:20
+    player: Sammy Sosa
+    action: strike (miss)
+    ...
+    ---
+    time: 20:03:47
+    player: Sammy Sosa
+    action: grand slam
+    ...
+
+    # Single Document with Two Comments
+
+    ---
+    hr: # 1998 hr ranking
+    - Mark McGwire
+    - Sammy Sosa
+    # 1998 rbi ranking
+    rbi:
+    - Sammy Sosa
+    - Ken Griffey
+
+    # Node for “Sammy Sosa” appears twice in this document
+    ---
+    hr:
+    - Mark McGwire
+    # Following node labeled SS
+    - &SS Sammy Sosa
+    rbi:
+    - *SS # Subsequent occurrence
+    - Ken Griffey
+
+    # Mapping between Sequences
+    ? - Detroit Tigers
+      - Chicago cubs
+    : - 2001-07-23
+
+    ? [ New York Yankees,
+        Atlanta Braves ]
+    : [ 2001-07-02, 2001-08-12,
+        2001-08-14 ]
+
+    # Compact Nested Mapping
+    ---
+    ## Products purchased
+    - item    : Super Hoop
+      quantity: 1
+    - item    : Basketball
+      quantity: 4
+    - item    : Big Shoes
+      quantity: 1
+    ```
+
+
+
 
 
