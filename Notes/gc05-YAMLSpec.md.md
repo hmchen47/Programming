@@ -54,6 +54,63 @@ Date: Revision 1.2.2 (2021-10-01)
   - YAML should be easy to implement and use.
 
 
+## Language Overview
+
+- Collections
+  - block collections using indentation for scope
+  - begining each entry on its own line
+  - block sequences: indicating each entry with a dash and space (`- `)
+  - mappings: using a colon and space (`: `) to mark each key/value pair
+  - comments: begining with an octothorpe (also called a “hash”, “sharp”, “pound” or “number sign” - `#`)
+  - flow styles: using explicit indicators rather than indentation to denote scope
+  - flow sequence: written as a comma separated list within square brackets
+  - flow mapping: useing curly braces.
+  - examples
+
+    ```yaml
+    # Sequence of Scalars (ball players)
+    - Mark McGwire
+    - Sammy Sosa
+    - Ken Griffey
+
+    # Mapping Scalars to Scalars (player statistics)
+    hr:  65    # Home runs
+    avg: 0.278 # Batting average
+    rbi: 147   # Runs Batted In
+
+    # Mapping Scalars to Sequences (ball clubs in each league)
+    american:
+    - Boston Red Sox
+    - Detroit Tigers
+    - New York Yankees
+    national:
+    - New York Mets
+    - Chicago Cubs
+    - Atlanta Braves
+
+    # Sequence of Mappings (players’ statistics)
+    -
+      name: Mark McGwire
+      hr:   65
+      avg:  0.278
+    -
+      name: Sammy Sosa
+      hr:   63
+      avg:  0.288
+
+    # Sequence of Sequences
+    - [name        , hr, avg  ]
+    - [Mark McGwire, 65, 0.278]
+    - [Sammy Sosa  , 63, 0.288]
+
+    # Mapping of Mappings
+    Mark McGwire: {hr: 65, avg: 0.278}
+    Sammy Sosa: {
+        hr: 63,
+        avg: 0.288,
+    }
+    ```
+
 
 
 
