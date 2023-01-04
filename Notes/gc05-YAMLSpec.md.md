@@ -193,6 +193,67 @@ Date: Revision 1.2.2 (2021-10-01)
     ```
 
 
+- Scalars
+  - Scalar content
+    - written in block notation, using a literal style (indicated by `|`) where all line breaks are significant
+    - written with the folded style (denoted by `>`) where each line break is folded to a space unless it ends an empty or a more-indented line
+  - flow scalars
+    - including the plain style (most examples thus far) and two quoted styles
+    - double-quoted style: providing escape sequences
+    - single-quoted style: useful when escaping is not needed
+    - able to span multiple lines
+    - line breaks always folded
+  - example
+
+    ```yaml
+    # In literals, newlines are preserved
+    # ASCII Art
+    --- |
+      \//||\/||
+      // ||  ||__
+
+    # In the folded scalars, newlines become spaces
+    --- >
+      Mark McGwire's
+      year was crippled
+      by a knee injury.
+
+    # Folded newlines are preserved for “more indented” and blank lines
+    --- >
+    Sammy Sosa completed another
+    fine season with great stats.
+
+      63 Home Runs
+      0.288 Batting Average
+
+    What a year!
+
+    # Indentation determines scope
+    name: Mark McGwire
+    accomplishment: >
+      Mark set a major league
+      home run record in 1998.
+    stats: |
+      65 Home Runs
+      0.278 Batting Average
+
+    # Quoted Scalars
+    unicode: "Sosa did fine.\u263A"
+    control: "\b1998\t1999\t2000\n"
+    hex esc: "\x0d\x0a is \r\n"
+
+    single: '"Howdy!" he cried.'
+    quoted: ' # Not a ''comment''.'
+    tie-fighter: '|\-*-/|'
+
+    # Multi-line Flow Scalars
+    plain:
+      This unquoted scalar
+      spans many lines.
+
+    quoted: "So does this
+      quoted scalar.\n"
+    ```
 
 
 
