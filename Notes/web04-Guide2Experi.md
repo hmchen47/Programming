@@ -34,13 +34,20 @@ Date: 2007
   - randomly assigned to one of two variants
     - Control: commonly the “existing” version
     - Treatment: usually a new version being evaluated
-  - metrics: ranging from runtime performance to implicit and explicit user behaviors
+  - metrics
+    - ranging from runtime performance to implicit and explicit user behaviors
+    - Return-on-Investment (ROI)
   - survey
     - collecting data
     - conducting statistical tests
     - evaluating evaluate whether there is a statistically significant difference between the two variants on metrics of interest
   - null hypothesis: no difference between the versions
   - segmenting of users using manual (e.g., OLAP) or machine learning and data mining to understand which subpopulations show significant differences $\to$ helping improve our understanding and progress forward with an idea
+
+
+- Building a system for experimentation
+  - little cost of testing and experimental failure
+  - encouraging innovation through experimentation
 
 
 ## 2. Motivating Examples
