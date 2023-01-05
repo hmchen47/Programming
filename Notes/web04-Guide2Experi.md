@@ -13,6 +13,15 @@ Date: 2007
 
 ## 1. Introduction
 
+- Controlled experiments
+  - randomized experiments (single-factor, or fractional design)
+  - A/B tests or their generalizations
+  - split tests
+  - control/treatment
+  - parallel flights
+
+
+
 
 
 ## 2. Motivating Examples
