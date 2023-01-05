@@ -13,15 +13,21 @@ Date: 2007
 
 ## 1. Introduction
 
+- Amazon personalized recommendation System
+  - Greg Linden prototyping recommendations based on shopping cart
+  - run controlled experiment $\to$ “feature won by such a wide margin that not having it live was costing Amazon a noticeable chunk of change
+  - culture of experiment
+    - data trumps intuition
+    - a system that made running experiments easy
+    - allowed Amazon to innovate quickly and effectively
+
+
 - Controlled experiments
   - randomized experiments (single-factor, or fractional design)
   - A/B tests or their generalizations
   - split tests
   - control/treatment
   - parallel flights
-
-
-
 
 
 ## 2. Motivating Examples
