@@ -34,6 +34,18 @@
 
 ## Web Develops
 
+### Modeling
+
+- Wikipedia, [Model-View-Controller (MVC)]
+
+
+
+### System Testing
+
+- R. Kohavi, R. Henne, D. Sommerfield, [Practical guide to controlled experiments on the web: listen to your customers not to the hippo](web04-Guide2Experi.md), KDD '07, 2007
+
+
+
 ### HTML
 
 - [Easy content organisation with HTML5](web01-ContentOrg.md)
