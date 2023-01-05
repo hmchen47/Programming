@@ -52,6 +52,13 @@ Date: 2007
 
 ## 2. Motivating Examples
 
+- Checkout page at Doctor FootCare
+  - conversion rate: the percentage of visit to the website that include a purchase
+  - nine differences between the two variants of the Doctor FootCare checkout page
+  - which one results in a higher conversion rate
+
+
+
 
 
 ## 3. Controlled Experiments
