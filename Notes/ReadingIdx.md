@@ -36,9 +36,9 @@
 
 ### HTML
 
-+ [Easy content organisation with HTML5](web01-ContentOrg.md)
-+ Learn to Code HTML & CSS
-  + [Positioning Content - Lesson 5](web02e-Positioning.md)
+- [Easy content organisation with HTML5](web01-ContentOrg.md)
+- Learn to Code HTML & CSS
+  - [Positioning Content - Lesson 5](web02e-Positioning.md)
 
 
 ### CSS
@@ -47,7 +47,7 @@
 
 ### JavaScript
 
-+ [Introducing JSON](web03-JSONIntro.md)
+- [Introducing JSON](web03-JSONIntro.md)
 
 
 ## Misc
