@@ -79,7 +79,7 @@ Date: 2007
   - hard to predict the success of new designs
   - controlled experiments used heavily in backend algorithms
 
-    <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
+  <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
       onclick= "window.open('https://ai.stanford.edu/~ronnyk/GuideControlledExperiments.pdf')"
       src    = "img/web04-DrFootCare.png"
@@ -90,7 +90,26 @@ Date: 2007
 
 ## 3. Controlled Experiments
 
+- Simplest controlled experiment
+  - usually referred to as an A/B test
+  - randomly exposed to one of two variants: control (A), or treatment (B)
+  - random
+    - not distributed "any old which way"
+    - no factor able to influence the decision
+    - Overall Evaluation Criterion (OEC) derived for each variant
+  - OEC possible metrics (case 1: the conversion rate, units purchased, revenue, profit, expected lifetime value, or or some weighted combination of these
+  - experiment designed and executed properly
+    - the only thing consistently different between the two variants is the change between the Control and Treatment
+    - any differences in the OEC are inevitably the result of this assignment, establishing causality
 
+  <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      onclick= "window.open('https://ai.stanford.edu/~ronnyk/GuideControlledExperiments.pdf')"
+      src    = "img/web04-ABTest.png"
+      alt    = "Doctor FootCare checkout page: Variant A (left) and Variant B (right)"
+      title  = "Doctor FootCare checkout page: Variant A (left) and Variant B (right)"
+    />
+  </figure>
 
 
 ## 4. Implementation Architecture
