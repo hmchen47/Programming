@@ -112,6 +112,20 @@ Date: 2007
   </figure>
 
 
+- Overall Evaluation Criterion (OEC)
+  - a quantitative measure of the experiment’s objective
+  - a.k.a. Response or Dependent Variable in statistics
+  - other synonyms: Outcome, Evaluation metric, Performance metric, or Fitness Function (22). 
+  - selecting a single metric though experiments possible w/ multiple objectives
+  - possibly as a weighted combination of such objectives
+  - forcing tradeoffs to be made once for multiple experiments
+  - aligning the organization behind a clear objective
+  - not a short-term focused (e.g., clicks)
+  - including factors that predict long-term goals, e.g., predicted lifetime value and repeat visits
+
+
+
+
 ## 4. Implementation Architecture
 
 
