@@ -131,6 +131,13 @@ Date: 2007
   - A/B tests: a single factor with two values - A and B.
 
 
+- Variant
+  - user experience being tested by assigning levels to the factors
+  - either the Control or one of the Treatments
+  - prefering to specifically differentiate between the Control
+  - sometimes referred to as Treatment, a special variant that designates the existing version being compared against and the new Treatments being tried
+
+
 
 
 ## 4. Implementation Architecture
