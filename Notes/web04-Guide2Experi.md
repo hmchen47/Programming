@@ -138,6 +138,16 @@ Date: 2007
   - sometimes referred to as Treatment, a special variant that designates the existing version being compared against and the new Treatments being tried
 
 
+- Experimentation unit
+  - an entity observed
+  - a.k.a. an item
+  - independent assumption
+  - web experimentation unit
+    - user: the most common experimentation unit
+    - sessions or page views
+    - commonly achieved through cookies
+
+
 
 
 ## 4. Implementation Architecture
