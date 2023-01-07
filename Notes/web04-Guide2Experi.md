@@ -66,6 +66,28 @@ Date: 2007
     - improving usability by exposing users to a single feedback box
 
 
+- Results and ROI
+  - Doctor FootCare checkout page
+    - Variant A on left, Variant B on right (diagram)
+    - variant A outperformed variant B by an order of magnitude
+    - "upgraded" from the A to B and lost 90% of their revenue
+    - coupon code: people started to think twice about whether they were paying too much
+    - removing discount code from the new version (B), conversion-rate increased 6.5% relative to the old version (A)
+  - Microsoft’s Office Help articles
+    - the number of ratings plummeted by an order of magnitude $\to$ significantly missing on goal #2 above
+    - additional tests: two-stage model actually helps in increasing the response rate
+  - hard to predict the success of new designs
+  - controlled experiments used heavily in backend algorithms
+
+    <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://ai.stanford.edu/~ronnyk/GuideControlledExperiments.pdf')"
+      src    = "img/web04-DrFootCare.png"
+      alt    = "Doctor FootCare checkout page: Variant A (left) and Variant B (right)"
+      title  = "Doctor FootCare checkout page: Variant A (left) and Variant B (right)"
+    />
+  </figure>
+
 ## 3. Controlled Experiments
 
 
