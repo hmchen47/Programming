@@ -124,6 +124,13 @@ Date: 2007
   - including factors that predict long-term goals, e.g., predicted lifetime value and repeat visits
 
 
+- Factor
+  - to influence the OEC
+  - assigned Values, sometimes called 
+  - a.k.a. Levels or Versions, Variables
+  - A/B tests: a single factor with two values - A and B.
+
+
 
 
 ## 4. Implementation Architecture
