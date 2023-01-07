@@ -52,13 +52,18 @@ Date: 2007
 
 ## 2. Motivating Examples
 
-- Checkout page at Doctor FootCare
+- Case 1: Checkout page at Doctor FootCare
   - conversion rate: the percentage of visit to the website that include a purchase
   - nine differences between the two variants of the Doctor FootCare checkout page
   - which one results in a higher conversion rate
 
 
-
+- Case 2: Ratings of Microsoft Office help articles
+  - initial implementation: a Yes/No widget
+  - modified the widget w/ a 5-star ratings
+  - motivations
+    - providing finer-grained feedback
+    - improving usability by exposing users to a single feedback box
 
 
 ## 3. Controlled Experiments
