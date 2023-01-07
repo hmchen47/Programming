@@ -139,14 +139,28 @@ Date: 2007
 
 
 - Experimentation unit
-  - an entity observed
-  - a.k.a. an item
-  - independent assumption
+  - an entity observed, a.k.a. an item
+  - assumption: independent
   - web experimentation unit
     - user: the most common experimentation unit
     - sessions or page views
     - commonly achieved through cookies
 
+- Terminologies of statistics
+  - Null Hypothesis
+    - often referred to as $H_0$
+    - no difference on the OECs for the variants
+    - randomly observed differences during the experiment
+  - Confidence level: probability of failing to reject (i.e., retaining) the null hypothesis when it is true
+  - Power:
+    - probability of correctly rejecting the null hypothesis, $H_0$, when it is false
+    - measuring the ability to detect a difference when it indeed exists
+  - Standard Deviation (Std-Dev)
+    - a measure of variability
+    - typically denoted by 𝜎$\sigma$
+  - Standard Error (Std-Err)
+    - the standard deviation of the sampling distribution of the sample statistic
+    - a mean of 𝑛 independent observations: $\widehat{\sigma} / n$ where $\widehat{\sigma}$ is the estimated standard deviation.
 
 
 
