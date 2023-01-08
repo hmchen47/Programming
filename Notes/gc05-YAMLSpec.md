@@ -11,7 +11,7 @@ Date: Revision 1.2.2 (2021-10-01)
 
 - YAML overview
   - a data serialization language
-  - designed to be human-friendly and 
+  - designed to be human-friendly
   - working well with modern programming languages for common everyday tasks
   - using Unicode printable characters 
     - some providing structural information

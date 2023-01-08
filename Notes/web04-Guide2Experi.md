@@ -163,6 +163,14 @@ Date: 2007
     - a mean of 𝑛 independent observations: $\widehat{\sigma} / n$ where $\widehat{\sigma}$ is the estimated standard deviation.
 
 
+- A/A Test
+  - a.k.a. a Null Test
+  - assigning users to one of two groups, but exposing them to exactly the same experience
+  - scenarios
+    - collecting data and assessing its variability for power calculations
+    - testing the experimentation system
+  - the Null hypothesis rejected about $5\%$ of the time when a $95\%$ confidence level is used
+
 
 ## 4. Implementation Architecture
 
