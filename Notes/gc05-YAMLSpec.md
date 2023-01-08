@@ -63,8 +63,8 @@ Date: Revision 1.2.2 (2021-10-01)
   - mappings: using a colon and space (`: `) to mark each key/value pair
   - comments: begining with an octothorpe (also called a “hash”, “sharp”, “pound” or “number sign” - `#`)
   - flow styles: using explicit indicators rather than indentation to denote scope
-  - flow sequence: written as a comma separated list within square brackets
-  - flow mapping: useing curly braces.
+  - flow sequence: written as a comma separated list within square brackets (`[]`)
+  - flow mapping: useing curly braces(`()`)
   - examples
 
     ```yaml
