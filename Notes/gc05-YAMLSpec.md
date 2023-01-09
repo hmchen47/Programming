@@ -118,8 +118,8 @@ Date: Revision 1.2.2 (2021-10-01)
     - serving to signal the start of a document if no directives are present
   - three dots (`...`): indicating the end of a document without starting a new one, for use in communication channels
   - repeated nodes (objects):
-    - first identified by an anchor (marked with the ampersand - “&”)
-    - aliased (referenced with an asterisk - `*`) thereafter
+    - first identified by an anchor (marked with the ampersand - `&`)
+    - thereafter aliased (referenced with an asterisk - `*`)
   - question mark and space (`? `): indicating a complex mapping key
   - key/value pairs: started immediately following the dash, colon or question mark
   - examples
