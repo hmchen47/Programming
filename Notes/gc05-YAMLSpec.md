@@ -20,7 +20,7 @@ Date: Revision 1.2.2 (2021-10-01)
   - allowing the data to show itself in a natural and meaningful way
     - indentation used for structure
     - colons separating key/value pairs
-    - dashes used to create “bulleted” lists
+    - dashes used to create "bulleted" lists
 
 
 - Basic primitives
@@ -61,7 +61,7 @@ Date: Revision 1.2.2 (2021-10-01)
   - begining each entry on its own line
   - block sequences: indicating each entry with a dash and space (`- `)
   - mappings: using a colon and space (`: `) to mark each key/value pair
-  - comments: begining with an octothorpe (also called a “hash”, “sharp”, “pound” or “number sign” - `#`)
+  - comments: begining with an octothorpe (also called a "hash", "sharp", "pound" or "number sign" - `#`)
   - flow styles: using explicit indicators rather than indentation to denote scope
   - flow sequence: written as a comma separated list within square brackets (`[]`)
   - flow mapping: useing curly braces(`()`)
@@ -161,7 +161,7 @@ Date: Revision 1.2.2 (2021-10-01)
     - Sammy Sosa
     - Ken Griffey
 
-    # Node for “Sammy Sosa” appears twice in this document
+    # Node for "Sammy Sosa" appears twice in this document
     ---
     hr:
     - Mark McGwire
@@ -218,7 +218,7 @@ Date: Revision 1.2.2 (2021-10-01)
       year was crippled
       by a knee injury.
 
-    # Folded newlines are preserved for “more indented” and blank lines
+    # Folded newlines are preserved for "more indented" and blank lines
     --- >
     Sammy Sosa completed another
     fine season with great stats.
