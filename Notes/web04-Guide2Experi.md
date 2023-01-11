@@ -172,6 +172,15 @@ Date: 2007
   - the Null hypothesis rejected about $5\%$ of the time when a $95\%$ confidence level is used
 
 
+- Statistical test
+  - used to evaluate one of the treatment is different than the Control
+  - accept a Treatment as being statistically significantly different if the test rejects the null hypothesis
+  - i.e., the OECs not different
+
+
+
+
+
 ## 4. Implementation Architecture
 
 
