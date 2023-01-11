@@ -178,6 +178,37 @@ Date: 2007
   - i.e., the OECs not different
 
 
+- Important factors of statistical test
+  - **Confidence level**
+    - commonly set to 95%
+    - 5% of the time incorrectly conclude that there is a difference when there is none (Type I error)
+    - all else being equal, increasing this level reduces the power
+  - **Power**
+    - commonly desired to be around 80-95%, although not directly controlled
+    - false Null Hypothesis:
+      - there is a difference in the OECs
+      - the power is the probability of determining that the difference is statistically significant
+      - A Type II error: retaining the Null Hypothesis when it is false
+  - **Standard Error**
+    - the smaller the Std-Err, the more powerful the test
+    - three useful ways to reduce the Std-Err
+      - estimated OEC:
+        - typically a mean of large samples
+        - Std-Err of a mean decreasing proportionally to the square root of the sample size $\timplies$ increasing the sample size
+        - usually implying running the experiment longer, reducing the Std-Err and hence increasing the power
+      - using OEC components that have inherently lower variability
+        - the Std-Dev, $\sigma$, smaller
+        - example: conversion probability (0-100%) typically has lower Std-Dev than number of purchase units (typically small integers), which in turn has a lower Std-Dev than revenue (real-valued)
+    - lower the variability of the OEC
+      - filtering out users who were not exposed to the variants, yet were still included in the OEC
+      - example:
+        - a change to the checkout page $\to$ analyze only users who got to the page
+        - everyone else adds noise, increasing the variability
+  - the effect, or the difference in OECs for the variants
+    - larger differences are easier to detect $\implies$ great ideas unlikely missed
+    - samll effect: Type I or Type II errors more likely
+
+
 
 
 
