@@ -219,17 +219,33 @@ Date: 2007
     - $r$: the number of variants (assumed to be approximately equal in size)
     - $\sigma$: the std-dev of the OEC
     - $\Delta$: the minimum difference between the OECs
-  - overestimated by 25% for large $n$
+    - $4$: overestimated by $25\%$ for large $n$
   - example of sample size
     - e-commerce site w/ $5\%$ of users who visit during the experiment period end up purchasing
-    - purchasing spend about $75
-    - average user spending $3.75 (95% spend $0)
+    - purchasing spend about \$75
+    - average user spending \$3.75 (95% spend \$0)
     - standard deviation: $30
     - running an A/B test and want to detect a 5% change to revenue
     - requiring over 1.6 million users to achieve the desired 90% power
 
-      \[  4 \cdot 2 \cdot 30 / (3.75 \cdot 0.05)^2 \]
+      \[ 4 \cdot 2 \cdot 30 / (3.75 \cdot 0.05)^2 \ge 1,600,000\]
 
+
+- Sample size with Bernoulli distribution
+  - only looking for a 5% change in rate (not revenue)
+  - a lower variability OEC used (Standard Error)
+  - purchase, a conversion event, modeled as a Bernoulli trial with $p=0.05$ being the probability of a purchase
+  - standard error of Bernoulli: $\sqrt{p(1-p)}$
+  - sample size to achieve desired power: 
+
+    \[(4 \cdot 2 \cdot \sqrt{0.05 \cdot (1 − 0.05)} / (0.05 \cdot 0.05))^2 \lt 500,000 \]
+
+  - square factor
+    - relaxed goal: detecting a 20% change in conversion
+    - factor $4$ dropped by a factor of 16
+    - sample size: 
+
+    \[(4 \cdot 2 \cdot \sqrt{0.05 \cdot (1 − 0.05)} / (0.05 \cdot 0.05))^2 /16 \approx 30,400\]
 
 
 
