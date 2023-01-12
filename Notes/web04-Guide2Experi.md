@@ -209,6 +209,28 @@ Date: 2007
     - samll effect: Type I or Type II errors more likely
 
 
+- Sample size
+  - the desired confidence level: $95\%$
+  - the desired power: $90\%$
+  - the desired sample size, $n$
+
+    \[ n = (4r\sigma/\Delta)^2 \]
+
+    - $r$: the number of variants (assumed to be approximately equal in size)
+    - $\sigma$: the std-dev of the OEC
+    - $\Delta$: the minimum difference between the OECs
+  - overestimated by 25% for large $n$
+  - example of sample size
+    - e-commerce site w/ $5\%$ of users who visit during the experiment period end up purchasing
+    - purchasing spend about $75
+    - average user spending $3.75 (95% spend $0)
+    - standard deviation: $30
+    - running an A/B test and want to detect a 5% change to revenue
+    - requiring over 1.6 million users to achieve the desired 90% power
+
+      \[  4 \cdot 2 \cdot 30 / (3.75 \cdot 0.05)^2 \]
+
+
 
 
 
