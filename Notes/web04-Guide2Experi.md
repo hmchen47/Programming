@@ -248,6 +248,23 @@ Date: 2007
     \[(4 \cdot 2 \cdot \sqrt{0.05 \cdot (1 − 0.05)} / (0.05 \cdot 0.05))^2 /16 \approx 30,400\]
 
 
+- Example: lower varability of the OEC
+  - change to the checkout process $\to$ only analyze users who started the checkout process
+  - assumptions
+    - 10% of users initiate checkout 
+    - that 50% of those users complete
+  - more homogenious user segment $\implies$ OEC w/ lower variability
+  - average conversion rate: 0.5
+  - std-dev: 0.5
+  - sample size: 
+
+    \[ (4 \cdot 2 \cdot \sqrt{0.5 \cdot (1 − 0.5)} / (0.5 \cdot 0.05))^2 = 25,600 \]
+
+  - total number of users to the (excluding the 90% who do not initiate): 256,000
+
+
+
+
 
 
 ## 4. Implementation Architecture
