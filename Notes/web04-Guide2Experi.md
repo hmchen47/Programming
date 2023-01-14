@@ -281,6 +281,14 @@ Date: 2007
   - increasing the 95% confidence level and thus reducing the statistical power
 
 
+### 3.3 Extensions for Online Settings
+
+- Extensions to basic controlled experiments in an online setting
+  - treatment ramp-up
+  - automation
+  - software migrations
+
+
 
 
 
