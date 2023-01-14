@@ -289,6 +289,18 @@ Date: 2007
   - software migrations
 
 
+- Treatment ramp-up
+  - initiated with a small percentage of users assigned to the treatment(s)
+  - gradually increasing the percentage
+  - example
+    - planning to run an A/B test at $50\%/50\%$
+    - starting with a $99.9\%/0.1\%$ split
+    - rampping up the Treatment: $0.1\% \to0.5\% \to 2.5\% \to 10\% \to 50\%$
+    - analyzing the data to ensure no egregious problems with the Treatment before exposing it to more users
+  - square factor in the power formula
+    - such errors could be caught quickly on small populations
+    - the experiment can be aborted before many users are exposed to the bad treatment
+
 
 
 
