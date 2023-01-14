@@ -311,7 +311,13 @@ Date: 2007
   - optimization algorithms: Multi-armed bandit algorithms and Hoeffding Races
 
 
-- 
+- Software migrations
+  - a feature or a system migrated to a new backend, new database, or a new language
+  - but not expected to change uservisible features
+  - an A/B test executed with the goal of retaining the Null Hypothesis, vairant no difference
+  - migration declared complete, but an A/B test showed significant differences in key metrics $\to$ helping identify bugs in port
+  - goal here to retain the Null Hypothesis 
+  - crucial to ensure the experiment w/ enough statistical power to actually reject the Null Hypothesis if it false
 
 
 
