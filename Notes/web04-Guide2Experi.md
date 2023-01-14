@@ -302,6 +302,17 @@ Date: 2007
     - the experiment can be aborted before many users are exposed to the bad treatment
 
 
+- Automation
+  - running experiments to optimize certain areas amenable to automated search w/ clear OEC
+  - example: slots on the home page at Amazon are automatically optimized
+  - quick decision required 
+    - lower confidence levels because the cost of mistakes is lower
+    - example: headline optimizations for portal sites
+  - optimization algorithms: Multi-armed bandit algorithms and Hoeffding Races
+
+
+- 
+
 
 
 ## 4. Implementation Architecture
