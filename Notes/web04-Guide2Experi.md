@@ -112,6 +112,8 @@ Date: 2007
   </figure>
 
 
+### 3.1 Terminology
+
 - Overall Evaluation Criterion (OEC)
   - a quantitative measure of the experiment’s objective
   - a.k.a. Response or Dependent Variable in statistics
@@ -171,6 +173,9 @@ Date: 2007
     - testing the experimentation system
   - the Null hypothesis rejected about $5\%$ of the time when a $95\%$ confidence level is used
 
+
+
+### 3.2 Hypothesis Testing and Sample Size
 
 - Statistical test
   - used to evaluate one of the treatment is different than the Control
@@ -262,6 +267,18 @@ Date: 2007
 
   - total number of users to the (excluding the 90% who do not initiate): 256,000
 
+
+- Considerations of experiment
+  - deciding in advance on the OEC (a planned comparison)
+  - an increased risk of finding what appear to be significant results by chance (familywise type I error)
+  - proposed adjustments
+    - Fisher’s least-significantdifference
+    - Bonferroni adjustment
+    - Duncan’s test
+    - Scheffé’s test
+    - Tukey’s test
+    - Dunnett’s test
+  - increasing the 95% confidence level and thus reducing the statistical power
 
 
 
