@@ -320,6 +320,10 @@ Date: 2007
   - crucial to ensure the experiment w/ enough statistical power to actually reject the Null Hypothesis if it false
 
 
+### 3.4 Limitations
+
+
+
 
 ## 4. Implementation Architecture
 
