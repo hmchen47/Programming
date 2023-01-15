@@ -322,6 +322,15 @@ Date: 2007
 
 ### 3.4 Limitations
 
+- Limitations in web
+  1. Quantitative Metrics, but No Explanations
+  2. Short term vs. Long Term Effects
+  3. Primacy and Newness Effects
+  4. Features Must be Implemented
+  5. Consistency
+  6. Consistency
+  7. Launch Events and Media Announcements
+
 
 
 
