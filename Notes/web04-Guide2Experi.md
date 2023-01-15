@@ -357,6 +357,22 @@ Date: 2007
     - but avoid throwing the baby out with the bathwater
 
 
+- Primacy and newness effects
+  - recognizing opposite effects required
+  - example
+    - changing the navigation on a web site
+    - experienced users probably less efficient until they get used to the new navigation
+    - giving an inherent advantage to the Control
+  - example
+    - introducing a new design or feature
+    - some users investigating it by clicking everywhere
+    - introducing a “newness” bias.
+    - bias associated with the Hawthorne Effect
+  - some experiments run for multiple weeks
+  - one analysis able to be done: to compute the OEC only for new users on the different variants
+
+
+
 
 ## 4. Implementation Architecture
 
