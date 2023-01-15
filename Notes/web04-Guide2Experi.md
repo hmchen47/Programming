@@ -339,6 +339,22 @@ Date: 2007
     - hence usability labs used to augment and complement controlled experiments
 
 
+- Short term vs. long term effects
+  - measuring the effect on the OEC during the experimentation period, typically a few weeks
+  - some criticized that focusing on a metric implies short-term focus $\to$ disagree
+  - long-term goals as part of the OEC
+  - example
+    - revenue as OEC
+    - probably plastering ads over a page
+    - too many ads hurt the user experience
+    - a good OEC
+      - including a penalty term of usage of real-estate for ads that are not clicked
+      - directly measuring repeat visits and abandonment
+    - latent conversions: delayed conversion metrics, a lag from the time a user is exposed to something and take action
+  - good OECs difficult to retain
+  - key point
+    - recognize this limitation
+    - but avoid throwing the baby out with the bathwater
 
 
 
