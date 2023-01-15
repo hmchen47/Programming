@@ -332,6 +332,14 @@ Date: 2007
   7. Launch Events and Media Announcements
 
 
+- Quantitative metrics, but no explanations
+  - possible know which variant better, and by how much, but not “why”
+  - example: 
+    - behavior often augmented with users’ comments
+    - hence usability labs used to augment and complement controlled experiments
+
+
+
 
 
 ## 4. Implementation Architecture
