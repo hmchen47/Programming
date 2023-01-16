@@ -385,9 +385,16 @@ Date: 2007
   - recommend: the techniques complementing controlled experiments
 
 
+- Consistency
+  - probably getting a different variant than their friends and family
+  - possible seeing multiple variants when using different computers (with different cookies)
+  - relatively rare that users will notice the difference
+
+
 
 
 ## 4. Implementation Architecture
+
 
 
 
