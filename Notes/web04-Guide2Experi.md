@@ -372,10 +372,22 @@ Date: 2007
   - one analysis able to be done: to compute the OEC only for new users on the different variants
 
 
+- Features must be implemented
+  - required to expose some users to a Treatment different than the current site (Control)
+  - probably a prototype being tested against a small portion, or may not cover all edge cases
+  - example:
+    - the experiment may intentionally exclude 20% of browser types that would require significant testing
+    - must be implemented
+    - be of sufficient quality to expose users to it
+  - Jacob Nielsen: paper prototyping
+    - used for qualitative feedback
+    - quick refinements of designs in early stages
+  - recommend: the techniques complementing controlled experiments
+
+
 
 
 ## 4. Implementation Architecture
-
 
 
 
