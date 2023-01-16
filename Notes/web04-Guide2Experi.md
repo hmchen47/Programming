@@ -439,8 +439,20 @@ Date: 2007
     - required carefully to reassign Control users who visit the site after a ramp-up to a treatment
 
 
-
-
+- Hash and partition
+  - completely stateless
+  - each user assigned a unique identifier, maintained either through a database or a cookie
+  - identifier appended onto the name or id of the experiment
+  - very sensitive to the choice of hash function
+  - hash function
+    - applied to this combined identifier to obtain an integer, uniformly distributed on a range of values
+    - range partitioned w/ each variant represented by a partition
+    - any funnels (instances where adjacent keys map to the same hash code) $\implies$ violated the first property
+    - characteristics (instances where a perturbation of the key produces a predictable perturbation of the hash code) $\implies$ correlations occurted between experiments
+    - satisfying second requirement
+  - difficult to satisfy the first and third requirements
+    - MD5: no correlations between experiments
+    - HSA256: close, requiring a five-way interaction to produce a correlation
 
 
 ## 5. Lesson Learned
