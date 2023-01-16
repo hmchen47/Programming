@@ -423,6 +423,22 @@ Date: 2007
     4. supporting monotonic ramp-up
 
 
+- Pseudorandom with caching
+  - using standard pseudorandom number generator coupled with a form of caching.
+  - good pseudorandom number generator: satisfying the first and third requirements of the randomization algorithm
+  - seeding: probably causing adjacent requests to use the same seed $\to$ introducing noticeable correlations between experiments
+  - second requirement
+    - introducing state: the assignments of users must be cached once they visit the site
+    - cache: either on the server side or on the client side
+      - server side: storing the assignments for users in some form of database
+      - client side: storing a user’s assignment in a cookie
+    - difficult to scale up to a large system with a large fleet of servers
+    - communicating its state to all the other servers to keep assignments consistent
+  - fourth requirement
+    - difficult to implement using this method
+    - required carefully to reassign Control users who visit the site after a ramp-up to a treatment
+
+
 
 
 
