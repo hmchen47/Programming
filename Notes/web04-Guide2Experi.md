@@ -411,6 +411,18 @@ Date: 2007
   - assignment method: using the output of the randomization algorithm to determine the experience that each user will see on the website
 
 
+### 4.1 Randomization Algorithm
+
+- Randomization algorithm overview
+  - critical to find a good one
+  - assumption: each variant of an experiment w/ a random sample of users
+  - properties
+    1. no bias toward any particular variant (assuming a 50-50 split)
+    2. consistent on repeat assignments of a single user
+    3. no correlation between experiments
+    4. supporting monotonic ramp-up
+
+
 
 
 
