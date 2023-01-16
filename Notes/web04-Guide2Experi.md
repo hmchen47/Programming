@@ -391,10 +391,16 @@ Date: 2007
   - relatively rare that users will notice the difference
 
 
+- Parallel experiments
+  - rarely strong interactions in practice
+  - the concern overrated
+  - raising awareness of this concern is enough for experimenters to avoid tests that can interact
+  - pairwise statistical tests done by flagging such interactions automatically
+
+
 
 
 ## 4. Implementation Architecture
-
 
 
 
