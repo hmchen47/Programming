@@ -398,6 +398,10 @@ Date: 2007
   - pairwise statistical tests done by flagging such interactions automatically
 
 
+- Launch Events and media announcements
+  - a big announcement made about a new feature
+  - announced to the media $\to$ all users need to see it
+
 
 
 ## 4. Implementation Architecture
