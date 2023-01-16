@@ -406,6 +406,13 @@ Date: 2007
 
 ## 4. Implementation Architecture
 
+- Components of implementing an experiment on a website
+  - randomization algorithm: a function that maps users to variants
+  - assignment method: using the output of the randomization algorithm to determine the experience that each user will see on the website
+
+
+
+
 
 
 ## 5. Lesson Learned
