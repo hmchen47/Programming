@@ -40,7 +40,7 @@ Institute: RF Wireless World
     </div>
 
   - examples
-    - mantissa: `0101_0000_0000_0000_0000_000` $\to$ (1.mantissa) =1.0101_0000_0000_0000_0000_000
+    - mantissa: `0101_0000_0000_0000_0000_000` $\to (1.\text{mantissa}) =1.0101_0000_0000_0000_0000_000$
     - floating point $X1$
 
     <div style="display: flex; justify-content: center;">
@@ -161,7 +161,7 @@ Institute: RF Wireless World
       </figure>
     
     - procedure
-      1. XOR sign: $X1 \text{XOR} X2  = 0$
+      1. XOR sign: $X1 \text{ XOR } X2  = 0$
       2. mantissa:
           - multiply the mantissa values including the "hidden one": $\Rightarrow 24 \times 24 \to 48$
           - 2 bits to the left of binary point
@@ -312,8 +312,8 @@ Institute: RF Wireless World
       </figure>
 
     - procedure
-      1. $S3 = S1 \text{XOR} S2 = 0$
-      2. $E3 = (E1 - E2) + bias = 133-131+127 = 129$
+      1. $S3 = S1 \text{ XOR } S2 = 0$
+      2. $E3 = (E1 - E2) + \text{bias} = 133-131+127 = 129$
       3. dividing $M1/M2$
 
         <figure style="display: flex; margin: 0.5em; justify-content: center; align-items: center;">
