@@ -455,6 +455,22 @@ Date: 2007
     - HSA256: close, requiring a five-way interaction to produce a correlation
 
 
+### 4.2 Assignment Method
+
+- Assignment method overview
+  - a piece of software that enables the experimenting website to execute a different code path for different users
+  - good assignment method: causing anything from visible website content to backend algorithms to vary by user
+  - implementations
+    - traffic splitting
+    - code-driven selection
+    - client-side page modification (Ajax)
+    - metadata-driven selection
+
+
+
+
+
+
 ## 5. Lesson Learned
 
 
