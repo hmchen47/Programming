@@ -512,7 +512,26 @@ Date: 2007
   - the best approach for experiments on
     - backend algorithms 
     - pages implemented directly in a language
-  - 
+
+
+- Client-side page modification (Ajax)
+  - the assignment technique employed by several commercial products
+  - running an experiment without making any decisions on the server
+  - a form of code-driven selection 
+  - inserting JavaScript code that instructs the user’s browser to invoke an assignment service at render time
+  - service call
+    - returning the appropriate variant for the user
+    - triggering a JavaScript callback that instructs the browser to dynamically alter the page being presented to the user
+  - proper changes: occurred before any part of the page renders
+  - content of each variant: either be cleverly embedded into the page or served by the assignment service
+  - easier to implement on a simple site than other code-driven method
+  - disadvantages
+    - not working well for complex sites that rely on dynamic content
+    - adding a noticeable delay for users
+    - able to extract the content of each variant and pollute the results
+
+
+
 
 
 
