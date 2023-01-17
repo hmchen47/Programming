@@ -485,6 +485,35 @@ Date: 2007
   - recommendation: only for testing changes that introduce significantly different code
 
 
+- Code-review selection
+  - a family of methods using code embedded into the website’s servers to produce a different user experience for each variant
+  - taking the form of an API call placed at the point where the website logic differs between variants
+    - invoking the randomization algorithm
+    - returning the identifier of the variant to be displayed for the current user
+  - placed anywhere on the server side
+    - from front-end rendering to back-end algorithms
+    - a complex experiment probably making use of multiple API calls inserted into the code at different places
+  - code changes
+    - involving the API call specific to a single experiment
+    - removed when the experiment ends
+  - implemented as a local function call
+  - using an external service to ensure that the assignment logic stays consistent across a large server fleet
+  - advantages
+    - extremely general method: possible to experiment on virtually any aspect of a page simply by modifying its code
+    - placing the experimentation code in the best logical place: possible to experiment on backend features without touching the front end
+    - API designed to record a special event (trigger): a user has reached a choice point between variants
+    - running multiple experiments run simultaneously w/o requiring any coordination between their owners
+  - disadvantages
+    - requiring a developer to change code deep in the page logic for each experiment $\to$ introducing risk
+    - difficult to implement on pages built on content management frameworks $\to$ metadata-driven selection as superior approach
+    - manually undone to complete an experiment
+      - a painful process if API calls are spread throughout the code
+      - a big problem when experimenting on poorly designed pages
+  - the best approach for experiments on
+    - backend algorithms 
+    - pages implemented directly in a language
+  - 
+
 
 
 ## 5. Lesson Learned
