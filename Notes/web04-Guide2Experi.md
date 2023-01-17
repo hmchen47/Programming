@@ -467,6 +467,22 @@ Date: 2007
     - metadata-driven selection
 
 
+- Traffic splitting
+  - a method that involves implementing each variant of an experiment on a different logical fleet of servers
+  - possible ways: different physical servers, different virtual servers, or event different ports on the same machine
+  - using either a load balancer or proxy server to split traffic
+  - advantage: the only assignment method that requires no changes to existing code to implement an experiment
+  - significant disadvantages
+    - disproportionately difficult w/ small features: the entire application must be replicated regardless of the size of the change
+    - expensive to set up and configure parallel fleets: sufficient capacity to take 100% of the traffic in the event that the experiment needs to be shut down
+    - tremendous effort when running multiple experiments simultaneously
+      - the fleet requiring one partition for each combination of variants across all experiments
+      - number increasing exponentially as the number of experiments increases
+    - Any differences between the fleets used for each variant probably confounding the experimental results
+      - identical hardware and network topology of each fleet
+      - A/A tests run to confirm the absence of fleet-related effects
+  - one of the most expensive ways to implement an experiment
+  - recommendation: only for testing changes that introduce significantly different code
 
 
 
