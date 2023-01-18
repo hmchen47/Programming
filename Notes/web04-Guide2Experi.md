@@ -556,8 +556,13 @@ Date: 2007
   - the best method on sites w/ controlled by a single framework
 
 
-
 ## 5. Lesson Learned
+
+- Concerns in practice
+  - analysis
+  - trust and execution
+  - culture and business
+
 
 
 
