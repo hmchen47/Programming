@@ -531,7 +531,29 @@ Date: 2007
     - able to extract the content of each variant and pollute the results
 
 
-
+- Metadata-driven selection
+  - a family of techniques where the capability to experiment is built directly into a page
+    - built on top of an existing code-driven system
+    - implemented as a standalone approach
+  - configured by changing metadata instead of code
+  - represented by anything from an editable configuration file to a relational database managed by a GUI
+  - example
+    - a content management system assembles a page from individual units (slots)
+    - system referring to page metadata at render time to determine how to assemble the page
+    - non-technical content editors scheduling pieces of content in each slot through a GUI that edits this page metadata
+    - including anything from a company logo, to an image, to a snippet of text filled with links, to a widget that displays dynamic content
+    - trying various pieces of content in different locations, e.g., higher click-through on the left or on the right
+  - extended to allow pieces of content to be scheduled with respect to a specific experiment
+  - executing the assignment logic for each scheduled experiment
+  - saving the results to page context where the page assembly mechanism can react to it
+  - experiments designed, implemented, and removed by modifying the page metadata through the user interface
+  - code changes required but only implementing brand new type of experiment
+  - experiments activated and deactivated through the page metadata
+  - advantage: implemented through metadata changes alone
+  - disadvantages
+    - limiting the range of available experiments
+    - expensive Initial implementation
+  - the best method on sites w/ controlled by a single framework
 
 
 
