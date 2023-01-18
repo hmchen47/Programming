@@ -217,13 +217,16 @@ Date: 2007
 - Sample size
   - the desired confidence level: $95\%$
   - the desired power: $90\%$
-  - the desired sample size, $n$
+  - the desired sample size, $n$ (the total number of observation in the experiment)
 
     \[ n = (4r\sigma/\Delta)^2 \]
 
-    - $r$: the number of variants (assumed to be approximately equal in size)
-    - $\sigma$: the std-dev of the OEC
-    - $\Delta$: the minimum difference between the OECs
+    - $r \ge 1$: the number of variants (assumed to be approximately equal in size); the number of levels of a factor
+    - $\sigma$: the std-dev of the OEC; $\sigma^2$ - the variance of observations
+    - $\Delta > 0$:
+      - the minimum difference between the OECs
+      - the minimum pairwise difference b/w the expected values of the means of $r$
+      - level factor that one desires to detect w/ an $\alpha = 0.05$ level test and a power of $\beta = 0.90$
     - $4$: overestimated by $25\%$ for large $n$
   - example of sample size
     - e-commerce site w/ $5\%$ of users who visit during the experiment period end up purchasing
