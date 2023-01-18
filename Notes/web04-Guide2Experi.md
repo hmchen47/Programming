@@ -567,6 +567,16 @@ Date: 2007
   - culture and business
 
 
+### 5.1 Analysis
+
+- Mining the data
+  - providing more than just a single bit of information about whether the difference in OECs is statistically significant
+  - analyzed using machine learning and data mining techniques
+  - example
+    - experiment w/o significant difference overall
+    - a population of users with a specific browser version was significantly worse for the Treatment
+    - reason: buggy for that browser version and users abandoned
+    - the feature retested and positive once bug fixed
 
 
 
