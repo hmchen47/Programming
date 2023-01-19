@@ -1,4 +1,4 @@
-# Practical guide to controlled experiments on the web: listen to your customers not to the hippo](web03-Experiments.md)
+# Practical guide to controlled experiments on the web: listen to your customers not to the hippo
 
 Author: R. Kohavi, R. Henne, D. Sommerfield
 
