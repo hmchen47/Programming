@@ -623,6 +623,14 @@ Date: 2007
   - extremely useful
 
 
+- Determine the minimum sample size
+  - detecting and estimating the variability of the OEC through an A/A test $\to$ statistical power
+  - computing the minimum sample size needed for the experiment $\to$ the running time for your web site
+  - common mistake: underpower
+
+
+
+
 
 
 
