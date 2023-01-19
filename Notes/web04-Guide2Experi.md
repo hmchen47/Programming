@@ -654,6 +654,16 @@ Date: 2007
   - a single metric probably not required for running experiments, this hard up-front work can align the organization and clarify goals
 
 
+- Beware of launching features that do not hurt users
+  - no statistically significant difference between variants
+    - no difference between the variants
+    - w/o sufficient power to detect the change
+  - launching the change anyway “because it does not hurt anything”
+  - possibly negative but underpowered
+
+
+
+
 
 
 ## 6. Summary
