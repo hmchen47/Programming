@@ -691,12 +691,6 @@ Date: 2007
     - the practical problems with randomization
     - hashing techniques
     - organizational issues, especially as they relate to OEC
-  - traditional way
-    - HiPPO: Highest Paid Person’s Opinion
-    - success really depends on the users’ perceptions
-  - controlled experiments
-    - New Imperative for Innovation
-    - new technologies making it easier than ever to conduct complex experiments quickly and cheaply
 
 
 - Data mining techniques
@@ -705,4 +699,11 @@ Date: 2007
   - leading to a virtuous cycle of improvements in features and better personalization
 
 
+- Basic ideas of controlled experiments
+  - traditional way
+    - HiPPO: Highest Paid Person’s Opinion
+    - success really depends on the users’ perceptions
+  - new approach
+    - New Imperative for Innovation
+    - new technologies making it easier than ever to conduct complex experiments quickly and cheaply
 
