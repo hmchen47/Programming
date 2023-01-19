@@ -662,6 +662,10 @@ Date: 2007
   - possibly negative but underpowered
 
 
+- Weigh the feature maintenance costs
+  - $\exits$ a statistically significant difference  between variants
+  - launching the new variant probably unjustified because of maintenance costs
+  - small increase in the OEC not outweighting the cost of maintaining the feature
 
 
 
