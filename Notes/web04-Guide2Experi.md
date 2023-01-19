@@ -643,6 +643,19 @@ Date: 2007
   - generalization: 'holidays and seasons' and different geographies
 
 
+### 5.3 Culture and Business
+
+- Agree on the OEC upfront 
+  - controlled experiments: objectively measure the value of new features for the business
+  - best practice: interested parties have agreed on how an experiment is to be evaluated **before** the experiment is run
+  - OEC usually combined measures, transforming multiple objectives, into a single metric
+  - weighting the value of various inputs and deciding their relative importance
+  - good technique: assessing the lifetime value of users and their actions
+  - a single metric probably not required for running experiments, this hard up-front work can align the organization and clarify goals
+
+
+
+
 ## 6. Summary
 
 
