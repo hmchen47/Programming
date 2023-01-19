@@ -579,6 +579,15 @@ Date: 2007
     - the feature retested and positive once bug fixed
 
 
+- Speed matters
+  - providing a worse user experience because of its performance
+  - examples
+    - Amazon: a 1% sales decrease for an additional 100msec
+    - Google: increasing the time to display search results by 500 msecs reduced revenues by 20% 
+  - time not part of EOC: a new feature not losing due to slow
+
+
+
 
 ## 6. Summary
 
