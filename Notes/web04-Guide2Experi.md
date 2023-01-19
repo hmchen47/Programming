@@ -635,6 +635,12 @@ Date: 2007
   - 50% of users see each of the variants in an A/B test $\to$ maximize the power of an experiment and minimize the running time
 
 
+- Beware of day of week effects
+  - a lot of users visiting the site $\implies$ run an experiment for only hours or a day
+  - day-of-week effects: running experiments for at least a week or two, then continuing by multiples of a week
+  - users visiting on the weekend represent different segments
+  - analyzing segments separately $\to$ interesting insights
+  - generalization: 'holidays and seasons' and different geographies
 
 
 ## 6. Summary
