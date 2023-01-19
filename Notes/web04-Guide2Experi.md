@@ -613,6 +613,15 @@ Date: 2007
   - are the results showing non-significant results 95% of the time?
 
 
+- Automate ramp-up and abort
+  - experiments ramp-up in the percentages assigned to the Treatment(s)
+  - auto-aborted
+    - if a treatment is statistically significantly underperforming relative to the Control
+    - simply reduces the percentage of users assigned to a treatment to zero
+  - reducing the risk in exposing many users to egregious errors, $\to$ organization making bold bets and innovate faster
+  - ramp-up: easy to do in online environment but hard to study offline
+  - extremely useful
+
 
 
 
