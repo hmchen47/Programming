@@ -211,7 +211,7 @@ Date: 2007
         - everyone else adds noise, increasing the variability
   - the effect, or the difference in OECs for the variants
     - larger differences are easier to detect $\implies$ great ideas unlikely missed
-    - samll effect: Type I or Type II errors more likely
+    - small effect: Type I or Type II errors more likely
 
 
 - Sample size
@@ -261,7 +261,7 @@ Date: 2007
   - assumptions
     - 10% of users initiate checkout 
     - that 50% of those users complete
-  - more homogenious user segment $\implies$ OEC w/ lower variability
+  - more homogenous user segment $\implies$ OEC w/ lower variability
   - average conversion rate: 0.5
   - std-dev: 0.5
   - sample size: 
@@ -680,10 +680,23 @@ Date: 2007
 
 ## 6. Summary
 
-
-
-
-
+- Controlled experiments
+  - neutralizing confounding variables by distributing them equally over all values through random assignment
+  - establishing a causal relationship between the changes made in the different variants and the measure(s) of interest, including the Overall Evaluation Criterion (OEC)
+  - easy to understand the basic idea ty
+  - comprehensive overview for the web not previously available
+  - issues discussed
+    - generalized architectures
+    - ramp-up and aborts
+    - the practical problems with randomization
+    - hashing techniques
+    - organizational issues, especially as they relate to OEC
+  - traditional way
+    - HiPPO: Highest Paid Person’s Opinion
+    - success really depends on the users’ perceptions
+  - controlled experiments
+    - New Imperative for Innovation
+    - new technologies making it easier than ever to conduct complex experiments quickly and cheaply
 
 
 
