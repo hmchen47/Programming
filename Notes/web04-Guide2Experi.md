@@ -605,6 +605,15 @@ Date: 2007
     - using factorial designs when several factors are suspected to interact strongly
 
 
+### 5.2 Trust and Execution
+
+- Run continuous A/A tests
+  - are users split according to the planned percentages?
+  - is the data collected matching the system of record?
+  - are the results showing non-significant results 95% of the time?
+
+
+
 
 
 
