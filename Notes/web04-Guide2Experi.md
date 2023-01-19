@@ -629,7 +629,10 @@ Date: 2007
   - common mistake: underpower
 
 
-
+- Assign 50% of users to Treatment
+  - common practice: running new variants for only a small percentage of users
+  - error: only few users seeing a bad treatment
+  - 50% of users see each of the variants in an A/B test $\to$ maximize the power of an experiment and minimize the running time
 
 
 
