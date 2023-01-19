@@ -699,5 +699,10 @@ Date: 2007
     - new technologies making it easier than ever to conduct complex experiments quickly and cheaply
 
 
+- Data mining techniques
+  - providing extremely valuable insights
+  - example: the identification of segments that benefit from a feature introduce in a controlled experiment
+  - leading to a virtuous cycle of improvements in features and better personalization
+
 
 
