@@ -668,6 +668,14 @@ Date: 2007
   - small increase in the OEC not outweighting the cost of maintaining the feature
 
 
+- Change to a data-driven culture
+  - online experiments providing great insights into how customers are using a feature
+  - using experimental results as major input to company decisions and product planning
+  - a dramatic impact on company culture
+  - features completely designed prior to implementation
+  - integrating customer feedback directly through prototypes and experimentation
+  - providing real data and moving the culture towards attaining shared goals rather than battle over opinions
+
 
 
 ## 6. Summary
