@@ -587,6 +587,25 @@ Date: 2007
   - time not part of EOC: a new feature not losing due to slow
 
 
+- Test one factor at a time (or Not)
+  - testing one factor at a time
+  - too restrictive to lead organizations to focus on small incremental improvements
+  - fractional factorial designs and Taguchi methods
+    - introducing complexity where it may not be needed
+    - factorial designs allowing for joint optimization of factors $\to$ superior in theory
+    - interactions less frequent than people assume
+    - parallel interacting experiments avoided
+  - recommendations
+    - conducting single-factor experiments for gaining insights $\to$ decoupling changes
+    - trying some bold bets and very different designs
+      - starting w/ two very different designs for a feature
+      - refining to improve by perturning the winning version
+      - easier to try different backend algorithms
+      - isolate areas where the new algorithm significantly better, leading to interesting insights
+    - using factorial designs when several factors are suspected to interact strongly
+
+
+
 
 
 ## 6. Summary
