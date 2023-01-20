@@ -439,6 +439,54 @@ Date: Revision 1.2.2 (2021-10-01)
   - comment (`#`): informative only
 
 
+- Production parameters
+  - parameters in parentheses after the name, such as `s-line-prefix(n,c)`
+  - shorthand for a (infinite) series of productions, each with a fixed value for each parameter
+  - examples
+
+    ```yaml
+    # production 1
+    production-a(n) ::= production-b(n)
+
+    # shorthand of production 1
+    production-a(0) ::= production-b(0)
+    production-a(1) ::= production-b(1)
+    …
+
+    # production 2
+    production-a(n) ::=
+      ( production-b(n+m) production-c(n+m) )+
+
+    # shorthand of production 2
+    production-a(0) ::=
+        ( production-b(0) production-c(0) )+
+      | ( production-b(1) production-c(1) )+
+      | …
+    production-a(1) ::=
+        ( production-b(1) production-c(1) )+
+      | ( production-b(2) production-c(2) )+
+      | …
+    …
+    ```
+
+    - parameters
+      - Indentation `n` or `m`: any natural number, including zero. n may also be -1
+      - Context `c`: tweak their behavior according to their surrounding
+        - two groups of contexts, distinguishing between [block styles](https://yaml.org/spec/1.2.2/#block-style-productions) and [flow styles](https://yaml.org/spec/1.2.2/#flow-style-productions)
+        - `BLOCK-IN`: inside block context
+        - `BLOCK-OUT`: outside block context
+        - `BLOCK-KEY`: inside block key context
+        - `FLOW-IN`: inside flow context
+        - `FLOW-OUT`: outside flow context
+        - `FLOW-KEY`: inside flow key context
+      - (Block) Chomping `t`
+        - the line break chomping behavior for flow scalars
+        - `STRIP` – remove all trailing newlines
+        - `CLIP` – remove all trailing newlines except the first
+        - `KEEP` – retain all trailing newlines
+
+
+
 
 
 
