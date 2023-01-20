@@ -88,5 +88,34 @@ Institute: Wikipedia
   </figure>
 
 
+- Components of MVVM pattern
+  - Model
+    - domain model: real state content (an object-oriented approach)
+    - data access layer: content (a data-centric approach)
+  - View
+    - the structure, layout, and appearance of what a user sees on the screen
+    - same as the model–view–controller (MVC) and model–view–presenter (MVP) patterns
+    - displaying a representation of the model
+    - receiving the user's interaction with the view
+    - forwarding the handling of these to the view model via the data binding (properties, event callbacks, etc.)
+  - View model
+    - an abstraction of the view exposing public properties and commands
+    - binder:
+      - automating communication between the view
+      - bound properties in the view model
+    - a state of the data in the model
+    - Presenter in the MVP pattern: a reference to a view, whereas the view model does not
+    - directly binding to properties on the view model to send and receive updates
+    - requiring a binding technology
+    - generating boilerplate code to do the binding
+  - Binder
+    - declarative data and command-binding
+    - implicit
+    - freeing the developer from being obliged to write boiler-plate logic to synchronize the view model and view
+    - the presence of a declarative data binding technology enabling the pattern
+    - using MVP or MVC w/o binder
+
+
+
 
 
