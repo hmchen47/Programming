@@ -47,5 +47,16 @@ Institute: Wikipedia
       - using templates to create the response
 
 
+- Interactions of MVC components
+  - model: 
+    - responsible for managing the data of the application
+    - receiving user input from the controller
+  - view: rendering presentation of the model in a particular format
+  - controller:
+    - responding to the user input and performs interactions on the data model objects
+    - receiving the input
+    - optionally validating input
+    - passing the input to the model
+
 
 
