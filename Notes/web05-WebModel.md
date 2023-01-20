@@ -60,3 +60,33 @@ Institute: Wikipedia
 
 
 
+# Model–view–viewmodel (MVVM) 
+
+- Model–view–viewmodel (MVVM) Overview
+  - an architectural pattern in computer software
+  - facilitating the separation of the development of the graphical user interface (GUI; the view)
+  - via a markup language or GUI code
+  - the development of the business logic or back-end logic (the model) such that the view is not dependent upon any specific model platform
+  - viewmodel
+    - a value converter
+    - responsible for exposing (converting) the data objects from the model in such a way they can be easily managed and presented
+    - more model than view
+    - handling most (if not all) of the view's display logic
+    - implement a mediator pattern, organizing access to the back-end logic around the set of use cases supported by the view
+  - a variation of Martin Fowler's Presentation Model design pattern
+  - invented by Microsoft architects specifically to simplify event-driven programming of user interfaces
+  - incorporated into the Windows Presentation Foundation (WPF) and Silverlight
+  - a.k.a. model–view–binder
+
+  <figure style="display: table; margin: auto; text-align: center;"">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel')"
+      src    = "https://upload.wikimedia.org/wikipedia/commons/8/87/MVVMPattern.png"
+      alt    = "Diagram of MVVM pattern"
+      title  = "Diagram of MVVM pattern"
+    />
+  </figure>
+
+
+
+
