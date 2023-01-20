@@ -116,6 +116,29 @@ Institute: Wikipedia
     - using MVP or MVC w/o binder
 
 
+## Model-View-Presenter (MVP)
+
+- Model-View-Presenter (MVP) overview
+  - derivation of the model–view–controller (MVC) architectural pattern
+  - used mostly for building user interfaces
+  - a user interface architectural pattern engineered to facilitate automated unit testing
+  - improving the separation of concerns in presentation logic
+  - diagram of MVP pattern
+
+  <figure style="display: table; margin: auto; text-align: center;"">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      onclick= "window.open('https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter')"
+      src    = "https://upload.wikimedia.org/wikipedia/commons/d/dc/Model_View_Presenter_GUI_Design_Pattern.png"
+      alt    = "Diagram that depicts the Model View Presenter (MVP) GUI design pattern"
+      title  = "Diagram that depicts the Model View Presenter (MVP) GUI design pattern"
+    />
+    <figcaption>
+      Diagram that depicts the Model View Presenter (MVP) GUI design pattern.
+    </figcaption>
+  </figure>
+
+
+- 
 
 
 
