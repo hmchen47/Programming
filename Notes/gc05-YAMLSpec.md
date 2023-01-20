@@ -410,3 +410,35 @@ Date: Revision 1.2.2 (2021-10-01)
   ```
 
 
+## Syntax Conventions
+
+- Production syntax
+  - syntax: `production-name ::= term`
+  - atomic term
+    - double quoted string (`"abc"`): concatenation of characters
+    - single quoted character (`'a'`): usually a single character
+    - hexadecimal number (`x0A`): character at that Unicode code point
+    - range of hexadecimal numbers (`[x20-x7E]`): any character whose Unicode code point is within that range
+    - name of a production (`c-printable`): that production
+  - lookaround
+    - `[ lookahead = term ]`:  the empty string if `term` would match
+    - `[ lookahead ≠ term ]`:  the empty string if `term` would not match
+    - `[ lookbehind = term ]`: the empty string if `term` would match beginning at any prior point on the line and ending at the current position
+  - special production
+    - `<start-of-line>`: the empty string at the beginning of a line
+    - `<end-of-input>`: the empty string at the end of the input
+    - `<empty>`: always matching the empty string
+  - parenthesized term: matching its contents
+  - concatenation `term-one term-two`: `term-one` followed by `term-two`
+  - quantified term:
+    - `term?`: `(term | <empty>)`
+    - `term*`: `(term term* | <empty>)`
+    - `term+`: `(term term*)`
+    - quantified terms are always greedy
+  - order of precedence: parenthesization, then quantification, then concatenation, then alternation
+  - comment (`#`): informative only
+
+
+
+
+
