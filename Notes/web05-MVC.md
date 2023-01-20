@@ -25,6 +25,26 @@ Institute: Wikipedia
   </figure>
 
 
+- Components of MVC
+  - **Model**
+    - central component of the pattern
+    - application's dynamic data structure
+    - independent of the user interface
+    - typically represents a table in the application's database
+  - **View**
+    - any representation of information such as a chart, diagram or table
+    - multiple views of the same information, such as a bar chart for management and a tabular view for accountants
+    - played by HTML templates
+    - a view specifying an in-browser user interface rather than representing a user interface widget directly
+    - Django called as a "template"
+  - **Controller**
+    - accepting input and converting it to commands for the model or view
+    - mediating between the views and the models
+    - one controller per application, or one controller per window
+    - Django
+      - called a "view" instead of a controller
+      - a function that receives a web request and returns a web response
+      - using templates to create the response
 
 
 
