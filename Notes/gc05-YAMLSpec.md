@@ -486,6 +486,17 @@ Date: Revision 1.2.2 (2021-10-01)
         - `KEEP` – retain all trailing newlines
 
 
+- Production naming conventions
+  - `e-`: a production matching no characters.
+  - `c-`: a production starting and ending with a special character
+  - `b-`: a production matching a single line break
+  - `nb-`: a production starting and ending with a non-break character
+  - `s-`: a production starting and ending with a white space character
+  - `ns-`: a production starting and ending with a non-space character
+  - `l-`: a production matching complete line(s)
+  - `X-Y-`: a production starting with an X- character and ending with a Y- character, where X- and Y- are any of the above prefixes
+  - `X+, X-Y+`: a production as above, with the additional property that the matched content indentation level is greater than the specified n parameter
+
 
 
 
