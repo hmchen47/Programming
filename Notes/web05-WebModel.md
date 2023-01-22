@@ -138,7 +138,16 @@ Institute: Wikipedia
   </figure>
 
 
-- 
+- Components of MVP pattern
+  - Model: an interface defining the data to be displayed or otherwise acted upon in the user interface
+  - View:
+    - a passive interface that displays data (the model) and routes user commands (events) to the presenter to act upon that data
+    - instantiating the concrete presenter object
+    - providing a reference to itself
+  - Presenter
+    - acting upon the model and the view
+    - retrieving data from repositories (the model)
+    - formating it for display in the view
 
 
 
