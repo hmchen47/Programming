@@ -36,12 +36,13 @@
 
 ### Modeling
 
-- Wikipedia, [Model-View-Controller (MVC)](web05-MVC.md)
-- Wikipedia, [Model-View-View Model (MVVM)](web06-MVVM.md)
-- S. Tachenov, [MVC, MVP, and MVVM: The Idea](web07-MVCetc.md)
-- Patrick, [Overview of Model-View-Controlleer (MVC)](web08-MVCOverview.md)
-- M. Martin, [MVC vs MVVM - Difference Between Them](web09-MVCMVVM.md)
-- A. Oymo, [Understanding the MVC patter in Django](web10-MVCDjango.md)
+- Wikipedia, [Model-View-Controller (MVC)](web05-WebModel.md#model-view-controller-mvc)
+- Wikipedia, [Model-View-View Model (MVVM)](web05-WebModel.md#modelviewviewmodel-mvvm)
+- Wikipedia, [Model–View–Presenter (MVP)](web05-WebModel.md#model-view-presenter-mvp)
+- S. Tachenov, [MVC, MVP, and MVVM: The Idea](web05-WebModel.md#)
+- Patrick, [Overview of Model-View-Controlleer (MVC)](web07-MVCOverview.md)
+- M. Martin, [MVC vs MVVM - Difference Between Them](web07-MVCMVVM.md)
+- A. Oymo, [Understanding the MVC patter in Django](web08-MVCDjango.md)
 
 
 
