@@ -9,6 +9,13 @@ Author: Sergei Tachenov
   - Model-View-Presenter
 
 
+- Purposes
+  - separation of concerns
+  - single responsibility principle - **S**OLID
+    - only one reason for a class to change
+    - only one reason for a layer to change $\to$ separation of concerns
+
+
 
 
 
