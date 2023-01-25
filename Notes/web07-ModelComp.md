@@ -59,5 +59,12 @@ Date: 2033-22-36
   - example: any customer view will include all the UI components like text boxes, dropdowns, etc.
 
 
+- Controller component
+  - part of the Application that handles the user interaction
+  - interpreting the mouse and keyboard inputs from the user, informing the Model and the View to change as appropriate
+  - sending commands to the Model to update its state, e.g., saving a specific document
+  - sending commands to its associated view to change the View’s presentation, e.g., scrolling a particular document
+
+
 
 
