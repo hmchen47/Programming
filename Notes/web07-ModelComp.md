@@ -16,7 +16,7 @@ Date: 2033-22-36
   - View in MVVM: the entry point to the Application
   - MVC Model component: tested separately from the user
   - MVVM model: easy for separate unit testing, and code in event-driven
-  - “one to many” relationships
+  - "one to many" relationships
     - MVC:  between Controller & View
     - MVVC: between View & View Model
 
@@ -34,7 +34,7 @@ Date: 2033-22-36
   - architecture
 
     <figure style="display: table; margin: auto; text-align: center;"">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
         onclick= "window.open('https://www.guru99.com/mvc-vs-mvvm.html')"
         src    = "https://www.guru99.com/images/1/122118_0445_MVCTutorial1.png"
         alt    = "MVC pattern"
@@ -43,7 +43,12 @@ Date: 2033-22-36
     </figure>
 
 
-
+- Model component
+  - storing data and related logic
+  - representing data being transferred between controller components or any other related business logic
+  - example: 
+    - a Controller object retrieving the customer info from the database
+    - Model: manipulate data and send it back to the database or use it to render the same data
 
 
 
