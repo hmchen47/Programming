@@ -34,7 +34,7 @@ Date: 2033-22-36
   - architecture
 
     <figure style="display: table; margin: auto; text-align: center;"">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
         onclick= "window.open('https://www.guru99.com/mvc-vs-mvvm.html')"
         src    = "https://www.guru99.com/images/1/122118_0445_MVCTutorial1.png"
         alt    = "MVC pattern"
@@ -49,6 +49,14 @@ Date: 2033-22-36
   - example: 
     - a Controller object retrieving the customer info from the database
     - Model: manipulate data and send it back to the database or use it to render the same data
+
+
+- View component
+  - part of the Application that represents the presentation of data
+  - created by the data gathered from the model data
+  - requesting the Model to give information so that it resents the output to the user
+  - representing the data from charts, diagrams, and table
+  - example: any customer view will include all the UI components like text boxes, dropdowns, etc.
 
 
 
