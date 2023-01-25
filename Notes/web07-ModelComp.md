@@ -67,4 +67,25 @@ Date: 2033-22-36
 
 
 
+## MVVM Pattern
+
+- MVVM architecture
+  - facilitating a separation of development of the graphical user interface with the help of mark-up language or GUI code
+  - view model: a value converter that means that it is view model’s responsibility for exposing the data objects from the Model in such a way that objects are easily managed and presented
+  - offerring two-way data binding between view and view-model
+  - automating the propagation of modifications inside View-Model to the view
+  - view-model: making use of observer pattern to make changes in the view-model
+  - architecture
+
+    <figure style="display: table; margin: auto; text-align: center;"">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+        onclick= "window.open('https://www.guru99.com/mvc-vs-mvvm.html')"
+        src    = "https://www.guru99.com/images/2/041720_1054_MVCvsMVVMKe2.png"
+        alt    = "MVVM pattern"
+        title  = "MVVM pattern"
+      />
+    </figure>
+
+
+
 
