@@ -101,5 +101,11 @@ Date: 2033-22-36
   - also transformed Model(s) into the User Interface (UI)
 
 
+- View Model component
+  - responsible for presenting functions, commands, methods, to support the state of the View
+  - accountable to operate the model and activate the events in the View
+
+
+
 
 
