@@ -95,6 +95,10 @@ Date: 2033-22-36
     - Model: manipulate data and send it back to the database or use it to render the same data
 
 
+- View component
+  - UI components like HTML, CSS, jQuery, etc. 
+  - held responsible for displaying the data which is received from the Controller as an outcome
+  - also transformed Model(s) into the User Interface (UI)
 
 
 
