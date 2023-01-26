@@ -87,5 +87,15 @@ Date: 2033-22-36
     </figure>
 
 
+- Model component
+  - storing data and related logic
+  - representing data being transferred between controller components or any other related business logic
+  - example
+    - a Controller object will retrieve the student info from the school database
+    - Model: manipulate data and send it back to the database or use it to render the same data
+
+
+
+
 
 
