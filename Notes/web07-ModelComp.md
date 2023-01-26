@@ -116,6 +116,11 @@ Date: 2033-22-36
   - accountable to operate the model and activate the events in the View
 
 
+- Features of MVVM
+  - written for desktop application with data binding capabilities – XAML and the INotifyPropertyChanged interface
+  - doing modification in the View-Model $\implies$ the View-Model using an observer pattern
+  - mostly used by [WPF](https://www.guru99.com/sap-bods-tutorial.html), Silverlight, nRoute, etc.
+
 
 ## Difference between MVC and MVVM Architecture
 
