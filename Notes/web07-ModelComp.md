@@ -66,6 +66,16 @@ Date: 2033-22-36
   - sending commands to its associated view to change the View’s presentation, e.g., scrolling a particular document
 
 
+- Features of MVC
+  - easy and frictionless testability
+  - highly testable, extensible and pluggable framework
+  - leveraging existing features offered by ASP.NET, Django, JSP, etc
+  - offering full control over your HTML as well as your URLs
+  - supporting Test Driven Development (TDD)
+  - offering separation of logic
+  - allowing routing for SEO Friendly URLs
+  - offering to map for comprehensible and searchable URLs
+
 
 ## MVVM Pattern
 
@@ -110,7 +120,6 @@ Date: 2033-22-36
 ## Difference between MVC and MVVM Architecture
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing=0 cellpadding=5 border=1 align="center">
-  <caption style="font-size: 1.3em; margin: 0.2em;"><a href="url">CAPTION</a></caption>
   <colgroup>
     <col style="width: 20%">
     <col style="width: 20%">
@@ -121,7 +130,7 @@ Date: 2033-22-36
     <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">MVVM (Model View ViewModel)</th>
   </tr>
   </thead>
-  <tbody>
+  <tbody> 
     <tr>
       <td>Controller is the entry point to the Application.</td>
       <td>The view is the entry point to the Application.</td>
