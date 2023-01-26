@@ -107,5 +107,47 @@ Date: 2033-22-36
 
 
 
+## Difference between MVC and MVVM Architecture
+
+<table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing=0 cellpadding=5 border=1 align="center">
+  <caption style="font-size: 1.3em; margin: 0.2em;"><a href="url">CAPTION</a></caption>
+  <colgroup>
+    <col style="width: 20%">
+    <col style="width: 20%">
+  </colgroup>
+  <thead>
+  <tr style="font-size: 1.0em; vertical-align:middle;">
+    <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">MVC (Model View Controller)</th>
+    <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">MVVM (Model View ViewModel)</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Controller is the entry point to the Application.</td>
+      <td>The view is the entry point to the Application.</td>
+    </tr>
+    <tr>
+      <td>One to many relationships between Controller &amp; View.</td>
+      <td>One to many relationships between View &amp; View Model.</td>
+    </tr>
+    <tr>
+      <td>View Does not have reference to the Controller</td>
+      <td>View have references to the View-Model.</td>
+    </tr>
+    <tr>
+      <td>MVC is Old Model</td>
+      <td>MVVM is a relatively New Model.</td>
+    </tr>
+    <tr>
+      <td>Difficult to read, change, to unit test, and reuse this Model</td>
+      <td>The debugging process will be complicated when we have complex data bindings.</td>
+    </tr>
+    <tr>
+      <td>MVC Model component can be tested separately from the user</td>
+      <td>Easy for separate unit testing and code is event-driven.</td>
+    </tr>
+  </tbody>
+</table>
+
 
 
