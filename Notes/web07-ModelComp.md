@@ -153,6 +153,11 @@ Date: 2033-22-36
   - writing unit test cases for both the viewmodel and Model layer without the need to reference the View'
 
 
+- Disadvantages of MVVM
+  - maintenance of lots of codes in controller
+  - some people think that for simple UIs of MVVM architecture can be overkill
+  - not offering tight coupling between the view and view model
+
 
 
 ## Difference between MVC and MVVM Architecture
