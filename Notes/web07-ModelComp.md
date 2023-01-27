@@ -145,6 +145,16 @@ Date: 2033-22-36
   - mostly used by [WPF](https://www.guru99.com/sap-bods-tutorial.html), Silverlight, nRoute, etc.
 
 
+- Advantages of MVVM
+  - business logic decoupled from Ul
+  - easy to maintain and test
+  - easy to reuse components
+  - loosely coupled architecture: MVVM makes your application architecture as loosely coupled
+  - writing unit test cases for both the viewmodel and Model layer without the need to reference the View'
+
+
+
+
 ## Difference between MVC and MVVM Architecture
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing=0 cellpadding=5 border=1 align="center">
