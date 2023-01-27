@@ -89,6 +89,17 @@ Date: 2033-22-36
   - allowing logical grouping of related actions on a controller together
 
 
+- Disadvantages of MVC
+  - business logic mixed with Ul
+  - hard to reuse and implement tests
+  - no formal validation support
+  - increased complexity and inefficiency of data
+  - the difficulty of using MVC with the modern user interface
+  - a need for multiple programmers to conduct parallel programming
+  - knowledge of multiple technologies is required
+
+
+
 ## MVVM Pattern
 
 - MVVM architecture
