@@ -159,7 +159,6 @@ Date: 2033-22-36
   - not offering tight coupling between the view and view model
 
 
-
 ## Difference between MVC and MVVM Architecture
 
 <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing=0 cellpadding=5 border=1 align="center">
@@ -202,6 +201,7 @@ Date: 2033-22-36
 </table>
 
 
+<br/>
 
 # Difference Between MVC, MVP and MVVM Architecture Pattern in Android
 
@@ -210,6 +210,18 @@ Institute: Geek4Geek
 Date: 2022-12-22
 
 [Original](https://www.geeksforgeeks.org/difference-between-mvc-mvp-and-mvvm-architecture-pattern-in-android/)
+
+
+- Architecture pattern
+  - gives modularity to the project files
+  - assures that all the codes get covered in Unit testing
+  - making the task easy for developers to maintain the software
+  - to expand the features of the application in the future
+  - popular models and industry-recognized [android architecture pattern](https://www.geeksforgeeks.org/android-architecture-patterns/)
+    - [MVC](https://www.geeksforgeeks.org/mvc-model-view-controller-architecture-pattern-in-android-with-example/) (Model — View — Controller)
+    - [MVP](https://www.geeksforgeeks.org/mvp-model-view-presenter-architecture-pattern-in-android-with-example/) (Model — View — Presenter)
+    - [MVVM](https://www.geeksforgeeks.org/mvvm-model-view-viewmodel-architecture-pattern-in-android/) (Model — View — ViewModel)
+
 
 
 
