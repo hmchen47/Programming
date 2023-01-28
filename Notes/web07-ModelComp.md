@@ -308,5 +308,73 @@ Date: 2022-12-22
   </figure>
 
 
+- Difference b/w MVC, MVP, and MVVM design pattern
+
+  <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing=0 cellpadding=5 border=1 align="center">
+    <colgroup>
+      <col style="width: 15%">
+      <col style="width: 25%">
+      <col style="width: 25%">
+    </colgroup>
+    <thead>
+      <tr style="font-size: 1.0em; vertical-align:middle;">
+        <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">MVC (MODEL VIEW CONTROLLER)</th>
+        <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">MVP (MODEL VIEW PRESENTER)</th>
+        <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">MVVM (MODEL VIEW VIEWMODEL)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>One of the oldest software architecture</td>
+        <td>Developed as the second iteration of software architecture which is advance from MVC.</td>
+        <td>Industry-recognized architecture pattern for applications.</td>
+      </tr>
+      <tr>
+        <td>UI(<strong>View</strong>) and data-access mechanism(<strong>Model</strong>) are tightly coupled.</td>
+        <td>It resolves the problem of having a dependent <strong>View</strong> by using <strong>Presenter</strong> as a communication channel between <strong>Model</strong> and <strong>View</strong>.&nbsp;</td>
+        <td>This architecture pattern is more event-driven as it uses data binding and thus makes easy separation of <strong>core business logic</strong> from the <strong>View</strong>.</td>
+      </tr>
+      <tr>
+        <td><strong>Controller</strong> and <strong>View</strong> exist with the one-to-many relationship. One Controller can select a different View based upon required operation.</td>
+        <td>The one-to-one relationship exists between <strong>Presenter</strong> and <strong>View</strong> as one Presenter class manages one View at a time.</td>
+        <td>Multiple <strong>View</strong> can be mapped with a single <strong>ViewModel</strong> and thus, the one-to-many relationship exists between View and ViewModel.</td>
+      </tr>
+      <tr>
+        <td>The <strong>View</strong> has no knowledge about the<strong> Controller</strong>.</td>
+        <td>The <strong>View</strong> has references to the <strong>Presenter</strong>.</td>
+        <td>The <strong>View</strong> has references to the <strong>ViewModel</strong></td>
+      </tr>
+      <tr>
+        <td>Difficult to make changes and modify the app features as the code layers are tightly coupled.</td>
+        <td>Code layers are loosely coupled and thus it is easy to carry out modifications/changes in the application code.</td>
+        <td>Easy to make changes in the application. However, if <strong>data binding logic</strong> is too complex, it will be a little harder to debug the application.</td>
+      </tr>
+      <tr>
+        <td>User Inputs are handled by the <strong>Controller</strong>.</td>
+        <td>The <strong>View</strong> is the entry point to the Application</td>
+        <td>The <strong>View</strong> takes the input from the user and acts as the entry point of the application.</td>
+      </tr>
+      <tr>
+        <td>Ideal for small scale projects only.</td>
+        <td>Ideal for simple and complex applications.</td>
+        <td>Not ideal for small scale projects.</td>
+      </tr>
+      <tr>
+        <td>Limited support to <strong>Unit testing</strong>.</td>
+        <td>Easy to carry out <strong>Unit testing</strong> but a tight bond of View and Presenter can make it slightly difficult.</td>
+        <td><strong>Unit testability</strong> is highest in this architecture.</td>
+      </tr>
+      <tr>
+        <td>This architecture has a high dependency on Android APIs.&nbsp;</td>
+        <td>It has a low dependency on the Android APIs.&nbsp;</td>
+        <td>Has low or no dependency on the Android APIs.</td>
+      </tr>
+      <tr>
+        <td>It does not follow the modular and single responsibility principle.</td>
+        <td>Follows modular and single responsibility principle.</td>
+        <td>Follows modular and single responsibility principle.</td>
+      </tr>
+    </tbody>
+</table>
 
 
