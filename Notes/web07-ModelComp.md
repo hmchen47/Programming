@@ -375,6 +375,20 @@ Date: 2022-12-22
         <td>Follows modular and single responsibility principle.</td>
       </tr>
     </tbody>
-</table>
+  </table>
+
+
+
+<br>
+
+# MVC, MVP, MVVM: Which One to Choose?
+
+AAuthor: Rosa Tiara Galuh
+
+Date: 2022-08-11
+
+[Original](https://www.makeuseof.com/mvc-mvp-mvvm-which-choose/)
+
+
 
 
