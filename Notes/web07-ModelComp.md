@@ -281,5 +281,32 @@ Date: 2022-12-22
   </figure>
 
 
+- The Model—View—ViewModel (MVVM) pattern
+  - w/ some similarities with the MVP (Model—View—Presenter) design pattern
+  - the Presenter role played by the ViewModel
+  - drawbacks of the MVP pattern solved by MVVM
+  - separating the data presentation logic (Views or UI) from the core business logic part of the application
+  - components
+    - **Model:**
+      - responsible for the abstraction of the data sources
+      - Model and ViewModel working together to get and save the data
+    - **View:**
+      - purpose: to inform the ViewModel about the user’s action
+      - observing the ViewModel
+      - not containing any kind of application logic
+    - **ViewModel:**
+      - exposing those data streams which are relevant to the View
+      - serving as a link between the Model and the View
+  
+  <figure style="display: table; margin: auto; text-align: center;"">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://www.geeksforgeeks.org/difference-between-mvc-mvp-and-mvvm-architecture-pattern-in-android/')"
+      src    = "https://media.geeksforgeeks.org/wp-content/uploads/20201002215007/MVVMSchema.png"
+      alt    = "The Model—View—ViewModel (MVVM) Pattern"
+      title  = "The Model—View—ViewModel (MVVM) Pattern"
+    />
+  </figure>
+
+
 
 
