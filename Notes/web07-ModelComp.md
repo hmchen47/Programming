@@ -253,6 +253,33 @@ Date: 2022-12-22
   </figure>
 
 
+- The Model—View—Presenter (MVP) pattern
+  - overcoming the challenges of MVC and provides an easy way to structure the project codes
+  - providing modularity, testability, and a more clean and maintainable codebase
+  - components
+    - **Model:**
+      - layer for storing data
+      - responsible for handling the domain logic(real-world business rules)
+      - communication with the database and network layers
+    - **View:**
+      - UI (User Interface) layer
+      - providing the visualization of the data
+      - keeping a track of the user’s action in order to notify the Presenter
+    - **Presenter:**
+      - fetching the data from the model
+      - applying the UI logic to decide what to display
+      - managing the state of the View
+      - taking actions according to the user’s input notification from the View
+
+  <figure style="display: table; margin: auto; text-align: center;"">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://www.geeksforgeeks.org/difference-between-mvc-mvp-and-mvvm-architecture-pattern-in-android/')"
+      src    = "https://media.geeksforgeeks.org/wp-content/uploads/20201024233154/MVPSchema.png"
+      alt    = "The Model—View—Presenter (MVP) Pattern"
+      title  = "The Model—View—Presenter (MVP) Pattern"
+    />
+  </figure>
+
 
 
 
