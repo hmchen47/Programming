@@ -390,5 +390,11 @@ Date: 2022-08-11
 [Original](https://www.makeuseof.com/mvc-mvp-mvvm-which-choose/)
 
 
+- Architectural pattern
+  - clarifying and defining some crucial components of a software architecture
+  - an image of a system, not an architecture
+  - a general and reusable solution to a commonly occurring problem in software architecture in a certain context
+
+
 
 
