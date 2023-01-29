@@ -400,6 +400,14 @@ Date: 2022-08-11
   - a formalized best practice used to solve common problems when designing an application or system
 
 
+- Difference b/w architectural and design patterns
+  - pattern in software: a recurrent property to break down a huge and complex structure into smaller, simpler components
+  - using to craft a general solution for a class of problems
+  - using different tools in each level of software development
+    - smaller levels: design patterns
+    - larger levels: architectural patterns
+    - [programming paradigms](https://www.makeuseof.com/programming-paradigms-major/) at the implementation level
+
 
 
 
