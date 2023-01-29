@@ -409,6 +409,14 @@ Date: 2022-08-11
     - [programming paradigms](https://www.makeuseof.com/programming-paradigms-major/) at the implementation level
 
 
+- Architectural design patterns
+  - solving common problems
+  - benefits
+    - split complex tasks into simpler tasks
+    - reduce bugs
+    - produce testable and maintainable code
+
+
 
 
 
