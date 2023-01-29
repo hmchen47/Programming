@@ -396,5 +396,11 @@ Date: 2022-08-11
   - a general and reusable solution to a commonly occurring problem in software architecture in a certain context
 
 
+- Design pattern
+  - a formalized best practice used to solve common problems when designing an application or system
+
+
+
+
 
 
