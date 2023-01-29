@@ -417,6 +417,22 @@ Date: 2022-08-11
     - produce testable and maintainable code
 
 
+- Model terminologies
+  - Model:
+    - storing data and communicates directly with the database
+    - representing data and application logic
+    - defining the business rules that manage data handling, modification, or processing
+  - View
+    - displaying the model's data
+    - responsible for the data’s representation in the user interface
+  - ViewModel
+    - exclusive to MVVM pattern
+    - an abstraction of the view layer and also acts as a wrapper for the model data
+  - Controller: integrateing the view and model
+  - Presenter
+    - a component that only exists in the MVP model
+    - retrieving the input from the view component
+    - processing the data with the help of the model
 
 
 
