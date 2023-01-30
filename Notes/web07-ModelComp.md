@@ -435,4 +435,30 @@ Date: 2022-08-11
     - processing the data with the help of the model
 
 
+- Model-View-Controller pattern
+  - first and popular in the field of web applications
+  - building an application around Separation of Concerns (SoC)
+  - eases the effort to test, maintain, and develop application
+  - no understanding of the view or the controller
+  - observer receiving an alert whenever there's a change in the view and controller
+  - controller helping the routing process to connect the model to the relevant view
+  - advantages
+    - separation of concerns (more focused)
+    - making it easier to test and manage the code
+    - promoting decoupling of the application's layers
+    - better code organization and reusability
+  - SOC $\to$ reducing the code size and making a good code that is clean and manageable
+  - architectural diagram
+
+    <figure style="display: table; margin: auto; text-align: center;"">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://www.makeuseof.com/mvc-mvp-mvvm-which-choose/')"
+        src    = "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/08/mvc.jpg"
+        alt    = "Image of a diagram that illustrates how MVC works"
+        title  = "Image of a diagram that illustrates how MVC works"
+      />
+    </figure>
+
+
+
 
