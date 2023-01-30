@@ -448,16 +448,15 @@ Date: 2022-08-11
     - promoting decoupling of the application's layers
     - better code organization and reusability
   - SOC $\to$ reducing the code size and making a good code that is clean and manageable
-  - architectural diagram
 
-    <figure style="display: table; margin: auto; text-align: center;"">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-        onclick= "window.open('https://www.makeuseof.com/mvc-mvp-mvvm-which-choose/')"
-        src    = "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/08/mvc.jpg"
-        alt    = "Image of a diagram that illustrates how MVC works"
-        title  = "Image of a diagram that illustrates how MVC works"
-      />
-    </figure>
+  <figure style="display: table; margin: auto; text-align: center;"">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://www.makeuseof.com/mvc-mvp-mvvm-which-choose/')"
+      src    = "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/08/mvc.jpg"
+      alt    = "Image of a diagram that illustrates how MVC works"
+      title  = "Image of a diagram that illustrates how MVC works"
+    />
+  </figure>
 
 
 - Model-View-Presenter pattern
@@ -474,16 +473,35 @@ Date: 2022-08-11
       - passing the results back to the view
     - communicating with the view through interfaces
   - view and presenter: independent of one another and interact via an interface
-  - illustrated pattern
 
-    <figure style="display: table; margin: auto; text-align: center;"">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
-        onclick= "window.open('https://www.makeuseof.com/mvc-mvp-mvvm-which-choose/')"
-        src    = "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/08/mvp.jpg"
-        alt    = "Image of a diagram that illustrates how MVP works"
-        title  = "Image of a diagram that illustrates how MVP works"
-      />
-    </figure>
+  <figure style="display: table; margin: auto; text-align: center;"">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://www.makeuseof.com/mvc-mvp-mvvm-which-choose/')"
+      src    = "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/08/mvp.jpg"
+      alt    = "Image of a diagram that illustrates how MVP works"
+      title  = "Image of a diagram that illustrates how MVP works"
+    />
+  </figure>
+
+
+- Model-View-ViewModel pattern
+  - the modern evolution of MVC
+  - main goal: providING a clear separation between the domain logic and presentation layer
+  - SupportING two-way data binding between the view and viewmodel
+  - allowING to separate Code’s view and model
+  - model changes $\iff$ view remaining the same
+  - viewmodel: doing unit testing and testing logic behavior without involving the view
+
+  <figure style="display: table; margin: auto; text-align: center;"">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://www.makeuseof.com/mvc-mvp-mvvm-which-choose/')"
+      src    = "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/08/mvvm.jpg"
+      alt    = "Image of a diagram that illustrates how MVVM works"
+      title  = "Image of a diagram that illustrates how MVVM works"
+    />
+  </figure>
+
+
 
 
 
