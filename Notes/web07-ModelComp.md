@@ -460,5 +460,32 @@ Date: 2022-08-11
     </figure>
 
 
+- Model-View-Presenter pattern
+  - sharing two components with MVC: model and view
+  - replacing the controller with the presenter
+  - allowing user to mock the view more easily
+  - presenter:
+    - used to present something
+    - w/ the functionality of the "middle-man"
+    - all presentation logic is pushed to it
+    - workflow
+      - receiving input from the user via the view
+      - processing the user’s actions with the help of the model
+      - passing the results back to the view
+    - communicating with the view through interfaces
+  - view and presenter: independent of one another and interact via an interface
+  - illustrated pattern
+
+    <figure style="display: table; margin: auto; text-align: center;"">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://www.makeuseof.com/mvc-mvp-mvvm-which-choose/')"
+        src    = "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/08/mvp.jpg"
+        alt    = "Image of a diagram that illustrates how MVP works"
+        title  = "Image of a diagram that illustrates how MVP works"
+      />
+    </figure>
+
+
+
 
 
