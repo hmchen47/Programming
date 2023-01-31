@@ -502,6 +502,20 @@ Date: 2022-08-11
   </figure>
 
 
+- Usage scenarios for MVC, MVP, and MVVM
+  - MVC
+    - an implementation of Separation of Concerns
+    - working well if separating the data (model), the data crunching (controller), and data presentation (view)
+    - serving well in an application where the data source and/or the data presentation can change at any time
+  - MVP
+    - using w/ application has a bidirectional flow
+    - request something from the model and change the UI immediately
+  - MVVM
+    - to share a project with a designer and the design and development work can happen independently
+    - requiring unit testing for your solutions
+    - to have reusable components, both within and across projects in your organization
+    - more flexibility to change your views without having to refactor other logic in the code base.
+
 
 
 
