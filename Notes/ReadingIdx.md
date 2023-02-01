@@ -39,9 +39,10 @@
 - Wikipedia, [Model-View-Controller (MVC)](web05-WebModel.md#model-view-controller-mvc)
 - Wikipedia, [Model-View-View Model (MVVM)](web05-WebModel.md#modelviewviewmodel-mvvm)
 - Wikipedia, [Model–View–Presenter (MVP)](web05-WebModel.md#model-view-presenter-mvp)
-- S. Tachenov, [MVC, MVP, and MVVM: The Idea](web05-WebModel.md#)
-- Patrick, [Overview of Model-View-Controlleer (MVC)](web07-MVCOverview.md)
-- M. Martin, [MVC vs MVVM - Difference Between Them](web07-MVCMVVM.md)
+- Patrick, [Overview of Model-View-Controller (MVC)](web06-MVCOverview.md), 2015
+- M. Martin, [MVC vs MVVM - Difference Between Them](web07-ModelComp.md#mvc-vs-mvvm---difference-between-them), 2022
+- GeeksforGeeks, [Difference Between MVC, MVP and MVVM Architecture Pattern in Android](web07-ModelComp.md#difference-between-mvc-mvp-and-mvvm-architecture-pattern-in-android), 2022
+- R. Galuh, [MVC, MVP, MVVM: Which One to Choose?](web07-ModelComp.md#mvc-mvp-mvvm-which-one-to-choose), 2022
 - A. Oymo, [Understanding the MVC patter in Django](web08-MVCDjango.md)
 
 
