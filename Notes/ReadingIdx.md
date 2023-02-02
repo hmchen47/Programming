@@ -12,6 +12,9 @@
   - D. Gidwani, [YAML Primer](gc04-YAMLPrimer.md)
 
 
+- Make and Makefile
+  - 
+
 
 ## Python
 
@@ -21,7 +24,7 @@
 
 ### Webscraping
 
-+ P. Anwla, [Web Scraping using Selenium with Python!](py01-ImgScrape.md), 2020
+- P. Anwla, [Web Scraping using Selenium with Python!](py01-ImgScrape.md), 2020
 
 ### Automation
 
@@ -43,7 +46,7 @@
 - M. Martin, [MVC vs MVVM - Difference Between Them](web07-ModelComp.md#mvc-vs-mvvm---difference-between-them), 2022
 - GeeksforGeeks, [Difference Between MVC, MVP and MVVM Architecture Pattern in Android](web07-ModelComp.md#difference-between-mvc-mvp-and-mvvm-architecture-pattern-in-android), 2022
 - R. Galuh, [MVC, MVP, MVVM: Which One to Choose?](web07-ModelComp.md#mvc-mvp-mvvm-which-one-to-choose), 2022
-- A. Oymo, [Understanding the MVC patter in Django](web08-MVCDjango.md)
+- A. Oymo, [Understanding the MVC patter in Django](web08-MVCDjango.md), 2017
 
 
 
