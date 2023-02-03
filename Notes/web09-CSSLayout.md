@@ -267,3 +267,67 @@
     </figure>
 
 
+- The `clear` property
+  - important for controlling the behavior of floats
+  - example w/o `clear` (left diagram)
+
+    ```html
+    <div class="box">...</div>
+    <section>...</section>
+    ```
+
+    ```css
+    .box {
+      float: left;
+      width: 200px;
+      height: 100px;
+      margin: 1em;
+    }
+    ```
+
+  - example w/ `clear` (right diagram)
+
+    ```css
+    .box {
+      float: left;
+      width: 200px;
+      height: 100px;
+      margin: 1em;
+    }
+    .after-box {
+      clear: left;
+    }
+    ```
+
+  <div style="display: flex; justify-content: center;">
+    <figure style="display: table; float: left; margin-right: 0.25em; align-items: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 400px;"
+        onclick= "window.open('https://en.wikipedia.org/wiki/CSS_box_model')"
+        src    = "img/web09-clear0.png"
+        alt    = "Snapshot of float example w/o clear property"
+        title  = "Snapshot of float example w/o clear property"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        float example w/o clear property
+      </figcaption>
+    </figure>
+    <figure style="display: table; float: right; margin-left: 0.25em; align-items: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 400px;"
+        onclick= "window.open('https://learnlayout.com/box-model.html')"
+        src    = "img/web09-clear1.png"
+        alt    = "Snapshot of float example w/ clear property"
+        title  = "Snapshot of float example w/ clear property"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        float example w/ clear property
+      </figcaption>
+    </figure>
+  </div>
+
+
+
+
+
+
+
+
