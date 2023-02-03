@@ -53,4 +53,40 @@
     ```
 
 
+- The box model
+  - element's border and padding stretching out the element beyond the specified width
+  - example: 
+
+    ```css
+    .simple {
+      width: 500px;
+      margin: 20px auto;
+    }
+
+    .fancy {
+      width: 500px;
+      margin: 20px auto;
+      padding: 50px;
+      border-width: 10px;
+    }
+    ```
+
+    <div style="display: flex; justify-content: center;">
+      <figure style="display: table; float: left; margin-right: 0.25em; align-items: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; height: 300px;"
+          onclick= "window.open('https://en.wikipedia.org/wiki/CSS_box_model')"
+          src    = "https://upload.wikimedia.org/wikipedia/commons/7/7a/Boxmodell-detail.png"
+          alt    = "The CSS box model"
+          title  = "The CSS box model"
+        />
+      </figure>
+      <figure style="display: table; float: right; margin-left: 0.25em; align-items: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; height: 150px;"
+          onclick= "window.open('https://learnlayout.com/box-model.html')"
+          src    = "img/web09-boxmodel.png"
+          alt    = "Screenshot of two containers for the box model"
+          title  = "Screenshot of two containers for the box model"
+        />
+      </figure>
+    </div>
 
