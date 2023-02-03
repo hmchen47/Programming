@@ -40,5 +40,17 @@
     sol: browser creating horizontal scrollbar on the page
 
 
+- The `max-width` property
+  - improving the browser's handling of small window
+  - making a site usable on mobile
+  - example: `<div id="main"> text insert here</div>
+
+    ```css
+    #main {
+      max-width: 600px;
+      margin: 0 auto; 
+    }
+    ```
+
 
 
