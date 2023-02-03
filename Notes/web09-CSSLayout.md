@@ -81,7 +81,7 @@
         />
       </figure>
       <figure style="display: table; float: right; margin-left: 0.25em; align-items: center;">
-        <img style="margin: 0.1em; padding-top: 0.5em; height: 150px;"
+        <img style="margin: 0.1em; padding-top: 0.5em; height: 200px;"
           onclick= "window.open('https://learnlayout.com/box-model.html')"
           src    = "img/web09-boxmodel.png"
           alt    = "Screenshot of two containers for the box model"
@@ -89,4 +89,56 @@
         />
       </figure>
     </div>
+
+
+- The `box-sizing` property
+  - original box model behavior considered unintuitive
+  - `box-sizing: border-box;`: the padding and border of the element including in the width and height of aan element
+  - example
+
+    ```css
+    .simple {
+      width: 500px;
+      margin: 20px auto;
+      -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+              box-sizing: border-box;
+    }
+
+    .fancy {
+      width: 500px;
+      margin: 20px auto;
+      padding: 50px;
+      border: solid blue 10px;
+      -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+              box-sizing: border-box;
+    }
+    ```
+
+    <figure style="display: table; margin: auto; text-align: center;"">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick= "window.open('https://learnlayout.com/box-sizing.html')"
+        src    = "img/web09-boxsizing.png"
+        alt    = "Snapshot of box-siging example"
+        title  = "Snapshot of box-siging example"
+      />
+    </figure>
+
+  - enabling all elements w/ the same box size
+
+    ```css
+    * {
+      -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+              box-sizing: border-box;
+    }
+    ```
+
+  - new property:
+    - using the `-webkit-` and `-moz-` prefixes for now
+    - checking [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing#browser_compatibility)
+
+
+
 
