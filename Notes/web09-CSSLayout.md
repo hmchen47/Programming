@@ -117,7 +117,7 @@
     ```
 
     <figure style="display: table; margin: auto; text-align: center;"">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
         onclick= "window.open('https://learnlayout.com/box-sizing.html')"
         src    = "img/web09-boxsizing.png"
         alt    = "Snapshot of box-siging example"
@@ -198,7 +198,7 @@
       ```
 
       <figure style="display: table; margin: auto; text-align: center;"">
-        <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
           onclick= "window.open('https://learnlayout.com/position.html')"
           src    = "img/web09-position_absolute.png"
           alt    = "Snapshot of 'absolute' position example"
@@ -207,6 +207,43 @@
       </figure>
 
 
+- Position example
+  - stretching to the width of the window
+
+  ```css
+  .container {
+    position: relative;
+  }
+  nav {
+    position: absolute;
+    left: 0px;
+    width: 200px;
+  }
+  section {
+    /* position is static by default */
+    margin-left: 200px;
+  }
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 70px;
+    background-color: white;
+    width: 100%;
+  }
+  body {
+    margin-bottom: 120px;
+  }
+  ```
+
+  <figure style="display: table; margin: auto; text-align: center;"">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://learnlayout.com/position-example.html')"
+      src    = "img/web09-position_exp.png"
+      alt    = "Snapshot of various positioning example"
+      title  = "Snapshot of various positioning example"
+    />
+  </figure>
 
 
 
