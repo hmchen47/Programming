@@ -140,5 +140,73 @@
     - checking [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing#browser_compatibility)
 
 
+- The `position` property
+  - a bunch of possible values but no sense
+  - `static`
+    - default value
+    - *not positioning* in any specific way
+    - positioned: element w/ `position` set to anything else
+  - `relative`
+    - behaving the same as static unless you add some extra properties
+    - adjusted away from its normal position: the `top`, `right`, `bottom`, and `left` properties
+
+    <figure style="display: table; margin: auto; text-align: center;"">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+        onclick= "window.open('https://learnlayout.com/position.html')"
+        src    = "img/web09-position_static.png"
+        alt    = "Snapshot of static position example"
+        title  = "Snapshot of static position example"
+      />
+    </figure>
+
+  - `fixed`
+    - positioned relative to the *viewpoint*
+    - stayed in the same place even if the page is scrolled
+    - properties: `top`, `right`, `bottom`, and `left`
+    - fixed element in the lower-right corner of the page
+
+      ```css
+      .fixed {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 200px;
+        background-color: white;
+      }
+      ```
+
+    - not leaving a gap in the page where it normally have been located
+  - `absolute`
+    - the trickiest position value
+    - like fixed except relative to the *nearest positioned ancestor* instead of relative to the viewpoint
+    - no positioned ancestor $\implies$ using document body and still moving along w/ page scrolling
+    - example 
+
+      ```css
+      .relative {
+        position: relative;
+        width: 600px;
+        height: 400px;
+      }
+      .absolute {
+        position: absolute;
+        top: 120px;
+        right: 0;
+        width: 300px;
+        height: 200px;
+      }
+      ```
+
+      <figure style="display: table; margin: auto; text-align: center;"">
+        <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+          onclick= "window.open('https://learnlayout.com/position.html')"
+          src    = "img/web09-position_absolute.png"
+          alt    = "Snapshot of 'absolute' position example"
+          title  = "Snapshot of 'absolute' position example"
+        />
+      </figure>
+
+
+
 
 
