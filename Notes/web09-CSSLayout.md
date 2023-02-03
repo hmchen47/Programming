@@ -246,4 +246,24 @@
   </figure>
 
 
+- The `float` property
+  - intended for wrapping text around images
+  - example
+
+    ```css
+    img {
+      float: right;
+      margin: 0 0 1em 1em;
+    }
+    ```
+
+    <figure style="display: table; margin: auto; text-align: center;"">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://learnlayout.com/float.html')"
+        src    = "img/web09-float.png"
+        alt    = "Snapshot of various positioning example"
+        title  = "Snapshot of various positioning example"
+      />
+    </figure>
+
 
