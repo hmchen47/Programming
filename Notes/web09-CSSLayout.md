@@ -486,4 +486,61 @@
     </figure>
 
 
+- The `inline-block` attribute
+  - using `float` to create a grid of boxes that fills the browser width and wraps nicely
+  - `inline-block` attribute making it easier
+  - similar to `inline` element but w/ width and height
+  - extra work required to support IE6 & IE7
+  - the hard way w/ `float` property (left diagram)
+
+    ```css
+    .box {
+      float: left;
+      width: 200px;
+      height: 100px;
+      margin: 1em;
+    }
+    .after-box {
+      clear: left;
+    }
+    ```
+
+  - the easy way w/ `inline-block` attribute (right diagram)
+
+    ```css
+    .box2 {
+      display: inline-block;
+      width: 200px;
+      height: 100px;
+      margin: 1em;
+    }
+    ```
+
+  <div style="display: flex; justify-content: center;">
+    <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; height: 250px;"
+        onclick= "window.open('https://learnlayout.com/inline-block.html')"
+        src    = "img/web09-inlineblock0.png"
+        alt    = "Grid boxes using float property"
+        title  = "Grid boxes using float property"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        Grid boxes using float property
+      </figcaption>
+    </figure>
+    <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; height: 250px;"
+        onclick= "window.open('https://learnlayout.com/inline-block.html')"
+        src    = "img/web09-inlineblock1.png"
+        alt    = "Grid boxes using inline-block attribute"
+        title  = "Grid boxes using inline-block attribute"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        Grid boxes using inline-block attribute
+      </figcaption>
+    </figure>
+  </div>
+
+
+
 
