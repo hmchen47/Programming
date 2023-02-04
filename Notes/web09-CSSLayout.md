@@ -160,7 +160,7 @@
     </figure>
 
   - `fixed`
-    - positioned relative to the *viewpoint*
+    - positioned relative to the *viewport*
     - stayed in the same place even if the page is scrolled
     - properties: `top`, `right`, `bottom`, and `left`
     - fixed element in the lower-right corner of the page
@@ -178,7 +178,7 @@
     - not leaving a gap in the page where it normally have been located
   - `absolute`
     - the trickiest position value
-    - like fixed except relative to the *nearest positioned ancestor* instead of relative to the viewpoint
+    - like fixed except relative to the *nearest positioned ancestor* instead of relative to the viewport
     - no positioned ancestor $\implies$ using document body and still moving along w/ page scrolling
     - example 
 
