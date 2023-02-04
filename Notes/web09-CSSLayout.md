@@ -325,7 +325,47 @@
   </div>
 
 
+- The `clearfix` hack
+  - weird, bad thing happened w/ `float`
+  - way to fixed: `clearfix`
+  - example
 
+    ```css
+    /* simple float - left diagram*/
+    img {
+      float: right;
+    }
+
+    /* clear float after use - right diagram */
+    .clearfix {
+      overflow: auto;
+    }
+    ```
+
+    <div style="display: flex; justify-content: center;">
+      <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; height: 150px;"
+          onclick= "window.open('https://learnlayout.com/clearfix.html')"
+          src    = "img/web09-clearfix0.png"
+          alt    = "Simple float produces weird, bad layout"
+          title  = "Simple float produces weird, bad layout"
+        />
+        <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+          Simple float produces weird, bad layout
+        </figcaption>
+      </figure>
+      <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; height: 150px;"
+          onclick= "window.open('https://learnlayout.com/clearfix.html')"
+          src    = "img/web09-clearfix1.png"
+          alt    = "Eliminate weird layout w/ clearfix"
+          title  = "Eliminate weird layout w/ clearfix"
+        />
+        <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+          Eliminate weird layout w/ clearfix
+        </figcaption>
+      </figure>
+    </div>
 
 
 
