@@ -394,6 +394,56 @@
   </figure>
 
 
+- The percent width
+  - percent: measurement unit relative to the containing block
+  - great for image (left diagram)
+
+    ```css
+    article img {
+      float: right;
+      width: 50%;
+    }
+    ```
+
+  - percent width layout (right diagram)
+    - the `nav` content starting to wrap in a displeasing way when the windoe is too narrow
+
+    ```css
+    nav {
+      float: left;
+      width: 25%;
+    }
+    section {
+      margin-left: 25%;
+    }
+    ```
+
+    <div style="display: flex; justify-content: center;">
+      <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; height: 150px;"
+          onclick= "window.open('https://learnlayout.com/percent.html')"
+          src    = "img/web09-percent1.png"
+          alt    = "Limiting image width w/ percentage of the container"
+          title  = "Limiting image width w/ percentage of the container"
+        />
+        <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+          Limiting image width w/ percentage of the container 
+        </figcaption>
+      </figure>
+      <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; height: 150px;"
+          onclick= "window.open('https://learnlayout.com/percent.html')"
+          src    = "img/web09-percent2.png"
+          alt    = "Flexible nav bar width w/ percent width of the page layout"
+          title  = "Flexible nav bar width w/ percent width of the page layout"
+        />
+        <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+          Flexible nav bar width w/ percent width of the page layout
+        </figcaption>
+      </figure>
+    </div>
+
+
 
 
 
