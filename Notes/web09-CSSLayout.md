@@ -368,6 +368,32 @@
     </div>
 
 
+- Float layout example
+  - using `float` property than `position` property
+
+  ```css
+  nav {
+    float: left;
+    width: 200px;
+  }
+  section {
+    margin-left: 200px;
+  }
+  ```
+
+  <figure style="display: table; margin: auto; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://learnlayout.com/float-layout.html')"
+      src    = "img/web09-floatexp.png"
+      alt    = "The same layout using float property"
+      title  = "The same layout using float property"
+    />
+    <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+      The same layout using <code>float</code> property, not <code>position</code> property, to make things easier
+    </figcaption>
+  </figure>
+
+
 
 
 
