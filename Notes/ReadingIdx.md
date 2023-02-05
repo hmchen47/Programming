@@ -70,7 +70,7 @@
 
 ### JavaScript
 
-- [Introducing JSON](web03-JSONIntro.md)
+- D. Crockford, [Introducing JSON](web03-JSONIntro.md). 2002-10
 
 
 ## Misc
