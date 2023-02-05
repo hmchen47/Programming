@@ -542,5 +542,35 @@
   </div>
 
 
+- `inline-block` layout
+  - effected by the `vertical-align` property, `top` property probably set
+  - required to set the width of each column
+  - a gap b/w the columns if any whitespace b/w them
+  - example
+
+    ```css
+    nav {
+      display: inline-block;
+      vertical-align: top;
+      width: 25%;
+    }
+    .column {
+      display: inline-block;
+      vertical-align: top;
+      width: 75%;
+    }
+    ```
+
+    <figure style="display: table; margin: auto; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+        onclick= "window.open('https://learnlayout.com/inline-block-layout.html')"
+        src    = "img/web09-inlineblock2.png"
+        alt    = "inline-block layout"
+        title  = "inline-block layout"
+      />
+    </figure>
+
+
+
 
 
