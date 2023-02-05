@@ -571,6 +571,33 @@
     </figure>
 
 
+- The `column` property
+  - a new set of property to make multi-column text
+  - very new property $\to$ prefixes required
+  - browser compitability checking required
+  - example
+
+    ```css
+    .three-column {
+      padding: 1em;
+      -moz-column-count: 3;
+      -moz-column-gap: 1em;
+      -webkit-column-count: 3;
+      -webkit-column-gap: 1em;
+      column-count: 3;
+      column-gap: 1em;
+    }
+    ```
+
+    <figure style="display: table; margin: auto; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+        onclick= "window.open('https://learnlayout.com/column.html')"
+        src    = "img/web09-column.png"
+        alt    = "inline-block layout"
+        title  = "inline-block layout"
+      />
+    </figure>
+
 
 
 
