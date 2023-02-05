@@ -1,0 +1,153 @@
+# Model-View-Controller (MVC)
+
+Institute: Wikipedia
+
+[Original](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
+
+
+- Model–view–controller (MVC) overview
+  - a software architectural pattern commonly used for developing user interfaces
+  - dividing the related program logic into three interconnected elements
+  - traditionally used for desktop graphical user interfaces (GUIs)
+  - popular for designing web applications
+  - diagram of MVC pattern
+
+  <figure style="display: table; margin: auto; text-align: center;"">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      onclick= "window.open('https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller')"
+      src    = "https://upload.wikimedia.org/wikipedia/commons/a/a0/MVC-Process.svg"
+      alt    = "Diagram of interactions within one possible take on the MVC pattern"
+      title  = "Diagram of interactions within one possible take on the MVC pattern"
+    />
+    <figcaption>
+      Diagram of interactions within one possible take on the MVC pattern
+    </figcaption>
+  </figure>
+
+
+- Components of MVC
+  - **Model**
+    - central component of the pattern
+    - application's dynamic data structure
+    - independent of the user interface
+    - typically represents a table in the application's database
+  - **View**
+    - any representation of information such as a chart, diagram or table
+    - multiple views of the same information, such as a bar chart for management and a tabular view for accountants
+    - played by HTML templates
+    - a view specifying an in-browser user interface rather than representing a user interface widget directly
+    - Django called as a "template"
+  - **Controller**
+    - accepting input and converting it to commands for the model or view
+    - mediating between the views and the models
+    - one controller per application, or one controller per window
+    - Django
+      - called a "view" instead of a controller
+      - a function that receives a web request and returns a web response
+      - using templates to create the response
+
+
+- Interactions of MVC components
+  - model: 
+    - responsible for managing the data of the application
+    - receiving user input from the controller
+  - view: rendering presentation of the model in a particular format
+  - controller:
+    - responding to the user input and performs interactions on the data model objects
+    - receiving the input
+    - optionally validating input
+    - passing the input to the model
+
+
+
+# Model–view–viewmodel (MVVM) 
+
+- Model–view–viewmodel (MVVM) Overview
+  - an architectural pattern in computer software
+  - facilitating the separation of the development of the graphical user interface (GUI; the view)
+  - via a markup language or GUI code
+  - the development of the business logic or back-end logic (the model) such that the view is not dependent upon any specific model platform
+  - viewmodel
+    - a value converter
+    - responsible for exposing (converting) the data objects from the model in such a way they can be easily managed and presented
+    - more model than view
+    - handling most (if not all) of the view's display logic
+    - implement a mediator pattern, organizing access to the back-end logic around the set of use cases supported by the view
+  - a variation of Martin Fowler's Presentation Model design pattern
+  - invented by Microsoft architects specifically to simplify event-driven programming of user interfaces
+  - incorporated into the Windows Presentation Foundation (WPF) and Silverlight
+  - a.k.a. model–view–binder
+
+  <figure style="display: table; margin: auto; text-align: center;"">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel')"
+      src    = "https://upload.wikimedia.org/wikipedia/commons/8/87/MVVMPattern.png"
+      alt    = "Diagram of MVVM pattern"
+      title  = "Diagram of MVVM pattern"
+    />
+  </figure>
+
+
+- Components of MVVM pattern
+  - Model
+    - domain model: real state content (an object-oriented approach)
+    - data access layer: content (a data-centric approach)
+  - View
+    - the structure, layout, and appearance of what a user sees on the screen
+    - same as the model–view–controller (MVC) and model–view–presenter (MVP) patterns
+    - displaying a representation of the model
+    - receiving the user's interaction with the view
+    - forwarding the handling of these to the view model via the data binding (properties, event callbacks, etc.)
+  - View model
+    - an abstraction of the view exposing public properties and commands
+    - binder:
+      - automating communication between the view
+      - bound properties in the view model
+    - a state of the data in the model
+    - Presenter in the MVP pattern: a reference to a view, whereas the view model does not
+    - directly binding to properties on the view model to send and receive updates
+    - requiring a binding technology
+    - generating boilerplate code to do the binding
+  - Binder
+    - declarative data and command-binding
+    - implicit
+    - freeing the developer from being obliged to write boiler-plate logic to synchronize the view model and view
+    - the presence of a declarative data binding technology enabling the pattern
+    - using MVP or MVC w/o binder
+
+
+## Model-View-Presenter (MVP)
+
+- Model-View-Presenter (MVP) overview
+  - derivation of the model–view–controller (MVC) architectural pattern
+  - used mostly for building user interfaces
+  - a user interface architectural pattern engineered to facilitate automated unit testing
+  - improving the separation of concerns in presentation logic
+  - diagram of MVP pattern
+
+  <figure style="display: table; margin: auto; text-align: center;"">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      onclick= "window.open('https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter')"
+      src    = "https://upload.wikimedia.org/wikipedia/commons/d/dc/Model_View_Presenter_GUI_Design_Pattern.png"
+      alt    = "Diagram that depicts the Model View Presenter (MVP) GUI design pattern"
+      title  = "Diagram that depicts the Model View Presenter (MVP) GUI design pattern"
+    />
+    <figcaption>
+      Diagram that depicts the Model View Presenter (MVP) GUI design pattern.
+    </figcaption>
+  </figure>
+
+
+- Components of MVP pattern
+  - Model: an interface defining the data to be displayed or otherwise acted upon in the user interface
+  - View:
+    - a passive interface that displays data (the model) and routes user commands (events) to the presenter to act upon that data
+    - instantiating the concrete presenter object
+    - providing a reference to itself
+  - Presenter
+    - acting upon the model and the view
+    - retrieving data from repositories (the model)
+    - formating it for display in the view
+
+
+
