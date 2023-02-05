@@ -574,7 +574,7 @@
 - The `column` property
   - a new set of property to make multi-column text
   - very new property $\to$ prefixes required
-  - browser compitability checking required
+  - browser compitability check required
   - example
 
     ```css
@@ -598,6 +598,106 @@
       />
     </figure>
 
+
+- The `flexbox` property
+  - poised to redefined how we do layouts in CSS
+  - changed a lot recently
+  - checking [compatibility](https://caniuse.com/?search=flexbox)
+  - [a detailed article using the latest syntax](https://bocoup.com/blog/dive-into-flexbox)
+  - simple layout using `flexbox` (top left diagram)
+
+    ```css
+    .container {
+      display: -webkit-flex;
+      display: flex;
+    }
+    nav {
+      width: 200px;
+    }
+    .flex-column {
+      -webkit-flex: 1;
+              flex: 1;
+    }
+    ```
+
+  - fancy layout using `flexbox` (top-left diagram)
+
+    ```css
+    .container {
+      display: -webkit-flex;
+      display: flex;
+    }
+    .initial {
+      -webkit-flex: initial;
+              flex: initial;
+      width: 200px;
+      min-width: 100px;
+    }
+    .none {
+      -webkit-flex: none;
+              flex: none;
+      width: 200px;
+    }
+    .flex1 {
+      -webkit-flex: 1;
+              flex: 1;
+    }
+    .flex2 {
+      -webkit-flex: 2;
+              flex: 2;
+    }
+    ```
+
+  - centering using `flexbox` (bottom diagram)
+
+    ```css
+    .vertical-container {
+      height: 300px;
+      display: -webkit-flex;
+      display:         flex;
+      -webkit-align-items: center;
+              align-items: center;
+      -webkit-justify-content: center;
+              justify-content: center;
+    }
+    ```
+
+  <div style="display: flex; justify-content: center;">
+    <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://learnlayout.com/flexbox.html')"
+        src    = "img/web09-flexbox1.png"
+        alt    = "Simple layout using flexbox"
+        title  = "Simple layout using flexbox"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        Simple layout using flexbox
+      </figcaption>
+    </figure>
+    <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://learnlayout.com/flexbox.html')"
+        src    = "img/web09-flexbox2.png"
+        alt    = "fancy layout using flexbox"
+        title  = "fancy layout using flexbox"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        fancy layout using flexbox
+      </figcaption>
+    </figure>
+  </div>
+
+  <figure style="display: table; margin: auto; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://learnlayout.com/flexbox.html')"
+      src    = "img/web09-flexbox3.png"
+      alt    = "Centering using flexbox"
+      title  = "Centering using flexbox"
+    />
+    <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+      Centering using flexbox
+    </figcaption>
+  </figure>
 
 
 
