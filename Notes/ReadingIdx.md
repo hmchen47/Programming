@@ -12,7 +12,7 @@
   - D. Gidwani, [YAML Primer](gc04-YAMLPrimer.md)
 
 
-- Make and Makefile
+- Makefile
   - 
 
 
@@ -65,6 +65,7 @@
 
 ### CSS
 
+- G. Smith, [Learn CSS Layout](web09-CSSLayout.md), 2023-01
 
 
 ### JavaScript
