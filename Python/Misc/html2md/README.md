@@ -96,6 +96,22 @@ Two scenarios requires to handle `src` attribute value `image`:
 
 ## Project Helper Functions
 
+There are a couple of helper functions except for the parsing ones:
+
+- process executable with arguments: `html2md.py path/to/mdfiles file1.md file2.md ...`
+  - `html2md`: executable python filename
+  - `path/to/mdfiles`: system file path where the input markdown files located
+  - `file1.md file2.md ...`: a list of markdown files to concatnate into a single markdown file
+  - the output markdown file only contains the standard markdown syntax, default filename, `reading.md`
+- process various html tags
+  - `code` tag: replaced w/ '`' character
+  - `span` tag: according its embedded style attributes and values to add appropriate markdown syntax
+    - the implementation hold on and check later
+    - `font-style: italic;` replaced w/ `*text*`
+  - `a` tag: most likely ignore; if process required, replacing w/ `[text](link)`
+- separate individual file content w/ several new lines, e.g., 6 blank line inserted
+
+
 
 
 ## Reference
