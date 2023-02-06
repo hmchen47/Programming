@@ -115,6 +115,10 @@ There are a couple of helper functions except for the parsing ones:
 - separate individual file content w/ several new lines, e.g., 6 blank line inserted
 
 
+## Project Virtual Environment
+
+- custom virtual environment location: `export WORKON_HOME=~/.venvs`
+- python path: `~/.venvs/html2md-Z6Rs3Moi/bin/python` 
 
 
 ## Reference
