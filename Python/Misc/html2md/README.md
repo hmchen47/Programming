@@ -60,6 +60,40 @@ The purpose of the directories of the file structure is linerated as following:
 The difficulty is that `pandoc` cannot process HTML code embedded in markdown file.  The simple solution is to parse `figure` and `table` elements to standard markdown syntax and then replace these elements with the related markdown syntax.
 
 
+## Parsing Figures
+
+The typical `<figure>` element used in markdown files are as below snippet (basic one and other varieties based on this one):
+
+```html
+<figure style="display: table; margin: auto; text-align: center;">
+  <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+    onclick= "window.open('page')"
+    src    = "image"
+    alt    = "alt text"
+    title  = "text"
+  />
+  <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+    Fig. 1: ...
+  </figcaption>
+</figure>
+```
+
+The parser simply takes the `alt` value and translate into the markdown figure syntax w/ the `src` value:
+
+```md
+![alt text](image "Fig. 1 ...")
+```
+
+The above syntax replaces the original `figure` element.
+
+Two scenarios requires to handle `src` attribute value `image`:
+
+- URL format: simply replace `image` value in the markdown syntax w/ the `src` value in the `figure` element
+- local file path format: replace `image` value in the markdown syntax w/ the relative file path vaalue to point to the local image
+
+
+
+
 ## Project Helper Functions
 
 
