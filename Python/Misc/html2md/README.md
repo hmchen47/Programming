@@ -98,9 +98,12 @@ Two scenarios requires to handle `src` attribute value `image`:
 
 There are a couple of helper functions except for the parsing ones:
 
-- process executable with arguments: `html2md.py path/to/mdfiles file1.md file2.md ...`
+- process executable with arguments: `html2md.py -o path/to/output.md -d path/to/mdfiles file1.md file2.md ...`
+  - `-o`: flag for output file
+  - `-d`: flag for directory path of input files
+  - `path/to/output.md`: the output filename and its path
   - `html2md`: executable python filename
-  - `path/to/mdfiles`: system file path where the input markdown files located
+  - `path/to/mdfiles`: the path where the input markdown files located
   - `file1.md file2.md ...`: a list of markdown files to concatnate into a single markdown file
   - the output markdown file only contains the standard markdown syntax, default filename, `reading.md`
 - process various html tags
