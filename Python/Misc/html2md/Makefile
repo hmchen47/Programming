@@ -47,8 +47,9 @@ html2md: clean_target_md
 	@echo "Convert Figures & Tables HTML code to MD syantx ..."
 	@echo
 
-	$(PARSERDIR)/html2.py -o $(CONTENTDIR)/$(READINGINFILE) -d $(MDDIR) $(MDFILES)
+	$(PARSERDIR)/html2md.py -o $(CONTENTDIR)/$(READINGINFILE) -d $(MDDIR) $(MDFILES)
 
+	@echo
 	@echo End of converting ...
 	@echo
 
