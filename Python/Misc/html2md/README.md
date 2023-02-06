@@ -57,8 +57,23 @@ The purpose of the directories of the file structure is linerated as following:
 - `pandoc_manual`: old version manual of pandoc w/ clear variable list
 
 
-## Project Auxiliary
+The difficulty is that `pandoc` cannot process HTML code embedded in markdown file.  The simple solution is to parse `figure` and `table` elements to standard markdown syntax and then replace these elements with the related markdown syntax.
 
+
+## Project Helper Functions
+
+
+
+## Reference
+
+- [Markdown Templates](https://github.com/jaantollander/Markdown-Templates), 2022
+- [Publishing Notes using Markdown](https://cs.uwaterloo.ca/~j2avery/posts/2021-08-13-markdown-notes/), 2020
+- [Academic writing in Markdown](http://scorreia.com/research/markdown-correia-2019.pdf), 2019
+- [How to make a scientific looking PDF from markdown (with bibliography)](https://gist.github.com/wayneeseguin/6ebfcfa967b0f9be4a87f3cd0898cd0a), 2022
+- [Awesome Scientific Writing](https://github.com/writing-resources/awesome-scientific-writing), 2023
+- [Pandoc-Suite and BibTeX-Zotero-Citation-Picker for Academic Writing in Markdown](https://github.com/chrisgrieser/pandoc_alfred/), 2022
+- [Pandoc-Suite for Academic Writing in Markdown](https://www.alfredforum.com/topic/15997-pandoc-suite-for-academic-writing-in-markdown/), 2020
+- [Writing Scientific Papers Using Markdown](https://github.com/djhocking/Markdown-for-Manuscripts), 2022
 
 
 
