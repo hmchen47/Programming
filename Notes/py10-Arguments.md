@@ -27,7 +27,7 @@ Date: 2020-04-14
   - code snippet
 
     ```python
-    # arguments/googleindex.py
+    # arguments/googleindex01.py
     import sys
 
     print(f"Script name: {sys.argv[0]}")
@@ -42,6 +42,28 @@ Date: 2020-04-14
     Script name: googleindex01.py
     First argument: test.html
     Second argument: google.json
+    ```
+
+
+- Error handling of `sys.argv`
+  - code snippet
+
+    ```python
+    # arguments/googleindex02.py
+    import sys
+
+    try:
+        arg = sys.argv[2]
+    except IndexError:
+        raise SystemExit(f"Usage : {sys.argv[0]} url json")
+    ```
+
+  - results
+
+    ```sh
+    $ python3 googleindex02.py test.html google.json
+    $ python3 googleindex02.py test.html
+    Usage : googleindex02.py url json
     ```
 
 
