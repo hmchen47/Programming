@@ -19,6 +19,31 @@ Date: 2020-04-14
 
 ## The `sys.argv` Arrays
 
+- Accessing args w/ system array
+  - `sys.argv`:
+    - the native system array for args
+    - a public global variable
+  - `sys.argv[0]`: the script name
+  - code snippet
+
+    ```python
+    # arguments/googleindex.py
+    import sys
+
+    print(f"Script name: {sys.argv[0]}")
+    print(f"First argument: {sys.argv[1]}")
+    print(f"Second argument: {sys.argv[2]}")
+    ```
+
+  - result
+
+    ```shell
+    $ python3 googleindex01.py test.html google.json
+    Script name: googleindex01.py
+    First argument: test.html
+    Second argument: google.json
+    ```
+
 
 
 
