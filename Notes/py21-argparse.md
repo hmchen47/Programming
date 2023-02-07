@@ -324,6 +324,46 @@ Date: 2023
     ```
 
 
+- Multiple verbosity values
+  - code snippet
+
+    ```python
+    # stc/argparse/prog10.py
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("square", type=int, help="display a square of a given number")
+    parser.add_argument("-v", "--verbose", type=int, help="increase output verbosity")
+    args = parser.parse_args()
+    answer = args.square**2
+    if args.verbose == 2:
+      print(f"the square of {args.square} equals to {answer}")
+    elif args.verbose == 1:
+      print(f"{args.square}^2 = {answer}")
+    else:
+      print(answer)
+    ```
+
+  - results+
+
+    ```sh
+    $ ./prog10.py 4
+    16
+
+    $ ./prog10.py 4 -v
+    usage: prog10.py [-h] [-v VERBOSE] square
+    prog10.py: error: argument -v/--verbose: expected one argument
+
+    $ ./prog10.py 4 -v 1
+    4^2 = 16
+
+    $ ./prog10.py 4 -v 2
+    the square of 4 equals to 16
+
+    $ ./prog10.py 4 -v 3
+    16
+    ```
+
 
 
 
