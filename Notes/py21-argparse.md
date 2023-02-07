@@ -113,6 +113,7 @@ Date: 2023
   - code snippet
 
     ```python
+    # src/argparse/prog03.py
     import argparse
 
     parser = argparse.ArgumentParser()
@@ -132,6 +133,56 @@ Date: 2023
 
     options:
       -h, --help  show this help message and exit
+    ```
+
+
+- Arguments w/ other datatype
+  - error code snippet
+    - treating options as string
+    - required option datatype: `int`
+
+    ```python
+    # src/argparse/prog04.py
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("square", help="display a square of a given number")
+    args = parser.parse_args()
+    print(args.square**2)
+    ```
+
+  - result
+
+    ```sh
+    $ ./prog04.py 4
+    Traceback (most recent call last):
+      File "/home/hmchen/Projects/Programming/Notes/src/argparse/./prog04.py", line 8, in <module>
+        print(args.square**2)
+    TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'int'
+    ```
+
+  - code snippet
+    - argument w/ datatype `int`
+
+    ```python
+    # src/argparse/prog05.py
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("square", help="display a square of a given number", type=int)
+    args = parser.parse_args()
+    print(args.square**2)
+    ```
+
+  - results
+
+    ```sh
+    $ ./prog05.py 4
+    16
+
+    $ ./prog05.py four
+    usage: prog05.py [-h] square
+    prog05.py: error: argument square: invalid int value: 'four'
     ```
 
 
