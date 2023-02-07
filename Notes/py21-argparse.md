@@ -187,10 +187,71 @@ Date: 2023
 
 
 
-
-
 ## Introducing Optional arguments
 
+- Optional argument w/ `--verbosity` option
+  - code snippet
+    - displaying somethion when `--verbosity` specified
+    - displaying notthing when not
+    - optional option: no error when running the program w/o it
+    - relevant variable value if not present: `args.verbosity = None`
+
+    ```python
+    # src/argparse/prog06.py
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--verbosity", help="increase output verbosity")
+    args = parser.parse_args()
+    if args.verbosity:
+        print("verbosity turned on")
+    ```
+
+  - results
+
+    ```sh
+    $ ./prog06.py
+
+    $ ./prog06.py --help
+    usage: prog06.py [-h] [--verbosity VERBOSITY]
+
+    options:
+      -h, --help            show this help message and exit
+      --verbosity VERBOSITY
+                            increase output verbosity
+
+    $ ./prog06.py --verbosity
+    usage: prog06.py [-h] [--verbosity VERBOSITY]
+    prog06.py: error: argument --verbosity: expected one argument
+    ```
+
+
+- Assigning boolean values for optional arguments
+  - option: `action = <store_true | store_false>`
+  - code snippet
+
+    ```python
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--verbose", help="increase output verbosity", action="store_true")
+    parser.parse_args()
+    ```
+
+  - results
+
+    ```python
+    $ ./prog07.py -v
+    usage: prog07.py [-h] [--verbose]
+    prog07.py: error: unrecognized arguments: -v
+
+    $ ./prog07.py --help
+    usage: prog07.py [-h] [--verbose]
+
+    options:
+      -h, --help  show this help message and exit
+      --verbose   increase output verbosity
+    ```
 
 
 
