@@ -77,7 +77,20 @@ Date: 2020-04-14
 
 ## The `argparse` Package
 
+- Initiating object of `argparse`
+  - initiating instance: `parser`
+  - program name property: `parser.prog`
+  - 
 
+    ```python
+    # arguments/googleindex3.py
+    import argparse
+    parse = argparse.ArgumentParser()
+    print(parser.prog)
+    ```
+
+
+    
 
 
 ## The `getopt` Package
