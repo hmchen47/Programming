@@ -204,7 +204,7 @@ Date: 2023
     parser.add_argument("--verbosity", help="increase output verbosity")
     args = parser.parse_args()
     if args.verbosity:
-        print("verbosity turned on")
+      print("verbosity turned on")
     ```
 
   - results
@@ -231,6 +231,7 @@ Date: 2023
   - code snippet
 
     ```python
+    # src/argparse/prog07.py
     import argparse
 
     parser = argparse.ArgumentParser()
@@ -254,14 +255,73 @@ Date: 2023
     ```
 
 
+- Short options
+  - code snippet
 
-### Short options
+    ```python
+    # src/argparse/prog08.py
+    import argparse
 
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+      "-v", "--verbose", help="increase output verbosity", action="store_true"
+    )
+    parser.parse_args()
+    if args.verbose:
+      print("verbosity turned on")
+    ```
 
+  - result
 
+    ```sh
+    $ ./prog08.py -v
+    verbosity turned on
+
+    $ ./prog08.py --help
+    usage: prog08.py [-h] [-v]
+
+    options:
+      -h, --help     show this help message and exit
+      -v, --verbose  increase output verbosity
+    ```
 
 
 ## Combining Positional and Optional arguments
+
+- Combining positional and optional arguments
+  - order not matter
+  - code snippet
+
+    ```python
+    # src/argparse/prog09.py
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("square", type=int, help="display a square of a given number")
+    parser.add_argument(
+      "-v", "--verbose", action="store_true", help="increase output verbosity"
+    )
+    args = parser.parse_args()
+    answer = args.square**2
+    if args.verbose:
+        print(f'the square of {args.square} equals to {answer}')
+    else:
+      print(answer)
+    ```
+
+  - result
+
+    ```sh
+    $ ./prog09.py
+    usage: prog09.py [-h] [-v] square
+    prog09.py: error: the following arguments are required: square
+    $ ./prog09.py 4
+    16
+    $ ./prog09.py 4 --verbose
+    the square of 4 equals to 16
+    $ ./prog09.py 4 -v
+    the square of 4 equals to 16
+    ```
 
 
 
