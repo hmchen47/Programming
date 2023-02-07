@@ -80,13 +80,20 @@ Date: 2020-04-14
 - Initiating object of `argparse`
   - initiating instance: `parser`
   - program name property: `parser.prog`
-  - 
+  - code snippet
 
     ```python
     # arguments/googleindex03.py
     import argparse
     parse = argparse.ArgumentParser()
     print(parser.prog)
+    ```
+
+  - result
+
+    ```shell
+    $ python3 googleindex03.py
+    googleindex03.py
     ```
 
 
@@ -109,6 +116,9 @@ Date: 2020-04-14
     parser.add_argument("--jsonauth", help="JSON Google Authentication file path")
     parser.add_argument("--verbosity", help="Verbosity", action="store_false")
     ```
+
+
+
 
 
 
