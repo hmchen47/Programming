@@ -170,6 +170,7 @@ Date: 2020-04-14
   - code snippet
 
     ```python
+    # arguments/googleindex06.py
     import argparse
 
     parser = argparse.ArgumentParser()
@@ -197,6 +198,28 @@ Date: 2020-04-14
     ```
 
 
+- Specifying argument datatype
+  - forcing a datatype when defining an argument
+  - property to define datatype: `type=<datatype>`
+  - code snippet
+
+    ```python
+    # arguments/googleindex07.py
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    ...
+    parser.add_argument("--year", type=int, default=2020, help="Year extraction")
+    ...
+    ```
+
+  - result
+
+    ```sh
+    $ ./googleindex07.py --address test.html --jsonauth google.json
+    Namespace(address='test.html', jfile='google.json', verbosity=True, year=2020)
+    google.json
+    ```
 
 
 
