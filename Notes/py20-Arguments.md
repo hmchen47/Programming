@@ -203,8 +203,7 @@ Date: 2020-04-14
   - property to define datatype: `type=<datatype>`
   - code snippet
 
-    ```python
-    # arguments/googleindex07.py
+    ```pythonc
     import argparse
 
     parser = argparse.ArgumentParser()
@@ -227,6 +226,7 @@ Date: 2020-04-14
   - code snippet
 
     ```python
+    # arguments/googleindex08.py
     import argparse
 
     parser = argparse.ArgumentParser()
@@ -276,6 +276,7 @@ Date: 2020-04-14
   - code snippet
 
     ```python
+    # arguments/googleindex09.py
     import argparse
 
     parser = argparse.ArgumentParser()
@@ -302,6 +303,65 @@ Date: 2020-04-14
     $ ./googleindex09.py --address url1.html url2.html
     usage: googleindex09.py [-h] -a ADDRESS ADDRESS ADDRESS [-j JFILE] [-y YEAR] [-v]
     googleindex09.py: error: argument -a/--address: expected 3 arguments
+    ```
+
+
+- Parent arguments
+  - sharing same 'parent' arguments
+  - just adding 'child' arguments
+  - code snippets
+
+    ```python
+    # arguments/googleindex10a.py (parent script)
+    import argparse
+
+    def get_parser(h):
+        parser = argparse.ArgumentParser(add_help=h)
+
+        parser.add_argument(
+            "-a", "--address", nargs="*", help="URL to be checked", required=True
+        )
+        parser.add_argument(
+            "-j",
+            "--jsonauth",
+            default="/home/sqlpac/google-auth.json",
+            dest="jfile",
+            help="JSON Google Authentication file path, default $HOME/google-auth.json",
+        )
+
+        return parser
+
+    if __name__ == "__main__":
+        p = get_parser(h=True)
+        args = p.parse_args()
+
+    # arguments/googleindex10a.py (child script)
+    import argparse
+    import googleindex10a
+
+    def main(p):
+        child_parsser = argparse.ArgumentParser(parents=[p], add_help=True)
+        child_parser.add_argument("-l", "lang", help="Language")
+        args = child_parser.parse_args()
+
+    if __name__ == "__main__":
+        p = googleindex10a.get_parser(h=False)
+        main(p)
+    ```
+
+  - result
+
+    ```sh
+    $ ./googleindex10b.py --help
+    usage: googleindex10b.py [-h] -a [ADDRESS ...] [-j JFILE] [-l LANG]
+
+    options:
+      -h, --help            show this help message and exit
+      -a [ADDRESS ...], --address [ADDRESS ...]
+                            URL to be checked
+      -j JFILE, --jsonauth JFILE
+                            JSON Google Authentication file path, default $HOME/google-auth.json
+      -l LANG, --lang LANG  Language
     ```
 
 
