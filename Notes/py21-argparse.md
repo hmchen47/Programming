@@ -31,6 +31,46 @@ Date: 2023
 
 ## The Basics
 
+- Embedded option of `argparse`
+  - simple code snippet
+    - `argparse.ArgumentParser()`: initiating an instance
+    - `parser.parse_args`: retrieving the arguments from the cmd line
+
+    ```python
+    # src/argparse/prog01.py
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.parse_args()
+    ```
+
+  - results
+    - running w/o any options: nothing displayed in stdout
+    - `--help` option:
+      - displaying the usefullness of `argparse` module
+      - the only option not required to specify
+      - specifying anything else results in an error
+      - `-h` as shortened option
+
+    ```sh
+    $ ./prog01.py
+    $ ./prog01.py --help
+    usage: prog01.py [-h]
+
+    options:
+      -h, --help  show this help message and exit
+    $ ./prog01.py --verbose
+    usage: prog01.py [-h]
+    prog01.py: error: unrecognized arguments: --verbose
+    $ ./prog01.py foo
+    usage: prog01.py [-h]
+    prog01.py: error: unrecognized arguments: foo
+    ```
+
+
+
+
+
 
 
 
