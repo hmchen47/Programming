@@ -119,6 +119,7 @@ Date: 2020-04-14
 
 
 - Adding default value for optional argument
+  - `parse_args` method: get argument values
   - code snippet
 
     ```python
@@ -135,6 +136,9 @@ Date: 2020-04-14
     parser.add_argument("--verbosity", help="Verbosity", action="store_false")
 
     args = parser.parse_args()
+    print(args)
+    print(args.address)
+    print(args.jsonauth)
     print(args.accumulate(args.integers))
     ```
 
@@ -153,6 +157,11 @@ Date: 2020-04-14
       --address ADDRESS    URL to be checked
       --jsonauth JSONAUTH  JSON Google Authentication file path
       --verbosity          Verbosity
+
+    $ python3 googleindex05.py --address test.html --jsonauth google.json
+    Namespace(address='test.html', jsonauth='google.json', verbosity=True)
+    test.html
+    google.json
     ```
 
 
