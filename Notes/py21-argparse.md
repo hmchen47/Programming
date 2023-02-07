@@ -69,12 +69,47 @@ Date: 2023
 
 
 
+## Introducing Positional Arguments
+
+- Positional argument overview
+  - code snippet
+    - option required to call
+    - `parse-args` method: returning some data from the options specified
+    - variable (`-h`) w/ some form of 'magic' embedded in `argparse` to perform for free
+    - no need to specify which variable that value is stored in 
+
+    ```python
+    # src/argparse/prog02.py
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("echo")
+    args = parser.parse_args()
+    print(args.echo)
+    ```
+
+  - result
+
+    ```sh
+    $ python prog02.py
+    usage: prog02.py [-h] echo
+    prog02.py: error: the following arguments are required: echo
+
+    $ python prog02.py -h
+    usage: prog02.py [-h] echo
+
+    positional arguments:
+      echo
+
+    options:
+      -h, --help  show this help message and exit
+    
+    $ python prog02.py foo
+    foo
+    ```
 
 
 
-
-
-## Introducing Positional arguments
 
 
 
