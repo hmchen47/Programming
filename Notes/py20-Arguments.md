@@ -309,6 +309,7 @@ Date: 2020-04-14
 - Parent arguments
   - sharing same 'parent' arguments
   - just adding 'child' arguments
+  - conflict error: `argparse.ArgumentError: argument -h/--help: conflicting option strings: -h, --help`
   - code snippets
 
     ```python
@@ -368,7 +369,7 @@ Date: 2020-04-14
 
 ## The `getopt` Package
 
-
+- 
 
 
 ## Conclusion
