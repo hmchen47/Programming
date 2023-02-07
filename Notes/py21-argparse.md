@@ -109,6 +109,30 @@ Date: 2023
     ```
 
 
+- Adding help text
+  - code snippet
+
+    ```python
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("echo", help="echo the string you use here")
+    args = parser.parse_args()
+    print(args.echo)
+    ```
+
+  - result
+
+    ```sh
+    $ ./prog03.py -h
+    usage: prog03.py [-h] echo
+
+    positional arguments:
+      echo        echo the string you use here
+
+    options:
+      -h, --help  show this help message and exit
+    ```
 
 
 
