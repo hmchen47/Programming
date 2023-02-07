@@ -67,6 +67,12 @@ Date: 2020-04-14
     ```
 
 
+- Libraries to handle CLI in Python
+  - `sys.argv` array:
+    - each string as an **argument**
+    - becoming complex
+  - [argparse](https://docs.python.org/3/library/argparse.html)
+  - [getopt](https://docs.python.org/3/library/getopt.html)
 
 
 ## The `argparse` Package
