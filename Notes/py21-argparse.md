@@ -365,6 +365,47 @@ Date: 2023
     ```
 
   
+- Restricting values of optional arguments
+  - option: `choices=<list>`
+  - code snippet
+
+    ```python
+    # src/argparse/prog11.py
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("square", type=int, help="display a square of a given number")
+    parser.add_argument(
+      "-v", "--verbose", type=int, choices=[0, 1, 2], help="increase output verbosity"
+    )
+    args = parser.parse_args()
+    answer = args.square**2
+    if args.verbose == 2:
+      print(f"the square of {args.square} equals to {answer}")
+    elif args.verbose == 1:
+      print(f"{args.square}^2 = {answer}")
+    else:
+      print(answer)
+    ```
+
+  - result
+
+    ```sh
+    $ ./prog11.py 4 -v 3
+    usage: prog11.py [-h] [-v {0,1,2}] square
+    prog11.py: error: argument -v/--verbose: invalid choice: 3 (choose from 0, 1, 2)
+
+    $ ./prog11.py 4 -h
+    usage: prog11.py [-h] [-v {0,1,2}] square
+
+    positional arguments:
+      square                display a square of a given number
+
+    options:
+      -h, --help            show this help message and exit
+      -v {0,1,2}, --verbose {0,1,2}
+                            increase output verbosity
+    ```
 
 
 
