@@ -324,7 +324,7 @@ Date: 2023
     ```
 
 
-- Multiple verbosity values
+- Multiple values of an optional argument
   - code snippet
 
     ```python
@@ -363,6 +363,8 @@ Date: 2023
     $ ./prog10.py 4 -v 3
     16
     ```
+
+  
 
 
 
