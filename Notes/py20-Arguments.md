@@ -222,6 +222,51 @@ Date: 2020-04-14
     ```
 
 
+- Short and log arguments
+  - syntax to combine long and short arguments: `add_argument('short-option', 'log-option', ...)`
+  - code snippet
+
+    ```python
+    import argparse
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("-a", "--address", help="URL to be checked", required=True)
+    parser.add_argument(
+        "-j",
+        "--jsonauth",
+        default="/home/sqlpac/google-auth.json",
+        dest="jfile",
+        help="JSON Google Authentication file path",
+    )
+    parser.add_argument("-y", "--year", type=int, default=2020, help="Year extraction")
+    parser.add_argument("-v", "--verbosity", help="Verbosity", action="store_false")
+
+    args = parser.parse_args()
+    if args.year:
+        print("Current year selected")
+    ```
+
+  - result
+
+    ```sh
+    $ ./googleindex08.py --address test.html --jsonauth google.json --year 2021
+    Current year selected
+    
+    $ ./googleindex08.py --help
+    usage: googleindex08.py [-h] -a ADDRESS [-j JFILE] [-y YEAR] [-v]
+
+    options:
+      -h, --help            show this help message and exit
+      -a ADDRESS, --address ADDRESS
+                            URL to be checked
+      -j JFILE, --jsonauth JFILE
+                            JSON Google Authentication file path
+      -y YEAR, --year YEAR  Year extraction
+      -v, --verbosity       Verbosity
+    ```
+
+
 
 
 ## The `getopt` Package
