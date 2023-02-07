@@ -267,6 +267,43 @@ Date: 2020-04-14
     ```
 
 
+- The `nargs` option
+  - restreving multiple values for an arguments
+    - syntax: `nargs=<int value>`
+    - `nargs=*`: unspecified number of values
+    - `nargs=n`" reading `n` number of values
+  - example: `./googleindex.py --address url1.htm url2.html`
+  - code snippet
+
+    ```python
+    import argparse
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "-a", "--address", nargs="*", help="URL to be checked", required=True
+    )
+    ...
+
+    args = parser.parse_args()
+    print(args.address)
+    print(type(args.address))
+    ```
+
+  - results
+
+    ```sh
+    # nargs="*"
+    $ ./googleindex09.py --address utl1.html url2.html
+    ['utl1.html', 'url2.html']
+    <class 'list'>
+
+    # nargs=3
+    $ ./googleindex09.py --address url1.html url2.html
+    usage: googleindex09.py [-h] -a ADDRESS ADDRESS ADDRESS [-j JFILE] [-y YEAR] [-v]
+    googleindex09.py: error: argument -a/--address: expected 3 arguments
+    ```
+
 
 
 ## The `getopt` Package
