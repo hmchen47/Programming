@@ -118,6 +118,42 @@ Date: 2020-04-14
     ```
 
 
+- Adding default value for optional argument
+  - code snippet
+
+    ```python
+    # arguments/googleindex05.py
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--address", help="URL to be checked", required=True)
+    parser.add_argument(
+        "--jsonauth",
+        default="/home/sqlpac/google-auth.json",
+        help="JSON Google Authentication file path",
+    )
+    parser.add_argument("--verbosity", help="Verbosity", action="store_false")
+
+    args = parser.parse_args()
+    print(args.accumulate(args.integers))
+    ```
+
+  - results
+
+    ```shell
+    $ python3 googleindex05.py
+    usage: googleindex05.py [-h] --address ADDRESS [--jsonauth JSONAUTH] [--verbosity]
+    googleindex05.py: error: the following arguments are required: --address
+
+    $ python3 googleindex05.py --help
+    usage: googleindex05.py [-h] --address ADDRESS [--jsonauth JSONAUTH] [--verbosity]
+
+    options:
+      -h, --help           show this help message and exit
+      --address ADDRESS    URL to be checked
+      --jsonauth JSONAUTH  JSON Google Authentication file path
+      --verbosity          Verbosity
+    ```
 
 
 
