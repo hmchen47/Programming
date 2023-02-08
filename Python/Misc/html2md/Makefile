@@ -1,14 +1,18 @@
 # macros
 BUILDID = $(warning Invoking the shell)$(shell date +Ymd)
 CWD = $(shell pwd)
+
+WORKINGDIR = working
+
 PANDOCDIR = pandoc
 BUILDDIR = ./$(PANDOCDIR)/build
 ASSETSDIR = ./$(PANDOCDIR)/assets
-CONTENTDIR = ./$(PANDOCDIR)/content
+CONTENTDIR = ./$(WORKINGDIR)
 LAYOUTSDIR = ./$(PANDOCDIR)/layouts
 
-READINGINFILE = reading.md
-READINGOUTFILE = reading.pdf
+READINGINMD = reading_in.md
+READINGOUTMD = reading.md
+READINGPDF = reading.pdf
 
 PARSERDIR = parser
 
@@ -18,25 +22,25 @@ MDFILES = webgc05-YAMLSpec.md web07-ModelComp.md \
 
 default: html2md reading
 
-reading: $(CONTENTDIR)/$(READINGINFILE) $(LAYOUTSDIR)/print.tex
+reading: $(CONTENTDIR)/$(READINGINMD) $(LAYOUTSDIR)/print.tex
 	@echo
-	@echo "Starting to build $(READINGOUTFILE) files ..."
+	@echo "Starting to build $(READINGOUTMD) files ..."
 	@echo "Current directory: $(CWD)"
 	@echo
 
-	rm -f $(BUILDDIR)/$(READINGOUTFILE)
+	rm -f $(WORKINGDIR)/$(READINGPDF)
 
 	@echo
-	pandoc $(CONTENTDIR)/$(READINGINFILE) \
+	pandoc $(CONTENTDIR)/$(READINGINMD) \
 		--resource-path $(CONTENTDIR):$(LAYOUTSDIR) \
 		--csl $(ASSETSDIR)/citation-style.csl \
 		--from markdown+tex_math_single_backslash+tex_math_dollars+raw_tex+smart \
 		--to latex \
-		--output $(BUILDDIR)/$(READINGOUTFILE) \
+		--output $(WORKINGDIR)/$(READINGPDF) \
 		--pdf-engine xelatex \
 		--include-in-header $(LAYOUTSDIR)/reading.tex
 	@echo
-	@ls -l --color $(BUILDDIR)/
+	@ls -l --color $(WORKINGDIR)/
 	@echo "End print pdf build! ..."
 	@echo
 
