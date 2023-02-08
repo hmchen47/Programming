@@ -643,6 +643,34 @@ Date: 2023
     ```
 
 
+- Adding main purpose of the program
+  - code snippet
+
+    ```python
+    # src/argparse/prog18.py
+    import argparse
+
+    parser = argparse.ArgumentParser(description="calculate X to the power of Y")
+    ...
+    ```
+
+  - result
+
+    ```sh
+    $ ./prog18.py --help
+    usage: prog18.py [-h] [-v | -q] x y
+
+    calculate X to the power of Y
+
+    positional arguments:
+      x              the base
+      y              the exponent
+
+    options:
+      -h, --help     show this help message and exit
+      -v, --verbose
+      -q, --quiet
+    ```
 
 
 
