@@ -408,6 +408,57 @@ Date: 2023
     ```
 
 
+- Multiple same optional arguments
+  - specifying duplicated arguments w/ `action="count"`
+  - code snippet
+
+    ```python
+    # src/argparse/prog12.py
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("square", type=int, help="display a square of a given number")
+    parser.add_argument("-v", "--verbose", action="count", help="increase output verbosity")
+    args = parser.parse_args()
+    answer = args.square**2
+    if args.verbose == 2:
+        print(f"the square of {args.square} equals to {answer}")
+    elif args.verbose == 1:
+        print(f"{args.square}^2 = {answer}")
+    else:
+        print(answer)
+    ```
+
+  - result
+
+    ```sh
+    $ ./prog12.py 4
+    16
+
+    $ ./prog12.py 4 -v
+    4^2 = 16
+
+    $ ./prog12.py 4 -vv
+    the square of 4 equals to 16
+
+    $ ./prog12.py 4 --verbose --verbose
+    the square of 4 equals to 16
+
+    $ ./prog12.py 4 -v 1
+    usage: prog12.py [-h] [-v] square
+    prog12.py: error: unrecognized arguments: 1
+
+    $ ./prog12.py 4 -h
+    usage: prog12.py [-h] [-v] square
+
+    positional arguments:
+      square         display a square of a given number
+
+    options:
+      -h, --help     show this help message and exit
+      -v, --verbose  increase output verbosity
+    ```
+
 
 
 ## Getting a Little More Advanced
