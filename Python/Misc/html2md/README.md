@@ -60,6 +60,48 @@ The purpose of the directories of the file structure is linerated as following:
 The difficulty is that `pandoc` cannot process HTML code embedded in markdown file.  The simple solution is to parse `figure` and `table` elements to standard markdown syntax and then replace these elements with the related markdown syntax.
 
 
+## Arguments and Working Directory
+
+The syntax of parsing program is descripted as below:
+
+```sh
+usage: html2md.py [-h] [-d DIR] [-o OUTPUT] [inputs ...]
+
+Convert embedded HTML figures and tables code to markdown syntax
+
+positional arguments:
+  inputs                Markdown files to process
+
+options:
+  -h, --help            show this help message and exit
+  -d DIR, --dir DIR     The folder to retrieve markdown files, the path also used to process local
+                        diagrams
+  -o OUTPUT, --output OUTPUT
+                        Output markdown file for pandoc to process
+```
+
+There are two optional arguments:
+
+1. `[-d DIR]`:
+    - the folder `DIR` containing the markdown files to read in
+    - default directory: `working` directory
+2. `[-o OUTPUT]`:
+    - the output markdown file name
+    - default value: `reading.md`
+
+The positional argument `[inputs ...]` has different scenarios:
+
+1. both `[inputs ...]` and `[-d DIR]` arguments present: read specified `inputs` markdown files in `DIR` directory
+2. `[-d DIR]` present but `[inputs ...]` missing: read in all markdown files in directory `DIR`
+3. `[inputs ...]` present but `[-d DIR]` missing: read in all markdown files in default directory
+4. `[inputs ...]` present but not existed: display error message to ask for correct inputs
+
+Notable issues when processing markdown files:
+
+1. markdown file extension might be missing w/ `inputs ...`, add extension automamtically
+2. local figures in markdown files prepend `DIR` for the image files, except for default value
+
+
 ## Parsing Figures
 
 The typical `<figure>` element used in markdown files are as below snippet (basic one and other varieties based on this one):
