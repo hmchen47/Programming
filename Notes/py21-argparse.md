@@ -567,6 +567,38 @@ Date: 2023
   ```
 
 
+- Verbose levels
+  - using verbosity level to change the displayed text
+  - code snippet
+
+    ```python
+    #src/argparse/prog16.py
+    ...
+    if args.verbose >= 2:
+        print(f"Running '{__file__}'")
+    elif args.verbose >= 1:
+        print(f"{args.x}^{args.y} == {answer}", end="")
+    print(answer)
+    ```
+
+  - result
+
+    ```sh
+    $ ./prog16.py 4 2
+    16
+
+    $ ./prog16.py 4 2 -v
+    4^2 == 1616
+
+    $ ./prog16.py 4 2 -vv
+    Running '.../argparse/./prog16.py'
+    16
+
+    $ python prog16.py 4 2 -vv
+    Running '.../argparse/prog16.py'
+    16
+    ```
+
 
 ### Conflict Options
 
