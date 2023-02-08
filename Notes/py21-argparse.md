@@ -472,6 +472,28 @@ Date: 2023
 
 - Fixing the verbose bug
   - code snippet
+    - behaving multiple same flags w/ the same result
+
+    ```python
+    # src/argparse/prog13.py
+    ...
+    if args.verbose >= 2:
+        print(f"the square of {args.square} equals to {answer}")
+    ...
+    ```
+
+  - result
+
+    ```sh
+    $ ./prog13.py 4 -vvvv
+    the square of 4 equals to 16
+
+    $ ./prog13.py 4 
+    Traceback (most recent call last):
+      File "/home/hmchen/Projects/Programming/Notes/src/argparse/./prog13.py", line 10, in <module>
+        if args.verbose >= 2:
+    TypeError: '>=' not supported between instances of 'NoneType' and 'int'
+    ```
 
 
 
