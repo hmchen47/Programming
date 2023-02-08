@@ -600,7 +600,47 @@ Date: 2023
     ```
 
 
-### Conflict Options
+- Conflict Options
+  - `add_mutually_exclusive_group` method: specifying options that conflict w/ each other
+  - example: `--quiet` and `--verbose` opposite each other
+  - code snippet
+
+    ```python
+    # src/argparse/prog17.py
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("-v", "--verbose", action="store_true")
+    group.add_argument("-q", "--quiet", action="store_true")
+    parser.add_argument("x", type=int, help="the base")
+    parser.add_argument("y", type=int, help="the exponent")
+    args = parser.parse_args()
+    answer = args.x**args.y
+    if args.quiet:
+        print(answer)
+    elif args.verbose:
+        print(f"{args.x} to the power {args.y} equals {answer}")
+    else:
+        print(f"{args.x}^{args.y} == {answer}")
+    ```
+
+  - result
+
+    ```sh
+    $ ./prog17.py 4 2
+    4^2 == 16
+    $ ./prog17.py 4 2 -q
+    16
+    $ ./prog17.py 4 2 -v
+    4 to the power 2 equals 16
+    $ ./prog17.py 4 2 -vq
+    usage: prog17.py [-h] [-v | -q] x y
+    prog17.py: error: argument -q/--quiet: not allowed with argument -v/--verbose
+    $ ./prog17.py 4 2 -v --quiet
+    usage: prog17.py [-h] [-v | -q] x y
+    prog17.py: error: argument -q/--quiet: not allowed with argument -v/--verbose
+    ```
 
 
 
