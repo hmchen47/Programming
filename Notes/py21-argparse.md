@@ -411,6 +411,13 @@ Date: 2023
 - Multiple same optional arguments
   - specifying duplicated arguments w/ `action="count"`
   - code snippet
+    - more of a flag to explain the complain
+    - similar to `store_true` action
+    - demonstrating what the `count` acction gives
+    - no `-v` flag specified $\to$ `None` value for the flag
+    - specifying the long form of the flag $\to$ same output 
+    - help output not very informative but always fixed by improving the documentation for the script
+    - `-vvv` exposing a bug, expecting same as `-vv`
 
     ```python
     # src/argparse/prog12.py
@@ -457,7 +464,16 @@ Date: 2023
     options:
       -h, --help     show this help message and exit
       -v, --verbose  increase output verbosity
+
+    $ ./prog12.py 4 -vvv
+    16
     ```
+
+
+- Fixing the verbose bug
+  - code snippet
+
+
 
 
 
