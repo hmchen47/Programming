@@ -49,6 +49,9 @@ html2md: clean_target_md
 
 	$(PARSERDIR)/html2md.py -o $(CONTENTDIR)/$(READINGINFILE) -d $(MDDIR) $(MDFILES)
 
+	# temporary target markdown files for testing only
+	touch $(CONTENTDIR)/$(READINGINFILE)
+
 	@echo
 	@echo End of converting ...
 	@echo
