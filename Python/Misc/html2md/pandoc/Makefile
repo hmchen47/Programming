@@ -9,6 +9,10 @@ LAYOUTSDIR = ./layouts
 READINGINFILE = reading.md
 READINGOUTFILE = reading.pdf
 
+CONVERTDIR = ~/Projects/Programs/Notes/
+CONVERTFILES = 	webgc05-YAMLSpec.md web07-ModelComp.md \
+								web08-MVCDjango.md web09-CSSLAyout.md
+
 
 reading: $(CONTENTDIR)/$(READINGINFILE) $(LAYOUTSDIR)/print.tex
 	@echo
@@ -31,6 +35,12 @@ reading: $(CONTENTDIR)/$(READINGINFILE) $(LAYOUTSDIR)/print.tex
 	@ls -l --color $(BUILDDIR)/
 	@echo End print pdf build!
 	@echo
+
+
+html2md: ./parser/html2md.py $(CONVERTDIR) $(CONVERTFILES)
+	@echo
+	@echo Convert Figures & Tables HTML code to MD syantx ...
+	@
 
 
 
