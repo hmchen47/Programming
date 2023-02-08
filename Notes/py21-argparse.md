@@ -483,6 +483,7 @@ Date: 2023
     ```
 
   - result
+    - 2nd output resulting error
 
     ```sh
     $ ./prog13.py 4 -vvvv
@@ -496,7 +497,25 @@ Date: 2023
     ```
 
 
+- Assigning default value
+  - adding default value to prevent from error
+  - code snippet
 
+    ```python
+    # src/argparse/prog14.py
+    ...
+    parser.add_argument(
+        "-v", "--verbose", action="count", default=0, help="increase output verbosity"
+    )
+    ...
+    ```
+
+  - result
+
+    ```sh
+    $ ./prog14.py 4 
+    16
+    ```
 
 
 ## Getting a Little More Advanced
