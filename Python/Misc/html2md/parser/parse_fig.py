@@ -14,9 +14,14 @@ def substitute_fig_tags(soup):
 
 if __name__ == "__main__":
     with open(
-        "~/Projects/Programming/Notes/web09-CSSLayout.md", "r", encoding="utf-8"
+        "/home/hmchen/Projects/Programming/Notes/web06-MVCOverview.md",
+        "r",
+        encoding="utf-8",
     ) as in_fd:
         content = in_fd.read()
 
     soup = BeautifulSoup(content, "html.parser")
+    print(soup)
+    print("\n\n\n=========================================\n\n\n")
     substitute_fig_tags(soup)
+    print(soup)
