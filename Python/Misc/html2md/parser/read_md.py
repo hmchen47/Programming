@@ -5,6 +5,7 @@ import os
 import time
 
 import html2md
+from bs4 import BeautifulSoup
 
 
 def rm_silent(fname):
@@ -32,8 +33,9 @@ def read_and_write_md(out_file, in_files):
     for fname in in_files:
         with open(fname, mode="r", encoding="utf-8") as in_fd:
             content = in_fd.read()
-            print(content)
-            print("\n\n\n")
+            soup = BeautifulSoup(content, "html.parser")
+            print(soup)
+            print("\n\n\n-------------------------------------------\n\n\n")
             time.sleep(2)
 
 
