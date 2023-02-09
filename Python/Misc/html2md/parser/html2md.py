@@ -4,7 +4,7 @@ import argparse
 import os
 
 DEFAULTDIR = "../working"
-DEFAULTFILE = "reading_in.md"
+DEFAULTOUT = "reading.md"
 
 
 def check_exist(folder, files):
@@ -43,13 +43,14 @@ def get_md_files():
     parser.add_argument(
         "-o",
         "--output",
+        default=os.path.join(DEFAULTDIR, DEFAULTOUT),
         help="Output markdown file for pandoc to process",
     )
 
     args = parser.parse_args()
 
     # generate list of read in markdown files
-    inputs = []
+    input_files = []
 
     base_dir = os.path.dirname(os.path.realpath(__file__))
     if not args.inputs:
@@ -68,11 +69,20 @@ def get_md_files():
     for fname in inputs:
         input_files.append(os.path.join(os.path.join(base_dir, args.dir), fname))
 
-    if not args.output:
-        return os.path.join(os.path.join(base_dir, args.output), input_files)
+    if args.output != os.path.join(DEFAULTDIR, DEFAULTOUT):
+        return (
+            os.path.join(os.path.join(os.path.join(base_dir, DEFAULTDIR), args.output)),
+            input_files,
+        )
+    else:
+        return (
+            os.path.join(os.path.join(base_dir, os.path.join(DEFAULTDIR, DEFAULTOUT))),
+            input_files,
+        )
 
 
 if __name__ == "__main__":
     outfile, md_files = get_md_files()
+    print()
     print(md_files)
     print(outfile)
