@@ -3,6 +3,18 @@
 import html2md
 import os, errno, time
 
+def rm_silent(fname):
+    """remove a file
+
+    Args:
+        fname (str): the file to remove w/ full path filename
+    """
+    try:
+        os.remove(fname)
+    except OSError as e:
+        if e.errno != errno.ENOENT: # no such file or directory
+            raise # re-raise exception iif a differnet error occurred
+
 
 def read_and_write_md(out_file, in_files):
     """read all given md files and write into a single output md file
