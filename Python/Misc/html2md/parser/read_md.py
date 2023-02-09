@@ -5,6 +5,7 @@ import os
 import time
 
 import html2md
+import parse_fig
 from bs4 import BeautifulSoup
 
 
@@ -36,6 +37,7 @@ def read_and_write_md(out_file, in_files):
             soup = BeautifulSoup(content, "html.parser")
             print(soup)
             print("\n\n\n-------------------------------------------\n\n\n")
+            soup = substitute_fig_tags(soup)
             time.sleep(2)
 
 
