@@ -33,9 +33,7 @@ def get_md_files():
     parser = argparse.ArgumentParser(
         description="Convert embedded HTML figures and tables code to markdown syntax"
     )
-    parser.add_argument(
-        "inputs", nargs="*", default=[DEFAULTFILE], help="Markdown files to process"
-    )
+    parser.add_argument("inputs", nargs="*", help="Markdown files to process")
     parser.add_argument(
         "-d",
         "--dir",
@@ -45,7 +43,6 @@ def get_md_files():
     parser.add_argument(
         "-o",
         "--output",
-        default="reading.md",
         help="Output markdown file for pandoc to process",
     )
 
@@ -54,35 +51,25 @@ def get_md_files():
     # generate list of read in markdown files
     inputs = []
 
-    check_exist(args.dir, args.inputs)
-
-    if (DEFAULTDIR == args.dir) and (DEFAULTFILE == args.inputs[0]):
-        inputs = args.inputs
-    elif (DEFAULTDIR == args.dir) and (DEFAULTFILE != args.inputs[0]):
-        # read all markdown file in default directory
-        base_dir = os.path.dirname(os.path.realpath(__file__))
+    base_dir = os.path.dirname(os.path.realpath(__file__))
+    if not args.inputs:
+        # read all markdown file in the given directory
         if not os.path.exists(os.path.join(base_dir, args.dir)):
             print(f"No such directory {args.dir} exists!")
             exit()
         dir_lst = os.listdir(os.path.join(base_dir, args.dir))
-        inputs = [file for file in dir_lst if (os.path.split(file)[1] == ".md")]
-    elif (DEFAULTDIR != args.dir) and (DEFAULTFILE == args.inputs[0]):
-        # read all markdown file in the given directory
+        inputs = [
+            md_file for md_file in dir_lst if (os.path.splitext(md_file)[1] == ".md")
+        ]
+    else:
         check_exist(args.dir, args.inputs)
         inputs = args.inputs
-    elif (DEFAULTDIR != args.dir) and (DEFAULTFILE != args.inputs[0]):
-        inputs = args.inputs
-
-    print()
-    print(args.inputs)
-    print(args.dir)
-    print()
-    exit()
 
     for fname in inputs:
-        inputs.append(os.path.join(args.dir, fname))
+        input_files.append(os.path.join(os.path.join(base_dir, args.dir), fname))
 
-    return (os.path.join("../working", args.output), inputs)
+    if not args.output:
+        return os.path.join(os.path.join(base_dir, args.output), input_files)
 
 
 if __name__ == "__main__":
