@@ -18,7 +18,6 @@ def check_exist(folder, files):
             and (os.path.splitext(fname)[1] == ".md")
         )
     ]
-    print(not_exist)
 
     if not_exist:
         print(
@@ -56,6 +55,28 @@ def get_md_files():
     inputs = []
 
     check_exist(args.dir, args.inputs)
+
+    if (DEFAULTDIR == args.dir) and (DEFAULTFILE == args.inputs[0]):
+        inputs = args.inputs
+    elif (DEFAULTDIR == args.dir) and (DEFAULTFILE != args.inputs[0]):
+        # read all markdown file in default directory
+        base_dir = os.path.dirname(os.path.realpath(__file__))
+        if not os.path.exists(os.path.join(base_dir, args.dir)):
+            print(f"No such directory {args.dir} exists!")
+            exit()
+        dir_lst = os.listdir(os.path.join(base_dir, args.dir))
+        inputs = [file for file in dir_lst if (os.path.split(file)[1] == ".md")]
+    elif (DEFAULTDIR != args.dir) and (DEFAULTFILE == args.inputs[0]):
+        # read all markdown file in the given directory
+        check_exist(args.dir, args.inputs)
+        inputs = args.inputs
+    elif (DEFAULTDIR != args.dir) and (DEFAULTFILE != args.inputs[0]):
+        inputs = args.inputs
+
+    print()
+    print(args.inputs)
+    print(args.dir)
+    print()
     exit()
 
     for fname in inputs:
