@@ -102,6 +102,17 @@ Notable issues when processing markdown files:
 2. local figures in markdown files prepend `DIR` for the image files, except for default value
 
 
+## Reading Markdown files
+
+Based on the returned inputs file list, the program reads markdown files individually.  Then use BeautifulSoup4 package tp extract figure and table elements within these markdown files.  Repace the element code blocks w/ appropriate markdown syntax.
+
+The replacement of figures and table is handled by the `parse_fig` and `parse_table` programs.
+
+The program also writes the replaced markdown syntax in its original substitute position.  Orther original markdown content also writes to the output markdown file.
+
+All markdown input files are written into the single output files.  The markdown files are separated by at least 6 blank lines for human readable purpose.
+
+
 ## Parsing Figures
 
 The typical `<figure>` element used in markdown files are as below snippet (basic one and other varieties based on this one):
