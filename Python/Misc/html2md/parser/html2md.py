@@ -15,7 +15,7 @@ def check_exist(folder, files):
         for fname in files
         if not (
             (os.path.isfile(os.path.join(os.path.join(base_dir, folder), fname)))
-            or (os.path.split(fname)[1] != ".md")
+            and (os.path.splitext(fname)[1] == ".md")
         )
     ]
     print(not_exist)
@@ -56,6 +56,7 @@ def get_md_files():
     inputs = []
 
     check_exist(args.dir, args.inputs)
+    exit()
 
     for fname in inputs:
         inputs.append(os.path.join(args.dir, fname))
