@@ -3,7 +3,7 @@
 from bs4 import BeautifulSoup
 
 
-def substitute_fig_tags(soup):
+def substitute_fig_tags(soup: BeautifulSoup) -> BeautifulSoup:
     """Replace figure tags w/ markdown figure syntax ~[alt text](link)
 
     Args:
@@ -21,7 +21,7 @@ if __name__ == "__main__":
         content = in_fd.read()
 
     soup = BeautifulSoup(content, "html.parser")
-    print(soup)
+    print(type(soup))
     print("\n\n\n=========================================\n\n\n")
     substitute_fig_tags(soup)
     print(soup)
