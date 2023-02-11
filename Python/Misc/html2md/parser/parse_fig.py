@@ -3,10 +3,6 @@
 from bs4 import BeautifulSoup
 
 
-def append_md_figs(soup: BeautifulSoup, srcs: str, alts: str) -> BeautifulSoup:
-    pass
-
-
 def replace_fig_tags(soup: BeautifulSoup) -> BeautifulSoup:
     """Replace figure tags w/ markdown figure syntax ~[alt text](link)
 
@@ -17,13 +13,12 @@ def replace_fig_tags(soup: BeautifulSoup) -> BeautifulSoup:
     for fig_set in soup.find_all(
         "div", attrs={"style": "display: flex; justify-content: center;"}
     ):
-        srcs = []
-        alts = []
         for img_tag in fig_set.find_all("img"):
-            srcs.append(img_tag["src"])
-            alts.append(img_tag["alt"])
+            fig_set.insert_after(f"\n\n![{img_tag['src']}]({img_tag['alt']})")
 
-        append_md_figs(soup, srcs, alts)
+    fig_set.clear()
+
+    return soup
 
 
 if __name__ == "__main__":
@@ -40,4 +35,4 @@ if __name__ == "__main__":
     print("\n\n=========================================")
     replace_fig_tags(soup)
     print("\n\n\n**********************************************\n\n")
-    # print(soup)
+    print(soup)
