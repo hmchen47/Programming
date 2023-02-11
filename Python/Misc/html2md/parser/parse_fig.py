@@ -23,7 +23,7 @@ def replace_fig_tags(soup: BeautifulSoup, path: str) -> BeautifulSoup:
                     f"![os.path.join(path, {img_tag['src']})]({img_tag['alt']})"
                 )
 
-        fig_set.clean()
+        fig_set.extract()
 
     # remove figure elements
     for fig_tag in soup.find_all(
@@ -38,7 +38,7 @@ def replace_fig_tags(soup: BeautifulSoup, path: str) -> BeautifulSoup:
             fig_tag.insert_after(
                 f"![os.path.join(path, {img_tag['src']})]({img_tag['alt']})"
             )
-        fig_tag.clean()
+        fig_tag.extract()
 
     return soup
 
