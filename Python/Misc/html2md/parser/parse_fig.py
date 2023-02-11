@@ -11,21 +11,36 @@ def replace_fig_tags(soup: BeautifulSoup, path: str) -> BeautifulSoup:
     Args:
         soup (str): BeautifulSoup text
     """
-    # remove div and
+    # remove div and figure elements
     for fig_set in soup.find_all(
         "div", attrs={"style": "display: flex; justify-content: center;"}
     ):
         for img_tag in fig_set.find_all("img"):
             if "http" in img_tag["src"]:
-                fig_set.insert_after(f"\n\n![{img_tag['src']}]({img_tag['alt']})")
+                fig_set.insert_after(f"![{img_tag['src']}]({img_tag['alt']})")
             else:
                 fig_set.insert_after(
-                    f"\n\n![os.path.join(path, {img_tag['src']})]({img_tag['alt']})"
+                    f"![os.path.join(path, {img_tag['src']})]({img_tag['alt']})"
                 )
 
-        fig_set.extract()
+        fig_set.clean()
 
-    return soup.prettify()
+    # remove figure elements
+    for fig_tag in soup.find_all(
+        "figure",
+        attrs={
+            "style": "display: flex; margin: 0.5em; justify-content: center; align-items: center;"
+        },
+    ):
+        if img_tag in fig_tag.find_all("img"):
+            fig_tag.insert_after(f"![{img_tag['src']}]({img_tag['alt']})")
+        else:
+            fig_tag.insert_after(
+                f"![os.path.join(path, {img_tag['src']})]({img_tag['alt']})"
+            )
+        fig_tag.clean()
+
+    return soup
 
 
 if __name__ == "__main__":
