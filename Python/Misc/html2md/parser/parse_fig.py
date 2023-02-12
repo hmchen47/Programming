@@ -56,6 +56,6 @@ if __name__ == "__main__":
     print("\n\n\n")
     print(type(soup))
     print("\n\n=========================================")
-    replace_fig_tags(soup, os.path.basename(fname))
+    soup = replace_fig_tags(soup, os.path.basename(fname))
     print("\n\n\n**********************************************\n\n")
     print(soup)
