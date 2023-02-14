@@ -26,8 +26,15 @@ def replace_tbl_tags(soup: BeautifulSoup) -> BeautifulSoup:
         # find all tags in table
         tbl_soup = BeautifulSoup(md_tbl, "html.parser")
         tags = {tag.name for tag in tbl_soup if tag.name != None}
+
+        print(f"\n------------------------------------\n\n{tbl_soup}\n")
+        # replace tags w/ associated md or latex code
+        for tag in tags:
+            for cell_tag in tbl_soup.find_all(tag):
+                if tag == "br":
+                    cell_tag.insert_after("$\\\\$")
+                    cell_tag.unwrap()
         print(f"\n************************************\n\n{tbl_soup}\n")
-        print(f"{tags}\n--------------------------------------\n")
 
     return soup.prettify()
 
