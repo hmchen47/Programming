@@ -1,7 +1,8 @@
-#!/use/bin/env python3
+#!/usr/bin/env python3
 
 import os
 
+import htmltabletomd
 from bs4 import BeautifulSoup
 
 
@@ -9,8 +10,20 @@ def replace_tbl_tags(soup: BeautifulSoup) -> BeautifulSoup:
     """Replace figure tags w/ markdown figure syntax ~[alt text](link)
 
     Args:
-        soup (str): BeautifulSoup text
+        soup (class): BeautifulSoup text
     """
+    for tbl_tag in soup.find_all(
+        "table",
+        attrs={
+            "align": "center",
+            "border": "1",
+            "cellpadding": "5",
+            "cellspacing": "0",
+        },
+    ):
+        md_tbl = htmltabletomd.convert_table(tbl_tag)
+        print(md_tbl)
+        print("\n--------------------------------------\n")
 
     return soup.prettify()
 
@@ -21,9 +34,9 @@ if __name__ == "__main__":
         content = in_fd.read()
 
     soup = BeautifulSoup(content, "html.parser")
-    print("\n\n\n")
-    print(type(soup))
+    print("\n\n")
+    # print(type(soup))
     print("\n\n=========================================")
     replace_tbl_tags(soup)
     print("\n\n\n**********************************************\n\n")
-    print(soup)
+    # print(soup)
