@@ -107,7 +107,7 @@ def parse_tags(outfile: list, md_files: list) -> str:
             soup = replace_tbl_tags(soup)
 
             # write_outfile(outfile, soup)
-            print(f"\n----------------------------\n{soup}\n")
+            print(f"\n\nhtml2md----------------------------\n{soup}\n")
 
     return outfile
 

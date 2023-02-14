@@ -32,13 +32,14 @@ def replace_fig_tags(soup: BeautifulSoup, path: str) -> BeautifulSoup:
             "style": "display: flex; margin: 0.5em; justify-content: center; align-items: center;"
         },
     ):
-        if img_tag in fig_tag.find_all("img"):
-            fig_tag.insert_after(f"![{img_tag['src']}]({img_tag['alt']})")
-        else:
-            fig_tag.insert_after(
-                f"![os.path.join(path, {img_tag['src']})]({img_tag['alt']})"
-            )
-        fig_tag.extract()
+        for img_tag in fig_tag.find_all("img"):
+            if "http" in img_tag["src"]:
+                fig_tag.insert_after(f"![{img_tag['src']}]({img_tag['alt']})")
+            else:
+                fig_tag.insert_after(
+                    f"![os.path.join(path, {img_tag['src']})]({img_tag['alt']})"
+                )
+            fig_tag.extract()
 
     return soup
 
