@@ -21,9 +21,13 @@ def replace_tbl_tags(soup: BeautifulSoup) -> BeautifulSoup:
             "cellspacing": "0",
         },
     ):
-        md_tbl = htmltabletomd.convert_table(tbl_tag)
-        print(md_tbl)
-        print("\n--------------------------------------\n")
+        md_tbl = htmltabletomd.convert_table(str(tbl_tag))
+
+        # find all tags in table
+        tbl_soup = BeautifulSoup(md_tbl, "html.parser")
+        tags = {tag.name for tag in tbl_soup if tag.name != None}
+        print(f"\n************************************\n\n{tbl_soup}\n")
+        print(f"{tags}\n--------------------------------------\n")
 
     return soup.prettify()
 
