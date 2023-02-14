@@ -13,9 +13,9 @@ Date: 2023
   - `ls` cmd:
     - useful when run w/o any options at all
     - default to current directory
-  - `ls <dir>`
+  - `ls dir`
     - displaying a different directory
-    - `<dir>`: **positional argument**
+    - `dir`: **positional argument**
     - program knowing what to do w/ the value
     - solely based on where it appears on the cmd line
     - e.g.: `cp SRC DST` - `SRC` $\to$ what you want copied, `DST` $\to$ where you want it copied to
@@ -156,7 +156,7 @@ Date: 2023
     ```sh
     $ ./prog04.py 4
     Traceback (most recent call last):
-      File "/home/hmchen/Projects/Programming/Notes/src/argparse/./prog04.py", line 8, in <module>
+      File ".../prog04.py", line 8, in <module>
         print(args.square**2)
     TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'int'
     ```
@@ -227,7 +227,7 @@ Date: 2023
 
 
 - Assigning boolean values for optional arguments
-  - option: `action = <store_true | store_false>`
+  - option: `action = (store_true | store_false)`
   - code snippet
 
     ```python
@@ -366,7 +366,7 @@ Date: 2023
 
   
 - Restricting values of optional arguments
-  - option: `choices=<list>`
+  - option: `choices=list`
   - code snippet
 
     ```python
