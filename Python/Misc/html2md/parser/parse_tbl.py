@@ -37,6 +37,9 @@ def replace_tbl_tags(soup: BeautifulSoup) -> BeautifulSoup:
                 elif tag == "sup":
                     cell_tag.insert_after(f"$^{{{cell_tag.string}}}$")
                     cell_tag.decompose()
+                elif tag == "sub":
+                    cell_tag.insert_after(f"$_{{{cell_tag.string}}}$")
+                    cell_tag.decompose()
         print(f"\n************************************\n\n{tbl_soup}\n")
 
     return soup.prettify()
