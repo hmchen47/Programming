@@ -40,7 +40,7 @@ def replace_fig_tags(soup: BeautifulSoup, path: str) -> BeautifulSoup:
             )
         fig_tag.extract()
 
-    return soup.prettify()
+    return soup
 
 
 if __name__ == "__main__":
