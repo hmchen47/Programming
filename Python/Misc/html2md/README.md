@@ -112,6 +112,8 @@ The program also writes the replaced markdown syntax in its original substitute 
 
 All markdown input files are written into the single output files.  The markdown files are separated by at least 6 blank lines for human readable purpose.
 
+The markdown files use [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) to search `table` and `figure` tags.
+
 
 ## Parsing Figures
 
@@ -145,6 +147,21 @@ Two scenarios requires to handle `src` attribute value `image`:
 - local file path format: replace `image` value in the markdown syntax w/ the relative file path vaalue to point to the local image
 
 
+## Parsing Tables
+
+Utilizing `htmltabletomd` package the [`parse_tbl.py`](parser/parse_tbl.py) converts HTML `table` tags into markdown syntax.  The package converts HTML tag in `string` datatype to markdown table syntax. 
+
+The content of cells might contain different inline-display tags, including
+
+- `br`: replaced w/ `$\\\\$`
+- `sup`: replaced w/ `$^{{{tag.string}}}$`
+- `sub`: replaced w/ `$_{{{tag.string}}}$`
+- `code`: replaced w/ backtick ('`')
+- `i`, `em`: replaced w/ `*`
+- `b`, `strong`: replaced w/ `**`
+- `span` w/ `font-weight: bold | 700;`: replaced by `**`
+- `span` w/ `font-style: italic;`: replaced by `*`
+- `a` w/ `href='url'`: replaced w/ `[tag.string](url)`
 
 
 ## Project Helper Functions
