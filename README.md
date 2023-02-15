@@ -2,7 +2,7 @@
 
 This repository tracks my learning on different programming languages.
 
-## C Related - C, C++, C#, 
+## C Related - C, C++, C#
 
 - [Learn C the Hard Way](./C_C++/CHardWay/README.md)
 - [Practical Programming in C - MIT](./C_C++/MIT6.087/README.md)
