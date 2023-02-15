@@ -225,6 +225,11 @@ There are a couple of helper functions except for the parsing ones:
 
 - custom virtual environment location: `export WORKON_HOME=~/.venvs`
 - python path: `~/.venvs/html2md-Z6Rs3Moi/bin/python` 
+- package installed
+  - [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+  - [argparse](https://docs.python.org/3/library/argparse.html)
+  - [htmltabletomd](https://pypi.org/project/htmltabletomd/)
+  - [HTML2Markdown](https://github.com/baynezy/Html2Markdown)
 
 
 ## Reference
