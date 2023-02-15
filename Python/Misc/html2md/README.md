@@ -149,7 +149,43 @@ Two scenarios requires to handle `src` attribute value `image`:
 
 ## Parsing Tables
 
-Utilizing `htmltabletomd` package the [`parse_tbl.py`](parser/parse_tbl.py) converts HTML `table` tags into markdown syntax.  The package converts HTML tag in `string` datatype to markdown table syntax. 
+Utilizing `htmltabletomd` package the [`parse_tbl.py`](parser/parse_tbl.py) converts HTML `table` tags into markdown syntax.  The package converts HTML tag in `string` datatype to markdown table syntax.
+
+Typical html `table` tag is shown as below:
+
+```html
+<table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing=0 cellpadding=5 border=1 align="center">
+  <caption style="font-size: 1.3em; margin: 0.2em;"><a href="url">CAPTION</a></caption>
+  <colgroup>
+    <col style="width: 20%">
+    <col style="width: 20%">
+    <col style="width: 20%">
+    <col style="width: 20%">
+  </colgroup>
+  <thead>
+  <tr style="font-size: 1.0em; vertical-align:middle;">
+    <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Heading1</th>
+    <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Heading2</th>
+    <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Heading3</th>
+    <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Heading4</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr style="vertical-align:middle">
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"><a href="">MDN</a>, <a href="">KEYWORD</a></td>
+  </tr>
+  <tr style="vertical-align:middle">
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;"><a href="">MDN</a>, <a href="">KEYWORD</a></td>
+  </tr>
+  </tbody>
+</table><br/>
+```
 
 The content of cells might contain different inline-display tags, including
 
