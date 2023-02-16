@@ -2,7 +2,7 @@
 
 import os
 
-import htmltabletomd
+import htmltabletomd as table2md
 from bs4 import BeautifulSoup
 
 
@@ -21,7 +21,7 @@ def replace_tbl_tags(soup: BeautifulSoup) -> BeautifulSoup:
             "cellspacing": "0",
         },
     ):
-        md_tbl = htmltabletomd.convert_table(str(tbl_tag))
+        md_tbl = table2md.convert_table(str(tbl_tag))
 
         # find all tags in table
         tbl_soup = BeautifulSoup(md_tbl, "html.parser")

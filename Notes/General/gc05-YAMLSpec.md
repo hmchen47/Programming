@@ -1,4 +1,4 @@
-# YAML Ain’t Markup Language
+# YAML Ain't Markup Language
 
 Institute: YAML.org
 
@@ -88,7 +88,7 @@ Date: Revision 1.2.2 (2021-10-01)
     - Chicago Cubs
     - Atlanta Braves
 
-    # Sequence of Mappings (players’ statistics)
+    # Sequence of Mappings (players' statistics)
     -
       name: Mark McGwire
       hr:   65
@@ -425,14 +425,14 @@ Date: Revision 1.2.2 (2021-10-01)
     - `[ lookahead ≠ term ]`:  the empty string if `term` would not match
     - `[ lookbehind = term ]`: the empty string if `term` would match beginning at any prior point on the line and ending at the current position
   - special production
-    - `<start-of-line>`: the empty string at the beginning of a line
-    - `<end-of-input>`: the empty string at the end of the input
-    - `<empty>`: always matching the empty string
+    - `start-of-line`: the empty string at the beginning of a line
+    - `end-of-input`: the empty string at the end of the input
+    - `empty`: always matching the empty string
   - parenthesized term: matching its contents
   - concatenation `term-one term-two`: `term-one` followed by `term-two`
   - quantified term:
-    - `term?`: `(term | <empty>)`
-    - `term*`: `(term term* | <empty>)`
+    - `term?`: `(term | empty)`
+    - `term*`: `(term term* | empty)`
     - `term+`: `(term term*)`
     - quantified terms are always greedy
   - order of precedence: parenthesization, then quantification, then concatenation, then alternation
