@@ -43,6 +43,9 @@ def replace_tbl_tags(soup: BeautifulSoup) -> BeautifulSoup:
                 elif tag == "code":
                     cell_tag.insert_after(f"`{cell_tag.string}`")
                     cell_tag.decompose()
+                elif tag == "i" or tag == "em":
+                    cell_tag.insert_after(f"*{cell_tag.string}*")
+                    cell_tag.decompose()
         print(f"\n************************************\n\n{tbl_soup}\n")
 
     return soup.prettify()
