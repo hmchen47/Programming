@@ -17,7 +17,7 @@ DEFAULTDIR = "../working"
 DEFAULTOUT = "reading.md"
 
 
-def check_exist(folder, files):
+def check_exist(folder: str, files: str) -> bool:
     """check files exist in the given dir"""
 
     not_exist = [
