@@ -11,10 +11,10 @@ Date: 2020-04-14
 
 - Prerequisite
   - creating a program `googleindex.py`: getting the indexing status for a given URL w/ 1 arghs
-  - syntax: `python3 googleindex.py --address <url> [, --jsonauth <path to json auth file>]`
+  - syntax: `python3 googleindex.py --address url [, --jsonauth path_to_json_auth_file>]`
   - 1st arg: `--address` required
   - 2nd arg: `--jsonauth` optional
-  - short options required: `python3 googleindex.py --a <url> [, --j <path to json auth file>]`
+  - short options required: `python3 googleindex.py --a url [, --j path_to_json_auth_file]`
 
 
 ## The `sys.argv` Arrays
@@ -200,10 +200,10 @@ Date: 2020-04-14
 
 - Specifying argument datatype
   - forcing a datatype when defining an argument
-  - property to define datatype: `type=<datatype>`
+  - property to define datatype: `type=datatype`
   - code snippet
 
-    ```pythonc
+    ```python
     import argparse
 
     parser = argparse.ArgumentParser()
@@ -269,7 +269,7 @@ Date: 2020-04-14
 
 - The `nargs` option
   - restreving multiple values for an arguments
-    - syntax: `nargs=<int value>`
+    - syntax: `nargs=int_value`
     - `nargs=*`: unspecified number of values
     - `nargs=n`" reading `n` number of values
   - example: `./googleindex.py --address url1.htm url2.html`
@@ -388,7 +388,7 @@ Date: 2020-04-14
     def usage():
         """print the comand line options of the program"""
         print(
-            f"Usage : {sys.argv[0]} --address <url> --jsonauth <json auth file path> --year <year selected> --version --help"
+            f"Usage : {sys.argv[0]} --address url --jsonauth json_auth_file_path --year year_selected --version --help"
         )
         exit()
 
@@ -423,13 +423,13 @@ Date: 2020-04-14
 
     ```sh
     $ ./googleindex11.py --help
-    Usage : ./googleindex11.py --address <url> --jsonauth <json auth file path> --year <year selected> --version --help
+    Usage : ./googleindex11.py --address url --jsonauth json_auth_file_path --year year_selected --version --help
 
     $ ./googleindex11.py --address test.html --jsonauth google.json --year 2021
 
     $ ./googleindex11.py --jsonauth google.json --year 2021
     Address required
-    Usage : ./googleindex11.py --address <url> --jsonauth <json auth file path> --year <year selected> --version --help
+    Usage : ./googleindex11.py --address url --jsonauth json_auth_file_path --year year_selected --version --help
     ```
 
 
