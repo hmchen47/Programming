@@ -1,6 +1,7 @@
 #!/home/hmchen/.venvs/html2md-Z6Rs3Moi/bin/python3
 
 import argparse
+import errno
 import os
 import sys
 
@@ -97,10 +98,13 @@ def write_outfile(outfile: str, md_output: str):
         outfile (str): output filename
         md_output (str): contents to write to output file
     """
-    if os.path.exists(outfile):
+    try:
         os.remove(outfile)
+    except OSError as e:
+        if e.errno != errno.ENOENT:  # no such file or directory
+            raise  # re-raise exception if a different error occurred
 
-    with open(outfile, "w") as df_out:
+    with open(outfile, "a", encoding="utf-8") as df_out:
         df_out.write(md_output)
 
     return None
@@ -122,6 +126,7 @@ def parse_tags(outfile: list, md_files: list) -> str:
             soup = replace_fig_tags(soup, os.path.basename(md_file))
             md_output = replace_tbl_tags(soup)
 
+            print(f"\nComplete parsing tags in {md_file}!!\n")
             write_outfile(outfile, md_output)
 
     return outfile
@@ -129,5 +134,7 @@ def parse_tags(outfile: list, md_files: list) -> str:
 
 if __name__ == "__main__":
     outfile, md_files = get_md_files()
-    # print(f'\nConvert files {[os.path.basename(file) for file in md_files]} in dir {os.path.}')
+    print(
+        f"\nConvert files {[os.path.basename(file) for file in md_files]} in dir {os.path.dirname} to markdown file"
+    )
     parse_tags(outfile, md_files)
