@@ -51,10 +51,11 @@ def replace_tbl_tags(soup: BeautifulSoup) -> BeautifulSoup:
                     exit()
 
         # replace table tag w/ markdown table syntax
-        print(f"\n\n=================================\n\n{tbl_soup}\n")
-        tbl_tag.insert_after(str(tbl_soup))
+        tbl_tag.insert_after(f"\n\n{str(tbl_soup)}\n")
+        # print(
+        #     f"\n\nparse_tbl: tbl_soup =================================\n\n{tbl_soup}\n"
+        # )
         tbl_tag.extract()
-        print(f"\n************************************\n\n{tbl_tag}\n")
 
     return soup.prettify()
 
@@ -65,9 +66,8 @@ if __name__ == "__main__":
         content = in_fd.read()
 
     soup = BeautifulSoup(content, "html.parser")
-    print("\n\n")
-    # print(type(soup))
-    print("\n\n=========================================")
-    replace_tbl_tags(soup)
-    print("\n\n\n**********************************************\n\n")
+    soup = replace_tbl_tags(soup)
+    print(
+        f"\n\n\nparse_tbl: final **********************************************\n\n{soup}\n"
+    )
     # print(soup)

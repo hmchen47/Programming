@@ -90,6 +90,22 @@ def get_md_files() -> (str, str):
         )
 
 
+def write_outfile(outfile: str, md_output: str):
+    """write mardown output to file
+
+    Args:
+        outfile (str): output filename
+        md_output (str): contents to write to output file
+    """
+    if os.path.exists(outfile):
+        os.remove(outfile)
+
+    with open(outfile, "w") as df_out:
+        df_out.write(md_output)
+
+    return None
+
+
 def parse_tags(outfile: list, md_files: list) -> str:
     """parsing embedded html tags to relative markdown syntax
 
@@ -104,16 +120,14 @@ def parse_tags(outfile: list, md_files: list) -> str:
         with open(md_file, "r", encoding="utf-8") as md_fd:
             soup = BeautifulSoup(md_fd.read(), "html.parser")
             soup = replace_fig_tags(soup, os.path.basename(md_file))
-            soup = replace_tbl_tags(soup)
+            md_output = replace_tbl_tags(soup)
 
-            # write_outfile(outfile, soup)
-            print(
-                f"\n\n\nhtml2md: {os.path.basename(md_file)} ----------------------------\n\n{soup}\n"
-            )
+            write_outfile(outfile, md_output)
 
     return outfile
 
 
 if __name__ == "__main__":
     outfile, md_files = get_md_files()
+    # print(f'\nConvert files {[os.path.basename(file) for file in md_files]} in dir {os.path.}')
     parse_tags(outfile, md_files)
