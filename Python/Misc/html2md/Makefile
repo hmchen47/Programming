@@ -11,8 +11,8 @@ CONTENTDIR = ./$(WORKINGDIR)
 LAYOUTSDIR = ./$(PANDOCDIR)/layouts
 
 READINGINMD = reading_in.md
-READINGOUTMD = reading.md
-READINGPDF = reading.pdf
+READINGOUTMD = notes_reading.md
+READINGPDF = notes_reading.pdf
 
 PARSERDIR = parser
 

@@ -15,7 +15,7 @@ from parse_fig import replace_fig_tags
 from parse_tbl import replace_tbl_tags
 
 DEFAULTDIR = "../working"
-DEFAULTOUT = "reading.md"
+DEFAULTOUT = "notes_reading.md"
 
 
 def check_exist(folder: str, files: str) -> bool:
