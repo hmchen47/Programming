@@ -26,12 +26,7 @@ def replace_fig_tags(soup: BeautifulSoup, path: str) -> BeautifulSoup:
         fig_set.extract()
 
     # remove figure elements
-    for fig_tag in soup.find_all(
-        "figure",
-        attrs={
-            "style": "display: flex; margin: 0.5em; justify-content: center; align-items: center;"
-        },
-    ):
+    for fig_tag in soup.find_all("figure"):
         for img_tag in fig_tag.find_all("img"):
             if "http" in img_tag["src"]:
                 fig_tag.insert_after(f"![{img_tag['src']}]({img_tag['alt']})")
