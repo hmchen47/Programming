@@ -49,13 +49,18 @@ def replace_tbl_tags(soup: BeautifulSoup) -> BeautifulSoup:
                 else:
                     print(f"Not processed tag {cell_tag}, add case to handle it!")
                     exit()
-    print(f"\n************************************\n\n{soup}\n")
+
+        # replace table tag w/ markdown table syntax
+        print(f"\n\n=================================\n\n{tbl_soup}\n")
+        tbl_tag.insert_after(str(tbl_soup))
+        tbl_tag.extract()
+        print(f"\n************************************\n\n{tbl_tag}\n")
 
     return soup.prettify()
 
 
 if __name__ == "__main__":
-    fname = "/home/hmchen/Projects/Programming/Notes/gc01-FloatPt.md"
+    fname = "/home/hmchen/Projects/Programming/Notes/web07-ModelComp.md"
     with open(fname, "r", encoding="utf-8") as in_fd:
         content = in_fd.read()
 
