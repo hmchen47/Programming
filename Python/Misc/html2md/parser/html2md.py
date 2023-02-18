@@ -103,12 +103,13 @@ def parse_tags(outfile: list, md_files: list) -> str:
     for md_file in md_files:
         with open(md_file, "r", encoding="utf-8") as md_fd:
             soup = BeautifulSoup(md_fd.read(), "html.parser")
-            print(f"\n\nhtml2md****************************\n\n{soup}\n")
             soup = replace_fig_tags(soup, os.path.basename(md_file))
             soup = replace_tbl_tags(soup)
 
             # write_outfile(outfile, soup)
-            print(f"\n\nhtml2md----------------------------\n\n{soup}\n")
+            print(
+                f"\n\n\nhtml2md: {os.path.basename(md_file)} ----------------------------\n\n{soup}\n"
+            )
 
     return outfile
 
