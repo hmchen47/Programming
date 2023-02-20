@@ -107,8 +107,8 @@ def write_outfile(outfile: str, md_output: str):
         if e.errno != errno.ENOENT:  # no such file or directory
             raise  # re-raise exception if a different error occurred
 
-    with open(outfile, "a", encoding="utf-8") as df_out:
-        df_out.write(md_output)
+    with open(outfile, "a+", encoding="utf-8") as df_out:
+        df_out.write(BeautifulSoup(md_output, "html.parser").prettify())
 
     time.sleep(0.5)
     os.chmod(outfile, stat.S_IWUSR)
