@@ -110,6 +110,7 @@ def write_outfile(output_md_file: str, md_output: str):
     """
     with open(output_md_file, "a+", encoding="utf-8") as df_out:
         df_out.write(md_output)
+        df_out.write(f"\n" * 6)
 
     time.sleep(0.5)
     os.chmod(output_md_file, stat.S_IWUSR)
@@ -127,13 +128,14 @@ def parse_tags(output_md_file: list, md_files: list) -> str:
     Returns:
         fd: file descriptor of output filename
     """
+    print()
     for md_file in md_files:
         with open(md_file, "r", encoding="utf-8") as md_fd:
             soup = BeautifulSoup(md_fd.read(), "html.parser")
             soup = replace_fig_tags(soup, os.path.dirname(md_file))
             md_output = replace_tbl_tags(soup)
 
-            print(f"Complete parsing tags in {md_file}!!\n")
+            print(f"\nComplete parsing tags in {md_file}!!")
             write_outfile(output_md_file, md_output)
 
     return output_md_file
