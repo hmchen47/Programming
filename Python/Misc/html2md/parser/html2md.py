@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 
 # add the Python path at runtime
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(1, base_dir)
+sys.path.insert(1, os.path.join(base_dir, "parser"))
 
 from parse_fig import replace_fig_tags
 from parse_tbl import replace_tbl_tags
