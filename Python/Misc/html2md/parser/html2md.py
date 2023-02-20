@@ -3,6 +3,7 @@
 import argparse
 import errno
 import os
+import stat
 import sys
 
 from bs4 import BeautifulSoup
@@ -126,7 +127,7 @@ def parse_tags(outfile: list, md_files: list) -> str:
             soup = replace_fig_tags(soup, os.path.basename(md_file))
             md_output = replace_tbl_tags(soup)
 
-            print(f"\nComplete parsing tags in {md_file}!!\n")
+            print(f"\nComplete parsing tags in {md_file}!!")
             write_outfile(outfile, md_output)
 
     return outfile
@@ -135,6 +136,6 @@ def parse_tags(outfile: list, md_files: list) -> str:
 if __name__ == "__main__":
     outfile, md_files = get_md_files()
     print(
-        f"\nConvert files {[os.path.basename(file) for file in md_files]} in dir {os.path.dirname(md_files[0])} to markdown file {outfile}"
+        f"\nConvert files {[os.path.basename(file) for file in md_files]}\n\nin dir {os.path.dirname(md_files[0])} to markdown file \n\t{outfile}"
     )
     parse_tags(outfile, md_files)
