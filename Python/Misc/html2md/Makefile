@@ -10,19 +10,19 @@ ASSETSDIR = ./$(PANDOCDIR)/assets
 CONTENTDIR = ./$(WORKINGDIR)
 LAYOUTSDIR = ./$(PANDOCDIR)/layouts
 
-READINGINMD = reading_in.md
+READINGINMD = notes_reading.md
 READINGOUTMD = notes_reading.md
 READINGPDF = notes_reading.pdf
 
 PARSERDIR = parser
 
 MDDIR = ~/Projects/Programs/Notes
-MDFILES = webgc05-YAMLSpec.md web07-ModelComp.md \
+MDFILES = gc05-YAMLSpec.md web07-ModelComp.md \
 					web08-MVCDjango.md web09-CSSLAyout.md
 
 default: html2md reading
 
-reading: $(CONTENTDIR)/$(READINGINMD) $(LAYOUTSDIR)/print.tex
+reading: 
 	@echo
 	@echo "Starting to build $(READINGOUTMD) files ..."
 	@echo "Current directory: $(CWD)"
@@ -51,10 +51,7 @@ html2md: clean_target_md
 	@echo "Convert Figures & Tables HTML code to MD syantx ..."
 	@echo
 
-	$(PARSERDIR)/html2md.py -o $(CONTENTDIR)/$(READINGINFILE) -d $(MDDIR) $(MDFILES)
-
-	# temporary target markdown files for testing only
-	touch $(CONTENTDIR)/$(READINGINFILE)
+	./$(PARSERDIR)/html2md.py -o $(CONTENTDIR)/$(READINGINFILE) -d $(MDDIR) $(MDFILES)
 
 	@echo
 	@echo End of converting ...
