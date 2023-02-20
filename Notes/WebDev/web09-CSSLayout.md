@@ -271,11 +271,14 @@
 - The `clear` property
   - important for controlling the behavior of floats
   - example w/o `clear` (left diagram)
+    - html code
 
-    ```html
-    <div class="box">...</div>
-    <section>...</section>
-    ```
+      ```html
+      <div class="box">...</div>
+      <section>...</section>
+      ```
+    
+    - css ccode
 
     ```css
     .box {
