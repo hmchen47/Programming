@@ -135,6 +135,6 @@ def parse_tags(outfile: list, md_files: list) -> str:
 if __name__ == "__main__":
     outfile, md_files = get_md_files()
     print(
-        f"\nConvert files {[os.path.basename(file) for file in md_files]} in dir {os.path.dirname} to markdown file"
+        f"\nConvert files {[os.path.basename(file) for file in md_files]} in dir {os.path.dirname(md_files[0])} to markdown file {outfile}"
     )
     parse_tags(outfile, md_files)
