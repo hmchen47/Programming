@@ -36,14 +36,15 @@
   - width of a block-level element preventing from stretching out to the edges of its container to the left and right
   - setting left and right margins to `auto` to horizontally center the element within its container
   - element taking up the width specified, then, evenly splitting the remaining space b/w two margins
-  - issue: screen narrower than the width <br>
+  - issue: screen narrower than the width
+
     sol: browser creating horizontal scrollbar on the page
 
 
 - The `max-width` property
   - improving the browser's handling of small window
   - making a site usable on mobile
-  - example: `<div id="main"> text insert here</div>
+  - example: `<div id="main"> text insert here</div>`
 
     ```css
     #main {
