@@ -16,7 +16,7 @@ READINGPDF = notes_reading.pdf
 
 PARSERDIR = parser
 
-MDDIR = ~/Projects/Programs/Notes
+MDDIR = ~/Projects/Programming/Notes
 MDFILES = gc05-YAMLSpec.md web07-ModelComp.md \
 					web08-MVCDjango.md web09-CSSLAyout.md
 
@@ -51,7 +51,7 @@ html2md: clean_target_md
 	@echo "Convert Figures & Tables HTML code to MD syantx ..."
 	@echo
 
-	./$(PARSERDIR)/html2md.py -o $(CONTENTDIR)/$(READINGINFILE) -d $(MDDIR) $(MDFILES)
+	./$(PARSERDIR)/html2md.py -d $(MDDIR) $(MDFILES)
 
 	@echo
 	@echo End of converting ...
