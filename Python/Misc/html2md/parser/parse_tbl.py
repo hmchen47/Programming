@@ -3,6 +3,7 @@
 import os
 
 import htmltabletomd as table2md
+import mdformat
 from bs4 import BeautifulSoup
 
 
@@ -57,7 +58,8 @@ def replace_tbl_tags(soup: BeautifulSoup) -> BeautifulSoup:
         # )
         tbl_tag.extract()
 
-    return soup.prettify()
+    return mdformat.text(str(soup))
+    # return soup.prettify()
 
 
 if __name__ == "__main__":

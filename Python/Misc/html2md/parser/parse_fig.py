@@ -17,10 +17,10 @@ def replace_fig_tags(soup: BeautifulSoup, path: str) -> BeautifulSoup:
     ):
         for img_tag in fig_set.find_all("img"):
             if "http" in img_tag["src"]:
-                fig_set.insert_after(f"![{img_tag['alt']}]({img_tag['src']})\n\n")
+                fig_set.insert_after(f"![{img_tag['alt']}]({img_tag['src']})\n")
             else:
                 fig_set.insert_after(
-                    f"![{img_tag['alt']}]({os.path.join(path, img_tag['src'])})\n\n"
+                    f"![{img_tag['alt']}]({os.path.join(path, img_tag['src'])})\n"
                 )
 
         fig_set.extract()
@@ -29,10 +29,10 @@ def replace_fig_tags(soup: BeautifulSoup, path: str) -> BeautifulSoup:
     for fig_tag in soup.find_all("figure"):
         for img_tag in fig_tag.find_all("img"):
             if "http" in img_tag["src"]:
-                fig_tag.insert_after(f"![{img_tag['alt']}]({img_tag['src']})\n\n")
+                fig_tag.insert_after(f"![{img_tag['alt']}]({img_tag['src']})\n")
             else:
                 fig_tag.insert_after(
-                    f"![{img_tag['alt']}]({os.path.join(path, img_tag['src'])})\n\n"
+                    f"![{img_tag['alt']}]({os.path.join(path, img_tag['src'])})\n"
                 )
             fig_tag.extract()
 
