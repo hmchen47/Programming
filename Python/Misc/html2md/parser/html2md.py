@@ -103,12 +103,12 @@ def write_outfile(outfile: str, md_output: str):
     try:
         os.chmod(outfile, stat.S_IWUSR)
         os.remove(outfile)
-    except OSError as e:
-        if e.errno != errno.ENOENT:  # no such file or directory
+    except OSError as err:
+        if err.errno != errno.ENOENT:  # no such file or directory
             raise  # re-raise exception if a different error occurred
 
     with open(outfile, "a+", encoding="utf-8") as df_out:
-        df_out.write(BeautifulSoup(md_output, "html.parser").prettify())
+        df_out.write(md_output)
 
     time.sleep(0.5)
     os.chmod(outfile, stat.S_IWUSR)
@@ -132,7 +132,7 @@ def parse_tags(outfile: list, md_files: list) -> str:
             soup = replace_fig_tags(soup, os.path.dirname(md_file))
             md_output = replace_tbl_tags(soup)
 
-            print(f"\nComplete parsing tags in {md_file}!!")
+            print(f"Complete parsing tags in {md_file}!!\n")
             write_outfile(outfile, md_output)
 
     return outfile
