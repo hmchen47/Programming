@@ -129,7 +129,7 @@ def parse_tags(outfile: list, md_files: list) -> str:
     for md_file in md_files:
         with open(md_file, "r", encoding="utf-8") as md_fd:
             soup = BeautifulSoup(md_fd.read(), "html.parser")
-            soup = replace_fig_tags(soup, os.path.basename(md_file))
+            soup = replace_fig_tags(soup, os.path.dirname(md_file))
             md_output = replace_tbl_tags(soup)
 
             print(f"\nComplete parsing tags in {md_file}!!")
