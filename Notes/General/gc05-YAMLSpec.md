@@ -46,7 +46,7 @@ Date: Revision 1.2.2 (2021-10-01)
 
 - Goals for YAML in decreasing priority
   - YAML should be easily readable by humans.
-  - YAML data should be portable between programming languages.
+  - YAML data should be portable b/w programming languages.
   - YAML should match the native data structures of dynamic languages.
   - YAML should have a consistent model to support generic tools.
   - YAML should support one-pass processing.
@@ -441,7 +441,7 @@ Date: Revision 1.2.2 (2021-10-01)
 
 - Production parameters
   - parameters in parentheses after the name, such as `s-line-prefix(n,c)`
-  - shorthand for a (infinite) series of productions, each with a fixed value for each parameter
+  - shorthand for a (infinite) series of productions, each w/ a fixed value for each parameter
   - examples
 
     ```yaml
@@ -472,7 +472,7 @@ Date: Revision 1.2.2 (2021-10-01)
     - parameters
       - Indentation `n` or `m`: any natural number, including zero. n may also be -1
       - Context `c`: tweak their behavior according to their surrounding
-        - two groups of contexts, distinguishing between [block styles](https://yaml.org/spec/1.2.2/#block-style-productions) and [flow styles](https://yaml.org/spec/1.2.2/#flow-style-productions)
+        - two groups of contexts, distinguishing b/w [block styles](https://yaml.org/spec/1.2.2/#block-style-productions) and [flow styles](https://yaml.org/spec/1.2.2/#flow-style-productions)
         - `BLOCK-IN`: inside block context
         - `BLOCK-OUT`: outside block context
         - `BLOCK-KEY`: inside block key context
@@ -487,15 +487,15 @@ Date: Revision 1.2.2 (2021-10-01)
 
 
 - Production naming conventions
-  - `e-`: a production matching no characters.
-  - `c-`: a production starting and ending with a special character
+  - `e-`: a production matching no characters
+  - `c-`: a production starting and ending w/ a special character
   - `b-`: a production matching a single line break
-  - `nb-`: a production starting and ending with a non-break character
-  - `s-`: a production starting and ending with a white space character
-  - `ns-`: a production starting and ending with a non-space character
+  - `nb-`: a production starting and ending w/ a non-break character
+  - `s-`: a production starting and ending w/ a white space character
+  - `ns-`: a production starting and ending w/ a non-space character
   - `l-`: a production matching complete line(s)
-  - `X-Y-`: a production starting with an X- character and ending with a Y- character, where X- and Y- are any of the above prefixes
-  - `X+, X-Y+`: a production as above, with the additional property that the matched content indentation level is greater than the specified n parameter
+  - `X-Y-`: a production starting w/ an X- character and ending w/ a Y- character, where X- and Y- are any of the above prefixes
+  - `X+, X-Y+`: a production as above, w/ the additional property that the matched content indentation level is greater than the specified n parameter
 
 
 
