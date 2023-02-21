@@ -82,29 +82,33 @@
 
 
 % limit line width to textwidth
-% use listings -  a source code printer for LATEX
-\usepackage{listings}
+\usepackage{fvextra}
 
-\lstset{
-    basicstyle=\ttfamily,
-    numbers=left,
-    keywordstyle=\color[rgb]{0.13,0.29,0.53}\bfseries,
-    stringstyle=\color[rgb]{0.31,0.60,0.02},
-    commentstyle=\color[rgb]{0.56,0.35,0.01}\itshape,
-    numberstyle=\footnotesize,
-    stepnumber=1,
-    numbersep=5pt,
-    backgroundcolor=\color[RGB]{248,248,248},
-    showspaces=false,
-    showstringspaces=false,
-    showtabs=false,
-    tabsize=2,
-    captionpos=b,
-    breaklines=true,
-    breakatwhitespace=true,
-    breakautoindent=true,
-    escapeinside={\%*}{*)},
-    linewidth=0.45\textwidth,
-    basewidth=0.5em,
-}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+
+% use listings -  a source code printer for LATEX
+% \usepackage{listings}
+
+% \lstset{
+%     basicstyle=\ttfamily,
+%     numbers=left,
+%     keywordstyle=\color[rgb]{0.13,0.29,0.53}\bfseries,
+%     stringstyle=\color[rgb]{0.31,0.60,0.02},
+%     commentstyle=\color[rgb]{0.56,0.35,0.01}\itshape,
+%     numberstyle=\footnotesize,
+%     stepnumber=1,
+%     numbersep=5pt,
+%     backgroundcolor=\color[RGB]{248,248,248},
+%     showspaces=false,
+%     showstringspaces=false,
+%     showtabs=false,
+%     tabsize=2,
+%     captionpos=b,
+%     breaklines=true,
+%     breakatwhitespace=true,
+%     breakautoindent=true,
+%     escapeinside={\%*}{*)},
+%     linewidth=0.45\textwidth,
+%     basewidth=0.5em,
+% }
 
