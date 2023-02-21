@@ -10,6 +10,10 @@ ASSETSDIR = ./$(PANDOCDIR)/assets
 CONTENTDIR = ./$(WORKINGDIR)
 LAYOUTSDIR = ./$(PANDOCDIR)/layouts
 
+COLORLINK = -V colorlinks=true \
+						-V linkcolor=green \
+						-V urlcolor=blue
+
 READINGINMD = notes_reading.md
 READINGOUTMD = notes_reading.md
 READINGPDF = notes_reading.pdf
@@ -17,8 +21,7 @@ READINGPDF = notes_reading.pdf
 PARSERDIR = parser
 
 MDDIR = ~/Projects/Programming/Notes
-MDFILES = gc05-YAMLSpec.md web07-ModelComp.md \
-					web08-MVCDjango.md web09-CSSLAyout.md
+MDFILES = web09-CSSLayout.md
 
 default: html2md reading
 
@@ -31,14 +34,16 @@ reading:
 	rm -f $(WORKINGDIR)/$(READINGPDF)
 
 	@echo
-	pandoc $(CONTENTDIR)/$(READINGINMD) \
+	pandoc $(CONTENTDIR)/$(READINGINMD) $(COLORLINK) \
 		--resource-path $(CONTENTDIR):$(LAYOUTSDIR) \
 		--csl $(ASSETSDIR)/citation-style.csl \
 		--from markdown+tex_math_single_backslash+tex_math_dollars+raw_tex+smart \
 		--to latex \
 		--output $(WORKINGDIR)/$(READINGPDF) \
 		--pdf-engine xelatex \
-		--include-in-header $(LAYOUTSDIR)/reading.tex
+		--include-in-header $(LAYOUTSDIR)/reading.tex \
+		--verbose
+
 	@echo
 	@ls -l --color $(WORKINGDIR)/
 	@echo "End print pdf build! ..."
