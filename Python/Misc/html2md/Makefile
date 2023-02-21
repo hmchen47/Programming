@@ -42,7 +42,7 @@ reading:
 		--output $(WORKINGDIR)/$(READINGPDF) \
 		--pdf-engine xelatex \
 		--include-in-header $(LAYOUTSDIR)/reading.tex \
-		--verbose
+		# --verbose
 
 	@echo
 	@ls -l --color $(WORKINGDIR)/
