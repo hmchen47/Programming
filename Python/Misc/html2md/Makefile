@@ -21,7 +21,7 @@ READINGPDF = notes_reading.pdf
 PARSERDIR = parser
 
 MDDIR = ~/Projects/Programming/Notes
-MDFILES = web09-CSSLayout.md
+MDFILES = web07-ModelComp.md 
 
 default: html2md reading
 
@@ -42,7 +42,7 @@ reading:
 		--output $(WORKINGDIR)/$(READINGPDF) \
 		--pdf-engine xelatex \
 		--include-in-header $(LAYOUTSDIR)/reading.tex \
-		# --verbose
+		--verbose
 
 	@echo
 	@ls -l --color $(WORKINGDIR)/
