@@ -472,21 +472,21 @@ Date: Revision 1.2.2 (2021-10-01)
     …
     ```
 
-    - parameters
-      - Indentation `n` or `m`: any natural number, including zero. n may also be -1
-      - Context `c`: tweak their behavior according to their surrounding
-        - two groups of contexts, distinguishing b/w [block styles](https://yaml.org/spec/1.2.2/#block-style-productions) and [flow styles](https://yaml.org/spec/1.2.2/#flow-style-productions)
-        - `BLOCK-IN`: inside block context
-        - `BLOCK-OUT`: outside block context
-        - `BLOCK-KEY`: inside block key context
-        - `FLOW-IN`: inside flow context
-        - `FLOW-OUT`: outside flow context
-        - `FLOW-KEY`: inside flow key context
-      - (Block) Chomping `t`
-        - the line break chomping behavior for flow scalars
-        - `STRIP` – remove all trailing newlines
-        - `CLIP` – remove all trailing newlines except the first
-        - `KEEP` – retain all trailing newlines
+  - parameters
+    - Indentation `n` or `m`: any natural number, including zero. n may also be -1
+    - Context `c`: tweak their behavior according to their surrounding
+      - two groups of contexts, distinguishing b/w [block styles](https://yaml.org/spec/1.2.2/#block-style-productions) and [flow styles](https://yaml.org/spec/1.2.2/#flow-style-productions)
+      - `BLOCK-IN`: inside block context
+      - `BLOCK-OUT`: outside block context
+      - `BLOCK-KEY`: inside block key context
+      - `FLOW-IN`: inside flow context
+      - `FLOW-OUT`: outside flow context
+      - `FLOW-KEY`: inside flow key context
+    - (Block) Chomping `t`
+      - the line break chomping behavior for flow scalars
+      - `STRIP` – remove all trailing newlines
+      - `CLIP` – remove all trailing newlines except the first
+      - `KEEP` – retain all trailing newlines
 
 
 - Production naming conventions
