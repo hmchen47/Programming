@@ -1,8 +1,8 @@
 # Converting HTML Code to Markdown Code
 
-The project builds a simple Python program to convert the html code to markdown code. The markdown files are used for my personal learning and reading notes.
+A Python program has been developed as part of the project to convert HTML code into markdown code. The resulting markdown files serve as the user's personal notes for learning and reading.
 
-The Python project intends for personal use only.
+It should be noted that this Python project is intended solely for personal use.
 
 ## Project Scope
 
