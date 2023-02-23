@@ -6,56 +6,83 @@ It should be noted that this Python project is intended solely for personal use.
 
 ## Project Scope
 
-The project builds an executable command to convert the embedded HTML code in markdown files.  The markdown files mainly contain two basic elements: figure and table.  The main purpose of the html code is to prettify the presentation of the markdown file.
+The project's primary objective is to create an executable command that can convert embedded HTML code in markdown files. The markdown files mainly consist of two elements, figures and tables, and the HTML code aims to improve the presentation of these elements.
+
+However, the markdown syntax is limited, and the figures cannot be resized, while tables are controlled by the system in use. When users print out their notes for review purposes, they can use an extension like [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk?hl=en) for Chrome to preview and print the files in a browser. Unfortunately, this extension is not ideal for printing.
+
+There are a few ways to produce printable files with improved aesthetics from the preview. One way is to convert the preview file to an HTML file and change the CSS style with a customized one that uses media queries to handle the print layout. However, there are many restrictions and difficulties in modifying media queries to produce a two-column layout per page.
+
+Alternatively, users can use [`pandoc`](https://pandoc.org/) to convert their markdown files to PDF via LaTeX, and the layout can be controlled by a LaTeX heading file. This approach is much simpler and provides more flexibility in controlling the print document's layout. The use of `pandoc` is located under the `pandoc` folder, with the file structure suggested by [Markdown Template: Latex-PDF](https://github.com/jaantollander/Markdown-Templates/tree/master/latex-pdf).
+
+<!-- The project builds an executable command to convert the embedded HTML code in markdown files.  The markdown files mainly contain two basic elements: figure and table.  The main purpose of the html code is to prettify the presentation of the markdown file.
 
 The markdown syntax is very limited whereas the figure cannot resize and the table is controlled the systems used.  When the reading and learning notes print out for review purpose, we can preview and print the files in browser with the help of extension, such as [Markdown Viewer](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk?hl=en) for Chrome.  However, the extension is great for preview but not suitable for printing.
 
 The are a couple of ways to produce prettified printable files from the preview.  One simply way is to convert the preview file to HTML file.  Then, change the CSS style of the HTML file with a customized one. The customized CSS file uses media queries to handle the print layout.  However, the change of media queries have much restriction and difficult to product two columns per page.
 
-Alternatively, [`pandoc`](https://pandoc.org/) can convert markdown files to PDF via LaTeX.  The layout could be controlled by LaTeX heading file. The way to control layout of the print document is much simpler.  The use of pandoc is located under the `pandoc` folder with the file structure suggested form [Markdown Template: Latex-PDF](https://github.com/jaantollander/Markdown-Templates/tree/master/latex-pdf).
+Alternatively, [`pandoc`](https://pandoc.org/) can convert markdown files to PDF via LaTeX.  The layout could be controlled by LaTeX heading file. The way to control layout of the print document is much simpler.  The use of pandoc is located under the `pandoc` folder with the file structure suggested form [Markdown Template: Latex-PDF](https://github.com/jaantollander/Markdown-Templates/tree/master/latex-pdf). -->
 
 ```shell
-pandoc
-├── assets
-│   └── citation-style.csl
-├── build
-│   ├── reading.pdf
-│   └── read.md
-├── build.sh
-├── content
-│   ├── bibliography.bib
-│   ├── images
-│   │   └── 800x400.png
-│   ├── index.md
-│   ├── literatural_note_template.md
-│   ├── reading.md
-│   └── SoftSkills.bib
-├── layouts
-│   ├── ereader.tex
-│   ├── my_notes.tex
-│   ├── print.tex
-│   ├── reading.yml
-│   ├── reading.tex
-│   └── reading.yml
 ├── Makefile
-├── Makefile.sh
-└── pandoc_manual
-    ├── pandoc-manual1.html
-    └── StylesB.css
+├── pandoc
+│   ├── assets
+│   │   └── citation-style.csl
+│   ├── build
+│   │   └── read.md
+│   ├── build.sh
+│   ├── content
+│   │   ├── bibliography.bib
+│   │   ├── images
+│   │   │   └── 800x400.png
+│   │   ├── index.md
+│   │   ├── literatural_note_template.md
+│   │   ├── reading.md
+│   │   └── SoftSkills.bib
+│   ├── layouts
+│   │   ├── ereader.tex
+│   │   ├── my_notes.tex
+│   │   ├── print.tex
+│   │   ├── reading.tex
+│   │   └── reading.yml
+│   ├── Makefile
+│   ├── Makefile.sh
+│   └── pandoc_manual
+│       ├── pandoc-manual1.html
+│       └── StylesB.css
+├── parser
+│   ├── html2md.py
+│   ├── parse_fig.py
+│   ├── parse_tbl.py
+│   └── __pycache__
+│       ├── html2md.cpython-310.pyc
+│       ├── parse_fig.cpython-310.pyc
+│       └── parse_tbl.cpython-310.pyc
+├── Pipfile
+├── Pipfile.lock
+├── README.md
+├── test.log
+└── working
+    ├── gc05-YAMLSpec.md
+    ├── notes_reading_230220.pdf
+    ├── notes_reading.md
+    ├── web07-ModelComp.md
+    └── web08-MVCDjango.md
 ```
 
-The purpose of the directories of the file structure is linerated as following:
+The file structure directories have the following purposes:
 
-- `Makefile`: targets for pdf and html
-- `build.sh`: original shell script
-- `Makefile.sh`: original Makefile to call `build.sh`
-- `assets`: style files
-- `build`: the output files
-- `content`: the input files
-- `layouts`: the layout control files
-- `pandoc_manual`: old version manual of pandoc w/ clear variable list
+- `Makefile`: contains targets for creating pdf and html files.
+- `build.sh`: contains the original shell script.
+- `Makefile.sh`: contains the original Makefile that calls build.sh.
+- `assets`: contains the style files.
+- `build`: contains the output files.
+- `content`: contains the input files.
+- `layouts`: contains the layout control files.
+- `pandoc_manual`: contains the old version manual of `pandoc`, which has a clear variable list.
 
-The difficulty is that `pandoc` cannot process HTML code embedded in markdown file.  The simple solution is to parse `figure` and `table` elements to standard markdown syntax and then replace these elements with the related markdown syntax.
+The problem is that `pandoc` is unable to handle HTML code that is embedded in a markdown file. The solution to this problem is to convert `figure` and `table` elements to the appropriate standard markdown syntax, and then replace these elements in the file with the new markdown syntax. This will allow `pandoc` to process the markdown file properly.
+
+<!-- The difficulty is that `pandoc` cannot process HTML code embedded in markdown file.  The simple solution is to parse `figure` and `table` elements to standard markdown syntax and then replace these elements with the related markdown syntax. -->
 
 ## Arguments and Working Directory
 
