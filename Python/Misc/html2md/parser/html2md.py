@@ -7,6 +7,7 @@ import stat
 import sys
 import time
 
+import mdformat
 from bs4 import BeautifulSoup
 
 # add the Python path at runtime
@@ -101,6 +102,19 @@ def get_md_files() -> (str, str):
     return (output_md, input_files)
 
 
+def remove_tags(soup: BeautifulSoup) -> str:
+    """remove remaining tags in markdown file
+
+    Args:
+        soup (BeautifulSoup): markdown file as BeautifulSoup object
+
+    Returns:
+        str: markdown file in string text
+    """
+
+    return mdformat.text(str(soup))
+
+
 def write_outfile(output_md_file: str, md_output: str):
     """write mardown output to file
 
@@ -133,7 +147,8 @@ def parse_tags(output_md_file: list, md_files: list) -> str:
         with open(md_file, "r", encoding="utf-8") as md_fd:
             soup = BeautifulSoup(md_fd.read(), "html.parser")
             soup = replace_fig_tags(soup, os.path.dirname(md_file))
-            md_output = replace_tbl_tags(soup)
+            soup = replace_tbl_tags(soup)
+            md_output = remove_tags(soup)
 
             print(f"\nComplete parsing tags in {md_file}!!")
             write_outfile(output_md_file, md_output)
