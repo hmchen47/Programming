@@ -124,7 +124,7 @@ def write_outfile(output_md_file: str, md_output: str):
     """
     with open(output_md_file, "a+", encoding="utf-8") as df_out:
         df_out.write(md_output)
-        df_out.write(f"\n" * 6)
+        df_out.write(f"\n\n$\\\\\\\\\\\\\\\\$\n\n")
 
     time.sleep(0.5)
     os.chmod(output_md_file, stat.S_IWUSR)
