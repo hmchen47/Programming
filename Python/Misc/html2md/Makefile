@@ -24,7 +24,7 @@ WEBPDF = web_reading.pdf
 PARSERDIR = parser
 
 MDDIR = ~/Projects/Programming/Notes
-MDFILES = gc05-YAMLSpec.md
+MDFILES = py20-Arguments.md py21-argparse.md
 
 default: html2md reading
 
@@ -38,18 +38,19 @@ reading:
 
 	@echo
 	pandoc $(CONTENTDIR)/$(READINGINMD) $(COLORLINK) \
+		--variable fontsize=12pt \
 		--resource-path $(CONTENTDIR):$(LAYOUTSDIR) \
 		--csl $(ASSETSDIR)/citation-style.csl \
 		--from markdown+tex_math_single_backslash+tex_math_dollars+raw_tex+smart \
 		--to latex \
 		--output $(WORKINGDIR)/$(READINGPDF) \
 		--pdf-engine xelatex \
+		--verbose \
 		--include-in-header $(LAYOUTSDIR)/reading.tex \
-		--verbose
 
 	@echo
 	@ls -l --color $(WORKINGDIR)/
-	@echo "End print pdf build! ..."
+	@echo "End note pdf build! ..."
 	@echo
 
 
