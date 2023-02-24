@@ -111,6 +111,21 @@ def remove_tags(soup: BeautifulSoup) -> str:
     Returns:
         str: markdown file in string text
     """
+    tags = {tag.name for tag in tbl_soup if tag.name != None}
+
+    for tag in tags:
+        for doc_tags in soup.find_all("tag"):
+            if tag == "br":
+                cell_tag.insert_after("$\\\\$")
+                cell_tag.unwrap()
+            elif tag == "i" or tag == "em":
+                cell_tag.insert_after(f"*{cell_tag.string}*")
+                cell_tag.decompose()
+            elif tag == "b" or tag == "strong":
+                cell_tag.insert_after(f"**{cell_tag.string}**")
+                cell_tag.decompose()
+            else:
+                print("{tag} not processed, proccessing required?")
 
     return mdformat.text(str(soup))
 
@@ -124,7 +139,7 @@ def write_outfile(output_md_file: str, md_output: str):
     """
     with open(output_md_file, "a+", encoding="utf-8") as df_out:
         df_out.write(md_output)
-        df_out.write(f"\n\n$\\\\\\\\\\\\\\\\$\n\n")
+        df_out.write(f"\n" * 6)
 
     time.sleep(0.5)
     os.chmod(output_md_file, stat.S_IWUSR)
