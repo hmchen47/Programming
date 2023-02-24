@@ -17,11 +17,14 @@ COLORLINK = -V colorlinks=true \
 READINGINMD = notes_reading.md
 READINGOUTMD = notes_reading.md
 READINGPDF = notes_reading.pdf
+WEBPDF = web_reading.pdf
+
+# WEBPAGE = https://pandoc.org/MANUAL.html
 
 PARSERDIR = parser
 
 MDDIR = ~/Projects/Programming/Notes
-MDFILES = web07-ModelComp.md 
+MDFILES = gc05-YAMLSpec.md
 
 default: html2md reading
 
@@ -43,6 +46,26 @@ reading:
 		--pdf-engine xelatex \
 		--include-in-header $(LAYOUTSDIR)/reading.tex \
 		--verbose
+
+	@echo
+	@ls -l --color $(WORKINGDIR)/
+	@echo "End print pdf build! ..."
+	@echo
+
+
+web: # readfile from a given URL and convert it to pdf
+	@echo
+	@echo Convert web page to PDF
+	@echo
+	pandoc $(WEBPAGE) $(COLORLINK) \
+		--resource-path $(CONTENTDIR):$(LAYOUTSDIR) \
+		--csl $(ASSETSDIR)/citation-style.csl \
+		--from html \
+		--to latex \
+		--output $(WORKINGDIR)/$(WEBPDF) \
+		--pdf-engine xelatex \
+		--include-in-header $(LAYOUTSDIR)/web.tex \
+		# --verbose
 
 	@echo
 	@ls -l --color $(WORKINGDIR)/
