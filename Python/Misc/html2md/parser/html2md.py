@@ -111,7 +111,7 @@ def remove_tags(soup: BeautifulSoup) -> str:
     Returns:
         str: markdown file in string text
     """
-    tags = {tag.name for tag in tbl_soup if tag.name != None}
+    tags = {tag.name for tag in soup if tag.name != None}
 
     for tag in tags:
         for doc_tags in soup.find_all("tag"):
