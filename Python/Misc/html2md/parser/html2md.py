@@ -116,14 +116,14 @@ def remove_tags(soup: BeautifulSoup) -> str:
     for tag in tags:
         for doc_tags in soup.find_all("tag"):
             if tag == "br":
-                cell_tag.insert_after("$\\\\$")
-                cell_tag.unwrap()
+                doc_tags.insert_after("$\\\\$")
+                doc_tags.unwrap()
             elif tag == "i" or tag == "em":
-                cell_tag.insert_after(f"*{cell_tag.string}*")
-                cell_tag.decompose()
+                doc_tags.insert_after(f"*{doc_tags.string}*")
+                doc_tags.decompose()
             elif tag == "b" or tag == "strong":
-                cell_tag.insert_after(f"**{cell_tag.string}**")
-                cell_tag.decompose()
+                doc_tags.insert_after(f"**{doc_tags.string}**")
+                doc_tags.decompose()
             else:
                 print("{tag} not processed, proccessing required?")
 
