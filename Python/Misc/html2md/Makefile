@@ -52,6 +52,7 @@ reading:
 	@ls -l --color $(WORKINGDIR)/
 	@echo "End note pdf build! ..."
 	@echo
+	@echo
 
 
 web: # readfile from a given URL and convert it to pdf
