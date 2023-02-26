@@ -11,10 +11,10 @@ Date: 2020-04-14
 
 - Prerequisite
   - creating a program `googleindex.py`: getting the indexing status for a given URL w/ 1 arghs
-  - syntax: `python3 googleindex.py --address url [, --jsonauth path_to_json_auth_file>]`
+  - syntax: `python3 googleindex.py --address url [, --jsonauth path2jsonAuth]`
   - 1st arg: `--address` required
   - 2nd arg: `--jsonauth` optional
-  - short options required: `python3 googleindex.py --a url [, --j path_to_json_auth_file]`
+  - short options required: `python3 googleindex.py --a url [, --j path2jsonAuth]`
 
 
 ## The `sys.argv` Arrays
@@ -53,9 +53,9 @@ Date: 2020-04-14
     import sys
 
     try:
-        arg = sys.argv[2]
+      arg = sys.argv[2]
     except IndexError:
-        raise SystemExit(f"Usage : {sys.argv[0]} url json")
+      raise SystemExit(f"Usage : {sys.argv[0]} url json")
     ```
 
   - results
@@ -129,9 +129,9 @@ Date: 2020-04-14
     parser = argparse.ArgumentParser()
     parser.add_argument("--address", help="URL to be checked", required=True)
     parser.add_argument(
-        "--jsonauth",
-        default="/home/sqlpac/google-auth.json",
-        help="JSON Google Authentication file path",
+      "--jsonauth",
+      default="/home/sqlpac/google-auth.json",
+      help="JSON Google Authentication file path",
     )
     parser.add_argument("--verbosity", help="Verbosity", action="store_false")
 
@@ -177,10 +177,10 @@ Date: 2020-04-14
 
     parser.add_argument("--address", help="URL to be checked", required=True)
     parser.add_argument(
-        "--jsonauth",
-        default="/home/sqlpac/google-auth.json",
-        dest="jfile",
-        help="JSON Google Authentication file path",
+      "--jsonauth",
+      default="/home/sqlpac/google-auth.json",
+      dest="jfile",
+      help="JSON Google Authentication file path",
     )
     parser.add_argument("--verbosity", help="Verbosity", action="store_false")
 
@@ -233,18 +233,18 @@ Date: 2020-04-14
 
     parser.add_argument("-a", "--address", help="URL to be checked", required=True)
     parser.add_argument(
-        "-j",
-        "--jsonauth",
-        default="/home/sqlpac/google-auth.json",
-        dest="jfile",
-        help="JSON Google Authentication file path",
+      "-j",
+      "--jsonauth",
+      default="/home/sqlpac/google-auth.json",
+      dest="jfile",
+      help="JSON Google Authentication file path",
     )
     parser.add_argument("-y", "--year", type=int, default=2020, help="Year extraction")
     parser.add_argument("-v", "--verbosity", help="Verbosity", action="store_false")
 
     args = parser.parse_args()
     if args.year:
-        print("Current year selected")
+      print("Current year selected")
     ```
 
   - result
@@ -282,7 +282,7 @@ Date: 2020-04-14
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
-        "-a", "--address", nargs="*", help="URL to be checked", required=True
+      "-a", "--address", nargs="*", help="URL to be checked", required=True
     )
     ...
 
@@ -317,37 +317,37 @@ Date: 2020-04-14
     import argparse
 
     def get_parser(h):
-        parser = argparse.ArgumentParser(add_help=h)
+      parser = argparse.ArgumentParser(add_help=h)
 
-        parser.add_argument(
-            "-a", "--address", nargs="*", help="URL to be checked", required=True
-        )
-        parser.add_argument(
-            "-j",
-            "--jsonauth",
-            default="/home/sqlpac/google-auth.json",
-            dest="jfile",
-            help="JSON Google Authentication file path, default $HOME/google-auth.json",
-        )
+      parser.add_argument(
+        "-a", "--address", nargs="*", help="URL to be checked", required=True
+      )
+      parser.add_argument(
+        "-j",
+        "--jsonauth",
+        default="/home/sqlpac/google-auth.json",
+        dest="jfile",
+        help="JSON Google Authentication file path, default $HOME/google-auth.json",
+      )
 
-        return parser
+      return parser
 
     if __name__ == "__main__":
-        p = get_parser(h=True)
-        args = p.parse_args()
+      p = get_parser(h=True)
+      args = p.parse_args()
 
     # arguments/googleindex10a.py (child script)
     import argparse
     import googleindex10a
 
     def main(p):
-        child_parsser = argparse.ArgumentParser(parents=[p], add_help=True)
-        child_parser.add_argument("-l", "lang", help="Language")
-        args = child_parser.parse_args()
+      child_parsser = argparse.ArgumentParser(parents=[p], add_help=True)
+      child_parser.add_argument("-l", "lang", help="Language")
+      args = child_parser.parse_args()
 
     if __name__ == "__main__":
-        p = googleindex10a.get_parser(h=False)
-        main(p)
+      p = googleindex10a.get_parser(h=False)
+      main(p)
     ```
 
   - result
@@ -359,9 +359,9 @@ Date: 2020-04-14
     options:
       -h, --help            show this help message and exit
       -a [ADDRESS ...], --address [ADDRESS ...]
-                            URL to be checked
+          URL to be checked
       -j JFILE, --jsonauth JFILE
-                            JSON Google Authentication file path, default $HOME/google-auth.json
+          JSON Google Authentication file path, default $HOME/google-auth.json
       -l LANG, --lang LANG  Language
     ```
 
@@ -402,17 +402,17 @@ Date: 2020-04-14
     )
 
     for opt, arg in options:
-        if opt in ("-a", "--address"):
-            address = arg
-        elif opt in ("-j", "--jsonauth"):
-            jsonauth = arg
-        elif opt in ("-y", "--year"):
-            year = arg
-        elif opt in ("-v", "--version"):
-            print(version)
-            exit()
-        elif opt in ("-h", "--help"):
-            usage()
+      if opt in ("-a", "--address"):
+        address = arg
+      elif opt in ("-j", "--jsonauth"):
+        jsonauth = arg
+      elif opt in ("-y", "--year"):
+        year = arg
+      elif opt in ("-v", "--version"):
+        print(version)
+        exit()
+      elif opt in ("-h", "--help"):
+        usage()
 
     if not address:
         print("Address required")
