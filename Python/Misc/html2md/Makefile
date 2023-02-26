@@ -9,10 +9,15 @@ BUILDDIR = ./$(PANDOCDIR)/build
 ASSETSDIR = ./$(PANDOCDIR)/assets
 CONTENTDIR = ./$(WORKINGDIR)
 LAYOUTSDIR = ./$(PANDOCDIR)/layouts
+MEDIADIR = /home/hmchen/Projects/PrintDoc/graphics
 
-COLORLINK = -V colorlinks=true \
-						-V linkcolor=green \
-						-V urlcolor=blue
+COLORLINK = --variable colorlinks=true \
+						--variable linkcolor=green \
+						--variable urlcolor=blue
+
+FONTSIZE = fontsize=12pt
+
+TMPDIR	= -jobname=/tmp
 
 READINGINMD = notes_reading.md
 READINGOUTMD = notes_reading.md
@@ -24,22 +29,26 @@ WEBPDF = web_reading.pdf
 PARSERDIR = parser
 
 MDDIR = ~/Projects/Programming/Notes
-MDFILES = py20-Arguments.md py21-argparse.md
+MDFILES = web07-ModelComp.md
 
 default: html2md reading
 
 reading: 
 	@echo
 	@echo "Starting to build $(READINGOUTMD) files ..."
+	@echo
 	@echo "Current directory: $(CWD)"
 	@echo
 
 	rm -f $(WORKINGDIR)/$(READINGPDF)
 
 	@echo
+
 	pandoc $(CONTENTDIR)/$(READINGINMD) $(COLORLINK) \
-		--variable fontsize=12pt \
+		--variable $(FONTSIZE) \
 		--resource-path $(CONTENTDIR):$(LAYOUTSDIR) \
+		--extract-media $(MEDIADIR) \
+		--resource-path $(MEDIADIR) \
 		--csl $(ASSETSDIR)/citation-style.csl \
 		--from markdown+tex_math_single_backslash+tex_math_dollars+raw_tex+smart \
 		--to latex \
@@ -49,6 +58,7 @@ reading:
 		--include-in-header $(LAYOUTSDIR)/reading.tex \
 
 	@echo
+	rm -f $(MEDIADIR)/*
 	@ls -l --color $(WORKINGDIR)/
 	@echo "End note pdf build! ..."
 	@echo
