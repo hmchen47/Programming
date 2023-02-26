@@ -111,7 +111,7 @@ def remove_tags(soup: BeautifulSoup) -> str:
     Returns:
         str: markdown file in string text
     """
-    tags = {tag.name for tag in soup if tag.name != None}
+    tags = {tag.name for tag in soup if tag.name}
 
     for tag in tags:
         for doc_tags in soup.find_all("tag"):
@@ -119,10 +119,10 @@ def remove_tags(soup: BeautifulSoup) -> str:
                 doc_tags.insert_after("$\\\\$")
                 doc_tags.unwrap()
             elif tag == "i" or tag == "em":
-                doc_tags.insert_after(f"*{doc_tags.string}*")
+                doc_tags.insert_after(f"*{str(doc_tags.string)}*")
                 doc_tags.decompose()
             elif tag == "b" or tag == "strong":
-                doc_tags.insert_after(f"**{doc_tags.string}**")
+                doc_tags.insert_after(f"**{str(doc_tags.string)}**")
                 doc_tags.decompose()
             else:
                 print("{tag} not processed, proccessing required?")
@@ -174,6 +174,6 @@ def parse_tags(output_md_file: list, md_files: list) -> str:
 if __name__ == "__main__":
     outfile, md_files = get_md_files()
     print(
-        f"\nConvert files {[os.path.basename(file) for file in md_files]}\n\nin dir {os.path.dirname(md_files[0])} to markdown file \n\t{outfile}"
+        f"\nConvert files {[os.path.basename(file) for file in md_files]}\nin dir {os.path.dirname(md_files[0])} to markdown file \n\t{outfile}"
     )
     parse_tags(outfile, md_files)
