@@ -40,25 +40,24 @@ reading:
 	@echo "Current directory: $(CWD)"
 	@echo
 
-	rm -f $(WORKINGDIR)/$(READINGPDF)
+	@rm -f $(WORKINGDIR)/$(READINGPDF)
 
 	@echo
 
 	pandoc $(CONTENTDIR)/$(READINGINMD) $(COLORLINK) \
 		--variable $(FONTSIZE) \
-		--resource-path $(CONTENTDIR):$(LAYOUTSDIR) \
-		--extract-media $(MEDIADIR) \
-		--resource-path $(MEDIADIR) \
-		--csl $(ASSETSDIR)/citation-style.csl \
-		--from markdown+tex_math_single_backslash+tex_math_dollars+raw_tex+smart \
-		--to latex \
-		--output $(WORKINGDIR)/$(READINGPDF) \
-		--pdf-engine xelatex \
+		--resource-path=$(CONTENTDIR):$(LAYOUTSDIR):$(MEDIADIR) \
+		--extract-media=$(MEDIADIR) \
+		--csl=$(ASSETSDIR)/citation-style.csl \
+		--from=markdown+tex_math_single_backslash+tex_math_dollars+raw_tex+smart \
+		--to=latex \
+		--output=$(WORKINGDIR)/$(READINGPDF) \
+		--pdf-engine=xelatex \
 		--verbose \
-		--include-in-header $(LAYOUTSDIR)/reading.tex \
+		--include-in-header=$(LAYOUTSDIR)/reading.tex \
 
 	@echo
-	rm -f $(MEDIADIR)/*
+	@rm -f $(MEDIADIR)/*
 	@ls -l --color $(WORKINGDIR)/
 	@echo "End note pdf build! ..."
 	@echo
