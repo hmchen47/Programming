@@ -36,7 +36,7 @@ Date: 2033-22-36
     <figure style="display: table; margin: auto; text-align: center;"">
       <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
         onclick= "window.open('https://www.guru99.com/mvc-vs-mvvm.html')"
-        src    = "https://www.guru99.com/images/1/122118_0445_MVCTutorial1.png"
+        src    = "img/web07-MVCTutorial1.png"
         alt    = "MVC pattern"
         title  = "MVC pattern"
       />
@@ -113,7 +113,7 @@ Date: 2033-22-36
     <figure style="display: table; margin: auto; text-align: center;"">
       <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
         onclick= "window.open('https://www.guru99.com/mvc-vs-mvvm.html')"
-        src    = "https://www.guru99.com/images/2/041720_1054_MVCvsMVVMKe2.png"
+        src    = "img/web07-MVCvsMVVMKe2.png"
         alt    = "MVVM pattern"
         title  = "MVVM pattern"
       />
@@ -452,7 +452,7 @@ Date: 2022-08-11
   <figure style="display: table; margin: auto; text-align: center;"">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
       onclick= "window.open('https://www.makeuseof.com/mvc-mvp-mvvm-which-choose/')"
-      src    = "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/08/mvc.jpg"
+      src    = "img/web07-mvc.png"
       alt    = "Image of a diagram that illustrates how MVC works"
       title  = "Image of a diagram that illustrates how MVC works"
     />
@@ -477,7 +477,7 @@ Date: 2022-08-11
   <figure style="display: table; margin: auto; text-align: center;"">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
       onclick= "window.open('https://www.makeuseof.com/mvc-mvp-mvvm-which-choose/')"
-      src    = "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/08/mvp.jpg"
+      src    = "img/web07-mvp.png"
       alt    = "Image of a diagram that illustrates how MVP works"
       title  = "Image of a diagram that illustrates how MVP works"
     />
@@ -495,7 +495,7 @@ Date: 2022-08-11
   <figure style="display: table; margin: auto; text-align: center;"">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
       onclick= "window.open('https://www.makeuseof.com/mvc-mvp-mvvm-which-choose/')"
-      src    = "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/08/mvvm.jpg"
+      src    = "img/web07-mvvm.png"
       alt    = "Image of a diagram that illustrates how MVVM works"
       title  = "Image of a diagram that illustrates how MVVM works"
     />
