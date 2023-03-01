@@ -9,7 +9,6 @@ BUILDDIR = ./$(PANDOCDIR)/build
 ASSETSDIR = ./$(PANDOCDIR)/assets
 CONTENTDIR = ./$(WORKINGDIR)
 LAYOUTSDIR = ./$(PANDOCDIR)/layouts
-MEDIADIR = /home/hmchen/Projects/PrintDoc/graphics
 
 COLORLINK = --variable colorlinks=true \
 						--variable linkcolor=green \
@@ -46,7 +45,7 @@ reading:
 
 	pandoc $(CONTENTDIR)/$(READINGINMD) $(COLORLINK) \
 		--variable $(FONTSIZE) \
-		--resource-path=$(CONTENTDIR):$(LAYOUTSDIR):$(MEDIADIR) \
+		--resource-path=$(CONTENTDIR):$(LAYOUTSDIR) \
 		--extract-media=$(MEDIADIR) \
 		--csl=$(ASSETSDIR)/citation-style.csl \
 		--from=markdown+tex_math_single_backslash+tex_math_dollars+raw_tex+smart \
@@ -57,7 +56,6 @@ reading:
 		--include-in-header=$(LAYOUTSDIR)/reading.tex \
 
 	@echo
-	@rm -f $(MEDIADIR)/*
 	@ls -l --color $(WORKINGDIR)/
 	@echo "End note pdf build! ..."
 	@echo
