@@ -46,7 +46,6 @@ reading:
 	pandoc $(CONTENTDIR)/$(READINGINMD) $(COLORLINK) \
 		--variable $(FONTSIZE) \
 		--resource-path=$(CONTENTDIR):$(LAYOUTSDIR) \
-		--extract-media=$(MEDIADIR) \
 		--csl=$(ASSETSDIR)/citation-style.csl \
 		--from=markdown+tex_math_single_backslash+tex_math_dollars+raw_tex+smart \
 		--to=latex \
@@ -59,6 +58,19 @@ reading:
 	@ls -l --color $(WORKINGDIR)/
 	@echo "End note pdf build! ..."
 	@echo
+	@echo
+
+
+# html2md: ./$(PARSERDIR)/html2md.py $(MDDIR)/$(MDFILES)
+html2md: clean_target_md
+	@echo
+	@echo "Convert Figures & Tables HTML code to MD syantx ..."
+	@echo
+
+	./$(PARSERDIR)/html2md.py -d $(MDDIR) $(MDFILES)
+
+	@echo
+	@echo End of converting ...
 	@echo
 
 
@@ -79,19 +91,6 @@ web: # readfile from a given URL and convert it to pdf
 	@echo
 	@ls -l --color $(WORKINGDIR)/
 	@echo "End print pdf build! ..."
-	@echo
-
-
-# html2md: ./$(PARSERDIR)/html2md.py $(MDDIR)/$(MDFILES)
-html2md: clean_target_md
-	@echo
-	@echo "Convert Figures & Tables HTML code to MD syantx ..."
-	@echo
-
-	./$(PARSERDIR)/html2md.py -d $(MDDIR) $(MDFILES)
-
-	@echo
-	@echo End of converting ...
 	@echo
 
 
