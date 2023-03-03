@@ -114,6 +114,7 @@ def remove_tags(soup: BeautifulSoup) -> str:
     tags = {tag.name for tag in soup if tag.name}
 
     for tag in tags:
+        print(f"{tag}: ")
         for doc_tags in soup.find_all("tag"):
             if tag == "br":
                 doc_tags.insert_after("$\\\\$")
@@ -124,8 +125,16 @@ def remove_tags(soup: BeautifulSoup) -> str:
             elif tag == "b" or tag == "strong":
                 doc_tags.insert_after(f"**{str(doc_tags.string)}**")
                 doc_tags.decompose()
+            elif tag == "mark":
+                doc_tags.insert_after(
+                    "{\color{white}\hl{%s}}".format(str(doc_tags.string))
+                )
+                doc_tags.decompose()
+            elif tag == "code":
+                doc_tags.insert_after(f"`{cell_tag.string}`")
+                doc_tags.decompose()
             else:
-                print("{tag} not processed, proccessing required?")
+                print("\n{doc_tag} in {doc} \n\tnot processed, proccessing required?\n")
 
     return mdformat.text(str(soup))
 
@@ -160,7 +169,9 @@ def parse_tags(output_md_file: list, md_files: list) -> str:
     print()
     for md_file in md_files:
         with open(md_file, "r", encoding="utf-8") as md_fd:
-            soup = BeautifulSoup(md_fd.read(), "html.parser")
+            print(f"open file: {md_file}")
+            soup = BeautifulSoup(md_fd.read(), "lxml")
+            PRINT("produce soup done!")
             soup = replace_fig_tags(soup, os.path.dirname(md_file))
             soup = replace_tbl_tags(soup)
             md_output = remove_tags(soup)
