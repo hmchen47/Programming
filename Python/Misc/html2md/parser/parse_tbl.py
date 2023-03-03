@@ -51,7 +51,9 @@ def replace_tbl_tags(soup: BeautifulSoup) -> BeautifulSoup:
                     exit()
 
         # replace table tag w/ markdown table syntax
-        tbl_tag.insert_after(f"\n\n{str(tbl_soup)}\n")
+        # tbl_tag.insert_after(f"\n\n{str(tbl_soup)}\n")
+        # temporary code to ignore the longtable package issue
+        tbl_tag.insert_after(f"\n\nA TABLE MISSING HERE\n\n")
         # print(
         #     f"\n\nparse_tbl: tbl_soup =================================\n\n{tbl_soup}\n"
         # )
