@@ -28,7 +28,8 @@ WEBPDF = web_reading.pdf
 PARSERDIR = parser
 
 MDDIR = ~/Projects/Programming/Notes
-MDFILES = web07-ModelComp.md
+MDDIR = $(CWD)/$(WORKINGDIR)
+MDFILES = B.Zaczynski.[YAML_The.Missing.Battery.in.Python].md
 
 default: html2md reading
 
