@@ -106,7 +106,15 @@
   }
 
 % set table with one-column page
-\AtBeginEnvironment{longtable}{\setlength{\LTleft}{0pt}\setlength{\LTright}{0pt}\setlength{\LTpre}{0pt}\setlength{\LTpost}{0pt}\setlength{\LTcapwidth}{\linewidth}\setlength{\tabcolsep}{0pt}\renewcommand{\arraystretch}{1.5}\begin{longtable}{@{}p{0.5\linewidth}@{\extracolsep{\fill}}p{0.5\linewidth}@{}}}
+\AtBeginEnvironment{longtable}{
+  \setlength{\LTleft}{0pt}
+  \setlength{\LTright}{0pt}
+  \setlength{\LTpre}{0pt}
+  \setlength{\LTpost}{0pt}
+  \setlength{\LTcapwidth}{\linewidth}
+  \setlength{\tabcolsep}{0pt}
+  \renewcommand{\arraystretch}{1.5}
+  \begin{longtable}{@{}p{0.5\linewidth}@{\extracolsep{\fill}}p{0.5\linewidth}@{}}}
 \AtEndEnvironment{longtable}{\end{longtable}}
 
 
