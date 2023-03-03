@@ -11,15 +11,6 @@
 \setsansfont{Calibri}[Scale=MatchLowercase]
 \setmonofont{Source Code Pro}[Scale=0.90]
 
-% \usepackage[12pt](moresize)
-
-% \usepackage{titlesec}
-% \titleformat{\section}[hang]
-% {\normalsize\bfseries}
-% {\thesection}
-% {6pt}
-% {}
-
 % page number
 \usepackage{fancyhdr} 
 \fancyhf{}
@@ -28,7 +19,7 @@
 
 \usepackage{parskip}
 
-\usepackage{xcolor}
+% \usepackage{xcolor} % has been used in pandoc
 
 % section heading style & format
 \usepackage[explicit]{titlesec}
@@ -113,30 +104,10 @@
   % showspaces,
   commandchars=\\\{\}, % characters which define the character which starts a macro and marks the beginning and end of a group - fancyvrb
   }
-  
-% use listings -  a source code printer for LATEX
-% \usepackage{listings}
 
-% \lstset{
-%     basicstyle=\ttfamily,
-%     numbers=left,
-%     keywordstyle=\color[rgb]{0.13,0.29,0.53}\bfseries,
-%     stringstyle=\color[rgb]{0.31,0.60,0.02},
-%     commentstyle=\color[rgb]{0.56,0.35,0.01}\itshape,
-%     numberstyle=\footnotesize,
-%     stepnumber=1,
-%     numbersep=5pt,
-%     backgroundcolor=\color[RGB]{248,248,248},
-%     showspaces=false,
-%     showstringspaces=false,
-%     showtabs=false,
-%     tabsize=2,
-%     captionpos=b,
-%     breaklines=true,
-%     breakatwhitespace=true,
-%     breakautoindent=true,
-%     escapeinside={\%*}{*)},
-%     linewidth=0.45\textwidth,
-%     basewidth=0.5em,
-% }
+% set table with one-column page
+\AtBeginEnvironment{longtable}{\setlength{\LTleft}{0pt}\setlength{\LTright}{0pt}\setlength{\LTpre}{0pt}\setlength{\LTpost}{0pt}\setlength{\LTcapwidth}{\linewidth}\setlength{\tabcolsep}{0pt}\renewcommand{\arraystretch}{1.5}\begin{longtable}{@{}p{0.5\linewidth}@{\extracolsep{\fill}}p{0.5\linewidth}@{}}}
+\AtEndEnvironment{longtable}{\end{longtable}}
+
+
 
