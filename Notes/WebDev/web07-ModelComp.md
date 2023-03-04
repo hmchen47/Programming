@@ -23,14 +23,14 @@ Date: 2023-01-28
 ## MVC Pattern
 
 - MVC architecture
-  - an architectural pattern that separates an applications into three main logical components Model, View, and Controller
-  - a component is built to handle specific development aspects of an application
+  - an architectural pattern that separates an application into three main logical components, Model, View, and Controller
+  - a component built to handle specific development aspects of an application
   - separating the business logic and presentation layer from each other
   - mainly used for desktop graphical user interfaces (GUIs)
   - components
     - Model: including all the data and its related logic
-    - View: presenting data to the user or handles user interaction
-    - Controller: interface between Model and View components
+    - View: presenting data to the user or handling user interaction
+    - Controller: interface b/w Model and View components
   - architecture
 
     <figure style="display: table; margin: auto; text-align: center;"">
