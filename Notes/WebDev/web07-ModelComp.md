@@ -236,22 +236,21 @@ Date: 2022-12-22
 - The Model-View-Controller (MVC) pattern
   - splitting the code into 3 components
   - creating the class/file of the application
-  - three layers
-    - **Model:**
-      - storing the application data
-      - w/o knowledge about the interface
-      - responsible for handling the domain logic(real-world business rules)
-      - communication with the database and network layers
-    - **View:**
-      - the UI(User Interface) layer
-      - holding components visible on the screen
-      - providing the visualization of the data stored in the Model
-      - offering interaction to the user
-    - **Controller:**
-      - establishing the relationship between the View and the Model
-      - containing the core application logic
-      - retrieving informed of the user’s response
-      - updating the Model as per the need
+  - **Model:**
+    - storing the application data
+    - w/o knowledge about the interface
+    - responsible for handling the domain logic (real-world business rules)
+    - communication with the database and network layers
+  - **View:**
+    - the UI (User Interface) layer
+    - holding components visible on the screen
+    - providing the visualization of the data stored in the Model
+    - offering interaction to the user
+  - **Controller:**
+    - establishing the relationship between the View and the Model
+    - containing the core application logic
+    - retrieving informed of the user’s response
+    - updating the Model as per the need
 
   <figure style="display: table; margin: auto; text-align: center;"">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
