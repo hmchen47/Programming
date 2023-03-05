@@ -49,6 +49,7 @@ reading:
 		--resource-path=$(CONTENTDIR):$(LAYOUTSDIR) \
 		--csl=$(ASSETSDIR)/citation-style.csl \
 		--from=markdown+tex_math_single_backslash+tex_math_dollars+raw_tex+smart \
+		--mathjax \
 		--to=latex \
 		--output=$(WORKINGDIR)/$(READINGPDF) \
 		--pdf-engine=xelatex \
