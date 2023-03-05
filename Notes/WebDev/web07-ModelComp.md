@@ -223,8 +223,8 @@ Date: 2022-12-22
 
 
 - Architecture pattern
-  - gives modularity to the project files
-  - assures that all the codes get covered in Unit testing
+  - giving modularity to the project files
+  - assuring that all the codes get covered in Unit testing
   - making the task easy for developers to maintain the software
   - to expand the features of the application in the future
   - popular models and industry-recognized [android architecture pattern](https://www.geeksforgeeks.org/android-architecture-patterns/)
