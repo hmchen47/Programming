@@ -146,11 +146,11 @@ Date: 2023-01-28
 
 
 - Advantages of MVVM
-  - business logic decoupled from Ul
+  - business logic decoupled from UI
   - easy to maintain and test
   - easy to reuse components
-  - loosely coupled architecture: MVVM makes your application architecture as loosely coupled
-  - writing unit test cases for both the viewmodel and Model layer without the need to reference the View'
+  - loosely coupled architecture: making application architecture as loosely coupled
+  - writing unit test cases for both the viewmodel and Model layer w/o the need to reference the View
 
 
 - Disadvantages of MVVM
