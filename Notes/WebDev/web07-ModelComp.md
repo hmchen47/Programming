@@ -84,7 +84,7 @@ Date: 2023-01-28
   - using a front controller pattern that processes web application requests using a single controller
   - offering the best support for test-driven development
   - working well for Web apps, which are supported by large teams of web designers and developers
-  - providing a clean separation of concerns(SoC)
+  - providing a clean separation of concerns (SoC)
   - all classed and objects independent of each other $\implies$ test separately
   - allowing logical grouping of related actions on a controller together
 
