@@ -171,7 +171,7 @@ def parse_tags(output_md_file: list, md_files: list) -> str:
         with open(md_file, "r", encoding="utf-8") as md_fd:
             print(f"open file: {md_file}")
             soup = BeautifulSoup(md_fd.read(), "lxml")
-            PRINT("produce soup done!")
+            print("produce soup done!")
             soup = replace_fig_tags(soup, os.path.dirname(md_file))
             soup = replace_tbl_tags(soup)
             md_output = remove_tags(soup)
