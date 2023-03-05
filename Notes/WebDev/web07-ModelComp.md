@@ -199,7 +199,7 @@ Date: 2023-01-28
       </tr>
       <tr>
         <td>Disadvantages</td>
-        <td>read, change, to unit test, and reuse this Model</td>
+        <td>read, change, to unit test, and reuse</td>
         <td>complicated debugging process w/ complex data bindings</td>
       </tr>
       <tr>
@@ -228,12 +228,12 @@ Date: 2022-12-22
   - making the task easy for developers to maintain the software
   - to expand the features of the application in the future
   - popular models and industry-recognized [android architecture pattern](https://www.geeksforgeeks.org/android-architecture-patterns/)
-    - [MVC](https://www.geeksforgeeks.org/mvc-model-view-controller-architecture-pattern-in-android-with-example/) (Model — View — Controller)
-    - [MVP](https://www.geeksforgeeks.org/mvp-model-view-presenter-architecture-pattern-in-android-with-example/) (Model — View — Presenter)
-    - [MVVM](https://www.geeksforgeeks.org/mvvm-model-view-viewmodel-architecture-pattern-in-android/) (Model — View — ViewModel)
+    - [MVC](https://www.geeksforgeeks.org/mvc-model-view-controller-architecture-pattern-in-android-with-example/) (Model - View - Controller)
+    - [MVP](https://www.geeksforgeeks.org/mvp-model-view-presenter-architecture-pattern-in-android-with-example/) (Model - View - Presenter)
+    - [MVVM](https://www.geeksforgeeks.org/mvvm-model-view-viewmodel-architecture-pattern-in-android/) (Model - View - ViewModel)
 
 
-- The Model—View—Controller(MVC) pattern
+- The Model-View-Controller (MVC) pattern
   - splitting the code into 3 components
   - creating the class/file of the application
   - three layers
@@ -257,13 +257,13 @@ Date: 2022-12-22
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
       onclick= "window.open('https://www.geeksforgeeks.org/difference-between-mvc-mvp-and-mvvm-architecture-pattern-in-android/')"
       src    = "https://media.geeksforgeeks.org/wp-content/uploads/20201002214740/MVCSchema.png"
-      alt    = "The Model—View—Controller(MVC) Pattern"
-      title  = "The Model—View—Controller(MVC) Pattern"
+      alt    = "The Model-View-Controller(MVC) Pattern"
+      title  = "The Model-View-Controller(MVC) Pattern"
     />
   </figure>
 
 
-- The Model—View—Presenter (MVP) pattern
+- The Model-View-Presenter (MVP) pattern
   - overcoming the challenges of MVC and provides an easy way to structure the project codes
   - providing modularity, testability, and a more clean and maintainable codebase
   - components
@@ -285,14 +285,14 @@ Date: 2022-12-22
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
       onclick= "window.open('https://www.geeksforgeeks.org/difference-between-mvc-mvp-and-mvvm-architecture-pattern-in-android/')"
       src    = "https://media.geeksforgeeks.org/wp-content/uploads/20201024233154/MVPSchema.png"
-      alt    = "The Model—View—Presenter (MVP) Pattern"
-      title  = "The Model—View—Presenter (MVP) Pattern"
+      alt    = "The Model-View-Presenter (MVP) Pattern"
+      title  = "The Model-View-Presenter (MVP) Pattern"
     />
   </figure>
 
 
-- The Model—View—ViewModel (MVVM) pattern
-  - w/ some similarities with the MVP (Model—View—Presenter) design pattern
+- The Model-View-ViewModel (MVVM) pattern
+  - w/ some similarities with the MVP (Model-View-Presenter) design pattern
   - the Presenter role played by the ViewModel
   - drawbacks of the MVP pattern solved by MVVM
   - separating the data presentation logic (Views or UI) from the core business logic part of the application
@@ -312,8 +312,8 @@ Date: 2022-12-22
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
       onclick= "window.open('https://www.geeksforgeeks.org/difference-between-mvc-mvp-and-mvvm-architecture-pattern-in-android/')"
       src    = "https://media.geeksforgeeks.org/wp-content/uploads/20201002215007/MVVMSchema.png"
-      alt    = "The Model—View—ViewModel (MVVM) Pattern"
-      title  = "The Model—View—ViewModel (MVVM) Pattern"
+      alt    = "The Model-View-ViewModel (MVVM) Pattern"
+      title  = "The Model-View-ViewModel (MVVM) Pattern"
     />
   </figure>
 
