@@ -426,7 +426,8 @@ Date: 2022-08-11
 
 - Model terminologies
   - Model:
-    - storing data and communicates directly with the database
+    - storing data
+    - communicating directly with the database
     - representing data and application logic
     - defining the business rules that manage data handling, modification, or processing
   - View
@@ -434,10 +435,11 @@ Date: 2022-08-11
     - responsible for the data’s representation in the user interface
   - ViewModel
     - exclusive to MVVM pattern
-    - an abstraction of the view layer and also acts as a wrapper for the model data
-  - Controller: integrateing the view and model
+    - an abstraction of the view layer
+    - acting as a wrapper for the model data
+  - Controller: integrating the view and model
   - Presenter
-    - a component that only exists in the MVP model
+    - a component only existing in the MVP model
     - retrieving the input from the view component
     - processing the data with the help of the model
 
