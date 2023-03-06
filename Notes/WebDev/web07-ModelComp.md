@@ -315,11 +315,11 @@ Date: 2022-12-22
   </figure>
 
 
-- Difference b/w MVC, MVP, and MVVM design pattern
+- Difference b/w MVC, MVP, and MVVM design patterns
 
   <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing=0 cellpadding=5 border=1 align="center">
     <colgroup>
-      <col style="width: 15%">
+      <col style="width: 25%">
       <col style="width: 25%">
       <col style="width: 25%">
     </colgroup>
@@ -337,7 +337,7 @@ Date: 2022-12-22
         <td>Industry-recognized architecture pattern for applications.</td>
       </tr>
       <tr>
-        <td>UI(<strong>View</strong>) and data-access mechanism(<strong>Model</strong>) are tightly coupled.</td>
+        <td>UI (<strong>View</strong>) and data-access mechanism (<strong>Model</strong>) are tightly coupled.</td>
         <td>It resolves the problem of having a dependent <strong>View</strong> by using <strong>Presenter</strong> as a communication channel between <strong>Model</strong> and <strong>View</strong>.&nbsp;</td>
         <td>This architecture pattern is more event-driven as it uses data binding and thus makes easy separation of <strong>core business logic</strong> from the <strong>View</strong>.</td>
       </tr>
