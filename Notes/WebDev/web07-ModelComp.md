@@ -294,17 +294,16 @@ Date: 2022-12-22
   - the Presenter role played by the ViewModel
   - drawbacks of the MVP pattern solved by MVVM
   - separating the data presentation logic (Views or UI) from the core business logic part of the application
-  - components
-    - **Model:**
-      - responsible for the abstraction of the data sources
-      - Model and ViewModel working together to get and save the data
-    - **View:**
-      - purpose: to inform the ViewModel about the user’s action
-      - observing the ViewModel
-      - not containing any kind of application logic
-    - **ViewModel:**
-      - exposing those data streams which are relevant to the View
-      - serving as a link between the Model and the View
+  - **Model:**
+    - responsible for the abstraction of the data sources
+    - Model and ViewModel working together to get and save the data
+  - **View:**
+    - purpose: to inform the ViewModel about the user’s action
+    - observing the ViewModel
+    - not containing any kind of application logic
+  - **ViewModel:**
+    - exposing those data streams which are relevant to the View
+    - serving as a link between the Model and the View
   
   <figure style="display: table; margin: auto; text-align: center;"">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
