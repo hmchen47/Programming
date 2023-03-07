@@ -486,6 +486,7 @@ Date: 2022-08-11
   - view and presenter:
     - independent of one another
     - interacting via an interface
+  - pattern diagram
 
   <figure style="display: table; margin: auto; text-align: center;"">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
@@ -499,11 +500,12 @@ Date: 2022-08-11
 
 - Model-View-ViewModel pattern
   - the modern evolution of MVC
-  - main goal: providING a clear separation between the domain logic and presentation layer
-  - SupportING two-way data binding between the view and viewmodel
-  - allowING to separate Code’s view and model
+  - main goal: providing a clear separation between the domain logic and presentation layer
+  - Supporting two-way data binding between the view and viewmodel
+  - allowing to separate Code’s view and model
   - model changes $\iff$ view remaining the same
   - viewmodel: doing unit testing and testing logic behavior without involving the view
+  - pattern diagram
 
   <figure style="display: table; margin: auto; text-align: center;"">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
