@@ -278,7 +278,7 @@
       <section>...</section>
       ```
     
-    - css ccode
+    - css code
 
     ```css
     .box {
