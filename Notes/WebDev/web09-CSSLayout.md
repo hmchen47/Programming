@@ -278,16 +278,16 @@
       <section>...</section>
       ```
     
-    - css code
+    - css code (left diagram)
 
-    ```css
-    .box {
-      float: left;
-      width: 200px;
-      height: 100px;
-      margin: 1em;
-    }
-    ```
+      ```css
+      .box {
+        float: left;
+        width: 200px;
+        height: 100px;
+        margin: 1em;
+      }
+      ```
 
   - example w/ `clear` (right diagram)
 
