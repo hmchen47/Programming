@@ -447,7 +447,9 @@ Date: 2022-08-11
 - Model-View-Controller pattern
   - first and popular in the field of web applications
   - building an application around Separation of Concerns (SoC)
-  - eases the effort to test, maintain, and develop application
+    - reducing the code size
+    - making clean and manageable code
+  - easing the effort to test, maintain, and develop application
   - no understanding of the view or the controller
   - observer receiving an alert whenever there's a change in the view and controller
   - controller helping the routing process to connect the model to the relevant view
@@ -456,7 +458,7 @@ Date: 2022-08-11
     - making it easier to test and manage the code
     - promoting decoupling of the application's layers
     - better code organization and reusability
-  - SOC $\to$ reducing the code size and making a good code that is clean and manageable
+  - pattern diagram
 
   <figure style="display: table; margin: auto; text-align: center;"">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
