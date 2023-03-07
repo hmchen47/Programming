@@ -477,13 +477,15 @@ Date: 2022-08-11
   - presenter:
     - used to present something
     - w/ the functionality of the "middle-man"
-    - all presentation logic is pushed to it
+    - all presentation logic pushed to it
     - workflow
       - receiving input from the user via the view
       - processing the user’s actions with the help of the model
       - passing the results back to the view
     - communicating with the view through interfaces
-  - view and presenter: independent of one another and interact via an interface
+  - view and presenter:
+    - independent of one another
+    - interacting via an interface
 
   <figure style="display: table; margin: auto; text-align: center;"">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
