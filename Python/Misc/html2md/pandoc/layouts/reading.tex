@@ -113,13 +113,18 @@
 \AtEndEnvironment{longtable}{\end{longtable}}
 
 
+% Manupulate the space about the figure %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % reduce the gap b/w figure and caption
 \setlength{\abovecaptionskip}{5pt}
-
 
 % reduce the caption width
 \usepackage{caption}
 \captionsetup[figure]{width=0.4\textwidth}
+
+% reduce the vertical space after the figure
+\setlength{\textfloatsep}{0.3ex}
 
 % hightlight text for mark tag
 \usepackage{soul}
