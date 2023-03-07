@@ -15,7 +15,7 @@ def replace_fig_tags(soup: BeautifulSoup, path: str) -> BeautifulSoup:
     for fig_set in soup.find_all(
         "div", attrs={"style": "display: flex; justify-content: center;"}
     ):
-        fig_set.insert_after(f"2 Figures\n")
+        # fig_set.insert_after(f"2 Figures\n")
         for img_tag in fig_set.find_all("img"):
             if "http" in img_tag["src"]:
                 fig_set.insert_after(f"![{img_tag['alt']}]({img_tag['src']})\n")
@@ -28,7 +28,7 @@ def replace_fig_tags(soup: BeautifulSoup, path: str) -> BeautifulSoup:
 
     # remove figure elements
     for fig_tag in soup.find_all("figure"):
-        fig_tag.insert_after(f"Figure\n")
+        # fig_tag.insert_after(f"Figure\n")
         for img_tag in fig_tag.find_all("img"):
             if "http" in img_tag["src"]:
                 fig_tag.insert_after(f"![{img_tag['alt']}]({img_tag['src']})\n")
