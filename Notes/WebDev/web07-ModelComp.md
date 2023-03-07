@@ -524,12 +524,12 @@ Date: 2022-08-11
     - serving well in an application where the data source and/or the data presentation can change at any time
   - MVP
     - using w/ application has a bidirectional flow
-    - request something from the model and change the UI immediately
+    - requesting something from the model and changing the UI immediately
   - MVVM
     - to share a project with a designer and the design and development work can happen independently
     - requiring unit testing for your solutions
     - to have reusable components, both within and across projects in your organization
-    - more flexibility to change your views without having to refactor other logic in the code base.
+    - more flexibility to change your views without having to refactor other logic in the code base
 
 
 
