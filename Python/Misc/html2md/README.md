@@ -179,31 +179,21 @@ Typical html `table` tag is shown as below:
   <caption style="font-size: 1.3em; margin: 0.2em;"><a href="url">CAPTION</a></caption>
   <colgroup>
     <col style="width: 20%">
-    <col style="width: 20%">
-    <col style="width: 20%">
-    <col style="width: 20%">
+    ...
   </colgroup>
   <thead>
   <tr style="font-size: 1.0em; vertical-align:middle;">
     <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Heading1</th>
-    <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Heading2</th>
-    <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Heading3</th>
-    <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Heading4</th>
+    ...
   </tr>
   </thead>
   <tbody>
   <tr style="vertical-align:middle">
     <td style="text-align: center;"></td>
-    <td style="text-align: center;"></td>
-    <td style="text-align: center;"></td>
+    ...
     <td style="text-align: center;"><a href="">MDN</a>, <a href="">KEYWORD</a></td>
   </tr>
-  <tr style="vertical-align:middle">
-    <td style="text-align: center;"></td>
-    <td style="text-align: center;"></td>
-    <td style="text-align: center;"></td>
-    <td style="text-align: center;"><a href="">MDN</a>, <a href="">KEYWORD</a></td>
-  </tr>
+  ...
   </tbody>
 </table><br/>
 ```
