@@ -707,16 +707,16 @@
 - CSS frameworks
   - CSS layout very tricky
   - frameworks helping make it easier
-  - [blurprint](http://www.blueprintcss.org/)
-  - [unsemantic](http://www.unsemantic.com/)
+  - [blurprint](http://www.blueprintcss.org/): aim to cut down on your development time
+  - [unsemantic](http://www.unsemantic.com/): comprised of code from the responsive CSS file
   - [Bluetrip](http://bluetrip.org/)
-  - [Bootstrap](http://twitter.github.com/bootstrap/)
-  - [&lt;SUSY&gt;](http://susy.oddbird.net/)
-  - [Fundation](http://foundation.zurb.com/)
+  - [Bootstrap](https://getbootstrap.com/): powerful, extensible, and feature-packed frontend toolkit
+  - [&lt;SUSY&gt;](http://susy.oddbird.net/): a responsive layout engine for Sass
+  - [Fundation](http://foundation.zurb.com/): responsive design gets a whole lot faster
   - [Kube](http://imperavi.com/kube/)
   - [GroundworkCSS](http://groundworkcss.github.com/)
-  - [Semantic UI](http://semantic-ui.com/)
-  - [Pure.CSS](http://purecss.io/)
+  - [Semantic UI](http://semantic-ui.com/): create beautiful, responsive layouts using human-friendly HTML
+  - [Pure.CSS](http://purecss.io/): a set of small, responsive CSS modules, ridiculously tiny
 
 
 
