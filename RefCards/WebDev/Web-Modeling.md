@@ -73,6 +73,60 @@
 
 ## Model-View-ViewModel (MVVM) Pattern
 
+- [Model–view–viewmodel (MVVM) Overview](../Notes/web05-WebModel.md#modelviewviewmodel-mvvm)
+  - an architectural pattern in computer software
+  - facilitating the separation of the development of the graphical user interface (GUI; the view)
+  - via a markup language or GUI code
+  - the development of the business logic or back-end logic (the model) such that the view is not dependent upon any specific model platform
+  - viewmodel
+    - a value converter
+    - responsible for exposing (converting) the data objects from the model in such a way they can be easily managed and presented
+    - more model than view
+    - handling most (if not all) of the view's display logic
+    - implement a mediator pattern, organizing access to the back-end logic around the set of use cases supported by the view
+  - a variation of Martin Fowler's Presentation Model design pattern
+  - invented by Microsoft architects specifically to simplify event-driven programming of user interfaces
+  - incorporated into the Windows Presentation Foundation (WPF) and Silverlight
+  - a.k.a. model–view–binder
+
+  <figure style="display: table; margin: auto; text-align: center;"">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel')"
+      src    = "https://upload.wikimedia.org/wikipedia/commons/8/87/MVVMPattern.png"
+      alt    = "Diagram of MVVM pattern"
+      title  = "Diagram of MVVM pattern"
+    />
+  </figure>
+
+
+- [Components of MVVM pattern](../Notes/web05-WebModel.md#modelviewviewmodel-mvvm)
+  - Model
+    - domain model: real state content (an object-oriented approach)
+    - data access layer: content (a data-centric approach)
+  - View
+    - the structure, layout, and appearance of what a user sees on the screen
+    - same as the model–view–controller (MVC) and model–view–presenter (MVP) patterns
+    - displaying a representation of the model
+    - receiving the user's interaction with the view
+    - forwarding the handling of these to the view model via the data binding (properties, event callbacks, etc.)
+  - View model
+    - an abstraction of the view exposing public properties and commands
+    - binder:
+      - automating communication between the view
+      - bound properties in the view model
+    - a state of the data in the model
+    - Presenter in the MVP pattern: a reference to a view, whereas the view model does not
+    - directly binding to properties on the view model to send and receive updates
+    - requiring a binding technology
+    - generating boilerplate code to do the binding
+  - Binder
+    - declarative data and command-binding
+    - implicit
+    - freeing the developer from being obliged to write boiler-plate logic to synchronize the view model and view
+    - the presence of a declarative data binding technology enabling the pattern
+    - using MVP or MVC w/o binder
+
+
 
 
 
