@@ -1528,6 +1528,17 @@
 
 ## Floating Property
 
+- [The `float` property](../Notes/web09-CSSLayout.md)
+  - intended for wrapping text around images
+  - example
+
+    ```css
+    img {
+      float: right;
+      margin: 0 0 1em 1em;
+    }
+    ```
+
 ### List of Flowing Properties
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
