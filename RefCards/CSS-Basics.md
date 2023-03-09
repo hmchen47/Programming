@@ -1178,6 +1178,26 @@
 </table>
 
 
+### Centralizing Elements
+
+- [Centralizing elements](../Notes/web09-CSSLayout.md)
+  - syntax: `margin: 0 auto;`
+
+    ```css
+    #main {
+      margin: 0 auto;
+    }
+    ```
+
+  - width of a block-level element preventing from stretching out to the edges of its container to the left and right
+  - setting left and right margins to `auto` to horizontally center the element within its container
+  - element taking up the width specified, then, evenly splitting the remaining space b/w two margins
+  - issue: screen narrower than the width
+
+    sol: browser creating horizontal scrollbar on the page
+
+
+
 ### Box Model Properties
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
