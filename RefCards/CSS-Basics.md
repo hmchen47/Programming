@@ -2206,6 +2206,52 @@
 
 ## The Flexible Box Layout
 
+- [The `flexbox` property](../Notes/web09-CSSLayout.md)
+  - poised to redefined how we do layouts in CSS
+  - changed a lot recently
+  - checking [compatibility](https://caniuse.com/?search=flexbox)
+  - [a detailed article using the latest syntax](https://bocoup.com/blog/dive-into-flexbox)
+  - simple layout using `flexbox` (top left diagram)
+  - fancy layout using `flexbox` (top-left diagram)
+  - centering using `flexbox` (bottom diagram)
+
+  <div style="display: flex; justify-content: center;">
+    <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://learnlayout.com/flexbox.html')"
+        src    = "../Notes/img/web09-flexbox1.png"
+        alt    = "Simple layout using flexbox"
+        title  = "Simple layout using flexbox"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        Simple layout using flexbox
+      </figcaption>
+    </figure>
+    <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://learnlayout.com/flexbox.html')"
+        src    = "../Notes/img/web09-flexbox2.png"
+        alt    = "fancy layout using flexbox"
+        title  = "fancy layout using flexbox"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        fancy layout using flexbox
+      </figcaption>
+    </figure>
+  </div>
+
+  <figure style="display: table; margin: auto; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://learnlayout.com/flexbox.html')"
+      src    = "../Notes/img/web09-flexbox3.png"
+      alt    = "Centering using flexbox"
+      title  = "Centering using flexbox"
+    />
+    <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+      Centering using flexbox
+    </figcaption>
+  </figure>
+
 ### Basic Concepts of flexbox
 
 - [Flexbox](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#flexbox)
@@ -2315,7 +2361,7 @@
     - The items do not stretch on the main dimension, but can shrink.
     - The items will stretch to fill the size of the cross axis.
     - The `flex-basis` property is set to `auto`.
-    - The `flex-wrap `property is set to `nowrap`.
+    - The `flex-wrap` property is set to `nowrap`.
   - changing `flex-direction`:
     - change the direction that flex items display
     - values: row, row-reverse, column, column-reverse
