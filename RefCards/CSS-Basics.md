@@ -1837,6 +1837,25 @@
 
 ## Positioned Properties
 
+- [The `position` property](../Notes/web09-CSSLayout.md)
+  - a bunch of possible values but no sense
+  - `static`
+    - default value
+    - *not positioning* in any specific way
+    - positioned: element w/ `position` set to anything else
+  - `relative`
+    - behaving the same as static unless you add some extra properties
+    - adjusted away from its normal position: the `top`, `right`, `bottom`, and `left` properties
+  - `fixed`
+    - positioned relative to the *viewport*
+    - stayed in the same place even if the page is scrolled
+    - properties: `top`, `right`, `bottom`, and `left`
+    - not leaving a gap in the page where it normally have been located
+  - `absolute`
+    - the trickiest position value
+    - like fixed except relative to the *nearest positioned ancestor* instead of relative to the viewport
+    - no positioned ancestor $\implies$ using document body and still moving along w/ page scrolling
+
 ### List of Positioned Properties
 
 <table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
