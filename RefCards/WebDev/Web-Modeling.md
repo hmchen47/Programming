@@ -229,6 +229,21 @@
   - knowledge of multiple technologies is required
 
 
+- [Model-View-Controller pattern](../Notes/web07-ModelComp.md#mvc-mvp-mvvm-which-one-to-choose)
+  - first and popular in the field of web applications
+  - building an application around Separation of Concerns (SoC)
+    - reducing the code size
+    - making clean and manageable code
+  - easing the effort to test, maintain, and develop application
+  - no understanding of the view or the controller
+  - observer receiving an alert whenever there's a change in the view and controller
+  - controller helping the routing process to connect the model to the relevant view
+  - advantages
+    - separation of concerns (more focused)
+    - making it easier to test and manage the code
+    - promoting decoupling of the application's layers
+    - better code organization and reusability
+
 
 
 ## Model-View-Presenter (MVP) Pattern
