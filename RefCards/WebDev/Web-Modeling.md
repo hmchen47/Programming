@@ -15,6 +15,47 @@
     - MVVM: b/w View & View Model
 
 
+- [Comparisons of MVC and MVVM](../Notes/web07-ModelComp.md#difference-between-mvc-and-mvvm-architecture)
+
+  <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing=0 cellpadding=5 border=1 align="center">
+    <colgroup>
+      <col style="width: 20%">
+      <col style="width: 20%">
+      <col style="width: 20%">
+    </colgroup>
+    <thead>
+    <tr style="font-size: 1.0em; vertical-align:middle;">
+      <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Feature</th>
+      <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">MVC (Model View Controller)</th>
+      <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">MVVM (Model View ViewModel)</th>
+    </tr>
+    </thead>
+    <tbody> 
+      <tr>
+        <td>Entry point to the Application</td> <td>Controller</td> <td>View</td>
+      </tr>
+      <tr>
+        <td>One to many relationships</td> <td>Controller &amp; View</td> <td>View &amp; View Model</td>
+      </tr>
+      <tr>
+        <td>View reference</td> <td>not to the Controller</td> <td>to the View-Model</td>
+      </tr>
+      <tr>
+        <td>Age</td> <td>old Model</td> <td>relatively New Model</td>
+      </tr>
+      <tr>
+        <td>Disadvantages</td> <td>read, change, to unit test, and reuse</td> <td>complicated debugging process w/ complex data bindings</td>
+      </tr>
+      <tr>
+        <td>Testing</td> <td>component tested separately from the user</td> <td>separate unit testing and event-driven code</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+
 
 
 ## Model-View-Controller (MVC) Pattern
