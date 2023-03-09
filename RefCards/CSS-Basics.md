@@ -2252,14 +2252,44 @@
   - column: from the top of the page to the bottom
   - column-reverse: from the bottom of the page to the top
 
-  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">
-      <img src="https://mdn.mozillademos.org/files/15614/Basics1.png" style="margin: 0.1em;" alt="row or row-reverse: main axis will run along the row in the inline direction" title="Inline directon: row or row-reverse" width="250">
-      <img src="https://mdn.mozillademos.org/files/15615/Basics2.png" style="margin: 0.1em;" alt="column or column-reverse: main axis will run from the top of the page to the bottom — in the block direction" title="Block direction: column or column-reverse" width="250">
-      <img src="https://mdn.mozillademos.org/files/15616/Basics3.png" style="margin: 0.1em;" alt=" flex-direction (main axis) is set to row or row-reverse the cross axis runs down the columns" title="The cross axis runs perpendicular to the main axis" width="250">
-      <img src="https://mdn.mozillademos.org/files/15617/Basics4.png" style="margin: 0.1em;" alt="main axis is column or column-reverse then the cross axis runs along the rows" title="main axis is column or column-reverse then the cross axis runs along the rows" width="250">
-    </a></div>
+  <div style="display: flex; justify-content: center;">
+    <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25wv;"
+        onclick= "window.open('https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox')"
+        src    = "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox/basics1.png"
+        alt    = "row or row-reverse: main axis will run along the row in the inline direction"
+        title  = "Inline direction: row or row-reverse"
+      />
+    </figure>
+    <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25wv;"
+        onclick= "window.open('https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox')"
+        src    = "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox/Basics2.png"
+        alt    = "column or column-reverse: main axis will run from the top of the page to the bottom — in the block direction"
+        title  = "Block direction: column or column-reverse"
+      />
+    </figure>
   </div>
+
+  <div style="display: flex; justify-content: center;">
+    <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25wv;"
+        onclick= "window.open('https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox')"
+        src    = "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox/Basics3.png"
+        alt    = "flex-direction (main axis) is set to row or row-reverse the cross axis runs down the columns"
+        title  = "The cross axis runs perpendicular to the main axis"
+      />
+    </figure>
+    <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25wv;"
+        onclick= "window.open('https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox')"
+        src    = "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox/Basics4.png"
+        alt    = "main axis is column or column-reverse then the cross axis runs along the rows"
+        title  = "main axis is column or column-reverse then the cross axis runs along the rows"
+      />
+    </figure>
+  </div>
+
 
 - [The flex container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container)
   - An area of a document laid out using flexbox
