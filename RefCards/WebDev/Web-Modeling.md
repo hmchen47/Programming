@@ -3,7 +3,7 @@
 ## Overview
 
 
-- [Key differences b/w MVC and MVVM](../Notes/web07-ModelComp.md#mvc-vs-mvvm---difference-between-them)
+- [Key differences b/w MVC and MVVM](../Notes/web07-ModelComp.md#summary)
   - **MVC framework:** an architectural pattern that separates an application into three main logical components Model, View, and Controller
   - **MVVM framework:** facilitating a separation of development of the graphical user interface with the help of mark-up language or GUI code
   - controller in MVC: the entry point to the Application
@@ -92,6 +92,82 @@
   - **Model** – defining the data for the application (typically, the data is stored in a database)
   - **Controller** – basically, providING the interface between the View and the Model
 
+
+- [MVC architecture](../Notes/web07-ModelComp.md#mvc-pattern)
+  - an architectural pattern that separates an application into three main logical components, Model, View, and Controller
+  - a component built to handle specific development aspects of an application
+  - separating the business logic and presentation layer from each other
+  - mainly used for desktop graphical user interfaces (GUIs)
+  - components
+    - Model: including all the data and its related logic
+    - View: presenting data to the user or handling user interaction
+    - Controller: interface b/w Model and View components
+  - architecture
+
+    <figure style="display: table; margin: auto; text-align: center;"">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+        onclick= "window.open('https://www.guru99.com/mvc-vs-mvvm.html')"
+        src    = "img/web07-MVCTutorial1.png"
+        alt    = "MVC pattern"
+        title  = "MVC pattern"
+      />
+    </figure>
+
+
+- [Model component](../Notes/web07-ModelComp.md#mvc-pattern)
+  - storing data and related logic
+  - representing data being transferred between controller components or any other related business logic
+  - example: 
+    - a Controller object retrieving the customer info from the database
+    - Model: manipulate data and send it back to the database or use it to render the same data
+
+
+- [View component](../Notes/web07-ModelComp.md#mvc-pattern)
+  - part of the Application that represents the presentation of data
+  - created by the data gathered from the model data
+  - requesting the Model to give information so that it resents the output to the user
+  - representing the data from charts, diagrams, and table
+  - example: any customer view will include all the UI components like text boxes, dropdowns, etc.
+
+
+- [Controller component](../Notes/web07-ModelComp.md#mvc-pattern)
+  - part of the Application that handles the user interaction
+  - interpreting the mouse and keyboard inputs from the user, informing the Model and the View to change as appropriate
+  - sending commands to the Model to update its state, e.g., saving a specific document
+  - sending commands to its associated view to change the View’s presentation, e.g., scrolling a particular document
+
+
+- [Features of MVC](../Notes/web07-ModelComp.md#mvc-pattern)
+  - easy and frictionless testability
+  - highly testable, extensible and pluggable framework
+  - leveraging existing features offered by ASP.NET, Django, JSP, etc
+  - offering full control over your HTML as well as your URLs
+  - supporting Test Driven Development (TDD)
+  - offering separation of logic
+  - allowing routing for SEO Friendly URLs
+  - offering to map for comprehensible and searchable URLs
+
+
+- [Advantages of MVC](../Notes/web07-ModelComp.md#mvc-pattern)
+  - easier support for a new type of clients
+  - able to be developed parallely
+  - avoiding complexity by dividing an application into separate (MVC) units
+  - using a front controller pattern that processes web application requests using a single controller
+  - offering the best support for test-driven development
+  - working well for Web apps, which are supported by large teams of web designers and developers
+  - providing a clean separation of concerns (SoC)
+  - all classed and objects independent of each other $\implies$ test separately
+  - allowing logical grouping of related actions on a controller together
+
+
+- [Disadvantages of MVC](../Notes/web07-ModelComp.md#mvc-pattern)
+  - business logic mixed with Ul
+  - hard to reuse and implement tests
+  - no formal validation support
+  - increased complexity and inefficiency of data
+  - the difficulty of using MVC with the modern user interface
+  - a need for multiple programmers to conduct parallel programming
+  - knowledge of multiple technologies is required
 
 
 
