@@ -343,11 +343,14 @@
     - specified with one or two keywords, with optional offsets
     - keyword values: `center`, `top`, `right`, `bottom`, and `left`
 
-    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position_value" ismap target="_blank">
-        <img src="https://mdn.mozillademos.org/files/12215/position_type.png" style="margin: 0.1em;" alt="Syntax of position property" title="Syntax of position property" width=350>
-      </a>
-    </div>
+  <figure style="display: table; margin: auto; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://webkit.org/blog/7434/css-grid-layout-a-new-layout-module-for-the-web/')"
+      src    = "https://developer.mozilla.org/en-US/docs/Web/CSS/position_value/position_type.png"
+      alt    = "Syntax of position property"
+      title  = "Syntax of position property"
+    />
+  </figure>
 
 
 - [Functional notation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Functional_notation)
