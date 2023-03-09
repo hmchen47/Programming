@@ -67,6 +67,36 @@
 
 ## Model-View-Presenter (MVP) Pattern
 
+- [Model-View-Presenter (MVP) overview](../Notes/web05-WebModel.md#model-view-presenter-mvp)
+  - derivation of the model–view–controller (MVC) architectural pattern
+  - used mostly for building user interfaces
+  - a user interface architectural pattern engineered to facilitate automated unit testing
+  - improving the separation of concerns in presentation logic
+  - diagram of MVP pattern
+
+  <figure style="display: table; margin: auto; text-align: center;"">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+      onclick= "window.open('https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter')"
+      src    = "https://upload.wikimedia.org/wikipedia/commons/d/dc/Model_View_Presenter_GUI_Design_Pattern.png"
+      alt    = "Diagram that depicts the Model View Presenter (MVP) GUI design pattern"
+      title  = "Diagram that depicts the Model View Presenter (MVP) GUI design pattern"
+    />
+    <figcaption>
+      Diagram that depicts the Model View Presenter (MVP) GUI design pattern.
+    </figcaption>
+  </figure>
+
+
+- [Components of MVP pattern](../Notes/web05-WebModel.md#model-view-presenter-mvp)
+  - Model: an interface defining the data to be displayed or otherwise acted upon in the user interface
+  - View:
+    - a passive interface that displays data (the model) and routes user commands (events) to the presenter to act upon that data
+    - instantiating the concrete presenter object
+    - providing a reference to itself
+  - Presenter
+    - acting upon the model and the view
+    - retrieving data from repositories (the model)
+    - formating it for display in the view
 
 
 
