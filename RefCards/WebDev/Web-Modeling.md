@@ -3,6 +3,18 @@
 ## Overview
 
 
+- [Key differences b/w MVC and MVVM](../Notes/web07-ModelComp.md#mvc-vs-mvvm---difference-between-them)
+  - **MVC framework:** an architectural pattern that separates an application into three main logical components Model, View, and Controller
+  - **MVVM framework:** facilitating a separation of development of the graphical user interface with the help of mark-up language or GUI code
+  - controller in MVC: the entry point to the Application
+  - View in MVVM: the entry point to the Application
+  - MVC Model component: tested separately from the user
+  - MVVM model: easy for separate unit testing, and code in event-driven
+  - "one to many" relationships
+    - MVC:  b/w Controller & View
+    - MVVM: b/w View & View Model
+
+
 
 
 ## Model-View-Controller (MVC) Pattern
