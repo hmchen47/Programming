@@ -685,18 +685,19 @@
 - [Precedence](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#precedence)
   - most CSS properties are orthogonal to one another
   - organize the CSS properties in rules in ways that make sense to developers
-  
+
+
 - [Guidelines](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#precedence) to resolve conflicting rules
   1. Most specific rule
-    - A more specific rule takes precedence over a less specific rule.
-    - A rule that more tightly matches a particular element than a general rule will be applied.
-    - e.g., `ul li span {color: red;}` > `span {color: blue;}`
+       - A more specific rule takes precedence over a less specific rule.
+       - A rule that more tightly matches a particular element than a general rule will be applied.
+       - e.g., `ul li span {color: red;}` > `span {color: blue;}`
   2. #id selector is the most specific
-    - an id selector (e.g. #someid) considered more specific than rules without
+       - an id selector (e.g. #someid) considered more specific than rules without
   3. .class selector is more specific than a tag selector
-    - a class selector (e.g. .someclass) are considered more specific than rules without except for the id selector
+       - a class selector (e.g. .someclass) are considered more specific than rules without except for the id selector
   4. Rules that come later override those that come earlier
-    - guideline for two CSS rulesets with the same selector
+       - guideline for two CSS rulesets with the same selector
 
 
 - [Rules](https://stackoverflow.com/questions/25105736/what-is-the-order-of-precedence-for-css):
