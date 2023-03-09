@@ -1518,7 +1518,7 @@
 </table>
 
 
-### Values of Overflow Propery
+### Values of Overflow Property
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=70%>
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#cropping-and-scrolling-overflow">Values of Overflow Property</a></caption>
