@@ -280,6 +280,22 @@
     - formating it for display in the view
 
 
+- [Model-View-Presenter pattern](../Notes/web07-ModelComp.md#mvc-mvp-mvvm-which-one-to-choose)
+  - sharing two components with MVC: model and view
+  - replacing the controller with the presenter
+  - allowing user to mock the view more easily
+  - presenter:
+    - used to present something
+    - w/ the functionality of the "middle-man"
+    - all presentation logic pushed to it
+    - workflow
+      - receiving input from the user via the view
+      - processing the user’s actions with the help of the model
+      - passing the results back to the view
+    - communicating with the view through interfaces
+  - view and presenter:
+    - independent of one another
+    - interacting via an interface
 
 
 ## Model-View-ViewModel (MVVM) Pattern
