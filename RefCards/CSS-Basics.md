@@ -1019,9 +1019,9 @@
   - inline elements
     - positioned along the baseline
     - no CSS property directly applied to cause this element to center
-    - using `text-align` to centerize an inline element
+    - using `text-align` to centralize an inline element
   - block level elements
-    - take the width of their parent by defaut
+    - take the width of their parent by default
     - NOT recommended: limiting the width of the element
     - RECOMMENDED: `margin: auto;`: center the element
 
@@ -1031,7 +1031,7 @@
     - aligned relative to the baseline
   - Block level elements
     - no margin:auto approach
-    - flexbox: the best practice to centerize vertically
+    - flexbox: the best practice to centralize vertically
 
 
 ### List of Alignment Properties
