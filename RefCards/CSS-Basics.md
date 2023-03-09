@@ -702,18 +702,18 @@
 
 - [Rules](https://stackoverflow.com/questions/25105736/what-is-the-order-of-precedence-for-css):
 
-  1. __inline > style/css file__: inline css ( html style attribute ) overrides css rules in style tag and css file
-  2. __specific > less-specific__: a more specific selector takes precedence over a less specific one
-  3. __later > earlier__: rules that appear later in the code override earlier rules if both have the same specificity.
-  4. __`!important`__ highest: A css rule with `!important` always takes precedence.
+  1. **inline > style/css file**: inline css ( html style attribute ) overrides css rules in style tag and css file
+  2. **specific > less-specific**: a more specific selector takes precedence over a less specific one
+  3. **later > earlier**: rules that appear later in the code override earlier rules if both have the same specificity.
+  4. **`!important`** highest: A css rule with `!important` always takes precedence.
 
 
 - Four categories which define the [specificity level](https://www.w3schools.com/css/css_specificity.asp) of a selector:
 
-  1. __Inline styles__ - An inline style is attached directly to the element to be styled. Example: `<h1 style="color: #ffffff;">`.
-  2. __IDs__ - An ID is a unique identifier for the page elements, such as `#navbar`.
-  3. __Classes, attributes and pseudo-classes__ - This category includes `.classes`, `[attributes]` and pseudo-classes such as `:hover`, `:focus` etc.
-  4. __Elements__ and __pseudo-elements__ - This category includes element names and pseudo-elements, such as `h1`, `div`, `:before` and `:after`.
+  1. **Inline styles** - An inline style is attached directly to the element to be styled. Example: `<h1 style="color: #ffffff;">`.
+  2. **IDs** - An ID is a unique identifier for the page elements, such as `#navbar`.
+  3. **Classes, attributes and pseudo-classes** - This category includes `.classes`, `[attributes]` and pseudo-classes such as `:hover`, `:focus` etc.
+  4. **Elements** and **pseudo-elements** - This category includes element names and pseudo-elements, such as `h1`, `div`, `:before` and `:after`.
 
 - [selector's specificity calculation](https://www.w3.org/TR/selectors-3/#specificity):
 
@@ -1130,7 +1130,7 @@
       <img src="https://www.w3.org/TR/CSS22/images/boxdim.png" style="margin: 0.1em;" alt="Each box has a content area (e.g., text, an image, etc.) and optional surrounding padding, border, and margin areas; the size of each area is specified by properties defined below. The following diagram shows how these areas relate and the terminology used to refer to pieces of margin, border, and padding. The margin, border, and padding can be broken down into top, right, bottom, and left segments (e.g., in the diagram, 'LM' for left margin, 'RP' for right padding, 'TB' for top border, etc.)." title="The four areas of the generic CSS box: content, padding, border, and margin" width="300">
     </a>
     <a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
-      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f6f6c946356774ddb886956cd94df4c9/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/margin__padding__border.png" style="margin: 0.1em;" alt="Diagram presenting the relationship of margin, padding and border" title="Box Model" width="300">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f6f6c946356774ddb886956cd94df4c9/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/margin**padding**border.png" style="margin: 0.1em;" alt="Diagram presenting the relationship of margin, padding and border" title="Box Model" width="300">
     </a></div>
   </div>
 
@@ -1805,19 +1805,19 @@
     - block-level elements begin on new lines
     - in-line elements can start anywhere in a line
 - [Block Level](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#block-level)
-  - appear __below__ and to the __left__ of their block level neighbors
-  - expand to fill the __width of the parent container__ by default
-  - respect all __margin__ properties
-  - has its __width__ property set
-  - takes on the __height__ of all its children
-  - ignores the __vertical-align__ property
+  - appear **below** and to the **left** of their block level neighbors
+  - expand to fill the **width of the parent container** by default
+  - respect all **margin** properties
+  - has its **width** property set
+  - takes on the **height** of all its children
+  - ignores the **vertical-align** property
 
 - [Inline Elements](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#inline-elements)
-  - appear to the right of their preceding __inline neighbor__
-  - the __width__ of the content of the element, plus any padding, by default
-  - ignore __top and bottom__ margin settings
-  - ignore __width and height__ properties
-  - subject to __vertical-align__ property as well as CSS __white-space__ settings
+  - appear to the right of their preceding **inline neighbor**
+  - the **width** of the content of the element, plus any padding, by default
+  - ignore **top and bottom** margin settings
+  - ignore **width and height** properties
+  - subject to **vertical-align** property as well as CSS **white-space** settings
   - padding, but not padding-top or padding-bottom
   - cleave to the baseline
 
@@ -2100,7 +2100,7 @@
 ### Characteristics of Position Property
 
 - [Types of positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/position#Types_of_positioning)
-  - __positioned element__: an element whose computed position value is either relative, absolute, fixed, or sticky
+  - **positioned element**: an element whose computed position value is either relative, absolute, fixed, or sticky
   - relatively positioned element
     - an element whose computed position value is relative
     - top and bottom properties: the vertical offset from its normal position
@@ -2263,30 +2263,52 @@
     - still following the general guidelines laid down
   - flex items: CSS properties that are applied to the direct children of that parent
 
-- [minimum scenario for using flexbox](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#the-minimum)
-  1. flex container: `display:flex;`
-  2. flex items: `flex:1;`
+
+- Flexbox model
+  - main axis:
+    - running in the direction the flex items are laid out in
+    - example: row across the page or column dow the page
+    - **main start** and **main end**: start and end of the axis
+  - cross axis
+    - running perpendicular to the direction the items are laid out in
+    - **cross start** and **cross end**: the start and end of this axis
+  - flex container: the parent element that has `display: flex` set on It
+  - flex items: the items laid out as flex boxes inside the flex container
+
+  <figure style="display: table; margin: auto; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox')"
+      src    = "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox/flex_terms.png"
+      alt    = "flex items laid out along two axes"
+      title  = "flex items laid out along two axes"
+    />
+  </figure>
+
+
+- [Minimum scenario for using flexbox](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#the-minimum)
+  1. flex container: `display: flex;`
+  2. flex items: `flex: 1;`
   3. flex container (better): `flex-flow: row wrap;`
 
 - [Layout and Axes](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_two_axes_of_flexbox)
-  - __flex container__: set parent element w/ `display: flex`
-  - __flex items__: the items being laid out as flexible boxes inside the flex container
-  - __main axis__:
+  - **flex container**: set parent element w/ `display: flex`
+  - **flex items**: the items being laid out as flexible boxes inside the flex container
+  - **main axis**:
     - the axis running in the direction the flex items are being laid out in
-    - __main start__ and __main end__: the start and end of main axis
-  - __cross axis__:
+    - **main start** and **main end**: the start and end of main axis
+  - **cross axis**:
     - the axis running perpendicular to the direction the flex items are being laid out in
-    - __cross start__ and __cross end__:  start and end of cross axis
+    - **cross start** and **cross end**:  start and end of cross axis
 
 - [Combinations of flex-flow and the Start and End Points](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#start-and-end)
   - Illustration of flexbox axes and start & end points for `flex-flow: row wrap;` setting
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
       <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" ismap target="_blank">
-        <img src="https://developer.mozilla.org/files/3739/flex_terms.png" style="margin: 0.1em;" alt="flexbox axes and points with flex-flow: row wrap;" title="Illustration of flexbox axes and points with flex-flow: row wrap;" width=450>
+        <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/db3f0bde510b59cd0c562a34947e6c89/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/flex-boxes.jpg" style="margin: 0.1em;" alt="flexbox axes and points with flex-flow: row wrap;" title="Illustration of flexbox axes and points with flex-flow: row wrap;" width=350>
       </a>
     </div>
 
-  - `Flex-flow` combinations
+  - `flex-flow` combinations
     - row wrap (above diagram)
     - row wrap-reverse
     - row-reverse wrap
@@ -2307,7 +2329,7 @@
     - refer to the "main start" and "main end" sides with justify-content property
     - refer to the "cross start" and "cross end" sides with flexbox align properties
 
-- [main axis defined by __flex-direction__](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_main_axis)
+- [main axis defined by **flex-direction**](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_main_axis)
   - row: along the row in the inline direction from left to right
   - row-reverse: along the row in the inline direction from right to left
   - column: from the top of the page to the bottom
