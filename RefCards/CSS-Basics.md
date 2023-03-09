@@ -1856,6 +1856,20 @@
     - like fixed except relative to the *nearest positioned ancestor* instead of relative to the viewport
     - no positioned ancestor $\implies$ using document body and still moving along w/ page scrolling
 
+
+- [Position example](../Notes/web09-CSSLayout.md)
+  - stretching to the width of the window
+
+  <figure style="display: table; margin: auto; text-align: center;"">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://learnlayout.com/position-example.html')"
+      src    = "../Notes/img/web09-position_exp.png"
+      alt    = "Snapshot of various positioning example"
+      title  = "Snapshot of various positioning example"
+    />
+  </figure>
+
+
 ### List of Positioned Properties
 
 <table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
