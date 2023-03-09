@@ -1194,6 +1194,15 @@
 </table>
 
 
+- [The `box-sizing` property](../Notes/web09-CSSLayout.md)
+  - original box model behavior considered unintuitive
+  - `box-sizing: border-box;`: the padding and border of the element including in the width and height of aan element
+  - enabling all elements w/ the same box size
+  - new property:
+    - using the `-webkit-` and `-moz-` prefixes for now
+    - checking [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing#browser_compatibility)
+
+
 ### Centralizing Elements
 
 - [Centralizing elements](../Notes/web09-CSSLayout.md)
