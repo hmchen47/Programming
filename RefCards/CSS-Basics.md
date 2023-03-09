@@ -737,35 +737,6 @@
 
 
 
-## CSS Website Layout
-
-### Typical Layout
-
-<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-  <div><a href="https://www.w3schools.com/css/css_website_layout.asp">
-    <img src="../WebDev/Frontend-W3C/4-CSSBasics/img/css-layout.png" style="margin: 0.1em;" alt="There are tons of different layout designs to choose from. However, the structure above, is one of the most common, and we will take a closer look at it in this tutorial." title="A website is often divided into headers, menus, content and a footer" width="500">
-  </a></div>
-</div>
-
-
-- [Float layout example](../Notes/web09-CSSLayout.md)
-  - using `float` property than `position` property
-
-  <figure style="display: table; margin: auto; text-align: center;">
-    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
-      onclick= "window.open('https://learnlayout.com/float-layout.html')"
-      src    = "../Notes/img/web09-floatexp.png"
-      alt    = "The same layout using float property"
-      title  = "The same layout using float property"
-    />
-    <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
-      The same layout using <code>float</code> property, not <code>position</code> property, to make things easier
-    </figcaption>
-  </figure>
-
-
-
-
 ## Font Property
 
 ### List of Font Properties
@@ -1041,6 +1012,43 @@
   </tr>
   </tbody>
 </table>
+
+
+
+
+## CSS Website Layout
+
+### Typical Layout
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.w3schools.com/css/css_website_layout.asp">
+    <img src="../WebDev/Frontend-W3C/4-CSSBasics/img/css-layout.png" style="margin: 0.1em;" alt="There are tons of different layout designs to choose from. However, the structure above, is one of the most common, and we will take a closer look at it in this tutorial." title="A website is often divided into headers, menus, content and a footer" width="500">
+  </a></div>
+</div>
+
+
+- [Float layout example](../Notes/web09-CSSLayout.md)
+  - using `float` property than `position` property
+
+  <figure style="display: table; margin: auto; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://learnlayout.com/float-layout.html')"
+      src    = "../Notes/img/web09-floatexp.png"
+      alt    = "The same layout using float property"
+      title  = "The same layout using float property"
+    />
+    <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+      The same layout using <code>float</code> property, not <code>position</code> property, to make things easier
+    </figcaption>
+  </figure>
+
+
+### Multi-column Pages
+
+- [The `column` property](../Notes/web09-CSSLayout.md)
+  - a new set of property to make multi-column text
+  - very new property $\to$ prefixes required
+  - browser compitability check required
 
 
 
