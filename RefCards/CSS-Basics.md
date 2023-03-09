@@ -1951,6 +1951,57 @@
 </table>
 
 
+### `inline-block` attribute
+
+- [The `inline-block` attribute](../Notes/web09-CSSLayout.md)
+  - using `float` to create a grid of boxes that fills the browser width and wraps nicely
+  - `inline-block` attribute making it easier
+  - similar to `inline` element but w/ width and height
+  - extra work required to support IE6 & IE7
+  - the hard way w/ `float` property (left diagram)
+  - the easy way w/ `inline-block` attribute (right diagram)
+
+  <div style="display: flex; justify-content: center;">
+    <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; height: 250px;"
+        onclick= "window.open('https://learnlayout.com/inline-block.html')"
+        src    = "../Notes/img/web09-inlineblock0.png"
+        alt    = "Grid boxes using float property"
+        title  = "Grid boxes using float property"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        Grid boxes using float property
+      </figcaption>
+    </figure>
+    <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; height: 250px;"
+        onclick= "window.open('https://learnlayout.com/inline-block.html')"
+        src    = "../Notes/img/web09-inlineblock1.png"
+        alt    = "Grid boxes using inline-block attribute"
+        title  = "Grid boxes using inline-block attribute"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        Grid boxes using inline-block attribute
+      </figcaption>
+    </figure>
+  </div>
+
+
+- [`inline-block` layout](../Notes/web09-CSSLayout.md)
+  - effected by the `vertical-align` property, `top` property probably set
+  - required to set the width of each column
+  - a gap b/w the columns if any whitespace b/w them
+
+    <figure style="display: table; margin: auto; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+        onclick= "window.open('https://learnlayout.com/inline-block-layout.html')"
+        src    = "../Notes/img/web09-inlineblock2.png"
+        alt    = "inline-block layout"
+        title  = "inline-block layout"
+      />
+    </figure>
+
+
 ## Positioned Properties
 
 - [The `position` property](../Notes/web09-CSSLayout.md)
