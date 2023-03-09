@@ -102,16 +102,6 @@
     - Model: including all the data and its related logic
     - View: presenting data to the user or handling user interaction
     - Controller: interface b/w Model and View components
-  - architecture
-
-    <figure style="display: table; margin: auto; text-align: center;"">
-      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
-        onclick= "window.open('https://www.guru99.com/mvc-vs-mvvm.html')"
-        src    = "img/web07-MVCTutorial1.png"
-        alt    = "MVC pattern"
-        title  = "MVC pattern"
-      />
-    </figure>
 
 
 - [Model component](../Notes/web07-ModelComp.md#mvc-pattern)
@@ -262,6 +252,53 @@
     - freeing the developer from being obliged to write boiler-plate logic to synchronize the view model and view
     - the presence of a declarative data binding technology enabling the pattern
     - using MVP or MVC w/o binder
+
+
+- [MVVM architecture](../Notes/web07-ModelComp.md#mvvm-pattern)
+  - facilitating a separation of development of the graphical user interface with the help of mark-up language or GUI code
+  - view model: a value converter that means that it is view model’s responsibility for exposing the data objects from the Model in such a way that objects are easily managed and presented
+  - offerring two-way data binding between view and view-model
+  - automating the propagation of modifications inside View-Model to the view
+  - view-model: making use of observer pattern to make changes in the view-model
+
+
+- [Model component](../Notes/web07-ModelComp.md#mvvm-pattern)
+  - storing data and related logic
+  - representing data being transferred between controller components or any other related business logic
+  - example
+    - a Controller object will retrieve the student info from the school database
+    - Model: manipulate data and send it back to the database or use it to render the same data
+
+
+- [View component](../Notes/web07-ModelComp.md#mvvm-pattern)
+  - UI components like HTML, CSS, jQuery, etc. 
+  - held responsible for displaying the data which is received from the Controller as an outcome
+  - also transformed Model(s) into the User Interface (UI)
+
+
+- [View Model component](../Notes/web07-ModelComp.md#mvvm-pattern)
+  - responsible for presenting functions, commands, methods, to support the state of the View
+  - accountable to operate the model and activate the events in the View
+
+
+- [eatures of MVVM](../Notes/web07-ModelComp.md#mvvm-pattern)
+  - written for desktop application with data binding capabilities – XAML and the INotifyPropertyChanged interface
+  - doing modification in the View-Model $\implies$ the View-Model using an observer pattern
+  - mostly used by [WPF](https://www.guru99.com/sap-bods-tutorial.html), Silverlight, nRoute, etc.
+
+
+- Advantages of MVVM
+  - business logic decoupled from UI
+  - easy to maintain and test
+  - easy to reuse components
+  - loosely coupled architecture: making application architecture as loosely coupled
+  - writing unit test cases for both the viewmodel and Model layer w/o the need to reference the View
+
+
+- [Disadvantages of MVVM](../Notes/web07-ModelComp.md#mvvm-pattern)
+  - maintenance of lots of codes in controller
+  - some people think that for simple UIs of MVVM architecture can be overkill
+  - not offering tight coupling between the view and view model
 
 
 
