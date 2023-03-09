@@ -434,6 +434,10 @@
 </table><br/>
 
 
+- [The `max-width` property](../Notes/web09-CSSLayout.md)
+  - improving the browser's handling of small window
+  - making a site usable on mobile
+
 
 ## Selectors
 
