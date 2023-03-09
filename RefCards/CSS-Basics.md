@@ -1089,15 +1089,27 @@
     - border-color (the color of your pen)
   - Negative margin: overlap with another element on the page
 
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.w3.org/TR/CSS22/box.html">
+      <img src="https://www.w3.org/TR/CSS22/images/boxdim.png" style="margin: 0.1em;" alt="Each box has a content area (e.g., text, an image, etc.) and optional surrounding padding, border, and margin areas; the size of each area is specified by properties defined below. The following diagram shows how these areas relate and the terminology used to refer to pieces of margin, border, and padding. The margin, border, and padding can be broken down into top, right, bottom, and left segments (e.g., in the diagram, 'LM' for left margin, 'RP' for right padding, 'TB' for top border, etc.)." title="The four areas of the generic CSS box: content, padding, border, and margin" width="300">
+    </a>
+    <a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f6f6c946356774ddb886956cd94df4c9/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/margin__padding__border.png" style="margin: 0.1em;" alt="Diagram presenting the relationship of margin, padding and border" title="Box Model" width="300">
+    </a></div>
+  </div>
 
-<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-  <div><a href="https://www.w3.org/TR/CSS22/box.html">
-    <img src="https://www.w3.org/TR/CSS22/images/boxdim.png" style="margin: 0.1em;" alt="Each box has a content area (e.g., text, an image, etc.) and optional surrounding padding, border, and margin areas; the size of each area is specified by properties defined below. The following diagram shows how these areas relate and the terminology used to refer to pieces of margin, border, and padding. The margin, border, and padding can be broken down into top, right, bottom, and left segments (e.g., in the diagram, 'LM' for left margin, 'RP' for right padding, 'TB' for top border, etc.)." title="The four areas of the generic CSS box: content, padding, border, and margin" width="300">
-  </a>
-  <a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f6f6c946356774ddb886956cd94df4c9/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/margin__padding__border.png" style="margin: 0.1em;" alt="Diagram presenting the relationship of margin, padding and border" title="Box Model" width="300">
-  </a></div>
-</div>
+
+- [The box model](../Notes/web09-CSSLayout.md)
+  - element's border and padding stretching out the element beyond the specified width
+
+  <figure style="display: table; margin: auto; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+      onclick= "window.open('https://en.wikipedia.org/wiki/CSS_box_model')"
+      src    = "https://upload.wikimedia.org/wikipedia/commons/7/7a/Boxmodell-detail.png"
+      alt    = "The CSS box model"
+      title  = "The CSS box model"
+    />
+  </figure>
 
 
 - [MDN Box Model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
@@ -1126,7 +1138,7 @@
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model" ismap target="_blank">
-    <img src="https://mdn.mozillademos.org/files/8685/boxmodel-(3).png" style="margin: 0.1em;" alt="MDN Box Model" title="MDN Box Model" width=350>
+    <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model/boxmodel.png" style="margin: 0.1em;" alt="MDN Box Model" title="MDN Box Model" width=350>
   </a>
 </div>
 
