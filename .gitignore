@@ -64,6 +64,7 @@ Thumbs.db
 .ipynb_checkpoints/
 .vscode/
 __pycache__/
+.makepp/
 
 
 # system test files in folder       #
