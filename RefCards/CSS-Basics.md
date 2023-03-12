@@ -1576,11 +1576,72 @@
 </div>
 
 
+
+### Clear Float Properties
+
+- [The `clear` property](../Notes/web09-CSSLayout.md)
+  - important for controlling the behavior of floats
+
+  <div style="display: flex; justify-content: center;">
+    <figure style="display: table; float: left; margin-right: 0.25em; align-items: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 400px;"
+        onclick= "window.open('https://en.wikipedia.org/wiki/CSS_box_model')"
+        src    = "../Notes/img/web09-clear0.png"
+        alt    = "Snapshot of float example w/o clear property"
+        title  = "Snapshot of float example w/o clear property"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        float example w/o clear property
+      </figcaption>
+    </figure>
+    <figure style="display: table; float: right; margin-left: 0.25em; align-items: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 400px;"
+        onclick= "window.open('https://learnlayout.com/box-model.html')"
+        src    = "../Notes/img/web09-clear1.png"
+        alt    = "Snapshot of float example w/ clear property"
+        title  = "Snapshot of float example w/ clear property"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        float example w/ clear property
+      </figcaption>
+    </figure>
+  </div>
+
+
+- [The `clearfix` hack](../Notes/web09-CSSLayout.md)
+  - weird, bad thing happened w/ `float`
+  - way to fixed: `clearfix`
+
+  <div style="display: flex; justify-content: center;">
+    <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; height: 150px;"
+        onclick= "window.open('https://learnlayout.com/clearfix.html')"
+        src    = "../Notes/img/web09-clearfix0.png"
+        alt    = "Simple float produces weird, bad layout"
+        title  = "Simple float produces weird, bad layout"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        Simple float produces weird, bad layout
+      </figcaption>
+    </figure>
+    <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; height: 150px;"
+        onclick= "window.open('https://learnlayout.com/clearfix.html')"
+        src    = "../Notes/img/web09-clearfix1.png"
+        alt    = "Eliminate weird layout w/ clearfix"
+        title  = "Eliminate weird layout w/ clearfix"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        Eliminate weird layout w/ clearfix
+      </figcaption>
+    </figure>
+  </div>
+
 ## Table Properties
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://www.tallcomponents.com/tallpdf/help/guide/tables?build=net40">
-    <img src="https://www.tallcomponents.com/tallpdf5/content/guide/tallpdf/media/table-border-padding-and-margin.png" style="margin: 0.1em;" alt="The extra space outside a border is set by a left, right, top and bottom margin. The extra space inside a border is set by a left, right, top and bottom padding. These attributes are part of the table, row or cell. The following figure makes this clear." title="Padding, Margins and Border Width" width="400">
+    <img src="../WebDev/Frontend-W3C/4-CSSBasics/img/table-border-padding-and-margin.png" style="margin: 0.1em;" alt="The extra space outside a border is set by a left, right, top and bottom margin. The extra space inside a border is set by a left, right, top and bottom padding. These attributes are part of the table, row or cell. The following figure makes this clear." title="Padding, Margins and Border Width" width="400">
   </a></div>
   <div><a href="http://learningspot.altervista.org/html-table-tag-attributes/">
     <img src="http://learningspot.altervista.org/wp-content/uploads/2017/07/HTML_cellpadding_cellspacing.png" style="margin: 0.1em;" alt="The size indicated in cellpadding and cellspacing, once set, affects all sides of the cell." title="Table cell padding and spacing" width="345">
