@@ -165,6 +165,38 @@ Date: 2020-04-14
     ```
 
 
+- The `dest` property
+  - modified property name
+  - code snippet
+
+    ```python
+    import argparse
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("--address", help="URL to be checked", required=True)
+    parser.add_argument(
+        "--jsonauth",
+        default="/home/sqlpac/google-auth.json",
+        dest="jfile",
+        help="JSON Google Authentication file path",
+    )
+    parser.add_argument("--verbosity", help="Verbosity", action="store_false")
+
+    args = parser.parse_args()
+    print(args)
+    print(args.jfile)
+    ```
+
+  - result: 
+
+    ```sh
+    $ ./googleindex06.py --address test.html --jsonauth google.json
+    Namespace(address='test.html', jfile='google.json', verbosity=True)
+    google.json
+    ```
+
+
 
 
 
