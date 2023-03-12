@@ -345,7 +345,7 @@ Date: Revision 1.2.2 (2021-10-01)
     ```
 
 
-- Full length example
+- Full length example - invoice
 
   ```yaml
   # Invoice
@@ -378,9 +378,12 @@ Date: Revision 1.2.2 (2021-10-01)
     Late afternoon is best.
     Backup contact is Nancy
     Billsmer @ 338-4338.
+  ```
 
 
-  # Log File
+- Full length example - log file
+
+  ```yaml
   ---
   Time: 2001-11-23 15:01:42 -5
   User: ed
