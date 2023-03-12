@@ -435,9 +435,9 @@ Date: 2020-04-14
 
 ## Conclusion
 
-
-
-
+- Summary
+  - `argparse` package more powerful w/ less code
+  - depending on the preferences, the project's complexity, ...
 
 
 
