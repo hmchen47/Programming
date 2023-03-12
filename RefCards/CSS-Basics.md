@@ -434,11 +434,6 @@
 </table><br/>
 
 
-- [The `max-width` property](../Notes/web09-CSSLayout.md)
-  - improving the browser's handling of small window
-  - making a site usable on mobile
-
-
 ## Selectors
 
 ### Definition of Selectors
@@ -1434,6 +1429,39 @@
   </tbody>
 </table>
 
+
+- [The `max-width` property](../Notes/web09-CSSLayout.md)
+  - improving the browser's handling of small window
+  - making a site usable on mobile
+
+
+- [The percent width](../Notes/web09-CSSLayout.md)
+  - percent: measurement unit relative to the containing block
+
+    <div style="display: flex; justify-content: center;">
+      <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; height: 150px;"
+          onclick= "window.open('https://learnlayout.com/percent.html')"
+          src    = "../Notes/img/web09-percent1.png"
+          alt    = "Limiting image width w/ percentage of the container"
+          title  = "Limiting image width w/ percentage of the container"
+        />
+        <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+          Limiting image width w/ percentage of the container 
+        </figcaption>
+      </figure>
+      <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; height: 150px;"
+          onclick= "window.open('https://learnlayout.com/percent.html')"
+          src    = "../Notes/img/web09-percent2.png"
+          alt    = "Flexible nav bar width w/ percent width of the page layout"
+          title  = "Flexible nav bar width w/ percent width of the page layout"
+        />
+        <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+          Flexible nav bar width w/ percent width of the page layout
+        </figcaption>
+      </figure>
+    </div>
 
 
 ### Characteristics of Overflow
