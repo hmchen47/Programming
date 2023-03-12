@@ -83,14 +83,35 @@ Date: 2020-04-14
   - 
 
     ```python
-    # arguments/googleindex3.py
+    # arguments/googleindex03.py
     import argparse
     parse = argparse.ArgumentParser()
     print(parser.prog)
     ```
 
 
-    
+- Adding arguments
+  - method: `add_argument`
+    - `required=true`: mandatory argument
+    - `action="store_true | store_false"`:
+      - a boolean constant value
+      - not present: `False`
+      - present: `True`
+  - code snippet
+
+    ```python
+    # arguments/googleindex04.py
+    import argparse
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("--address", help="URL to be checked", required=True)
+    parser.add_argument("--jsonauth", help="JSON Google Authentication file path")
+    parser.add_argument("--verbosity", help="Verbosity", action="store_false")
+    ```
+
+
+
 
 
 ## The `getopt` Package
