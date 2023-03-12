@@ -34,6 +34,9 @@ def replace_tbl_tags(soup: BeautifulSoup) -> BeautifulSoup:
                 if tag == "br":
                     cell_tag.insert_after("$\\\\$")
                     cell_tag.unwrap()
+                elif tag == "sup":
+                    cell_tag.insert_after(f"$^{cell_tag.string}$")
+                    cell_tag.decompose()
         print(f"\n************************************\n\n{tbl_soup}\n")
 
     return soup.prettify()
