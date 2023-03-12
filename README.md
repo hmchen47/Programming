@@ -870,7 +870,7 @@ This repository tracks my learning on different programming languages.
 
 ## Reading Notes
 
-+ [Reading Notes Indexing](Notes/ReadingIdx.md)
++ [Reading Notes Indexing](Notes/README.md)
 
 + [Reading List](Notes/ReadingList.md)
 
