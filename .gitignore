@@ -71,15 +71,9 @@ __pycache__/
 upload/
 
 
-<<<<<<< HEAD
 # personal/project file/dirs #
 ##############################
 tmp/
 .makepp/
-=======
-# specific changing files #
-###########################
-/home/hmchen/Projects/Programming/Python/Misc/html2md/working/reading.md
->>>>>>> e39c2c73 (chore: add git ignore file for reading.md)
 
 
