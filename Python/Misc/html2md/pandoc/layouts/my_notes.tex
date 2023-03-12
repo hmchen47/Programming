@@ -1,0 +1,394 @@
+% AUTHOR:
+% Severin Kaderli <severin.kaderli@gmail.com>
+%
+% DESCRIPTION:
+% Pandoc LaTeX template for general use in documents.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document class
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,oneside,twocolumn]{scrartcl}
+
+\pagestyle{fancy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[dvipsnames,svgnames*,table]{xcolor}
+\usepackage{forest}
+
+\usepackage{algorithm2e}
+\usepackage{csquotes}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{ifluatex}
+\usepackage{ifxetex}
+\usepackage{mdframed}
+\usepackage{setspace}
+\usepackage{titling}
+\usepackage{tikz}
+\usepackage[european,RPvoltages]{circuitikz}
+\usepackage{environ}
+\usepackage{amsmath,amssymb}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+${ _typography() }
+
+\newenvironment{CSLReferences}[2]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Geometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[
+    margin=0.5in,
+    includehead=true,
+    includefoot=true,
+    centering,
+    driver=xetex,
+    letterpaper,
+    $for(geometry)$
+        $geometry$,
+    $endfor$
+]{geometry} 
+
+% Fix for this issue: https://github.com/jgm/pandoc/issues/5841
+\renewcommand{\linethickness}{0.4pt}
+
+${ _color() }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Linespacing
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{setspace}
+%
+\singlespacing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Multicolumns
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{multicol}
+\newcommand{\colbegin[1]}{\begin{multicols}{#1}}
+\newcommand{\colend}{\end{multicols}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section settings - Headings w/ color
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Put sections on a new page
+% \let\oldsection\section
+% \renewcommand\section{\clearpage\oldsection}
+\usepackage[explicit]{titlesec}
+
+\titleformat{\section}{\normalfont\Large\bfseries\color{Emerald}}{}{}{#1}
+\titleformat{\subsection}{\normalfont\large\bfseries\color{Emerald}}{}{}{#1}
+\titleformat{\subsubsection}{\normalfont\large\bfseries\color{Emerald}}{}{}{#1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Paragraph settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{0ex}%
+    {-3.25ex plus -1ex minus -0.2ex}%
+    {1.5ex plus 0.2ex}%
+    {\normalfont\normalsize\bfseries}}
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Link settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PDF settings
+\PassOptionsToPackage{unicode=true}{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=default-urlcolor,
+    linkcolor=default-linkcolor,
+    filecolor=default-filecolor,
+    citecolor=default-citecolor
+}
+
+% Use same font for URLs
+\urlstyle{same}  
+
+% Forcing linebreaks in URLs 
+\PassOptionsToPackage{hyphens}{url}
+
+% Make links footnotes instead of hotlinks:
+$if(links-as-notes)$
+    \DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
+$endif$
+
+
+${ _code() }
+${ _list() }
+${ partials/table() } 
+${ _image() }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$if(strikeout)$
+    \usepackage[normalem]{ulem}
+    \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+$endif$
+
+\providecommand{\tightlist}{
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+}
+
+$if(pagestyle)$
+    \pagestyle{$pagestyle$}
+$endif$
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section numbering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$if(numbersections)$
+    \setcounter{secnumdepth}{3}
+$else$
+    \setcounter{secnumdepth}{0}
+$endif$
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header and footer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$if(disable-header-and-footer)$
+$else$
+\usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \fancyhead{}
+    \fancyfoot{}
+    \lhead[
+        $if(header-right)$
+            $header-right$
+        $else$
+            $date$
+        $endif$
+    ]{
+        $if(header-left)$
+            $header-left$
+        $else$
+            $title$
+            $if(subtitle)$
+                \linebreak
+                $subtitle$
+            $endif$
+        $endif$
+    }
+
+    \chead[
+        $if(header-center)$
+            $header-center$
+        $endif$
+    ]{
+        $if(header-center)$
+            $header-center$
+        $endif$
+    }
+    
+    \rhead[
+        $if(header-left)$
+            $header-left$
+        $else$
+            $title$
+        $endif$
+    ]{
+        $if(header-right)$
+            $header-right$
+        $else$
+            $date$
+        $endif$
+    }
+
+    \lfoot[
+        $if(footer-right)$
+            $footer-right$
+        $else$
+            \thepage
+        $endif$
+    ]{
+        $if(footer-left)$
+            $footer-left$
+        $else$
+            $for(author)$
+                $author$$sep$,
+            $endfor$
+        $endif$
+    }
+    \cfoot[
+        $if(footer-center)$
+            $footer-center$
+        $endif$
+    ]{
+        $if(footer-center)$
+            $footer-center$
+        $endif$
+    }
+    \rfoot[
+        $if(footer-left)$
+            $footer-left$
+        $else$
+            $for(author)$
+                $author$$sep$,
+            $endfor$
+        $endif$
+    ]{
+        $if(footer-right)$
+            $footer-right$
+        $else$
+            \thepage
+        $endif$
+    }
+    
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+    \setlength{\headheight}{28pt}
+$endif$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Notes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tcolorbox}
+\newenvironment{note}[1]
+{
+    \begin{tcolorbox}[frame empty,boxrule=0pt,colbacktitle=note-title-background,colback=note-background,left=2mm,arc=0.75mm,title=\textbf{#1}]
+}
+{
+    \end{tcolorbox}
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lists
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\usepackage{enumitem}
+\setlistdepth{9}
+
+\setlist[itemize,1]{topsep=3px,itemsep=-1ex,listparindent=1ex,label=\bullet}
+\setlist[itemize,2]{topsep=3px,itemsep=-1ex,listparindent=1ex,label=-}
+\setlist[itemize,3]{topsep=3px,itemsep=-1ex,listparindent=1ex,label=\circ}
+\setlist[itemize,4]{topsep=3px,itemsep=-1ex,listparindent=1ex,label=\triangleright}
+\setlist[itemize,5]{topsep=3px,itemsep=-1ex,listparindent=1ex,label=\diamond}
+\setlist[itemize,6]{topsep=3px,itemsep=-1ex,listparindent=1ex,label=\bullet}
+\setlist[itemize,7]{topsep=3px,itemsep=-1ex,listparindent=1ex,label=-}
+\setlist[itemize,8]{topsep=3px,itemsep=-1ex,listparindent=1ex,label=\circ}
+\setlist[itemize,9]{topsep=3px,itemsep=-1ex,listparindent=1ex,label=\triangleright}
+\renewlist{itemize}{9}
+
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label=\arabic*.}
+\setlist[enumerate,3]{label=\arabic*.}
+\setlist[enumerate,4]{label=\alph*.}
+\setlist[enumerate,5]{label=\roman*.}
+\setlist[enumerate,6]{label=\arabic*.}
+\setlist[enumerate,7]{label=\alpha*}
+\setlist[enumerate,8]{label=\roman*.}
+\setlist[enumerate,9]{label=\arabic*.}
+\renewlist{enumerate}{enumerate}{9}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Captions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[
+    font={stretch=1.2},
+    position=top,
+    skip=4mm,
+    belowskip=4mm,
+    labelfont=bf,
+    singlelinecheck=false,
+    $if(caption-justification)$
+        justification=$caption-justification$
+    $else$
+        justification=raggedright
+    $endif$
+]{caption}
+%\setcapindent{0em}
+\captionsetup[longtable]{position=above}
+
+
+${ _math() }
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Language
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$if(lang)$
+    \usepackage[
+        shorthands=off,
+        $for(babel-otherlangs)$
+            $babel-otherlangs$,
+        $endfor$
+        main=$babel-lang$
+    ]{babel}
+$else$
+    $if(mainfont)$
+    $else$
+        % See issue https://github.com/reutenauer/polyglossia/issues/127
+        \renewcommand*\familydefault{\sfdefault}
+    $endif$
+    \usepackage[english]{babel}
+$endif$
+
+$if(dir)$
+    \usepackage{bidi}
+$endif$
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Meta variables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{$title$}
+\author{
+    $for(author)$
+        $author$,
+    $endfor$
+}
+\date{$date$}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header includes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$for(header-includes)$
+    $header-includes$
+$endfor$
+
+${ partials/hide_from_pandoc() } 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Font settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fontspec}
+
+\setmainfont{Calibri}
+\setromanfont{Calibri}
+\setsansfont{Calibri}
+\setmonofont{Source Code Pro}
+
+% \usepackage{lmodern}
+% \renewcommand{\familydefault}{\sfdefault}
+
+$if(linestretch)$
+    \setstretch{$linestretch$}
+$else$
+    \setstretch{1.2}
+$endif$
+
+
+% \begin{document}
+
+% ${ body }
+
+% \end{document}
+
