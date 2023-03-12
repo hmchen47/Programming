@@ -381,13 +381,13 @@
   - accountable to operate the model and activate the events in the View
 
 
-- [eatures of MVVM](../Notes/web07-ModelComp.md#mvvm-pattern)
+- [Features of MVVM](../Notes/web07-ModelComp.md#mvvm-pattern)
   - written for desktop application with data binding capabilities – XAML and the INotifyPropertyChanged interface
   - doing modification in the View-Model $\implies$ the View-Model using an observer pattern
   - mostly used by [WPF](https://www.guru99.com/sap-bods-tutorial.html), Silverlight, nRoute, etc.
 
 
-- Advantages of MVVM
+- [Advantages of MVVM](../Notes/web07-ModelComp.md#mvvm-pattern)
   - business logic decoupled from UI
   - easy to maintain and test
   - easy to reuse components
@@ -401,6 +401,13 @@
   - not offering tight coupling between the view and view model
 
 
+- [Model-View-ViewModel pattern](../Notes/web07-ModelComp.md#mvc-mvp-mvvm-which-one-to-choose)
+  - the modern evolution of MVC
+  - main goal: providing a clear separation between the domain logic and presentation layer
+  - Supporting two-way data binding between the view and viewmodel
+  - allowing to separate Code’s view and model
+  - model changes $\iff$ view remaining the same
+  - viewmodel: doing unit testing and testing logic behavior without involving the view
 
 
 
