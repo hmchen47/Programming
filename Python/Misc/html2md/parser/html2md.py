@@ -82,45 +82,46 @@ def get_md_files() -> (str, str):
         input_files.append(os.path.join(os.path.join(base_dir, args.dir), fname))
 
     if args.output != os.path.join(DEFAULTDIR, DEFAULTOUT):
-        return (
-            os.path.join(os.path.join(os.path.join(base_dir, DEFAULTDIR), args.output)),
-            input_files,
+        output_md = os.path.join(
+            os.path.join(os.path.join(base_dir, DEFAULTDIR), args.output)
         )
     else:
-        return (
-            os.path.join(os.path.join(base_dir, os.path.join(DEFAULTDIR, DEFAULTOUT))),
-            input_files,
+        output_md = os.path.join(
+            os.path.join(base_dir, os.path.join(DEFAULTDIR, DEFAULTOUT))
         )
 
-
-def write_outfile(outfile: str, md_output: str):
-    """write mardown output to file
-
-    Args:
-        outfile (str): output filename
-        md_output (str): contents to write to output file
-    """
+    # remove output markdown file if exist
     try:
-        os.chmod(outfile, stat.S_IWUSR)
-        os.remove(outfile)
+        os.chmod(output_md, stat.S_IWUSR)
+        os.remove(output_md)
     except OSError as err:
         if err.errno != errno.ENOENT:  # no such file or directory
             raise  # re-raise exception if a different error occurred
 
-    with open(outfile, "a+", encoding="utf-8") as df_out:
+    return (output_md, input_files)
+
+
+def write_outfile(output_md_file: str, md_output: str):
+    """write mardown output to file
+
+    Args:
+        output_md_file (str): output filename
+        md_output (str): contents to write to output file
+    """
+    with open(output_md_file, "a+", encoding="utf-8") as df_out:
         df_out.write(md_output)
 
     time.sleep(0.5)
-    os.chmod(outfile, stat.S_IWUSR)
+    os.chmod(output_md_file, stat.S_IWUSR)
 
     return None
 
 
-def parse_tags(outfile: list, md_files: list) -> str:
+def parse_tags(output_md_file: list, md_files: list) -> str:
     """parsing embedded html tags to relative markdown syntax
 
     Args:
-        outfile (lst): output filename
+        output_md_file (lst): output filename
         md_files (lst): [md_file1, md_file2, ...]
 
     Returns:
@@ -133,9 +134,9 @@ def parse_tags(outfile: list, md_files: list) -> str:
             md_output = replace_tbl_tags(soup)
 
             print(f"Complete parsing tags in {md_file}!!\n")
-            write_outfile(outfile, md_output)
+            write_outfile(output_md_file, md_output)
 
-    return outfile
+    return output_md_file
 
 
 if __name__ == "__main__":
