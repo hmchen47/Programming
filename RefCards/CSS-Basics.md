@@ -2653,3 +2653,30 @@
 </table>
 
 
+## Responsive Design
+
+- [Media queries](..Notes/web09-CSSLayout.md)
+  - **responsive design:**
+    - the strategy of make a site that 'responds' to the browser and device
+    - being shown on the browser and device by looking awesome no matter of what
+  - the most powerful tool for responsive design
+  - using percent width and displaying in one column when the browser too small to fit in the sidebar
+  - references
+    - [media queries examples](https://mediaqueri.es/)
+    - [MDN web doc - Using media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)
+    - [An Introduction to Meta Viewport and @viewport](https://dev.opera.com/articles/an-introduction-to-meta-viewport-and-viewport/)
+
+    <figure style="display: table; margin: auto; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+        onclick= "window.open('https://learnlayout.com/media-queries.html')"
+        src    = "../Notes/img/web09-mediaquery.png"
+        alt    = "One column layout instead of two columns when the window narrower than the nav bar size"
+        title  = "One column layout instead of two columns when the window narrower than the nav bar size"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        One column layout instead of two columns when the window narrower than the nav bar size
+      </figcaption>
+    </figure>
+
+
+
