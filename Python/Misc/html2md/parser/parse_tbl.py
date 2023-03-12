@@ -55,6 +55,7 @@ def replace_tbl_tags(soup: BeautifulSoup) -> BeautifulSoup:
                     cell_tag.decompose()
                 else:
                     print(f"Not processed tag {cell_tag}, add case to handle it!")
+                    exit()
         print(f"\n************************************\n\n{tbl_soup}\n")
 
     return soup.prettify()
