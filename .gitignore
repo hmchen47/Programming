@@ -71,9 +71,11 @@ __pycache__/
 upload/
 
 
+<<<<<<< HEAD
 # personal/project file/dirs #
 ##############################
 tmp/
 .makepp/
+working/
 
 
