@@ -5,6 +5,7 @@ import errno
 import os
 import stat
 import sys
+import time
 
 from bs4 import BeautifulSoup
 
@@ -100,6 +101,7 @@ def write_outfile(outfile: str, md_output: str):
         md_output (str): contents to write to output file
     """
     try:
+        os.chmod(outfile, stat.S_IWUSR)
         os.remove(outfile)
     except OSError as e:
         if e.errno != errno.ENOENT:  # no such file or directory
@@ -107,6 +109,9 @@ def write_outfile(outfile: str, md_output: str):
 
     with open(outfile, "a", encoding="utf-8") as df_out:
         df_out.write(md_output)
+
+    time.sleep(0.5)
+    os.chmod(outfile, stat.S_IWUSR)
 
     return None
 
