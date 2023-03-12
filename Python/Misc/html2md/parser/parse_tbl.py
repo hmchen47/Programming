@@ -46,6 +46,9 @@ def replace_tbl_tags(soup: BeautifulSoup) -> BeautifulSoup:
                 elif tag == "i" or tag == "em":
                     cell_tag.insert_after(f"*{cell_tag.string}*")
                     cell_tag.decompose()
+                elif tag == "b" or tag == "strong":
+                    cell_tag.insert_after(f"**{cell_tag.string}**")
+                    cell_tag.decompose()
                 else:
                     print(f"Not processed tag {cell_tag}, add case to handle it!")
         print(f"\n************************************\n\n{tbl_soup}\n")
