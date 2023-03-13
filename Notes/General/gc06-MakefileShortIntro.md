@@ -21,3 +21,33 @@ Date: 2012-02-15
     - containing: **dependency rules**, **macros**, and **suffix** (or **implicit**) **rules**
 
 
+- Example: command line compile
+  - demo files
+    - [`functions.h`](src/gc06/functions.h)
+    - [`main.cpp`](src/gc06/main.cpp)
+    - [`print_hello.cpp`](src/gc06/hello.cpp)
+    - [`factorial.cpp`](src/gc06/factorial.cpp)
+  - command line approach to compile
+
+    ```sh
+    $ g++ -c hello.cpp main.cpp factorial.cpp
+    $ ls *.o
+    factorial.o*  hello.o*  main.o*
+    $ g++ -o prog factorial.0 hello.o main.o
+    /usr/bin/ld: cannot find factorial.0: No such file or directory
+    collect2: error: ld returned 1 exit status
+    $ g++ -o prog factorial.o hello.o main.o
+    $ ./prog
+    Hello World!
+    The factorial of 5 is 120
+    ```
+
+  - modifying `hello.cpp` $\to$ recompiling and link again
+
+    ```sh
+    $ g++ -c hello.cpp main.cpp factorial.cpp
+    $ g++ -o prog factorial.0 hello.o main.o
+    ```
+
+
+
