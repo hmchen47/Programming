@@ -2,7 +2,7 @@
 CC = g++
 # CFLAGS will be the option passed to the compiler.
 CFLAGS = -c -Wall
-OBJECTS = main.o hello.o factial.o
+OBJECTS = main.o hello.o factorial.o
 
 all: prog
 
