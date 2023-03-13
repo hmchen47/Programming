@@ -50,7 +50,7 @@ Date: 2012-02-15
     ```
 
 
-- Example: [Makefile](src/gc06/Makefile)
+- Example: [Makefile](src/gc06/Makefile.1)
 
   ```makefile
   # This is a comment line
@@ -172,6 +172,29 @@ Date: 2012-02-15
   - other targets checked only if they are dependencies for the 1st target
   - the order of the target no matter except for the 1st target
   - `make` utility building them in the order required
+
+
+- Final example: Makefile w/ special macros
+  - [Reference](https://www.gnu.org/software/make/manual/html_node/)
+
+  ```makefile
+  # This is a comment line
+  CC = g++
+  # CFLAGS will be the option passed to the compiler.
+  CFLAGS = -c -Wall
+  OBJECTS = main.o hello.o factial.o
+
+  all: prog
+
+  prog: $(OBJECTS)
+    $(CC) $(OBJECTS) -o prog
+
+  %.o: %.cpp
+    $(CC) $(CFLAGS) $<
+
+  clean:
+    rm -f *.o
+  ```
 
 
 
