@@ -34,7 +34,28 @@ Date: 2023-03
 
 ## Writing a Makefile
 
+- Creating a `makefile`
+  - typical structure
+    - starting w/ some variable definitions
+    - then a set of target entries for building a specific targets
+    - followed by executing a set of commands associated w/ a target label
+  - generic target entry form
 
+    ```makefile
+    # comment
+    # (note: the <tab> in the command line is necessary for make to work)
+    target: dependency1 dependency2 ...
+        <tab> command
+    ```
+
+  - example: `Makefile`
+
+    ```makefile
+    #
+    # target entry to build program executable from program and mylib object files
+    program: program.o mylib.o
+        gcc -o program program.o mylib.o
+    ```
 
 
 ## Example simple C (or C++) makefile
