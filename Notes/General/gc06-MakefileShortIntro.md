@@ -112,6 +112,29 @@ Date: 2012-02-15
     - checking for them and recreating them if necessary
 
 
+- Marcos
+  - preventing from repeating text entries
+  - easier to modify ``Makefile`
+  - format: `NAME = text string`
+  - example: `CC = g++`
+  - referred to by placing the name in wither parentheses `()` or curly braces `{}` and preceding w/ `$` sign
+  - example: `$(CC) main.o factorial.o hello.o -o prog`
+  - internal macros
+    - predefined in `make`
+    - `make -p`: displaying a list of all macros, suffix rules amd targets
+  - special macros
+    - macro `@`: evaluating the name of the current target
+    - example
+
+      ```makefile
+      prog1: $(objs)
+        $(CXX) -o $@ $(objs)
+
+      # equivalent to
+      prog1: $(objs)
+        $(CXX) -o prog $(objs)
+      ```
+
 
 
 
