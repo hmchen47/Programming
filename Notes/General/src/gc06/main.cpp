@@ -1,6 +1,6 @@
 /* main.cpp */
 #include <iostream>
-#include "funnctions.h"
+#include "functions.h"
 
 using namespace std;
 int main()
