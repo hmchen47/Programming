@@ -140,6 +140,30 @@ Date: 2012-02-15
     - example: `make DEBUG_FLAG=-g`
 
 
+- Suffix rules
+  - a way to define rules or implicit rules
+  - `make` used to build a program
+  - obsolete and supported for compatibility
+  - using pattern rules (a rule containing character `%`) if possible
+  - types: double-suffix and single-suffix
+  - **double-suffix**
+    - defined by the source suffix and target suffix
+    - example
+      - telling `make` that `.o` files are made from `.cpp` files
+      - `$<`: special marco that stands for a `.cpp` files used to produce a `.o` file
+
+      ```makefile
+      .cpp.o:
+        $(CC) $(CFLAG) -c $<
+      ```
+
+  - equivalent to pattern rule `%.o: %.cpp`
+
+    ```makefile
+    %.o: %.cpp
+      $(CC) $(CFLAGS) -c $<
+    ```
+
 
 
 
