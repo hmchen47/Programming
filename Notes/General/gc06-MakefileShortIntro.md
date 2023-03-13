@@ -77,5 +77,28 @@ Date: 2012-02-15
   ```
 
 
+- Basic Makefile structure
+  - **dependency rules**: consisting of 3 parts
+    - one or more targets
+    - zero or more dependencies
+    - zero or more command
+  - format
+
+    ```text
+    target: dependencies
+    <tab>commands to make target
+    ```
+
+    - `<tab>`: character MUST NOT be replaced by spaces
+    - `target`:
+      - usually the name of a file, e.g., executable or object files
+      - name of an action, e.g., `clean`
+    - `dependencies`: files used as input to create the `target`
+    - `command`: interpreted by a shell to be executed
+  - phone targets
+    - not really the name of a file
+    - a list of commands and no dependencies
+
+
 
 
