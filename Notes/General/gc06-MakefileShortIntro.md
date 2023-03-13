@@ -165,5 +165,13 @@ Date: 2012-02-15
     ```
 
 
+- How does `make` work?
+  - comparing the modification time of the target file w/ the modification times of the dependencies files
+  - recreated when any dependency file w/ a more recent modification time than its target file
+  - the 1st target file built by default
+  - other targets checked only if they are dependencies for the 1st target
+  - the order of the target no matter except for the 1st target
+  - `make` utility building them in the order required
+
 
 
