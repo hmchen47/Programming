@@ -135,6 +135,11 @@ Date: 2012-02-15
         $(CXX) -o prog $(objs)
       ```
 
+  - command line macro
+    - defined on the command line
+    - example: `make DEBUG_FLAG=-g`
+
+
 
 
 
