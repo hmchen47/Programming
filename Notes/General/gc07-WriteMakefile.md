@@ -24,6 +24,14 @@ Date: 2023-03
     - Andy Danner, [Cmake doc](https://www.cs.swarthmore.edu/~adanner/tips/cmake.php)
 
 
+- How to use `make`?
+  - create `Makefile` listing the rules for building the executable
+  - filename: `Makefile` or `makefile`
+  - rebuilding the executable by typing `make`
+  - a specific target in the Makefile can be executed by typing `make target_label`
+  - example: to execute the rm command in the example makefile below, type `make clean`
+
+
 ## Writing a Makefile
 
 
