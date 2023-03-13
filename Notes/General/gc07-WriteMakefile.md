@@ -73,6 +73,32 @@ Date: 2023-03
   ```
 
 
+- Example: a slightly more generic simple makefile
+
+  ```makefile
+  # the compiler: gcc for C program, define as g++ for C++
+  CC = g++
+
+  # compiler flags:
+  #   -g    add debugging info to the executable file
+  #   -Wall turns on most, but not all, compiler earnings
+  CFLACKS = -g -Wall
+
+  # the build target executable
+  TARGET = myprog
+
+  all: $(TARGET)
+
+  $(TARGET): $(TARGET).c 
+    $(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c 
+
+  clean:
+    $(RM) $(TARGET)
+  ```
+
+
+
+
 ## Example more advanced C Makefile
 
 
