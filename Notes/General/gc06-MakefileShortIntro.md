@@ -100,5 +100,18 @@ Date: 2012-02-15
     - a list of commands and no dependencies
 
 
+- Make utility
+  - using `/bin/shell` by default
+  - procedure to execute `make target`
+    - ensure all the dependencies up to date
+    - target older than any dependency $\implies$ recreate it using the specified commands
+  - typing `make`: create first target in `Makefile` by default
+  - example: the above `Makefile`
+    - `prog` depending on `main.o factorial.o hello.o`
+    - ensuring all object files existing and up-to-date
+    - checking for them and recreating them if necessary
+
+
+
 
 
