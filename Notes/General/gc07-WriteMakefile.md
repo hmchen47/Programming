@@ -60,7 +60,17 @@ Date: 2023-03
 
 ## Example simple C (or C++) makefile
 
+- Example: simple Makefile for a C (or C++)
+  - most simple `Makefile` for compiling a single `.c` file
 
+  ```makefile
+  # build an executable named myprog from myprog.C
+  all: myprog.c
+    gcc -g -Wall -o myprog prog.C
+
+  clean:
+    $(RM) myprog
+  ```
 
 
 ## Example more advanced C Makefile
