@@ -61,5 +61,8 @@ Date: 2020-05-23
     - `make -I$HOME -B index.htm` 
 
 
-
+- Using `-`, `+`, `@` before shell commands
+  - `@`: not echoing command before it is executed
+  - `-`: ignoring any nonzero exit status of the command listen
+  - `+`: executing a command line, even through the options `-n`, `-q`, or `-t` specified
 
