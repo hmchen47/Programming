@@ -155,7 +155,25 @@ Date: 2018-08-22
     - assigned w/ `:=` operator
     - example: `CC := gcc`
 
-``
+
+- Reference variables
+  - both `${CC}` and `$(CC)` valid reference to call `gcc`
+  - verifying by reassigning a variable
+
+    ```makefile
+    CC = gcc
+    CC = ${CC}
+
+    all:
+      @echo ${CC}
+    ```
+
+  - execcuting `make`
+
+    ```sh
+    $ make
+    Makefile:8: *** Recursive variable 'CC' references itself (eventually).  Stop.
+    ```
 
 
 
