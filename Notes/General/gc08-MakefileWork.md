@@ -176,5 +176,82 @@ Date: 2018-08-22
     ```
 
 
+## Patterns and Functions
+
+- Makefile w/ patterns and functions
+  - `%`: matching any target name
+  - `$<`: pattern to match prerequisites
+  - `$@`: pattern to match target
+  - `#`: comments
+  - `.PHONY = all clean`: define phony targets `all` and `clean`
+  - `LINKERFLAG`: variable defines flags to be used w/ `gcc` in a recipe
+  - `SRCS := $(wildcard *.c): $(wildcard pattern)`:
+    - one of the functions for filenames
+    - all files w/ the `.c` extension stored in a variable `SRCS`
+  - `BINS := $(SRCS:%.c=%)`
+    - substitution reference
+    - `SRCS` w/ values `foo.c bar.c` $\to$ `BINS` w/ `foo bar`
+  - `all: ${BINS}`: phony target `all` calling values in `${BINS}` as individual targets
+  - rule to link all object files
+    - `foo`: one of the values in `${BINS}`
+    - `%` replaced by `foo`
+    - `$<` called for every value in `${BINS}`
+
+    ```makefile
+    %: %.o
+      @echo "Checking.."
+      ${CC} ${LINKERFLAG} $< -o $@
+
+    # expand as
+    foo: foo.o
+      @echo "Checking.."
+      gcc -lm foo.o -o foo
+    ```
+
+  - rule to compile `.c` files
+
+    ```makefile
+    %.o: %.c
+      @echo "Creating object.."
+      ${CC} -c $&lt;
+
+    # expand as
+    foo.o: foo.c
+      @echo "Creating object.."
+      gcc -c foo.c
+    ```
+
+  - `clean`: target to remove all binaries and object files
+
+  - example
+
+    ```makefile
+    # Usage:
+    # make        # compile all binary
+    # make clean  # remove ALL binaries and objects
+
+    .PHONY = all clean
+
+    CC = gcc      # compiler to use
+
+    LINKERFLAG = -lm
+
+    SRCS := $(wildcard *.c)
+    BINS := $(SRCS:%.c=%)
+
+    all: ${BINS}
+
+    %: %.o
+      @echo "Checking.."
+      ${CC} ${LINKERFLAG} $< -o $@
+
+    %.o: %.c
+      @echo "Creating object.."
+      ${CC} -c $<
+
+    clean:
+      @echo "Cleaning up..."
+      rm -rvf *.o ${BINS}
+    ```
 
 
