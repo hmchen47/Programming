@@ -31,5 +31,29 @@ Date: 2020-05-23
     ```
 
 
+- Using `common.mk` in recursive make
+  - `Makefile` in subfolders starting by defining its own specific variables
+  - `common.mk` residing in common locaton such as `$HOME`
+  - each makefile including this file
+  - syntax: `include filenames…`
+  - example:
+    - Makefile in the `A` folder
+
+      ```makefile
+      DIRS := B C
+      include common.mk
+      all::
+      ```
+
+  - each subfolder including similar makefile
+    - starting by listing the dirs below it
+    - then including `common.mk`
+  - actions performed by makefile
+    - done at the bottom most directories first
+    - followed by the higher level up
+    - acting like as a stack
+
+
+
 
 
