@@ -65,3 +65,22 @@ Date: 2018-08-22
     ```
 
 
+- Phony targets
+  - target just a name of recipe
+  - add more phony targets: `generate` and `clean`
+  - example: Makefile
+
+    ```makefile
+    say_hello:
+      @echo "Hello World"
+
+    generate:
+      @echo "Creating empty text files ..."
+      touch file-{1..10}.tet 
+
+    clean:
+      @echo "Clean up..."
+      rm *.txt
+    ```
+
+
