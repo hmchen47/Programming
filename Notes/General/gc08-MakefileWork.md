@@ -84,3 +84,23 @@ Date: 2018-08-22
     ```
 
 
+- Default target
+  - the first target in the makefile
+  - a.k.a. **default goal**
+  - usually `all` as the first target in most projects
+  - `all` responsible for calling other targets
+  - `.DEFAULT_GOAL`:
+    - special phony target to override the behavior
+    - executing only one target at a time
+    - most makefile including `all` as the target to call as many target as needed
+  - example: `.DEFAULT_GOAL := generate`
+
+    ```sh
+    $ make
+    Creating empty text file...
+    touch file-{1..10}.txt
+    ```
+
+
+
+
