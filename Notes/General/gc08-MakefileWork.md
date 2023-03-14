@@ -139,5 +139,24 @@ Date: 2018-08-22
     ```
 
 
+## Advanced Examples
+
+- Variables
+  - replacing hard-coded targets and prerequisite values w/ variables and patterns
+  - `=` operator: simplest way to define a variable in the makefile
+  - example: assign the command `gcc` to a variable `CC` $\to$ `CC - gcc`
+  - recursive expanded variable
+    - assigned w/ `=` operator
+    - example:
+      - assigning variable: `CC = gcc`
+      - recipe: `${CC} hello.c -o hello`
+      - recipe expanding as `gcc -o hello`
+  - simply expanded variable
+    - assigned w/ `:=` operator
+    - example: `CC := gcc`
+
+``
+
+
 
 
