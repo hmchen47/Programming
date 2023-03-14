@@ -102,5 +102,42 @@ Date: 2018-08-22
     ```
 
 
+- Special phony target
+  - `.PHONY`:
+    - define all the targets that are not files
+    - executing its recipe regardless of whether a file w/ that name exists or what its modification time is
+  - example
+
+    ```makefile
+    .PHONY: all say_hello generate clean
+
+    all: say_hello generate
+
+    say_hello:
+      @echo "Hello World"
+
+    generate:
+      @echo "Creating empty text files..."
+      touch file-{1..10}.txt
+
+    clean:
+      @echo "Cleaning up..."
+      rm *.txt
+    ```
+
+  - executing `make` utility
+
+    ```sh
+    $ make
+    Hello World
+    Creating empty text files...
+    touch file-{1..10}.txt
+
+    $ make clean
+    Clean up...
+    rm *.txt
+    ```
+
+
 
 
