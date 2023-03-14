@@ -9,8 +9,30 @@ Date: 2018-08-22
 
 ## Basic Examples
 
+- Rules of Makefile
+  - syntax of typical rule
+
+    ```makefile
+    target: prerequisites
+    <TAB< recipe
+    ```
+
+  - example
+
+    ```makefile
+    final_target: sub_target final_target.C
+      Recipe_to_create_final_target
+
+    sub_target: sub_target.c
+      Recipe_to_create_sub_target
+    ```
+
+
 - Example: simple Makefile
   - basic Makefile
+    - target: `say_hello`
+    - prerequisites or dependencies: empty string as follwing `target` 
+    - recipe: `echo "Hello World"`
 
     ```makefile
     say_hello:
