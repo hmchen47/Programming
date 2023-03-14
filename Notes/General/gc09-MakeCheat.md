@@ -54,6 +54,12 @@ Date: 2020-05-23
     - acting like as a stack
 
 
+- Building in local directory w/o traversing
+  - `-B`: unconditional make all targets
+  - example:
+    - building `index.htm` from `index.tex`
+    - `make -I$HOME -B index.htm` 
+
 
 
 
