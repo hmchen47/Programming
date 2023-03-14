@@ -48,4 +48,20 @@ Date: 2018-08-22
     ```
 
 
+- Suppressing echo
+  - starting `echo` w/ `@`
+  - example
+
+    ```makefile
+    say_hello:
+      @echo "Hello World"
+    ```
+
+  - executing `make` utility
+
+    ```sh
+    $ make
+    Hello World
+    ```
+
 
