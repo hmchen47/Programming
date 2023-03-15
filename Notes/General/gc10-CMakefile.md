@@ -644,3 +644,39 @@ Date: 2022-07-28
     not empty
     ```
 
+
+- Controlling variable from command line
+  - example: [Makefile](src/gc10/Makefile.18)
+
+    ```makefile
+    CFLAGS += -Wall -Werror -g -O2
+    SRC     = $(wildcard *.c)
+    OBJ     = $(SRC:.c=.o)
+    EXE     = $(subst .c,,$(SRC))
+
+    ifdef DEBUG
+    CFLAGS += -DDEBUG
+    endif
+
+    .PHONY: all clean
+
+    all: $(OBJ) $(EXE)
+
+    clean:
+      rm -rf $(OBJ) $(EXE)
+    ```
+
+  - output
+
+    ```sh
+    $ make
+    cc -Wall -Werror -g -O2   -c -o foo.o foo.c
+    cc   foo.o   -o foo
+
+    $ make DEBUG=1
+    cc -Wall -Werror -g -O2 -DDEBUG   -c -o foo.o foo.c
+    cc   foo.o   -o foo
+    ```
+
+
+
