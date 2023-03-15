@@ -1,0 +1,7 @@
+OLD_SHELL := $(SHELL)
+SHELL = /usr/bin/env python3
+
+.PHONY: all
+
+all:
+	@import os; print(os.uname()[0])
