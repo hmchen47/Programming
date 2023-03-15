@@ -597,3 +597,25 @@ Date: 2022-07-28
 
     3 directories, 14 files
     ```
+
+
+- Replacing current shell
+  - example: [Makefile](src/gc10/Makefile.16)
+
+    ```makefile
+    OLD_SHELL := $(SHELL)
+    SHELL = /usr/bin/env python3
+
+    .PHONY: all
+
+    all:
+      @import os; print(os.uname()[0])
+    ```
+
+  - output
+
+    ```sh
+    $ make
+    Linux
+    ```
+
