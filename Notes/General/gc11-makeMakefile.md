@@ -176,3 +176,57 @@ Date: 2015-02-11
   - `$<`: name of the current prerequisite
   - `$^`: name of the current prerequisites, w/o any suffix
 
+
+- Multiple targets
+  - useful to make more tha a single target file
+  - useful to collect several groups of commands into a single place
+  - special target `all`: default target; specifying only `myapp` as a target
+  - `clean` target:
+    - using the `rm` command to remove the objects
+    - starting w/ `-` to ignore the result of the command
+  - `install` target
+    - dependent on `myapp`
+    - creating `myapp` before carrying out other commands before making install
+    - consisting of shell script commands
+  - shell script
+    - `make` utility invoking a shell for executing rules
+    - adding backslashes (`\`) to
+      - make the script commands on the same logical line 
+      - pass together to a single invocation of the shell for execution
+    - starting w/ `@` sign by not printing the command on the standard output before execcuting the rule
+  - example [Makefile](src/gc11/Makefile3)
+
+    ```makefile
+    # Which compiler
+    CC = gcc
+    # Where to install
+    INSTDIR = /usr/local/bin
+
+    # Where are include files kept
+    INCLUDE = .
+    # Options for development
+    CFLAGS = -g -Wall -std=c89
+
+    # Options for release
+    # CFLAGS = -O -Wall –ansi
+    myapp: main.o 2.o 3.o
+      $(CC) -o myapp main.o 2.o 3.o
+    main.o: main.c a.h
+      $(CC) -I$(INCLUDE) $(CFLAGS) -c main.c
+    2.o: 2.c a.h b.h
+      $(CC) -I$(INCLUDE) $(CFLAGS) -c 2.c
+    3.o: 3.c b.h c.h
+      $(CC) -I$(INCLUDE) $(CFLAGS) -c 3.c
+    clean:
+      -rm main.o 2.o 3.o
+    install: myapp
+    @if [ -d $(INSTDIR) ]; \
+      then \
+      cp myapp $(INSTDIR);\
+      chmod a+x $(INSTDIR)/myapp;\
+      chmod og-w $(INSTDIR)/myapp;\
+      echo “Installed in $(INSTDIR)“;\
+    else \
+      echo “Sorry, $(INSTDIR) does not exist”;\
+    fi
+    ```
