@@ -117,8 +117,54 @@ Date: 2015-02-11
   - continue to the end of the lines
 
 
+- Macros in a Makefile
+  - used to 
+    - define source files in a more generalized form
+    - control different version of UNIX, compiler used on system, 
+  - syntax: `MACRONAME = value`
+  - able to set the value of a macro to blank by leaving the reset of line after the `=` blank
+  - accessing the value of MACRONAME: `$(MACRONAME)` or `${MACRONAME}`
+  - a good way to collect system dependent parts
+  - usually defined within makefile
+  - able to be specified by calling `make` w/ the macro definition
+    - override defines in makefile
+    - passed as a single argument, i.e., no spaces or quotes
+    - example: `make CC=c89`, but not `CC = c89`
+  - example: [Makefile](src/gc11/Makefile2)
 
+    ```makefile
+    //A makefile with macro:-
+    //Here’s a revised version of the makefile, Makefile2 , using some macros:
 
+    all: myapp
 
+    # Which compiler
+    CC = gcc
 
+    # Where are include files kept
+    INCLUDE = .
 
+    # Options for development
+    CFLAGS = -g -Wall -std=c89
+
+    # Options for release
+    # CFLAGS = -O -Wall (–ansi = -std=c89 )
+    myapp: main.o 2.o 3.o
+      $(CC) -o myapp main.o 2.o 3.o
+    main.o: main.c a.h
+      $(CC) -I$(INCLUDE) $(CFLAGS) -c main.c
+    2.o: 2.c a.h b.h
+      $(CC) -I$(INCLUDE) $(CFLAGS) -c 2.c
+    3.o: 3.c b.h c.h
+      $(CC) -I$(INCLUDE) $(CFLAGS) -c 3.c
+    ```
+
+  - output
+
+    ```sh
+    $ make -f Makefile2
+    gcc -I. -g -Wall -std=c89 -c main.c
+    gcc -I. -g -Wall -std=c89 -c 2.c
+    gcc -I. -g -Wall -std=c89 -c 3.c
+    gcc -o myapp main.o 2.o 3.o
+    ```
