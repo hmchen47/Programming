@@ -1,0 +1,11 @@
+SUBDIR = src test
+
+.PHONY: all clean $(SUBDIR)
+
+all: $(SUBDIR)
+
+clean: $(SUBDIR)
+
+$(SUBDIR):
+	$(MAKE) -C $@ $(MAKECMDGOALS)
+
