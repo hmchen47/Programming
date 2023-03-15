@@ -234,4 +234,32 @@ Date: 2022-07-28
     ```
 
 
+- Building executable files
+  - files in current dir: `foo.h`, `foo.c`, `bar.h`, and `bar.h`
+  - example: [Makefile](src/gc10/Makefile.6)
+
+    ```makefile
+    # CFLAGS: Extra flags to give to the C compiler
+    CFLAGS   += -Werror -Wall -O2 -g
+    SRC       = $(wildcard *.c)
+    OBJ       = $(SRC:.c=.o)
+    EXE       = $(subst .c,,$(SRC))
+
+    .PHONY: all clean
+
+    all: $(OBJ) $(EXE)
+
+    clean:
+      rm -rf *.o *.so *.a *.la $(EXE)
+    ```
+
+  - output
+
+    ```sh
+    $ make
+    cc -Werror -Wall -O2 -g   -c -o bar.o bar.c
+    cc -Werror -Wall -O2 -g   -c -o foo.o foo.c
+    cc   bar.o   -o bar
+    cc   foo.o   -o foo
+    ```
 
