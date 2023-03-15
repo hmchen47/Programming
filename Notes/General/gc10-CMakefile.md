@@ -619,3 +619,28 @@ Date: 2022-07-28
     Linux
     ```
 
+
+- One-line condition in Makefile
+  - syntax: `$(if cond, then part, else part)`
+  - example: [Makefile](src/gc10/Makefile.17)
+
+    ```makefile
+    VAR =
+    IS_EMPTY = $(if $(VAR), $(info not empty), $(info empty))
+
+    .PHONY: all
+
+    all:
+      @echo $(IS_EMPTY)
+    ```
+
+  - output
+
+    ```sh
+    $ make
+    empty
+
+    $ make VAR=true
+    not empty
+    ```
+
