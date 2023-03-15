@@ -1,4 +1,4 @@
-#include "foo.h"
+#include "common.h"
 
 int foo() {
   printf("foo - foo prog");
