@@ -301,3 +301,49 @@ Date: 2022-07-28
     libbar.so
     ```
 
+
+- Building w/ subdir and link
+  - file structure
+
+    ```sh
+    $ tree
+    .
+    ├── Makefile
+    ├── include
+    │   └── foo.h
+    └── src
+        ├── foo.c
+        └── main.c
+    ```
+
+  - example: [Makefile](src/gc10/Makefile.09)
+
+    ```makefile
+    CFLAGS  += -Wall -g -O2 -I./include
+    SRC     = $(wildcard src/*.c)
+    OBJ     = $(SRC:.c=.o)
+    EXE     = main
+
+    .PHONY: all clean
+
+    all: $(OBJ) $(EXE)
+
+    $(EXE): $(OBJ)
+      $(CC) $(LDFLAGS) -o $@ $^
+
+    %.o: %.c
+      $(CC) $(CFLAGS) -c $< -o $@
+
+    clean:
+      rm -rf *.o *.so *.a *.la $(EXE) src/*.o src/*.so src/*a
+    ```
+
+  - output
+
+    ```make
+    $ make
+    cc -Wall -g -O2 -I./include -c src/foo.c -o src/foo.o
+    cc -Wall -g -O2 -I./include -c src/main.c -o src/main.o
+    cc  -o main src/foo.o src/main.o
+    ```
+
