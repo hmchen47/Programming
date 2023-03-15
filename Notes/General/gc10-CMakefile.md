@@ -194,4 +194,44 @@ Date: 2022-07-28
     ```
 
 
+- Single and double dollar sign in Makefile
+  - `$`: reference a make variable
+  - `$$`: reference a shell variable
+  - example: [Makefile](src/gc10/Makefile.5)
+
+    ```makefile
+    LIST = one two three
+
+    .PHONY: all single_dollar double_dollar
+
+    all: single_dollar double_dollar
+
+    double_dollar:
+      @echo "=== double dollar sign example ==="
+      @for i in $(LIST); do \
+        echo $$i;     \
+      done
+
+    single_dollar:
+      @echo "=== single dollar sign example ==="
+      @for i in $(LIST); do  \
+        echo $i;     \
+      done
+    ```
+
+  - output
+
+    ```shell
+    $ make
+    === single dollar sign example ===
+
+
+
+    === double dollar sign example ===
+    one
+    two
+    three
+    ```
+
+
 
