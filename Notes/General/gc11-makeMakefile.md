@@ -27,6 +27,14 @@ Date: 2015-02-11
     - the correct sequence of rules to invoke
 
 
+- Useful options of `make` utility
+  - `-k`: continue even an error found
+  - `-n`: print out what irt would be done w/o doing it
+  - `-f`: tell which file to use as its makefile
+
+
+
+
 
 
 
