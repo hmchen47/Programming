@@ -83,7 +83,7 @@ Date: 2022-07-28
 
 - String functions
   - typical string functions: substitute, filter, find string, word counts, word, and word list
-  - example: [src/gc10/Makefile.3]
+  - example: [Makefile](src/gc10/Makefile.3)
 
     ```makefile
     SRC      = hello_foo.c hello_bar.c foo_world.c bar_world.c
@@ -169,5 +169,29 @@ Date: 2022-07-28
     == wordlist example ==
     [1:3]:hello_foo.c hello_bar.c foo_world.c
     ```
+
+
+- Makefile w/ sorting and removing duplicates
+  - using `sort`, `suffix` string functions
+  - example: [Makefile](src/gc10/Makefile.4)
+
+    ```makefile
+    SRC = foo.c bar.c ker.c foo.h bar.h ker.h
+
+    .PHONY: all
+
+    all:
+      @echo $(suffix $(SRC))
+      @echo $(sort $(suffix $(SRC)))
+    ```
+
+  - output
+
+    ```sh
+    $ make
+    .c .c .c .h .h .h
+    .c .h
+    ```
+
 
 
