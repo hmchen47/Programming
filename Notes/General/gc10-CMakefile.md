@@ -347,3 +347,40 @@ Date: 2022-07-28
     cc  -o main src/foo.o src/main.o
     ```
 
+
+- Building shared library
+  - example: [Makefile](src/gc10/Makefile.10)
+
+    ```makefile
+    SONAME    = libfoobar.so.1
+    SHARED    = src/libfoobar.so.1.0.0
+    SRC       = $(wildcard src/*.c)
+    OBJ       = $(SRC:.c=.o)
+
+    CFLAGS    += -Wall -Werror -fPIC -O2 -g -I./include
+    LDFLAGS   += -shared -Wl,-soname,$(SONAME)
+
+    .PHONY: all clean
+
+    all: $(SHARED) $(OBJ)
+
+    $(SHARED): $(OBJ)
+      $(CC) $(LDFLAGS) -o $@ $^
+
+    %.o: %.c
+      $(CC) $(CFLAGS) -c $^ -o $@
+
+    clean:
+      rm -rf src/*.o src/*.so.* src/*.a src/*.la
+    ```
+
+  - output
+
+    ```sh
+    $ make
+    cc -Wall -Werror -fPIC -O2 -g -I./include -c src/bar.c -o src/bar.o
+    cc -Wall -Werror -fPIC -O2 -g -I./include -c src/foo.c -o src/foo.o
+    cc -shared -Wl,-soname,libfoobar.so.1 -o src/libfoobar.so.1.0.0 src/bar.o src/foo.o
+    ```
+
+
