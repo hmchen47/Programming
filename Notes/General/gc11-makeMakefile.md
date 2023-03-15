@@ -168,3 +168,11 @@ Date: 2015-02-11
     gcc -I. -g -Wall -std=c89 -c 3.c
     gcc -o myapp main.o 2.o 3.o
     ```
+
+
+- Special buil-in macros
+  - `$?`: list of reprequisites changed more recently than the current target
+  - `$@`: name of the current target
+  - `$<`: name of the current prerequisite
+  - `$^`: name of the current prerequisites, w/o any suffix
+
