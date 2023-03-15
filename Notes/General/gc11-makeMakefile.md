@@ -50,6 +50,14 @@ Date: 2015-02-11
     - the set of dependencies providing a hierarchy showing how the source files related to one other
 
 
+- Rules
+  - describing how to create a target
+  - syntax
+    - MUST be on lines starting w/ a **tab**
+    - a space at the end of the kine probably causing an error
+
+
+
 
 
 
