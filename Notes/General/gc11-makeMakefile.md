@@ -57,7 +57,7 @@ Date: 2015-02-11
     - a space at the end of the kine probably causing an error
 
 
-- Example of rules
+- Example of rules and execution
   - [Makefile](src/gc11/Makefile1)
     - `myapp`: 1st target, the file wonts to create
 
@@ -94,6 +94,22 @@ Date: 2015-02-11
     gcc -o myapp main.o 2.o 3.o
     ```
 
+  - how it works
+    - processing the dependencies section of the makefile
+    - determining the files that need to be created an din which order
+    - invoking the appropriate commands in the rule section for creating the files
+  - changing a file
+    - reading makefile
+    - determining the minimum number of commands
+    - carrying them out in the correct order
+
+    ```sh
+    $ touch b.h
+    $ make -f Makefile1
+    gcc -c 2.c
+    gcc -c 3.c
+    gcc -o myapp main.o 2.o 3.o
+    ```
 
 
 
