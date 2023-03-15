@@ -18,6 +18,15 @@ Date: 2015-02-11
     - etc.
 
 
+- The syntax of `Makefiles`
+  - consisting of a set of dependencies and rules
+    - **dependency:** a target and a set of source files
+    - **rule:** a single executable file
+  - `make` determining 
+    - the order in which the targets have to be made
+    - the correct sequence of rules to invoke
+
+
 
 
 
