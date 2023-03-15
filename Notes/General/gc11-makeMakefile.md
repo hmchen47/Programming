@@ -112,6 +112,12 @@ Date: 2015-02-11
     ```
 
 
+- Comments in a Makefile
+  - starting w/ `#`
+  - continue to the end of the lines
+
+
+
 
 
 
