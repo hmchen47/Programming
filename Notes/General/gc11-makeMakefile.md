@@ -33,6 +33,23 @@ Date: 2015-02-11
   - `-f`: tell which file to use as its makefile
 
 
+- Dependency and target
+  - **dependencies** specifying how each file in the final app  related to the source files
+  - **target**: usually an executable file created
+  - example:
+    - source files: `main.c`, `2.c`, `3.c`, `a.h`, `b.h` and `c.h`
+    - the dependency list of the above progeam as follows
+
+      ```makefile
+      myapp: main.o 2.o 3.o
+      main.o: man.c a.h
+      2.o: 2.c a.h b.h
+      3.o: 3.c a.h b.h c.h
+      ```
+
+    - the set of dependencies providing a hierarchy showing how the source files related to one other
+
+
 
 
 
