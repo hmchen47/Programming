@@ -12,7 +12,7 @@ Date: 2022-07-28
   - `$<`: name of the first prerequisite
   - `$^`: name of all the prerequisites
   - `$+`: prerequisites listed more than one are duplicated in the order
-  - example: [Makefile](src/Makefile.1)
+  - example: [Makefile](src/gc10/Makefile.01)
 
     ```makefile
     .PHONY: all
@@ -52,7 +52,7 @@ Date: 2022-07-28
 - Makefile warning message
   - using `$(warning text)` to check make rules
   - useful debuging message
-  - example: [Makefile](src/gc10/Makefile.2)
+  - example: [Makefile](src/gc10/Makefile.02)
 
     ```makefile
     $(warning Top level warning)
@@ -83,7 +83,7 @@ Date: 2022-07-28
 
 - String functions
   - typical string functions: substitute, filter, find string, word counts, word, and word list
-  - example: [Makefile](src/gc10/Makefile.3)
+  - example: [Makefile](src/gc10/Makefile.03)
 
     ```makefile
     SRC      = hello_foo.c hello_bar.c foo_world.c bar_world.c
@@ -173,7 +173,7 @@ Date: 2022-07-28
 
 - Makefile w/ sorting and removing duplicates
   - using `sort`, `suffix` string functions
-  - example: [Makefile](src/gc10/Makefile.4)
+  - example: [Makefile](src/gc10/Makefile.04)
 
     ```makefile
     SRC = foo.c bar.c ker.c foo.h bar.h ker.h
@@ -197,7 +197,7 @@ Date: 2022-07-28
 - Single and double dollar sign in Makefile
   - `$`: reference a make variable
   - `$$`: reference a shell variable
-  - example: [Makefile](src/gc10/Makefile.5)
+  - example: [Makefile](src/gc10/Makefile.05)
 
     ```makefile
     LIST = one two three
@@ -236,7 +236,7 @@ Date: 2022-07-28
 
 - Building executable files
   - files in current dir: `foo.h`, `foo.c`, `bar.h`, and `bar.h`
-  - example: [Makefile](src/gc10/Makefile.6)
+  - example: [Makefile](src/gc10/Makefile.06)
 
     ```makefile
     # CFLAGS: Extra flags to give to the C compiler
@@ -261,5 +261,43 @@ Date: 2022-07-28
     cc -Werror -Wall -O2 -g   -c -o foo.o foo.c
     cc   bar.o   -o bar
     cc   foo.o   -o foo
+    ```
+
+
+- Predefine variables w/ `$(eval)`
+  - example: [Makefile](src/gc10/Makefile.07) w/o `$(eval)`
+
+    ```makefile
+    SRC = $(wildcard *.c)
+    EXE = $(subst .c,,$(SRC))
+
+    define PROGRAM_template
+    $1_SHARED = lib$(strip $1).so
+    endef
+
+    .PHONY: all
+
+    $(foreach exe, $(EXE), $(call PROGRAM_template, $(exe)))
+
+    all:
+      @echo $(foo_SHARED)
+      @echo $(bar_SHARED)
+    ```
+
+  - output of `make`: `Makefile:10: *** missing separator.  Stop.`
+  - example: [Makefile](src/gc10/Makefile.08)
+
+    ```makefile
+    ...
+    $(foreach exe, $(EXE), $(eval $(call PROGRAM_template, $(exe))))
+    ...
+    ```
+
+  - output
+
+    ```sh
+    $ make
+    libfoo.so
+    libbar.so
     ```
 
