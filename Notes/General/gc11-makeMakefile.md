@@ -57,6 +57,42 @@ Date: 2015-02-11
     - a space at the end of the kine probably causing an error
 
 
+- Example of rules
+  - [Makefile](src/gc11/Makefile1)
+    - `myapp`: 1st target, the file wonts to create
+
+    ```makefile
+    myapp: main.o 2.o 3.o
+      gcc -o myapp main.o 2.o 3.o
+    main.o: main.c a.h
+      gcc -c main.c
+    2.o: 2.c a.h b.h
+      gcc -c 2.c
+    3.o: 3.c b.h c.h
+      gcc -c 3.c
+    ```
+
+  - output 1
+
+    ```sh
+    $ make -f Makefile1
+    make: *** No rule to make target ‘main.c’, needed by ‘main.o’. Stop.
+    ```
+
+  - source files
+    - [`main.c`](src/gc11/main.c): call `function_two` and `function_three`
+    - [`2.c`](src/gc11/2.c): `function_two`
+    - [`3.c`](src/gc11/3.c): `function_three`
+  - header files: `touch a.h`, `touch b.h` and `touch c.h`
+  - output 2
+
+    ```sh
+    $ make -f Makefile1
+    gcc -c main.c
+    gcc -c 2.c
+    gcc -c 3.c
+    gcc -o myapp main.o 2.o 3.o
+    ```
 
 
 
