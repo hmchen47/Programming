@@ -471,3 +471,129 @@ Date: 2022-07-28
     make[1]: Leaving directory '/root/test/src'
     ```
 
+
+- Building recursively
+  - directory layout
+
+    ```sh
+    $ tree
+    .
+    |-- Makefile
+    |-- include
+    |   `-- common.h
+    |-- src
+    |   |-- Makefile
+    |   |-- bar.c
+    |   `-- foo.c
+    `-- test
+        |-- Makefile
+        `-- test.c
+    ```
+
+  - example: [./Makefile](src/gc10/Makefile.13)
+
+    ```makefile
+    SUBDIR = src test
+
+    .PHONY: all clean $(SUBDIR)
+
+    all: $(SUBDIR)
+
+    clean: $(SUBDIR)
+
+    $(SUBDIR):
+    	$(MAKE) -C $@ $(MAKECMDGOALS)
+    ```
+
+  - example: [src/Makefile](src/gc10/Makefile.14)
+
+    ```makefile
+    SONAME   = libfoobar.so.1
+    SHARED   = libfoobar.so.1.0.0
+    SOFILE   = libfoobar.so
+
+    CFLAGS  += -Wall -g -O2 -Werror -fPIC -I../include
+    LDFLAGS += -shared -Wl,-soname,$(SONAME)
+
+    SRC      = $(wildcard *.c)
+    OBJ      = $(SRC:.c=.o)
+
+    .PHONY: all clean
+
+    all: $(SHARED) $(OBJ)
+
+    $(SHARED): $(OBJ)
+      $(CC) $(LDFLAGS) -o $@ $^
+      ln -sf $(SHARED) $(SONAME)
+      ln -sf $(SHARED) $(SOFILE)
+
+    %.o: %.c
+      $(CC) $(CFLAGS) -c $< -o $@
+
+    clean:
+      rm -rf *.o *.so.* *.a *.so
+    ```
+
+  - example: [src/Makefile](test/gc10/Makefile.15)
+
+    ```makefile
+    CFLAGS    += -Wall -Werror -g -I../include
+    LDFLAGS   += -Wall -L../src -lfoobar
+
+    SRC	= $(wildcard *.c)
+    OBJ	= $(SRC:.c=.o)
+    EXE	= test_main
+
+    .PHONY: all clean
+
+    all: $(OBJ) $(EXE)
+
+    $(EXE): $(OBJ)
+      $(CC) -o $@ $^ $(LDFLAGS)
+
+    %.o: %.c
+      $(CC) $(CFLAGS) -c $< -o $@
+
+    clean:
+      rm -rf *.so *.o *.a $(EXE)
+    ```
+
+  - output
+
+    ```sh
+    $ make
+    make -C src
+    make[1]: Entering directory '/root/proj/src'
+    cc -Wall -g -O2 -Werror -fPIC -I../include -c foo.c -o foo.o
+    cc -Wall -g -O2 -Werror -fPIC -I../include -c bar.c -o bar.o
+    cc -shared -Wl,-soname,libfoobar.so.1 -o libfoobar.so.1.0.0 foo.o bar.o
+    ln -sf libfoobar.so.1.0.0 libfoobar.so.1
+    ln -sf libfoobar.so.1.0.0 libfoobar.so
+    make[1]: Leaving directory '/root/proj/src'
+    make -C test
+    make[1]: Entering directory '/root/proj/test'
+    cc -Wall -Werror -g -I../include -c test.c -o test.o
+    cc -o test_main test.o -Wall -L../src -lfoobar
+    make[1]: Leaving directory '/root/proj/test'
+    $ tree .
+    .
+    |-- Makefile
+    |-- include
+    |   `-- common.h
+    |-- src
+    |   |-- Makefile
+    |   |-- bar.c
+    |   |-- bar.o
+    |   |-- foo.c
+    |   |-- foo.o
+    |   |-- libfoobar.so -> libfoobar.so.1.0.0
+    |   |-- libfoobar.so.1 -> libfoobar.so.1.0.0
+    |   `-- libfoobar.so.1.0.0
+    `-- test
+        |-- Makefile
+        |-- test.c
+        |-- test.o
+        `-- test_main
+
+    3 directories, 14 files
+    ```
