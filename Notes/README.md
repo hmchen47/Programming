@@ -12,8 +12,16 @@
   - D. Gidwani, [YAML Primer](gc04-YAMLPrimer.md)
 
 
-- Makefile
-  - 
+- Autotools
+  - Z. Xu, [A Short Introduction to Makefile](General/gc06-MakefileShortIntro.md), 2012-02-15
+  - T. Newhall, [Using make and writing Makefiles](General/gc07-WriteMakefile.md), 2023-03
+  - S. Patil, [What is a Makefile and how does it work?](General/gc08-MakefileWork.md), 2018-08-22
+  - N. Abbasi, [GNU make cheat sheet](General/gc09-MakeCheat.md), 2020-05-23
+  - C.-N Tsai, [C Makefile cheatsheet](General/gc10-CMakefile.md), 2022-07-28
+  - R. Naraian, [The "make" Command and "Makefiles"](General/gc11-makeMakefile.md), 2015-02-11
+  - C. Rordrigues, [CPP / C++ - Building Systems and Build Automation](https://caiorss.github.io/C-Cpp-Notes/building-systems.html), 2021-06-04
+  - Chase Lambert, [Learn Makefiles](https://makefiletutorial.com/), 2023-02-18
+  - Aaron Bloomfield, [PDR: Makefile Tutorial](https://aaronbloomfield.github.io/pdr/tutorials/05-make/index.html) in [Program and Data Representation: Tutorials](https://aaronbloomfield.github.io/pdr/tutorials/index.html), 2022-01-17
 
 
 ## Python
