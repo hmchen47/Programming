@@ -2,41 +2,41 @@
 
 Author: M. Martin
 
-Date: 2033-22-36
+Date: 2023-01-28
 
 [Original](https://www.guru99.com/mvc-vs-mvvm.html)
 
 
 ## Summary
 
-- Key Differences between MVC and MVVM
-  - MVC framework: an architectural pattern that separates an application into three main logical components Model, View, and Controller. On the other hand, 
-  - MVVM framework: facilitating a separation of development of the graphical user interface with the help of mark-up language or GUI code
+- Key differences b/w MVC and MVVM
+  - **MVC framework:** an architectural pattern that separates an application into three main logical components Model, View, and Controller
+  - **MVVM framework:** facilitating a separation of development of the graphical user interface with the help of mark-up language or GUI code
   - controller in MVC: the entry point to the Application
   - View in MVVM: the entry point to the Application
   - MVC Model component: tested separately from the user
   - MVVM model: easy for separate unit testing, and code in event-driven
   - "one to many" relationships
-    - MVC:  between Controller & View
-    - MVVC: between View & View Model
+    - MVC:  b/w Controller & View
+    - MVVM: b/w View & View Model
 
 ## MVC Pattern
 
 - MVC architecture
-  - an architectural pattern that separates an applications into three main logical components Model, View, and Controller
-  - a component is built to handle specific development aspects of an application
+  - an architectural pattern that separates an application into three main logical components, Model, View, and Controller
+  - a component built to handle specific development aspects of an application
   - separating the business logic and presentation layer from each other
   - mainly used for desktop graphical user interfaces (GUIs)
   - components
     - Model: including all the data and its related logic
-    - View: presenting data to the user or handles user interaction
-    - Controller: interface between Model and View components
+    - View: presenting data to the user or handling user interaction
+    - Controller: interface b/w Model and View components
   - architecture
 
     <figure style="display: table; margin: auto; text-align: center;"">
       <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
         onclick= "window.open('https://www.guru99.com/mvc-vs-mvvm.html')"
-        src    = "https://www.guru99.com/images/1/122118_0445_MVCTutorial1.png"
+        src    = "img/web07-MVCTutorial1.png"
         alt    = "MVC pattern"
         title  = "MVC pattern"
       />
@@ -84,7 +84,7 @@ Date: 2033-22-36
   - using a front controller pattern that processes web application requests using a single controller
   - offering the best support for test-driven development
   - working well for Web apps, which are supported by large teams of web designers and developers
-  - providing a clean separation of concerns(SoC)
+  - providing a clean separation of concerns (SoC)
   - all classed and objects independent of each other $\implies$ test separately
   - allowing logical grouping of related actions on a controller together
 
@@ -113,7 +113,7 @@ Date: 2033-22-36
     <figure style="display: table; margin: auto; text-align: center;"">
       <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
         onclick= "window.open('https://www.guru99.com/mvc-vs-mvvm.html')"
-        src    = "https://www.guru99.com/images/2/041720_1054_MVCvsMVVMKe2.png"
+        src    = "img/web07-MVCvsMVVMKe2.png"
         alt    = "MVVM pattern"
         title  = "MVVM pattern"
       />
@@ -146,11 +146,11 @@ Date: 2033-22-36
 
 
 - Advantages of MVVM
-  - business logic decoupled from Ul
+  - business logic decoupled from UI
   - easy to maintain and test
   - easy to reuse components
-  - loosely coupled architecture: MVVM makes your application architecture as loosely coupled
-  - writing unit test cases for both the viewmodel and Model layer without the need to reference the View'
+  - loosely coupled architecture: making application architecture as loosely coupled
+  - writing unit test cases for both the viewmodel and Model layer w/o the need to reference the View
 
 
 - Disadvantages of MVVM
@@ -161,44 +161,54 @@ Date: 2033-22-36
 
 ## Difference between MVC and MVVM Architecture
 
-<table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing=0 cellpadding=5 border=1 align="center">
-  <colgroup>
-    <col style="width: 20%">
-    <col style="width: 20%">
-  </colgroup>
-  <thead>
-  <tr style="font-size: 1.0em; vertical-align:middle;">
-    <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">MVC (Model View Controller)</th>
-    <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">MVVM (Model View ViewModel)</th>
-  </tr>
-  </thead>
-  <tbody> 
-    <tr>
-      <td>Controller is the entry point to the Application.</td>
-      <td>The view is the entry point to the Application.</td>
+- Comparisons of MVC and MVVM
+
+  <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing=0 cellpadding=5 border=1 align="center">
+    <colgroup>
+      <col style="width: 20%">
+      <col style="width: 20%">
+      <col style="width: 20%">
+    </colgroup>
+    <thead>
+    <tr style="font-size: 1.0em; vertical-align:middle;">
+      <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">Feature</th>
+      <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">MVC (Model View Controller)</th>
+      <th scope=row style="text-align: center; background-color: #3d64ff; color: #ffffff;">MVVM (Model View ViewModel)</th>
     </tr>
-    <tr>
-      <td>One to many relationships between Controller &amp; View.</td>
-      <td>One to many relationships between View &amp; View Model.</td>
-    </tr>
-    <tr>
-      <td>View Does not have reference to the Controller</td>
-      <td>View have references to the View-Model.</td>
-    </tr>
-    <tr>
-      <td>MVC is Old Model</td>
-      <td>MVVM is a relatively New Model.</td>
-    </tr>
-    <tr>
-      <td>Difficult to read, change, to unit test, and reuse this Model</td>
-      <td>The debugging process will be complicated when we have complex data bindings.</td>
-    </tr>
-    <tr>
-      <td>MVC Model component can be tested separately from the user</td>
-      <td>Easy for separate unit testing and code is event-driven.</td>
-    </tr>
-  </tbody>
-</table>
+    </thead>
+    <tbody> 
+      <tr>
+        <td>Entry point to the Application</td>
+        <td>Controller</td>
+        <td>View</td>
+      </tr>
+      <tr>
+        <td>One to many relationships</td>
+        <td>Controller &amp; View</td>
+        <td>View &amp; View Model</td>
+      </tr>
+      <tr>
+        <td>View reference</td>
+        <td>not to the Controller</td>
+        <td>to the View-Model</td>
+      </tr>
+      <tr>
+        <td>Age</td>
+        <td>old Model</td>
+        <td>relatively New Model</td>
+      </tr>
+      <tr>
+        <td>Disadvantages</td>
+        <td>read, change, to unit test, and reuse</td>
+        <td>complicated debugging process w/ complex data bindings</td>
+      </tr>
+      <tr>
+        <td>Testing</td>
+        <td>component tested separately from the user</td>
+        <td>separate unit testing and event-driven code</td>
+      </tr>
+    </tbody>
+  </table>
 
 
 <br/>
@@ -213,106 +223,103 @@ Date: 2022-12-22
 
 
 - Architecture pattern
-  - gives modularity to the project files
-  - assures that all the codes get covered in Unit testing
+  - giving modularity to the project files
+  - assuring that all the codes get covered in Unit testing
   - making the task easy for developers to maintain the software
   - to expand the features of the application in the future
   - popular models and industry-recognized [android architecture pattern](https://www.geeksforgeeks.org/android-architecture-patterns/)
-    - [MVC](https://www.geeksforgeeks.org/mvc-model-view-controller-architecture-pattern-in-android-with-example/) (Model — View — Controller)
-    - [MVP](https://www.geeksforgeeks.org/mvp-model-view-presenter-architecture-pattern-in-android-with-example/) (Model — View — Presenter)
-    - [MVVM](https://www.geeksforgeeks.org/mvvm-model-view-viewmodel-architecture-pattern-in-android/) (Model — View — ViewModel)
+    - [MVC](https://www.geeksforgeeks.org/mvc-model-view-controller-architecture-pattern-in-android-with-example/) (Model - View - Controller)
+    - [MVP](https://www.geeksforgeeks.org/mvp-model-view-presenter-architecture-pattern-in-android-with-example/) (Model - View - Presenter)
+    - [MVVM](https://www.geeksforgeeks.org/mvvm-model-view-viewmodel-architecture-pattern-in-android/) (Model - View - ViewModel)
 
 
-- The Model—View—Controller(MVC) pattern
+- The Model-View-Controller (MVC) pattern
   - splitting the code into 3 components
   - creating the class/file of the application
-  - three layers
-    - **Model:**
-      - storing the application data
-      - w/o knowledge about the interface
-      - responsible for handling the domain logic(real-world business rules)
-      - communication with the database and network layers
-    - **View:**
-      - the UI(User Interface) layer
-      - holding components visible on the screen
-      - providing the visualization of the data stored in the Model
-      - offering interaction to the user
-    - **Controller:**
-      - establishing the relationship between the View and the Model
-      - containing the core application logic
-      - retrieving informed of the user’s response
-      - updating the Model as per the need
+  - **Model:**
+    - storing the application data
+    - w/o knowledge about the interface
+    - responsible for handling the domain logic (real-world business rules)
+    - communication with the database and network layers
+  - **View:**
+    - the UI (User Interface) layer
+    - holding components visible on the screen
+    - providing the visualization of the data stored in the Model
+    - offering interaction to the user
+  - **Controller:**
+    - establishing the relationship between the View and the Model
+    - containing the core application logic
+    - retrieving informed of the user’s response
+    - updating the Model as per the need
 
   <figure style="display: table; margin: auto; text-align: center;"">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
       onclick= "window.open('https://www.geeksforgeeks.org/difference-between-mvc-mvp-and-mvvm-architecture-pattern-in-android/')"
       src    = "https://media.geeksforgeeks.org/wp-content/uploads/20201002214740/MVCSchema.png"
-      alt    = "The Model—View—Controller(MVC) Pattern"
-      title  = "The Model—View—Controller(MVC) Pattern"
+      alt    = "The Model-View-Controller(MVC) Pattern"
+      title  = "The Model-View-Controller(MVC) Pattern"
     />
   </figure>
 
 
-- The Model—View—Presenter (MVP) pattern
-  - overcoming the challenges of MVC and provides an easy way to structure the project codes
+- The Model-View-Presenter (MVP) pattern
+  - overcoming the challenges of MVC and providing an easy way to structure the project codes
   - providing modularity, testability, and a more clean and maintainable codebase
-  - components
-    - **Model:**
-      - layer for storing data
-      - responsible for handling the domain logic(real-world business rules)
-      - communication with the database and network layers
-    - **View:**
-      - UI (User Interface) layer
-      - providing the visualization of the data
-      - keeping a track of the user’s action in order to notify the Presenter
-    - **Presenter:**
-      - fetching the data from the model
-      - applying the UI logic to decide what to display
-      - managing the state of the View
-      - taking actions according to the user’s input notification from the View
+  - **Model:**
+    - layer for storing data
+    - responsible for handling the domain logic(real-world business rules)
+    - communication with the database and network layers
+  - **View:**
+    - UI (User Interface) layer
+    - providing the visualization of the data
+    - keeping a track of the user’s action in order to notify the Presenter
+  - **Presenter:**
+    - fetching the data from the model
+    - applying the UI logic to decide what to display
+    - managing the state of the View
+    - taking actions according to the user’s input notification from the View
 
   <figure style="display: table; margin: auto; text-align: center;"">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
       onclick= "window.open('https://www.geeksforgeeks.org/difference-between-mvc-mvp-and-mvvm-architecture-pattern-in-android/')"
       src    = "https://media.geeksforgeeks.org/wp-content/uploads/20201024233154/MVPSchema.png"
-      alt    = "The Model—View—Presenter (MVP) Pattern"
-      title  = "The Model—View—Presenter (MVP) Pattern"
+      alt    = "The Model-View-Presenter (MVP) Pattern"
+      title  = "The Model-View-Presenter (MVP) Pattern"
     />
   </figure>
 
 
-- The Model—View—ViewModel (MVVM) pattern
-  - w/ some similarities with the MVP (Model—View—Presenter) design pattern
+- The Model-View-ViewModel (MVVM) pattern
+  - w/ some similarities with the MVP (Model-View-Presenter) design pattern
   - the Presenter role played by the ViewModel
   - drawbacks of the MVP pattern solved by MVVM
   - separating the data presentation logic (Views or UI) from the core business logic part of the application
-  - components
-    - **Model:**
-      - responsible for the abstraction of the data sources
-      - Model and ViewModel working together to get and save the data
-    - **View:**
-      - purpose: to inform the ViewModel about the user’s action
-      - observing the ViewModel
-      - not containing any kind of application logic
-    - **ViewModel:**
-      - exposing those data streams which are relevant to the View
-      - serving as a link between the Model and the View
+  - **Model:**
+    - responsible for the abstraction of the data sources
+    - Model and ViewModel working together to get and save the data
+  - **View:**
+    - purpose: to inform the ViewModel about the user’s action
+    - observing the ViewModel
+    - not containing any kind of application logic
+  - **ViewModel:**
+    - exposing those data streams which are relevant to the View
+    - serving as a link between the Model and the View
   
   <figure style="display: table; margin: auto; text-align: center;"">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
       onclick= "window.open('https://www.geeksforgeeks.org/difference-between-mvc-mvp-and-mvvm-architecture-pattern-in-android/')"
       src    = "https://media.geeksforgeeks.org/wp-content/uploads/20201002215007/MVVMSchema.png"
-      alt    = "The Model—View—ViewModel (MVVM) Pattern"
-      title  = "The Model—View—ViewModel (MVVM) Pattern"
+      alt    = "The Model-View-ViewModel (MVVM) Pattern"
+      title  = "The Model-View-ViewModel (MVVM) Pattern"
     />
   </figure>
 
 
-- Difference b/w MVC, MVP, and MVVM design pattern
+- Difference b/w MVC, MVP, and MVVM design patterns
 
   <table style="font-family: Arial,Helvetica,Sans-Serif; margin: 0 auto; width: 60vw;" cellspacing=0 cellpadding=5 border=1 align="center">
     <colgroup>
-      <col style="width: 15%">
+      <col style="width: 25%">
       <col style="width: 25%">
       <col style="width: 25%">
     </colgroup>
@@ -330,7 +337,7 @@ Date: 2022-12-22
         <td>Industry-recognized architecture pattern for applications.</td>
       </tr>
       <tr>
-        <td>UI(<strong>View</strong>) and data-access mechanism(<strong>Model</strong>) are tightly coupled.</td>
+        <td>UI (<strong>View</strong>) and data-access mechanism (<strong>Model</strong>) are tightly coupled.</td>
         <td>It resolves the problem of having a dependent <strong>View</strong> by using <strong>Presenter</strong> as a communication channel between <strong>Model</strong> and <strong>View</strong>.&nbsp;</td>
         <td>This architecture pattern is more event-driven as it uses data binding and thus makes easy separation of <strong>core business logic</strong> from the <strong>View</strong>.</td>
       </tr>
@@ -404,9 +411,9 @@ Date: 2022-08-11
   - pattern in software: a recurrent property to break down a huge and complex structure into smaller, simpler components
   - using to craft a general solution for a class of problems
   - using different tools in each level of software development
-    - smaller levels: design patterns
-    - larger levels: architectural patterns
-    - [programming paradigms](https://www.makeuseof.com/programming-paradigms-major/) at the implementation level
+    - smaller level: design patterns
+    - larger level: architectural patterns
+    - implementation level: [programming paradigms](https://www.makeuseof.com/programming-paradigms-major/)
 
 
 - Architectural design patterns
@@ -419,7 +426,8 @@ Date: 2022-08-11
 
 - Model terminologies
   - Model:
-    - storing data and communicates directly with the database
+    - storing data
+    - communicating directly with the database
     - representing data and application logic
     - defining the business rules that manage data handling, modification, or processing
   - View
@@ -427,10 +435,11 @@ Date: 2022-08-11
     - responsible for the data’s representation in the user interface
   - ViewModel
     - exclusive to MVVM pattern
-    - an abstraction of the view layer and also acts as a wrapper for the model data
-  - Controller: integrateing the view and model
+    - an abstraction of the view layer
+    - acting as a wrapper for the model data
+  - Controller: integrating the view and model
   - Presenter
-    - a component that only exists in the MVP model
+    - a component only existing in the MVP model
     - retrieving the input from the view component
     - processing the data with the help of the model
 
@@ -438,7 +447,9 @@ Date: 2022-08-11
 - Model-View-Controller pattern
   - first and popular in the field of web applications
   - building an application around Separation of Concerns (SoC)
-  - eases the effort to test, maintain, and develop application
+    - reducing the code size
+    - making clean and manageable code
+  - easing the effort to test, maintain, and develop application
   - no understanding of the view or the controller
   - observer receiving an alert whenever there's a change in the view and controller
   - controller helping the routing process to connect the model to the relevant view
@@ -447,12 +458,12 @@ Date: 2022-08-11
     - making it easier to test and manage the code
     - promoting decoupling of the application's layers
     - better code organization and reusability
-  - SOC $\to$ reducing the code size and making a good code that is clean and manageable
+  - pattern diagram
 
   <figure style="display: table; margin: auto; text-align: center;"">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
       onclick= "window.open('https://www.makeuseof.com/mvc-mvp-mvvm-which-choose/')"
-      src    = "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/08/mvc.jpg"
+      src    = "img/web07-mvc.png"
       alt    = "Image of a diagram that illustrates how MVC works"
       title  = "Image of a diagram that illustrates how MVC works"
     />
@@ -466,18 +477,21 @@ Date: 2022-08-11
   - presenter:
     - used to present something
     - w/ the functionality of the "middle-man"
-    - all presentation logic is pushed to it
+    - all presentation logic pushed to it
     - workflow
       - receiving input from the user via the view
       - processing the user’s actions with the help of the model
       - passing the results back to the view
     - communicating with the view through interfaces
-  - view and presenter: independent of one another and interact via an interface
+  - view and presenter:
+    - independent of one another
+    - interacting via an interface
+  - pattern diagram
 
   <figure style="display: table; margin: auto; text-align: center;"">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
       onclick= "window.open('https://www.makeuseof.com/mvc-mvp-mvvm-which-choose/')"
-      src    = "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/08/mvp.jpg"
+      src    = "img/web07-mvp.png"
       alt    = "Image of a diagram that illustrates how MVP works"
       title  = "Image of a diagram that illustrates how MVP works"
     />
@@ -486,16 +500,17 @@ Date: 2022-08-11
 
 - Model-View-ViewModel pattern
   - the modern evolution of MVC
-  - main goal: providING a clear separation between the domain logic and presentation layer
-  - SupportING two-way data binding between the view and viewmodel
-  - allowING to separate Code’s view and model
+  - main goal: providing a clear separation between the domain logic and presentation layer
+  - Supporting two-way data binding between the view and viewmodel
+  - allowing to separate Code’s view and model
   - model changes $\iff$ view remaining the same
   - viewmodel: doing unit testing and testing logic behavior without involving the view
+  - pattern diagram
 
   <figure style="display: table; margin: auto; text-align: center;"">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
       onclick= "window.open('https://www.makeuseof.com/mvc-mvp-mvvm-which-choose/')"
-      src    = "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/08/mvvm.jpg"
+      src    = "img/web07-mvvm.png"
       alt    = "Image of a diagram that illustrates how MVVM works"
       title  = "Image of a diagram that illustrates how MVVM works"
     />
@@ -509,12 +524,12 @@ Date: 2022-08-11
     - serving well in an application where the data source and/or the data presentation can change at any time
   - MVP
     - using w/ application has a bidirectional flow
-    - request something from the model and change the UI immediately
+    - requesting something from the model and changing the UI immediately
   - MVVM
     - to share a project with a designer and the design and development work can happen independently
     - requiring unit testing for your solutions
     - to have reusable components, both within and across projects in your organization
-    - more flexibility to change your views without having to refactor other logic in the code base.
+    - more flexibility to change your views without having to refactor other logic in the code base
 
 
 

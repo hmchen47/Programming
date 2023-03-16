@@ -3,126 +3,125 @@
 
 ## General Information
 
-
-+ [Cascade Style Sheet (CSS)](../WebDev/Frontend-W3C/5-JavaScript/01b-JSIntro.md#notes-for-122-css-is-for-style)
-  + a style sheet language used to describe the way an HTML or XML document shown
-  + able to specify the color, size, spacing, font and other visual aspect of the content
-  + used along side HTML to desceibe the way a Web page looks and feels
-  + w/o CSS: difficult to make document looks the way intended
-  + almost every Web page combining HTML and CSS
-  + CSS selector
-    + the part before the opening brace
-    + indicating the elements w/ properties changed inside the brace
-  + property:
-    + the part inside brace
-    + used for setting the look and feel of the selected elements
-    + a set of properties and values
+- [Cascade Style Sheet (CSS)](../WebDev/Frontend-W3C/5-JavaScript/01b-JSIntro.md#notes-for-122-css-is-for-style)
+  - a style sheet language used to describe the way an HTML or XML document shown
+  - able to specify the color, size, spacing, font and other visual aspect of the content
+  - used along side HTML to desceibe the way a Web page looks and feels
+  - w/o CSS: difficult to make document looks the way intended
+  - almost every Web page combining HTML and CSS
+  - CSS selector
+    - the part before the opening brace
+    - indicating the elements w/ properties changed inside the brace
+  - property:
+    - the part inside brace
+    - used for setting the look and feel of the selected elements
+    - a set of properties and values
 
 
 ### CSS design principles(CSS 2.2)
 
-+ [CSS design principles (CSS2.2)](https://www.w3.org/TR/CSS22/intro.html#design-principles)
-  + Forward and backward compatibility.
-  + Complementary to structured documents.
-  + Vendor, platform, and device independence.
-  + Maintainability.
-  + Simplicity.
-  + Network performance.
-  + Flexibility
-  + Richness
-  + Alternative language binding.
-  + Accessibility
+- [CSS design principles (CSS2.2)](https://www.w3.org/TR/CSS22/intro.html#design-principles)
+  - Forward and backward compatibility.
+  - Complementary to structured documents.
+  - Vendor, platform, and device independence.
+  - Maintainability.
+  - Simplicity.
+  - Network performance.
+  - Flexibility
+  - Richness
+  - Alternative language binding.
+  - Accessibility
 
 
 ### Effective Use of Style Sheets
 
-+ [Generalized Style](https://www.nngroup.com/articles/effective-use-of-style-sheets/)
-  + single style sheet for all of the pages on your site
-  + linked style sheets
-  + centralized design
-  + active evangelism program
-  + plenty of examples
-  + page authors should be allowed to create additional embedded styles for their own pages
+- [Generalized Style](https://www.nngroup.com/articles/effective-use-of-style-sheets/)
+  - single style sheet for all of the pages on your site
+  - linked style sheets
+  - centralized design
+  - active evangelism program
+  - plenty of examples
+  - page authors should be allowed to create additional embedded styles for their own pages
 
-+ [Implementation advice](https://www.nngroup.com/articles/effective-use-of-style-sheets/)
-  + continue to work when style sheets are disabled
-  + Do not use more than two fonts
-  + Do not use absolute font sizes
-  + Do not use the !important attribute
-  + use the same CLASS names for the same concept in all of the style sheets
+- [Implementation advice](https://www.nngroup.com/articles/effective-use-of-style-sheets/)
+  - continue to work when style sheets are disabled
+  - Do not use more than two fonts
+  - Do not use absolute font sizes
+  - Do not use the !important attribute
+  - use the same CLASS names for the same concept in all of the style sheets
 
 
 ### CSS Best Practice
 
-+ [Executive summary](/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#executive-summary)
-  + Logical source order: accessibility, mobile optimization, device adaptability, and long-term maintainability.
-  + Liquid layouts and relativity: Use smart relative sizing
-  + Media queries: get font size adaptation free by using `em`s
-  + Prevent zombie code: Delete it before it does, and ruins your layout
-  + Test in multiple browsers: Your favorite browser is not always right.
-  + Don't use proprietary features! Don't rely on the latest -WebKit- invention.
-  + Turn off CSS: A well-coded page will be understandable without it.
+- [Executive summary](/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#executive-summary)
+  - Logical source order: accessibility, mobile optimization, device adaptability, and long-term maintainability.
+  - Liquid layouts and relativity: Use smart relative sizing
+  - Media queries: get font size adaptation free by using `em`s
+  - Prevent zombie code: Delete it before it does, and ruins your layout
+  - Test in multiple browsers: Your favorite browser is not always right.
+  - Don't use proprietary features! Don't rely on the latest -WebKit- invention.
+  - Turn off CSS: A well-coded page will be understandable without it.
 
-+ [Foundations](/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#foundations)
-  + Indent your code for readability ease
-  + Learn how to code CSS before relying on frameworks (such as Bootstrap, etc.)
-  + Separate content and style
-    + Use semantic markup, ie., "classes for meaning, not for show".
-    + Use `<table>` for tabular data: don't use tables for layout
-  + Linearized logical source order
-    + The order of the HTML content should make sense even without the CSS.
-      + for long-term site maintainability
-      + for mobile
-      + for accessibility
-      + as a foundation for device adaptation (media queries)
-  + Linguistic variations: set the language correctly for better typography
+- [Foundations](/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#foundations)
+  - Indent your code for readability ease
+  - Learn how to code CSS before relying on frameworks (such as Bootstrap, etc.)
+  - Separate content and style
+    - Use semantic markup, ie., "classes for meaning, not for show".
+    - Use `<table>` for tabular data: don't use tables for layout
+  - Linearized logical source order
+    - The order of the HTML content should make sense even without the CSS.
+      - for long-term site maintainability
+      - for mobile
+      - for accessibility
+      - as a foundation for device adaptation (media queries)
+  - Linguistic variations: set the language correctly for better typography
 
-+ [Testing]/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#testing
-  + Test without CSS: turn off CSS, and if the page makes no sense, fix your markup.
-  + Test in multiple environments:
-    + Resize the window
-    + Zoom the text
-    + Try a mobile browser
-    + Navigate by keyboard
-  + Test in multiple browsers: remember that just testing in Chrome does not work for everyone! ;)
+- [Testing]/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#testing
+  - Test without CSS: turn off CSS, and if the page makes no sense, fix your markup.
+  - Test in multiple environments:
+    - Resize the window
+    - Zoom the text
+    - Try a mobile browser
+    - Navigate by keyboard
+  - Test in multiple browsers: remember that just testing in Chrome does not work for everyone! ;)
 
-+ [Adaptability](/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#adaptability)
-  + Media queries: set media query breakpoints in `em` or `ch`, not always in `px`.
-  + Liquid layouts and relativity: what is your sizing based on?
-    + Containing block size? → Use percents.
-    + Viewport size? → Use viewport units: `vw`, `vh`, `vmin`, `vmax`
-    + Font height? → Use `em` or `rem`.
-    + Font pitch? → Use `em` or `ch`.
-    + Content size? → Use auto or min-content/max-content.
-    + Combination of the above? → Use the appropriate layout formulas: `flex`, `min-width`, `max-width`, etc.
+- [Adaptability](/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#adaptability)
+  - Media queries: set media query breakpoints in `em` or `ch`, not always in `px`.
+  - Liquid layouts and relativity: what is your sizing based on?
+    - Containing block size? → Use percents.
+    - Viewport size? → Use viewport units: `vw`, `vh`, `vmin`, `vmax`
+    - Font height? → Use `em` or `rem`.
+    - Font pitch? → Use `em` or `ch`.
+    - Content size? → Use auto or min-content/max-content.
+    - Combination of the above? → Use the appropriate layout formulas: `flex`, `min-width`, `max-width`, etc.
 
-+ [Defensive Coding](/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#defensive-coding)
-  + `!important` means never override- to use with caution
-  + Use !important to define overriding rules, not for fixups
-  + Duplicate selectors if you need to increase specificity, or
-  + Simplify selectors if you need to decrease specificity
-  + Don't over-escalate: understand your code, and don't overkill.
-  + Drop dead code: you tried something and it didn't work? Delete it right away!
-  + Code to Standard
-  + Don't rely on proprietary extensions
-  + Don't use experimental features in production or commit to keeping up-to-date.
-  + Provide fallbacks / use @supports.
+- [Defensive Coding](/WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#defensive-coding)
+  - `!important` means never override- to use with caution
+  - Use !important to define overriding rules, not for fixups
+  - Duplicate selectors if you need to increase specificity, or
+  - Simplify selectors if you need to decrease specificity
+  - Don't over-escalate: understand your code, and don't overkill.
+  - Drop dead code: you tried something and it didn't work? Delete it right away!
+  - Code to Standard
+  - Don't rely on proprietary extensions
+  - Don't use experimental features in production or commit to keeping up-to-date.
+  - Provide fallbacks / use @supports.
 
 
 ### Tools
 
-+ [CSS Validator](https://jigsaw.w3.org/css-validator/)
+- [CSS Validator](https://jigsaw.w3.org/css-validator/)
 
-+ [CSS Zen Garden](http://www.csszengarden.com/)
+- [CSS Zen Garden](http://www.csszengarden.com/)
 
-+ [WC3 complete list of CSS properties](https://www.w3.org/Style/CSS/all-properties.en.html)
+- [WC3 complete list of CSS properties](https://www.w3.org/Style/CSS/all-properties.en.html)
 
-+ [Web Accessibility Evaluations Tools List](https://www.w3.org/WAI/ER/tools/)
+- [Web Accessibility Evaluations Tools List](https://www.w3.org/WAI/ER/tools/)
 
 
 ### Usage
 
-+ &lt;style&gt;: to place CSS directly into an HTML document within &lt;head&gt; and &lt;/head&gt;
+- &lt;style&gt;: to place CSS directly into an HTML document within &lt;head&gt; and &lt;/head&gt;
 
   ```html
   <head>
@@ -134,12 +133,12 @@
   </head>
   ```
 
-+ &lt;link&gt;:
-  + the better practice
-  + easily be re-used between your different `.html` pages
-  + put your CSS into a separate file
-  + must appear in the `<head>` section
-  + usually kept in a directory named css
+- &lt;link&gt;:
+  - the better practice
+  - easily be re-used between your different `.html` pages
+  - put your CSS into a separate file
+  - must appear in the `<head>` section
+  - usually kept in a directory named css
 
   ```html
   <head>
@@ -149,11 +148,11 @@
   </head>
   ```
 
-+ [CSS location in HTML](../WebDev/Frontend-W3C/5-JavaScript/01b-JSIntro.md#notes-for-122-css-is-for-style)
-  + embedded CSS rules: within `<style>...</style>` tags inside the `<head>...</head>` of the HTML documents
-  + external CSS rules
-    + `<link>` tag in HTML `<head>` element
-    + including other CSS properties from remote/local CSS style sheet file
+- [CSS location in HTML](../WebDev/Frontend-W3C/5-JavaScript/01b-JSIntro.md#notes-for-122-css-is-for-style)
+  - embedded CSS rules: within `<style>...</style>` tags inside the `<head>...</head>` of the HTML documents
+  - external CSS rules
+    - `<link>` tag in HTML `<head>` element
+    - including other CSS properties from remote/local CSS style sheet file
 
 
 
@@ -172,38 +171,38 @@
 </div>
 
 
-+ [Selector](../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#constructing-your-css-rules)
-  + tell the browser what HTML tags this rule applies to
-  + types: tag, class & id
-  + attribute selectors: Classes and IDs
-  + multiple HTML elements with similar style: `p, ul, ol {color: blue; }`
+- [Selector](../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#constructing-your-css-rules)
+  - tell the browser what HTML tags this rule applies to
+  - types: tag, class & id
+  - attribute selectors: Classes and IDs
+  - multiple HTML elements with similar style: `p, ul, ol {color: blue; }`
 
-+ [`id` and `class` attributes](../WebDev/Frontend-W3C/5-JavaScript/01b-JSIntro.md#notes-for-122-css-is-for-style)
-  + `id` attribute: identifying any element in Web page uniquely
-  + `class` attribute: grouping any elements w/ a class of other elements
-  + example: `<p id="paragraph-1" class="regular-paragraphs">`
-    + unique identifier w/ `id="paragraph-1"`
-    + part of class `regular-paragraphs`
-  + text within the quotes
-    + w/o meaning to the computer
-    + used to convey the meaning to a human developer
-    + best pratice: named to increase clarity, consistency, and brevity
-  + example: `<h2 id="hobbyTitle">My Hobbies</h2>`
+- [`id` and `class` attributes](../WebDev/Frontend-W3C/5-JavaScript/01b-JSIntro.md#notes-for-122-css-is-for-style)
+  - `id` attribute: identifying any element in Web page uniquely
+  - `class` attribute: grouping any elements w/ a class of other elements
+  - example: `<p id="paragraph-1" class="regular-paragraphs">`
+    - unique identifier w/ `id="paragraph-1"`
+    - part of class `regular-paragraphs`
+  - text within the quotes
+    - w/o meaning to the computer
+    - used to convey the meaning to a human developer
+    - best pratice: named to increase clarity, consistency, and brevity
+  - example: `<h2 id="hobbyTitle">My Hobbies</h2>`
 
-+ [Property](../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#constructing-your-css-rules)
-  + tell the browser how to style the HTML tag that has been selected
-  + as many lines of code as you choose
-  + each of which has two parts- the property and the value you want that property to be
-  + with its own collection of possible values
-  + [complete list of latest CSS properties](https://www.w3.org/Style/CSS/all-properties#list) at the W3C
+- [Property](../WebDev/Frontend-W3C/4-CSSBasics/02-CSSRules.md#constructing-your-css-rules)
+  - tell the browser how to style the HTML tag that has been selected
+  - as many lines of code as you choose
+  - each of which has two parts- the property and the value you want that property to be
+  - with its own collection of possible values
+  - [complete list of latest CSS properties](https://www.w3.org/Style/CSS/all-properties#list) at the W3C
 
 
 ### Comment
 
-+ Comments
-  + begin with `/*` and must end with `*/`
-  + able to span several lines
-  + not nested
+- Comments
+  - begin with `/*` and must end with `*/`
+  - able to span several lines
+  - not nested
 
   ```css
   p {
@@ -218,13 +217,13 @@
 
 ### Debugging
 
-+ [Programming languages](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging)
-  + Javascript: procedure programming
-  + HTML and CSS: declarative
+- [Programming languages](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging)
+  - Javascript: procedure programming
+  - HTML and CSS: declarative
 
-+ Every browser is a bit different, but most of them have ways to examine the various elements and their properties.
+- Every browser is a bit different, but most of them have ways to examine the various elements and their properties.
 
-+ [Box Model](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging-with-the-box-model)
+- [Box Model](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging-with-the-box-model)
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/37f15009345846f391d7ac4d5bf06520/854f4a689894455ca4f375f15d0cbc42/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%407031c507bfe94604a6a98013af262725">
@@ -232,153 +231,156 @@
     </a></div>
   </div>
 
-  + the centered blue box corresponds to the size of the inspected element: width is 536 pixels and height is 118 pixels
-  + padding is only defined by padding-left which value is 40 pixels
-  + there is a border of 5 pixels on each side
-  + margin-left and margin-right are undefined (default value is 0 pixel)
-  + margin-top and margin-bottom are equal to 16 pixels
+  - the centered blue box corresponds to the size of the inspected element: width is 536 pixels and height is 118 pixels
+  - padding is only defined by padding-left which value is 40 pixels
+  - there is a border of 5 pixels on each side
+  - margin-left and margin-right are undefined (default value is 0 pixel)
+  - margin-top and margin-bottom are equal to 16 pixels
 
-+ [CSS Precedence](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#4-4-debugging-css-precedence)
-  + "Styles" and "Computed" are helpful in sorting out where a particular style setting is coming from
-  + a sequence of the panels under "Style" that helps understand just where a particular CSS rule is coming from
-  + from top, rules applied specifically to the currently active element
-  + overridden rule shown as striked out ones
-  + default ruke: grayed out tules
+- [CSS Precedence](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#4-4-debugging-css-precedence)
+  - "Styles" and "Computed" are helpful in sorting out where a particular style setting is coming from
+  - a sequence of the panels under "Style" that helps understand just where a particular CSS rule is coming from
+  - from top, rules applied specifically to the currently active element
+  - overridden rule shown as striked out ones
+  - default ruke: grayed out tules
 
-+ [Image Size](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging-image-size)
-  + Any style setting for the img width will take precedence over the attribute setting.
-  + special case the smaller pictures and use a larger width by default
+- [Image Size](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#debugging-image-size)
+  - Any style setting for the img width will take precedence over the attribute setting.
+  - special case the smaller pictures and use a larger width by default
 
-+ [Computed tab](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#computed-tab)
-  + The styles panel doesn't tell us a lot about the actually font-size in absolute terms. 
-  + The "Computed" tab contains the values of all the CSS properties that apply to the current element.
-  + click on the triangle to expand the details on font-size, which makes a little more clear what's going on
-  + the em unit is relative measurement, depending on the current font-size
+- [Computed tab](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#computed-tab)
+  - The styles panel doesn't tell us a lot about the actually font-size in absolute terms. 
+  - The "Computed" tab contains the values of all the CSS properties that apply to the current element.
+  - click on the triangle to expand the details on font-size, which makes a little more clear what's going on
+  - the em unit is relative measurement, depending on the current font-size
 
 
 ### Accessibility
 
-+ [WAI resources](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#wai-resources)
+- [WAI resources](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#wai-resources)
 
 ### Internationalization
 
-+ [Internationalization and CSS](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#internationalization-and-css-use-cases)
+- [Internationalization and CSS](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#internationalization-and-css-use-cases)
 
-+ [Internationalization Resoources](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#internationalization-resources)
+- [Internationalization Resoources](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#internationalization-resources)
 
 
 ## CSS Values and Units
 
 ### CSS Value Types & Functions
 
-+ [Textual data types](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Textual_data_types)
-  + [&lt;custome-ident&gt](https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident)
-    + an arbitrary user-defined string used as an identifier
-    + case-sensitive
-    + characters: alphabetical character (-Z, a-z); decimal digit (0-9); hyphen (-); underscore (_); escape character (\); Unicode character (\ + 1-6 hexadecimal digits)
-  + Pre-defined keywords as an &lt;ident&gt;
-    + text values defined by the specification for that property
-    + e.g., float: `left | right | none | inline-start | inline-end`
-    + CSS-wide property values: `initial`, `inherit`, and `unset`
-      + initial: the value specified as the property’s initial value
-      + inherit: the computed value of the property on the element’s parent
-      + unset: either inherit or initial, depending on whether the property is inherited or not
-  + [&lt;string&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/string)
-    + a sequence of characters
-    + composed of any number of Unicode characters surrounded by either double (") or single (') quotes
-    + Unicode points in hexadecimal: `\22` = double quote; `\27` = single quote; `\A9` = copyright symbol
-  + [&lt;url&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/url)
-    + a pointer to a resource
-    + specified using the url() functional notation
-    + e.g., `url("http://mysite.example.com/mycursor.png")`, `url('http://mysite.example.com/mycursor.png')` or `url(http://mysite.example.com/mycursor.png)`
+- [Textual data types](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Textual_data_types)
+  - [&lt;custome-ident&gt](https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident)
+    - an arbitrary user-defined string used as an identifier
+    - case-sensitive
+    - characters: alphabetical character (-Z, a-z); decimal digit (0-9); hyphen (-); underscore (_); escape character (\); Unicode character (\ - 1-6 hexadecimal digits)
+  - Pre-defined keywords as an &lt;ident&gt;
+    - text values defined by the specification for that property
+    - e.g., float: `left | right | none | inline-start | inline-end`
+    - CSS-wide property values: `initial`, `inherit`, and `unset`
+      - initial: the value specified as the property’s initial value
+      - inherit: the computed value of the property on the element’s parent
+      - unset: either inherit or initial, depending on whether the property is inherited or not
+  - [&lt;string&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/string)
+    - a sequence of characters
+    - composed of any number of Unicode characters surrounded by either double (") or single (') quotes
+    - Unicode points in hexadecimal: `\22` = double quote; `\27` = single quote; `\A9` = copyright symbol
+  - [&lt;url&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/url)
+    - a pointer to a resource
+    - specified using the url() functional notation
+    - e.g., `url("http://mysite.example.com/mycursor.png")`, `url('http://mysite.example.com/mycursor.png')` or `url(http://mysite.example.com/mycursor.png)`
 
-+ [Numeric data types](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Numeric_data_types)
-  + [&lt;integer&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/integer)
-    + a special type of &lt;number&gt; that represents a whole number, whether positive or negative
-    + consists of one or several decimal digits, 0 through 9 inclusive, optionally preceded by a single + or - sign
-    + no unit associated with integers
-  + [&lt;number&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/number)
-    + a number, being either an integer or a number with a fractional component
-    + maybe preceded by a + or - symbol
-  + [&lt;dimension&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/dimension)
-    + a &lt;number&gt; with a unit attached to it
-    + [&lt;length&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/length):Distance units
-    + [&lt;angle&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/angle): an angle value expressed in degrees, gradians, radians, or turns
-    + [&lt;time&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/time): a time value expressed in seconds or milliseconds
-    + [&lt;frequency&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/frequency): a frequency dimension, such as the pitch of a speaking voice
-    + [&lt;resolution&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/resolution): used for describing resolutions in media queries, denote the pixel density of an output device
-  + [&lt;Percentag&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Percentages)
-    + a fraction of some other value
-    + used to define a size as relative to an element's parent object
-    + consist of a &lt;number&gt; followed by the percentage sign (%)
-    + may be preceded by a single + or - sign, although negative values are not valid for all properties
+- [Numeric data types](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Numeric_data_types)
+  - [&lt;integer&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/integer)
+    - a special type of &lt;number&gt; that represents a whole number, whether positive or negative
+    - consists of one or several decimal digits, 0 through 9 inclusive, optionally preceded by a single - or - sign
+    - no unit associated with integers
+  - [&lt;number&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/number)
+    - a number, being either an integer or a number with a fractional component
+    - maybe preceded by a - or - symbol
+  - [&lt;dimension&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/dimension)
+    - a &lt;number&gt; with a unit attached to it
+    - [&lt;length&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/length):Distance units
+    - [&lt;angle&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/angle): an angle value expressed in degrees, gradians, radians, or turns
+    - [&lt;time&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/time): a time value expressed in seconds or milliseconds
+    - [&lt;frequency&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/frequency): a frequency dimension, such as the pitch of a speaking voice
+    - [&lt;resolution&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/resolution): used for describing resolutions in media queries, denote the pixel density of an output device
+  - [&lt;Percentag&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Percentages)
+    - a fraction of some other value
+    - used to define a size as relative to an element's parent object
+    - consist of a &lt;number&gt; followed by the percentage sign (%)
+    - may be preceded by a single - or - sign, although negative values are not valid for all properties
 
-+ [Mixing percentages and dimensions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Mixing_percentages_and_dimensions)
-  + [&lt;frequency-percentage&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/frequency-percentage): a value that can be either a &lt;frequency&gt; or a &lt;percentage&gt; 
-  + [&lt;angle-percentage&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/angle-percentage): a value that can be either a &lt;angle&gt; or a &lt;percentage&gt;
-  + [&lt;time-percentage&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/time-percentage): a value that can be either a &lt;time&gt; or a &lt;percentage&gt;
+- [Mixing percentages and dimensions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Mixing_percentages_and_dimensions)
+  - [&lt;frequency-percentage&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/frequency-percentage): a value that can be either a &lt;frequency&gt; or a &lt;percentage&gt; 
+  - [&lt;angle-percentage&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/angle-percentage): a value that can be either a &lt;angle&gt; or a &lt;percentage&gt;
+  - [&lt;time-percentage&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/time-percentage): a value that can be either a &lt;time&gt; or a &lt;percentage&gt;
 
-+ [Special data types](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Special_data_types_(defined_in_other_specs))
-  + [&lt;color&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/color)
-    + specify the color of an element feature
-    + a color in the sRGB color space
-    + may include an alpha-channel transparency value
-    + ways to define:
-      + keyword (e.g., blue or transparent)
-      + RGB cubic-coordinate system (via the #-hexadecimal or the rgb() and rgba() functional notations)
-      + HSL cylindrical-coordinate system (via the hsl() and hsla() functional notations)
-    + [Color Name & sRGB Values](HTML-Color.md)
-  + [&lt;image&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/image)
-    + two-dimensional image
-    + two kinds of images
-      + plain images, referenced with a &lt;url&gt;
-      + dynamically-generated images, generated with &lt;gradient&gt; or element()
-    + handle the following kinds of images
-      + Images with intrinsic dimensions (a natural size), e.g., JPEG, PNG
-      + Images with multiple intrinsic dimensions, existing in multiple versions inside a single file, like some .ico formats
-      + Images with no intrinsic dimensions but with an intrinsic aspect ratio between its width and height, e.g., SVG
-      + Images with neither intrinsic dimensions, nor an intrinsic aspect ratio, e.g., CSS gradient
-  + [&lt;position&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/position_value)
-    + a two-dimensional coordinate used to set a location relative to an element box
-    + used in the `background-position` property
-    + specified with one or two keywords, with optional offsets
-    + keyword values: `center`, `top`, `right`, `bottom`, and `left`
+- [Special data types](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Special_data_types_(defined_in_other_specs))
+  - [&lt;color&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/color)
+    - specify the color of an element feature
+    - a color in the sRGB color space
+    - may include an alpha-channel transparency value
+    - ways to define:
+      - keyword (e.g., blue or transparent)
+      - RGB cubic-coordinate system (via the #-hexadecimal or the rgb() and rgba() functional notations)
+      - HSL cylindrical-coordinate system (via the hsl() and hsla() functional notations)
+    - [Color Name & sRGB Values](HTML-Color.md)
+  - [&lt;image&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/image)
+    - two-dimensional image
+    - two kinds of images
+      - plain images, referenced with a &lt;url&gt;
+      - dynamically-generated images, generated with &lt;gradient&gt; or element()
+    - handle the following kinds of images
+      - Images with intrinsic dimensions (a natural size), e.g., JPEG, PNG
+      - Images with multiple intrinsic dimensions, existing in multiple versions inside a single file, like some .ico formats
+      - Images with no intrinsic dimensions but with an intrinsic aspect ratio between its width and height, e.g., SVG
+      - Images with neither intrinsic dimensions, nor an intrinsic aspect ratio, e.g., CSS gradient
+  - [&lt;position&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/position_value)
+    - a two-dimensional coordinate used to set a location relative to an element box
+    - used in the `background-position` property
+    - specified with one or two keywords, with optional offsets
+    - keyword values: `center`, `top`, `right`, `bottom`, and `left`
 
-    <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position_value" ismap target="_blank">
-        <img src="https://mdn.mozillademos.org/files/12215/position_type.png" style="margin: 0.1em;" alt="Syntax of position property" title="Syntax of position property" width=350>
-      </a>
-    </div>
+  <figure style="display: table; margin: auto; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://webkit.org/blog/7434/css-grid-layout-a-new-layout-module-for-the-web/')"
+      src    = "https://developer.mozilla.org/en-US/docs/Web/CSS/position_value/position_type.png"
+      alt    = "Syntax of position property"
+      title  = "Syntax of position property"
+    />
+  </figure>
 
 
-+ [Functional notation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Functional_notation)
-  + [calc() CSS function](https://developer.mozilla.org/en-US/docs/Web/CSS/calc)
-    + perform calculations when specifying CSS property values
-    + used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;, &lt;number&gt;, or &lt;integer&gt;
-    + function takes a single expression as its parameter, with the expression's result used as the value
-    + operators used: +, -, * , /
-    + e.g., `width: calc(100% - 80px);`
-    + [overuse makes page slow](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#calc-)
-    + used for sizing flexbox items nor always as desired, in particular along the cross axis
-  + [min()](https://developer.mozilla.org/en-US/docs/Web/CSS/min):
-    + set the smallest (most negative) value from a list of comma-separated expressions as the value of a CSS property value
-    + used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;,&lt;number&gt;, or &lt;integer&gt;
-    + e.g., `width: min(10vw, 4em, 80px);`
-  + [max()](https://developer.mozilla.org/en-US/docs/Web/CSS/max)
-    + set the largest (most positive) value from a list of comma-separated expressions as the value of a CSS property value
-    + used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;,&lt;number&gt;, or &lt;integer&gt;
-    + e.g., `width: max(10vw, 4em, 80px);`
-  + [clamp()](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp)
-    + clamp a value between an upper and lower bound
-    + enable selecting a middle value within a range of values between a defined minimum and maximum
-    + three parameters: a minimum value, a preferred value, and a maximum allowed value
-    + used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;, &lt;number&gt;, or &lt;integer&gt;
-    + e.g., `width: clamp(10px, 4em, 80px);`
-  + toggle(): ?
-  + [attr()](https://developer.mozilla.org/en-US/docs/Web/CSS/attr)
-    + used to retrieve the value of an attribute of the selected element and use it in the stylesheet
-    + used on pseudo-elements, in which case the value of the attribute on the pseudo-element's originating element is returned
-    + e.g., Simple usage: `attr(data-count);`, With type: `attr(src url);`, With fallback: `attr(data-count number, 0);`
+- [Functional notation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units#Functional_notation)
+  - [calc() CSS function](https://developer.mozilla.org/en-US/docs/Web/CSS/calc)
+    - perform calculations when specifying CSS property values
+    - used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;, &lt;number&gt;, or &lt;integer&gt;
+    - function takes a single expression as its parameter, with the expression's result used as the value
+    - operators used: +, -, * , /
+    - e.g., `width: calc(100% - 80px);`
+    - [overuse makes page slow](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#calc-)
+    - used for sizing flexbox items nor always as desired, in particular along the cross axis
+  - [min()](https://developer.mozilla.org/en-US/docs/Web/CSS/min):
+    - set the smallest (most negative) value from a list of comma-separated expressions as the value of a CSS property value
+    - used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;,&lt;number&gt;, or &lt;integer&gt;
+    - e.g., `width: min(10vw, 4em, 80px);`
+  - [max()](https://developer.mozilla.org/en-US/docs/Web/CSS/max)
+    - set the largest (most positive) value from a list of comma-separated expressions as the value of a CSS property value
+    - used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;,&lt;number&gt;, or &lt;integer&gt;
+    - e.g., `width: max(10vw, 4em, 80px);`
+  - [clamp()](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp)
+    - clamp a value between an upper and lower bound
+    - enable selecting a middle value within a range of values between a defined minimum and maximum
+    - three parameters: a minimum value, a preferred value, and a maximum allowed value
+    - used anywhere a &lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;, &lt;number&gt;, or &lt;integer&gt;
+    - e.g., `width: clamp(10px, 4em, 80px);`
+  - toggle(): ?
+  - [attr()](https://developer.mozilla.org/en-US/docs/Web/CSS/attr)
+    - used to retrieve the value of an attribute of the selected element and use it in the stylesheet
+    - used on pseudo-elements, in which case the value of the attribute on the pseudo-element's originating element is returned
+    - e.g., Simple usage: `attr(data-count);`, With type: `attr(src url);`, With fallback: `attr(data-count number, 0);`
 
 
 
@@ -435,12 +437,11 @@
 </table><br/>
 
 
-
 ## Selectors
 
 ### Definition of Selectors
 
-+ CSS rule is made up of two parts: the selector and the declaration
+- CSS rule is made up of two parts: the selector and the declaration
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="http://gottheknack.com/a_htmlCss/weeks/week8/cssRuleStructure/cssRuleStructure.html">
@@ -448,42 +449,42 @@
     </a></div>
   </div>
 
-+ Selectors
-  + tag selector
-    + consist solely of a single tag (without punctuation or spacing) will be applied to any matching tag on the page
-    + e.g., `li { list-style-type: circle; }`
-  + id selector
-    + applied to an HTML tag to uniquely identify the element
-    + the value for any given id attribute can only appear once in a document
-    + no spaces, nor most punctuation, nor begin with numbers
-    + e.g., declartion: `#p19 { color: green; }`; use: `<p id="p19">Madam, you have spoken truly.</p>`
-  + class selector
-    + similar to the id, but shared by multiple tags
-    + assigned to a tag by simply separating them with spaces
-    + simply a period (.) followed by the class name itself
-    + e.g., declaration: `.insect { color: green; }` & `.flying { text-decoration: underline; }`; use: `<li class="insect flying">moth</li>`
+- Selectors
+  - tag selector
+    - consist solely of a single tag (without punctuation or spacing) will be applied to any matching tag on the page
+    - e.g., `li { list-style-type: circle; }`
+  - id selector
+    - applied to an HTML tag to uniquely identify the element
+    - the value for any given id attribute can only appear once in a document
+    - no spaces, nor most punctuation, nor begin with numbers
+    - e.g., declartion: `#p19 { color: green; }`; use: `<p id="p19">Madam, you have spoken truly.</p>`
+  - class selector
+    - similar to the id, but shared by multiple tags
+    - assigned to a tag by simply separating them with spaces
+    - simply a period (.) followed by the class name itself
+    - e.g., declaration: `.insect { color: green; }` & `.flying { text-decoration: underline; }`; use: `<li class="insect flying">moth</li>`
 
-+ Combining selectors
-  + comma separated selectors: `blockquote, q, .speech {color: red; font-style: italic;}`
-  + specialized selectors: 
-    + two selectors of different types (like tag and class) appear next to each other with no spacing separating them
-    + e.g., `blockquote.speech {font-color: green;}` -> only apply to those blockquotes that also have the speech class
-  + descant selectors:
-    + separate the tag, identifier, or class selectors by a space
-    + e.g., `#intro a { color: red; }` -> the selector will match to any &lt;a&gt; tag that is a descendant of #intro
-  + direct descendant selectors ( &gt; )
-    + only to the direct children
-    + Use it between selectors to limit the application to the direct children of the parent.
-    + e.g., `#intro > a { font-size: large; }`
-  + everything selector ( * )
-    + used to match any tag
-    + e.g., `body > * { margin-left: 10px; } /* all the _direct_ children of the body receive the margin */`
+- Combining selectors
+  - comma separated selectors: `blockquote, q, .speech {color: red; font-style: italic;}`
+  - specialized selectors: 
+    - two selectors of different types (like tag and class) appear next to each other with no spacing separating them
+    - e.g., `blockquote.speech {font-color: green;}` -> only apply to those blockquotes that also have the speech class
+  - descant selectors:
+    - separate the tag, identifier, or class selectors by a space
+    - e.g., `#intro a { color: red; }` -> the selector will match to any &lt;a&gt; tag that is a descendant of #intro
+  - direct descendant selectors ( &gt; )
+    - only to the direct children
+    - Use it between selectors to limit the application to the direct children of the parent.
+    - e.g., `#intro > a { font-size: large; }`
+  - everything selector ( * )
+    - used to match any tag
+    - e.g., `body > * { margin-left: 10px; } /* all the _direct_ children of the body receive the margin */`
 
-+ [!important](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#-important)
-  + take precedence over all others
-  + not recommended
-  + fix conflict directly, rather than using !important
-  + e.g., `p { color: orange !important; }`
+- [!important](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#-important)
+  - take precedence over all others
+  - not recommended
+  - fix conflict directly, rather than using !important
+  - e.g., `p { color: orange !important; }`
 
 
 
@@ -506,7 +507,7 @@
   <tr><td><strong><i>element,element</i></strong></td><td>div, p</td><td>Selects all &lt;div&gt; elements and all &lt;p&gt; elements</td></tr>
   <tr><td><strong><i>element</i> <i>element</i></strong></td><td>div p</td><td>Selects all &lt;p&gt; elements inside &lt;div&gt; elements</td></tr>
   <tr><td><strong><i>element</i>&gt;<i>element</i></strong></td><td>div &gt; p</td><td>Selects all &lt;p&gt; elements where the parent is a &lt;div&gt; element</td></tr>
-  <tr><td><strong><i>element</i>+<i>element</i></strong></td><td>div + p</td><td>Selects all &lt;p&gt; elements that are placed immediately after &lt;div&gt; elements</td></tr>
+  <tr><td><strong><i>element</i>+<i>element</i></strong></td><td>div - p</td><td>Selects all &lt;p&gt; elements that are placed immediately after &lt;div&gt; elements</td></tr>
   <tr><td><strong><i>element1</i>~<i>element2</i></strong></td><td>p ~ ul</td><td>Selects every &lt;ul&gt; element that are preceded by a &lt;p&gt; element</td></tr>
   <tr><td><strong>[<i>attribute</i>]</strong></td><td>[target]</td><td>Selects all elements with a target attribute</td></tr>
   <tr><td><strong>[<i>attribute</i>=<i>value</i>]</strong></td><td>[target=_blank]</td><td>Selects all elements with target="_blank"</td></tr>
@@ -662,71 +663,72 @@
   </a></div>
 </div>
 
-+ [Inheritance](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#inheritance): the cascading of a CSS property from parent to child
+- [Inheritance](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#inheritance): the cascading of a CSS property from parent to child
 
-+ CSS property values set on one element will be transferred down the tree to that element's children.
+- CSS property values set on one element will be transferred down the tree to that element's children.
 
-+ Not every property is inherited, but many are, e.g., the layout properties (margin, padding, position, width, etc.) and the decorative properties (border, background, etc.)
+- Not every property is inherited, but many are, e.g., the layout properties (margin, padding, position, width, etc.) and the decorative properties (border, background, etc.)
 
-+ Inheritance can be explicitly leveraged.
+- Inheritance can be explicitly leveraged.
 
-+ Reducing repetition in CSS rules and make project easier to maintain by smartly leveraging
+- Reducing repetition in CSS rules and make project easier to maintain by smartly leveraging
 
-+ No reliable rule for which CSS properties are inheritable by default and which are not
+- No reliable rule for which CSS properties are inheritable by default and which are not
 
-+ Generally, the properties associated with positioning and layout are not inherited. Likewise, the decorative properties (borders, background images, etc.) do not inherit.
+- Generally, the properties associated with positioning and layout are not inherited. Likewise, the decorative properties (borders, background images, etc.) do not inherit.
 
-+ Most properties that begin with text- or font- inherit.
+- Most properties that begin with text- or font- inherit.
 
 
 ### CSS Precedence
 
-+ [Precedence](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#precedence)
-  + most CSS properties are orthogonal to one another
-  + organize the CSS properties in rules in ways that make sense to developers
-  
-+ [Guidelines](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#precedence) to resolve conflicting rules
+- [Precedence](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#precedence)
+  - most CSS properties are orthogonal to one another
+  - organize the CSS properties in rules in ways that make sense to developers
+
+
+- [Guidelines](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#precedence) to resolve conflicting rules
   1. Most specific rule
-    + A more specific rule takes precedence over a less specific rule.
-    + A rule that more tightly matches a particular element than a general rule will be applied.
-    + e.g., `ul li span {color: red;}` > `span {color: blue;}`
+       - A more specific rule takes precedence over a less specific rule.
+       - A rule that more tightly matches a particular element than a general rule will be applied.
+       - e.g., `ul li span {color: red;}` > `span {color: blue;}`
   2. #id selector is the most specific
-    + an id selector (e.g. #someid) considered more specific than rules without
+       - an id selector (e.g. #someid) considered more specific than rules without
   3. .class selector is more specific than a tag selector
-    + a class selector (e.g. .someclass) are considered more specific than rules without except for the id selector
+       - a class selector (e.g. .someclass) are considered more specific than rules without except for the id selector
   4. Rules that come later override those that come earlier
-    + guideline for two CSS rulesets with the same selector
+       - guideline for two CSS rulesets with the same selector
 
 
-+ [Rules](https://stackoverflow.com/questions/25105736/what-is-the-order-of-precedence-for-css):
+- [Rules](https://stackoverflow.com/questions/25105736/what-is-the-order-of-precedence-for-css):
 
-  1. __inline > style/css file__: inline css ( html style attribute ) overrides css rules in style tag and css file
-  2. __specific > less-specific__: a more specific selector takes precedence over a less specific one
-  3. __later > earlier__: rules that appear later in the code override earlier rules if both have the same specificity.
-  4. __`!important`__ highest: A css rule with `!important` always takes precedence.
+  1. **inline > style/css file**: inline css ( html style attribute ) overrides css rules in style tag and css file
+  2. **specific > less-specific**: a more specific selector takes precedence over a less specific one
+  3. **later > earlier**: rules that appear later in the code override earlier rules if both have the same specificity.
+  4. **`!important`** highest: A css rule with `!important` always takes precedence.
 
 
-+ Four categories which define the [specificity level](https://www.w3schools.com/css/css_specificity.asp) of a selector:
+- Four categories which define the [specificity level](https://www.w3schools.com/css/css_specificity.asp) of a selector:
 
-  1. __Inline styles__ - An inline style is attached directly to the element to be styled. Example: `<h1 style="color: #ffffff;">`.
-  2. __IDs__ - An ID is a unique identifier for the page elements, such as `#navbar`.
-  3. __Classes, attributes and pseudo-classes__ - This category includes `.classes`, `[attributes]` and pseudo-classes such as `:hover`, `:focus` etc.
-  4. __Elements__ and __pseudo-elements__ - This category includes element names and pseudo-elements, such as `h1`, `div`, `:before` and `:after`.
+  1. **Inline styles** - An inline style is attached directly to the element to be styled. Example: `<h1 style="color: #ffffff;">`.
+  2. **IDs** - An ID is a unique identifier for the page elements, such as `#navbar`.
+  3. **Classes, attributes and pseudo-classes** - This category includes `.classes`, `[attributes]` and pseudo-classes such as `:hover`, `:focus` etc.
+  4. **Elements** and **pseudo-elements** - This category includes element names and pseudo-elements, such as `h1`, `div`, `:before` and `:after`.
 
-+ [selector's specificity calculation](https://www.w3.org/TR/selectors-3/#specificity):
+- [selector's specificity calculation](https://www.w3.org/TR/selectors-3/#specificity):
 
-  + count the number of ID selectors in the selector (= a)
-  + count the number of class selectors, attributes selectors, and pseudo-classes in the selector (= b)
-  + count the number of type selectors and pseudo-elements in the selector (= c)
-  + ignore the universal selector
+  - count the number of ID selectors in the selector (= a)
+  - count the number of class selectors, attributes selectors, and pseudo-classes in the selector (= b)
+  - count the number of type selectors and pseudo-elements in the selector (= c)
+  - ignore the universal selector
 
-    + Examples:
+    - Examples:
       <pre style="border: none; font-family: 'Courier New'; font-weight: bold;">
         *               /* a=0 b=0 c=0 -> specificity =   0 */
         LI              /* a=0 b=0 c=1 -> specificity =   1 */
         UL LI           /* a=0 b=0 c=2 -> specificity =   2 */
         UL OL+LI        /* a=0 b=0 c=3 -> specificity =   3 */
-        H1 + *[REL=up]  /* a=0 b=1 c=1 -> specificity =  11 */
+        H1 - *[REL=up]  /* a=0 b=1 c=1 -> specificity =  11 */
         UL OL LI.red    /* a=0 b=1 c=3 -> specificity =  13 */
         LI.red.level    /* a=0 b=2 c=1 -> specificity =  21 */
         #x34y           /* a=1 b=0 c=0 -> specificity = 100 */
@@ -809,12 +811,12 @@
 
 ### Typography
 
-+ [Typography](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
-  + sans-serif: the letters do not have added flourishes; most popular; `Helvetica`, `Verdana`, `Arial`, `Tahoma`
-  + serif - the small flourish lines at the edges of letters and symbols; `Times New Roman`, `Book Antiqua`, `Georgia`
-  + monospace - all letters have the same fixed width; `Courier New`
-  + cursive - mimic human handwriting often by joining letters or having an italic slant; `Comic Sans MS`
-  + fantasy - the most diverse category of fonts including all of those that are particularly decorative
+- [Typography](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
+  - sans-serif: the letters do not have added flourishes; most popular; `Helvetica`, `Verdana`, `Arial`, `Tahoma`
+  - serif - the small flourish lines at the edges of letters and symbols; `Times New Roman`, `Book Antiqua`, `Georgia`
+  - monospace - all letters have the same fixed width; `Courier New`
+  - cursive - mimic human handwriting often by joining letters or having an italic slant; `Comic Sans MS`
+  - fantasy - the most diverse category of fonts including all of those that are particularly decorative
 
 
 
@@ -823,28 +825,28 @@
 
 ### Format of Color
 
-+ [Named colors](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#named-colors): the most common English names for colors; e.g., `color: transparent;`
+- [Named colors](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#named-colors): the most common English names for colors; e.g., `color: transparent;`
 
-+ [rgb/rgba](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#rgb-rgba):
-  + rgb(): 
-    + any color on a computer is exactly specified by mixing three components together: red, green, and blue
-    + the amount of each component falls within a range between 0 and 255
-    + syntax: `rgb( red, green, blue);`
-    + e.g., `p { color: rgb(10, 200, 255); }`
-  + rgba(): 
-    + used for semi-transparent colors
-    + the fourth value: the "alpha channel", the opacity
-    + alpha: a number between 0 and 1
-    + e.g., `b { color: rgba(10, 200, 255, 0.5); }`
+- [rgb/rgba](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#rgb-rgba):
+  - rgb(): 
+    - any color on a computer is exactly specified by mixing three components together: red, green, and blue
+    - the amount of each component falls within a range between 0 and 255
+    - syntax: `rgb( red, green, blue);`
+    - e.g., `p { color: rgb(10, 200, 255); }`
+  - rgba(): 
+    - used for semi-transparent colors
+    - the fourth value: the "alpha channel", the opacity
+    - alpha: a number between 0 and 1
+    - e.g., `b { color: rgba(10, 200, 255, 0.5); }`
 
-+ [Hex code](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#hex-code)
-  + providing an hexadecimal (hex) code w.r.t. [0, 255]
-  + start with the pound sign (#) and is followed by three pairs of hex number, ranging 00 to FF
-  + e.g., `p { color: #3A2BFF; }`
+- [Hex code](../WebDev/Frontend-W3C/1-HTML5CSSFund/03-CSS.md#hex-code)
+  - providing an hexadecimal (hex) code w.r.t. [0, 255]
+  - start with the pound sign (#) and is followed by three pairs of hex number, ranging 00 to FF
+  - e.g., `p { color: #3A2BFF; }`
 
-+ A `<color>` is either a keyword or a numerical RGB specification.
+- A `<color>` is either a keyword or a numerical RGB specification.
 
-+ Complementary and Triadic colour schemes
+- Complementary and Triadic colour schemes
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <div><a href="https://www.w3.org/wiki/Colour_theory">
@@ -882,9 +884,9 @@
 
 ### Important References
 
-+ Color
-  + [Color names and sRGB values](HTML-Color.md)
-  + [Tanaguru Contrast-Finder](http://contrast-finder.tanaguru.com/)
+- Color
+  - [Color names and sRGB values](HTML-Color.md)
+  - [Tanaguru Contrast-Finder](http://contrast-finder.tanaguru.com/)
 
 
 ## Item List Properties
@@ -1013,27 +1015,64 @@
 
 
 
+
+## CSS Website Layout
+
+### Typical Layout
+
+<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+  <div><a href="https://www.w3schools.com/css/css_website_layout.asp">
+    <img src="../WebDev/Frontend-W3C/4-CSSBasics/img/css-layout.png" style="margin: 0.1em;" alt="There are tons of different layout designs to choose from. However, the structure above, is one of the most common, and we will take a closer look at it in this tutorial." title="A website is often divided into headers, menus, content and a footer" width="500">
+  </a></div>
+</div>
+
+
+- [Float layout example](../Notes/web09-CSSLayout.md)
+  - using `float` property than `position` property
+
+  <figure style="display: table; margin: auto; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://learnlayout.com/float-layout.html')"
+      src    = "../Notes/img/web09-floatexp.png"
+      alt    = "The same layout using float property"
+      title  = "The same layout using float property"
+    />
+    <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+      The same layout using <code>float</code> property, not <code>position</code> property, to make things easier
+    </figcaption>
+  </figure>
+
+
+### Multi-column Pages
+
+- [The `column` property](../Notes/web09-CSSLayout.md)
+  - a new set of property to make multi-column text
+  - very new property $\to$ prefixes required
+  - browser compitability check required
+
+
+
 ## Alignment Property
 
 ### Characteristics of Alignment
 
-+ [Horizontal centering](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#horizontal-centering)
-  + inline elements
-    + positioned along the baseline
-    + no CSS property directly applied to cause this element to center
-    + using `text-align` to centerize an inline element
-  + block level elements
-    + take the width of their parent by defaut
-    + NOT recommended: limiting the width of the element
-    + RECOMMENDED: `margin: auto;`: center the element
+- [Horizontal centering](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#horizontal-centering)
+  - inline elements
+    - positioned along the baseline
+    - no CSS property directly applied to cause this element to center
+    - using `text-align` to centralize an inline element
+  - block level elements
+    - take the width of their parent by default
+    - NOT recommended: limiting the width of the element
+    - RECOMMENDED: `margin: auto;`: center the element
 
-+ [Vertical centering](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#vertical-centering)
-  + Inline elements:
-    + respect the vertical-align property
-    + aligned relative to the baseline
-  + Block level elements
-    + no margin:auto approach
-    + flexbox: the best practice to centerize vertically
+- [Vertical centering](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#vertical-centering)
+  - Inline elements:
+    - respect the vertical-align property
+    - aligned relative to the baseline
+  - Block level elements
+    - no margin:auto approach
+    - flexbox: the best practice to centralize vertically
 
 
 ### List of Alignment Properties
@@ -1068,66 +1107,78 @@
 
 ### Box Model and Characteristics
 
-+ [CSS Box Model](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#css-box-model)
-  + All elements in an html document end up being treated as rectangles somewhere in the window.
-  + 3 important spacing features
-    + Padding: just outside the content
-    + Border: go around the content and the padding
-    + Margin: specifies the position of the element relative to whatever is adjacent to it, either to the right or left, or top or bottom
-  + Padding separates the contents from the border.
-  + The border property has a lot more options than the padding or margin
-    + visible
-    + size, shape, color and style
-    + completely or partially transparent border
-    + color of the border to the color of the background
-  + Default border properties
-    + border-width (the size of your imaginary pen)
-    + border-style (dashed, dotted, solid, etc.)
-    + border-color (the color of your pen)
-  + Negative margin: overlap with another element on the page
+- [CSS Box Model](../WebDev/Frontend-W3C/1-HTML5CSSFund/04-Debug.md#css-box-model)
+  - All elements in an html document end up being treated as rectangles somewhere in the window.
+  - 3 important spacing features
+    - Padding: just outside the content
+    - Border: go around the content and the padding
+    - Margin: specifies the position of the element relative to whatever is adjacent to it, either to the right or left, or top or bottom
+  - Padding separates the contents from the border.
+  - The border property has a lot more options than the padding or margin
+    - visible
+    - size, shape, color and style
+    - completely or partially transparent border
+    - color of the border to the color of the background
+  - Default border properties
+    - border-width (the size of your imaginary pen)
+    - border-style (dashed, dotted, solid, etc.)
+    - border-color (the color of your pen)
+  - Negative margin: overlap with another element on the page
+
+  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
+    <div><a href="https://www.w3.org/TR/CSS22/box.html">
+      <img src="https://www.w3.org/TR/CSS22/images/boxdim.png" style="margin: 0.1em;" alt="Each box has a content area (e.g., text, an image, etc.) and optional surrounding padding, border, and margin areas; the size of each area is specified by properties defined below. The following diagram shows how these areas relate and the terminology used to refer to pieces of margin, border, and padding. The margin, border, and padding can be broken down into top, right, bottom, and left segments (e.g., in the diagram, 'LM' for left margin, 'RP' for right padding, 'TB' for top border, etc.)." title="The four areas of the generic CSS box: content, padding, border, and margin" width="300">
+    </a>
+    <a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
+      <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f6f6c946356774ddb886956cd94df4c9/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/margin**padding**border.png" style="margin: 0.1em;" alt="Diagram presenting the relationship of margin, padding and border" title="Box Model" width="300">
+    </a></div>
+  </div>
 
 
-<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-  <div><a href="https://www.w3.org/TR/CSS22/box.html">
-    <img src="https://www.w3.org/TR/CSS22/images/boxdim.png" style="margin: 0.1em;" alt="Each box has a content area (e.g., text, an image, etc.) and optional surrounding padding, border, and margin areas; the size of each area is specified by properties defined below. The following diagram shows how these areas relate and the terminology used to refer to pieces of margin, border, and padding. The margin, border, and padding can be broken down into top, right, bottom, and left segments (e.g., in the diagram, 'LM' for left margin, 'RP' for right padding, 'TB' for top border, etc.)." title="The four areas of the generic CSS box: content, padding, border, and margin" width="300">
-  </a>
-  <a href="https://courses.edx.org/courses/course-v1:W3Cx+CSS.0x+3T2018/courseware/bb30325abfbf47b583784acd793db6dc/b51f656fe5bd47a7b2f24fe7617b7870/1?activate_block_id=block-v1%3AW3Cx%2BCSS.0x%2B3T2018%2Btype%40vertical%2Bblock%40021c5be913ac42348edca84f9a89bf46">
-    <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f6f6c946356774ddb886956cd94df4c9/asset-v1:W3Cx+CSS.0x+3T2018+type@asset+block/margin__padding__border.png" style="margin: 0.1em;" alt="Diagram presenting the relationship of margin, padding and border" title="Box Model" width="300">
-  </a></div>
-</div>
+- [The box model](../Notes/web09-CSSLayout.md)
+  - element's border and padding stretching out the element beyond the specified width
+
+  <figure style="display: table; margin: auto; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+      onclick= "window.open('https://en.wikipedia.org/wiki/CSS_box_model')"
+      src    = "https://upload.wikimedia.org/wikipedia/commons/7/7a/Boxmodell-detail.png"
+      alt    = "The CSS box model"
+      title  = "The CSS box model"
+    />
+  </figure>
 
 
-+ [MDN Box Model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
-  + CSS determines the size, position, and properties (color, background, border size, etc.) of these boxes.
-  + composed of four parts (or areas), defined by their respective edges: the content edge, padding edge, border edge, and margin edge.
-  + content area:
-    + bounded by the content edge, contains the "real" content of the element, such as text, an image, or a video player
-    + dimensions: the content width (or content-box width) and the content height (or content-box height)
-    + box-sizing property: explicitly defined with the width, min-width, max-width, height, min-height, and max-height properties
-  + padding area
-    + bounded by the padding edge, extends the content area to include the element's padding
-    + dimensions: the padding-box width and the padding-box height
-    + determined by the padding-top, padding-right, padding-bottom, padding-left, and shorthand padding properties
-  + border area
-    + bounded by the border edge, extends the padding area to include the element's borders
-    + dimensions: the border-box width and the border-box height
-    + thickness of the borders: the border-width and shorthand border properties
-    + box-sizing property: set to border-box
-    + explicitly defined with the width, min-width, max-width, height, min-height, and max-height properties
-    + a background (background-color or background-image) set on a box, it extends to the outer edge of the border
-  + margin area
-    + bounded by the margin edge, extends the border area to include an empty area used to separate the element from its neighbors
-    + dimensions: the margin-box width and the margin-box height
-    + determined by the margin-top, margin-right, margin-bottom, margin-left, and shorthand margin properties
-    + margin collapsing: not clearly defined since margins are shared between boxes
+- [MDN Box Model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
+  - CSS determines the size, position, and properties (color, background, border size, etc.) of these boxes.
+  - composed of four parts (or areas), defined by their respective edges: the content edge, padding edge, border edge, and margin edge.
+  - content area:
+    - bounded by the content edge, contains the "real" content of the element, such as text, an image, or a video player
+    - dimensions: the content width (or content-box width) and the content height (or content-box height)
+    - box-sizing property: explicitly defined with the width, min-width, max-width, height, min-height, and max-height properties
+  - padding area
+    - bounded by the padding edge, extends the content area to include the element's padding
+    - dimensions: the padding-box width and the padding-box height
+    - determined by the padding-top, padding-right, padding-bottom, padding-left, and shorthand padding properties
+  - border area
+    - bounded by the border edge, extends the padding area to include the element's borders
+    - dimensions: the border-box width and the border-box height
+    - thickness of the borders: the border-width and shorthand border properties
+    - box-sizing property: set to border-box
+    - explicitly defined with the width, min-width, max-width, height, min-height, and max-height properties
+    - a background (background-color or background-image) set on a box, it extends to the outer edge of the border
+  - margin area
+    - bounded by the margin edge, extends the border area to include an empty area used to separate the element from its neighbors
+    - dimensions: the margin-box width and the margin-box height
+    - determined by the margin-top, margin-right, margin-bottom, margin-left, and shorthand margin properties
+    - margin collapsing: not clearly defined since margins are shared between boxes
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model" ismap target="_blank">
-    <img src="https://mdn.mozillademos.org/files/8685/boxmodel-(3).png" style="margin: 0.1em;" alt="MDN Box Model" title="MDN Box Model" width=350>
+    <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model/boxmodel.png" style="margin: 0.1em;" alt="MDN Box Model" title="MDN Box Model" width=350>
   </a>
 </div>
 
-+ [Border style](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#border-style)
+- [Border style](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#border-style)
 
   <table style="border-collapse: separate; border-spacing: 4px;" width=90%>
   <tbody>
@@ -1144,11 +1195,11 @@
   </tbody>
   </table>
 
-+ [Element Size Control](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#managing-element-size)
-  + control an element's size for the purpose of controlling how a border or background extends relative to the item itself
-  + not recommended: width, height, left and top CSS properties
-  + best practice: padding properties
-  + Margins make space between elements and padding makes an element larger.
+- [Element Size Control](../WebDev/Frontend-W3C/1-HTML5CSSFund/05-MoreHTMLCSS.md#managing-element-size)
+  - control an element's size for the purpose of controlling how a border or background extends relative to the item itself
+  - not recommended: width, height, left and top CSS properties
+  - best practice: padding properties
+  - Margins make space between elements and padding makes an element larger.
 
 
 ### Box Sizing
@@ -1171,12 +1222,41 @@
   </tr>
   <tr>
     <td>border-box</td>
-    <td><ul><li>telling the browser to account for any border and padding in the values specified for an element's width and height</li><li>including width and height, padding & border, but not margin</li><li> the dimensions of the element: width = border + padding + width of the content, height = border + padding + height of the content</li></ul></td>
+    <td><ul><li>telling the browser to account for any border and padding in the values specified for an element's width and height</li><li>including width and height, padding & border, but not margin</li><li> the dimensions of the element: width = border - padding - width of the content, height = border - padding - height of the content</li></ul></td>
     <td><div>box-sizing: content-box;<br/>width: 100%</div><div>box-sizing: content-box;<br/>width: 100%;<br/>border: solid #5B6DCD 10px;</div></td>
     <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing">MDN</a>, <a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#the-box-model-and-box-sizing">Box-sizing</a></td>
   </tr>
   </tbody>
 </table>
+
+
+- [The `box-sizing` property](../Notes/web09-CSSLayout.md)
+  - original box model behavior considered unintuitive
+  - `box-sizing: border-box;`: the padding and border of the element including in the width and height of aan element
+  - enabling all elements w/ the same box size
+  - new property:
+    - using the `-webkit-` and `-moz-` prefixes for now
+    - checking [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing#browser_compatibility)
+
+
+### Centralizing Elements
+
+- [Centralizing elements](../Notes/web09-CSSLayout.md)
+  - syntax: `margin: 0 auto;`
+
+    ```css
+    #main {
+      margin: 0 auto;
+    }
+    ```
+
+  - width of a block-level element preventing from stretching out to the edges of its container to the left and right
+  - setting left and right margins to `auto` to horizontally center the element within its container
+  - element taking up the width specified, then, evenly splitting the remaining space b/w two margins
+  - issue: screen narrower than the width
+
+    sol: browser creating horizontal scrollbar on the page
+
 
 
 ### Box Model Properties
@@ -1315,28 +1395,28 @@
 
 ### Characteristics of Size & Dimensions
 
-+ [Sizing & Dimensions](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#sizing-and-dimensions)
-  + The default sizing behavior depends upon the display property for an element.
-  + Images: preserrve the original aspecct ratio if only one simension set
-  + Variability: one of the most powerful and useful aspects of these elements
-  + Sizing properties: width, min-width, max-width, height, min-height, max-height
-    + remove that variability from the element
-  + Avoid using explicit dimension properties like width and height
-  + using the min- or max- variants if required
+- [Sizing & Dimensions](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#sizing-and-dimensions)
+  - The default sizing behavior depends upon the display property for an element.
+  - Images: preserrve the original aspecct ratio if only one simension set
+  - Variability: one of the most powerful and useful aspects of these elements
+  - Sizing properties: width, min-width, max-width, height, min-height, max-height
+    - remove that variability from the element
+  - Avoid using explicit dimension properties like width and height
+  - using the min- or max- variants if required
 
-+ [Inline elements](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#inline-2)
-  + the size of their content plus any padding
-  + ignore any explicit sizing properties (width, height, etc.) unless position:absolute or position:fixed
-  + using inline-block instead if explicitly indicated
+- [Inline elements](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#inline-2)
+  - the size of their content plus any padding
+  - ignore any explicit sizing properties (width, height, etc.) unless position:absolute or position:fixed
+  - using inline-block instead if explicitly indicated
 
-+ [Inline-block elements](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#inline-block-1)
-  + take the size of their content, plus padding
-  + respect any explicit sizing properties
-  + sized (height and width) to their content
+- [Inline-block elements](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#inline-block-1)
+  - take the size of their content, plus padding
+  - respect any explicit sizing properties
+  - sized (height and width) to their content
 
-+ [Block level elements](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#block-2)
-  + take the width of their parent and the height of their content if no sizing properties used
-  + respect any explicit sizing properties
+- [Block level elements](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#block-2)
+  - take the width of their parent and the height of their content if no sizing properties used
+  - respect any explicit sizing properties
 
 
 ### Global Sizing
@@ -1391,14 +1471,47 @@
 </table>
 
 
+- [The `max-width` property](../Notes/web09-CSSLayout.md)
+  - improving the browser's handling of small window
+  - making a site usable on mobile
+
+
+- [The percent width](../Notes/web09-CSSLayout.md)
+  - percent: measurement unit relative to the containing block
+
+    <div style="display: flex; justify-content: center;">
+      <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; height: 150px;"
+          onclick= "window.open('https://learnlayout.com/percent.html')"
+          src    = "../Notes/img/web09-percent1.png"
+          alt    = "Limiting image width w/ percentage of the container"
+          title  = "Limiting image width w/ percentage of the container"
+        />
+        <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+          Limiting image width w/ percentage of the container 
+        </figcaption>
+      </figure>
+      <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+        <img style="margin: 0.1em; padding-top: 0.5em; height: 150px;"
+          onclick= "window.open('https://learnlayout.com/percent.html')"
+          src    = "../Notes/img/web09-percent2.png"
+          alt    = "Flexible nav bar width w/ percent width of the page layout"
+          title  = "Flexible nav bar width w/ percent width of the page layout"
+        />
+        <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+          Flexible nav bar width w/ percent width of the page layout
+        </figcaption>
+      </figure>
+    </div>
+
 
 ### Characteristics of Overflow
 
-+ [Overflow](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#cropping-and-scrolling-overflow)
-  + dimensions overdetermined by the sizing properties
-  + with common text, normally only occurs in the vertical direction
-  + overflow horizontally when containing images, extremely long words, or has adjusted CSS white spacing properties
-  + able to assign different policies for horizontal versus vertical overflow
+- [Overflow](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#cropping-and-scrolling-overflow)
+  - dimensions overdetermined by the sizing properties
+  - with common text, normally only occurs in the vertical direction
+  - overflow horizontally when containing images, extremely long words, or has adjusted CSS white spacing properties
+  - able to assign different policies for horizontal versus vertical overflow
 
 
 ### List of Overflow Properties
@@ -1446,7 +1559,7 @@
 </table>
 
 
-### Values of Overflow Propery
+### Values of Overflow Property
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=70%>
   <caption style="font-size: 1.5em; margin: 0.2em;"><a href="../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#cropping-and-scrolling-overflow">Values of Overflow Property</a></caption>
@@ -1484,6 +1597,17 @@
 
 ## Floating Property
 
+- [The `float` property](../Notes/web09-CSSLayout.md)
+  - intended for wrapping text around images
+  - example
+
+    ```css
+    img {
+      float: right;
+      margin: 0 0 1em 1em;
+    }
+    ```
+
 ### List of Flowing Properties
 
 <table style="font-family: arial,helvetica,sans-serif;" table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=80%>
@@ -1512,22 +1636,71 @@
 </table>
 
 
-### CSS Website Layout - Example
+### Clear Float Properties
 
-<div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-  <div><a href="https://www.w3schools.com/css/css_website_layout.asp">
-    <img src="css-layout.png" style="margin: 0.1em;" alt="There are tons of different layout designs to choose from. However, the structure above, is one of the most common, and we will take a closer look at it in this tutorial." title="A website is often divided into headers, menus, content and a footer" width="400">
-  </a></div>
-</div>
+- [The `clear` property](../Notes/web09-CSSLayout.md)
+  - important for controlling the behavior of floats
+
+  <div style="display: flex; justify-content: center;">
+    <figure style="display: table; float: left; margin-right: 0.25em; align-items: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 400px;"
+        onclick= "window.open('https://en.wikipedia.org/wiki/CSS_box_model')"
+        src    = "../Notes/img/web09-clear0.png"
+        alt    = "Snapshot of float example w/o clear property"
+        title  = "Snapshot of float example w/o clear property"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        float example w/o clear property
+      </figcaption>
+    </figure>
+    <figure style="display: table; float: right; margin-left: 0.25em; align-items: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 400px;"
+        onclick= "window.open('https://learnlayout.com/box-model.html')"
+        src    = "../Notes/img/web09-clear1.png"
+        alt    = "Snapshot of float example w/ clear property"
+        title  = "Snapshot of float example w/ clear property"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        float example w/ clear property
+      </figcaption>
+    </figure>
+  </div>
 
 
+- [The `clearfix` hack](../Notes/web09-CSSLayout.md)
+  - weird, bad thing happened w/ `float`
+  - way to fixed: `clearfix`
 
+  <div style="display: flex; justify-content: center;">
+    <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; height: 150px;"
+        onclick= "window.open('https://learnlayout.com/clearfix.html')"
+        src    = "../Notes/img/web09-clearfix0.png"
+        alt    = "Simple float produces weird, bad layout"
+        title  = "Simple float produces weird, bad layout"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        Simple float produces weird, bad layout
+      </figcaption>
+    </figure>
+    <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; height: 150px;"
+        onclick= "window.open('https://learnlayout.com/clearfix.html')"
+        src    = "../Notes/img/web09-clearfix1.png"
+        alt    = "Eliminate weird layout w/ clearfix"
+        title  = "Eliminate weird layout w/ clearfix"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        Eliminate weird layout w/ clearfix
+      </figcaption>
+    </figure>
+  </div>
 
 ## Table Properties
 
 <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
   <div><a href="https://www.tallcomponents.com/tallpdf/help/guide/tables?build=net40">
-    <img src="https://www.tallcomponents.com/tallpdf5/content/guide/tallpdf/media/table-border-padding-and-margin.png" style="margin: 0.1em;" alt="The extra space outside a border is set by a left, right, top and bottom margin. The extra space inside a border is set by a left, right, top and bottom padding. These attributes are part of the table, row or cell. The following figure makes this clear." title="Padding, Margins and Border Width" width="400">
+    <img src="../WebDev/Frontend-W3C/4-CSSBasics/img/table-border-padding-and-margin.png" style="margin: 0.1em;" alt="The extra space outside a border is set by a left, right, top and bottom margin. The extra space inside a border is set by a left, right, top and bottom padding. These attributes are part of the table, row or cell. The following figure makes this clear." title="Padding, Margins and Border Width" width="400">
   </a></div>
   <div><a href="http://learningspot.altervista.org/html-table-tag-attributes/">
     <img src="http://learningspot.altervista.org/wp-content/uploads/2017/07/HTML_cellpadding_cellspacing.png" style="margin: 0.1em;" alt="The size indicated in cellpadding and cellspacing, once set, affects all sides of the cell." title="Table cell padding and spacing" width="345">
@@ -1608,52 +1781,72 @@
 
 ## Display Property
 
-+ Display property
-  + different default values for different tags
-  + Some tags start with display:block, and others are display:inline.
+- Display property
+  - different default values for different tags
+  - Some tags start with display:block, and others are display:inline.
 
-+ [Baseline](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#baseline)
-  + a key concept to understanding how the browser makes its layout decisions
+- [Baseline](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#baseline)
+  - a key concept to understanding how the browser makes its layout decisions
     <a href="https://courses.edx.org/courses/course-v1:W3Cx+HTML5.0x+1T2019/courseware/306cfa0313a449a29b2dbcb0b2afcb86/1fe35eaba7534b5d86b69fa0e09494a3/1?activate_block_id=block-v1%3AW3Cx%2BHTML5.0x%2B1T2019%2Btype%40vertical%2Bblock%4065eedf84e09a4619a4152d1cdcadc73a" ismap target="_blank" style="padding-left: 0.5em;">
       <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/03a5c30240869b1400f96ca51fc2eb19/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/baseline2.png" style="margin: 0.1em;" alt="baseline" title="baseline" width=70></a>
-  + the blue line indicating the baseline
-  + determine how and where the characters are positioned
-  + govern the placement of all inline elements
+  - the blue line indicating the baseline
+  - determine how and where the characters are positioned
+  - govern the placement of all inline elements
 
-+ Normal Flow / Flow Layout
-  + the way that Block and Inline elements are displayed on a page before any changes are made to their layout
-  + essentially a set of things that are all working together and know about each other in your layout
+- Normal Flow / Flow Layout
+  - the way that Block and Inline elements are displayed on a page before any changes are made to their layout
+  - essentially a set of things that are all working together and know about each other in your layout
 
-+ [Block-level vs. inline](/WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#display-block-versus-inline)
-  + Content model:
-    + block-level element may contain inline elements and other block-level elements
-    + block elements create "larger" structures than inline elements
-  + Default formating:
-    + block-level elements begin on new lines
-    + in-line elements can start anywhere in a line
-+ [Block Level](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#block-level)
-  + appear __below__ and to the __left__ of their block level neighbors
-  + expand to fill the __width of the parent container__ by default
-  + respect all __margin__ properties
-  + has its __width__ property set
-  + takes on the __height__ of all its children
-  + ignores the __vertical-align__ property
+- [Block-level vs. inline](/WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#display-block-versus-inline)
+  - Content model:
+    - block-level element may contain inline elements and other block-level elements
+    - block elements create "larger" structures than inline elements
+  - Default formating:
+    - block-level elements begin on new lines
+    - in-line elements can start anywhere in a line
+- [Block Level](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#block-level)
+  - appear **below** and to the **left** of their block level neighbors
+  - expand to fill the **width of the parent container** by default
+  - respect all **margin** properties
+  - has its **width** property set
+  - takes on the **height** of all its children
+  - ignores the **vertical-align** property
 
-+ [Inline Elements](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#inline-elements)
-  + appear to the right of their preceding __inline neighbor__
-  + the __width__ of the content of the element, plus any padding, by default
-  + ignore __top and bottom__ margin settings
-  + ignore __width and height__ properties
-  + subject to __vertical-align__ property as well as CSS __white-space__ settings
-  + padding, but not padding-top or padding-bottom
-  + cleave to the baseline
+- [Inline Elements](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#inline-elements)
+  - appear to the right of their preceding **inline neighbor**
+  - the **width** of the content of the element, plus any padding, by default
+  - ignore **top and bottom** margin settings
+  - ignore **width and height** properties
+  - subject to **vertical-align** property as well as CSS **white-space** settings
+  - padding, but not padding-top or padding-bottom
+  - cleave to the baseline
 
-+ [Inline-Block Elements](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#inline-block)
-  + cleave to the text baseline
-  + adjust to the room if top or bottom margins or paddings used
-  + respect margin-top and margin-bottom
-  + the height of th eline including the vertical padding for inline-block elements
-  + inline-block elements respect width and height properties
+- [Inline-Block Elements](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#inline-block)
+  - cleave to the text baseline
+  - adjust to the room if top or bottom margins or paddings used
+  - respect margin-top and margin-bottom
+  - the height of th eline including the vertical padding for inline-block elements
+  - inline-block elements respect width and height properties
+
+
+- [The `display` property](../Notes/web09-CSSLayout.md)
+  - the most important property for controlling layout
+  - every element w/ default display
+  - most default values: **block** and **inline**
+  - `block` values
+    - `div`: the standard block-level element
+    - starting on a *new-line* ans stretching out to the left and right as far as it could
+    - example elements: `p`, `form`, `header`, `footer`, `section`, etc.
+  - `inline` values
+    - `span`: the standard inline element
+    - wraping some text *inside* a paragraph `<span>like this</span>` w/o disrupting the flow of  the paragraph
+    - most common element: `a`
+  - `none` value
+    - commonly used w/ JavaScript to hide and show element w/o really deleting and recreating them
+    - rendering the page as though the element does not exist
+    - `visibility: hidden`: hiding the element, but the element will still take up the space it would  if it was fully visible
+    - always able to override default
+
 
 
 ### Display Type of Elements
@@ -1698,7 +1891,7 @@
     <td>display: flow;<br/>display: flow-root;<br/>display: table;<br/>display: flex;<br/>display: grid;<br/>display: ruby;</td>
   </tr>
   <tr>
-    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-outside">&lt;display-outside&gt;</a> + <br/><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-inside">&lt;display-inside&gt;</a></td>
+    <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-outside">&lt;display-outside&gt;</a> - <br/><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display-inside">&lt;display-inside&gt;</a></td>
     <td>specify the element’s outer display type, which is essentially its role in flow layout</td>
     <td>display: block flow;<br/>display: inline table;<br/>display: flex run-in;</td>
   </tr>
@@ -1773,7 +1966,91 @@
 </table>
 
 
+### `inline-block` attribute
+
+- [The `inline-block` attribute](../Notes/web09-CSSLayout.md)
+  - using `float` to create a grid of boxes that fills the browser width and wraps nicely
+  - `inline-block` attribute making it easier
+  - similar to `inline` element but w/ width and height
+  - extra work required to support IE6 & IE7
+  - the hard way w/ `float` property (left diagram)
+  - the easy way w/ `inline-block` attribute (right diagram)
+
+  <div style="display: flex; justify-content: center;">
+    <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; height: 250px;"
+        onclick= "window.open('https://learnlayout.com/inline-block.html')"
+        src    = "../Notes/img/web09-inlineblock0.png"
+        alt    = "Grid boxes using float property"
+        title  = "Grid boxes using float property"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        Grid boxes using float property
+      </figcaption>
+    </figure>
+    <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; height: 250px;"
+        onclick= "window.open('https://learnlayout.com/inline-block.html')"
+        src    = "../Notes/img/web09-inlineblock1.png"
+        alt    = "Grid boxes using inline-block attribute"
+        title  = "Grid boxes using inline-block attribute"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        Grid boxes using inline-block attribute
+      </figcaption>
+    </figure>
+  </div>
+
+
+- [`inline-block` layout](../Notes/web09-CSSLayout.md)
+  - effected by the `vertical-align` property, `top` property probably set
+  - required to set the width of each column
+  - a gap b/w the columns if any whitespace b/w them
+
+    <figure style="display: table; margin: auto; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25vw;"
+        onclick= "window.open('https://learnlayout.com/inline-block-layout.html')"
+        src    = "../Notes/img/web09-inlineblock2.png"
+        alt    = "inline-block layout"
+        title  = "inline-block layout"
+      />
+    </figure>
+
+
 ## Positioned Properties
+
+- [The `position` property](../Notes/web09-CSSLayout.md)
+  - a bunch of possible values but no sense
+  - `static`
+    - default value
+    - *not positioning* in any specific way
+    - positioned: element w/ `position` set to anything else
+  - `relative`
+    - behaving the same as static unless you add some extra properties
+    - adjusted away from its normal position: the `top`, `right`, `bottom`, and `left` properties
+  - `fixed`
+    - positioned relative to the *viewport*
+    - stayed in the same place even if the page is scrolled
+    - properties: `top`, `right`, `bottom`, and `left`
+    - not leaving a gap in the page where it normally have been located
+  - `absolute`
+    - the trickiest position value
+    - like fixed except relative to the *nearest positioned ancestor* instead of relative to the viewport
+    - no positioned ancestor $\implies$ using document body and still moving along w/ page scrolling
+
+
+- [Position example](../Notes/web09-CSSLayout.md)
+  - stretching to the width of the window
+
+  <figure style="display: table; margin: auto; text-align: center;"">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
+      onclick= "window.open('https://learnlayout.com/position-example.html')"
+      src    = "../Notes/img/web09-position_exp.png"
+      alt    = "Snapshot of various positioning example"
+      title  = "Snapshot of various positioning example"
+    />
+  </figure>
+
 
 ### List of Positioned Properties
 
@@ -1822,69 +2099,69 @@
 
 ### Characteristics of Position Property
 
-+ [Types of positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/position#Types_of_positioning)
-  + __positioned element__: an element whose computed position value is either relative, absolute, fixed, or sticky
-  + relatively positioned element
-    + an element whose computed position value is relative
-    + top and bottom properties: the vertical offset from its normal position
-    + left and right properties: the horizontal offset
-  + absolutely positioned element
-    + an element whose computed position value is absolute or fixed
-    + top, right, bottom, and left properties: offsets from the edges of the element's containing block
-    + margins added to the offset
-  + stickily positioned element
-    + an element whose computed position value is sticky
-    + treated as relatively positioned until its containing block crosses a specified threshold within its flow root
+- [Types of positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/position#Types_of_positioning)
+  - **positioned element**: an element whose computed position value is either relative, absolute, fixed, or sticky
+  - relatively positioned element
+    - an element whose computed position value is relative
+    - top and bottom properties: the vertical offset from its normal position
+    - left and right properties: the horizontal offset
+  - absolutely positioned element
+    - an element whose computed position value is absolute or fixed
+    - top, right, bottom, and left properties: offsets from the edges of the element's containing block
+    - margins added to the offset
+  - stickily positioned element
+    - an element whose computed position value is sticky
+    - treated as relatively positioned until its containing block crosses a specified threshold within its flow root
 
-+ [Margin with psitioned values](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#margins-do-not-work-the-same)
-  + static / relative:
-    + used to adjust an element position
-    + keeping neighboring siblings "away"
-  + fixed
-    + able to move the element
-    + not move any siblings
-  + general rule: if a positioning property is being used (like left), then the matching margin (margin-left) can also be used to additionally adjust the position of the element
+- [Margin with psitioned values](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#margins-do-not-work-the-same)
+  - static / relative:
+    - used to adjust an element position
+    - keeping neighboring siblings "away"
+  - fixed
+    - able to move the element
+    - not move any siblings
+  - general rule: if a positioning property is being used (like left), then the matching margin (margin-left) can also be used to additionally adjust the position of the element
 
-+ [Opposite properties](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#opposite-properties-can-be-used-to-size-element)
-  + preset dimensional properties (height and width): make design brittle and reduce its adaptability
-  + fixed/absolute positioned + positioned properties (left, right):
-    + leave the matching dimensional property (width) unspecified
-    + grow or shrink based on the size of the browser window
+- [Opposite properties](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#opposite-properties-can-be-used-to-size-element)
+  - preset dimensional properties (height and width): make design brittle and reduce its adaptability
+  - fixed/absolute positioned - positioned properties (left, right):
+    - leave the matching dimensional property (width) unspecified
+    - grow or shrink based on the size of the browser window
 
-+ [positioning properties](/WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#positioned-elements)
-  + left, top, right, bottom, and z-index
-  + used to influence the position of an element
-  + Positioned values
-    + static: no effect on any element (default positioned value)
-    + fixed: positioned relative to the browser window
-    + relative: as static, the "flowing text" model of layout is setting the initial position for the element (including margins and display)
+- [positioning properties](/WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#positioned-elements)
+  - left, top, right, bottom, and z-index
+  - used to influence the position of an element
+  - Positioned values
+    - static: no effect on any element (default positioned value)
+    - fixed: positioned relative to the browser window
+    - relative: as static, the "flowing text" model of layout is setting the initial position for the element (including margins and display)
 
-+ [Relative position property](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#relative)
-  + Items are moved independently of siblings.
-    + positioning properties adjust the placement of the element independently of its siblings
-    + `margin-top` instead of `top` to move the sibilings downward
-  + Opposite positioning properties (like left and right) cannot be used simultaneously.
-    + not using left and right properties simultaneously
-    + not using top and bottom properties simultaneously
-    + the CSS precedence rules determining the "winner" id both used (last order)
-  + There are no automatic size adjustments.
-    + block level elements take the width of their parent (when no width is specified)
-    + using left or right margins on block level element, the browser adjust the width to fit
-    + using relative & positioning properties: no adjustment applied
+- [Relative position property](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#relative)
+  - Items are moved independently of siblings.
+    - positioning properties adjust the placement of the element independently of its siblings
+    - `margin-top` instead of `top` to move the sibilings downward
+  - Opposite positioning properties (like left and right) cannot be used simultaneously.
+    - not using left and right properties simultaneously
+    - not using top and bottom properties simultaneously
+    - the CSS precedence rules determining the "winner" id both used (last order)
+  - There are no automatic size adjustments.
+    - block level elements take the width of their parent (when no width is specified)
+    - using left or right margins on block level element, the browser adjust the width to fit
+    - using relative & positioning properties: no adjustment applied
 
-+ [Absolute position property](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#absolute)
-  + ease and power is very seductive to many CSS newbies
-  + not use it under any circumstances
-  + taken out of the normal text "flow" that governs elements positioned statically or relatively
-  + positioned by the left, top, right, and/or bottom properties
-  + The size or position of siblings have no effect on an absolutely positioned element that has some positioning properties set (left, top, etc.).
-  + caveats and trade-offs
-    + Interpretation of positioning depends upon parent/grandparent elements being positioned elements.
-    + Best practice: use both a horizontal and a vertical positioning property on every absolute element.
-    + Absolutely positioned elements do not contribute to size of the parent.
-    + Absolute positioned block level elements do not get the width of their parent.
-    + Margins do not work the same.
-    + Opposite properties can be used to size element.
+- [Absolute position property](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#absolute)
+  - ease and power is very seductive to many CSS newbies
+  - not use it under any circumstances
+  - taken out of the normal text "flow" that governs elements positioned statically or relatively
+  - positioned by the left, top, right, and/or bottom properties
+  - The size or position of siblings have no effect on an absolutely positioned element that has some positioning properties set (left, top, etc.).
+  - caveats and trade-offs
+    - Interpretation of positioning depends upon parent/grandparent elements being positioned elements.
+    - Best practice: use both a horizontal and a vertical positioning property on every absolute element.
+    - Absolutely positioned elements do not contribute to size of the parent.
+    - Absolute positioned block level elements do not get the width of their parent.
+    - Margins do not work the same.
+    - Opposite properties can be used to size element.
 
 
 <table table-layout="auto" cellspacing="0" cellpadding="5" border="1" align="center" width=90%>
@@ -1929,168 +2206,266 @@
 
 ## The Flexible Box Layout
 
+- [The `flexbox` property](../Notes/web09-CSSLayout.md)
+  - poised to redefined how we do layouts in CSS
+  - changed a lot recently
+  - checking [compatibility](https://caniuse.com/?search=flexbox)
+  - [a detailed article using the latest syntax](https://bocoup.com/blog/dive-into-flexbox)
+  - simple layout using `flexbox` (top left diagram)
+  - fancy layout using `flexbox` (top-left diagram)
+  - centering using `flexbox` (bottom diagram)
+
+  <div style="display: flex; justify-content: center;">
+    <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://learnlayout.com/flexbox.html')"
+        src    = "../Notes/img/web09-flexbox1.png"
+        alt    = "Simple layout using flexbox"
+        title  = "Simple layout using flexbox"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        Simple layout using flexbox
+      </figcaption>
+    </figure>
+    <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+        onclick= "window.open('https://learnlayout.com/flexbox.html')"
+        src    = "../Notes/img/web09-flexbox2.png"
+        alt    = "fancy layout using flexbox"
+        title  = "fancy layout using flexbox"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        fancy layout using flexbox
+      </figcaption>
+    </figure>
+  </div>
+
+  <figure style="display: table; margin: auto; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://learnlayout.com/flexbox.html')"
+      src    = "../Notes/img/web09-flexbox3.png"
+      alt    = "Centering using flexbox"
+      title  = "Centering using flexbox"
+    />
+    <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+      Centering using flexbox
+    </figcaption>
+  </figure>
+
 ### Basic Concepts of flexbox
 
-+ [Flexbox](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#flexbox)
-  + performing layout tasks like columnar layout or anything responsive requires coordinating multiple elements
-  + flex container:
-    + CSS properties that are applied to a parent element
-    + handle laying out of its children
-    + making the best use of the screen size available to children
-    + still following the general guidelines laid down
-  + flex items: CSS properties that are applied to the direct children of that parent
+- [Flexbox](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#flexbox)
+  - performing layout tasks like columnar layout or anything responsive requires coordinating multiple elements
+  - flex container:
+    - CSS properties that are applied to a parent element
+    - handle laying out of its children
+    - making the best use of the screen size available to children
+    - still following the general guidelines laid down
+  - flex items: CSS properties that are applied to the direct children of that parent
 
-+ [minimum scenario for using flexbox](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#the-minimum)
-  1. flex container: `display:flex;`
-  2. flex items: `flex:1;`
+
+- Flexbox model
+  - main axis:
+    - running in the direction the flex items are laid out in
+    - example: row across the page or column dow the page
+    - **main start** and **main end**: start and end of the axis
+  - cross axis
+    - running perpendicular to the direction the items are laid out in
+    - **cross start** and **cross end**: the start and end of this axis
+  - flex container: the parent element that has `display: flex` set on It
+  - flex items: the items laid out as flex boxes inside the flex container
+
+  <figure style="display: table; margin: auto; text-align: center;">
+    <img style="margin: 0.1em; padding-top: 0.5em; width: 20vw;"
+      onclick= "window.open('https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox')"
+      src    = "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox/flex_terms.png"
+      alt    = "flex items laid out along two axes"
+      title  = "flex items laid out along two axes"
+    />
+  </figure>
+
+
+- [Minimum scenario for using flexbox](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#the-minimum)
+  1. flex container: `display: flex;`
+  2. flex items: `flex: 1;`
   3. flex container (better): `flex-flow: row wrap;`
 
-+ [Layout and Axes](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_two_axes_of_flexbox)
-  + __flex container__: set parent element w/ `display: flex`
-  + __flex items__: the items being laid out as flexible boxes inside the flex container
-  + __main axis__:
-    + the axis running in the direction the flex items are being laid out in
-    + __main start__ and __main end__: the start and end of main axis
-  + __cross axis__:
-    + the axis running perpendicular to the direction the flex items are being laid out in
-    + __cross start__ and __cross end__:  start and end of cross axis
+- [Layout and Axes](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_two_axes_of_flexbox)
+  - **flex container**: set parent element w/ `display: flex`
+  - **flex items**: the items being laid out as flexible boxes inside the flex container
+  - **main axis**:
+    - the axis running in the direction the flex items are being laid out in
+    - **main start** and **main end**: the start and end of main axis
+  - **cross axis**:
+    - the axis running perpendicular to the direction the flex items are being laid out in
+    - **cross start** and **cross end**:  start and end of cross axis
 
-+ [Combinations of flex-flow and the Start and End Points](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#start-and-end)
-  + Illustration of flexbox axes and start & end points for `flex-flow: row wrap;` setting
+- [Combinations of flex-flow and the Start and End Points](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#start-and-end)
+  - Illustration of flexbox axes and start & end points for `flex-flow: row wrap;` setting
     <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
       <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" ismap target="_blank">
-        <img src="https://developer.mozilla.org/files/3739/flex_terms.png" style="margin: 0.1em;" alt="flexbox axes and points with flex-flow: row wrap;" title="Illustration of flexbox axes and points with flex-flow: row wrap;" width=450>
+        <img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/db3f0bde510b59cd0c562a34947e6c89/asset-v1:W3Cx+HTML5.0x+1T2019+type@asset+block/flex-boxes.jpg" style="margin: 0.1em;" alt="flexbox axes and points with flex-flow: row wrap;" title="Illustration of flexbox axes and points with flex-flow: row wrap;" width=350>
       </a>
     </div>
 
-  + `Flex-flow` combinations
-    + row wrap (above diagram)
-    + row wrap-reverse
-    + row-reverse wrap
-    + row-reverse wrap-reverse
-    + column wrap
-    + column wrap-reverse
-    + column-reverse wrap
-    + column-reverse wrap-reverse
-  + main axis for sizing, cross axis for alignment
-  + properties control the main axis: 
-    + how a flexbox container spaces out and positions flex items
-    + list of properties: `flex`, `flex-grow`, `flex-shrink`, `flex-basis`, `justify-content`
-  + properties control alignment: 
-    + govern how a flex item might be aligned or positioned along the cross axis
-    + list of properties: `align-content`, `align-items`, `align-self`
-  + flexbox items incluence their sizes and position on main axis but only position on the across axis (except for coarse stretch option)
-  + `flex-start` and `flex-end`:
-    + refer to the "main start" and "main end" sides with justify-content property
-    + refer to the "cross start" and "cross end" sides with flexbox align properties
+  - `flex-flow` combinations
+    - row wrap (above diagram)
+    - row wrap-reverse
+    - row-reverse wrap
+    - row-reverse wrap-reverse
+    - column wrap
+    - column wrap-reverse
+    - column-reverse wrap
+    - column-reverse wrap-reverse
+  - main axis for sizing, cross axis for alignment
+  - properties control the main axis: 
+    - how a flexbox container spaces out and positions flex items
+    - list of properties: `flex`, `flex-grow`, `flex-shrink`, `flex-basis`, `justify-content`
+  - properties control alignment: 
+    - govern how a flex item might be aligned or positioned along the cross axis
+    - list of properties: `align-content`, `align-items`, `align-self`
+  - flexbox items incluence their sizes and position on main axis but only position on the across axis (except for coarse stretch option)
+  - `flex-start` and `flex-end`:
+    - refer to the "main start" and "main end" sides with justify-content property
+    - refer to the "cross start" and "cross end" sides with flexbox align properties
 
-+ [main axis defined by __flex-direction__](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_main_axis)
-  + row: along the row in the inline direction from left to right
-  + row-reverse: along the row in the inline direction from right to left
-  + column: from the top of the page to the bottom
-  + column-reverse: from the bottom of the page to the top
+- [main axis defined by **flex-direction**](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_main_axis)
+  - row: along the row in the inline direction from left to right
+  - row-reverse: along the row in the inline direction from right to left
+  - column: from the top of the page to the bottom
+  - column-reverse: from the bottom of the page to the top
 
-  <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
-    <div><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">
-      <img src="https://mdn.mozillademos.org/files/15614/Basics1.png" style="margin: 0.1em;" alt="row or row-reverse: main axis will run along the row in the inline direction" title="Inline directon: row or row-reverse" width="250">
-      <img src="https://mdn.mozillademos.org/files/15615/Basics2.png" style="margin: 0.1em;" alt="column or column-reverse: main axis will run from the top of the page to the bottom — in the block direction" title="Block direction: column or column-reverse" width="250">
-      <img src="https://mdn.mozillademos.org/files/15616/Basics3.png" style="margin: 0.1em;" alt=" flex-direction (main axis) is set to row or row-reverse the cross axis runs down the columns" title="The cross axis runs perpendicular to the main axis" width="250">
-      <img src="https://mdn.mozillademos.org/files/15617/Basics4.png" style="margin: 0.1em;" alt="main axis is column or column-reverse then the cross axis runs along the rows" title="main axis is column or column-reverse then the cross axis runs along the rows" width="250">
-    </a></div>
+  <div style="display: flex; justify-content: center;">
+    <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25wv;"
+        onclick= "window.open('https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox')"
+        src    = "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox/basics1.png"
+        alt    = "row or row-reverse: main axis will run along the row in the inline direction"
+        title  = "Inline direction: row or row-reverse"
+      />
+    </figure>
+    <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25wv;"
+        onclick= "window.open('https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox')"
+        src    = "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox/Basics2.png"
+        alt    = "column or column-reverse: main axis will run from the top of the page to the bottom — in the block direction"
+        title  = "Block direction: column or column-reverse"
+      />
+    </figure>
   </div>
 
-+ [The flex container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container)
-  + An area of a document laid out using flexbox
-  + set the value of the area's container's display property to `flex` or `inline-flex`
-  + ways to create a flex container all of the contained flex items
-    + Items display in a row (the `flex-direction` property's default is `row`).
-    + The items start from the start edge of the main axis.
-    + The items do not stretch on the main dimension, but can shrink.
-    + The items will stretch to fill the size of the cross axis.
-    + The `flex-basis` property is set to `auto`.
-    + The `flex-wrap `property is set to `nowrap`.
-  + changing `flex-direction`:
-    + change the direction that flex items display
-    + values: row, row-reverse, column, column-reverse
+  <div style="display: flex; justify-content: center;">
+    <figure style="display: table; float: left; margin-right: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25wv;"
+        onclick= "window.open('https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox')"
+        src    = "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox/Basics3.png"
+        alt    = "flex-direction (main axis) is set to row or row-reverse the cross axis runs down the columns"
+        title  = "The cross axis runs perpendicular to the main axis"
+      />
+    </figure>
+    <figure style="display: table; float: right; margin-left: 0.25em; align-item: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 25wv;"
+        onclick= "window.open('https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox')"
+        src    = "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox/Basics4.png"
+        alt    = "main axis is column or column-reverse then the cross axis runs along the rows"
+        title  = "main axis is column or column-reverse then the cross axis runs along the rows"
+      />
+    </figure>
+  </div>
 
-+ [Multi-line flex containers with flex-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container)
-  + While flexbox is a one dimensional model, it is possible to cause our flex items to wrap onto multiple lines.
-  + To cause wrapping behaviour add the property `flex-wrap` with a value of `wrap`.
-  + guide to wrap flex items: [Mastering Wrapping of Flex Items](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items)
 
-+ [Aligning Items in a Flex Container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container)
-  + use the `align-items` property to align items on the cross axis
-  + use `justify-content` to align the item on the main axis
-  + Properties
-    + `justify-content`: control alignment of all items on the main axis
-    + `align-items`: control alignment of all items on the cross axis
-    + `align-self`: control alignment of an individual flex item on the cross axis
-    + `align-content`: control space between flex lines on the cross axis 
+- [The flex container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container)
+  - An area of a document laid out using flexbox
+  - set the value of the area's container's display property to `flex` or `inline-flex`
+  - ways to create a flex container all of the contained flex items
+    - Items display in a row (the `flex-direction` property's default is `row`).
+    - The items start from the start edge of the main axis.
+    - The items do not stretch on the main dimension, but can shrink.
+    - The items will stretch to fill the size of the cross axis.
+    - The `flex-basis` property is set to `auto`.
+    - The `flex-wrap` property is set to `nowrap`.
+  - changing `flex-direction`:
+    - change the direction that flex items display
+    - values: row, row-reverse, column, column-reverse
 
-+ [flex-flow](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow)
-  + lay out children both horizontally and vertically at the same time
-  + an abbreviation that replaces two other flexbox container properties: `flex-direction` and `flex-wrap`
-  + Syntax: `flex-flow: <flex-direction> <flex-wrap>;`
+- [Multi-line flex containers with flex-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container)
+  - While flexbox is a one dimensional model, it is possible to cause our flex items to wrap onto multiple lines.
+  - To cause wrapping behaviour add the property `flex-wrap` with a value of `wrap`.
+  - guide to wrap flex items: [Mastering Wrapping of Flex Items](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items)
 
-+ [Flex items](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#flex-items)
-  + the direct children of a flex container
-  + exception: items with `position-fixed` or `position-absolute`
-  + empty flex items are automatically removed from the flex container
-  + interrelatted properties: `flex-grow`, `flex-shrin`k, and `flex-basis`
-  + abbreviation: `flex: <flex-grow> <flex-shrink> <flex-basis>;`
+- [Aligning Items in a Flex Container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container)
+  - use the `align-items` property to align items on the cross axis
+  - use `justify-content` to align the item on the main axis
+  - Properties
+    - `justify-content`: control alignment of all items on the main axis
+    - `align-items`: control alignment of all items on the cross axis
+    - `align-self`: control alignment of an individual flex item on the cross axis
+    - `align-content`: control space between flex lines on the cross axis 
 
-+ [Utilizing flex-grow](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax#Combining_flex-grow_and_flex-basis)
-  + `flex: 1 1 auto;`:
-    + auto sized as items without width settings
-    + retain the max-content size of the items (the size of each item)
-    + lay out the items with some free space (aggregated size smaller than teh container))
-    + remant space evenly distributed for the items
-    + items' final size not the same
-  + `flex: 1 1 0`
-    + basis = 0: all the space is up for grabs
-    + grow factor (1): each get an equal amount of space distributed
-    + items: equal width
+- [flex-flow](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow)
+  - lay out children both horizontally and vertically at the same time
+  - an abbreviation that replaces two other flexbox container properties: `flex-direction` and `flex-wrap`
+  - Syntax: `flex-flow: <flex-direction> <flex-wrap>;`
 
-+ [Utilizing flex-shrink](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax#Combining_flex-shrink_and_flex-basis)
-  + use as the total size of the items larger than the the flex container
-  + min-content size: the size that items become if they take advantage of any soft wrapping opportunities available to them (according to the content of the item)
-  + set the min-content floor of the items (never smaller than min-content)
-  + tend to give you reasonable results
+- [Flex items](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#flex-items)
+  - the direct children of a flex container
+  - exception: items with `position-fixed` or `position-absolute`
+  - empty flex items are automatically removed from the flex container
+  - interrelatted properties: `flex-grow`, `flex-shrin`k, and `flex-basis`
+  - abbreviation: `flex: <flex-grow> <flex-shrink> <flex-basis>;`
 
-+ [Algorithm to decide flex item calculation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax#Combining_flex-shrink_and_flex-basis)
-  + What sets the base size of the item?
+- [Utilizing flex-grow](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax#Combining_flex-grow_and_flex-basis)
+  - `flex: 1 1 auto;`:
+    - auto sized as items without width settings
+    - retain the max-content size of the items (the size of each item)
+    - lay out the items with some free space (aggregated size smaller than teh container))
+    - remant space evenly distributed for the items
+    - items' final size not the same
+  - `flex: 1 1 0`
+    - basis = 0: all the space is up for grabs
+    - grow factor (1): each get an equal amount of space distributed
+    - items: equal width
+
+- [Utilizing flex-shrink](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax#Combining_flex-shrink_and_flex-basis)
+  - use as the total size of the items larger than the the flex container
+  - min-content size: the size that items become if they take advantage of any soft wrapping opportunities available to them (according to the content of the item)
+  - set the min-content floor of the items (never smaller than min-content)
+  - tend to give you reasonable results
+
+- [Algorithm to decide flex item calculation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax#Combining_flex-shrink_and_flex-basis)
+  - What sets the base size of the item?
     1. `flex-basis: auto` & width set: based on the given width
     2. `flex-basis: auto` or `flex-basis: content`: based on the item's size
     3. `flex-basis` > 0: the size of the item
     4. `flex-basis` = 0: item size not considered for space-sharing calculation
-  + Are there available aspace?
+  - Are there available aspace?
     1. total item size < container size: positive free space & `flex-grow` involved
     2. total item size > container size: negative free space & `flex-shrink` involved
 
-+ [Best Practice](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#flexbox-advice-and-best-practices)
-  + the minimum use
-  + Use variable dimensions on flex items instead of explicit ones
-  + Do not overconstrain your flex items. Let the browser work for you.
-  + Using flexbox instead of inline-block
-  + Using flexbox for centering
-  + AVOID `margin: auto` on flex items
-  + keep simple
+- [Best Practice](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#flexbox-advice-and-best-practices)
+  - the minimum use
+  - Use variable dimensions on flex items instead of explicit ones
+  - Do not overconstrain your flex items. Let the browser work for you.
+  - Using flexbox instead of inline-block
+  - Using flexbox for centering
+  - AVOID `margin: auto` on flex items
+  - keep simple
 
-+ [Typical use cases of Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Typical_Use_Cases_of_Flexbox)
-  + Navigation
-    + space distributed outside the items
-    + space distributed within the items
-  + Spalit navigation
-  + Center item
-  + Car layout pushing footer down
-  + Media objects
-    + flippin the media object
-  + Form controls
+- [Typical use cases of Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Typical_Use_Cases_of_Flexbox)
+  - Navigation
+    - space distributed outside the items
+    - space distributed within the items
+  - Spalit navigation
+  - Center item
+  - Car layout pushing footer down
+  - Media objects
+    - flippin the media object
+  - Form controls
 
-+ [Order](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#order)
-  + determine the order in which the item appears in the flexbox
-  + present the information in the flexbox layout independent of its order in the HTML itself
-  + Syntax: `order: <integer>`
+- [Order](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#order)
+  - determine the order in which the item appears in the flexbox
+  - present the information in the flexbox layout independent of its order in the HTML itself
+  - Syntax: `order: <integer>`
 
 
 ### Flexbox Property
@@ -2231,89 +2606,89 @@
 
 ### Concepts of CSS Grid
 
-+ [CSS Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
-  + dividing a page into major regions or defining the relationship in terms of size, position, and layer, between parts of a control built from HTML primitives
-  + enables an author to align elements into columns and rows
-  + able to be used to lay out major page areas or small user interface elements
-  + a grid-based layout system, with rows and columns, making it easier to design web pages without having to use floats and positioning
-  + Display property: `display: grid;` or `display: inline-grid;`
+- [CSS Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
+  - dividing a page into major regions or defining the relationship in terms of size, position, and layer, between parts of a control built from HTML primitives
+  - enables an author to align elements into columns and rows
+  - able to be used to lay out major page areas or small user interface elements
+  - a grid-based layout system, with rows and columns, making it easier to design web pages without having to use floats and positioning
+  - Display property: `display: grid;` or `display: inline-grid;`
 
-+ [Grid features](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#What_is_a_grid)
-  + fixed an flexible track sizes
-    + fixed track sizes: specify pixel which fits to the layout desired
-    + flexible sizes: percentages or `fr` unit
-  + item placement
-    + place items into a precise location on the grid using line numbers, names or by targeting an area of the grid
-    + contain an algorithm to control the placement of items not given an explicit position on the grid
-  + creation of additional tracks to hold content
-    + define an explicit grid with grid layout
-    + flexible enough to add additional rows and columns when needed
-  + alignment control: control how the items align
-  + control of overlapping content
-    + more than one item able to be placed into a grid cell or area
-    + control with `z-index` property
+- [Grid features](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#What_is_a_grid)
+  - fixed an flexible track sizes
+    - fixed track sizes: specify pixel which fits to the layout desired
+    - flexible sizes: percentages or `fr` unit
+  - item placement
+    - place items into a precise location on the grid using line numbers, names or by targeting an area of the grid
+    - contain an algorithm to control the placement of items not given an explicit position on the grid
+  - creation of additional tracks to hold content
+    - define an explicit grid with grid layout
+    - flexible enough to add additional rows and columns when needed
+  - alignment control: control how the items align
+  - control of overlapping content
+    - more than one item able to be placed into a grid cell or area
+    - control with `z-index` property
 
-+ [The Grid container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#The_Grid_container)
-  + Declare: `display: grid;` or `display: inline-grid;`
-  + grid items: all direct children
+- [The Grid container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#The_Grid_container)
+  - Declare: `display: grid;` or `display: inline-grid;`
+  - grid items: all direct children
 
-+ [Grid Tracks](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Grid_Tracks)
-  + the space between any two lines on the grid
-  + define rows and columns (explicit): `grid-template-columns` and `grid-template-rows`
-  + defined using any length unit
-  + `fr` unit: a fraction of the available space in the grid container
-    + `grid-template-columns: 1fr 1fr 1fr;`: equally divided into three columns
-    + `grid-template-columns: 2fr 1fr 1fr;`: divided into 4 portiona while the first column occupies 2 portions
-    + `grid-template-columns: 500px 1fr 1fr;`: first column with 500px while the last two columns evenly share the remaint
-  + `repeat()` notation
-    + repeat all or a section of the track listing
-    + e..g., `grid-template-columns: repeat(3, 1fr);`; `grid-template-columns: 20px repeat(6, 1fr) 20px;`; `grid-template-columns: repeat(5, 1fr 2fr);`
-  + implicit grid
-    + rows creat on its own
-    + defined with `grid-auto-rows` and `grid-auto-columns`
-  + track sizing
-    + minimum size given by explicit grid or automatically created rows or columns
-    + `minmax()` notation
-      + given the minmun and maximum values
-      + e.g., `grid-auto-rows: minmax(100px, auto);`
+- [Grid Tracks](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Grid_Tracks)
+  - the space between any two lines on the grid
+  - define rows and columns (explicit): `grid-template-columns` and `grid-template-rows`
+  - defined using any length unit
+  - `fr` unit: a fraction of the available space in the grid container
+    - `grid-template-columns: 1fr 1fr 1fr;`: equally divided into three columns
+    - `grid-template-columns: 2fr 1fr 1fr;`: divided into 4 portiona while the first column occupies 2 portions
+    - `grid-template-columns: 500px 1fr 1fr;`: first column with 500px while the last two columns evenly share the remaint
+  - `repeat()` notation
+    - repeat all or a section of the track listing
+    - e..g., `grid-template-columns: repeat(3, 1fr);`; `grid-template-columns: 20px repeat(6, 1fr) 20px;`; `grid-template-columns: repeat(5, 1fr 2fr);`
+  - implicit grid
+    - rows creat on its own
+    - defined with `grid-auto-rows` and `grid-auto-columns`
+  - track sizing
+    - minimum size given by explicit grid or automatically created rows or columns
+    - `minmax()` notation
+      - given the minmun and maximum values
+      - e.g., `grid-auto-rows: minmax(100px, auto);`
 
-+ [Grid lines](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Grid_lines)
-  + define a grid defined the grid tracks, not the actual lines
-  + numbering the lines to use when positioning items
-  + numbered according to the writing mode of the document: left-to-right language or right-to-left language
-  + Positioning items against lines
-    + properties: `grid-column-start`, `grid-column-end`, `grid-row-start` and `grid-row-end`
-    + e.g., `grid-column-start: 1; grid-column-end: 4; grid-row-start: 1; grid-row-end: 3;`
+- [Grid lines](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Grid_lines)
+  - define a grid defined the grid tracks, not the actual lines
+  - numbering the lines to use when positioning items
+  - numbered according to the writing mode of the document: left-to-right language or right-to-left language
+  - Positioning items against lines
+    - properties: `grid-column-start`, `grid-column-end`, `grid-row-start` and `grid-row-end`
+    - e.g., `grid-column-start: 1; grid-column-end: 4; grid-row-start: 1; grid-row-end: 3;`
 
-+ [Grid Cells](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Grid_cells): the smallest unit on a grid, like a table cell
+- [Grid Cells](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Grid_cells): the smallest unit on a grid, like a table cell
 
-+ [Grid areas](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Grid_areas): 
-  + rectangular are to place items which can span one or more cells both by row or by column
-  + L-shaped area not allowed
+- [Grid areas](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Grid_areas): 
+  - rectangular are to place items which can span one or more cells both by row or by column
+  - L-shaped area not allowed
 
-+ [Gutters or alleys](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Gutters)
-  + space between grid cells
-  + created using the `column-gap` and `row-gap` properties, or the shorthand `gap`
-  + e.g., `row-gap: 1em;`
+- [Gutters or alleys](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Gutters)
+  - space between grid cells
+  - created using the `column-gap` and `row-gap` properties, or the shorthand `gap`
+  - e.g., `row-gap: 1em;`
 
-+ [Nesting grids](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Nesting_grids)
-  + A grid item as a grid container
-  + defined as a grid container 
-  + `grid-gap` not inherited
-  + subgrid
-    + creating nested grids that use the track definition of the parent grid
-    + e.g., `grid-template-columns: subgrid;`
+- [Nesting grids](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Nesting_grids)
+  - A grid item as a grid container
+  - defined as a grid container 
+  - `grid-gap` not inherited
+  - subgrid
+    - creating nested grids that use the track definition of the parent grid
+    - e.g., `grid-template-columns: subgrid;`
 
-+ [Layering items](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Layering_items_with_z-index)
-  + grid items can occupy the same cell
-  + later items cover the previous ones
-  + `z-index`: controlling the order
+- [Layering items](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Layering_items_with_z-index)
+  - grid items can occupy the same cell
+  - later items cover the previous ones
+  - `z-index`: controlling the order
 
-+ [CSS Grid](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#css-grid)
-  + Grid arranges in two dimensions, while Flexbox lays out in one. 
-  + a CSS module that defines a two-dimensional grid-based layout system, optimized for user interface design
-  + children of an element (the ‘grid container’) can be positioned into arbitrary slots in a predefined flexible or fixed-size layout grid
-  + split the box that makes up an element into many individual ‘slots’, arranged in a matrix, and separated from each other by (invisible) horizontal and vertical lines
+- [CSS Grid](../WebDev/Frontend-W3C/1-HTML5CSSFund/06-Layout.md#css-grid)
+  - Grid arranges in two dimensions, while Flexbox lays out in one. 
+  - a CSS module that defines a two-dimensional grid-based layout system, optimized for user interface design
+  - children of an element (the ‘grid container’) can be positioned into arbitrary slots in a predefined flexible or fixed-size layout grid
+  - split the box that makes up an element into many individual ‘slots’, arranged in a matrix, and separated from each other by (invisible) horizontal and vertical lines
 
   <div style="display:flex;justify-content:center;align-items:center;flex-flow:row wrap;">
     <a href="https://webkit.org/blog/7434/css-grid-layout-a-new-layout-module-for-the-web/" ismap target="_blank">
@@ -2356,7 +2731,7 @@
   <tr>
     <td>grid-template</td>
     <td>a shorthand property for defining grid columns, rows, and areas</td>
-    <td>none<br/>&lt;'grid-template-rows'&gt; / &lt;'grid-template-columns'&gt;<br/>[ &lt;line-names&gt;? &lt;string&gt; &lt;track-size&gt;? &lt;line-names&gt;? ]+ [ / &lt;explicit-track-list&gt; ]?</td>
+    <td>none<br/>&lt;'grid-template-rows'&gt; / &lt;'grid-template-columns'&gt;<br/>[ &lt;line-names&gt;? &lt;string&gt; &lt;track-size&gt;? &lt;line-names&gt;? ]- [ / &lt;explicit-track-list&gt; ]?</td>
     <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template">MDN</a></td>
   </tr>
   <tr>
@@ -2440,5 +2815,32 @@
   </tr>
   </tbody>
 </table>
+
+
+## Responsive Design
+
+- [Media queries](..Notes/web09-CSSLayout.md)
+  - **responsive design:**
+    - the strategy of make a site that 'responds' to the browser and device
+    - being shown on the browser and device by looking awesome no matter of what
+  - the most powerful tool for responsive design
+  - using percent width and displaying in one column when the browser too small to fit in the sidebar
+  - references
+    - [media queries examples](https://mediaqueri.es/)
+    - [MDN web doc - Using media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)
+    - [An Introduction to Meta Viewport and @viewport](https://dev.opera.com/articles/an-introduction-to-meta-viewport-and-viewport/)
+
+    <figure style="display: table; margin: auto; text-align: center;">
+      <img style="margin: 0.1em; padding-top: 0.5em; width: 15vw;"
+        onclick= "window.open('https://learnlayout.com/media-queries.html')"
+        src    = "../Notes/img/web09-mediaquery.png"
+        alt    = "One column layout instead of two columns when the window narrower than the nav bar size"
+        title  = "One column layout instead of two columns when the window narrower than the nav bar size"
+      />
+      <figcaption style="display: table-caption; caption-side: bottom; text-align: center;">
+        One column layout instead of two columns when the window narrower than the nav bar size
+      </figcaption>
+    </figure>
+
 
 

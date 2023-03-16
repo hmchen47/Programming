@@ -36,14 +36,15 @@
   - width of a block-level element preventing from stretching out to the edges of its container to the left and right
   - setting left and right margins to `auto` to horizontally center the element within its container
   - element taking up the width specified, then, evenly splitting the remaining space b/w two margins
-  - issue: screen narrower than the width <br>
+  - issue: screen narrower than the width
+
     sol: browser creating horizontal scrollbar on the page
 
 
 - The `max-width` property
   - improving the browser's handling of small window
   - making a site usable on mobile
-  - example: `<div id="main"> text insert here</div>
+  - example: `<div id="main"> text insert here</div>`
 
     ```css
     #main {
@@ -210,31 +211,31 @@
 - Position example
   - stretching to the width of the window
 
-  ```css
-  .container {
-    position: relative;
-  }
-  nav {
-    position: absolute;
-    left: 0px;
-    width: 200px;
-  }
-  section {
-    /* position is static by default */
-    margin-left: 200px;
-  }
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 70px;
-    background-color: white;
-    width: 100%;
-  }
-  body {
-    margin-bottom: 120px;
-  }
-  ```
+    ```css
+    .container {
+      position: relative;
+    }
+    nav {
+      position: absolute;
+      left: 0px;
+      width: 200px;
+    }
+    section {
+      /* position is static by default */
+      margin-left: 200px;
+    }
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 70px;
+      background-color: white;
+      width: 100%;
+    }
+    body {
+      margin-bottom: 120px;
+    }
+    ```
 
   <figure style="display: table; margin: auto; text-align: center;"">
     <img style="margin: 0.1em; padding-top: 0.5em; width: 30vw;"
@@ -270,20 +271,23 @@
 - The `clear` property
   - important for controlling the behavior of floats
   - example w/o `clear` (left diagram)
+    - html code
 
-    ```html
-    <div class="box">...</div>
-    <section>...</section>
-    ```
+      ```html
+      <div class="box">...</div>
+      <section>...</section>
+      ```
+    
+    - css code (left diagram)
 
-    ```css
-    .box {
-      float: left;
-      width: 200px;
-      height: 100px;
-      margin: 1em;
-    }
-    ```
+      ```css
+      .box {
+        float: left;
+        width: 200px;
+        height: 100px;
+        margin: 1em;
+      }
+      ```
 
   - example w/ `clear` (right diagram)
 
@@ -703,16 +707,16 @@
 - CSS frameworks
   - CSS layout very tricky
   - frameworks helping make it easier
-  - [blurprint](http://www.blueprintcss.org/)
-  - [unsemantic](http://www.unsemantic.com/)
+  - [blurprint](http://www.blueprintcss.org/): aim to cut down on your development time
+  - [unsemantic](http://www.unsemantic.com/): comprised of code from the responsive CSS file
   - [Bluetrip](http://bluetrip.org/)
-  - [Bootstrap](http://twitter.github.com/bootstrap/)
-  - [&lt;SUSY&gt;](http://susy.oddbird.net/)
-  - [Fundation](http://foundation.zurb.com/)
+  - [Bootstrap](https://getbootstrap.com/): powerful, extensible, and feature-packed frontend toolkit
+  - [&lt;SUSY&gt;](http://susy.oddbird.net/): a responsive layout engine for Sass
+  - [Fundation](http://foundation.zurb.com/): responsive design gets a whole lot faster
   - [Kube](http://imperavi.com/kube/)
   - [GroundworkCSS](http://groundworkcss.github.com/)
-  - [Semantic UI](http://semantic-ui.com/)
-  - [Pure.CSS](http://purecss.io/)
+  - [Semantic UI](http://semantic-ui.com/): create beautiful, responsive layouts using human-friendly HTML
+  - [Pure.CSS](http://purecss.io/): a set of small, responsive CSS modules, ridiculously tiny
 
 
 

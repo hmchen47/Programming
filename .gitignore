@@ -6,6 +6,7 @@
 *.exe
 *.o
 *.so
+*.pyc
 
 # Packages #
 ############
@@ -37,6 +38,11 @@
 *.png
 *.jpeg
 
+# audio and video files #
+########################
+*.mp3
+*.mp4
+
 # Logs and databases #
 ######################
 *.log
@@ -58,8 +64,19 @@ Thumbs.db
 .ipynb_checkpoints/
 .vscode/
 __pycache__/
+.makepp/
 
 
 # system test files in folder       #
 #####################################
 upload/
+
+
+# personal/project file/dirs #
+##############################
+tmp/
+.makepp/
+working/
+tmp/
+
+

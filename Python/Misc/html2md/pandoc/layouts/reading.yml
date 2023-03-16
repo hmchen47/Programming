@@ -1,0 +1,26 @@
+---
+documentclass: scrartcl
+header-includes: |
+  \RedeclareSectionCommand[
+    beforeskip=-10pt plus -2pt minus -1pt,
+    afterskip=1sp plus -1sp minus 1sp,
+    font=\normalfont\itshape]{paragraph}
+  \RedeclareSectionCommand[
+    beforeskip=-10pt plus -2pt minus -1pt,
+    afterskip=1sp plus -1sp minus 1sp,
+    font=\normalfont\scshape,
+    indent=0pt]{subparagraph}
+format:
+  pdf:
+    documentclass: report
+    classoption: [twocolumn]
+    lof: true
+    lot: true
+    geometry:
+      - top=30mm
+      - left=20mm
+      - heightrounded
+    fontfamily: libertinus
+    colorlinks: true
+---
+
