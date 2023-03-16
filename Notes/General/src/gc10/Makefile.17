@@ -1,0 +1,8 @@
+VAR =
+IS_EMPTY = $(if $(VAR), $(info not empty), $(info empty))
+
+.PHONY: all
+
+all:
+	@echo $(IS_EMPTY)
+

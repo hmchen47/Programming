@@ -1,0 +1,8 @@
+SRC = foo.c bar.c ker.c foo.h bar.h ker.h
+
+.PHONY: all
+
+all:
+	@echo $(suffix $(SRC))
+	@echo $(sort $(suffix $(SRC)))
+

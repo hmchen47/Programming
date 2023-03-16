@@ -57,6 +57,8 @@ Thumbs.db
 #####################################
 .ipynb_checkpoints/
 .vscode/
+__pycache__/
+
 
 # system test files in folder       #
 #####################################
