@@ -230,3 +230,92 @@ Date: 2015-02-11
       echo “Sorry, $(INSTDIR) does not exist”;\
     fi
     ```
+
+
+- Managing libraries w/ `make`
+  - large projects usually managing several compilation products using a library
+  - library: file w/ extension `.a` (for archive), a collection of object files
+  - special syntax for dealing w/ libraries
+    - syntax: `lib(file.o)`
+    - object `file.o` as stored in the library `lib.a`
+  - build-in rule for managing libraries
+    - macro `AR`: default to command `ar`
+    - macro `ARFLAGS`: default to option `rv`
+    - from a `.c` file to an `.a` library applying two rules
+      - compiling the source file and generating an object
+      - using `ar` command to revise the library and add the new object file
+
+    ```makefile
+    .c.a:
+      $(CC) -c $(CFLAGS) $<
+      $(AR) $(ARFLAGS) $@ $*.o
+    ```
+
+  - example:
+    - a library `fud`  containing  the file `bas.o`
+    - `$<` replaced by `bas.c`
+    - `$@` replaced by the library `fud.a`
+    - `$*` replaced by the name `bas`
+    - how does it work
+      - first detect all the objects and the library
+      - colpiling and creating the lib before linking `main.o` w/ lib to create `myapp`
+      - test the dependency rule for `3.o` and compiling `3.c` if required
+      - updating the lib before re-linking to create a ne `myapp` executable file
+
+    ```makefile
+    all: myapp
+    # Which compiler
+    CC = gcc
+    # Where to install
+    INSTDIR = /usr/local/bin
+    INSTDIR = ./install
+    # Where are include files kept
+    INCLUDE = .
+    # Options for development
+    CFLAGS = -g -Wall -std=c89
+    # Options for release
+    # CFLAGS = -O -Wall –ansi
+
+    # Local Libraries
+    MYLIB = mylib.a
+    myapp: main.o $(MYLIB)
+      $(CC) -o myapp main.o $(MYLIB)
+      $(MYLIB): $(MYLIB)(2.o) $(MYLIB)(3.o)
+    main.o: main.c a.h
+    2.o: 2.c a.h b.h
+    3.o: 3.c b.h c.h
+    clean:
+      -rm main.o 2.o 3.o $(MYLIB)
+    install: myapp
+      @if [ -d $(INSTDIR) ]; \
+        then \
+        cp myapp $(INSTDIR);\
+        chmod a+x $(INSTDIR)/myapp;\
+        chmod og-w $(INSTDIR)/myapp;\
+        echo "Installed in $(INSTDIR)";\
+      else \
+        echo "Sorry, $(INSTDIR) does not exist";\
+      fi
+    ```
+
+  - output
+
+    ```sh
+    $ make -f Makefile4
+    gcc -g -Wall -ansi -c -o main.o main.c
+    gcc -g -Wall -ansi -c -o 2.o 2.c
+    ar rv mylib.a 2.o
+    a - 2.o
+    gcc -g -Wall -ansi -c -o 3.o 3.c
+    ar rv mylib.a 3.o
+    a - 3.o
+    gcc -o myapp main.o mylib.a
+
+    $ touch c.h
+    $ make -f Makefile4
+    gcc -g -Wall -ansi -c -o 3.o 3.c
+    ar rv mylib.a 3.o
+    r - 3.o
+    gcc -o myapp main.o mylib.a
+    ```
+
